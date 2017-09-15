@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>ansys-coecis</id>
+    <version>18.1</version>
+    <title>ansys-coecis (Install)</title>
+    <authors>Ansys</authors>
+    <tags>ansys-coecis</tags>
+    <summary>ansys</summary>
+    <description>ansys-coecis</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
