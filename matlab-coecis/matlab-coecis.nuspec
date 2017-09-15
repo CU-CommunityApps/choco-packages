@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>matlab-coecis</id>
+    <version>9.2</version>
+    <title>matlab-coecis (Install)</title>
+    <authors>Mathworks</authors>
+    <tags>matlab-coecis</tags>
+    <summary>matlab</summary>
+    <description>matlab-coecis</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
