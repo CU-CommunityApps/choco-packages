@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>ansys-coecis</id>
+    <version>18.1</version>
+    <title>ansys-coecis (Install)</title>
+    <authors>Ansys</authors>
+    <tags>ansys-coecis</tags>
+    <summary>ansys</summary>
+    <description>ansys-coecis</description>
+    <dependencies>
+        <dependency id="vcredist-all" version="1.0.0" />
+        <dependency id="msxml6.sp1" version="6.0" />
+        <dependency id="bonjour" version="2.0" />
+        <dependency id="windows-performance-toolkit" version="8.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
