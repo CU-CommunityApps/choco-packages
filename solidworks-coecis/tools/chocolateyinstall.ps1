@@ -1,5 +1,6 @@
 $packageName= 'solidworks-coecis'
-$toolsDir   = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+#$toolsDir   = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
+$toolsDir   = "C:\SOLIDWORKS"
 $url        = "https://s3.amazonaws.com/cu-deng-appstream-packages/packages/$packageName.zip"
 
 Install-ChocolateyZipPackage $packageName $url $toolsDir
