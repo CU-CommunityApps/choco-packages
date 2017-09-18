@@ -6,6 +6,7 @@ cd $tempDir
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 Start-Process -FilePath $choco -ArgumentList "install git -y" -NoNewWindow -Wait
+rm -r "$tempDir\choco-packages"
 Start-Process -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone $packageRepo $tempDir\choco-packages" -NoNewWindow -Wait
 
 $packageDirs = dir "$tempDir\choco-packages" | ?{$_.PSISContainer}
