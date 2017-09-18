@@ -13,6 +13,8 @@ $packageArgs = @{
 	silentArgs  = "/adminfile $toolsDir\cu_office_config.MSP"
 }
 
+Install-ChocolateyInstallPackage @packageArgs  
+
 $officePath = (Get-ItemProperty "hklm:\software\microsoft\windows\currentversion\app paths\WINWORD.EXE").Path
 
 echo "Activating MS Office..."
@@ -20,5 +22,3 @@ $result = & cscript ${officePath}ospp.vbs /sethst:kms02.cit.cornell.edu | Out-St
 echo $result
 $result = & cscript ${officePath}ospp.vbs /act | Out-String
 echo $result
-
-Install-ChocolateyInstallPackage @packageArgs  
