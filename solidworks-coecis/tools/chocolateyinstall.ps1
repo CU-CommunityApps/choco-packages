@@ -14,7 +14,7 @@ $packageArgs = @{
 	packageName = $packageName
 	fileType    = 'msi'
 	file        = "$toolsDir\64bit\SOLIDWORKS\SolidWorks.msi"
-	silentArgs  = "OFFICEOPTION=3 ENABLEPERFORMANCE=0 SERVERLIST=1945@solidworks-lic.coecis.cornell.edu SOLIDWORKSSERIALNUMBER="$serial" /qr"
+	silentArgs  = "OFFICEOPTION=3 ENABLEPERFORMANCE=0 SERVERLIST=1945@solidworks-lic.coecis.cornell.edu SOLIDWORKSSERIALNUMBER=`"$serial`" /qr"
 }
 
 Install-ChocolateyInstallPackage @packageArgs  
