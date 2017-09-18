@@ -9,6 +9,7 @@ $packageArgs = @{
 	fileType    = 'exe'
 	file        = "$toolsDir\Img\Setup.exe"
 	silentArgs  = "/qb /I $toolsDir\Img\inventor-coecis.ini /language en-us"
+    validExitCodes = @(0, 259)
 }
 
 Install-ChocolateyInstallPackage @packageArgs  
