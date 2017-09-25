@@ -1,4 +1,4 @@
-$packageName= 'ces-edupack'
+$packageName= 'ces-edupack-coecis'
 $toolsDir   = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 $url        = "https://s3.amazonaws.com/cu-deng-appstream-packages/packages/$packageName.zip"
 
