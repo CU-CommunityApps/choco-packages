@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>ces-edupack-coecis</id>
+    <version>2017</version>
+    <title>CES Edupack 2017 (Install)</title>
+    <authors>CES Edupack</authors>
+    <tags>ces-edupack</tags>
+    <summary>CES Edupack 2017</summary>
+    <description>CES Edupack 2017</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
