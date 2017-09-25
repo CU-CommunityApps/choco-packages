@@ -9,7 +9,7 @@ Start-Process -FilePath $choco -ArgumentList "install git -y" -NoNewWindow -Wait
 Remove-Item -Recurse -Force "$tempDir\choco-packages"
 Start-Process -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone $packageRepo $tempDir\choco-packages" -NoNewWindow -Wait
 
-$packageDirs = dir "$tempDir\choco-packages" | ?{$_.PSISContainer}
+$packageDirs = dir "$tempDir\choco-packages\packages" | ?{$_.PSISContainer}
 foreach ($d in $packageDirs) {
 	$nuspec = Join-Path -Path $d.FullName -ChildPath ($d.Name + ".nuspec")
 	Start-Process -FilePath $choco -ArgumentList "pack $nuspec -y" -NoNewWindow -Wait
