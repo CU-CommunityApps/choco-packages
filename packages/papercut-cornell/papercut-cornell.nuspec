@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>papercut-cornell</id>
+    <version>17.1.2</version>
+    <title>papercut-cornell (Install)</title>
+    <authors>papercut-cornell</authors>
+    <tags>papercut</tags>
+    <summary>papercut-cornell</summary>
+    <description>papercut-cornell</description>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
