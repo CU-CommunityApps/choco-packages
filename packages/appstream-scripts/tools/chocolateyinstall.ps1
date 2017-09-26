@@ -3,7 +3,8 @@ $toolsDir   = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 $url        = "https://s3.amazonaws.com/cu-deng-appstream-packages/packages/$packageName.zip"
 
 choco install python2 -y
-pip install boto3
+#pip install boto3
+Start-Process -FilePath "C:\Python27\Scripts\pip.exe" -ArgumentList "install boto3" -NoNewWindow -Wait
 
 Install-ChocolateyZipPackage $packageName $url $toolsDir
 
