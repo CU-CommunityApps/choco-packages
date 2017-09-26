@@ -13,4 +13,9 @@ $packageArgs = @{
 
 Install-ChocolateyInstallPackage @packageArgs  
 
-Copy-Item "C:\Program Files (x86)\PaperCut MF Client\pc-client.exe" "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
+$TargetFile = "C:\Program Files (x86)\PaperCut MF Client\pc-client.exe"
+$ShortcutFile = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\pc-client.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
