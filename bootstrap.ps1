@@ -16,8 +16,6 @@ Log-Write -LogString "Bootstrapping Choco and Installing: $packages"
 
 $packageRepo = "https://github.com/CU-CommunityApps/choco-packages.git"
 $choco = "C:\ProgramData\chocolatey\bin\choco.exe"
-#$tempDir = $env:TEMP
-#cd $tempDir
 
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
@@ -38,4 +36,4 @@ foreach ($d in $packageDirs) {
 
 Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 
-Start-Process -FilePath $choco -ArgumentList "install $packages -s '$tempDir;https://chocolatey.org/api/v2' -y" -NoNewWindow -Wait
+Start-Process -FilePath $choco -ArgumentList "install $packages -s '$env:TEMP;https://chocolatey.org/api/v2' -y" -NoNewWindow -Wait
