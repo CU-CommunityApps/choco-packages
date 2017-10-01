@@ -38,4 +38,4 @@ foreach ($d in $packageDirs) {
 
 Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 
-Start-Process -FilePath $choco -ArgumentList "install $packages -s $tempDir;https://chocolatey.org/api/v2 -y" -NoNewWindow -Wait
+Start-Process -FilePath $choco -ArgumentList "install $packages -s '.;https://chocolatey.org/api/v2' -y" -NoNewWindow -Wait
