@@ -31,7 +31,7 @@ Start-Process -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone 
 $packageDirs = dir "$tempDir\choco-packages\packages" | ?{$_.PSISContainer}
 foreach ($d in $packageDirs) {
 	$nuspec = Join-Path -Path $d.FullName -ChildPath ($d.Name + ".nuspec")
-	Start-Process -FilePath $choco -ArgumentList "pack $nuspec -y" -NoNewWindow -Wait
+	Start-Process -FilePath $choco -ArgumentList "pack $nuspec --out $env:TEMP -y" -NoNewWindow -Wait
 }
 
 Log-Write -LogString "Compiled Choco Packages in $packageRepo"
