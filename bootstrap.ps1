@@ -1,9 +1,18 @@
+param(
+    [Parameter(Mandatory=$False)]
+    [String[]] $packages=@()
+)
+
+$packages = $packages -join " "
+
 $LogFile = "C:\image-builder.log"
 
 Function Log-Write ([String] $LogString){
     $Stamp = (Get-Date).toString("yyyy/MM/dd HH:mm:ss")
     Add-Content $LogFile -value "$Stamp $LogString"
 }
+
+Log-Write -LogString "Bootstrapping Choco and Installing: $packages"
 
 $packageRepo = "https://github.com/CU-CommunityApps/choco-packages.git"
 $choco = "C:\ProgramData\chocolatey\bin\choco.exe"
@@ -28,3 +37,4 @@ foreach ($d in $packageDirs) {
 }
 
 Log-Write -LogString "Compiled Choco Packages in $packageRepo"
+
