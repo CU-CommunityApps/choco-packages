@@ -16,8 +16,8 @@ Log-Write -LogString "Bootstrapping Choco and Installing: $packages"
 
 $packageRepo = "https://github.com/CU-CommunityApps/choco-packages.git"
 $choco = "C:\ProgramData\chocolatey\bin\choco.exe"
-$tempDir = $env:TEMP
-cd $tempDir
+#$tempDir = $env:TEMP
+#cd $tempDir
 
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
