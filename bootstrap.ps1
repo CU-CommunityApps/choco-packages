@@ -5,26 +5,26 @@ param(
 
 $packages = $packages -join " "
 
-$LogFile = "C:\image-builder.log"
+#$LogFile = "C:\image-builder.log"
 
-Function Log-Write ([String] $LogString){
-    $Stamp = (Get-Date).toString("yyyy/MM/dd HH:mm:ss")
-    Add-Content $LogFile -value "$Stamp $LogString"
-}
+#Function Log-Write ([String] $LogString){
+#    $Stamp = (Get-Date).toString("yyyy/MM/dd HH:mm:ss")
+#    Add-Content $LogFile -value "$Stamp $LogString"
+#}
 
-Log-Write -LogString "Bootstrapping Choco and Installing: $packages"
+#Log-Write -LogString "Bootstrapping Choco and Installing: $packages"
 
 $packageRepo = "https://github.com/CU-CommunityApps/choco-packages.git"
 $choco = "C:\ProgramData\chocolatey\bin\choco.exe"
 
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-Log-Write -LogString "Installed Choco"
+#Log-Write -LogString "Installed Choco"
 
 Start-Process -FilePath $choco -ArgumentList "install git -y" -NoNewWindow -Wait
 Remove-Item -Recurse -Force "$tempDir\choco-packages"
 
-Log-Write -LogString "Installed Git"
+#Log-Write -LogString "Installed Git"
 
 Start-Process -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone $packageRepo $tempDir\choco-packages" -NoNewWindow -Wait
 
@@ -34,6 +34,6 @@ foreach ($d in $packageDirs) {
 	Start-Process -FilePath $choco -ArgumentList "pack $nuspec -y" -NoNewWindow -Wait
 }
 
-Log-Write -LogString "Compiled Choco Packages in $packageRepo"
+#Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 
 Start-Process -FilePath $choco -ArgumentList "install $packages -s '$env:TEMP;https://chocolatey.org/api/v2' -y" -NoNewWindow -Wait
