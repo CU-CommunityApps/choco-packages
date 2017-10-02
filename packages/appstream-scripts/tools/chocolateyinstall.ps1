@@ -1,5 +1,5 @@
 $packageName= 'appstream-scripts'
-$toolsDir   = "C:\Windows\Temp"
+$toolsDir   = "C:\Windows\Temp\$packageName"
 $url        = "https://s3.amazonaws.com/cu-deng-appstream-packages/packages/$packageName.zip"
 
 choco install python2 -y
