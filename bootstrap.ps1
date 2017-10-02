@@ -23,6 +23,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 
 Log-Write -LogString "Installed Choco"
 
+Start-Process -FilePath $choco -ArgumentList "config set cacheLocation C:\Windows\Temp\chococache"
 Start-Process -FilePath $choco -ArgumentList "install git -y" -NoNewWindow -Wait
 Remove-Item -Recurse -Force "$winTemp\choco-packages"
 
