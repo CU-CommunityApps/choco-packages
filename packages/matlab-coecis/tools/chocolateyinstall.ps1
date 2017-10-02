@@ -1,5 +1,5 @@
 $packageName= 'matlab-coecis'
-$toolsDir   = $env:TEMP
+$toolsDir   = "C:\Windows\Temp"
 $url        = "https://s3.amazonaws.com/cu-deng-appstream-packages/packages/$packageName.zip"
 
 Install-ChocolateyZipPackage $packageName $url $toolsDir
