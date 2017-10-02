@@ -1,5 +1,5 @@
 $packageName= 'solidworks-coecis'
-$toolsDir   = "C:\SOLIDWORKS"
+$toolsDir   = $env:TEMP
 $url        = "https://s3.amazonaws.com/cu-deng-appstream-packages/packages/$packageName.zip"
 
 Install-ChocolateyZipPackage $packageName $url $toolsDir

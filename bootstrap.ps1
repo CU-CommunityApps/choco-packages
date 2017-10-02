@@ -5,7 +5,9 @@ param(
 
 $packages = $packages -join " "
 
-$LogFile = "C:\image-builder.log"
+$env:TEMP = "C:\Windows\Temp"
+
+$LogFile = "$env:TEMP\image-builder.log"
 
 Function Log-Write ([String] $LogString){
     $Stamp = (Get-Date).toString("yyyy/MM/dd HH:mm:ss")
@@ -31,11 +33,11 @@ Start-Process -FilePath "C:\Program Files\Git\bin\git.exe" -ArgumentList "clone 
 $packageDirs = dir "$tempDir\choco-packages\packages" | ?{$_.PSISContainer}
 foreach ($d in $packageDirs) {
 	$nuspec = Join-Path -Path $d.FullName -ChildPath ($d.Name + ".nuspec")
-	Start-Process -FilePath $choco -ArgumentList "pack $nuspec --out C:\Windows\Temp -y" -NoNewWindow -Wait
+	Start-Process -FilePath $choco -ArgumentList "pack $nuspec --out $env:TEMP -y" -NoNewWindow -Wait
 }
 
 Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 
-Start-Process -FilePath $choco -ArgumentList "install $packages -s 'C:\Windows\Temp;https://chocolatey.org/api/v2' -y" -NoNewWindow -Wait
+Start-Process -FilePath $choco -ArgumentList "install $packages -s '$env:TEMP;https://chocolatey.org/api/v2' -y" -NoNewWindow -Wait
 
 Log-Write -LogString "Installed Choco Packages: $packages"
