@@ -39,6 +39,8 @@ foreach ($d in $packageDirs) {
 
 Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 
-Start-Process -FilePath $choco -ArgumentList "install $packages -s '$winTemp;https://chocolatey.org/api/v2' -y" -NoNewWindow -Wait
+$psexec = "C:\ProgramData\chocolatey\bin\PsExec.exe"
+
+Start-Process -FilePath $psexec -ArgumentList "-i -s $choco install $packages -s '$winTemp;https://chocolatey.org/api/v2' -y" -NoNewWindow -Wait
 
 Log-Write -LogString "Installed Choco Packages: $packages"
