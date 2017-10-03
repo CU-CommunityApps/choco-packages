@@ -8,7 +8,7 @@ $packageArgs = @{
 	packageName = $packageName
 	fileType    = 'exe'
 	file        = "$toolsDir\Img\Setup.exe"
-	silentArgs  = "/qs /I $toolsDir\Img\inventor-coecis.ini /language en-us"
+	silentArgs  = "/qb /W /I $toolsDir\Img\inventor-coecis.ini /language en-us"
 }
 
 [Environment]::SetEnvironmentVariable("ADSKFLEX_LICENSE_FILE", "27200@autodesk-lic.coecis.cornell.edu", "Machine")
