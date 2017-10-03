@@ -8,7 +8,7 @@ $packageArgs = @{
 	packageName = $packageName
 	fileType    = 'exe'
 	file        = "$toolsDir\Img\Setup.exe"
-	silentArgs  = "/qb /I $toolsDir\Img\inventor-coecis.ini /language en-us"
+	silentArgs  = "/qr /I $toolsDir\Img\inventor-coecis.ini /language en-us"
     validExitCodes = @(0, 259)
 }
 
