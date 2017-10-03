@@ -6,6 +6,7 @@ param(
 $packages = $packages -join " "
 
 $winTemp = "C:\Windows\Temp"
+Set-Location $winTemp
 
 $LogFile = "$winTemp\image-builder.log"
 
@@ -24,7 +25,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 Log-Write -LogString "Installed Choco"
 
 Start-Process -FilePath $choco -ArgumentList "config set cacheLocation C:\Windows\Temp\chococache"
-Start-Process -FilePath $choco -ArgumentList "install git sysinternals -y" -WorkingDirectory C:\Windows\Temp\chococache -NoNewWindow -Wait
+Start-Process -FilePath $choco -ArgumentList "install git sysinternals -y" -NoNewWindow -Wait
 Remove-Item -Recurse -Force "$winTemp\choco-packages"
 
 Log-Write -LogString "Installed Git"
@@ -41,6 +42,6 @@ Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 
 $psexec = "C:\ProgramData\chocolatey\bin\PsExec.exe"
 
-Start-Process -FilePath $psexec -ArgumentList "-i -s $choco install $packages -s '$winTemp;https://chocolatey.org/api/v2' -y" -WorkingDirectory C:\Windows\Temp\chococache -NoNewWindow -Wait
+Start-Process -FilePath $psexec -ArgumentList "-i -s $choco install $packages -s '$winTemp;https://chocolatey.org/api/v2' -y" -NoNewWindow -Wait
 
 Log-Write -LogString "Installed Choco Packages: $packages"
