@@ -1,10 +1,3 @@
-param(
-    [Parameter(Mandatory=$False)]
-    [String[]] $packages=@()
-)
-
-$packages = $packages -join " "
-
 $winTemp = "C:\Windows\Temp"
 Set-Location $winTemp
 
@@ -39,6 +32,16 @@ foreach ($d in $packageDirs) {
 }
 
 Log-Write -LogString "Compiled Choco Packages in $packageRepo"
+
+$request = "http://169.254.169.254/latest/user-data"
+$userdata = Invoke-WebRequest $request | ConvertFrom-Json
+$arn,$builder_name = $userdata.resourceArn.split('/')
+
+$request = "https://s3.amazonaws.com/cu-deng-appstream-packages/build/$builder_name.json"
+$image_config = Invoke-WebRequest $request | ConvertFrom-Json
+$packages = $image_config.packages -join ' '
+
+Log-Write -LogString "Retrieved Package List for this build from S3: $builder_name: $packages"
 
 $psexec = "C:\ProgramData\chocolatey\bin\PsExec.exe"
 
