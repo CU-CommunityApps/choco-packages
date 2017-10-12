@@ -41,7 +41,7 @@ $request = "https://s3.amazonaws.com/cu-deng-appstream-packages/build/$builder_n
 $image_config = Invoke-WebRequest $request | ConvertFrom-Json
 $packages = $image_config.packages -join ' '
 
-Log-Write -LogString "Retrieved Package List for this build from S3: $builder_name: $packages"
+Log-Write -LogString "Retrieved Package List for this build from S3: $builder_name, $packages"
 
 $psexec = "C:\ProgramData\chocolatey\bin\PsExec.exe"
 
