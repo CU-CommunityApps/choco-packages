@@ -34,11 +34,11 @@ foreach ($d in $packageDirs) {
 Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 
 $url = "http://169.254.169.254/latest/user-data"
-$userdata = ((New-Object System.Net.WebClient).DownloadString('$url')) | ConvertFrom-Json
+$userdata = ((New-Object System.Net.WebClient).DownloadString($url)) | ConvertFrom-Json
 $arn,$builder_name = $userdata.resourceArn.split('/')
 
 $url = "https://s3.amazonaws.com/cu-deng-appstream-packages/build/$builder_name.json"
-$image_config = ((New-Object System.Net.WebClient).DownloadString('$url')) | ConvertFrom-Json
+$image_config = ((New-Object System.Net.WebClient).DownloadString($url)) | ConvertFrom-Json
 $packages = $image_config.packages -join ' '
 
 Log-Write -LogString "Retrieved Package List for this build from S3: $builder_name, $packages"
