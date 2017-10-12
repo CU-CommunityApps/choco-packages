@@ -33,6 +33,9 @@ foreach ($d in $packageDirs) {
 
 Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 
+Log-Write -LogString "Waiting for Instance User-Data to be available."
+Start-Sleep -s 90
+
 $request = "http://169.254.169.254/latest/user-data"
 $userdata = Invoke-WebRequest $request | ConvertFrom-Json
 Log-Write -LogString (ConvertTo-Json -InputObject $userdata)
