@@ -35,6 +35,7 @@ Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 
 $request = "http://169.254.169.254/latest/user-data"
 $userdata = Invoke-WebRequest $request | ConvertFrom-Json
+Log-Write -LogString (ConvertTo-Json -InputObject $userdata)
 $arn,$builder_name = $userdata.resourceArn.split('/')
 
 $request = "https://s3.amazonaws.com/cu-deng-appstream-packages/build/$builder_name.json"
