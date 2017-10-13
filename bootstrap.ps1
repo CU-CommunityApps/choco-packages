@@ -6,6 +6,7 @@ $chocoPrereqs = "git sysinternals sqlite notepad++ 7-zip"
 $sqlite = "C:\ProgramData\chocolatey\bin\sqlite3.exe"
 $appCatalog = "C:\ProgramData\Amazon\Photon\PhotonAppCatalog.sqlite"
 $appCatalogSql = "CREATE TABLE Applications (Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY, AbsolutePath TEXT, DisplayName TEXT, IconFilePath TEXT, LaunchParameters TEXT, WorkingDirectory TEXT);"
+$appIconPath = "C:\ProgramData\Amazon\Photon\AppCatalogHelper\AppIcons"
 $LogFile = "$winTemp\image-builder.log"
 
 # Create Logging Function
@@ -42,6 +43,10 @@ Log-Write -LogString "Compiled Choco Packages in $packageRepo"
 # Create AppStream Application Catalog database
 if (Test-Path $appCatalog) {
     Remove-Item $appCatalog
+}
+
+if (!Test-Path $appIconPath) {
+    New-Item -ItemType Directory -Force -Path $appIconPath
 }
 
 Start-Process -FilePath $sqlite -ArgumentList "$appCatalog `"$appCatalogSql`"" -NoNewWindow -Wait
