@@ -45,7 +45,7 @@ if (Test-Path $appCatalog) {
     Remove-Item $appCatalog
 }
 
-if (!Test-Path $appIconPath) {
+if (!(Test-Path $appIconPath)) {
     New-Item -ItemType Directory -Force -Path $appIconPath
 }
 
