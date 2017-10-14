@@ -25,6 +25,6 @@ Start-Process -FilePath $sqlite -ArgumentList "$appCatalog `".read $escapedPath`
 
 # Activate Office
 $officePath = (Get-ItemProperty "hklm:\software\microsoft\windows\currentversion\app paths\WINWORD.EXE").Path
-Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "/sethst:kms02.cit.cornell.edu" -NoNewWindow -Wait
-Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "/act" -NoNewWindow -Wait
+Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "${officePath}ospp.vbs /sethst:kms02.cit.cornell.edu" -NoNewWindow -Wait
+Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "${officePath}ospp.vbs /act" -NoNewWindow -Wait
 
