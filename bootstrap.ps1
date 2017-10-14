@@ -2,7 +2,7 @@ $winTemp = "C:\Windows\Temp"
 Set-Location $winTemp
 $packageRepo = "https://github.com/CU-CommunityApps/choco-packages.git"
 $choco = "C:\ProgramData\chocolatey\bin\choco.exe"
-$chocoPrereqs = "git sysinternals sqlite notepad++ 7-zip"
+$chocoPrereqs = "git sysinternals sqlite notepadplusplus 7zip googlechrome"
 $sqlite = "C:\ProgramData\chocolatey\bin\sqlite3.exe"
 $appCatalog = "C:\ProgramData\Amazon\Photon\PhotonAppCatalog.sqlite"
 $appCatalogSql = "CREATE TABLE Applications (Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY, AbsolutePath TEXT, DisplayName TEXT, IconFilePath TEXT, LaunchParameters TEXT, WorkingDirectory TEXT);"
