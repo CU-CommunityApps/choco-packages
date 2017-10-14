@@ -23,10 +23,8 @@ $escapedPath = "$toolsDir\appstream\catalog.sql" -replace '\\', '\\'
 Copy-Item "$toolsDir\appstream\icons\*" "C:\ProgramData\Amazon\Photon\AppCatalogHelper\AppIcons"
 Start-Process -FilePath $sqlite -ArgumentList "$appCatalog `".read $escapedPath`"" -NoNewWindow -Wait
 
+# Activate Office
 $officePath = (Get-ItemProperty "hklm:\software\microsoft\windows\currentversion\app paths\WINWORD.EXE").Path
+Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "/sethst:kms02.cit.cornell.edu" -NoNewWindow -Wait
+Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "/act" -NoNewWindow -Wait
 
-echo "Activating MS Office..."
-result = & cscript ${officePath}ospp.vbs /sethst:kms02.cit.cornell.edu | Out-String
-echo $result
-$result = & cscript ${officePath}ospp.vbs /act | Out-String
-echo $result
