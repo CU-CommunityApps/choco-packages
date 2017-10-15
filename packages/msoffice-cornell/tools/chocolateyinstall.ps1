@@ -3,6 +3,7 @@ $toolsDir   = $(Split-Path -Parent $MyInvocation.MyCommand.Definition)
 $tempDir    = "C:\Windows\Temp\$packageName"
 $sqlite     = "C:\ProgramData\chocolatey\bin\sqlite3.exe"
 $appCatalog = "C:\ProgramData\Amazon\Photon\PhotonAppCatalog.sqlite"
+$ospp       = '"C:\Program Files\Microsoft Office\Office16\OSPP.VBS"'
 $url        = "https://s3.amazonaws.com/cu-deng-appstream-packages/packages/$packageName.zip"
 
 Install-ChocolateyZipPackage $packageName $url $tempDir
@@ -25,6 +26,6 @@ Start-Process -FilePath $sqlite -ArgumentList "$appCatalog `".read $escapedPath`
 
 # Activate Office
 $officePath = (Get-ItemProperty "hklm:\software\microsoft\windows\currentversion\app paths\WINWORD.EXE").Path
-Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "`"${officePath}ospp.vbs`" /sethst:kms02.cit.cornell.edu" -NoNewWindow -Wait
-Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "`"${officePath}ospp.vbs`" /act" -NoNewWindow -Wait
+Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "$ospp /sethst:kms02.cit.cornell.edu" -NoNewWindow -Wait
+Start-Process -FilePath C:\Windows\system32\cscript.exe -ArgumentList "$ospp /act" -NoNewWindow -Wait
 
