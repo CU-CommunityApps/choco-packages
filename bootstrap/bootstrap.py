@@ -1,2 +1,8 @@
+from utils import *
 
-print('Hello World!')
+try:
+    builder = AppStreamImageBuild()
+
+except ImageBuildException as e:
+    print(e) # TODO Open other types of builds 
+
