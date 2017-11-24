@@ -161,9 +161,11 @@ class ImageBuild(object):
         self.heartbeat.daemon = True
         self.heartbeat.heartbeat = True
         self.heartbeat.start()
+        inputParams = taskInput['state_machine_params']
+        packages = inputParams['packages']
 
         packageLogs = { }
-        for package in taskInput:
+        for package in packages:
             handlerConsole, handlerString, logString = self.create_log_stream()
             self.logger.addHandler(handlerConsole)
             self.logger.addHandler(handlerString)
