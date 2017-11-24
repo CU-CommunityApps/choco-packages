@@ -44,7 +44,7 @@ class ImageBuild(object):
         logString = StringIO()
         formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
         handlerConsole = logging.StreamHandler(stdout)
-        handlerString = logging.streamHandler(logString)
+        handlerString = logging.StreamHandler(logString)
         handlerConsole.setFormatter(formatter)
         handlerString.setFormatter(formatter)
 
