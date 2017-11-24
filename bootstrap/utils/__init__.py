@@ -85,6 +85,9 @@ class ImageBuild(object):
 
         self.logger.info('Bootstrapped')
 
+    def install_packages(self):
+        pass
+
 class AppStreamImageBuild(ImageBuild):
 
     def __init__(self):
