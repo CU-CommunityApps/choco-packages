@@ -20,7 +20,7 @@ class ImageBuild(object):
 
     def init_logging(self):
         self.logger = logging.getLogger()
-        self.logger.setLevel(logging.DEBUG)
+        self.logger.setLevel(logging.INFO)
 
         sh = logging.StreamHandler(stdout)
         formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
@@ -49,14 +49,13 @@ class AppStreamImageBuild(ImageBuild):
         super().__init__()
 
         try:
+            self.logger.info('Getting System User-Data')
             self.user_data = json.load(urlopen('http://169.254.169.254/latest/user-data'))
-            self.logger.debug(self.user_data)
         except Exception as e:
             logging.exception('NO_USER_DATA')
             raise ImageBuildException('NO_USER_DATA')
 
         if 'imageBuilder' not in self.user_data or not self.user_data['imageBuilder']:
-            self.logger.debug('NOT_APPSTREAM_IMAGE_BUILDER')
             raise ImageBuildException('NOT_APPSTREAM_IMAGE_BUILDER')
 
         self.arn = self.user_data['resourceArn'].split(':')
@@ -64,17 +63,16 @@ class AppStreamImageBuild(ImageBuild):
         builderName = self.arn[5].replace('image-builder/', '').split('.')
 
         if len(builderName) < 2:
-            self.logger.debug('BAD_APPSTREAM_IMAGE_BUILDER_NAME')
             raise ImageBuildException('BAD_APPSTREAM_IMAGE_BUILDER_NAME')
 
         self.buildId = builderName[0]
         self.bucketName = builderName[1]
 
         sessionPath = 'https://s3.amazonaws.com/{Bucket}/federated-sessions/{BuildId}.json'.format(Bucket=self.bucketName, BuildId=self.buildId)
-        self.logger.info('Downloading Session Credentials: {Path}'.format(Path=sessionPath))
 
         try:
-            self.sessionInfo = json.read(urlopen(sessionPath))
+            self.logger.info('Downloading Session Credentials: {Path}'.format(Path=sessionPath))
+            self.sessionInfo = json.load(urlopen(sessionPath))
             self.sessionCredentials = self.sessionInfo['Credentials']
         except Exception as e:
             logging.exception('CREDENTIAL_RETRIEVAL_ERROR')
