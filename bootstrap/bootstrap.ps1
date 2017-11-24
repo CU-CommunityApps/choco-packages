@@ -8,8 +8,8 @@ Set-Location $BOOTSTRAP_DIRECTORY
 # Install Chocolatey
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-# Install Git and Clone the Choco Respository
-Start-Process -NoNewWindow -Wait -FilePath 'C:\ProgramData\chocolatey\bin\choco.exe' -ArgumentList 'install git -y'
+# Install Sysinternals + Git and Clone the Choco Respository
+Start-Process -NoNewWindow -Wait -FilePath 'C:\ProgramData\chocolatey\bin\choco.exe' -ArgumentList 'install git sysinternals -y'
 Start-Process -NoNewWindow -Wait -FilePath 'C:\Program Files\Git\bin\git.exe'        -ArgumentList 'clone https://github.com/CU-CommunityApps/choco-packages.git .\choco-packages'
 
 # Install Python and Dependencies
