@@ -48,7 +48,6 @@ class ImageBuild(object):
         return logger, log
 
     def get_stack_outputs(self):
-        aws = Session()
         cfn = self.aws.resource('cloudformation')
         stack = cfn.Stack('{App}{Env}Serverless'.format(App=self.appName, Env=self.envName))
 
