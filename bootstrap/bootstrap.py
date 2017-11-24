@@ -7,6 +7,7 @@ except ImageBuildException as e:
 
 try:
     builder.bootstrap()
+    builder.install_packages()
 except Exception as e:
     print(e)
 
