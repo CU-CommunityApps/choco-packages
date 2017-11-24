@@ -61,12 +61,36 @@ class ImageBuild(object):
 
         return outputs
 
+    def bootstrap(self):
+        self.sfn = self.aws.client('stepfunctions')
+        
+        try: 
+            task = self.sfn.get_activity_task(
+                activityArn=self.bootstrapActivity,
+                workerName=self.buildId,
+            )
+
+        except Exception as e:
+            logging.exception('BAD_BOOTSTRAP_ACTIVITY')
+            raise ImageBuildException('BAD_BOOTSTRAP_ACTIVITY')
+
+        try:
+            self.sfn.send_task_success(
+                taskToken=task['taskToken'],
+                output=task['input'],
+            )
+
+        except Exception as e:
+            logging.exception('BOOTSTRAP_FAILURE')
+            raise ImageBuildException('BOOTSTRAP_FAILURE')
+
+        self.logger.info('Bootstrapped')
+
 class AppStreamImageBuild(ImageBuild):
 
     def __init__(self):
         super().__init__()
 
-    def bootstrap(self):
         try:
             self.logger.info('Getting System User-Data')
             self.user_data = json.load(urlopen('http://169.254.169.254/latest/user-data'))
@@ -97,6 +121,7 @@ class AppStreamImageBuild(ImageBuild):
             self.logger.info('Downloading Session Credentials: {Path}'.format(Path=sessionPath))
             self.sessionInfo = json.load(urlopen(sessionPath))
             self.sessionCredentials = self.sessionInfo['Credentials']
+
         except Exception as e:
             logging.exception('CREDENTIAL_RETRIEVAL_ERROR')
             raise ImageBuildException('CREDENTIAL_RETRIEVAL_ERROR')
@@ -108,22 +133,16 @@ class AppStreamImageBuild(ImageBuild):
             region_name=self.region,
         )
 
-        self.sfn = self.aws.client('stepfunctions')
-        self.outputs = self.get_stack_outputs()
-        bootstrapActivity = '{App}{Env}AppStreamImageBootstrapActivity'.format(App=self.appName, Env=self.envName)
-        bootstrapArn = self.outputs[bootstrapActivity]['value']
-        
-        task = self.sfn.get_activity_task(
-            activityArn=bootstrapArn,
-            workerName=self.buildId,
-        )
+        try:
+            self.outputs = self.get_stack_outputs()
+        except Exception as e:
+            logging.exception('BAD_CREDENTIALS')
+            raise ImageBuildException('BAD_CREDENTIALS')
 
-        self.sfn.send_task_success(
-            taskToken=task['taskToken'],
-            output=task['input'],
-        )
+        bootstrapOutput = '{App}{Env}AppStreamImageBootstrapActivity'.format(App=self.appName, Env=self.envName)
+        self.bootstrapActivity = self.outputs[bootstrapOutput]['value']
 
-        self.logger.info('AppStreamImageBuild {Build} Bootstrapped!'.format(Build=self.buildId))
+        self.logger.info('AppStreamImageBuild Initialized')
 
 class EC2ImageBuild(ImageBuild):
 
