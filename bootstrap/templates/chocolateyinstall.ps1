@@ -1,10 +1,11 @@
-$ErrorActionPreference = "Stop"
+#$ErrorActionPreference = "Stop"
 
 $PACKAGE =      "{Package}"
 $BUCKET =       "{Bucket}"
 $INSTALLER =    "{Installer}"
 $FILETYPE =     "{FileType}"
 $ARGUMENTS =    "{Arguments}"
+$VALID_CODES =  "{ValidCodes}"
 
 $TEMP_DIR =     Join-Path $env:SYSTEMROOT   "Temp\choco-bootstrap"
 $INSTALL_DIR =  Join-Path $TEMP_DIR         "choco-packages\$PACKAGE"
@@ -18,10 +19,11 @@ Set-Location $INSTALL_DIR
 Start-Process -NoNewWindow -Wait -FilePath $PRE_SCRIPT
 
 $packageArgs = @{
-    packageName =   $PACKAGE
-    fileType =      $FILETYPE
-    file =          $INSTALLER
-    silentArgs =    $ARGUMENTS
+    packageName=$PACKAGE
+    fileType=$FILETYPE
+    file=$INSTALLER
+    silentArgs=$ARGUMENTS
+    validExitCodes=@($VALID_CODES) 
 }
 
 Install-ChocolateyInstallPackage @packageArgs

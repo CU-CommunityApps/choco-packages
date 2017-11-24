@@ -2,11 +2,22 @@ import json
 import logging
 import subprocess
 import sqlite3
+import yaml
 from boto3.session import Session
 from botocore.exceptions import ClientError, WaiterError
 from io import StringIO
-from multiprocessing import cpu_count, Process, JoinableQueue as Queue
-from os import environ, mkdir, path, remove
+
+from os import (
+    chdir,
+    environ, 
+    getcwd, 
+    makedirs, 
+    path, 
+    remove,
+)
+
+from time import sleep
+from threading import currentThread, Thread
 from sys import stdout, stderr
 from urllib.request import urlopen
 
@@ -19,33 +30,25 @@ class ImageBuild(object):
         self.init_logging()
 
     def init_logging(self):
+        handlerConsole, handlerString, self.logString = self.create_log_stream()
         self.logger = logging.getLogger()
         self.logger.setLevel(logging.INFO)
-        self.loggerText = StringIO()
-
-        sh = logging.StreamHandler(stdout)
-        shText = logging.StreamHandler(self.loggerText)
-        formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
-        sh.setFormatter(formatter)
-        shText.setFormatter(formatter)
-        self.logger.addHandler(sh)
-        self.logger.addHandler(shText)
+        self.logger.addHandler(handlerConsole)
+        self.logger.addHandler(handlerString)
 
         logging.getLogger('boto').propagate = False
         logging.getLogger('boto3').propagate = False
         logging.getLogger('botocore').propagate = False
 
-    def get_log_stream(self):
-        logger = logging.getLogger()
-        logger.setLevel(logging.DEBUG)
-
-        log = StringIO()
-        sh = logging.StreamHandler(stream)
+    def create_log_stream(self):
+        logString = StringIO()
         formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
-        sh.setFormatter(formatter)
-        logger.addHandler(sh)
+        handlerConsole = logging.StreamHandler(stdout)
+        handlerString = logging.streamHandler(logString)
+        handlerConsole.setFormatter(formatter)
+        handlerString.setFormatter(formatter)
 
-        return logger, log
+        return handlerConsole, handlerString, logString
 
     def get_stack_outputs(self):
         cfn = self.aws.resource('cloudformation')
@@ -60,12 +63,66 @@ class ImageBuild(object):
 
         return outputs
 
+    def init_federated_session(self):
+        try:
+            self.logger.info('Downloading Session Credentials: {Path}'.format(Path=self.sessionPath))
+            self.sessionInfo = json.load(urlopen(self.sessionPath))
+            self.sessionCredentials = self.sessionInfo['Credentials']
+
+        except Exception as e:
+            logging.exception('CREDENTIAL_RETRIEVAL_ERROR')
+            raise ImageBuildException('CREDENTIAL_RETRIEVAL_ERROR')
+
+        self.aws = Session(
+            aws_access_key_id=self.sessionCredentials['AccessKeyId'],
+            aws_secret_access_key=self.sessionCredentials['SecretAccessKey'],
+            aws_session_token=self.sessionCredentials['SessionToken'],
+            region_name=self.region,
+        )
+
+        try:
+            self.outputs = self.get_stack_outputs()
+        except Exception as e:
+            logging.exception('BAD_CREDENTIALS')
+            raise ImageBuildException('BAD_CREDENTIALS')
+
+    def psexec(self, cmd):
+        psExec = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'bin', 'PsExec.exe')
+        psExecCmd = "'{PsExec}' -i -s '{Cmd}'".format(PsExec=psExec, Cmd=cmd)
+
+        p = subprocess.Popen(psExecCmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, error = p.communicate()
+
+        self.logger.warning(json.dumps({
+            'returncode': p.returncode,
+            'stdout': out,
+            'stderr': error,
+        }, indent=4))
+        
+        return p.returncode
+
+    def heartbeat(self, taskToken):
+        t = currentThread()
+        self.logger.info('Heartbeat Starting')
+        while getattr(t, 'heartbeat', True):
+            try:
+                self.sfn.send_task_heartbeat(taskToken=taskToken)
+            except Exception as e:
+                self.logger.error(e)
+                logging.exception('HEARTBEAT_ERROR')
+
+            sleep(30)
+
+        self.logger.info('Heartbeat Stopped')
+        
     def bootstrap(self):
         self.sfn = self.aws.client('stepfunctions')
-        
+        bootstrapOutput = '{App}{Env}AppStreamImageBootstrapActivity'.format(App=self.appName, Env=self.envName)
+        bootstrapActivity = self.outputs[bootstrapOutput]['value']
+
         try: 
             task = self.sfn.get_activity_task(
-                activityArn=self.bootstrapActivity,
+                activityArn=bootstrapActivity,
                 workerName=self.buildId,
             )
 
@@ -86,13 +143,121 @@ class ImageBuild(object):
         self.logger.info('Bootstrapped')
 
     def install_packages(self):
-        pass
+        installOutput = '{App}{Env}AppStreamImageInstallActivity'.format(App=self.appName, Env=self.envName)
+        installActivity = self.outputs[installOutput]['value']
+
+        try:
+            task = self.sfn.get_activity_task(
+                activityArn=installActivity,
+                workerName=self.buildId,
+            )
+            taskInput = task['input']
+
+        except Exception as e:
+            logging.exception('BAD_INSTALL_ACTIVITY')
+            raise ImageBuildException('BAD_INSTALL_ACTIVITY')
+
+        self.heartbeat = Thread(target=self.heartbeat, args=(task['taskToken'],))
+        self.heartbeat.daemon = True
+        self.heartbeat.heartbeat = True
+        self.heartbeat.start()
+
+        packageLogs = { }
+        for package in taskInput:
+            handlerConsole, handlerString, logString = self.create_log_stream()
+            self.logger.addHandler(handlerConsole)
+            self.logger.addHandler(handlerString)
+            self.logger.info('Installing Package: {Package}'.format(Package=package))
+
+            chocoTempDir = path.abspath(getcwd())
+            packageDir = path.join(chocoTempDir, 'choco-packages', 'packages', package)
+
+            try:
+                chdir(packageDir)
+            except Exception as e:
+                logging.exception('BAD_PACKAGE_NAME')
+                raise ImageBuildException('BAD_PACKAGE_NAME')
+            
+            try:
+                packageConfigPath = path.join(packageDir, 'config.yml')
+                packageTemplatePath = path.join(chocoTempDir, 'templates', 'package.nuspec')
+                installTemplatePath = path.join(chocoTempDir, 'templates', 'chocolateyinstall.ps1')
+
+
+                with open(packageConfigPath, 'r') as configYaml:
+                    config = yaml.load(configYaml)
+
+                with open(packageTemplatePath, 'r') as nuspecTemplateXml:
+                    nuspecTemplate = nuspecTemplate.read().format(
+                        Package=config['Id'],
+                        Version=config['Version'],
+                        Description=config['Description'],
+                    )
+
+                with open(installTemplatePath, 'r') as installTemplate:
+                    installCode = installTemplate.read().format(
+                        Package=config['Id'],
+                        Bucket=self.bucketName,
+                        Installer=config['Installer'],
+                        FileType=config['FileType'],
+                        Arguments=config['Arguments'],
+                        ValidCodes=config['ValidCodes'],
+                    )
+
+                nugetDir = path.join(packageDir, 'nuget')
+                nugetTools = path.join(nugetDir, 'tools')
+                packageNuspecPath = path.join(nugetDir, '{Package}.nuspec'.format(Package=config['Id']))
+                installScriptPath = path.join(nugetTools, 'chocolateyinstall.ps1')
+                makedirs(nugetTools, exist_ok=True)
+
+                with open(packageNuspecPath, 'w') as packageNuspec:
+                    packageNuspec.write(nuspecTemplate)
+
+                with open(installScriptPath, 'w') as installScript:
+                    installScript.write(installCode)
+
+            except Exception as e:
+                logging.exception('BAD_PACKAGE_CONFIG')
+                raise ImageBuildException('BAD_PACKAGE_CONFIG')
+            
+            try: 
+                choco = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'bin', 'choco.exe')
+                packCmd = '"{Choco}" pack "{Nuspec}" --out . -y'.format(Choco=choco, Nuspec=packageNuspecPath)
+                installCmd = '"{Choco}" install {Package} -s ".;https://chocolatey.org/api/v2" -y'.format(Choco=choco, Package=config['Id'])
+            
+                if self.psexec(packCmd) != 0:
+                    logger.error('PACKAGE_PACK_ERROR')
+                    raise ImageBuildException('PACKAGE_PACK_ERROR')
+
+                if self.psexec(installCmd) != 0:
+                    logger.error('PACKAGE_INSTALL_ERROR')
+                    raise ImageBuildException('PACKAGE_INSTALL_ERROR')
+
+            except ImageBuildException as e:
+                raise e
+
+            except Exception as e:
+                logging.exception('PACKAGE_INSTALL_CRASH')
+                raise ImageBuildException('PACKAGE_INSTALL_CRASH')
+            
+
+            chdir(startDir)
+            self.logger.removeHandler(handlerConsole)
+            self.logger.removeHandler(handlerString)
+
 
 class AppStreamImageBuild(ImageBuild):
 
     def __init__(self):
         super().__init__()
 
+        self.init_user_data()
+        self.init_appstream_catalog()
+        self.init_federated_session()
+
+        self.logger.info('AppStreamImageBuild Initialized')
+
+    def init_user_data(self):
         try:
             self.logger.info('Getting System User-Data')
             self.user_data = json.load(urlopen('http://169.254.169.254/latest/user-data'))
@@ -109,7 +274,7 @@ class AppStreamImageBuild(ImageBuild):
         self.account = self.arn[4]
         builderName = self.arn[5].replace('image-builder/', '').split('.')
 
-        if len(builderName) < 2:
+        if len(builderName) != 4:
             raise ImageBuildException('BAD_APPSTREAM_IMAGE_BUILDER_NAME')
 
         self.buildId = builderName[0]
@@ -117,34 +282,36 @@ class AppStreamImageBuild(ImageBuild):
         self.envName = builderName[2]
         self.bucketName = builderName[3]
 
-        sessionPath = 'https://s3.amazonaws.com/{Bucket}/federated-sessions/{BuildId}.json'.format(Bucket=self.bucketName, BuildId=self.buildId)
+        self.sessionPath = 'https://s3.amazonaws.com/{Bucket}/builds/{BuildId}/federated-session.json'.format(Bucket=self.bucketName, BuildId=self.buildId)
 
-        try:
-            self.logger.info('Downloading Session Credentials: {Path}'.format(Path=sessionPath))
-            self.sessionInfo = json.load(urlopen(sessionPath))
-            self.sessionCredentials = self.sessionInfo['Credentials']
-
-        except Exception as e:
-            logging.exception('CREDENTIAL_RETRIEVAL_ERROR')
-            raise ImageBuildException('CREDENTIAL_RETRIEVAL_ERROR')
-
-        self.aws = Session(
-            aws_access_key_id=self.sessionCredentials['AccessKeyId'],
-            aws_secret_access_key=self.sessionCredentials['SecretAccessKey'],
-            aws_session_token=self.sessionCredentials['SessionToken'],
-            region_name=self.region,
+    def init_appstream_catalog(self):
+        appstream_catalog = path.join(environ['ALLUSERSPROFILE'], 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
+        catalog_sql = (
+            'CREATE TABLE Applications ('
+                'Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY,' 
+                'AbsolutePath TEXT,' 
+                'DisplayName TEXT,' 
+                'IconFilePath TEXT,' 
+                'LaunchParameters TEXT,'
+                'WorkingDirectory TEXT'
+            ');'
         )
 
+        makedirs(path.dirname(appstream_catalog), exist_ok=True)
+        if path.exists(appstream_catalog):
+            self.logger.warning('Removing Existing AppStream Catalog')
+
         try:
-            self.outputs = self.get_stack_outputs()
+            sql = sqlite3.connect(appstream_catalog)
+            c = sql.cursor()
+            c.execute(catalog_sql)
+            sql.commit()
+            sql.close()
         except Exception as e:
-            logging.exception('BAD_CREDENTIALS')
-            raise ImageBuildException('BAD_CREDENTIALS')
+            logging.exception('APPSTREAM_CATALOG_CREATION_ERROR')
+            raise ImageBuildException('APPSTREAM_CATALOG_CREATION_ERROR')
 
-        bootstrapOutput = '{App}{Env}AppStreamImageBootstrapActivity'.format(App=self.appName, Env=self.envName)
-        self.bootstrapActivity = self.outputs[bootstrapOutput]['value']
-
-        self.logger.info('AppStreamImageBuild Initialized')
+        self.logger.info('AppStream Catalog Initialized')
 
 class EC2ImageBuild(ImageBuild):
 
