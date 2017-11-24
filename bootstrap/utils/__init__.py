@@ -243,10 +243,30 @@ class ImageBuild(object):
                 raise ImageBuildException('PACKAGE_INSTALL_CRASH')
             
 
+            self.heartbeat.heartbeat = False
+            self.heartbeat.join()
+
+            self.logger.info('Package Installed: {Package}'.format(Package=package))
             chdir(startDir)
             self.logger.removeHandler(handlerConsole)
             self.logger.removeHandler(handlerString)
+            
+            logPath = path.join(chocoTempDir, '{Package}.log'.format(Package=package))
+            with open(logPath, 'r') as packageLog:
+                logString.seek(0)
+                packageLog.write(logString.read())
 
+        try:
+            self.sfn.send_task_success(
+                taskToken=task['taskToken'],
+                output=task['input'],
+            )
+        
+        except Exception as e:
+            logging.exception('INSTALL_SEND_SUCCESS_ERROR')
+            raise ImageBuildException('INSTALL_SEND_SUCCESS_ERROR')
+
+        self.logger.info('Packages Installed')
 
 class AppStreamImageBuild(ImageBuild):
 
