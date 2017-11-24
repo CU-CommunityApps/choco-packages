@@ -244,7 +244,7 @@ class ImageBuild(object):
             
 
             self.heartbeat.heartbeat = False
-            self.heartbeat.join()
+            #self.heartbeat.join()
 
             self.logger.info('Package Installed: {Package}'.format(Package=package))
             chdir(startDir)
