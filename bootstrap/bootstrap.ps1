@@ -14,7 +14,7 @@ Start-Process -NoNewWindow -Wait -FilePath 'C:\Program Files\Git\bin\git.exe'   
 
 # Install Python and Dependencies
 Start-Process -NoNewWindow -Wait -FilePath 'C:\ProgramData\chocolatey\bin\choco.exe' -ArgumentList 'install python --version 3.6.3 -r -y'
-Start-Process -NoNewWindow -Wait -FilePath 'C:\Python36\Scripts\pip.exe'             -ArgumentList 'install boto3 pyyaml'
+Start-Process -NoNewWindow -Wait -FilePath 'C:\Python36\Scripts\pip.exe'             -ArgumentList '-q install boto3 pyyaml'
 
 # Escape from PowerShell!
 Start-Process -NoNewWindow -Wait -FilePath 'C:\Python36\python.exe'                  -ArgumentList '.\choco-packages\bootstrap\bootstrap.py'
