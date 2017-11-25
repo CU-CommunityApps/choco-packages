@@ -8,7 +8,7 @@ $ARGUMENTS =    "{Arguments}"
 $VALID_CODES =  "{ValidCodes}"
 
 $TEMP_DIR =     Join-Path $env:SYSTEMROOT "Temp\choco-bootstrap"
-$INSTALL_DIR =  Join-Path $TEMP_DIR "choco-packages\$PACKAGE"
+$INSTALL_DIR =  Join-Path $TEMP_DIR "choco-packages\packages\$PACKAGE"
 $PRE_SCRIPT =   Join-Path $INSTALL_DIR "pre_install.ps1"
 $POST_SCRIPT =  Join-Path $INSTALL_DIR "post_install.ps1"
 
