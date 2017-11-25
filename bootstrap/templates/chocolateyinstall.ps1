@@ -31,6 +31,8 @@ $packageArgs = @{{
     validExitCodes=@($VALID_CODES) 
 }}
 
+Write-Output "Package Args: $packageArgs"
+
 Install-ChocolateyInstallPackage @packageArgs
 
 Start-Process -NoNewWindow -Wait -FilePath $POST_SCRIPT
