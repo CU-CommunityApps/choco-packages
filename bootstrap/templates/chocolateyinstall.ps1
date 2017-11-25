@@ -18,7 +18,6 @@ Write-Output "INSTALL_DIR: $INST_DIR"
 Write-Output "PRE_SCRIPT: $PRE_SCRIPT"
 Write-Output "POST_SCRIPT: $POST_SCRIPT"
 
-Set-Location $INST_DIR
 $S3_URI = "https://s3.amazonaws.com/$BUCKET/packages/$PACKAGE.zip"
 Install-ChocolateyZipPackage -PackageName $PACKAGE -Url $S3_URI -UnzipLocation $INST_DIR
 
