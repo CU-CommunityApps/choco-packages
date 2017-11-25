@@ -18,13 +18,13 @@ Set-Location $INSTALL_DIR
 
 Start-Process -NoNewWindow -Wait -FilePath $PRE_SCRIPT
 
-$packageArgs = @{
+$packageArgs = @{{
     packageName=$PACKAGE
     fileType=$FILETYPE
     file=$INSTALLER
     silentArgs=$ARGUMENTS
     validExitCodes=@($VALID_CODES) 
-}
+}}
 
 Install-ChocolateyInstallPackage @packageArgs
 
