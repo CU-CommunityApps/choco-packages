@@ -15,5 +15,5 @@ except Exception as e:
 
 with open('C:\\quicklog.log', 'w') as quicklog:
     builder.logString.seek(0)
-    quicklog.write(builder.read())
+    quicklog.write(builder.logString.read())
 
