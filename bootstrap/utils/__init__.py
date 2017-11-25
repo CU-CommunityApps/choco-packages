@@ -191,7 +191,7 @@ class ImageBuild(object):
                     config = yaml.load(configYaml)
 
                 with open(packageTemplatePath, 'r') as nuspecTemplateXml:
-                    nuspecTemplate = nuspecTemplate.read().format(
+                    nuspecTemplate = nuspecTemplateXml.read().format(
                         Package=config['Id'],
                         Version=config['Version'],
                         Description=config['Description'],
