@@ -21,7 +21,7 @@ $S3_URI = "https://s3.amazonaws.com/$BUCKET/packages/$PACKAGE.zip"
 Install-ChocolateyZipPackage $PACKAGE $S3_URI $INSTALL_DIR
 Set-Location $INSTALL_DIR
 
-Start-Process -NoNewWindow -Wait -FilePath $PRE_SCRIPT
+Invoke-Expression $PRE_SCRIPT
 
 $packageArgs = @{{
     packageName=$PACKAGE
@@ -35,5 +35,5 @@ Write-Output "Package Args: $packageArgs"
 
 Install-ChocolateyInstallPackage @packageArgs
 
-Start-Process -NoNewWindow -Wait -FilePath $POST_SCRIPT
+Invoke-Expression $POST_SCRIPT
 
