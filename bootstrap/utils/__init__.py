@@ -88,7 +88,7 @@ class ImageBuild(object):
 
     def psexec(self, cmd):
         psExec = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'bin', 'PsExec.exe')
-        psExecCmd = "'{PsExec}' -i -s '{Cmd}'".format(PsExec=psExec, Cmd=cmd)
+        psExecCmd = "{PsExec} -i -s {Cmd}".format(PsExec=psExec, Cmd=cmd)
         self.logger.info('Running Command: {Cmd}'.format(Cmd=psExecCmd)) 
 
         p = subprocess.Popen(psExecCmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -226,8 +226,8 @@ class ImageBuild(object):
             
             try: 
                 choco = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'bin', 'choco.exe')
-                packCmd = '"{Choco}" pack "{Nuspec}" --out . -r -y'.format(Choco=choco, Nuspec=packageNuspecPath)
-                installCmd = '"{Choco}" install {Package} -s ".;https://chocolatey.org/api/v2" -r -y'.format(Choco=choco, Package=config['Id'])
+                packCmd = '{Choco} pack {Nuspec} --out . -r -y'.format(Choco=choco, Nuspec=packageNuspecPath)
+                installCmd = '{Choco} install {Package} -s ".;https://chocolatey.org/api/v2" -r -y'.format(Choco=choco, Package=config['Id'])
             
                 if self.psexec(packCmd) != 0:
                     logger.error('PACKAGE_PACK_ERROR')
