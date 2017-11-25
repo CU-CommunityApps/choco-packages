@@ -151,7 +151,7 @@ class ImageBuild(object):
                 activityArn=installActivity,
                 workerName=self.buildId,
             )
-            taskInput = task['input']
+            taskInput = json.loads(task['input'])
 
         except Exception as e:
             logging.exception('BAD_INSTALL_ACTIVITY')
