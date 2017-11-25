@@ -151,6 +151,7 @@ class ImageBuild(object):
                 activityArn=installActivity,
                 workerName=self.buildId,
             )
+            self.logger.info('Task Input: \n' + task['input'])
             taskInput = json.loads(task['input'])
 
         except Exception as e:
