@@ -230,11 +230,11 @@ class ImageBuild(object):
                 installCmd = '{Choco} install {Package} -s ".;https://chocolatey.org/api/v2" -r -y'.format(Choco=choco, Package=config['Id'])
             
                 if self.psexec(packCmd) != 0:
-                    logger.error('PACKAGE_PACK_ERROR')
+                    self.logger.error('PACKAGE_PACK_ERROR')
                     raise ImageBuildException('PACKAGE_PACK_ERROR')
 
                 if self.psexec(installCmd) != 0:
-                    logger.error('PACKAGE_INSTALL_ERROR')
+                    self.logger.error('PACKAGE_INSTALL_ERROR')
                     raise ImageBuildException('PACKAGE_INSTALL_ERROR')
 
             except ImageBuildException as e:
