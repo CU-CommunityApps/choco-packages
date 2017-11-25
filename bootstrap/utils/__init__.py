@@ -96,8 +96,8 @@ class ImageBuild(object):
 
         self.logger.warning(json.dumps({
             'returncode': p.returncode,
-            'stdout': out,
-            'stderr': error,
+            'stdout': out.decode('ascii'),
+            'stderr': error.decode('ascii'),
         }, indent=4))
         
         return p.returncode
@@ -226,7 +226,7 @@ class ImageBuild(object):
             
             try: 
                 choco = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'bin', 'choco.exe')
-                packCmd = '{Choco} pack {Nuspec} --out . -r -y'.format(Choco=choco, Nuspec=packageNuspecPath)
+                packCmd = '{Choco} pack {Nuspec} --out {PackageDir} -r -y'.format(Choco=choco, Nuspec=packageNuspecPath, PackageDir=packageDir)
                 installCmd = '{Choco} install {Package} -s ".;https://chocolatey.org/api/v2" -r -y'.format(Choco=choco, Package=config['Id'])
             
                 if self.psexec(packCmd) != 0:
