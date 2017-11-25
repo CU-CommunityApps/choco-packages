@@ -183,8 +183,8 @@ class ImageBuild(object):
             
             try:
                 packageConfigPath = path.join(packageDir, 'config.yml')
-                packageTemplatePath = path.join(chocoTempDir, 'templates', 'package.nuspec')
-                installTemplatePath = path.join(chocoTempDir, 'templates', 'chocolateyinstall.ps1')
+                packageTemplatePath = path.join(chocoTempDir, 'choco-packages', 'bootstrap', 'templates', 'package.nuspec')
+                installTemplatePath = path.join(chocoTempDir, 'choco-packages', 'bootstrap', 'templates', 'chocolateyinstall.ps1')
 
 
                 with open(packageConfigPath, 'r') as configYaml:
