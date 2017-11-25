@@ -16,9 +16,10 @@ from os import (
     remove,
 )
 
+from shutil import copyfile
+from sys import stdout, stderr
 from time import sleep
 from threading import currentThread, Thread
-from sys import stdout, stderr
 from urllib.request import urlopen
 
 class ImageBuildException(Exception):
@@ -219,6 +220,9 @@ class ImageBuild(object):
 
                 with open(installScriptPath, 'w') as installScript:
                     installScript.write(installCode)
+
+                copyfile(path.join(packageDir, 'pre_install.ps1'), nugetTools)
+                copyfile(path.join(packageDir, 'post_install.ps1'), nugetTools)
 
             except Exception as e:
                 logging.exception('BAD_PACKAGE_CONFIG')
