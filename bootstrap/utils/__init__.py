@@ -89,6 +89,7 @@ class ImageBuild(object):
     def psexec(self, cmd):
         psExec = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'bin', 'PsExec.exe')
         psExecCmd = "'{PsExec}' -i -s '{Cmd}'".format(PsExec=psExec, Cmd=cmd)
+        self.logger.info('Running Command: {Cmd}'.format(Cmd=psExecCmd)) 
 
         p = subprocess.Popen(psExecCmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, error = p.communicate()
