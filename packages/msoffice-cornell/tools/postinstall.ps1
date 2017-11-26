@@ -1,6 +1,6 @@
 # Runs after the choco package is installed
 
-$CSCRIPT =  Join-Path $env:SYSTEM       'cscript.exe'
+$CSCRIPT =  Join-Path $env:SYSTEMROOT   'System32\cscript.exe'
 $OSPP_VBS = Join-Path $env:PROGRAMFILES 'Microsoft Office\Office16\OSPP.VBS'
 $KMS_HOST = 'kms02.cit.cornell.edu'
 

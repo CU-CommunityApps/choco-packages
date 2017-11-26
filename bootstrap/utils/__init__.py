@@ -105,6 +105,7 @@ class ImageBuild(object):
         self.logger.info('Heartbeat Starting')
         while getattr(t, 'heartbeat', True):
             try:
+                self.logger.info('*Heartbeat*')
                 self.sfn.send_task_heartbeat(taskToken=taskToken)
             except Exception as e:
                 self.logger.error(e)
