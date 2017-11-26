@@ -94,11 +94,9 @@ class ImageBuild(object):
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, error = p.communicate()
 
-        self.logger.warning(json.dumps({
-            'returncode': p.returncode,
-            'stdout': out.decode('ascii'),
-            'stderr': error.decode('ascii'),
-        }, indent=4))
+        self.logger.info(out.decode('ascii'))
+        if len(error) > 0:
+            self.logger.warning(error.decode('ascii'))
         
         return p.returncode
 
