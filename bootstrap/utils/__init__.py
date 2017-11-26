@@ -362,7 +362,7 @@ class AppStreamImageBuild(ImageBuild):
                     copyfile(iconFilePath, appstreamIcon)
 
                     c.execute(appSql.format(
-                        Id=appConfig['Id'],
+                        Id=app,
                         Path=appConfig['Path'],
                         DisplayName=appConfig['DisplayName'],
                         IconPath=appstreamIcon,
