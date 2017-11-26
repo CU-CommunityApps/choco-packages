@@ -355,19 +355,19 @@ class AppStreamImageBuild(ImageBuild):
                 with open(packageConfigPath, 'r') as configYaml:
                     config = yaml.load(configYaml)
 
-                for app in config['Applications']:
+                for app, appConfig in config['Applications'].iteritems():
                     iconFile = '{App}.png'.format(App=app)
                     iconFilePath = path.join(packageDir, 'icons', iconFile)
                     appstreamIcon = path.join(iconDir, iconFile)
                     copyfile(iconFilePath, appstreamIcon)
 
                     c.execute(appSql.format(
-                        Id=config['Id'],
-                        Path=config['Path'],
-                        DisplayName=config['DisplayName'],
+                        Id=appConfig['Id'],
+                        Path=appConfig['Path'],
+                        DisplayName=appConfig['DisplayName'],
                         IconPath=appstreamIcon,
-                        LaunchParams=config['LaunchParams'],
-                        WorkDir=config['WorkDir'],
+                        LaunchParams=appConfig['LaunchParams'],
+                        WorkDir=appConfig['WorkDir'],
                     ))
 
             sql.commit()
