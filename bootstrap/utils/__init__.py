@@ -244,7 +244,7 @@ class ImageBuild(object):
                 raise ImageBuildException('PACKAGE_INSTALL_CRASH')
 
             self.logger.info('Package Installed: {Package}'.format(Package=package))
-            chdir(startDir)
+            chdir(chocoTempDir)
             #self.logger.removeHandler(handlerConsole)
             #self.logger.removeHandler(handlerString)
             
