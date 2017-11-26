@@ -10,7 +10,7 @@ $BUCKET =       "{Bucket}"
 $INSTALLER =    "{Installer}"
 $FILETYPE =     "{FileType}"
 $ARGUMENTS =    "{Arguments}"
-$VALID_CODES =  "{ValidCodes}"
+$VALID_CODES =  @({ValidCodes})
 $S3_URI =       "https://s3.amazonaws.com/$BUCKET/packages/$PACKAGE.zip"
 
 Write-Output "Unzipping $PACKAGE From $S3_URI"
@@ -24,14 +24,17 @@ $packageArgs = @{{
     fileType=$FILETYPE
     file=$INSTALLER
     silentArgs=$ARGUMENTS
-    validExitCodes=@($VALID_CODES) 
+    validExitCodes=$VALID_CODES 
 }}
 
-Write-Output "Installing $PACKAGE With Args: $packageArgs"
+Write-Output "Installing $PACKAGE With Args: $($packageArgs | Out-String)"
 Install-ChocolateyInstallPackage @packageArgs
 
 Write-Output "Running postinstall.ps1"
 Invoke-Expression $POSTINSTALL
+
+Write-Output "Removing Installer Files"
+Remove-Item -Recurse -Force $INSTALL_DIR
 
 Write-Output "$PACKAGE Install Complete!"
 
