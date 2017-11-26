@@ -228,7 +228,7 @@ class ImageBuild(object):
                     self.logger.error('PACKAGE_PACK_ERROR')
                     raise ImageBuildException('PACKAGE_PACK_ERROR')
 
-                validExitInts = map(int, config['ExitCodes'].split(','))
+                validExitInts = list(map(int, config['ExitCodes'].split(',')))
                 if self.run_command(installCmd) not in validExitInts:
                     self.logger.error('PACKAGE_INSTALL_ERROR')
                     raise ImageBuildException('PACKAGE_INSTALL_ERROR')
