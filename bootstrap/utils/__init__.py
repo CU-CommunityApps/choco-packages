@@ -355,7 +355,7 @@ class AppStreamImageBuild(ImageBuild):
                 with open(packageConfigPath, 'r') as configYaml:
                     config = yaml.load(configYaml)
 
-                for app, appConfig in config['Applications'].iteritems():
+                for app, appConfig in config['Applications'].items():
                     iconFile = '{App}.png'.format(App=app)
                     iconFilePath = path.join(packageDir, 'icons', iconFile)
                     appstreamIcon = path.join(iconDir, iconFile)
