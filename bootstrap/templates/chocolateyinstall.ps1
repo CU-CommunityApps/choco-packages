@@ -1,5 +1,10 @@
 $ErrorActionPreference = "Stop"
 
+$TOOLS_DIR =    $(Split-Path -Parent $MyInvocation.MyCommand.Definition)
+$INSTALL_DIR =  Join-Path $env:TEMP $PACKAGE
+$PREINSTALL =   Join-Path $TOOLS_DIR 'preinstall.ps1'
+$POSTINSTALL =  Join-Path $TOOLS_DIR 'postinstall.ps1'
+
 $PACKAGE =      "{Package}"
 $BUCKET =       "{Bucket}"
 $INSTALLER =    "{Installer}"
@@ -7,11 +12,6 @@ $FILETYPE =     "{FileType}"
 $ARGUMENTS =    "{Arguments}"
 $VALID_CODES =  "{ValidCodes}"
 $S3_URI =       "https://s3.amazonaws.com/$BUCKET/packages/$PACKAGE.zip"
-
-$TOOLS_DIR =    $(Split-Path -Parent $MyInvocation.MyCommand.Definition)
-$INSTALL_DIR =  Join-Path $env:TEMP $PACKAGE
-$PREINSTALL =   Join-Path $TOOLS_DIR 'preinstall.ps1'
-$POSTINSTALL =  Join-Path $TOOLS_DIR 'postinstall.ps1'
 
 Write-Output "Unzipping $PACKAGE From $S3_URI"
 Install-ChocolateyZipPackage -PackageName $PACKAGE -Url $S3_URI -UnzipLocation $INSTALL_DIR
