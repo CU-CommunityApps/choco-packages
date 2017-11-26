@@ -17,7 +17,7 @@ from os import (
     remove,
 )
 
-from shutil import copytree
+from shutil import copyfile, copytree
 from sys import stdout, stderr
 from time import sleep
 from threading import currentThread, Thread
@@ -162,18 +162,15 @@ class ImageBuild(object):
         self.heartbeat.daemon = True
         self.heartbeat.heartbeat = True
         self.heartbeat.start()
-        inputParams = taskInput['state_machine_params']
-        packages = inputParams['packages']
+
+        self.chocoTempDir = path.abspath(getcwd())
+        self.inputParams = taskInput['state_machine_params']
+        self.packages = self.inputParams['packages']
 
         packageLogs = { }
-        for package in packages:
-            #handlerConsole, handlerString, logString = self.create_log_stream()
-            #self.logger.addHandler(handlerConsole)
-            #self.logger.addHandler(handlerString)
+        for package in self.packages:
             self.logger.info('Installing Package: {Package}'.format(Package=package))
-
-            chocoTempDir = path.abspath(getcwd())
-            packageDir = path.join(chocoTempDir, 'choco-packages', 'packages', package)
+            packageDir = path.join(self.chocoTempDir, 'choco-packages', 'packages', package)
 
             try:
                 chdir(packageDir)
@@ -183,9 +180,8 @@ class ImageBuild(object):
             
             try:
                 packageConfigPath = path.join(packageDir, 'config.yml')
-                packageTemplatePath = path.join(chocoTempDir, 'choco-packages', 'bootstrap', 'templates', 'package.nuspec')
-                installTemplatePath = path.join(chocoTempDir, 'choco-packages', 'bootstrap', 'templates', 'chocolateyinstall.ps1')
-
+                packageTemplatePath = path.join(self.chocoTempDir, 'choco-packages', 'bootstrap', 'templates', 'package.nuspec')
+                installTemplatePath = path.join(self.chocoTempDir, 'choco-packages', 'bootstrap', 'templates', 'chocolateyinstall.ps1')
 
                 with open(packageConfigPath, 'r') as configYaml:
                     config = yaml.load(configYaml)
@@ -244,15 +240,7 @@ class ImageBuild(object):
                 raise ImageBuildException('PACKAGE_INSTALL_CRASH')
 
             self.logger.info('Package Installed: {Package}'.format(Package=package))
-            chdir(chocoTempDir)
-            #self.logger.removeHandler(handlerConsole)
-            #self.logger.removeHandler(handlerString)
-            
-            #logPath = path.join(chocoTempDir, '{Package}.log'.format(Package=package))
-            #with open(logPath, 'r') as packageLog:
-            #    logString.seek(0)
-            #    packageLog.write(logString.read())
-
+            chdir(self.chocoTempDir)
 
         try:
             self.heartbeat.heartbeat = False
@@ -308,7 +296,7 @@ class AppStreamImageBuild(ImageBuild):
         self.sessionPath = 'https://s3.amazonaws.com/{Bucket}/builds/{BuildId}/federated-session.json'.format(Bucket=self.bucketName, BuildId=self.buildId)
 
     def init_appstream_catalog(self):
-        appstream_catalog = path.join(environ['ALLUSERSPROFILE'], 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
+        self.appstream_catalog = path.join(environ['ALLUSERSPROFILE'], 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
         catalog_sql = (
             'CREATE TABLE Applications ('
                 'Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY,' 
@@ -320,13 +308,13 @@ class AppStreamImageBuild(ImageBuild):
             ');'
         )
 
-        makedirs(path.dirname(appstream_catalog), exist_ok=True)
-        if path.exists(appstream_catalog):
+        makedirs(path.dirname(self.appstream_catalog), exist_ok=True)
+        if path.exists(self.appstream_catalog):
             self.logger.warning('Removing Existing AppStream Catalog')
-            remove(appstream_catalog)
+            remove(self.appstream_catalog)
 
         try:
-            sql = sqlite3.connect(appstream_catalog)
+            sql = sqlite3.connect(self.appstream_catalog)
             c = sql.cursor()
             c.execute(catalog_sql)
             sql.commit()
@@ -336,6 +324,58 @@ class AppStreamImageBuild(ImageBuild):
             raise ImageBuildException('APPSTREAM_CATALOG_CREATION_ERROR')
 
         self.logger.info('AppStream Catalog Initialized')
+
+    def catalog_applications(self):
+        try:
+            appSql = (
+                'INSERT INTO Applications ('
+                    'Name,' 
+                    'AbsolutePath,' 
+                    'DisplayName,' 
+                    'IconFilePath,'
+                    'LaunchParameters,' 
+                    'WorkingDirectory'
+                ') VALUES ('
+                    '"{Id}",'
+                    '"{Path}",'
+                    '"{DisplayName}",'
+                    '"{IconPath}",'
+                    '"{LaunchParams}",'
+                    '"{WorkDir}"'
+                ');'
+            )
+            sql = sqlite3.connect(self.appstream_catalog)
+            c = sql.cursor()
+
+            for package in self.packages:
+                packageDir = path.join(self.chocoTempDir, 'choco-packages', 'packages', package)
+                packageConfigPath = path.join(packageDir, 'config.yml')
+                iconDir = path.join(environ['ALLUSERSPROFILE'], 'Amazon', 'Photon', 'AppCatalogHelper', 'AppIcons')
+
+                with open(packageConfigPath, 'r') as configYaml:
+                    config = yaml.load(configYaml)
+
+                for app in config['Applications']:
+                    iconFile = '{App}.png'.format(App=app)
+                    iconFilePath = path.join(packageDir, 'icons', iconFile)
+                    appstreamIcon = path.join(iconDir, iconFile)
+                    copyfile(iconFilePath, appstreamIcon)
+
+                    c.execute(appSql.format(
+                        Id=config['Id'],
+                        Path=config['Path'],
+                        DisplayName=config['DisplayName'],
+                        IconPath=appstreamIcon,
+                        LaunchParams=config['LaunchParams'],
+                        WorkDir=config['WorkDir'],
+                    ))
+
+            sql.commit()
+            sql.close()
+
+        except Exception as e:
+            logging.exception('APPSTREAM_APPLICATION_CATALOG_ERROR')
+            raise ImageBuildException('APPSTREAM_APPLICATION_CATALOG_ERROR')
 
 class EC2ImageBuild(ImageBuild):
 
