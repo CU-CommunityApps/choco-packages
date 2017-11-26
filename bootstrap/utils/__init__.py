@@ -243,7 +243,6 @@ class ImageBuild(object):
             except Exception as e:
                 logging.exception('PACKAGE_INSTALL_CRASH')
                 raise ImageBuildException('PACKAGE_INSTALL_CRASH')
-            
 
             self.logger.info('Package Installed: {Package}'.format(Package=package))
             chdir(startDir)
@@ -325,6 +324,7 @@ class AppStreamImageBuild(ImageBuild):
         makedirs(path.dirname(appstream_catalog), exist_ok=True)
         if path.exists(appstream_catalog):
             self.logger.warning('Removing Existing AppStream Catalog')
+            remove(appstream_catalog)
 
         try:
             sql = sqlite3.connect(appstream_catalog)
