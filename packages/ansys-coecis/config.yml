@@ -4,7 +4,7 @@ Version:        '18.1'
 Installer:      '$INSTALL_DIR\setup.exe'
 FileType:       'exe'
 Arguments:      '-silent -licserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
-ExitCodes:     '0'
+ExitCodes:      '0'
 
 Applications:
     ANSYSWB:

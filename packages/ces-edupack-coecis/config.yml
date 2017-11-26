@@ -4,7 +4,7 @@ Version:        '1.0.0'
 Installer:      '$INSTALL_DIR\edupack_setup.2017.exe'
 FileType:       'exe'
 Arguments:      '/quiet'
-ExitCodes:     '0'
+ExitCodes:      '0'
 
 Applications:
     CES:

@@ -4,7 +4,7 @@ Version:        '25.3'
 Installer:      '$INSTALL_DIR\startswinstall.exe'
 FileType:       'exe'
 Arguments:      '/install /showui /now'
-ExitCodes:     '0'
+ExitCodes:      '0'
 
 Applications:
     SLDWORKS:

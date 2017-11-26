@@ -67,8 +67,10 @@ class ImageBuild(object):
 
     def init_federated_session(self):
         try:
-            self.logger.info('Downloading Session Credentials: {Path}'.format(Path=self.sessionPath))
-            self.sessionInfo = json.load(urlopen(self.sessionPath))
+            sessionPath = 'https://s3.amazonaws.com/{Bucket}/builds/{BuildId}/federated-session.json'.format(Bucket=self.bucketName, BuildId=self.buildId)
+
+            self.logger.info('Downloading Session Credentials: {Path}'.format(Path=sessionPath))
+            self.sessionInfo = json.load(urlopen(sessionPath))
             self.sessionCredentials = self.sessionInfo['Credentials']
 
         except Exception as e:
@@ -105,7 +107,6 @@ class ImageBuild(object):
         self.logger.info('Heartbeat Starting')
         while getattr(t, 'heartbeat', True):
             try:
-                self.logger.info('*Heartbeat*')
                 self.sfn.send_task_heartbeat(taskToken=taskToken)
             except Exception as e:
                 self.logger.error(e)
@@ -151,8 +152,7 @@ class ImageBuild(object):
                 activityArn=installActivity,
                 workerName=self.buildId,
             )
-            self.logger.info('Task Input: \n' + task['input'])
-            taskInput = json.loads(task['input'])
+            self.inputParams = json.loads(task['input'])
 
         except Exception as e:
             logging.exception('BAD_INSTALL_ACTIVITY')
@@ -164,7 +164,6 @@ class ImageBuild(object):
         self.heartbeat.start()
 
         self.chocoTempDir = path.abspath(getcwd())
-        self.inputParams = taskInput['state_machine_params']
         self.packages = self.inputParams['packages']
 
         packageLogs = { }
@@ -245,7 +244,6 @@ class ImageBuild(object):
 
         try:
             self.heartbeat.heartbeat = False
-            #self.heartbeat.join()
 
             self.sfn.send_task_success(
                 taskToken=task['taskToken'],
@@ -293,8 +291,6 @@ class AppStreamImageBuild(ImageBuild):
         self.appName = builderName[1]
         self.envName = builderName[2]
         self.bucketName = builderName[3]
-
-        self.sessionPath = 'https://s3.amazonaws.com/{Bucket}/builds/{BuildId}/federated-session.json'.format(Bucket=self.bucketName, BuildId=self.buildId)
 
     def init_appstream_catalog(self):
         self.appstream_catalog = path.join(environ['ALLUSERSPROFILE'], 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
