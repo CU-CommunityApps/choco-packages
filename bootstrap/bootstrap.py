@@ -10,6 +10,10 @@ except ImageBuildException as e:
 try:
     builder.bootstrap()
     builder.install_packages()
+    
+    if isinstance(builder, AppStreamImageBuild):
+        builder.catalog_applications()
+
 except Exception as e:
     logging.exception('Build Exception:')
 
