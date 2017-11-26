@@ -1,0 +1,15 @@
+Id:             'my-package'
+Description:    'My Package Description'
+Version:        '1.0.0'
+Installer:      '$INSTALL_DIR\setup.exe'
+FileType:       'exe'
+Arguments:      '-silent --some-arg'
+ValidCodes:     '0'
+
+Applications:
+    MyPackage:
+        DisplayName:    'My Package As User Sees It'
+        Path:           'C:\Program Files\MyPackage\run.exe'
+        LaunchParams:   '--my-runtime-argument'
+        WorkDir:        'C:\MyPackage\Working\Directory'
+

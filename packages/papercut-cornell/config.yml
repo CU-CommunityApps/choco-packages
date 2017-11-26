@@ -1,0 +1,10 @@
+Id:             'papercut-cornell'
+Description:    'Papercut configured for Cornell'
+Version:        '17.1.2'
+Installer:      '$INSTALL_DIR\pc-client-admin-deploy.msi'
+FileType:       'msi'
+Arguments:      '/qb /norestart ALLUSERS=1'
+ValidCodes:     '0'
+
+Applications: { }
+

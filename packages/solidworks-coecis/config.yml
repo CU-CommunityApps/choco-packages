@@ -1,0 +1,33 @@
+Id:             'solidworks-coecis'
+Description:    'SOLIDWORKS 2017 - COECIS License'
+Version:        '25.3'
+Installer:      '$INSTALL_DIR\startswinstall.exe'
+FileType:       'exe'
+Arguments:      '/install /showui /now'
+ValidCodes:     '0'
+
+Applications:
+    SLDWORKS:
+        DisplayName:    'SOLIDWORKS 2017'
+        Path:           'C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    composerplayer:
+        DisplayName:    'SOLIDWORKS Composer Player'
+        Path:           'C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS Composer Player\Bin\composerplayer.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    SLDWORKSVisualize:
+        DisplayName:    'SOLIDWORKS Visualize'
+        Path:           'C:\Program Files\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    eDrawings:
+        DisplayName:    'SOLIDWORKS eDrawings'
+        Path:           'C:\Program Files\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        

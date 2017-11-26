@@ -1,0 +1,15 @@
+Id:             'matlab-coecis'
+Description:    'Matlab R2017a - COECIS License'
+Version:        '9.2'
+Installer:      '$INSTALL_DIR\setup.exe'
+FileType:       'exe'
+Arguments:      '-inputFile $INSTALL_DIR\installer_input.txt'
+ValidCodes:     '0'
+
+Applications:
+    MATLAB:
+        DisplayName:    'MATLAB R2017a'
+        Path:           'C:\Program Files\MATLAB\R2017a\bin\matlab.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
