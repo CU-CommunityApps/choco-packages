@@ -222,7 +222,7 @@ class ImageBuild(object):
             try: 
                 choco = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'bin', 'choco.exe')
                 packCmd = '{Choco} pack {Nuspec} --out {PackageDir} -r -y'.format(Choco=choco, Nuspec=packageNuspecPath, PackageDir=packageDir)
-                installCmd = '{Choco} install {Package} -s ".;https://chocolatey.org/api/v2" -r -y'.format(Choco=choco, Package=config['Id'])
+                installCmd = '{Choco} install {Package} -s ".;https://chocolatey.org/api/v2" --no-progress -r -y'.format(Choco=choco, Package=config['Id'])
             
                 if self.run_command(packCmd) != 0:
                     self.logger.error('PACKAGE_PACK_ERROR')

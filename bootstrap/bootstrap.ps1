@@ -20,11 +20,11 @@ Set-Location $BOOTSTRAP
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 # Install Git plus prerequisites and Clone the Choco Respository
-Start-Process -NoNewWindow -Wait -FilePath $CHOCO  -ArgumentList "install $PREREQS -r -y"
+Start-Process -NoNewWindow -Wait -FilePath $CHOCO  -ArgumentList "install $PREREQS --no-progress -r -y"
 Start-Process -NoNewWindow -Wait -FilePath $GIT    -ArgumentList "clone $REPO .\choco-packages"
 
 # Install Python and Dependencies
-Start-Process -NoNewWindow -Wait -FilePath $CHOCO  -ArgumentList "install python --version $PYVERSION -r -y"
+Start-Process -NoNewWindow -Wait -FilePath $CHOCO  -ArgumentList "install python --version $PYVERSION --no-progress -r -y"
 Start-Process -NoNewWindow -Wait -FilePath $PIP    -ArgumentList "-q install $PYDEPENDS"
 
 # Escape from PowerShell!
