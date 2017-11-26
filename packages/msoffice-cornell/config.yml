@@ -1,9 +1,9 @@
 Id:             'msoffice-cornell'
 Description:    'Microsoft Office 2016 - Cornell Site License'
 Version:        16.0
-Installer:      '$TOOLS_DIR\setup.exe'
+Installer:      '$INSTALL_DIR\setup.exe'
 FileType:       'exe'
-Arguments:      '/adminfile $TOOLS_DIR\cu_office_config.MSP'
+Arguments:      '/adminfile $INSTALL_DIR\cu_office_config.MSP'
 ValidCodes:     '0'
 
 Applications:
