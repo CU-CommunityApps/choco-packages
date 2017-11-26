@@ -6,14 +6,16 @@ $INSTALLER =    "{Installer}"
 $FILETYPE =     "{FileType}"
 $ARGUMENTS =    "{Arguments}"
 $VALID_CODES =  "{ValidCodes}"
-$INSTALL_DIR =  Join-Path $env:TEMP $PACKAGE
 $S3_URI =       "https://s3.amazonaws.com/$BUCKET/packages/$PACKAGE.zip"
+
+$TOOLS_DIR =    $(Split-Path -Parent $MyInvocation.MyCommand.Definition)
+$INSTALL_DIR =  Join-Path $env:TEMP $PACKAGE
 
 Write-Output "Unzipping $PACKAGE From $S3_URI"
 Install-ChocolateyZipPackage -PackageName $PACKAGE -Url $S3_URI -UnzipLocation $INSTALL_DIR
 
 Write-Output "Running preinstall.ps1"
-Invoke-Expression '.\preinstall.ps1'
+Invoke-Expression Join-Path $TOOLS_DIR 'preinstall.ps1'
 
 $packageArgs = @{{
     packageName=$PACKAGE
@@ -27,7 +29,7 @@ Write-Output "Installing $PACKAGE With Args: $packageArgs"
 Install-ChocolateyInstallPackage @packageArgs
 
 Write-Output "Running postinstall.ps1"
-Invoke-Expression '.\postinstall.ps1'
+Invoke-Expression Join-Path $TOOLS_DIR 'postinstall.ps1'
 
 Write-Output "$PACKAGE Install Complete!"
 
