@@ -200,7 +200,7 @@ class ImageBuild(object):
                         Installer=config['Installer'],
                         FileType=config['FileType'],
                         Arguments=config['Arguments'],
-                        ValidCodes=config['ValidCodes'],
+                        ValidCodes=config['ExitCodes'],
                     )
 
                 nugetDir = path.join(packageDir, 'nuget')
@@ -228,7 +228,8 @@ class ImageBuild(object):
                     self.logger.error('PACKAGE_PACK_ERROR')
                     raise ImageBuildException('PACKAGE_PACK_ERROR')
 
-                if self.run_command(installCmd) != 0:
+                validExitInts = map(int, config['ExitCodes'].split(','))
+                if self.run_command(installCmd) not in validExitInts:
                     self.logger.error('PACKAGE_INSTALL_ERROR')
                     raise ImageBuildException('PACKAGE_INSTALL_ERROR')
 

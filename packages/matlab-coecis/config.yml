@@ -4,7 +4,7 @@ Version:        '9.2'
 Installer:      '$INSTALL_DIR\setup.exe'
 FileType:       'exe'
 Arguments:      '-inputFile $INSTALL_DIR\installer_input.txt'
-ValidCodes:     '0'
+ExitCodes:     '0'
 
 Applications:
     MATLAB:

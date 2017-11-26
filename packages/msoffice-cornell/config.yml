@@ -4,7 +4,7 @@ Version:        16.0
 Installer:      '$INSTALL_DIR\setup.exe'
 FileType:       'exe'
 Arguments:      '/adminfile $INSTALL_DIR\cu_office_config.MSP'
-ValidCodes:     '0'
+ExitCodes:     '0'
 
 Applications:
     WINWORD:
