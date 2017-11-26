@@ -5,6 +5,7 @@ import sqlite3
 import yaml
 from boto3.session import Session
 from botocore.exceptions import ClientError, WaiterError
+from glob import glob
 from io import StringIO
 
 from os import (
@@ -16,7 +17,7 @@ from os import (
     remove,
 )
 
-from shutil import copyfile
+from shutil import copytree
 from sys import stdout, stderr
 from time import sleep
 from threading import currentThread, Thread
@@ -87,12 +88,10 @@ class ImageBuild(object):
             logging.exception('BAD_CREDENTIALS')
             raise ImageBuildException('BAD_CREDENTIALS')
 
-    def psexec(self, cmd):
-        psExec = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'bin', 'PsExec.exe')
-        psExecCmd = "{PsExec} -i -s {Cmd}".format(PsExec=psExec, Cmd=cmd)
-        self.logger.info('Running Command: {Cmd}'.format(Cmd=psExecCmd)) 
+    def run_command(self, cmd):
+        self.logger.info('Running Command: {Cmd}'.format(Cmd=cmd)) 
 
-        p = subprocess.Popen(psExecCmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, error = p.communicate()
 
         self.logger.warning(json.dumps({
@@ -169,9 +168,9 @@ class ImageBuild(object):
 
         packageLogs = { }
         for package in packages:
-            handlerConsole, handlerString, logString = self.create_log_stream()
-            self.logger.addHandler(handlerConsole)
-            self.logger.addHandler(handlerString)
+            #handlerConsole, handlerString, logString = self.create_log_stream()
+            #self.logger.addHandler(handlerConsole)
+            #self.logger.addHandler(handlerString)
             self.logger.info('Installing Package: {Package}'.format(Package=package))
 
             chocoTempDir = path.abspath(getcwd())
@@ -211,18 +210,15 @@ class ImageBuild(object):
 
                 nugetDir = path.join(packageDir, 'nuget')
                 nugetTools = path.join(nugetDir, 'tools')
+                copytree(path.join(packageDir, 'tools'), nugetTools)
                 packageNuspecPath = path.join(nugetDir, '{Package}.nuspec'.format(Package=config['Id']))
                 installScriptPath = path.join(nugetTools, 'chocolateyinstall.ps1')
-                makedirs(nugetTools, exist_ok=True)
 
                 with open(packageNuspecPath, 'w') as packageNuspec:
                     packageNuspec.write(nuspecTemplate)
 
                 with open(installScriptPath, 'w') as installScript:
                     installScript.write(installCode)
-
-                copyfile(path.join(packageDir, 'pre_install.ps1'), nugetTools)
-                copyfile(path.join(packageDir, 'post_install.ps1'), nugetTools)
 
             except Exception as e:
                 logging.exception('BAD_PACKAGE_CONFIG')
@@ -233,11 +229,11 @@ class ImageBuild(object):
                 packCmd = '{Choco} pack {Nuspec} --out {PackageDir} -r -y'.format(Choco=choco, Nuspec=packageNuspecPath, PackageDir=packageDir)
                 installCmd = '{Choco} install {Package} -s ".;https://chocolatey.org/api/v2" -r -y'.format(Choco=choco, Package=config['Id'])
             
-                if self.psexec(packCmd) != 0:
+                if self.run_command(packCmd) != 0:
                     self.logger.error('PACKAGE_PACK_ERROR')
                     raise ImageBuildException('PACKAGE_PACK_ERROR')
 
-                if self.psexec(installCmd) != 0:
+                if self.run_command(installCmd) != 0:
                     self.logger.error('PACKAGE_INSTALL_ERROR')
                     raise ImageBuildException('PACKAGE_INSTALL_ERROR')
 
@@ -249,20 +245,21 @@ class ImageBuild(object):
                 raise ImageBuildException('PACKAGE_INSTALL_CRASH')
             
 
+            self.logger.info('Package Installed: {Package}'.format(Package=package))
+            chdir(startDir)
+            #self.logger.removeHandler(handlerConsole)
+            #self.logger.removeHandler(handlerString)
+            
+            #logPath = path.join(chocoTempDir, '{Package}.log'.format(Package=package))
+            #with open(logPath, 'r') as packageLog:
+            #    logString.seek(0)
+            #    packageLog.write(logString.read())
+
+
+        try:
             self.heartbeat.heartbeat = False
             #self.heartbeat.join()
 
-            self.logger.info('Package Installed: {Package}'.format(Package=package))
-            chdir(startDir)
-            self.logger.removeHandler(handlerConsole)
-            self.logger.removeHandler(handlerString)
-            
-            logPath = path.join(chocoTempDir, '{Package}.log'.format(Package=package))
-            with open(logPath, 'r') as packageLog:
-                logString.seek(0)
-                packageLog.write(logString.read())
-
-        try:
             self.sfn.send_task_success(
                 taskToken=task['taskToken'],
                 output=task['input'],

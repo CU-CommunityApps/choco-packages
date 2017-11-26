@@ -1,21 +1,32 @@
 # Cornell Chocolatey Framework Bootstrap Entry
 
-# Create Temporary Directory
-$BOOTSTRAP_DIRECTORY = Join-Path $env:SYSTEMROOT 'Temp\choco-bootstrap'
-New-Item -ItemType Directory -Force -Path $BOOTSTRAP_DIRECTORY
-Set-Location $BOOTSTRAP_DIRECTORY
+$BOOTSTRAP =    Join-Path $env:SYSTEMROOT 'Temp\choco-bootstrap'
+$CHOCO =        Join-Path $env:ALLUSERSPROFILE 'chocolatey\bin\choco.exe'
+$PSEXEC =       Join-Path $env:ALLUSERSPROFILE 'chocolatey\bin\PsExec.exe'
+$GIT =          Join-Path $env:PROGRAMFILES '\Git\bin\git.exe'
+$PYTHON =       Join-Path $env:SYSTEMROOT 'Python36\python.exe'
+$PIP =          Join-Path $env:SYSTEMROOT 'Python36\Scripts\pip.exe'
+
+$REPO =         'https://github.com/CU-CommunityApps/choco-packages.git'
+$PREREQS =      'git sysinternals'
+$PYVERSION =    '3.6.3'
+$PYDEPENDS =    'boto3 pyyaml'
+
+# Create Bootstrap Directory
+New-Item -ItemType Directory -Force -Path $BOOTSTRAP
+Set-Location $BOOTSTRAP
 
 # Install Chocolatey
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-# Install Sysinternals + Git and Clone the Choco Respository
-Start-Process -NoNewWindow -Wait -FilePath 'C:\ProgramData\chocolatey\bin\choco.exe' -ArgumentList 'install git sysinternals -r -y'
-Start-Process -NoNewWindow -Wait -FilePath 'C:\Program Files\Git\bin\git.exe'        -ArgumentList 'clone https://github.com/CU-CommunityApps/choco-packages.git .\choco-packages'
+# Install Git plus prerequisites and Clone the Choco Respository
+Start-Process -NoNewWindow -Wait -FilePath $CHOCO  -ArgumentList "install $PREREQS -r -y"
+Start-Process -NoNewWindow -Wait -FilePath $GIT    -ArgumentList "clone $REPO .\choco-packages"
 
 # Install Python and Dependencies
-Start-Process -NoNewWindow -Wait -FilePath 'C:\ProgramData\chocolatey\bin\choco.exe' -ArgumentList 'install python --version 3.6.3 -r -y'
-Start-Process -NoNewWindow -Wait -FilePath 'C:\Python36\Scripts\pip.exe'             -ArgumentList '-q install boto3 pyyaml'
+Start-Process -NoNewWindow -Wait -FilePath $CHOCO  -ArgumentList "install python --version $PYVERSION -r -y"
+Start-Process -NoNewWindow -Wait -FilePath $PIP    -ArgumentList "-q install $PYDEPENDS"
 
 # Escape from PowerShell!
-Start-Process -NoNewWindow -Wait -FilePath 'C:\Python36\python.exe'                  -ArgumentList '.\choco-packages\bootstrap\bootstrap.py'
+Start-Process -NoNewWindow -Wait -FilePath $PSEXEC -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON .\choco-packages\bootstrap\bootstrap.py"
 

@@ -1,4 +1,4 @@
-#$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Stop"
 
 $PACKAGE =      "{Package}"
 $BUCKET =       "{Bucket}"
@@ -6,18 +6,14 @@ $INSTALLER =    "{Installer}"
 $FILETYPE =     "{FileType}"
 $ARGUMENTS =    "{Arguments}"
 $VALID_CODES =  "{ValidCodes}"
+$INSTALL_DIR =  Join-Path $env:TEMP $PACKAGE
+$S3_URI =       "https://s3.amazonaws.com/$BUCKET/packages/$PACKAGE.zip"
 
-$TEMP_DIR =     Join-Path $env:SYSTEMROOT "Temp\choco-bootstrap"
-$INSTALL_DIR =  Join-Path $TEMP_DIR "choco-packages\packages\$PACKAGE"
-$INST_DIR =     "C:\Windows\Temp\choco-bootstrap\choco-packages\packages\$PACKAGE"
+Write-Output "Unzipping $PACKAGE From $S3_URI"
+Install-ChocolateyZipPackage -PackageName $PACKAGE -Url $S3_URI -UnzipLocation $INSTALL_DIR
 
-Write-Output "TEMP_DIR: $TEMP_DIR"
-Write-Output "INSTALL_DIR: $INST_DIR"
-
-$S3_URI = "https://s3.amazonaws.com/$BUCKET/packages/$PACKAGE.zip"
-Install-ChocolateyZipPackage -PackageName $PACKAGE -Url $S3_URI -UnzipLocation $INST_DIR
-
-Invoke-Expression '.\pre_install.ps1'
+Write-Output "Running preinstall.ps1"
+Invoke-Expression '.\preinstall.ps1'
 
 $packageArgs = @{{
     packageName=$PACKAGE
@@ -27,9 +23,11 @@ $packageArgs = @{{
     validExitCodes=@($VALID_CODES) 
 }}
 
-Write-Output "Package Args: $packageArgs"
-
+Write-Output "Installing $PACKAGE With Args: $packageArgs"
 Install-ChocolateyInstallPackage @packageArgs
 
-Invoke-Expression '.\post_install.ps1'
+Write-Output "Running postinstall.ps1"
+Invoke-Expression '.\postinstall.ps1'
+
+Write-Output "$PACKAGE Install Complete!"
 
