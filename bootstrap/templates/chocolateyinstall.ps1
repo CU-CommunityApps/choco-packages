@@ -13,8 +13,8 @@ $S3_URI =       "https://s3.amazonaws.com/$($env:CHOCO_BUCKET)/packages/$($CONFI
 Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
 Install-ChocolateyZipPackage `
     -PackageName $CONFIG.Id `
-    -UnzipLocation $INSTALL_DIR
-    -Url $S3_URI `
+    -UnzipLocation $INSTALL_DIR `
+    -Url $S3_URI 
 
 Write-Output        "Running preinstall.ps1..."
 Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
