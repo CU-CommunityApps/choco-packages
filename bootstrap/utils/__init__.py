@@ -220,7 +220,7 @@ class ImageBuild(object):
                     )
 
                 with open(packageConfigJsonPath, 'w') as packageConfigJson:
-                    packageConfigJson.write(json.dumps(config)
+                    packageConfigJson.write(json.dumps(config))
 
                 with open(packageNuspecPath, 'w') as packageNuspec:
                     packageNuspec.write(nuspecTemplate)
