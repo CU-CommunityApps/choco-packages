@@ -1,10 +1,14 @@
 Id:             'matlab-coecis'
 Description:    'Matlab R2017a - COECIS License'
 Version:        '9.2'
-Installer:      '%INSTALL_DIR%\setup.exe'
-FileType:       'exe'
-Arguments:      '-inputFile %INSTALL_DIR%\installer_input.txt'
-ExitCodes:      [0]
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-inputFile %INSTALL_DIR%\installer_input.txt'
+    ExitCodes:  [0]
+
+ChocoPackages: { }
 
 Applications:
     MATLAB:
@@ -12,6 +16,12 @@ Applications:
         Path:           '%PROGRAMFILES%\MATLAB\R2017a\bin\matlab.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files: { }
+
+Environment: { }
+
+ScheduledTasks: { }
 
 Registry:
     HKCC:   { }
