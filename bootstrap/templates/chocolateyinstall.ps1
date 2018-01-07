@@ -5,7 +5,7 @@ $DEFAULT_HIVE = [io.path]::combine($env:SYSTEMDRIVE, 'Users', 'Default', 'NTUSER
 $TOOLS_DIR =    $PSScriptRoot
 $CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') | ConvertFrom-Json
 $INSTALL_DIR =  Join-Path $env:TEMP $CONFIG.Id
-$S3_URI =       "https://s3.amazonaws.com/$BUCKET/packages/$($CONFIG.Id).zip"
+$S3_URI =       "https://s3.amazonaws.com/$($env:CHOCO_BUCKET)/packages/$($CONFIG.Id).zip"
 
 [Environment]::SetEnvironmentVariable('TOOLS_DIR', $TOOLS_DIR, 'PROCESS')
 [Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'PROCESS')
