@@ -58,7 +58,7 @@ $CONFIG.Registry.PSObject.Properties | ForEach-Object  {
     $regKeys.PSObject.Properties | ForEach-Object {
         $regKey = $_.Name
         $regProperties = $_.Value
-        $regKeyPath = "$hive:\$regKey"
+        $regKeyPath = "$(hive):\$regKey"
         New-Item -Path $regKeyPath -Force 
 
         $regProperties.PSObject.Properties | ForEach-Object {
