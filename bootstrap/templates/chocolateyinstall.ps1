@@ -59,13 +59,15 @@ $CONFIG.Registry.PSObject.Properties | ForEach-Object  {
         $regKey = $_.Name
         $regProperties = $_.Value
         $regKeyPath = "$(hive):\$regKey"
+
+        Write-Output "Creating Registry Key $regKeyPath"
         New-Item -Path $regKeyPath -Force 
 
         $regProperties.PSObject.Properties | ForEach-Object {
             $regProperty = $_.Name
             $regItem = $_.Value
 
-            Write-Output "Setting Registry Key $regKeyPath to $($regItem.Value)"
+            Write-Output "Setting Registry Property $regProperty to $($regItem.Value)"
             New-ItemProperty `
                 -Name $regProperty `
                 -Path $regKeyPath `
