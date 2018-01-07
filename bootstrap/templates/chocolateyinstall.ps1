@@ -37,7 +37,8 @@ $CONFIG.Registry.PSObject.Properties | ForEach-Object  {
     $hive = $_.Name
     $regKeys = $_.Value
 
-    if ($regKeys.count -eq 0) { 
+    if ($regKeys.PSObject.Properties.Count -eq 0) { 
+        Write-Output "No Registry Keys for $hive"
         continue 
     }
 
@@ -53,18 +54,18 @@ $CONFIG.Registry.PSObject.Properties | ForEach-Object  {
             -Root 'HKU:\DefaultUser'
     }
 
-    Write-Output "Setting Registry Keys for $($hive)..."
+    Write-Output "Setting Registry Keys for $hive..."
     $regKeys.PSObject.Properties | ForEach-Object {
         $regKey = $_.Name
         $regProperties = $_.Value
-        $regKeyPath = "$($hive):\$($regKey)"
+        $regKeyPath = "$hive:\$regKey"
         New-Item -Path $regKeyPath -Force 
 
-        #foreach($regProperty in $regKey.GetEnumerator()) {
         $regProperties.PSObject.Properties | ForEach-Object {
             $regProperty = $_.Name
             $regItem = $_.Value
 
+            Write-Output "Setting Registry Key $regKeyPath to $($regItem.Value)"
             New-ItemProperty `
                 -Name $regProperty `
                 -Path $regKeyPath `
