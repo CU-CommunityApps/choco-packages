@@ -1,10 +1,18 @@
 Id:             'papercut-cornell'
 Description:    'Papercut configured for Cornell'
 Version:        '17.1.2'
-Installer:      '$INSTALL_DIR\pc-client-admin-deploy.msi'
+Installer:      '%INSTALL_DIR%\pc-client-admin-deploy.msi'
 FileType:       'msi'
 Arguments:      '/qb /norestart ALLUSERS=1'
-ExitCodes:      '0'
+ExitCodes:      [0]
 
 Applications: { }
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
 

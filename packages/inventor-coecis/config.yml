@@ -1,15 +1,23 @@
 Id:             'inventor-coecis'
 Description:    'Autodesk Inventor 2018 - COECIS License'
 Version:        '22.0'
-Installer:      '$INSTALL_DIR\Img\Setup.exe'
+Installer:      '%INSTALL_DIR%\Img\Setup.exe'
 FileType:       'exe'
-Arguments:      '/qb /W /I $INSTALL_DIR\Img\inventor-coecis.ini /language en-us'
-ExitCodes:      '0,1641'
+Arguments:      '/qb /W /I %INSTALL_DIR%\Img\inventor-coecis.ini /language en-us'
+ExitCodes:      [0, 1641]
 
 Applications:
     Inventor:
         DisplayName:    'Inventor 2018'
-        Path:           'C:\Program Files\Autodesk\Inventor 2018\Bin\Inventor.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2018\Bin\Inventor.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
 

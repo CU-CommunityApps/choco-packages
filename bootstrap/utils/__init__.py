@@ -7,16 +7,7 @@ from boto3.session import Session
 from botocore.exceptions import ClientError, WaiterError
 from glob import glob
 from io import StringIO
-
-from os import (
-    chdir,
-    environ, 
-    getcwd, 
-    makedirs, 
-    path, 
-    remove,
-)
-
+from os import chdir, environ, getcwd, makedirs, path, remove
 from shutil import copyfile, copytree
 from sys import stdout, stderr
 from time import sleep
@@ -144,7 +135,11 @@ class ImageBuild(object):
         self.logger.info('Bootstrapped')
 
     def install_packages(self):
-        installOutput = '{App}{Env}AppStreamImageInstallActivity'.format(App=self.appName, Env=self.envName)
+        installOutput = '{App}{Env}AppStreamImageInstallActivity'.format(
+            App=self.appName, 
+            Env=self.envName,
+        )
+
         installActivity = self.outputs[installOutput]['value']
 
         try:
@@ -152,6 +147,7 @@ class ImageBuild(object):
                 activityArn=installActivity,
                 workerName=self.buildId,
             )
+
             self.inputParams = json.loads(task['input'])
 
         except Exception as e:
@@ -164,6 +160,7 @@ class ImageBuild(object):
         self.heartbeat.start()
 
         self.chocoTempDir = path.abspath(getcwd())
+        self.chocoLogDir = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'logs')
         self.packages = self.inputParams['packages']
 
         packageLogs = { }
@@ -173,40 +170,57 @@ class ImageBuild(object):
 
             try:
                 chdir(packageDir)
+
             except Exception as e:
                 logging.exception('BAD_PACKAGE_NAME')
                 raise ImageBuildException('BAD_PACKAGE_NAME')
-            
+
+            ##############################
+            # Create Choco Nuget Package #
+            ##############################
+
             try:
+                nugetPath = path.join(packageDir, 'nuget')
+                nugetToolsPath = path.join(nugetPath, 'tools')
+                installScriptPath = path.join(nugetToolsPath, 'chocolateyinstall.ps1')
                 packageConfigPath = path.join(packageDir, 'config.yml')
-                packageTemplatePath = path.join(self.chocoTempDir, 'choco-packages', 'bootstrap', 'templates', 'package.nuspec')
-                installTemplatePath = path.join(self.chocoTempDir, 'choco-packages', 'bootstrap', 'templates', 'chocolateyinstall.ps1')
+                packageConfigJsonPath = path.join(nugetToolsPath, 'config.json')
+
+                nuspecTemplatePath = path.join(
+                    self.chocoTempDir, 
+                    'choco-packages', 
+                    'bootstrap', 
+                    'templates', 
+                    'package.nuspec',
+                )
+
+                installTemplatePath = path.join(
+                    self.chocoTempDir, 
+                    'choco-packages', 
+                    'bootstrap', 
+                    'templates', 
+                    'chocolateyinstall.ps1',
+                )
+
+                packageNuspecPath = path.join(nugetPath, '{Package}.nuspec'.format(
+                    Package=config['Id'],
+                ))
+
+                copytree(path.join(packageDir, 'tools'), nugetToolsPath)
+                copyfile(installTemplatePath, installScriptPath)
 
                 with open(packageConfigPath, 'r') as configYaml:
                     config = yaml.load(configYaml)
 
-                with open(packageTemplatePath, 'r') as nuspecTemplateXml:
+                with open(nuspecTemplatePath, 'r') as nuspecTemplateXml:
                     nuspecTemplate = nuspecTemplateXml.read().format(
                         Package=config['Id'],
                         Version=config['Version'],
                         Description=config['Description'],
                     )
 
-                with open(installTemplatePath, 'r') as installTemplate:
-                    installCode = installTemplate.read().format(
-                        Package=config['Id'],
-                        Bucket=self.bucketName,
-                        Installer=config['Installer'],
-                        FileType=config['FileType'],
-                        Arguments=config['Arguments'],
-                        ValidCodes=config['ExitCodes'],
-                    )
-
-                nugetDir = path.join(packageDir, 'nuget')
-                nugetTools = path.join(nugetDir, 'tools')
-                copytree(path.join(packageDir, 'tools'), nugetTools)
-                packageNuspecPath = path.join(nugetDir, '{Package}.nuspec'.format(Package=config['Id']))
-                installScriptPath = path.join(nugetTools, 'chocolateyinstall.ps1')
+                with open(packageConfigJsonPath, 'w') as packageConfigJson:
+                    packageConfigJson.write(json.dumps(config)
 
                 with open(packageNuspecPath, 'w') as packageNuspec:
                     packageNuspec.write(nuspecTemplate)
@@ -217,27 +231,59 @@ class ImageBuild(object):
             except Exception as e:
                 logging.exception('BAD_PACKAGE_CONFIG')
                 raise ImageBuildException('BAD_PACKAGE_CONFIG')
-            
+
             try: 
-                choco = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'bin', 'choco.exe')
-                packCmd = '{Choco} pack {Nuspec} --out {PackageDir} -r -y'.format(Choco=choco, Nuspec=packageNuspecPath, PackageDir=packageDir)
-                installCmd = '{Choco} install {Package} -s ".;https://chocolatey.org/api/v2" --no-progress -r -y'.format(Choco=choco, Package=config['Id'])
-            
+                chocoPath = path.join(
+                    environ['ALLUSERSPROFILE'], 
+                    'chocolatey', 
+                    'bin', 
+                    'choco.exe',
+                )
+
+                packCmd = (
+                    '{Choco} pack {Nuspec} '
+                    '--out {PackageDir} '
+                    '-r -y'
+                ).format(
+                    Choco=chocoPath, 
+                    Nuspec=packageNuspecPath, 
+                    PackageDir=packageDir,
+                )
+
+                installCmd = (
+                    '{Choco} install {Package} '
+                    '-s ".;https://chocolatey.org/api/v2" '
+                    '--no-progress '
+                    '-r -y'
+                ).format(
+                    Choco=chocoPath, 
+                    Package=config['Id'],
+                )
+
                 if self.run_command(packCmd) != 0:
-                    self.logger.error('PACKAGE_PACK_ERROR')
-                    raise ImageBuildException('PACKAGE_PACK_ERROR')
+                    self.logger.error('CHOCO_PACK_ERROR')
+                    raise ImageBuildException('CHOCO_PACK_ERROR')
 
                 validExitInts = list(map(int, config['ExitCodes'].split(',')))
-                if self.run_command(installCmd) not in validExitInts:
-                    self.logger.error('PACKAGE_INSTALL_ERROR')
-                    raise ImageBuildException('PACKAGE_INSTALL_ERROR')
 
-            except ImageBuildException as e:
-                raise e
+                if self.run_command(installCmd) not in validExitInts:
+                    self.logger.error('CHOCO_INSTALL_ERROR')
+                    raise ImageBuildException('CHOCO_INSTALL_ERROR')
 
             except Exception as e:
-                logging.exception('PACKAGE_INSTALL_CRASH')
-                raise ImageBuildException('PACKAGE_INSTALL_CRASH')
+                self.heartbeat.heartbeat = False
+
+                self.sfn.send_task_failure(
+                    taskToken=task['taskToken'],
+                    error=str(e),
+                )
+
+                if isinstance(e, ImageBuildException):
+                    raise e
+
+                else:
+                    logging.exception('PACKAGE_INSTALL_CRASH')
+                    raise ImageBuildException('PACKAGE_INSTALL_CRASH')
 
             self.logger.info('Package Installed: {Package}'.format(Package=package))
             chdir(self.chocoTempDir)
@@ -341,6 +387,7 @@ class AppStreamImageBuild(ImageBuild):
                     '"{WorkDir}"'
                 ');'
             )
+
             sql = sqlite3.connect(self.appstream_catalog)
             c = sql.cursor()
 

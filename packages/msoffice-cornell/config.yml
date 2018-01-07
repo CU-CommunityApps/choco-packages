@@ -1,39 +1,47 @@
 Id:             'msoffice-cornell'
 Description:    'Microsoft Office 2016 - Cornell Site License'
 Version:        16.0
-Installer:      '$INSTALL_DIR\setup.exe'
+Installer:      '%INSTALL_DIR%\setup.exe'
 FileType:       'exe'
-Arguments:      '/adminfile $INSTALL_DIR\cu_office_config.MSP'
-ExitCodes:      '0'
+Arguments:      '/adminfile %INSTALL_DIR%\cu_office_config.MSP'
+ExitCodes:      [0]
 
 Applications:
     WINWORD:
         DisplayName:    'MS Word'
-        Path:           'C:\Program Files\Microsoft Office\Office16\WINWORD.EXE'
+        Path:           '%PROGRAMFILES%\Microsoft Office\Office16\WINWORD.EXE'
         LaunchParams:   ''
         WorkDir:        ''
 
     EXCEL:
         DisplayName:    'MS Excel'
-        Path:           'C:\Program Files\Microsoft Office\Office16\EXCEL.EXE'
+        Path:           '%PROGRAMFILES%\Microsoft Office\Office16\EXCEL.EXE'
         LaunchParams:   ''
         WorkDir:        ''
 
     MSACCESS:
         DisplayName:    'MS Access'
-        Path:           'C:\Program Files\Microsoft Office\Office16\MSACCESS.EXE'
+        Path:           '%PROGRAMFILES%\Microsoft Office\Office16\MSACCESS.EXE'
         LaunchParams:   ''
         WorkDir:        ''
 
     ONENOTE:
         DisplayName:    'MS OneNote'
-        Path:           'C:\Program Files\Microsoft Office\Office16\ONENOTE.EXE'
+        Path:           '%PROGRAMFILES%\Microsoft Office\Office16\ONENOTE.EXE'
         LaunchParams:   ''
         WorkDir:        ''
 
     POWERPNT:
         DisplayName:    'MS Powerpoint'
-        Path:           'C:\Program Files\Microsoft Office\Office16\POWERPNT.EXE'
+        Path:           '%PROGRAMFILES%\Microsoft Office\Office16\POWERPNT.EXE'
         LaunchParams:   ''
         WorkDir:        ''
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
 

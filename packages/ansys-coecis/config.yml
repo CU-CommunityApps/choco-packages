@@ -1,15 +1,23 @@
 Id:             'ansys-coecis'
 Description:    'ANSYS - COECIS License'
 Version:        '18.1'
-Installer:      '$INSTALL_DIR\setup.exe'
+Installer:      '%INSTALL_DIR%\setup.exe'
 FileType:       'exe'
 Arguments:      '-silent -licserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
-ExitCodes:      '0'
+ExitCodes:      [0]
 
 Applications:
     ANSYSWB:
         DisplayName:    'ANSYS Workbench 18.1'
-        Path:           'C:\Program Files\ANSYS Inc\v181\Framework\bin\Win64\RunWB2.exe'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v181\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
 
