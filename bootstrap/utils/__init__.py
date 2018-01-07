@@ -225,9 +225,6 @@ class ImageBuild(object):
                 with open(packageNuspecPath, 'w') as packageNuspec:
                     packageNuspec.write(nuspecTemplate)
 
-                with open(installScriptPath, 'w') as installScript:
-                    installScript.write(installCode)
-
             except Exception as e:
                 logging.exception('BAD_PACKAGE_CONFIG')
                 raise ImageBuildException('BAD_PACKAGE_CONFIG')
