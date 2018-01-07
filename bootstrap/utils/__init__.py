@@ -202,15 +202,15 @@ class ImageBuild(object):
                     'chocolateyinstall.ps1',
                 )
 
-                packageNuspecPath = path.join(nugetPath, '{Package}.nuspec'.format(
-                    Package=config['Id'],
-                ))
-
                 copytree(path.join(packageDir, 'tools'), nugetToolsPath)
                 copyfile(installTemplatePath, installScriptPath)
 
                 with open(packageConfigPath, 'r') as configYaml:
                     config = yaml.load(configYaml)
+
+                packageNuspecPath = path.join(nugetPath, '{Package}.nuspec'.format(
+                    Package=config['Id'],
+                ))
 
                 with open(nuspecTemplatePath, 'r') as nuspecTemplateXml:
                     nuspecTemplate = nuspecTemplateXml.read().format(

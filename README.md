@@ -2,5 +2,5 @@
 
 To run bootstrap:
 
-    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/bootstrap/bootstrap.ps1'))
+    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/marty-sullivan/choco-packages/master/bootstrap/bootstrap.ps1'))
 
