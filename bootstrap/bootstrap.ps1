@@ -5,9 +5,11 @@ $PACKAGES =     [io.path]::combine($BOOTSTRAP, 'choco-packages')
 $CHOCO =        [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
 $PSEXEC =       [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'PsExec.exe')
 $GIT =          [io.path]::combine($env:PROGRAMFILES, 'Git', 'bin', 'git.exe')
-$PYTHON =       [io.path]::combine($env:SYSTEMDRIVE, 'Python36', 'python.exe')
-$PIP =          [io.path]::combine($env:SYSTEMDRIVE, 'Python36', 'Scripts', 'pip.exe')
+
 $PYBOOTSTRAP =  [io.path]::combine($BOOTSTRAP, 'choco-packages', 'bootstrap', 'bootstrap.py')
+$PYDIR =        Join-Path $env:SYSTEMDRIVE 'Python36'
+$PYTHON =       Join-Path $PYDIR 'python.exe'
+$PIP =          [io.path]::combine($PYDIR, 'Scripts', 'pip.exe')
 
 $REPO =         'https://github.com/CU-CommunityApps/choco-packages.git'
 $PREREQS =      'git sysinternals'
