@@ -1,7 +1,8 @@
 $ErrorActionPreference = "Stop"
 
 $REG =          [io.path]::combine($env:SYSTEMROOT, 'System32', 'reg.exe')
-$DEFAULT_HIVE = [io.path]::combine($env:SYSTEMDRIVE, 'Users', 'Default', 'NTUSER.DAT')
+$USER_DIR       Join-Path $env:SYSTEMDRIVE 'Users'
+$DEFAULT_HIVE = [io.path]::combine($USER_DIR, 'Default', 'NTUSER.DAT')
 $TOOLS_DIR =    $PSScriptRoot
 $CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') | ConvertFrom-Json
 $INSTALL_DIR =  Join-Path $env:TEMP $CONFIG.Id
@@ -33,12 +34,12 @@ $packageArgs = @{
 Write-Output "Installing $($CONFIG.Id) With Args: $($packageArgs | Out-String)"
 Install-ChocolateyInstallPackage @packageArgs
 
-$CONFIG.Registry.PSObject.Properties | ForEach-Object  {
-    $hive = $_.Name
-    $regKeys = $_.Value
+$hives = ($CONFIG.Registry | Get-Member -MemberType NoteProperty).Name
+foreach ($hive in $hives){
+    $regKeys = ($CONFIG.Registry.$hive | Get-Member -MemberType NoteProperty).Name
 
-    if ($regKeys.PSObject.Properties.Count -eq 0) { 
-        Write-Output "No Registry Keys for $hive"
+    if ($regKeys.Count -eq 0) { 
+        Write-Output "No Registry Keys to set for $hive"
         continue 
     }
 
@@ -55,17 +56,15 @@ $CONFIG.Registry.PSObject.Properties | ForEach-Object  {
     }
 
     Write-Output "Setting Registry Keys for $hive..."
-    $regKeys.PSObject.Properties | ForEach-Object {
-        $regKey = $_.Name
-        $regProperties = $_.Value
-        $regKeyPath = "$(hive):\$regKey"
+    foreach ($regKey in $regKeys) {
+        $regProperties = ($CONFIG.Registry.$hive.$regKey | Get-Member -MemberType NoteProperty).Name
+        $regKeyPath = "$($hive):\$regKey"
 
         Write-Output "Creating Registry Key $regKeyPath"
         New-Item -Path $regKeyPath -Force 
 
-        $regProperties.PSObject.Properties | ForEach-Object {
-            $regProperty = $_.Name
-            $regItem = $_.Value
+        foreach ($regProperty in $regProperties) {
+            $regItem = $CONFIG.Registry.$hive.$regKey.$regProperty
 
             Write-Output "Setting Registry Property $regProperty to $($regItem.Value)"
             New-ItemProperty `
