@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 
 $REG =          [io.path]::combine($env:SYSTEMROOT, 'System32', 'reg.exe')
-$DEFAULT_HIVE   [io.path]::combine($env:SYSTEMDRIVE, 'Users', 'Default', 'NTUSER.DAT')
+$DEFAULT_HIVE = [io.path]::combine($env:SYSTEMDRIVE, 'Users', 'Default', 'NTUSER.DAT')
 $TOOLS_DIR =    $PSScriptRoot
 $CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') | ConvertFrom-Json
 $INSTALL_DIR =  Join-Path $env:TEMP $CONFIG.Id
