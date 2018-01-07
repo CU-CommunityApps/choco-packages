@@ -33,14 +33,15 @@ $packageArgs = @{
 Write-Output "Installing $($CONFIG.Id) With Args: $($packageArgs | Out-String)"
 Install-ChocolateyInstallPackage @packageArgs
 
-foreach ($hive in $CONFIG.Registry.GetEnumerator()) {
-    $regKeys = $hive.Value
+$CONFIG.Registry.PSObject.Properties | ForEach-Object  {
+    $hive = $_.Name
+    $regKeys = $_.Value
 
     if ($regKeys.count -eq 0) { 
         continue 
     }
 
-    if ($hive.Name -eq 'HKUD') {
+    if ($hive -eq 'HKUD') {
         Start-Process `
             -ArgumentList "LOAD HKU\DefaultUser $DEFAULT_HIVE" `
             -FilePath $REG `
@@ -52,16 +53,20 @@ foreach ($hive in $CONFIG.Registry.GetEnumerator()) {
             -Root 'HKU:\DefaultUser'
     }
 
-    Write-Output "Setting Registry Keys for $($hive.Name)..."
-    foreach ($regKey in $regKeys.GetEnumerator()) {
-        $regKeyPath = "$($hive.Name):\$($regKey.Name)"
+    Write-Output "Setting Registry Keys for $($hive)..."
+    $regKeys.PSObject.Properties | ForEach-Object {
+        $regKey = $_.Name
+        $regProperties = $_.Value
+        $regKeyPath = "$($hive):\$($regKey)"
         New-Item -Path $regKeyPath -Force 
 
-        foreach($regProperty in $regKey.GetEnumerator()) {
-            $regItem = $regProperty.Value
+        #foreach($regProperty in $regKey.GetEnumerator()) {
+        $regProperties.PSObject.Properties | ForEach-Object {
+            $regProperty = $_.Name
+            $regItem = $_.Value
 
             New-ItemProperty `
-                -Name $regProperty.Name `
+                -Name $regProperty `
                 -Path $regKeyPath `
                 -PropertyType $regItem.Type `
                 -Value $regItem.Value `
@@ -69,7 +74,7 @@ foreach ($hive in $CONFIG.Registry.GetEnumerator()) {
         }
     }
 
-    if ($hive.Name -eq 'HKUD') {
+    if ($hive -eq 'HKUD') {
         Start-Process `
             -FilePath $REG `
             -ArgumentList "UNLOAD HKU\DefaultUser" `
