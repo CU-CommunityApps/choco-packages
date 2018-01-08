@@ -1,5 +1,9 @@
 $ErrorActionPreference = "Stop"
 
+if (-Not (Test-Path env:CHOCO_INSTALLED_PACKAGES)) {
+    [Environment]::SetEnvironmentVariable('CHOCO_INSTALLED_PACKAGES', 'choco', 'Machine')
+}
+
 $CHOCO =        [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
 $REG =          [io.path]::combine($env:SYSTEMROOT, 'System32', 'reg.exe')
 $USER_DIR =     Join-Path $env:SYSTEMDRIVE 'Users'
@@ -9,6 +13,12 @@ $TOOLS_DIR =    $PSScriptRoot
 $CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') | ConvertFrom-Json
 $INSTALL_DIR =  Join-Path $env:TEMP $CONFIG.Id
 $S3_URI =       "https://s3.amazonaws.com/$($env:CHOCO_BUCKET)/packages/$($CONFIG.Id).zip"
+
+$INSTALLED = $env:CHOCO_INSTALLED_PACKAGES.Split(';')
+if ($INSTALLED.Contains($CONFIG.Id)) {
+    Write-Output "$($CONFIG.Id) Already Installed"
+    Exit
+}
 
 [Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'PROCESS')
 [Environment]::SetEnvironmentVariable('TOOLS_DIR', $TOOLS_DIR, 'PROCESS')
@@ -157,6 +167,10 @@ if (Test-Path $INSTALL_DIR) {
     Write-Output "Removing Installer Files..."
     Remove-Item -Recurse -Force $INSTALL_DIR
 }
+
+$INSTALLED += $CONFIG.Id
+$INSTALLED = $INSTALLED -Join ';'
+[Environment]::SetEnvironmentVariable('CHOCO_INSTALLED_PACKAGES', $INSTALLED, 'Machine')
 
 Write-Output "$($CONFIG.Id) Install Complete!"
 

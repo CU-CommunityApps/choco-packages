@@ -1,5 +1,9 @@
 # Cornell Chocolatey Framework Bootstrap Entry
 
+if (Test-Path env:CHOCO_INSTALL_COMPLETE) {
+    Exit
+}
+
 $BOOTSTRAP =    [io.path]::combine($env:SYSTEMROOT, 'Temp', 'choco-bootstrap')
 $PACKAGES =     [io.path]::combine($BOOTSTRAP, 'choco-packages')
 $CHOCO =        [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
@@ -50,4 +54,6 @@ Start-Process `
     -FilePath $PSEXEC `
     -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP" `
     -NoNewWindow -Wait 
+
+[Environment]::SetEnvironmentVariable('CHOCO_INSTALL_COMPLETE', '1', 'Machine')
 

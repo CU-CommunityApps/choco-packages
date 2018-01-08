@@ -17,7 +17,7 @@ try:
 except Exception as e:
     logging.exception('Build Exception:')
 
-with open('C:\\quicklog.log', 'w') as quicklog:
+with open('C:\\quicklog.log', 'a') as quicklog:
     builder.logString.seek(0)
     quicklog.write(builder.logString.read())
 
