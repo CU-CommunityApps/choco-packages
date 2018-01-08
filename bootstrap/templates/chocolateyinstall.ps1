@@ -48,6 +48,41 @@ if ($install) {
     Install-ChocolateyInstallPackage @packageArgs
 }
 
+if (!Test-Path 'HKCC:\') {
+    New-PSDrive `
+        -Name 'HKCC' `
+        -PSProvider 'Registry' `
+        -Root 'HKEY_CURRENT_CONFIG'
+}
+
+if (!Test-Path 'HKCR:\') {
+    New-PSDrive `
+        -Name 'HKCR' `
+        -PSProvider 'Registry' `
+        -Root 'HKEY_CLASSES_ROOT'
+}
+
+if (!Test-Path 'HKCU:\') {
+    New-PSDrive `
+        -Name 'HKCR' `
+        -PSProvider 'Registry' `
+        -Root 'HKEY_CURRENT_USER'
+}
+
+if (!Test-Path 'HKLM:\') {
+    New-PSDrive `
+        -Name 'HKLM' `
+        -PSProvider 'Registry' `
+        -Root 'HKEY_LOCAL_MACHINE'
+}
+
+if (!Test-Path 'HKU:\') {
+    New-PSDrive `
+        -Name 'HKU' `
+        -PSProvider 'Registry' `
+        -Root 'HKEY_USERS'
+}
+
 $hives = ($CONFIG.Registry | Get-Member -MemberType NoteProperty).Name
 foreach ($hive in $hives) {
     $regKeys = ($CONFIG.Registry.$hive | Get-Member -MemberType NoteProperty).Name
@@ -63,10 +98,12 @@ foreach ($hive in $hives) {
             -FilePath $REG `
             -NoNewWindow -Wait 
 
-        New-PSDrive `
-            -Name 'HKUD' `
-            -PSProvider 'Registry' `
-            -Root 'HKU:\DefaultUser'
+        if (!Test-Path 'HKUD:\') {
+            New-PSDrive `
+                -Name 'HKUD' `
+                -PSProvider 'Registry' `
+                -Root 'HKU:\DefaultUser'
+        }
     }
 
     Write-Output "Setting Registry Keys for $hive..."
