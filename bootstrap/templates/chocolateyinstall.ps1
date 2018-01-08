@@ -153,8 +153,10 @@ foreach ($scheduledTask in $CONFIG.ScheduledTasks) {
 Write-Output "Running postinstall.ps1..."
 Invoke-Expression $(Join-Path $TOOLS_DIR 'postinstall.ps1')
 
-Write-Output "Removing Installer Files..."
-Remove-Item -Recurse -Force $INSTALL_DIR
+if (Test-Path $INSTALL_DIR) {
+    Write-Output "Removing Installer Files..."
+    Remove-Item -Recurse -Force $INSTALL_DIR
+}
 
-Write-Output "Install Complete!"
+Write-Output "$($CONFIG.Id) Install Complete!"
 
