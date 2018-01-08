@@ -262,6 +262,8 @@ class ImageBuild(object):
                     self.logger.error('CHOCO_PACK_ERROR')
                     raise ImageBuildException('CHOCO_PACK_ERROR')
 
+                self.run_command(installCmd)
+
                 #if self.run_command(installCmd) not in config['ExitCodes']:
                 #    self.logger.error('CHOCO_INSTALL_ERROR')
                 #    raise ImageBuildException('CHOCO_INSTALL_ERROR')
