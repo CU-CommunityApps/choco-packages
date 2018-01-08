@@ -48,35 +48,35 @@ if ($install) {
     Install-ChocolateyInstallPackage @packageArgs
 }
 
-if (!Test-Path 'HKCC:\') {
+if (-Not (Test-Path 'HKCC:\')) {
     New-PSDrive `
         -Name 'HKCC' `
         -PSProvider 'Registry' `
         -Root 'HKEY_CURRENT_CONFIG'
 }
 
-if (!Test-Path 'HKCR:\') {
+if (-Not (Test-Path 'HKCR:\')) {
     New-PSDrive `
         -Name 'HKCR' `
         -PSProvider 'Registry' `
         -Root 'HKEY_CLASSES_ROOT'
 }
 
-if (!Test-Path 'HKCU:\') {
+if (-Not (Test-Path 'HKCU:\')) {
     New-PSDrive `
         -Name 'HKCR' `
         -PSProvider 'Registry' `
         -Root 'HKEY_CURRENT_USER'
 }
 
-if (!Test-Path 'HKLM:\') {
+if (-Not (Test-Path 'HKLM:\')) {
     New-PSDrive `
         -Name 'HKLM' `
         -PSProvider 'Registry' `
         -Root 'HKEY_LOCAL_MACHINE'
 }
 
-if (!Test-Path 'HKU:\') {
+if (-Not (Test-Path 'HKU:\')) {
     New-PSDrive `
         -Name 'HKU' `
         -PSProvider 'Registry' `
@@ -98,7 +98,7 @@ foreach ($hive in $hives) {
             -FilePath $REG `
             -NoNewWindow -Wait 
 
-        if (!Test-Path 'HKUD:\') {
+        if (-Not (Test-Path 'HKUD:\')) {
             New-PSDrive `
                 -Name 'HKUD' `
                 -PSProvider 'Registry' `
