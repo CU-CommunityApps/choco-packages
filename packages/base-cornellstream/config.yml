@@ -12,7 +12,7 @@ ChocoPackages:
 Applications:
     7zip:
         DisplayName:    '7-Zip'
-        Path:           '%PROGRAMFILES\7-Zip\7zFM.exe'
+        Path:           '%PROGRAMFILES%\7-Zip\7zFM.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
