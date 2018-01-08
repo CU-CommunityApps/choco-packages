@@ -39,7 +39,7 @@ Files: { }
 
 Environment: { }
 
-ScheduledTasks: { }
+ScheduledTasks: []
 
 Registry:
     HKCC:   { }

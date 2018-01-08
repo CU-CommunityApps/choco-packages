@@ -22,7 +22,7 @@ Files: { }
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
 
-ScheduledTasks: { }
+ScheduledTasks: []
 
 Registry:
     HKCC:   { }

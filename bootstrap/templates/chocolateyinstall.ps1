@@ -33,7 +33,7 @@ if ($install) {
         -UnzipLocation $INSTALL_DIR `
         -Url $S3_URI 
 
-    $installerFile =    [Environment]::ExpandEnvironmentVariables($install.Installer)
+    $installerFile =    [Environment]::ExpandEnvironmentVariables($install.File)
     $silentArgs =       [Environment]::ExpandEnvironmentVariables($install.Arguments)
 
     $packageArgs = @{
