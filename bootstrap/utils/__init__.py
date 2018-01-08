@@ -390,9 +390,22 @@ class AppStreamImageBuild(ImageBuild):
             c = sql.cursor()
 
             for package in self.packages:
-                packageDir = path.join(self.chocoTempDir, 'choco-packages', 'packages', package)
+                packageDir = path.join(
+                    self.chocoTempDir, 
+                    'choco-packages', 
+                    'packages', 
+                    package,
+                )
+
                 packageConfigPath = path.join(packageDir, 'config.yml')
-                iconDir = path.join(environ['ALLUSERSPROFILE'], 'Amazon', 'Photon', 'AppCatalogHelper', 'AppIcons')
+
+                iconDir = path.join(
+                    environ['ALLUSERSPROFILE'], 
+                    'Amazon', 
+                    'Photon', 
+                    'AppCatalogHelper', 
+                    'AppIcons',
+                )
 
                 with open(packageConfigPath, 'r') as configYaml:
                     config = yaml.load(configYaml)
@@ -405,11 +418,11 @@ class AppStreamImageBuild(ImageBuild):
 
                     c.execute(appSql.format(
                         Id=app,
-                        Path=appConfig['Path'],
+                        Path=path.expandvars(appConfig['Path']),
                         DisplayName=appConfig['DisplayName'],
                         IconPath=appstreamIcon,
-                        LaunchParams=appConfig['LaunchParams'],
-                        WorkDir=appConfig['WorkDir'],
+                        LaunchParams=path.expandvars(appConfig['LaunchParams']),
+                        WorkDir=path.expandvars(appConfig['WorkDir']),
                     ))
 
             sql.commit()
