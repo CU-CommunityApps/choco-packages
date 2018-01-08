@@ -1,7 +1,8 @@
 $ErrorActionPreference = "Stop"
 
 if (-Not (Test-Path env:CHOCO_INSTALLED_PACKAGES)) {
-    [Environment]::SetEnvironmentVariable('CHOCO_INSTALLED_PACKAGES', 'choco', 'Machine')
+    Write-Output "Creating CHOCO_INSTALLED_PACKAGES Environment Variable"
+    $env:CHOCO_INSTALLED_PACKAGES = 'choco'
 }
 
 $CHOCO =        [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
