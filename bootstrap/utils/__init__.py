@@ -175,7 +175,7 @@ class ImageBuild(object):
 
         self.chocoTempDir = path.abspath(getcwd())
         self.chocoLogDir = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'logs')
-        self.packages = self.inputParams['packages']
+        self.packages = self.inputParams['Packages']
         environ['CHOCO_BUCKET'] = self.bucketName
 
         packageLogs = { }
