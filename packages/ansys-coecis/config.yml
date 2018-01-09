@@ -8,7 +8,7 @@ Install:
     Arguments:  '-silent -licserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
     ExitCodes:  [0]
 
-ChocoPackages: { }
+ChocoPackages: []
 
 Applications:
     ANSYSWB:

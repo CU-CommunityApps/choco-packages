@@ -8,7 +8,7 @@ Install:
     Arguments:  '/adminfile %INSTALL_DIR%\cu_office_config.MSP'
     ExitCodes:  [0]
 
-ChocoPackages: { }
+ChocoPackages: []
 
 Applications:
     WINWORD:

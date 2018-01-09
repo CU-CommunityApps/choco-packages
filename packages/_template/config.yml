@@ -9,8 +9,7 @@ Install:
     ExitCodes:  [0]
 
 ChocoPackages:
-    choco-package:
-        Version: '1.0.0'
+    - 'achocopackagename'
 
 Applications:
     MyPackage:

@@ -8,7 +8,7 @@ Install:
     Arguments:  '-inputFile %INSTALL_DIR%\installer_input.txt'
     ExitCodes:  [0]
 
-ChocoPackages: { }
+ChocoPackages: []
 
 Applications:
     MATLAB:

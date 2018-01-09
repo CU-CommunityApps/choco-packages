@@ -8,7 +8,7 @@ Install:
     Arguments:  '/install /showui /now'
     ExitCodes:  [0]
 
-ChocoPackages: { }
+ChocoPackages: []
 
 Applications:
     SLDWORKS:

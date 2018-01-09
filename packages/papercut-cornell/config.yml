@@ -8,7 +8,7 @@ Install:
     Arguments:  '/qb /norestart ALLUSERS=1'
     ExitCodes:  [0]
 
-ChocoPackages: { }
+ChocoPackages: []
 
 Applications: { }
 

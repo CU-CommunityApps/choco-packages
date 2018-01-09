@@ -8,7 +8,7 @@ Install:
     Arguments:  '/qb /W /I %INSTALL_DIR%\Img\inventor-coecis.ini /language en-us'
     ExitCodes:  [0, 1641]
 
-ChocoPackages: { }
+ChocoPackages: []
 
 Applications:
     Inventor:
