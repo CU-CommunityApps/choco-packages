@@ -45,7 +45,10 @@ class ImageBuild(object):
 
     def get_stack_outputs(self):
         cfn = self.aws.resource('cloudformation')
-        stack = cfn.Stack('{App}{Env}Serverless'.format(App=self.appName, Env=self.envName))
+        stack = cfn.Stack('{App}{Env}Serverless'.format(
+            App=self.appName, 
+            Env=self.envName,
+        ))
 
         outputs = { }
         for output in stack.outputs:
@@ -58,7 +61,10 @@ class ImageBuild(object):
 
     def init_federated_session(self):
         try:
-            sessionPath = 'https://s3.amazonaws.com/{Bucket}/builds/{BuildId}/federated-session.json'.format(Bucket=self.bucketName, BuildId=self.buildId)
+            sessionPath = 'https://s3.amazonaws.com/{Bucket}/builds/{BuildId}/federated-session.json'.format(
+                Bucket=self.bucketName, 
+                BuildId=self.buildId
+            )
 
             self.logger.info('Downloading Session Credentials: {Path}'.format(Path=sessionPath))
             self.sessionInfo = json.load(urlopen(sessionPath))
@@ -77,6 +83,7 @@ class ImageBuild(object):
 
         try:
             self.outputs = self.get_stack_outputs()
+
         except Exception as e:
             logging.exception('BAD_CREDENTIALS')
             raise ImageBuildException('BAD_CREDENTIALS')
@@ -90,15 +97,17 @@ class ImageBuild(object):
         self.logger.info(out.decode('ascii'))
         if len(error) > 0:
             self.logger.warning(error.decode('ascii'))
-        
+
         return p.returncode
 
     def heartbeat(self, taskToken):
         t = currentThread()
         self.logger.info('Heartbeat Starting')
+
         while getattr(t, 'heartbeat', True):
             try:
                 self.sfn.send_task_heartbeat(taskToken=taskToken)
+
             except Exception as e:
                 self.logger.error(e)
                 logging.exception('HEARTBEAT_ERROR')
@@ -109,7 +118,12 @@ class ImageBuild(object):
         
     def bootstrap(self):
         self.sfn = self.aws.client('stepfunctions')
-        bootstrapOutput = '{App}{Env}AppStreamImageBootstrapActivity'.format(App=self.appName, Env=self.envName)
+
+        bootstrapOutput = '{App}{Env}AppStreamImageBootstrapActivity'.format(
+            App=self.appName, 
+            Env=self.envName,
+        )
+
         bootstrapActivity = self.outputs[bootstrapOutput]['value']
 
         try: 
@@ -315,6 +329,7 @@ class AppStreamImageBuild(ImageBuild):
         try:
             self.logger.info('Getting System User-Data')
             self.user_data = json.load(urlopen('http://169.254.169.254/latest/user-data'))
+
         except Exception as e:
             logging.exception('NO_USER_DATA')
             raise ImageBuildException('NO_USER_DATA')
@@ -328,16 +343,26 @@ class AppStreamImageBuild(ImageBuild):
         self.account = self.arn[4]
         builderName = self.arn[5].replace('image-builder/', '').split('.')
 
-        if len(builderName) != 4:
+        if len(builderName) != 3:
             raise ImageBuildException('BAD_APPSTREAM_IMAGE_BUILDER_NAME')
 
-        self.buildId = builderName[0]
-        self.appName = builderName[1]
-        self.envName = builderName[2]
-        self.bucketName = builderName[3]
+        self.appName = builderName[0]
+        self.envName = builderName[1]
+        self.buildId = builderName[2]
+
+        self.bucketName = '{App}-{Env}-adminimages'.format(
+            App=self.appName.lower(),
+            Env=self.envName.lower(),
+        )
 
     def init_appstream_catalog(self):
-        self.appstream_catalog = path.join(environ['ALLUSERSPROFILE'], 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
+        self.appstream_catalog = path.join(
+            environ['ALLUSERSPROFILE'], 
+            'Amazon', 
+            'Photon', 
+            'PhotonAppCatalog.sqlite',
+        )
+
         catalog_sql = (
             'CREATE TABLE Applications ('
                 'Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY,' 
@@ -350,6 +375,7 @@ class AppStreamImageBuild(ImageBuild):
         )
 
         makedirs(path.dirname(self.appstream_catalog), exist_ok=True)
+
         if path.exists(self.appstream_catalog):
             self.logger.warning('Removing Existing AppStream Catalog')
             remove(self.appstream_catalog)
