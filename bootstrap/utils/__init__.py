@@ -114,10 +114,10 @@ class ImageBuild(object):
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, error = p.communicate()
 
-        self.logger.info(out.decode('ascii').replace('\r\n', '\n')
+        self.logger.info(out.decode('ascii').replace('\r\n', '\n'))
 
         if len(error) > 0:
-            self.logger.warning(error.decode('ascii').replace('\r\n', '\n')
+            self.logger.warning(error.decode('ascii').replace('\r\n', '\n'))
 
         return p.returncode
 
