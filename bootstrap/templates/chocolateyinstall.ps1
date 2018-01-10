@@ -29,7 +29,7 @@ foreach ($chocoPackage in $CONFIG.ChocoPackages) {
     Write-Output "Installing Choco Package $chocoPackage"
 
     Start-Process `
-        -FilePath $CHOCO `
+        -FilePath "$CHOCO" `
         -ArgumentList "install $chocoPackage --no-progress -r -y" `
         -NoNewWindow -Wait
 }
@@ -38,9 +38,9 @@ $install = $CONFIG.Install
 if ($install) {
     Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
     Install-ChocolateyZipPackage `
-        -PackageName $CONFIG.Id `
-        -UnzipLocation $INSTALL_DIR `
-        -Url $S3_URI 
+        -PackageName "$($CONFIG.Id)" `
+        -UnzipLocation "$INSTALL_DIR" `
+        -Url "$S3_URI" 
 
     Write-Output        "Running preinstall.ps1..."
     Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
@@ -49,11 +49,11 @@ if ($install) {
     $silentArgs =       [Environment]::ExpandEnvironmentVariables($install.Arguments)
 
     $packageArgs = @{
-        packageName=$CONFIG.Id
-        fileType=$install.FileType
-        file=$installerFile
-        silentArgs=$silentArgs
-        validExitCodes=$install.ExitCodes
+        packageName="$($CONFIG.Id)"
+        fileType="$($install.FileType)"
+        file="$installerFile"
+        silentArgs="$silentArgs"
+        validExitCodes="$($install.ExitCodes)"
     }
 
     Write-Output "Installing $($CONFIG.Id) With Args: $($packageArgs | Out-String)"
@@ -61,7 +61,7 @@ if ($install) {
 }
 else {
     Write-Output        "Running preinstall.ps1..."
-    Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
+    Invoke-Expression   $(Join-Path "$TOOLS_DIR" 'preinstall.ps1')
 }
 
 if (-Not (Test-Path 'HKCC:\')) {
@@ -111,7 +111,7 @@ foreach ($hive in $hives) {
     if ($hive -eq 'HKUD') {
         Start-Process `
             -ArgumentList "LOAD HKU\DefaultUser $DEFAULT_HIVE" `
-            -FilePath $REG `
+            -FilePath "$REG" `
             -NoNewWindow -Wait 
 
         if (-Not (Test-Path 'HKUD:\')) {
@@ -128,24 +128,24 @@ foreach ($hive in $hives) {
         $regKeyPath = "$($hive):\$regKey"
 
         Write-Output "Creating Registry Key $regKeyPath"
-        New-Item -Path $regKeyPath -Force 
+        New-Item -Path "$regKeyPath" -Force 
 
         foreach ($regProperty in $regProperties) {
             $regItem = $CONFIG.Registry.$hive.$regKey.$regProperty
 
             Write-Output "Setting Registry Property $regProperty to $($regItem.Value)"
             New-ItemProperty `
-                -Name $regProperty `
-                -Path $regKeyPath `
-                -PropertyType $regItem.Type `
-                -Value $regItem.Value `
+                -Name "$regProperty" `
+                -Path "$regKeyPath" `
+                -PropertyType "$($regItem.Type)" `
+                -Value "$($regItem.Value)" `
                 -Force
         }
     }
 
     if ($hive -eq 'HKUD') {
         Start-Process `
-            -FilePath $REG `
+            -FilePath "$REG" `
             -ArgumentList "UNLOAD HKU\DefaultUser" `
             -NoNewWindow -Wait 
     }
@@ -161,28 +161,28 @@ $services = ($CONFIG.Services | Get-Member -MemberType NoteProperty).Name
 foreach ($service in $services) {
     Write-Output "Setting Service $service to Startup Type $($CONFIG.Services.$service)"
     Set-Service `
-        -Name $service `
-        -StartupType $CONFIG.Services.$service
+        -Name "$service" `
+        -StartupType "$($CONFIG.Services.$service)"
 }
 
 foreach ($scheduledTask in $CONFIG.ScheduledTasks) {
     Write-Output "Creating Scheduled Task $scheduledTask"
 
-    $taskConfig = Join-Path $TOOLS_DIR "$($scheduledTask).xml"
+    $taskConfig = Join-Path "$TOOLS_DIR" "$($scheduledTask).xml"
     Register-ScheduledTask `
-        -TaskName $scheduledTask `
-        -Xml (Get-Content $taskConfig | Out-String)
+        -TaskName "$scheduledTask" `
+        -Xml (Get-Content "$taskConfig" | Out-String)
 }
 
 Write-Output "Running postinstall.ps1..."
-Invoke-Expression $(Join-Path $TOOLS_DIR 'postinstall.ps1')
+Invoke-Expression $(Join-Path "$TOOLS_DIR" 'postinstall.ps1')
 
 Write-Output "Removing any startup files"
-Remove-Item -Recurse -Force $STARTUP
+Remove-Item -Recurse -Force "$STARTUP"
 
 if (Test-Path $INSTALL_DIR) {
     Write-Output "Removing Installer Files..."
-    Remove-Item -Recurse -Force $INSTALL_DIR
+    Remove-Item -Recurse -Force "$INSTALL_DIR"
 }
 
 $INSTALLED += $CONFIG.Id

@@ -33,6 +33,26 @@ class ImageBuild(object):
         logging.getLogger('boto3').propagate = False
         logging.getLogger('botocore').propagate = False
 
+    def save_logs(self):
+        s3 = self.aws.resource('s3')
+        logPath = path.join(environ['ALLUSERSPROFILE'], 'choco-packages.log')
+
+        with open(logPath, 'a') as quicklog:
+            builder.logString.seek(0)
+            quicklog.write(builder.logString.read())
+
+        with open(logPath, 'r') as quicklog:
+            s3LogPath = 'builds/{Build}/choco-packages.log'.format(
+                Build=self.buildId,
+            )
+
+            s3Log = s3.Object(self.bucket_name, s3LogPath)
+
+            s3Log.put(
+                Body=quicklog,
+                ContentType='text/plain',
+            )
+
     def create_log_stream(self):
         logString = StringIO()
         formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
@@ -94,9 +114,10 @@ class ImageBuild(object):
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, error = p.communicate()
 
-        self.logger.info(out.decode('ascii'))
+        self.logger.info(out.decode('ascii').replace('\r\n', '\n')
+
         if len(error) > 0:
-            self.logger.warning(error.decode('ascii'))
+            self.logger.warning(error.decode('ascii').replace('\r\n', '\n')
 
         return p.returncode
 

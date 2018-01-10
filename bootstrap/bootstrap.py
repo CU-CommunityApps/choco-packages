@@ -1,4 +1,5 @@
 import logging
+from os import environ, path
 from utils import *
 
 try:
@@ -16,8 +17,4 @@ try:
 
 except Exception as e:
     logging.exception('Build Exception:')
-
-with open('C:\\quicklog.log', 'a') as quicklog:
-    builder.logString.seek(0)
-    quicklog.write(builder.logString.read())
 
