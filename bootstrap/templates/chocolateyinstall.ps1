@@ -33,9 +33,6 @@ foreach ($chocoPackage in $CONFIG.ChocoPackages) {
         -NoNewWindow -Wait
 }
 
-Write-Output        "Running preinstall.ps1..."
-Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
-
 $install = $CONFIG.Install
 if ($install) {
     Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
@@ -43,6 +40,9 @@ if ($install) {
         -PackageName $CONFIG.Id `
         -UnzipLocation $INSTALL_DIR `
         -Url $S3_URI 
+
+    Write-Output        "Running preinstall.ps1..."
+    Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
 
     $installerFile =    [Environment]::ExpandEnvironmentVariables($install.File)
     $silentArgs =       [Environment]::ExpandEnvironmentVariables($install.Arguments)
@@ -57,6 +57,10 @@ if ($install) {
 
     Write-Output "Installing $($CONFIG.Id) With Args: $($packageArgs | Out-String)"
     Install-ChocolateyInstallPackage @packageArgs
+}
+else {
+    Write-Output        "Running preinstall.ps1..."
+    Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
 }
 
 if (-Not (Test-Path 'HKCC:\')) {
