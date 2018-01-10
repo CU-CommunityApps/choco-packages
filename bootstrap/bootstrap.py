@@ -18,3 +18,5 @@ try:
 except Exception as e:
     logging.exception('Build Exception:')
 
+finally:
+    builder.save_logs()
