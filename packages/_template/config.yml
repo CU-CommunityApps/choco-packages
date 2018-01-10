@@ -24,6 +24,8 @@ Files:
 Environment:
     MY_ENVIRONMENT_VARIABLE: 'My Environment Value'
 
+Services: { }
+
 ScheduledTasks:
     - 'MyScheduledTask'
 

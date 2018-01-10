@@ -9,6 +9,7 @@ $CHOCO =        [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'c
 $REG =          [io.path]::combine($env:SYSTEMROOT, 'System32', 'reg.exe')
 $USER_DIR =     Join-Path $env:SYSTEMDRIVE 'Users'
 $DEFAULT_HIVE = [io.path]::combine($USER_DIR, 'Default', 'NTUSER.DAT')
+$STARTUP =      [io.path]::combine($env:ALLUSERSPROFILE, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'StartUp', '*')
 
 $TOOLS_DIR =    $PSScriptRoot
 $CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') | ConvertFrom-Json
@@ -156,6 +157,14 @@ foreach ($envVar in $envVars) {
     [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
 }
 
+$services = ($CONFIG.Services | Get-Member -MemberType NoteProperty).Name
+foreach ($service in $services) {
+    Write-Output "Setting Service $service to Startup Type $($CONFIG.Services.$service)"
+    Set-Service `
+        -Name $service `
+        -StartupType $CONFIG.Services.$service
+}
+
 foreach ($scheduledTask in $CONFIG.ScheduledTasks) {
     Write-Output "Creating Scheduled Task $scheduledTask"
 
@@ -167,6 +176,9 @@ foreach ($scheduledTask in $CONFIG.ScheduledTasks) {
 
 Write-Output "Running postinstall.ps1..."
 Invoke-Expression $(Join-Path $TOOLS_DIR 'postinstall.ps1')
+
+Write-Output "Removing any startup files"
+Remove-Item -Recurse -Force $STARTUP
 
 if (Test-Path $INSTALL_DIR) {
     Write-Output "Removing Installer Files..."

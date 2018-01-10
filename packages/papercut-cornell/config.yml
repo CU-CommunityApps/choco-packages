@@ -16,6 +16,8 @@ Files: { }
 
 Environment: { }
 
+Services: { }
+
 ScheduledTasks:
     - 'papercut-startup'
 

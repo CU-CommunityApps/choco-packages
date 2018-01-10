@@ -39,6 +39,10 @@ Files: { }
 
 Environment: { }
 
+Services:
+    RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
+    SWVisualize2017.Queue.Server:   'Manual'
+
 ScheduledTasks: []
 
 Registry:

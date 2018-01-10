@@ -22,6 +22,10 @@ Files: { }
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
 
+Services: 
+    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
+    mitsijm2018: 'Manual' # Autodesk Simulation Moldflow MITSI 2018 Job Manager
+
 ScheduledTasks: []
 
 Registry:
