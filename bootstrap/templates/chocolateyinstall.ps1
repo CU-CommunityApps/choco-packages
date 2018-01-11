@@ -1,5 +1,7 @@
 $ErrorActionPreference = "Stop"
+Import-Module 'powershell-yaml'
 
+# Initialize list of packages, if needed
 if (-Not (Test-Path env:CHOCO_INSTALLED_PACKAGES)) {
     Write-Output "Creating CHOCO_INSTALLED_PACKAGES Environment Variable"
     $env:CHOCO_INSTALLED_PACKAGES = 'choco'
@@ -12,19 +14,22 @@ $DEFAULT_HIVE = [io.path]::combine($USER_DIR, 'Default', 'NTUSER.DAT')
 $STARTUP =      [io.path]::combine($env:ALLUSERSPROFILE, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'StartUp', '*')
 
 $TOOLS_DIR =    $PSScriptRoot
-$CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') | ConvertFrom-Json
+$CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.yml') | ConvertFrom-Json
 $INSTALL_DIR =  Join-Path $env:TEMP $CONFIG.Id
 $S3_URI =       "https://s3.amazonaws.com/$($env:CHOCO_BUCKET)/packages/$($CONFIG.Id).zip"
+$INSTALLED =    $env:CHOCO_INSTALLED_PACKAGES.Split(';')
 
-$INSTALLED = $env:CHOCO_INSTALLED_PACKAGES.Split(';')
+# Check if current package is already installed
 if ($INSTALLED.Contains($CONFIG.Id)) {
     Write-Output "$($CONFIG.Id) Already Installed"
     Exit
 }
 
+# Make useful directories available to the environment
 [Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'PROCESS')
 [Environment]::SetEnvironmentVariable('TOOLS_DIR', $TOOLS_DIR, 'PROCESS')
 
+# Install any listed Choco Gallery packages
 foreach ($chocoPackage in $CONFIG.ChocoPackages) {
     Write-Output "Installing Choco Package $chocoPackage"
 
@@ -34,17 +39,22 @@ foreach ($chocoPackage in $CONFIG.ChocoPackages) {
         -NoNewWindow -Wait
 }
 
+# Install the Packaged Application, if there is one
 $install = $CONFIG.Install
 if ($install) {
+
+    # Download and extract ZIP from S3
     Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
     Install-ChocolateyZipPackage `
         -PackageName "$($CONFIG.Id)" `
         -UnzipLocation "$INSTALL_DIR" `
         -Url "$S3_URI" 
 
+    # Run Preinstall PowerShell script
     Write-Output        "Running preinstall.ps1..."
     Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
 
+    # Prepare Choco Install Args from config
     $packageArgs = @{
         packageName="$($CONFIG.Id)"
         fileType="$($install.FileType)"
@@ -53,13 +63,18 @@ if ($install) {
         validExitCodes="$($install.ExitCodes)"
     }
 
+    # Run the Choco Install
     Write-Output "Installing $($CONFIG.Id) With Args: $($packageArgs | Out-String)"
     Install-ChocolateyInstallPackage @packageArgs
 }
 else {
+
+    # Always Run Preinstall PowerShell script
     Write-Output        "Running preinstall.ps1..."
     Invoke-Expression   $(Join-Path "$TOOLS_DIR" 'preinstall.ps1')
 }
+
+# Make sure abbreviated drives exist for all standard Registry Hives
 
 if (-Not (Test-Path 'HKCC:\')) {
     New-PSDrive `
@@ -96,6 +111,7 @@ if (-Not (Test-Path 'HKU:\')) {
         -Root 'HKEY_USERS'
 }
 
+# Set all the Registry Keys listed in config
 $hives = ($CONFIG.Registry | Get-Member -MemberType NoteProperty).Name
 foreach ($hive in $hives) {
     $regKeys = ($CONFIG.Registry.$hive | Get-Member -MemberType NoteProperty).Name
@@ -148,12 +164,14 @@ foreach ($hive in $hives) {
     }
 }
 
+# Set all Environment Variables listed in config
 $envVars = ($CONFIG.Environment | Get-Member -MemberType NoteProperty).Name
 foreach ($envVar in $envVars) {
     Write-Output "Setting Environment Variable $envVar to $($CONFIG.Environment.$envVar)"
     [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
 }
 
+# Set all Windows Services listed in config
 $services = ($CONFIG.Services | Get-Member -MemberType NoteProperty).Name
 foreach ($service in $services) {
     Write-Output "Setting Service $service to Startup Type $($CONFIG.Services.$service)"
@@ -162,6 +180,7 @@ foreach ($service in $services) {
         -StartupType "$($CONFIG.Services.$service)"
 }
 
+# Create all Scheduled Tasks listed in config
 foreach ($scheduledTask in $CONFIG.ScheduledTasks) {
     Write-Output "Creating Scheduled Task $scheduledTask"
 
@@ -171,17 +190,21 @@ foreach ($scheduledTask in $CONFIG.ScheduledTasks) {
         -Xml (Get-Content "$taskConfig" | Out-String)
 }
 
+# Run Postinstall PowerShell script
 Write-Output "Running postinstall.ps1..."
 Invoke-Expression $(Join-Path "$TOOLS_DIR" 'postinstall.ps1')
 
+# Remove any files that might have been added to the Startup directory
 Write-Output "Removing any startup files"
 Remove-Item -Recurse -Force "$STARTUP"
 
+# Remove all installation files from disk
 if (Test-Path $INSTALL_DIR) {
     Write-Output "Removing Installer Files..."
     Remove-Item -Recurse -Force "$INSTALL_DIR"
 }
 
+# Update environment to list this package as installed
 $INSTALLED += $CONFIG.Id
 $INSTALLED = $INSTALLED -Join ';'
 [Environment]::SetEnvironmentVariable('CHOCO_INSTALLED_PACKAGES', $INSTALLED, 'Machine')

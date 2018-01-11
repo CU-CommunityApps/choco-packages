@@ -16,44 +16,61 @@ $PYTHON =       Join-Path $PYDIR 'python.exe'
 $PIP =          [io.path]::combine($PYDIR, 'Scripts', 'pip.exe')
 
 $REPO =         'https://github.com/marty-sullivan/choco-packages.git'
-$PREREQS =      'git sysinternals'
+$PREREQS =      'git sysinternals powershell'
 $PYVERSION =    '3.6.4'
 $PYDEPENDS =    'boto3 pyyaml'
 
-# Create Bootstrap Directory
-New-Item -ItemType Directory -Force -Path $BOOTSTRAP
-Set-Location $BOOTSTRAP
+if (-Not (Test-Path env:CHOCO_BOOTSTRAP_COMPLETE)) {
 
-# Install Chocolatey
-iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    # Create Bootstrap Directory
+    New-Item -ItemType Directory -Force -Path $BOOTSTRAP
+    Set-Location $BOOTSTRAP
 
-# Install Git plus prerequisites and Clone the Choco Respository
-Start-Process `
-    -FilePath $CHOCO `
-    -ArgumentList "install $PREREQS --no-progress -r -y" `
-    -NoNewWindow -Wait
+    # Install Chocolatey
+    iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-Start-Process `
-    -FilePath $GIT `
-    -ArgumentList "clone $REPO $PACKAGES" `
-    -NoNewWindow -Wait
+    # Install Git, Sysinternals and PowerShell 5.x 
+    Start-Process `
+        -FilePath $CHOCO `
+        -ArgumentList "install $PREREQS --no-progress -r -y" `
+        -NoNewWindow -Wait
 
-# Install Python and Dependencies
-Start-Process `
-    -FilePath $CHOCO `
-    -ArgumentList "install python --version $PYVERSION --no-progress -r -y" `
-    -NoNewWindow -Wait 
+    # Clone the Choco Respository
+    Start-Process `
+        -FilePath $GIT `
+        -ArgumentList "clone $REPO $PACKAGES" `
+        -NoNewWindow -Wait
 
-Start-Process `
-    -FilePath $PIP `
-    -ArgumentList "-q install $PYDEPENDS" `
-    -NoNewWindow -Wait
+    # Install Python
+    Start-Process `
+        -FilePath $CHOCO `
+        -ArgumentList "install python --version $PYVERSION --no-progress -r -y" `
+        -NoNewWindow -Wait 
 
-# Escape from PowerShell!
-Start-Process `
-    -FilePath $PSEXEC `
-    -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP" `
-    -NoNewWindow -Wait 
+    # Install Python Dependencies
+    Start-Process `
+        -FilePath $PIP `
+        -ArgumentList "-q install $PYDEPENDS" `
+        -NoNewWindow -Wait
 
-[Environment]::SetEnvironmentVariable('CHOCO_INSTALL_COMPLETE', '1', 'Machine')
+    [Environment]::SetEnvironmentVariable('CHOCO_BOOTSTRAP_COMPLETE', '1', 'Machine')
+    Restart-Computer -Force
+
+}
+elseif (-Not (Test-Path env:CHOCO_INSTALL_COMPLETE)) {
+
+    # Install PowerShell Modules
+    Install-PackageProvider -Name 'NuGet' -Force
+    Install-Module 'powershell-yaml' -Force
+
+    # Run Python Bootstrap via Sysinternals PsExec to enable GUI installs in the SYSTEM context
+    Start-Process `
+        -FilePath $PSEXEC `
+        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP" `
+        -NoNewWindow -Wait 
+
+    [Environment]::SetEnvironmentVariable('CHOCO_INSTALL_COMPLETE', '1', 'Machine')
+    Restart-Computer -Force
+
+}
 

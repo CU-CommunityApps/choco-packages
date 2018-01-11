@@ -111,7 +111,7 @@ class ImageBuild(object):
     def run_command(self, cmd):
         self.logger.info('Running Command: {Cmd}'.format(Cmd=cmd)) 
 
-        p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, error = p.communicate()
 
         self.logger.info(out.decode('ascii').replace('\r\n', '\n'))
@@ -220,7 +220,7 @@ class ImageBuild(object):
                 nugetToolsPath = path.join(nugetPath, 'tools')
                 installScriptPath = path.join(nugetToolsPath, 'chocolateyinstall.ps1')
                 packageConfigPath = path.join(packageDir, 'config.yml')
-                packageConfigJsonPath = path.join(nugetToolsPath, 'config.json')
+                packageConfigYamlPath = path.join(nugetToolsPath, 'config.yml')
 
                 nuspecTemplatePath = path.join(
                     self.chocoTempDir, 
@@ -255,8 +255,9 @@ class ImageBuild(object):
                         Description=config['Description'],
                     )
 
-                with open(packageConfigJsonPath, 'w') as packageConfigJson:
-                    packageConfigJson.write(path.expandvars(json.dumps(config)))
+                with open(packageConfigYamlPath, 'w') as packageConfigYaml:
+                    packageConfigString = path.expandvars(yaml.dump(config))
+                    packageConfigYaml.write(packageConfigString)
 
                 with open(packageNuspecPath, 'w') as packageNuspec:
                     packageNuspec.write(nuspecTemplate)
