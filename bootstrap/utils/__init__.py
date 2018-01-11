@@ -220,7 +220,7 @@ class ImageBuild(object):
                 nugetToolsPath = path.join(nugetPath, 'tools')
                 installScriptPath = path.join(nugetToolsPath, 'chocolateyinstall.ps1')
                 packageConfigPath = path.join(packageDir, 'config.yml')
-                packageConfigYamlPath = path.join(nugetToolsPath, 'config.yml')
+                packageConfigJsonPath = path.join(nugetToolsPath, 'config.json')
 
                 nuspecTemplatePath = path.join(
                     self.chocoTempDir, 
@@ -255,9 +255,8 @@ class ImageBuild(object):
                         Description=config['Description'],
                     )
 
-                with open(packageConfigYamlPath, 'w') as packageConfigYaml:
-                    packageConfigString = path.expandvars(yaml.dump(config))
-                    packageConfigYaml.write(packageConfigString)
+                with open(packageConfigJsonPath, 'w') as packageConfigJson:
+                    packageConfigJson.write(path.expandvars(json.dumps(config)))
 
                 with open(packageNuspecPath, 'w') as packageNuspec:
                     packageNuspec.write(nuspecTemplate)
