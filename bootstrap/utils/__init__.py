@@ -256,7 +256,8 @@ class ImageBuild(object):
                     )
 
                 with open(packageConfigJsonPath, 'w') as packageConfigJson:
-                    packageConfigJson.write(path.expandvars(json.dumps(config)))
+                    expandedJson = path.expandvars(json.dumps(config)).replace('\\\\', '\\').replace('\\', '\\\\')
+                    packageConfigJson.write(expandedJson)
 
                 with open(packageNuspecPath, 'w') as packageNuspec:
                     packageNuspec.write(nuspecTemplate)
