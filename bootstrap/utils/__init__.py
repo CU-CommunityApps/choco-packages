@@ -38,8 +38,8 @@ class ImageBuild(object):
         logPath = path.join(environ['ALLUSERSPROFILE'], 'choco-packages.log')
 
         with open(logPath, 'a') as quicklog:
-            builder.logString.seek(0)
-            quicklog.write(builder.logString.read())
+            self.logString.seek(0)
+            quicklog.write(self.logString.read())
 
         with open(logPath, 'r') as quicklog:
             s3LogPath = 'builds/{Build}/choco-packages.log'.format(

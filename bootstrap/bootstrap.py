@@ -17,6 +17,7 @@ try:
 
 except Exception as e:
     logging.exception('Build Exception:')
+    builder.logger.critical(e)
 
 finally:
     builder.save_logs()
