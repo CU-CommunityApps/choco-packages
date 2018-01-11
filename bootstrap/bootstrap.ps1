@@ -1,3 +1,5 @@
+$ErrorActionPreference = 'Stop'
+
 # Cornell Chocolatey Framework Bootstrap Entry
 
 if (Test-Path env:CHOCO_INSTALL_COMPLETE) {
