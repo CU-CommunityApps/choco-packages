@@ -9,7 +9,7 @@ if (Test-Path env:CHOCO_INSTALL_COMPLETE) {
 $BOOTSTRAP =    [io.path]::combine($env:SYSTEMROOT, 'Temp', 'choco-bootstrap')
 $PACKAGES =     [io.path]::combine($BOOTSTRAP, 'choco-packages')
 $CHOCO =        [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
-$CHOCOLOG =     [io.path]::combind($env:ALLUSERSPROFILE, 'choco-bootstrap.log')
+$CHOCOLOG =     [io.path]::combine($env:ALLUSERSPROFILE, 'choco-bootstrap.log')
 $PSEXEC =       [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'PsExec.exe')
 $GIT =          [io.path]::combine($env:PROGRAMFILES, 'Git', 'bin', 'git.exe')
 
