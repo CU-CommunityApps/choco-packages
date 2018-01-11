@@ -45,14 +45,11 @@ if ($install) {
     Write-Output        "Running preinstall.ps1..."
     Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
 
-    $installerFile =    [Environment]::ExpandEnvironmentVariables($install.File)
-    $silentArgs =       [Environment]::ExpandEnvironmentVariables($install.Arguments)
-
     $packageArgs = @{
         packageName="$($CONFIG.Id)"
         fileType="$($install.FileType)"
-        file="$installerFile"
-        silentArgs="$silentArgs"
+        file="$($install.File)"
+        silentArgs="$($install.Arguments)"
         validExitCodes="$($install.ExitCodes)"
     }
 
