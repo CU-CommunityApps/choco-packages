@@ -1,11 +1,12 @@
 $ErrorActionPreference = 'Stop'
 
-# Cornell Chocolatey Framework Bootstrap Entry
+# Cornell Chocolatey Framework Automated Bootstrap Entry
 
-if (Test-Path env:CHOCO_INSTALL_COMPLETE) {
+if (Test-Path Env:CHOCO_INSTALL_COMPLETE) {
     Exit
 }
 
+$INSTALL_TYPE = $args[0]
 $BOOTSTRAP =    [io.path]::combine($env:SYSTEMROOT, 'Temp', 'choco-bootstrap')
 $PACKAGES =     [io.path]::combine($BOOTSTRAP, 'choco-packages')
 $CHOCO =        [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
@@ -30,31 +31,36 @@ if (-Not (Test-Path env:CHOCO_BOOTSTRAP_COMPLETE)) {
     Set-Location $BOOTSTRAP
 
     # Install Chocolatey
-    iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) | Tee-Object -Append -FilePath $CHOCOLOG
+    iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) `
+    | Tee-Object -Append -FilePath $CHOCOLOG
 
     # Install Git, Sysinternals and PowerShell 5.x 
     Start-Process `
         -FilePath $CHOCO `
         -ArgumentList "install $PREREQS --no-progress -r -y" `
-        -NoNewWindow -Wait | Tee-Object -Append -FilePath $CHOCOLOG
+        -NoNewWindow -Wait `
+    | Tee-Object -Append -FilePath $CHOCOLOG
 
     # Clone the Choco Respository
     Start-Process `
         -FilePath $GIT `
         -ArgumentList "clone $REPO $PACKAGES" `
-        -NoNewWindow -Wait | Tee-Object -Append -FilePath $CHOCOLOG
+        -NoNewWindow -Wait `
+    | Tee-Object -Append -FilePath $CHOCOLOG
 
     # Install Python
     Start-Process `
         -FilePath $CHOCO `
         -ArgumentList "install python --version $PYVERSION --no-progress -r -y" `
-        -NoNewWindow -Wait | Tee-Object -Append -FilePath $CHOCOLOG
+        -NoNewWindow -Wait `
+    | Tee-Object -Append -FilePath $CHOCOLOG
 
     # Install Python Dependencies
     Start-Process `
         -FilePath $PIP `
         -ArgumentList "-q install $PYDEPENDS" `
-        -NoNewWindow -Wait | Tee-Object -Append -FilePath $CHOCOLOG
+        -NoNewWindow -Wait `
+    | Tee-Object -Append -FilePath $CHOCOLOG
 
     [Environment]::SetEnvironmentVariable('CHOCO_BOOTSTRAP_COMPLETE', '1', 'Machine')
     Restart-Computer -Force
@@ -64,13 +70,16 @@ if (-Not (Test-Path env:CHOCO_BOOTSTRAP_COMPLETE)) {
 elseif (-Not (Test-Path env:CHOCO_INSTALL_COMPLETE)) {
 
     # Install PowerShell Modules
-    Install-PackageProvider -Name 'NuGet' -Force | Tee-Object -Append -FilePath $CHOCOLOG
-    Install-Module 'powershell-yaml' -Force | Tee-Object -Append -FilePath $CHOCOLOG
+    Install-PackageProvider -Name 'NuGet' -Force `
+    | Tee-Object -Append -FilePath $CHOCOLOG
+
+    Install-Module 'powershell-yaml' -Force `
+    | Tee-Object -Append -FilePath $CHOCOLOG
 
     # Run Python Bootstrap via Sysinternals PsExec to enable GUI installs in the SYSTEM context
     Start-Process `
         -FilePath $PSEXEC `
-        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP" `
+        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP $INSTALL_TYPE" `
         -NoNewWindow -Wait
 
     [Environment]::SetEnvironmentVariable('CHOCO_INSTALL_COMPLETE', '1', 'Machine')
