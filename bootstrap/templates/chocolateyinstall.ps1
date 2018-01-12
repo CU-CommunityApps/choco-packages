@@ -14,7 +14,7 @@ $DEFAULT_HIVE = [io.path]::combine($USER_DIR, 'Default', 'NTUSER.DAT')
 $STARTUP =      [io.path]::combine($env:ALLUSERSPROFILE, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'StartUp', '*')
 
 $TOOLS_DIR =    $PSScriptRoot
-$CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') | ConvertFrom-Json
+$CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.yml') | ConvertFrom-Yaml
 $INSTALL_DIR =  Join-Path $env:TEMP $CONFIG.Id
 $S3_URI =       "https://s3.amazonaws.com/$($env:CHOCO_BUCKET)/packages/$($CONFIG.Id).zip"
 $INSTALLED =    $env:CHOCO_INSTALLED_PACKAGES.Split(';')
@@ -54,12 +54,16 @@ if ($install) {
     Write-Output        "Running preinstall.ps1..."
     Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
 
+    # Expand environment variables in relevant vars
+    $installerFile = [Environment]::ExpandEnvironmentVariables($install.File).Replace('%%', '%')
+    $silentArgs = [Environment]::ExpandEnvironmentVariables($install.Arguments).Replace('%%', '%')
+
     # Prepare Choco Install Args from config
     $packageArgs = @{
         packageName="$($CONFIG.Id)"
         fileType="$($install.FileType)"
-        file="$($install.File)"
-        silentArgs="$($install.Arguments)"
+        file="$installerFile"
+        silentArgs="$silentArgs"
         validExitCodes="$($install.ExitCodes)"
     }
 
@@ -138,15 +142,17 @@ foreach ($hive in $hives) {
     Write-Output "Setting Registry Keys for $hive..."
     foreach ($regKey in $regKeys) {
         $regProperties = ($CONFIG.Registry.$hive.$regKey | Get-Member -MemberType NoteProperty).Name
-        $regKeyPath = "$($hive):\$regKey"
+        $regKeyExpanded = [Environment]::ExpandEnvironmentVariables($regKey).Replace('%%', '%')
+        $regKeyPath = "$($hive):\$regKeyExpanded"
 
         Write-Output "Creating Registry Key $regKeyPath"
         New-Item -Path "$regKeyPath" -Force 
 
         foreach ($regProperty in $regProperties) {
             $regItem = $CONFIG.Registry.$hive.$regKey.$regProperty
+            $regValue = [Environment]::ExpandEnvironmentVariables($regItem.Value).Replace('%%', '%')
 
-            Write-Output "Setting Registry Property $regProperty to $($regItem.Value)"
+            Write-Output "Setting Registry Property $regProperty to $regValue"
             New-ItemProperty `
                 -Name "$regProperty" `
                 -Path "$regKeyPath" `
@@ -167,7 +173,8 @@ foreach ($hive in $hives) {
 # Set all Environment Variables listed in config
 $envVars = ($CONFIG.Environment | Get-Member -MemberType NoteProperty).Name
 foreach ($envVar in $envVars) {
-    Write-Output "Setting Environment Variable $envVar to $($CONFIG.Environment.$envVar)"
+    $envValue = [Environment]::ExpandEnvironmentVariables($CONFIG.Environment.$envVar).Replace('%%', '%')
+    Write-Output "Setting Environment Variable $envVar to $envValue)"
     [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
 }
 
