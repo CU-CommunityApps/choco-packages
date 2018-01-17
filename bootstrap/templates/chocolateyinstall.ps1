@@ -16,6 +16,7 @@ $STARTUP =      [io.path]::combine($Env:ALLUSERSPROFILE, 'Microsoft', 'Windows',
 $TOOLS_DIR =    $PSScriptRoot
 $CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.yml') | ConvertFrom-Yaml
 $INSTALL_DIR =  Join-Path $Env:TEMP $CONFIG.Id
+$SECRETS_FILE = Join-Path $INSTALL_DIR 'secrets.yml'
 $S3_URI =       "https://s3.amazonaws.com/$($Env:CHOCO_BUCKET)/packages/$($CONFIG.Id).zip"
 $INSTALLED =    $Env:CHOCO_INSTALLED_PACKAGES.Split(';')
 
@@ -26,8 +27,8 @@ if ($INSTALLED.Contains($CONFIG.Id)) {
 }
 
 # Make useful directories available to the environment
-[Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'PROCESS')
-[Environment]::SetEnvironmentVariable('TOOLS_DIR', $TOOLS_DIR, 'PROCESS')
+[Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'Process')
+[Environment]::SetEnvironmentVariable('TOOLS_DIR', $TOOLS_DIR, 'Process')
 
 # Set all Environment Variables listed in config
 $envVars = ($CONFIG.Environment | Get-Member -MemberType NoteProperty).Name
@@ -62,6 +63,15 @@ if ($install) {
         -PackageName "$($CONFIG.Id)" `
         -UnzipLocation "$INSTALL_DIR" `
         -Url "$S3_URI" 
+
+    # Put any secrets into the environment
+    if (Test-Path $SECRETS_FILE) {
+        $secrets = Get-Content -Raw -Path "$SECRETS_FILE" | ConvertFrom-Yaml
+
+        foreach ($secret in $secrets) {
+            [Environment]::SetEnvironmentVariable("$secret", "$($secrets.$secret)", 'Process')
+        }
+    }
 
     # Run Preinstall PowerShell script
     Write-Output        "Running preinstall.ps1..."
@@ -181,6 +191,18 @@ foreach ($hive in $hives) {
             -ArgumentList "UNLOAD HKU\DefaultUser" `
             -NoNewWindow -Wait 
     }
+}
+
+# Put all static files into the filesystem
+$files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
+foreach($file in $files) {
+    $sourcePath = Join-Path "$TOOLS_DIR" "$file"
+    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)").Replace('%%', '%')
+
+    Copy-Item `
+        -Path "$sourcePath" `
+        -Destination "$destPath" `
+        -Force -Recurse
 }
 
 # Set all Windows Services listed in config
