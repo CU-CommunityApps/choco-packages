@@ -17,7 +17,8 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: { }
+Files: 
+    CADConfigurationInfo.XML: '%PROGRAMFILES%\ANSYS Inc\v181\commonfiles\CAD\CADConfigurationInfo.XML'
 
 Environment: { }
 
