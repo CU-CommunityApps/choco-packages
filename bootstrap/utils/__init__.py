@@ -136,7 +136,7 @@ class ImageBuild(object):
             sleep(30)
 
         self.logger.info('Heartbeat Stopped')
-        
+
     def bootstrap(self):
         self.sfn = self.aws.client('stepfunctions')
 

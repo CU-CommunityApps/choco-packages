@@ -6,7 +6,7 @@ if (Test-Path Env:CHOCO_INSTALL_COMPLETE) {
     Exit
 }
 
-$INSTALL_TYPE = $args[0]
+$INSTALL_ARGS = $args -Join ' '
 $BOOTSTRAP =    [io.path]::combine($Env:SYSTEMROOT, 'Temp', 'choco-bootstrap')
 $PACKAGES =     [io.path]::combine($BOOTSTRAP, 'choco-packages')
 $CHOCO =        [io.path]::combine($Env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
@@ -62,8 +62,12 @@ if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
         -NoNewWindow -Wait `
     | Tee-Object -Append -FilePath $CHOCOLOG
 
+    # Run Python Bootstrap to notify Step Functions
+    Start-Process `
+        -FilePath $PSEXEC `
+        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP $INSTALL_ARGS"
+
     [Environment]::SetEnvironmentVariable('CHOCO_BOOTSTRAP_COMPLETE', '1', 'Machine')
-    #Restart-Computer -Force
 
 }
 
@@ -79,11 +83,10 @@ elseif (-Not (Test-Path Env:CHOCO_INSTALL_COMPLETE)) {
     # Run Python Bootstrap via Sysinternals PsExec to enable GUI installs in the SYSTEM context
     Start-Process `
         -FilePath $PSEXEC `
-        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP $INSTALL_TYPE" `
+        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP $INSTALL_ARGS" `
         -NoNewWindow -Wait
 
     [Environment]::SetEnvironmentVariable('CHOCO_INSTALL_COMPLETE', '1', 'Machine')
-    #Restart-Computer -Force
 
 }
 

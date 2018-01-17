@@ -9,11 +9,14 @@ except ImageBuildException as e:
     # TODO Open other types of builds 
 
 try:
-    builder.bootstrap()
-    builder.install_packages()
+
+    if not 'CHOCO_BOOTSTRAP_COMPLETE' in environ:
+        builder.bootstrap()
+    elif not 'CHOCO_INSTALL_COMPLETE' in environ:
+        builder.install_packages()
     
-    if isinstance(builder, AppStreamImageBuild):
-        builder.catalog_applications()
+        if isinstance(builder, AppStreamImageBuild):
+            builder.catalog_applications()
 
 except Exception as e:
     logging.exception('Build Exception:')
@@ -21,3 +24,4 @@ except Exception as e:
 
 finally:
     builder.save_logs()
+
