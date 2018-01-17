@@ -83,7 +83,7 @@ elseif (-Not (Test-Path env:CHOCO_INSTALL_COMPLETE)) {
         -NoNewWindow -Wait
 
     [Environment]::SetEnvironmentVariable('CHOCO_INSTALL_COMPLETE', '1', 'Machine')
-    Restart-Computer -Force
+    #Restart-Computer -Force
 
 }
 
