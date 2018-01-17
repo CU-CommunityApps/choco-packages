@@ -158,9 +158,12 @@ class ImageBuild(object):
             raise ImageBuildException('BAD_BOOTSTRAP_ACTIVITY')
 
         try:
+            output = task['input']
+            output['BootstrapComplete'] = True
+
             self.sfn.send_task_success(
                 taskToken=task['taskToken'],
-                output=task['input'],
+                output=output,
             )
 
         except Exception as e:
@@ -321,10 +324,12 @@ class ImageBuild(object):
 
         try:
             self.heartbeat.heartbeat = False
+            output = task['input']
+            output['PackagesInstalled'] = True
 
             self.sfn.send_task_success(
                 taskToken=task['taskToken'],
-                output=task['input'],
+                output=output,
             )
         
         except Exception as e:
