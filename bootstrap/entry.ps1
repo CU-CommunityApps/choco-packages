@@ -63,7 +63,7 @@ if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
     | Tee-Object -Append -FilePath $CHOCOLOG
 
     [Environment]::SetEnvironmentVariable('CHOCO_BOOTSTRAP_COMPLETE', '1', 'Machine')
-    Restart-Computer -Force
+    #Restart-Computer -Force
 
 }
 
