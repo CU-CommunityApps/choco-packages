@@ -2,22 +2,22 @@ $ErrorActionPreference = 'Stop'
 Import-Module 'powershell-yaml'
 
 # Initialize list of packages, if needed
-if (-Not (Test-Path env:CHOCO_INSTALLED_PACKAGES)) {
+if (-Not (Test-Path Env:CHOCO_INSTALLED_PACKAGES)) {
     Write-Output "Creating CHOCO_INSTALLED_PACKAGES Environment Variable"
-    $env:CHOCO_INSTALLED_PACKAGES = 'choco'
+    $Env:CHOCO_INSTALLED_PACKAGES = 'choco'
 }
 
-$CHOCO =        [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
-$REG =          [io.path]::combine($env:SYSTEMROOT, 'System32', 'reg.exe')
-$USER_DIR =     Join-Path $env:SYSTEMDRIVE 'Users'
+$CHOCO =        [io.path]::combine($Env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
+$REG =          [io.path]::combine($Env:SYSTEMROOT, 'System32', 'reg.exe')
+$USER_DIR =     Join-Path $Env:SYSTEMDRIVE 'Users'
 $DEFAULT_HIVE = [io.path]::combine($USER_DIR, 'Default', 'NTUSER.DAT')
-$STARTUP =      [io.path]::combine($env:ALLUSERSPROFILE, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'StartUp', '*')
+$STARTUP =      [io.path]::combine($Env:ALLUSERSPROFILE, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'StartUp', '*')
 
 $TOOLS_DIR =    $PSScriptRoot
 $CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.yml') | ConvertFrom-Yaml
-$INSTALL_DIR =  Join-Path $env:TEMP $CONFIG.Id
-$S3_URI =       "https://s3.amazonaws.com/$($env:CHOCO_BUCKET)/packages/$($CONFIG.Id).zip"
-$INSTALLED =    $env:CHOCO_INSTALLED_PACKAGES.Split(';')
+$INSTALL_DIR =  Join-Path $Env:TEMP $CONFIG.Id
+$S3_URI =       "https://s3.amazonaws.com/$($Env:CHOCO_BUCKET)/packages/$($CONFIG.Id).zip"
+$INSTALLED =    $Env:CHOCO_INSTALLED_PACKAGES.Split(';')
 
 # Check if current package is already installed
 if ($INSTALLED.Contains($CONFIG.Id)) {
@@ -174,6 +174,11 @@ foreach ($hive in $hives) {
 $envVars = ($CONFIG.Environment | Get-Member -MemberType NoteProperty).Name
 foreach ($envVar in $envVars) {
     $envValue = [Environment]::ExpandEnvironmentVariables($CONFIG.Environment.$envVar).Replace('%%', '%')
+
+    if (Test-Path Env:$envVar) {
+        $envValue = "$envValue;$($Env:$envVar)"
+    }
+
     Write-Output "Setting Environment Variable $envVar to $envValue)"
     [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
 }
