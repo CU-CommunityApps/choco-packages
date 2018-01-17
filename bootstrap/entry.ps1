@@ -65,8 +65,7 @@ if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
     # Run Python Bootstrap to notify Step Functions
     Start-Process `
         -FilePath $PSEXEC `
-        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP $INSTALL_ARGS"
-        -NoNewWindow -Wait
+        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP bootstrap $INSTALL_ARGS"
 
     [Environment]::SetEnvironmentVariable('CHOCO_BOOTSTRAP_COMPLETE', '1', 'Machine')
 
@@ -84,8 +83,7 @@ elseif (-Not (Test-Path Env:CHOCO_INSTALL_COMPLETE)) {
     # Run Python Bootstrap via Sysinternals PsExec to enable GUI installs in the SYSTEM context
     Start-Process `
         -FilePath $PSEXEC `
-        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP $INSTALL_ARGS" `
-        -NoNewWindow -Wait
+        -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP install $INSTALL_ARGS" `
 
     [Environment]::SetEnvironmentVariable('CHOCO_INSTALL_COMPLETE', '1', 'Machine')
 

@@ -1,5 +1,6 @@
 import logging
 from os import environ, path
+from sys import argv
 from utils import *
 
 try:
@@ -10,10 +11,10 @@ except ImageBuildException as e:
 
 try:
 
-    if not 'CHOCO_BOOTSTRAP_COMPLETE' in environ:
+    if argv[1] == 'bootstrap':
         builder.bootstrap()
 
-    elif not 'CHOCO_INSTALL_COMPLETE' in environ:
+    elif argv[1] == 'install':
         builder.install_packages()
     
         if isinstance(builder, AppStreamImageBuild):
