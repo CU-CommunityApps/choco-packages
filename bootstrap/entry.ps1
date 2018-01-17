@@ -66,6 +66,7 @@ if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
     Start-Process `
         -FilePath $PSEXEC `
         -ArgumentList "-w $BOOTSTRAP -i -s $PYTHON $PYBOOTSTRAP $INSTALL_ARGS"
+        -NoNewWindow -Wait
 
     [Environment]::SetEnvironmentVariable('CHOCO_BOOTSTRAP_COMPLETE', '1', 'Machine')
 
