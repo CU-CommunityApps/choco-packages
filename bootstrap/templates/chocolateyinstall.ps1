@@ -29,6 +29,19 @@ if ($INSTALLED.Contains($CONFIG.Id)) {
 [Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'PROCESS')
 [Environment]::SetEnvironmentVariable('TOOLS_DIR', $TOOLS_DIR, 'PROCESS')
 
+# Set all Environment Variables listed in config
+$envVars = ($CONFIG.Environment | Get-Member -MemberType NoteProperty).Name
+foreach ($envVar in $envVars) {
+    $envValue = [Environment]::ExpandEnvironmentVariables($CONFIG.Environment.$envVar).Replace('%%', '%')
+
+    if (Test-Path Env:$envVar) {
+        $envValue = "$envValue;$([Environment]::GetEnvironmentVariable($envVar))"
+    }
+
+    Write-Output "Setting Environment Variable $envVar to $envValue)"
+    [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
+}
+
 # Install any listed Choco Gallery packages
 foreach ($chocoPackage in $CONFIG.ChocoPackages) {
     Write-Output "Installing Choco Package $chocoPackage"
@@ -168,19 +181,6 @@ foreach ($hive in $hives) {
             -ArgumentList "UNLOAD HKU\DefaultUser" `
             -NoNewWindow -Wait 
     }
-}
-
-# Set all Environment Variables listed in config
-$envVars = ($CONFIG.Environment | Get-Member -MemberType NoteProperty).Name
-foreach ($envVar in $envVars) {
-    $envValue = [Environment]::ExpandEnvironmentVariables($CONFIG.Environment.$envVar).Replace('%%', '%')
-
-    if (Test-Path Env:$envVar) {
-        $envValue = "$envValue;$($Env:$envVar)"
-    }
-
-    Write-Output "Setting Environment Variable $envVar to $envValue)"
-    [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
 }
 
 # Set all Windows Services listed in config

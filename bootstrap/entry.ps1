@@ -7,15 +7,15 @@ if (Test-Path Env:CHOCO_INSTALL_COMPLETE) {
 }
 
 $INSTALL_TYPE = $args[0]
-$BOOTSTRAP =    [io.path]::combine($env:SYSTEMROOT, 'Temp', 'choco-bootstrap')
+$BOOTSTRAP =    [io.path]::combine($Env:SYSTEMROOT, 'Temp', 'choco-bootstrap')
 $PACKAGES =     [io.path]::combine($BOOTSTRAP, 'choco-packages')
-$CHOCO =        [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
-$CHOCOLOG =     [io.path]::combine($env:ALLUSERSPROFILE, 'choco-bootstrap.log')
-$PSEXEC =       [io.path]::combine($env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'PsExec.exe')
-$GIT =          [io.path]::combine($env:PROGRAMFILES, 'Git', 'bin', 'git.exe')
+$CHOCO =        [io.path]::combine($Env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
+$CHOCOLOG =     [io.path]::combine($Env:ALLUSERSPROFILE, 'choco-bootstrap.log')
+$PSEXEC =       [io.path]::combine($Env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'PsExec.exe')
+$GIT =          [io.path]::combine($Env:PROGRAMFILES, 'Git', 'bin', 'git.exe')
 
 $PYBOOTSTRAP =  [io.path]::combine($BOOTSTRAP, 'choco-packages', 'bootstrap', 'bootstrap.py')
-$PYDIR =        Join-Path $env:SYSTEMDRIVE 'Python36'
+$PYDIR =        Join-Path $Env:SYSTEMDRIVE 'Python36'
 $PYTHON =       Join-Path $PYDIR 'python.exe'
 $PIP =          [io.path]::combine($PYDIR, 'Scripts', 'pip.exe')
 
@@ -24,7 +24,7 @@ $PREREQS =      'git sysinternals powershell'
 $PYVERSION =    '3.6.4'
 $PYDEPENDS =    'boto3 pyyaml'
 
-if (-Not (Test-Path env:CHOCO_BOOTSTRAP_COMPLETE)) {
+if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
 
     # Create Bootstrap Directory
     New-Item -ItemType Directory -Force -Path $BOOTSTRAP | Tee-Object -Append -FilePath $CHOCOLOG
@@ -67,7 +67,7 @@ if (-Not (Test-Path env:CHOCO_BOOTSTRAP_COMPLETE)) {
 
 }
 
-elseif (-Not (Test-Path env:CHOCO_INSTALL_COMPLETE)) {
+elseif (-Not (Test-Path Env:CHOCO_INSTALL_COMPLETE)) {
 
     # Install PowerShell Modules
     Install-PackageProvider -Name 'NuGet' -Force `
