@@ -138,7 +138,7 @@ class ImageBuild(object):
         self.logger.info('Heartbeat Stopped')
 
     def bootstrap(self):
-        self.sfn = self.aws.client('stepfunctions')
+        sfn = self.aws.client('stepfunctions')
 
         bootstrapOutput = '{App}{Env}AppStreamImageBootstrapActivity'.format(
             App=self.appName, 
@@ -161,7 +161,7 @@ class ImageBuild(object):
             output = json.loads(task['input'])
             output['BootstrapComplete'] = True
 
-            self.sfn.send_task_success(
+            sfn.send_task_success(
                 taskToken=task['taskToken'],
                 output=json.dumps(output),
             )
@@ -173,6 +173,8 @@ class ImageBuild(object):
         self.logger.info('Bootstrapped')
 
     def install_packages(self):
+        sfn = self.aws.client('stepfunctions')
+
         installOutput = '{App}{Env}AppStreamImageInstallActivity'.format(
             App=self.appName, 
             Env=self.envName,
@@ -181,7 +183,7 @@ class ImageBuild(object):
         installActivity = self.outputs[installOutput]['value']
 
         try:
-            task = self.sfn.get_activity_task(
+            task = sfn.get_activity_task(
                 activityArn=installActivity,
                 workerName=self.buildId,
             )

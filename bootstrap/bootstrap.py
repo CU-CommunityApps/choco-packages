@@ -12,6 +12,7 @@ try:
 
     if not 'CHOCO_BOOTSTRAP_COMPLETE' in environ:
         builder.bootstrap()
+
     elif not 'CHOCO_INSTALL_COMPLETE' in environ:
         builder.install_packages()
     
