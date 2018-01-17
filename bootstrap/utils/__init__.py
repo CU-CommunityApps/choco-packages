@@ -122,12 +122,13 @@ class ImageBuild(object):
         return p.returncode
 
     def heartbeat(self, taskToken):
+        sfn = self.aws.client('stepfunctions')
         t = currentThread()
         self.logger.info('Heartbeat Starting')
 
         while getattr(t, 'heartbeat', True):
             try:
-                self.sfn.send_task_heartbeat(taskToken=taskToken)
+                sfn.send_task_heartbeat(taskToken=taskToken)
 
             except Exception as e:
                 self.logger.error(e)
@@ -148,7 +149,7 @@ class ImageBuild(object):
         bootstrapActivity = self.outputs[bootstrapOutput]['value']
 
         try: 
-            task = self.sfn.get_activity_task(
+            task = sfn.get_activity_task(
                 activityArn=bootstrapActivity,
                 workerName=self.buildId,
             )
@@ -309,7 +310,7 @@ class ImageBuild(object):
             except Exception as e:
                 self.heartbeat.heartbeat = False
 
-                self.sfn.send_task_failure(
+                sfn.send_task_failure(
                     taskToken=task['taskToken'],
                     error=str(e),
                 )
@@ -329,7 +330,7 @@ class ImageBuild(object):
             output = json.loads(task['input'])
             output['PackagesInstalled'] = True
 
-            self.sfn.send_task_success(
+            sfn.send_task_success(
                 taskToken=task['taskToken'],
                 output=json.dumps(output),
             )
