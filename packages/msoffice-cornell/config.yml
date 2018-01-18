@@ -5,7 +5,7 @@ Version:        16.0
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '/adminfile %INSTALL_DIR%\cu_office_config.MSP'
+    Arguments:  '/adminfile %INSTALL_DIR%\updates\cu_office_config.MSP'
     ExitCodes:  [0]
 
 ChocoPackages: []
