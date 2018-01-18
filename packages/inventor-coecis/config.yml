@@ -17,7 +17,8 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: { }
+Files: 
+    AddInLoadRules.xml: '%PROGRAMFILES%\Autodesk\Inventor 2018\Preferences\AddInLoadRules.xml'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
