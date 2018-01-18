@@ -32,8 +32,8 @@ class ImageBuild(object):
         self.logger.setLevel(logging.DEBUG)
 
         formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
-        handlerConsole = logging.streamHandler(stdout)
-        handlerFile = logging.streamHandler(self.logFile)
+        handlerConsole = logging.StreamHandler(stdout)
+        handlerFile = logging.StreamHandler(self.logFile)
         handlerConsole.setFormatter(formatter)
         handlerFile.setFormatter(formatter)
 
