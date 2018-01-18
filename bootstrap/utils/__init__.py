@@ -24,7 +24,7 @@ class ImageBuild(object):
 
     def init_logging(self):
         self.logPath = path.join(environ['ALLUSERSPROFILE'], 'choco-install-{Timestamp}.log'.format(
-            Timestamp=datetime.utcnow('%Y%m%d-%H%M%S'),
+            Timestamp=datetime.utcnow().strftime('%Y%m%d-%H%M%S'),
         ))
 
         self.logFile = open(self.logPath, 'a')
