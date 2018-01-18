@@ -14,7 +14,7 @@ $DEFAULT_HIVE = [io.path]::combine($USER_DIR, 'Default', 'NTUSER.DAT')
 $STARTUP =      [io.path]::combine($Env:ALLUSERSPROFILE, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'StartUp', '*')
 
 $TOOLS_DIR =    $PSScriptRoot
-$CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.yml') | ConvertFrom-Yaml
+$CONFIG =       Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') | ConvertFrom-Json
 $INSTALL_DIR =  Join-Path $Env:TEMP $CONFIG.Id
 $SECRETS_FILE = Join-Path $INSTALL_DIR 'secrets.yml'
 $S3_URI =       "https://s3.amazonaws.com/$($Env:CHOCO_BUCKET)/packages/$($CONFIG.Id).zip"
