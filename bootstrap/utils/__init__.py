@@ -252,7 +252,7 @@ class ImageBuild(object):
                     config = yaml.load(configYaml)
 
                 with open(packageConfigJsonPath, 'w') as configJson:
-                    json.dump(configJson)
+                    json.dump(config, configJson)
 
                 packageNuspecPath = path.join(nugetPath, '{Package}.nuspec'.format(
                     Package=config['Id'],
