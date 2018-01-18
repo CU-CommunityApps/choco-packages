@@ -6,7 +6,6 @@ import yaml
 from boto3.session import Session
 from botocore.exceptions import ClientError, WaiterError
 from glob import glob
-from io import StringIO
 from os import chdir, environ, getcwd, makedirs, path, remove
 from shutil import copyfile, copytree
 from sys import stdout, stderr
@@ -23,25 +22,33 @@ class ImageBuild(object):
         self.init_logging()
 
     def init_logging(self):
-        handlerConsole, handlerString, self.logString = self.create_log_stream()
+        self.logPath = path.join(environ['ALLUSERSPROFILE'], 'choco-install-{Timestamp}.log'.format(
+            Timestamp=datetime.utcnow('%Y%m%d-%H%M%S'),
+        ))
+
+        self.logFile = open(self.logPath, 'a')
         self.logger = logging.getLogger()
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(logging.DEBUG)
+
+        formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
+        handlerConsole = logging.streamHandler(stdout)
+        handlerFile = logging.streamHandler(self.logFile)
+        handlerConsole.setFormatter(formatter)
+        handlerFile.setFormatter(formatter)
+
         self.logger.addHandler(handlerConsole)
-        self.logger.addHandler(handlerString)
+        self.logger.addHandler(handlerFile)
 
         logging.getLogger('boto').propagate = False
         logging.getLogger('boto3').propagate = False
         logging.getLogger('botocore').propagate = False
 
     def save_logs(self):
-        s3 = self.aws.resource('s3')
-        logPath = path.join(environ['ALLUSERSPROFILE'], 'choco-packages.log')
+        self.logFile.close()
 
-        with open(logPath, 'a') as quicklog:
-            self.logString.seek(0)
-            quicklog.write(self.logString.read())
+        with open(self.logPath, 'r') as logFile:
+            s3 = self.aws.resource('s3')
 
-        with open(logPath, 'r') as quicklog:
             s3LogPath = 'builds/{Build}/choco-packages.log'.format(
                 Build=self.buildId,
             )
@@ -49,19 +56,9 @@ class ImageBuild(object):
             s3Log = s3.Object(self.bucket_name, s3LogPath)
 
             s3Log.put(
-                Body=quicklog,
+                Body=logFile,
                 ContentType='text/plain',
             )
-
-    def create_log_stream(self):
-        logString = StringIO()
-        formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
-        handlerConsole = logging.StreamHandler(stdout)
-        handlerString = logging.StreamHandler(logString)
-        handlerConsole.setFormatter(formatter)
-        handlerString.setFormatter(formatter)
-
-        return handlerConsole, handlerString, logString
 
     def get_stack_outputs(self):
         cfn = self.aws.resource('cloudformation')
