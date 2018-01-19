@@ -199,6 +199,13 @@ foreach($file in $files) {
     $sourcePath = Join-Path "$TOOLS_DIR" "$file"
     $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)").Replace('%%', '%')
 
+    Write-Output "Copying $sourcePath to $destPath"
+
+    New-Item `
+        -Path $(Split-Path -Path "$destPath") `
+        -ItemType "Directory" `
+        -Force
+
     Copy-Item `
         -Path "$sourcePath" `
         -Destination "$destPath" `
