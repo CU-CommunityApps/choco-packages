@@ -55,5 +55,32 @@ Registry:
     HKCU:   { }
     HKLM:   { }
     HKU:    { }
-    HKUD:   { }
+    HKUD:
+        Software\Microsoft\Office\16.0\FirstRun:
+            BootedRTM:
+                Type:   'DWORD'
+                Value:  '1'
+
+            disablemovie:
+                Type:   'DWORD'
+                Value:  '1'
+
+        Software\Microsoft\Office\16.0\Common\General:
+            shownfirstrunoptin:
+                Type:   'DWORD'
+                Value:  '1'
+
+            ShownFileFmtPrompt:
+                Type:   'DWORD'
+                Value:  '1'
+
+        Software\Microsoft\Office\16.0\Common\PTWatson:
+            PTWOptIn:
+                Type:   'DWORD'
+                Value:  '1'
+
+        Software\Microsoft\Office\16.0\Common:
+            qmenable:
+                Type:   'DWORD'
+                Value:  '1'
 
