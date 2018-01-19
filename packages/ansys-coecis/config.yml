@@ -1,6 +1,6 @@
 Id:             'ansys-coecis'
 Description:    'ANSYS - COECIS License'
-Version:        '18.1'
+Version:        '18.2'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -12,13 +12,14 @@ ChocoPackages: []
 
 Applications:
     ANSYSWB:
-        DisplayName:    'ANSYS Workbench 18.1'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v181\Framework\bin\Win64\RunWB2.exe'
+        DisplayName:    'ANSYS Workbench 18.2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v182\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    CADConfigurationInfo.XML: '%PROGRAMFILES%\ANSYS Inc\v181\commonfiles\CAD\CADConfigurationInfo.XML'
+    ApipUserConfig.txt: '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v182\ApipUserConfig.txt'
+    CADConfigurationInfo.XML: '%PROGRAMFILES%\ANSYS Inc\v182\commonfiles\CAD\CADConfigurationInfo.XML'
 
 Environment: { }
 
