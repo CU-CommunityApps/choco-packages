@@ -35,7 +35,8 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: { }
+Files: 
+    solidworks-accept-eula.ps1: '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
 
 Environment: { }
 
@@ -43,7 +44,8 @@ Services:
     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
     SWVisualize2017.Queue.Server:   'Manual'
 
-ScheduledTasks: []
+ScheduledTasks:
+    - 'solidworks-accept-eula'
 
 Registry:
     HKCC:   { }
