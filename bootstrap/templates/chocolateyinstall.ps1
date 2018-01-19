@@ -87,7 +87,7 @@ if ($install) {
         fileType="$($install.FileType)"
         file="$installerFile"
         silentArgs="$silentArgs"
-        validExitCodes="$($install.ExitCodes)"
+        validExitCodes=$install.ExitCodes
     }
 
     # Run the Choco Install
