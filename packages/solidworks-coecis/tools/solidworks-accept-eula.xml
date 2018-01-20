@@ -39,7 +39,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>powershell.exe</Command>
-      <Arguments>-File '.\solidworks-accept-eula.ps1' -WindowStyle 'Hidden'</Arguments>
+      <Arguments>-File ".\solidworks-accept-eula.ps1" -WindowStyle "Hidden"</Arguments>
       <WorkingDirectory>%ALLUSERSPROFILE%</WorkingDirectory>
     </Exec>
   </Actions>
