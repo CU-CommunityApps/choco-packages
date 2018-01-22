@@ -35,5 +35,17 @@ Registry:
     HKCU:   { }
     HKLM:   { }
     HKU:    { }
-    HKUD:   { }
+    HKUD:
+        Software\Autodesk\MC3:
+            ADAOptIn:
+                Type:   'DWORD'
+                Value:  '0'
+
+            ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+            OverridedByHKLM:
+                Type:   'DWORD'
+                Value:  '0'
 
