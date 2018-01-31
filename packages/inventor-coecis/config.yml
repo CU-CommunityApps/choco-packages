@@ -18,7 +18,9 @@ Applications:
         WorkDir:        ''
 
 Files: 
+    gmdb.blb: '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb'
     AddInLoadRules.xml: '%PROGRAMFILES%\Autodesk\Inventor 2018\Preferences\AddInLoadRules.xml'
+    UserApplicationOptions.xml: '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2018\UserApplicationOptions.xml'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
