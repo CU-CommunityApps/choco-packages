@@ -5,8 +5,8 @@ import sqlite3
 import yaml
 from boto3.session import Session
 from botocore.exceptions import ClientError, WaiterError
+from datetime import datetime, timedelta
 from glob import glob
-from io import StringIO
 from os import chdir, environ, getcwd, makedirs, path, remove
 from shutil import copyfile, copytree
 from sys import stdout, stderr
@@ -23,29 +23,50 @@ class ImageBuild(object):
         self.init_logging()
 
     def init_logging(self):
-        handlerConsole, handlerString, self.logString = self.create_log_stream()
+        self.logPath = path.join(environ['ALLUSERSPROFILE'], 'choco-install-{Timestamp}.log'.format(
+            Timestamp=datetime.utcnow().strftime('%Y%m%d-%H%M%S'),
+        ))
+
+        self.logFile = open(self.logPath, 'a')
         self.logger = logging.getLogger()
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(logging.DEBUG)
+
+        formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
+        handlerConsole = logging.StreamHandler(stdout)
+        handlerFile = logging.StreamHandler(self.logFile)
+        handlerConsole.setFormatter(formatter)
+        handlerFile.setFormatter(formatter)
+
         self.logger.addHandler(handlerConsole)
-        self.logger.addHandler(handlerString)
+        self.logger.addHandler(handlerFile)
 
         logging.getLogger('boto').propagate = False
         logging.getLogger('boto3').propagate = False
         logging.getLogger('botocore').propagate = False
 
-    def create_log_stream(self):
-        logString = StringIO()
-        formatter = logging.Formatter('[%(levelname)s] %(asctime)s %(message)s')
-        handlerConsole = logging.StreamHandler(stdout)
-        handlerString = logging.StreamHandler(logString)
-        handlerConsole.setFormatter(formatter)
-        handlerString.setFormatter(formatter)
+    def save_logs(self):
+        self.logFile.close()
 
-        return handlerConsole, handlerString, logString
+        with open(self.logPath, 'r') as logFile:
+            s3 = self.aws.resource('s3')
+
+            s3LogPath = 'builds/{Build}/choco-packages.log'.format(
+                Build=self.buildId,
+            )
+
+            s3Log = s3.Object(self.bucket_name, s3LogPath)
+
+            s3Log.put(
+                Body=logFile,
+                ContentType='text/plain',
+            )
 
     def get_stack_outputs(self):
         cfn = self.aws.resource('cloudformation')
-        stack = cfn.Stack('{App}{Env}Serverless'.format(App=self.appName, Env=self.envName))
+        stack = cfn.Stack('{App}{Env}Serverless'.format(
+            App=self.appName, 
+            Env=self.envName,
+        ))
 
         outputs = { }
         for output in stack.outputs:
@@ -58,7 +79,10 @@ class ImageBuild(object):
 
     def init_federated_session(self):
         try:
-            sessionPath = 'https://s3.amazonaws.com/{Bucket}/builds/{BuildId}/federated-session.json'.format(Bucket=self.bucketName, BuildId=self.buildId)
+            sessionPath = 'https://s3.amazonaws.com/{Bucket}/builds/{BuildId}/federated-session.json'.format(
+                Bucket=self.bucketName, 
+                BuildId=self.buildId
+            )
 
             self.logger.info('Downloading Session Credentials: {Path}'.format(Path=sessionPath))
             self.sessionInfo = json.load(urlopen(sessionPath))
@@ -77,6 +101,7 @@ class ImageBuild(object):
 
         try:
             self.outputs = self.get_stack_outputs()
+
         except Exception as e:
             logging.exception('BAD_CREDENTIALS')
             raise ImageBuildException('BAD_CREDENTIALS')
@@ -84,21 +109,25 @@ class ImageBuild(object):
     def run_command(self, cmd):
         self.logger.info('Running Command: {Cmd}'.format(Cmd=cmd)) 
 
-        p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        p = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, error = p.communicate()
 
-        self.logger.info(out.decode('ascii'))
+        self.logger.info(out.decode('ascii').replace('\r\n', '\n'))
+
         if len(error) > 0:
-            self.logger.warning(error.decode('ascii'))
-        
+            self.logger.warning(error.decode('ascii').replace('\r\n', '\n'))
+
         return p.returncode
 
     def heartbeat(self, taskToken):
+        sfn = self.aws.client('stepfunctions')
         t = currentThread()
         self.logger.info('Heartbeat Starting')
+
         while getattr(t, 'heartbeat', True):
             try:
-                self.sfn.send_task_heartbeat(taskToken=taskToken)
+                sfn.send_task_heartbeat(taskToken=taskToken)
+
             except Exception as e:
                 self.logger.error(e)
                 logging.exception('HEARTBEAT_ERROR')
@@ -106,14 +135,19 @@ class ImageBuild(object):
             sleep(30)
 
         self.logger.info('Heartbeat Stopped')
-        
+
     def bootstrap(self):
-        self.sfn = self.aws.client('stepfunctions')
-        bootstrapOutput = '{App}{Env}AppStreamImageBootstrapActivity'.format(App=self.appName, Env=self.envName)
+        sfn = self.aws.client('stepfunctions')
+
+        bootstrapOutput = '{App}{Env}AppStreamImageBootstrapActivity'.format(
+            App=self.appName, 
+            Env=self.envName,
+        )
+
         bootstrapActivity = self.outputs[bootstrapOutput]['value']
 
         try: 
-            task = self.sfn.get_activity_task(
+            task = sfn.get_activity_task(
                 activityArn=bootstrapActivity,
                 workerName=self.buildId,
             )
@@ -123,9 +157,12 @@ class ImageBuild(object):
             raise ImageBuildException('BAD_BOOTSTRAP_ACTIVITY')
 
         try:
-            self.sfn.send_task_success(
+            output = json.loads(task['input'])
+            output['BootstrapComplete'] = True
+
+            sfn.send_task_success(
                 taskToken=task['taskToken'],
-                output=task['input'],
+                output=json.dumps(output),
             )
 
         except Exception as e:
@@ -135,6 +172,8 @@ class ImageBuild(object):
         self.logger.info('Bootstrapped')
 
     def install_packages(self):
+        sfn = self.aws.client('stepfunctions')
+
         installOutput = '{App}{Env}AppStreamImageInstallActivity'.format(
             App=self.appName, 
             Env=self.envName,
@@ -143,7 +182,7 @@ class ImageBuild(object):
         installActivity = self.outputs[installOutput]['value']
 
         try:
-            task = self.sfn.get_activity_task(
+            task = sfn.get_activity_task(
                 activityArn=installActivity,
                 workerName=self.buildId,
             )
@@ -161,7 +200,8 @@ class ImageBuild(object):
 
         self.chocoTempDir = path.abspath(getcwd())
         self.chocoLogDir = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'logs')
-        self.packages = self.inputParams['packages']
+        self.packages = self.inputParams['Packages']
+        environ['CHOCO_BUCKET'] = self.bucketName
 
         packageLogs = { }
         for package in self.packages:
@@ -202,15 +242,19 @@ class ImageBuild(object):
                     'chocolateyinstall.ps1',
                 )
 
-                packageNuspecPath = path.join(nugetPath, '{Package}.nuspec'.format(
-                    Package=config['Id'],
-                ))
-
                 copytree(path.join(packageDir, 'tools'), nugetToolsPath)
                 copyfile(installTemplatePath, installScriptPath)
+                #copyfile(packageConfigPath, packageConfigYamlPath)
 
                 with open(packageConfigPath, 'r') as configYaml:
                     config = yaml.load(configYaml)
+
+                with open(packageConfigJsonPath, 'w') as configJson:
+                    json.dump(config, configJson)
+
+                packageNuspecPath = path.join(nugetPath, '{Package}.nuspec'.format(
+                    Package=config['Id'],
+                ))
 
                 with open(nuspecTemplatePath, 'r') as nuspecTemplateXml:
                     nuspecTemplate = nuspecTemplateXml.read().format(
@@ -219,14 +263,8 @@ class ImageBuild(object):
                         Description=config['Description'],
                     )
 
-                with open(packageConfigJsonPath, 'w') as packageConfigJson:
-                    packageConfigJson.write(json.dumps(config))
-
                 with open(packageNuspecPath, 'w') as packageNuspec:
                     packageNuspec.write(nuspecTemplate)
-
-                with open(installScriptPath, 'w') as installScript:
-                    installScript.write(installCode)
 
             except Exception as e:
                 logging.exception('BAD_PACKAGE_CONFIG')
@@ -264,16 +302,16 @@ class ImageBuild(object):
                     self.logger.error('CHOCO_PACK_ERROR')
                     raise ImageBuildException('CHOCO_PACK_ERROR')
 
-                validExitInts = list(map(int, config['ExitCodes'].split(',')))
+                self.run_command(installCmd)
 
-                if self.run_command(installCmd) not in validExitInts:
-                    self.logger.error('CHOCO_INSTALL_ERROR')
-                    raise ImageBuildException('CHOCO_INSTALL_ERROR')
+                #if self.run_command(installCmd) not in config['ExitCodes']:
+                #    self.logger.error('CHOCO_INSTALL_ERROR')
+                #    raise ImageBuildException('CHOCO_INSTALL_ERROR')
 
             except Exception as e:
                 self.heartbeat.heartbeat = False
 
-                self.sfn.send_task_failure(
+                sfn.send_task_failure(
                     taskToken=task['taskToken'],
                     error=str(e),
                 )
@@ -290,10 +328,12 @@ class ImageBuild(object):
 
         try:
             self.heartbeat.heartbeat = False
+            output = json.loads(task['input'])
+            output['PackagesInstalled'] = True
 
-            self.sfn.send_task_success(
+            sfn.send_task_success(
                 taskToken=task['taskToken'],
-                output=task['input'],
+                output=json.dumps(output),
             )
         
         except Exception as e:
@@ -317,6 +357,7 @@ class AppStreamImageBuild(ImageBuild):
         try:
             self.logger.info('Getting System User-Data')
             self.user_data = json.load(urlopen('http://169.254.169.254/latest/user-data'))
+
         except Exception as e:
             logging.exception('NO_USER_DATA')
             raise ImageBuildException('NO_USER_DATA')
@@ -330,16 +371,26 @@ class AppStreamImageBuild(ImageBuild):
         self.account = self.arn[4]
         builderName = self.arn[5].replace('image-builder/', '').split('.')
 
-        if len(builderName) != 4:
+        if len(builderName) != 3:
             raise ImageBuildException('BAD_APPSTREAM_IMAGE_BUILDER_NAME')
 
-        self.buildId = builderName[0]
-        self.appName = builderName[1]
-        self.envName = builderName[2]
-        self.bucketName = builderName[3]
+        self.appName = builderName[0]
+        self.envName = builderName[1]
+        self.buildId = builderName[2]
+
+        self.bucketName = '{App}-{Env}-adminimages'.format(
+            App=self.appName.lower(),
+            Env=self.envName.lower(),
+        )
 
     def init_appstream_catalog(self):
-        self.appstream_catalog = path.join(environ['ALLUSERSPROFILE'], 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
+        self.appstream_catalog = path.join(
+            environ['ALLUSERSPROFILE'], 
+            'Amazon', 
+            'Photon', 
+            'PhotonAppCatalog.sqlite',
+        )
+
         catalog_sql = (
             'CREATE TABLE Applications ('
                 'Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY,' 
@@ -352,6 +403,7 @@ class AppStreamImageBuild(ImageBuild):
         )
 
         makedirs(path.dirname(self.appstream_catalog), exist_ok=True)
+
         if path.exists(self.appstream_catalog):
             self.logger.warning('Removing Existing AppStream Catalog')
             remove(self.appstream_catalog)
@@ -392,9 +444,22 @@ class AppStreamImageBuild(ImageBuild):
             c = sql.cursor()
 
             for package in self.packages:
-                packageDir = path.join(self.chocoTempDir, 'choco-packages', 'packages', package)
+                packageDir = path.join(
+                    self.chocoTempDir, 
+                    'choco-packages', 
+                    'packages', 
+                    package,
+                )
+
                 packageConfigPath = path.join(packageDir, 'config.yml')
-                iconDir = path.join(environ['ALLUSERSPROFILE'], 'Amazon', 'Photon', 'AppCatalogHelper', 'AppIcons')
+
+                iconDir = path.join(
+                    environ['ALLUSERSPROFILE'], 
+                    'Amazon', 
+                    'Photon', 
+                    'AppCatalogHelper', 
+                    'AppIcons',
+                )
 
                 with open(packageConfigPath, 'r') as configYaml:
                     config = yaml.load(configYaml)
@@ -407,11 +472,11 @@ class AppStreamImageBuild(ImageBuild):
 
                     c.execute(appSql.format(
                         Id=app,
-                        Path=appConfig['Path'],
+                        Path=path.expandvars(appConfig['Path']),
                         DisplayName=appConfig['DisplayName'],
                         IconPath=appstreamIcon,
-                        LaunchParams=appConfig['LaunchParams'],
-                        WorkDir=appConfig['WorkDir'],
+                        LaunchParams=path.expandvars(appConfig['LaunchParams']),
+                        WorkDir=path.expandvars(appConfig['WorkDir']),
                     ))
 
             sql.commit()

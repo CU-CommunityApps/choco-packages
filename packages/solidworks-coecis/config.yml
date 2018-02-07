@@ -1,10 +1,14 @@
 Id:             'solidworks-coecis'
 Description:    'SOLIDWORKS 2017 - COECIS License'
 Version:        '25.3'
-Installer:      '%INSTALL_DIR%\startswinstall.exe'
-FileType:       'exe'
-Arguments:      '/install /showui /now'
-ExitCodes:      [0]
+
+Install:
+    File:       '%INSTALL_DIR%\startswinstall.exe'
+    FileType:   'exe'
+    Arguments:  '/install /showui /now'
+    ExitCodes:  [0]
+
+ChocoPackages: []
 
 Applications:
     SLDWORKS:
@@ -24,12 +28,24 @@ Applications:
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
         LaunchParams:   ''
         WorkDir:        ''
-        
+
     eDrawings:
         DisplayName:    'SOLIDWORKS eDrawings'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files: 
+    solidworks-accept-eula.ps1: '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
+
+Environment: { }
+
+Services:
+    RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
+    SWVisualize2017.Queue.Server:   'Manual'
+
+ScheduledTasks:
+    - 'solidworks-accept-eula'
 
 Registry:
     HKCC:   { }

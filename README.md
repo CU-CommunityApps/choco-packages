@@ -1,6 +1,6 @@
 # CU Choco Package Metadata Repository
 
-To run bootstrap:
+To run bootstrap locally:
 
-    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/bootstrap/bootstrap.ps1'))
+    Invoke-Command -ScriptBlock ([scriptblock]::Create(((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/marty-sullivan/choco-packages/master/bootstrap/entry.ps1')))) -ArgumentList 'manual'
 

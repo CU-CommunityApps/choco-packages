@@ -1,10 +1,14 @@
 Id:             'ces-edupack-coecis'
 Description:    'CES Edupack 2017 - COECIS License'
 Version:        '1.0.0'
-Installer:      '%INSTALL_DIR%\edupack_setup.2017.exe'
-FileType:       'exe'
-Arguments:      '/quiet'
-ExitCodes:      [0]
+
+Install:
+    File:       '%INSTALL_DIR%\edupack_setup.2017.exe'
+    FileType:   'exe'
+    Arguments:  '/quiet'
+    ExitCodes:  [0]
+
+ChocoPackages: []
 
 Applications:
     CES:
@@ -12,6 +16,14 @@ Applications:
         Path:           '%PROGRAMFILES(X86)%\CES EduPack 2017\CES.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files: { }
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: []
 
 Registry:
     HKCC:   { }

@@ -1,10 +1,14 @@
 Id:             'msoffice-cornell'
 Description:    'Microsoft Office 2016 - Cornell Site License'
 Version:        16.0
-Installer:      '%INSTALL_DIR%\setup.exe'
-FileType:       'exe'
-Arguments:      '/adminfile %INSTALL_DIR%\cu_office_config.MSP'
-ExitCodes:      [0]
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  ''
+    ExitCodes:  [0]
+
+ChocoPackages: []
 
 Applications:
     WINWORD:
@@ -37,11 +41,46 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
+Files: { }
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: []
+
 Registry:
     HKCC:   { }
     HKCR:   { }
     HKCU:   { }
     HKLM:   { }
     HKU:    { }
-    HKUD:   { }
+    HKUD:
+        Software\Microsoft\Office\16.0\FirstRun:
+            BootedRTM:
+                Type:   'DWORD'
+                Value:  '1'
+
+            disablemovie:
+                Type:   'DWORD'
+                Value:  '1'
+
+        Software\Microsoft\Office\16.0\Common\General:
+            shownfirstrunoptin:
+                Type:   'DWORD'
+                Value:  '1'
+
+            ShownFileFmtPrompt:
+                Type:   'DWORD'
+                Value:  '1'
+
+        Software\Microsoft\Office\16.0\Common\PTWatson:
+            PTWOptIn:
+                Type:   'DWORD'
+                Value:  '1'
+
+        Software\Microsoft\Office\16.0\Common:
+            qmenable:
+                Type:   'DWORD'
+                Value:  '1'
 

@@ -1,0 +1,68 @@
+Id:             'base-cornellstream'
+Description:    'Base Items for Cornell Stream Environments'
+Version:        '1.0.0'
+
+Install: null
+
+ChocoPackages:
+    - '7zip'
+    - 'notepadplusplus'
+    - 'googlechrome'
+
+Applications:
+    7zip:
+        DisplayName:    '7-Zip'
+        Path:           '%PROGRAMFILES%\7-Zip\7zFM.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    Chrome:
+        DisplayName:    'Google Chrome'
+        Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
+        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
+        WorkDir:        ''
+
+    NotepadPP:
+        DisplayName:    'Notepad++'
+        Path:           '%PROGRAMFILES%\Notepad++\notepad++.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: { }
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: []
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:
+        Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
+            ComponentID:
+                Type:   'String'
+                Value:  'IEHardenAdmin'
+
+            IsInstalled:
+                Type:   'DWORD'
+                Value:  '0'
+
+        Software\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}:
+            ComponentID:
+                Type:   'String'
+                Value:  'IEHardenUser'
+
+            IsInstalled:
+                Type:   'DWORD'
+                Value:  '0'
+
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap:
+            IEHarden:
+                Type:   'DWORD'
+                Value:  '0'
+
