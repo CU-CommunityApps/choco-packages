@@ -13,15 +13,15 @@ ChocoPackages: []
 Applications:
     Photoshop: 
     DisplayName:    'Adobe Photoshop CC 2018'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.ps1'
-        LaunchParams:   ''
-        WorkDir:        ''
+        Path:           '%WINDIR%\system32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   '-windowstyle hidden -executionpolicy bypass -file "C:\programdata\Adobe\Launcher\photoshop.ps1"'
+        WorkDir:        '%WINDIR%\system32\WindowsPowerShell\v1.0'
 
 Files:
     '%INSTALL_DIR%\AdobeCC-2018-Lic\AdobeSerialization.exe': '%ALLUSERSPROFILE%\AdobeLic\AdobeSrialization.exe'
     '%INSTALL_DIR%\AdobeCC-2018-Lic\helper.bin': '%ALLUSERSPROFILE%\AdobeLic\helper.bin'
     '%INSTALL_DIR%\AdobeCC-2018-Lic\prov.xml': '%ALLUSERSPROFILE%\AdobeLic\prov.xml'
-    '%INSTALL_DIR%\photoshop.ps1': '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.ps1'
+    '%INSTALL_DIR%\photoshop.ps1': '%ALLUSERSPROFILE%\Adobe\Launcher\photoshop.ps1'
 
 Environment: { }
 
