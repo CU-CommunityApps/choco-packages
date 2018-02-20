@@ -1,0 +1,42 @@
+Id:             'photoshop-cornell'
+Description:    'Adobe Photoshop CC 2018'
+Version:        '19.1.0'
+
+Install:
+    File:       '%INSTALL_DIR%\Build\setup.exe'
+    FileType:   'exe'
+    Arguments:  '--silent'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    Photoshop: 
+    DisplayName:    'Adobe Photoshop CC 2018'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.ps1'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\AdobeCC-2018-Lic\AdobeSerialization.exe': '%ALLUSERSPROFILE%\AdobeLic\AdobeSrialization.exe'
+    '%INSTALL_DIR%\AdobeCC-2018-Lic\helper.bin': '%ALLUSERSPROFILE%\AdobeLic\helper.bin'
+    '%INSTALL_DIR%\AdobeCC-2018-Lic\prov.xml': '%ALLUSERSPROFILE%\AdobeLic\prov.xml'
+    '%INSTALL_DIR%\photoshop.ps1': '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.ps1'
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks:
+    - 'Adobe Activation'
+    - 'Adobe Activation Clean Up'
+    - 'Update Adobe Products'
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
+
