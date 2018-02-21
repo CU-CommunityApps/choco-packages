@@ -12,24 +12,24 @@ ChocoPackages: []
 
 Applications:
     Photoshop: 
-    DisplayName:    'Adobe Photoshop CC 2018'
+        DisplayName:    'Adobe Photoshop CC 2018'
         Path:           '%WINDIR%\system32\WindowsPowerShell\v1.0\powershell.exe'
         LaunchParams:   '-windowstyle hidden -executionpolicy bypass -file "C:\programdata\Adobe\Launcher\photoshop.ps1"'
         WorkDir:        '%WINDIR%\system32\WindowsPowerShell\v1.0'
 
 Files:
-    '%INSTALL_DIR%\AdobeCC-2018-Lic\AdobeSerialization.exe': '%ALLUSERSPROFILE%\Adobe\Files\AdobeSrialization.exe'
+    '%INSTALL_DIR%\AdobeCC-2018-Lic\AdobeSerialization.exe': '%ALLUSERSPROFILE%\Adobe\Files\AdobeSerialization.exe'
     '%INSTALL_DIR%\AdobeCC-2018-Lic\helper.bin': '%ALLUSERSPROFILE%\Adobe\Files\helper.bin'
     '%INSTALL_DIR%\AdobeCC-2018-Lic\prov.xml': '%ALLUSERSPROFILE%\Adobe\Files\prov.xml'
-    '%INSTALL_DIR%\photoshop.ps1': '%ALLUSERSPROFILE%\Adobe\Launcher\photoshop.ps1'
+    '%TOOLS_DIR%\photoshop.ps1': '%ALLUSERSPROFILE%\Adobe\Launcher\photoshop.ps1'
 
 Environment: { }
 
 Services: { }
 
 ScheduledTasks:
-    - 'Adobe Activation'
-    - 'Update Adobe Products'
+    - 'adobe_activation'
+    - 'update_adobe_products'
 
 Registry:
     HKCC:   { }
