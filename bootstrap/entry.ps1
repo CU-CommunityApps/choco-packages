@@ -19,7 +19,7 @@ $PYDIR =        Join-Path $Env:SYSTEMDRIVE 'Python36'
 $PYTHON =       Join-Path $PYDIR 'python.exe'
 $PIP =          [io.path]::combine($PYDIR, 'Scripts', 'pip.exe')
 
-$REPO =         'https://github.com/marty-sullivan/choco-packages.git'
+$REPO =         'https://github.com/CU-CommunityApps/choco-packages.git'
 $PREREQS =      'git sysinternals powershell'
 $PYVERSION =    '3.6.4'
 $PYDEPENDS =    'boto3 pyyaml'
