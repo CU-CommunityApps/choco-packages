@@ -1,4 +1,4 @@
-# CU photoshop-cornell AppStream Package Metadata Repository
+# CU photoshop-user AppStream Package Metadata Repository
 
 - Installer generated using Adobe's Creative Cloud Packager tool
 - setup.exe --silent
