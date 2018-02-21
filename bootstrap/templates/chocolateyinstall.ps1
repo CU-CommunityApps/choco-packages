@@ -196,8 +196,8 @@ foreach ($hive in $hives) {
 # Put all static files into the filesystem
 $files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
 foreach($file in $files) {
-    $sourcePath = Join-Path "$TOOLS_DIR" "$file"
-    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)").Replace('%%', '%')
+    $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
+    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
 
     Write-Output "Copying $sourcePath to $destPath"
 
