@@ -1,0 +1,36 @@
+Id:             'photoshop-user'
+Description:    'Adobe Photoshop CC 2018 Named'
+Version:        '19.1.0'
+
+Install:
+    File:       '%INSTALL_DIR%\Build\setup.exe'
+    FileType:   'exe'
+    Arguments:  '--silent'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    Photoshop: 
+        DisplayName:    'Adobe Photoshop CC 2018 Named'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: { }
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks:
+    - 'update_adobe_products'
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
+
