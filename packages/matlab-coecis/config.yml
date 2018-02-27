@@ -17,7 +17,8 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: { }
+Files: 
+    '%TOOLS_DIR%\ncorr': '%SYSTEMDRIVE%\Users\Default\Documents\MATLAB'
 
 Environment: { }
 
