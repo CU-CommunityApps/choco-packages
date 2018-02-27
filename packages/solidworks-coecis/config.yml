@@ -36,7 +36,7 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    solidworks-accept-eula.ps1: '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
+    '%TOOLSDIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
 
 Environment: { }
 
