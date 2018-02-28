@@ -20,7 +20,6 @@ Applications:
 Files: 
     '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v182\ApipUserConfig.txt'
     '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v182\commonfiles\CAD\CADConfigurationInfo.XML'
-    '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb'
 
 Environment: { }
 

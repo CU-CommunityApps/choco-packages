@@ -18,7 +18,6 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb'
     '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2018\Preferences\AddInLoadRules.xml'
     '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2018\UserApplicationOptions.xml'
 
