@@ -18,7 +18,7 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%TOOLSDIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb'
+    '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb'
 
 Environment: { }
 
