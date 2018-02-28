@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'
+#$ErrorActionPreference = 'Stop'
 Import-Module 'powershell-yaml'
 
 # Initialize list of packages, if needed
