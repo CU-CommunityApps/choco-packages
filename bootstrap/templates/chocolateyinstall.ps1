@@ -53,6 +53,25 @@ foreach ($chocoPackage in $CONFIG.ChocoPackages) {
         -NoNewWindow -Wait
 }
 
+# Put all static files into the filesystem
+$files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
+foreach($file in $files) {
+    $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
+    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
+
+    Write-Output "Copying $sourcePath to $destPath"
+
+    New-Item `
+        -Path $(Split-Path -Path "$destPath") `
+        -ItemType "Directory" `
+        -Force
+
+    Copy-Item `
+        -Path "$sourcePath" `
+        -Destination "$destPath" `
+        -Force -Recurse
+}
+
 # Install the Packaged Application, if there is one
 $install = $CONFIG.Install
 if ($install) {
@@ -191,25 +210,6 @@ foreach ($hive in $hives) {
             -ArgumentList "UNLOAD HKU\DefaultUser" `
             -NoNewWindow -Wait 
     }
-}
-
-# Put all static files into the filesystem
-$files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
-foreach($file in $files) {
-    $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
-    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
-
-    Write-Output "Copying $sourcePath to $destPath"
-
-    New-Item `
-        -Path $(Split-Path -Path "$destPath") `
-        -ItemType "Directory" `
-        -Force
-
-    Copy-Item `
-        -Path "$sourcePath" `
-        -Destination "$destPath" `
-        -Force -Recurse
 }
 
 # Set all Windows Services listed in config
