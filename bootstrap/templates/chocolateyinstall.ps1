@@ -40,7 +40,7 @@ foreach ($envVar in $envVars) {
     }
 
     Write-Output "Setting Environment Variable $envVar to $envValue)"
-    [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
+    [Environment]::SetEnvironmentVariable($envVar, $envValue, 'Machine')
 }
 
 # Install any listed Choco Gallery packages
@@ -51,25 +51,6 @@ foreach ($chocoPackage in $CONFIG.ChocoPackages) {
         -FilePath "$CHOCO" `
         -ArgumentList "install $chocoPackage --no-progress -r -y" `
         -NoNewWindow -Wait
-}
-
-# Put all static files into the filesystem
-$files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
-foreach($file in $files) {
-    $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
-    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
-
-    Write-Output "Copying $sourcePath to $destPath"
-
-    New-Item `
-        -Path $(Split-Path -Path "$destPath") `
-        -ItemType "Directory" `
-        -Force
-
-    Copy-Item `
-        -Path "$sourcePath" `
-        -Destination "$destPath" `
-        -Force -Recurse
 }
 
 # Install the Packaged Application, if there is one
@@ -90,6 +71,25 @@ if ($install) {
         foreach ($secret in $secrets) {
             [Environment]::SetEnvironmentVariable("$secret", "$($secrets.$secret)", 'Process')
         }
+    }
+
+    # Put all static files into the filesystem
+    $files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
+    foreach($file in $files) {
+        $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
+        $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
+
+        Write-Output "Copying $sourcePath to $destPath"
+
+        New-Item `
+            -Path $(Split-Path -Path "$destPath") `
+            -ItemType "Directory" `
+            -Force
+
+        Copy-Item `
+            -Path "$sourcePath" `
+            -Destination "$destPath" `
+            -Force -Recurse
     }
 
     # Run Preinstall PowerShell script
@@ -114,6 +114,24 @@ if ($install) {
     Install-ChocolateyInstallPackage @packageArgs
 }
 else {
+    # Always put all static files into the filesystem
+    $files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
+    foreach($file in $files) {
+        $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
+        $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
+
+        Write-Output "Copying $sourcePath to $destPath"
+
+        New-Item `
+            -Path $(Split-Path -Path "$destPath") `
+            -ItemType "Directory" `
+            -Force
+
+        Copy-Item `
+            -Path "$sourcePath" `
+            -Destination "$destPath" `
+            -Force -Recurse
+    }
 
     # Always Run Preinstall PowerShell script
     Write-Output        "Running preinstall.ps1..."
@@ -199,7 +217,7 @@ foreach ($hive in $hives) {
                 -Name "$regProperty" `
                 -Path "$regKeyPath" `
                 -PropertyType "$($regItem.Type)" `
-                -Value "$($regItem.Value)" `
+                -Value "$regValue" `
                 -Force
         }
     }
