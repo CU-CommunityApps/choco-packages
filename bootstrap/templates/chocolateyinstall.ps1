@@ -73,25 +73,6 @@ if ($install) {
         }
     }
 
-    # Put all static files into the filesystem
-    $files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
-    foreach($file in $files) {
-        $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
-        $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
-
-        Write-Output "Copying $sourcePath to $destPath"
-
-        New-Item `
-            -Path $(Split-Path -Path "$destPath") `
-            -ItemType "Directory" `
-            -Force
-
-        Copy-Item `
-            -Path "$sourcePath" `
-            -Destination "$destPath" `
-            -Force -Recurse
-    }
-
     # Run Preinstall PowerShell script
     Write-Output        "Running preinstall.ps1..."
     Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
@@ -114,25 +95,6 @@ if ($install) {
     Install-ChocolateyInstallPackage @packageArgs
 }
 else {
-    # Always put all static files into the filesystem
-    $files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
-    foreach($file in $files) {
-        $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
-        $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
-
-        Write-Output "Copying $sourcePath to $destPath"
-
-        New-Item `
-            -Path $(Split-Path -Path "$destPath") `
-            -ItemType "Directory" `
-            -Force
-
-        Copy-Item `
-            -Path "$sourcePath" `
-            -Destination "$destPath" `
-            -Force -Recurse
-    }
-
     # Always Run Preinstall PowerShell script
     Write-Output        "Running preinstall.ps1..."
     Invoke-Expression   $(Join-Path "$TOOLS_DIR" 'preinstall.ps1')
@@ -228,6 +190,25 @@ foreach ($hive in $hives) {
             -ArgumentList "UNLOAD HKU\DefaultUser" `
             -NoNewWindow -Wait 
     }
+}
+
+# Put all static files into the filesystem
+$files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
+foreach($file in $files) {
+    $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
+    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
+
+    Write-Output "Copying $sourcePath to $destPath"
+
+    New-Item `
+        -Path $(Split-Path -Path "$destPath") `
+        -ItemType "Directory" `
+        -Force
+
+    Copy-Item `
+        -Path "$sourcePath" `
+        -Destination "$destPath" `
+        -Force -Recurse
 }
 
 # Set all Windows Services listed in config
