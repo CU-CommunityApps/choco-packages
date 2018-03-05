@@ -19,11 +19,9 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\network.lic':    '%ALLUSERSPROFILE%\network.lic'
     '%TOOLS_DIR%\ncorr':            '%PUBLIC%\MATLAB'
 
 Environment:
-    MATLABPATH:     '%%USERPROFILE%%\My Files\Home Folder\MATLAB;%PUBLIC%\MATLAB'
     MW_MINGW64_LOC: '%SYSTEMDRIVE%\tools\mingw64'
 
 Services: { }
