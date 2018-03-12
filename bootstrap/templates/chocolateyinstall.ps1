@@ -30,206 +30,263 @@ if ($INSTALLED.Contains($CONFIG.Id)) {
 [Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'Process')
 [Environment]::SetEnvironmentVariable('TOOLS_DIR', $TOOLS_DIR, 'Process')
 
-# Set all Environment Variables listed in config
-$envVars = ($CONFIG.Environment | Get-Member -MemberType NoteProperty).Name
-foreach ($envVar in $envVars) {
-    $envValue = [Environment]::ExpandEnvironmentVariables($CONFIG.Environment.$envVar).Replace('%%', '%')
+# Always Run Preinstall PowerShell script
+Write-Output        "Running preinstall.ps1..."
+Invoke-Expression   $(Join-Path "$TOOLS_DIR" 'preinstall.ps1')
 
-    if (Test-Path Env:$envVar) {
-        $envValue = "$envValue;$([Environment]::GetEnvironmentVariable($envVar))"
+##############################################
+################# Env Vars ###################
+##############################################
+Function EnvVars {
+
+    # Set all Environment Variables listed in config
+    $envVars = ($CONFIG.Environment | Get-Member -MemberType NoteProperty).Name
+    foreach ($envVar in $envVars) {
+        $envValue = [Environment]::ExpandEnvironmentVariables($CONFIG.Environment.$envVar).Replace('%%', '%')
+
+        if (Test-Path Env:$envVar) {
+            $envValue = "$envValue;$([Environment]::GetEnvironmentVariable($envVar))"
+        }
+
+        Write-Output "Setting Environment Variable $envVar to $envValue)"
+        [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
     }
-
-    Write-Output "Setting Environment Variable $envVar to $envValue)"
-    [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
 }
 
-# Install any listed Choco Gallery packages
-foreach ($chocoPackage in $CONFIG.ChocoPackages) {
-    Write-Output "Installing Choco Package $chocoPackage"
+##############################################
+################ Choco Packs #################
+##############################################
+Function Choco {
 
-    Start-Process `
-        -FilePath "$CHOCO" `
-        -ArgumentList "install $chocoPackage --no-progress -r -y" `
-        -NoNewWindow -Wait
+    # Install any listed Choco Gallery packages
+    foreach ($chocoPackage in $CONFIG.ChocoPackages) {
+        Write-Output "Installing Choco Package $chocoPackage"
+
+        Start-Process `
+            -FilePath "$CHOCO" `
+            -ArgumentList "install $chocoPackage --no-progress -r -y" `
+            -NoNewWindow -Wait
+    }
 }
 
-# Install the Packaged Application, if there is one
-$install = $CONFIG.Install
-if ($install) {
+##############################################
+################ Installers ##################
+##############################################
+Function Installers {
 
-    # Download and extract ZIP from S3
-    Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
-    Install-ChocolateyZipPackage `
-        -PackageName "$($CONFIG.Id)" `
-        -UnzipLocation "$INSTALL_DIR" `
-        -Url "$S3_URI" 
+    # Install the Packaged Application, if there is one
+    $install = $CONFIG.Install
+    if ($install) {
 
-    # Put any secrets into the environment
-    if (Test-Path $SECRETS_FILE) {
-        $secrets = Get-Content -Raw -Path "$SECRETS_FILE" | ConvertFrom-Yaml
+        # Download and extract ZIP from S3
+        Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
+        Install-ChocolateyZipPackage `
+            -PackageName "$($CONFIG.Id)" `
+            -UnzipLocation "$INSTALL_DIR" `
+            -Url "$S3_URI" 
 
-        foreach ($secret in $secrets) {
-            [Environment]::SetEnvironmentVariable("$secret", "$($secrets.$secret)", 'Process')
+        # Put any secrets into the environment
+        if (Test-Path $SECRETS_FILE) {
+            $secrets = Get-Content -Raw -Path "$SECRETS_FILE" | ConvertFrom-Yaml
+
+            foreach ($secret in $secrets) {
+                [Environment]::SetEnvironmentVariable("$secret", "$($secrets.$secret)", 'Process')
+            }
+        }
+
+        # Run Preinstall PowerShell script
+        Write-Output        "Running preinstall.ps1..."
+        Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
+
+        # Install each installer file
+        $install | % {
+
+            # Expand environment variables in relevant vars
+            $installerFile = [Environment]::ExpandEnvironmentVariables($_.File).Replace('%%', '%')
+            $silentArgs = [Environment]::ExpandEnvironmentVariables($_.Arguments).Replace('%%', '%')
+
+            # Prepare Choco Install Args from config
+            $packageArgs = @{
+                packageName="$($CONFIG.Id)"
+                fileType="$($_.FileType)"
+                file="$installerFile"
+                silentArgs="$silentArgs"
+                validExitCodes=$_.ExitCodes
+            }
+
+            # Run the Choco Install
+            Write-Output "Installing $($CONFIG.Id) With Args: $($packageArgs | Out-String)"
+            Install-ChocolateyInstallPackage @packageArgs
         }
     }
-
-    # Run Preinstall PowerShell script
-    Write-Output        "Running preinstall.ps1..."
-    Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
-
-    # Expand environment variables in relevant vars
-    $installerFile = [Environment]::ExpandEnvironmentVariables($install.File).Replace('%%', '%')
-    $silentArgs = [Environment]::ExpandEnvironmentVariables($install.Arguments).Replace('%%', '%')
-
-    # Prepare Choco Install Args from config
-    $packageArgs = @{
-        packageName="$($CONFIG.Id)"
-        fileType="$($install.FileType)"
-        file="$installerFile"
-        silentArgs="$silentArgs"
-        validExitCodes=$install.ExitCodes
-    }
-
-    # Run the Choco Install
-    Write-Output "Installing $($CONFIG.Id) With Args: $($packageArgs | Out-String)"
-    Install-ChocolateyInstallPackage @packageArgs
-}
-else {
-
-    # Always Run Preinstall PowerShell script
-    Write-Output        "Running preinstall.ps1..."
-    Invoke-Expression   $(Join-Path "$TOOLS_DIR" 'preinstall.ps1')
 }
 
-# Make sure abbreviated drives exist for all standard Registry Hives
+##############################################
+############## Registry Files ################
+##############################################
+Function Registry {
+    
+    # Set all the Registry Keys listed in config
+    $hives = ($CONFIG.Registry | Get-Member -MemberType NoteProperty).Name
+    foreach ($hive in $hives) {
+        $regKeys = ($CONFIG.Registry.$hive | Get-Member -MemberType NoteProperty).Name
 
-if (-Not (Test-Path 'HKCC:\')) {
-    New-PSDrive `
-        -Name 'HKCC' `
-        -PSProvider 'Registry' `
-        -Root 'HKEY_CURRENT_CONFIG'
-}
+        # Do we care?
+        if ($regKeys.Count -eq 0) { 
+            Write-Output "No Registry Keys to set for $hive"
+            continue 
+        }
 
-if (-Not (Test-Path 'HKCR:\')) {
-    New-PSDrive `
-        -Name 'HKCR' `
-        -PSProvider 'Registry' `
-        -Root 'HKEY_CLASSES_ROOT'
-}
+        # Load Default User
+        if ($hive -eq 'HKUD') {
+            Start-Process `
+                -ArgumentList "LOAD HKU\DefaultUser $DEFAULT_HIVE" `
+                -FilePath "$REG" `
+                -NoNewWindow -Wait 
 
-if (-Not (Test-Path 'HKCU:\')) {
-    New-PSDrive `
-        -Name 'HKCR' `
-        -PSProvider 'Registry' `
-        -Root 'HKEY_CURRENT_USER'
-}
+            if (!(Test-Path 'HKUD:\')) {
+                New-PSDrive `
+                    -Name 'HKUD' `
+                    -PSProvider 'Registry' `
+                    -Root 'HKU:\DefaultUser'
+            }
+        }
 
-if (-Not (Test-Path 'HKLM:\')) {
-    New-PSDrive `
-        -Name 'HKLM' `
-        -PSProvider 'Registry' `
-        -Root 'HKEY_LOCAL_MACHINE'
-}
-
-if (-Not (Test-Path 'HKU:\')) {
-    New-PSDrive `
-        -Name 'HKU' `
-        -PSProvider 'Registry' `
-        -Root 'HKEY_USERS'
-}
-
-# Set all the Registry Keys listed in config
-$hives = ($CONFIG.Registry | Get-Member -MemberType NoteProperty).Name
-foreach ($hive in $hives) {
-    $regKeys = ($CONFIG.Registry.$hive | Get-Member -MemberType NoteProperty).Name
-
-    if ($regKeys.Count -eq 0) { 
-        Write-Output "No Registry Keys to set for $hive"
-        continue 
-    }
-
-    if ($hive -eq 'HKUD') {
-        Start-Process `
-            -ArgumentList "LOAD HKU\DefaultUser $DEFAULT_HIVE" `
-            -FilePath "$REG" `
-            -NoNewWindow -Wait 
-
-        if (-Not (Test-Path 'HKUD:\')) {
+        # Make sure abbreviated drives exist for all standard Registry Hives
+        if (($hive -eq 'HKCC') -and (!(Test-Path 'HKCC:\'))) {
             New-PSDrive `
-                -Name 'HKUD' `
+                -Name 'HKCC' `
                 -PSProvider 'Registry' `
-                -Root 'HKU:\DefaultUser'
+                -Root 'HKEY_CURRENT_CONFIG'
+        }
+
+        if (($hive -eq 'HKCR') -and (!(Test-Path 'HKCR:\'))) {
+            New-PSDrive `
+                -Name 'HKCR' `
+                -PSProvider 'Registry' `
+                -Root 'HKEY_CLASSES_ROOT'
+        }
+
+        if (($hive -eq 'HKCU') -and (!(Test-Path 'HKCU:\'))) {
+            New-PSDrive `
+                -Name 'HKCU' `
+                -PSProvider 'Registry' `
+                -Root 'HKEY_CURRENT_USER'
+        }
+
+        if (($hive -eq 'HKLM') -and (!(Test-Path 'HKLM:\'))) {
+            New-PSDrive `
+                -Name 'HKLM' `
+                -PSProvider 'Registry' `
+                -Root 'HKEY_LOCAL_MACHINE'
+        }
+
+        if (($hive -eq 'HKU') -and (!(Test-Path 'HKU:\'))) {
+            New-PSDrive `
+                -Name 'HKU' `
+                -PSProvider 'Registry' `
+                -Root 'HKEY_USERS'
+        }
+
+        Write-Output "Setting Registry Keys for $hive..."
+        foreach ($regKey in $regKeys) {
+            $regProperties = ($CONFIG.Registry.$hive.$regKey | Get-Member -MemberType NoteProperty).Name
+            $regKeyExpanded = [Environment]::ExpandEnvironmentVariables($regKey).Replace('%%', '%')
+            $regKeyPath = "$($hive):\$regKeyExpanded"
+
+            Write-Output "Creating Registry Key $regKeyPath"
+            New-Item -Path "$regKeyPath" -Force 
+
+            foreach ($regProperty in $regProperties) {
+                $regItem = $CONFIG.Registry.$hive.$regKey.$regProperty
+                $regValue = [Environment]::ExpandEnvironmentVariables($regItem.Value).Replace('%%', '%')
+
+                Write-Output "Setting Registry Property $regProperty to $regValue"
+                New-ItemProperty `
+                    -Name "$regProperty" `
+                    -Path "$regKeyPath" `
+                    -PropertyType "$($regItem.Type)" `
+                    -Value "$($regItem.Value)" `
+                    -Force
+            }
+        }
+
+        if ($hive -eq 'HKUD') {
+            Start-Process `
+                -FilePath "$REG" `
+                -ArgumentList "UNLOAD HKU\DefaultUser" `
+                -NoNewWindow -Wait 
         }
     }
 
-    Write-Output "Setting Registry Keys for $hive..."
-    foreach ($regKey in $regKeys) {
-        $regProperties = ($CONFIG.Registry.$hive.$regKey | Get-Member -MemberType NoteProperty).Name
-        $regKeyExpanded = [Environment]::ExpandEnvironmentVariables($regKey).Replace('%%', '%')
-        $regKeyPath = "$($hive):\$regKeyExpanded"
+}
 
-        Write-Output "Creating Registry Key $regKeyPath"
-        New-Item -Path "$regKeyPath" -Force 
 
-        foreach ($regProperty in $regProperties) {
-            $regItem = $CONFIG.Registry.$hive.$regKey.$regProperty
-            $regValue = [Environment]::ExpandEnvironmentVariables($regItem.Value).Replace('%%', '%')
+##############################################
+################### Files ####################
+##############################################
+Function Files {
 
-            Write-Output "Setting Registry Property $regProperty to $regValue"
-            New-ItemProperty `
-                -Name "$regProperty" `
-                -Path "$regKeyPath" `
-                -PropertyType "$($regItem.Type)" `
-                -Value "$($regItem.Value)" `
-                -Force
-        }
+    # Put all static files into the filesystem
+    $files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
+    foreach($file in $files) {
+        $sourcePath = Join-Path "$TOOLS_DIR" "$file"
+        $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)").Replace('%%', '%')
+
+        Write-Output "Copying $sourcePath to $destPath"
+
+        New-Item `
+            -Path $(Split-Path -Path "$destPath") `
+            -ItemType "Directory" `
+            -Force
+
+        Copy-Item `
+            -Path "$sourcePath" `
+            -Destination "$destPath" `
+            -Force -Recurse
     }
 
-    if ($hive -eq 'HKUD') {
-        Start-Process `
-            -FilePath "$REG" `
-            -ArgumentList "UNLOAD HKU\DefaultUser" `
-            -NoNewWindow -Wait 
+}
+
+##############################################
+################# Services ###################
+##############################################
+Function Services {
+
+    # Set all Windows Services listed in config
+    $services = ($CONFIG.Services | Get-Member -MemberType NoteProperty).Name
+    foreach ($service in $services) {
+        Write-Output "Setting Service $service to Startup Type $($CONFIG.Services.$service)"
+        Set-Service `
+            -Name "$service" `
+            -StartupType "$($CONFIG.Services.$service)"
     }
 }
 
-# Put all static files into the filesystem
-$files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
-foreach($file in $files) {
-    $sourcePath = Join-Path "$TOOLS_DIR" "$file"
-    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)").Replace('%%', '%')
+##############################################
+################# SchedTask ##################
+##############################################
+Function SchedTask {
 
-    Write-Output "Copying $sourcePath to $destPath"
+    # Create all Scheduled Tasks listed in config
+    foreach ($scheduledTask in $CONFIG.ScheduledTasks) {
+        Write-Output "Creating Scheduled Task $scheduledTask"
 
-    New-Item `
-        -Path $(Split-Path -Path "$destPath") `
-        -ItemType "Directory" `
-        -Force
-
-    Copy-Item `
-        -Path "$sourcePath" `
-        -Destination "$destPath" `
-        -Force -Recurse
+        $taskConfig = Join-Path "$TOOLS_DIR" "$($scheduledTask).xml"
+        Register-ScheduledTask `
+            -TaskName "$scheduledTask" `
+            -Xml (Get-Content "$taskConfig" | Out-String)
+    }
 }
 
-# Set all Windows Services listed in config
-$services = ($CONFIG.Services | Get-Member -MemberType NoteProperty).Name
-foreach ($service in $services) {
-    Write-Output "Setting Service $service to Startup Type $($CONFIG.Services.$service)"
-    Set-Service `
-        -Name "$service" `
-        -StartupType "$($CONFIG.Services.$service)"
-}
-
-# Create all Scheduled Tasks listed in config
-foreach ($scheduledTask in $CONFIG.ScheduledTasks) {
-    Write-Output "Creating Scheduled Task $scheduledTask"
-
-    $taskConfig = Join-Path "$TOOLS_DIR" "$($scheduledTask).xml"
-    Register-ScheduledTask `
-        -TaskName "$scheduledTask" `
-        -Xml (Get-Content "$taskConfig" | Out-String)
-}
+# Only run config.yml sections if specified
+If ($CONFIG.Environment){EnvVars}
+If ($CONFIG.ChocoPackages){Choco}
+If ($CONFIG.Install){Installers}
+If ($CONFIG.Registry){Registry}
+If ($CONFIG.Files){Files}
+If ($CONFIG.Services){Services}
+If ($CONFIG.ScheduledTasks){SchedTask}
 
 # Run Postinstall PowerShell script
 Write-Output "Running postinstall.ps1..."
@@ -251,4 +308,3 @@ $INSTALLED = $INSTALLED -Join ';'
 [Environment]::SetEnvironmentVariable('CHOCO_INSTALLED_PACKAGES', $INSTALLED, 'Machine')
 
 Write-Output "$($CONFIG.Id) Install Complete!"
-
