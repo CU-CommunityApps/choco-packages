@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-16"?>
+﻿<?xml version="1.0" encoding="UTF-16"?>
 <Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
-    <Author>CORNELL\dpk25</Author>
-    <Description>Run Adobe Remote Updater</Description>
-    <URI>\Update Adobe Products</URI>
+    <Author>B9D973246EDD484\ImageBuilderAdmin</Author>
+    <Description>Adobe Activation at startup</Description>
   </RegistrationInfo>
   <Triggers>
     <BootTrigger>
@@ -18,14 +17,12 @@
   </Principals>
   <Settings>
     <MultipleInstancesPolicy>IgnoreNew</MultipleInstancesPolicy>
-    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
-    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <DisallowStartIfOnBatteries>true</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>true</StopIfGoingOnBatteries>
     <AllowHardTerminate>true</AllowHardTerminate>
     <StartWhenAvailable>false</StartWhenAvailable>
     <RunOnlyIfNetworkAvailable>false</RunOnlyIfNetworkAvailable>
     <IdleSettings>
-      <Duration>PT10M</Duration>
-      <WaitTimeout>PT1H</WaitTimeout>
       <StopOnIdleEnd>true</StopOnIdleEnd>
       <RestartOnIdle>false</RestartOnIdle>
     </IdleSettings>
@@ -34,13 +31,12 @@
     <Hidden>false</Hidden>
     <RunOnlyIfIdle>false</RunOnlyIfIdle>
     <WakeToRun>false</WakeToRun>
-    <ExecutionTimeLimit>PT72H</ExecutionTimeLimit>
+    <ExecutionTimeLimit>P3D</ExecutionTimeLimit>
     <Priority>7</Priority>
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>RemoteUpdateManager.exe</Command>
-      <WorkingDirectory>%PROGRAMFILES(X86)%\Common Files\Adobe\OOBE_Enterprise\RemoteUpdateManager</WorkingDirectory>
+      <Command>C:\ProgramData\Adobe\Files\AdobeSerialization.exe</Command>
     </Exec>
   </Actions>
 </Task>
