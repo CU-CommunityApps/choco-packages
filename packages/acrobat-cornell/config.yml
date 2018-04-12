@@ -1,6 +1,6 @@
-Id:             'photoshop-cornell'
-Description:    'Adobe Photoshop CC 2018'
-Version:        '19.1.0'
+Id:             'acrobat-cornell'
+Description:    'Adobe Acrobat DC'
+Version:        '2018.011.20035'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
@@ -11,9 +11,9 @@ Install:
 ChocoPackages: []
 
 Applications:
-    photoshop: 
-        DisplayName:    'Adobe Photoshop CC 2018'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.exe'
+    acrobat: 
+        DisplayName:    'Adobe Acrobat DC'
+        Path:           '%PROGRAMFILES(x86)%\Adobe\Acrobat DC\Acrobat\Acrobat.exe'
         LaunchParams:   ''
         WorkDir:        ''
 

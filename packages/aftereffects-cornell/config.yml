@@ -1,6 +1,6 @@
-Id:             'photoshop-cornell'
-Description:    'Adobe Photoshop CC 2018'
-Version:        '19.1.0'
+Id:             'aftereffects-cornell'
+Description:    'Adobe After Effects CC 2018'
+Version:        '15.0.1'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
@@ -11,9 +11,9 @@ Install:
 ChocoPackages: []
 
 Applications:
-    photoshop: 
-        DisplayName:    'Adobe Photoshop CC 2018'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.exe'
+    aftereffects: 
+        DisplayName:    'Adobe After Effects CC 2018'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects CC 2018\Support Files\AfterFX.exe'
         LaunchParams:   ''
         WorkDir:        ''
 

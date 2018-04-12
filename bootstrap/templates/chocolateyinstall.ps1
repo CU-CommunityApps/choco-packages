@@ -250,4 +250,3 @@ $INSTALLED = $INSTALLED -Join ';'
 [Environment]::SetEnvironmentVariable('CHOCO_INSTALLED_PACKAGES', $INSTALLED, 'Machine')
 
 Write-Output "$($CONFIG.Id) Install Complete!"
-

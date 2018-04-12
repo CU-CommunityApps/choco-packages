@@ -1,6 +1,6 @@
-Id:             'photoshop-cornell'
-Description:    'Adobe Photoshop CC 2018'
-Version:        '19.1.0'
+Id:             'illustrator-cornell'
+Description:    'Adobe Illustrator CC 2018'
+Version:        '22.0.1'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
@@ -11,9 +11,9 @@ Install:
 ChocoPackages: []
 
 Applications:
-    photoshop: 
-        DisplayName:    'Adobe Photoshop CC 2018'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.exe'
+    illustrator: 
+        DisplayName:    'Adobe Illustrator CC 2018'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Illustrator CC 2018\Support Files\Contents\Windows\illustrator.exe'
         LaunchParams:   ''
         WorkDir:        ''
 

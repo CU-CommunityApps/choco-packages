@@ -1,6 +1,6 @@
-Id:             'photoshop-user'
-Description:    'Adobe Photoshop CC 2018 Named'
-Version:        '19.1.0'
+Id:             'indesign-cornell'
+Description:    'Adobe InDesign CC 2018'
+Version:        '13.0.1'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
@@ -11,9 +11,9 @@ Install:
 ChocoPackages: []
 
 Applications:
-    Photoshop: 
-        DisplayName:    'Adobe Photoshop CC 2018 Named'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.exe'
+    indesign: 
+        DisplayName:    'Adobe InDesign CC 2018'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign CC 2018\InDesign.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
@@ -23,8 +23,7 @@ Environment: { }
 
 Services: { }
 
-ScheduledTasks:
-    - 'update_adobe_products'
+ScheduledTasks: { }
 
 Registry:
     HKCC:   { }
