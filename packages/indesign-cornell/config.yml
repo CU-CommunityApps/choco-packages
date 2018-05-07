@@ -1,0 +1,35 @@
+Id:             'indesign-cornell'
+Description:    'Adobe InDesign CC 2018'
+Version:        '13.0.1'
+
+Install:
+    File:       '%INSTALL_DIR%\Build\setup.exe'
+    FileType:   'exe'
+    Arguments:  '--silent'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    indesign: 
+        DisplayName:    'Adobe InDesign CC 2018'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign CC 2018\InDesign.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: { }
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: { }
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
+

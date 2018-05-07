@@ -17,8 +17,7 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files:
-    gmdb.blb: '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb'
+Files: { }
 
 Environment: { }
 

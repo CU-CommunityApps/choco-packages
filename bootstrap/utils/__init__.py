@@ -431,12 +431,7 @@ class AppStreamImageBuild(ImageBuild):
                     'LaunchParameters,' 
                     'WorkingDirectory'
                 ') VALUES ('
-                    '"{Id}",'
-                    '"{Path}",'
-                    '"{DisplayName}",'
-                    '"{IconPath}",'
-                    '"{LaunchParams}",'
-                    '"{WorkDir}"'
+                    '?,?,?,?,?,?'
                 ');'
             )
 
@@ -470,13 +465,13 @@ class AppStreamImageBuild(ImageBuild):
                     appstreamIcon = path.join(iconDir, iconFile)
                     copyfile(iconFilePath, appstreamIcon)
 
-                    c.execute(appSql.format(
-                        Id=app,
-                        Path=path.expandvars(appConfig['Path']),
-                        DisplayName=appConfig['DisplayName'],
-                        IconPath=appstreamIcon,
-                        LaunchParams=path.expandvars(appConfig['LaunchParams']),
-                        WorkDir=path.expandvars(appConfig['WorkDir']),
+                    c.execute(appSql, (
+                        app,
+                        path.expandvars(appConfig['Path']),
+                        appConfig['DisplayName'],
+                        appstreamIcon,
+                        path.expandvars(appConfig['LaunchParams']),
+                        path.expandvars(appConfig['WorkDir']),
                     ))
 
             sql.commit()

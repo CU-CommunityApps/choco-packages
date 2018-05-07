@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'
+#$ErrorActionPreference = 'Stop'
 Import-Module 'powershell-yaml'
 
 # Initialize list of packages, if needed
@@ -40,7 +40,7 @@ foreach ($envVar in $envVars) {
     }
 
     Write-Output "Setting Environment Variable $envVar to $envValue)"
-    [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
+    [Environment]::SetEnvironmentVariable($envVar, $envValue, 'Machine')
 }
 
 # Install any listed Choco Gallery packages
@@ -95,7 +95,6 @@ if ($install) {
     Install-ChocolateyInstallPackage @packageArgs
 }
 else {
-
     # Always Run Preinstall PowerShell script
     Write-Output        "Running preinstall.ps1..."
     Invoke-Expression   $(Join-Path "$TOOLS_DIR" 'preinstall.ps1')
@@ -180,7 +179,7 @@ foreach ($hive in $hives) {
                 -Name "$regProperty" `
                 -Path "$regKeyPath" `
                 -PropertyType "$($regItem.Type)" `
-                -Value "$($regItem.Value)" `
+                -Value "$regValue" `
                 -Force
         }
     }
@@ -196,8 +195,8 @@ foreach ($hive in $hives) {
 # Put all static files into the filesystem
 $files = ($CONFIG.Files | Get-Member -MemberType NoteProperty).Name
 foreach($file in $files) {
-    $sourcePath = Join-Path "$TOOLS_DIR" "$file"
-    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)").Replace('%%', '%')
+    $sourcePath = [Environment]::ExpandEnvironmentVariables("$file")
+    $destPath = [Environment]::ExpandEnvironmentVariables("$($CONFIG.Files.$file)")
 
     Write-Output "Copying $sourcePath to $destPath"
 
@@ -251,4 +250,3 @@ $INSTALLED = $INSTALLED -Join ';'
 [Environment]::SetEnvironmentVariable('CHOCO_INSTALLED_PACKAGES', $INSTALLED, 'Machine')
 
 Write-Output "$($CONFIG.Id) Install Complete!"
-
