@@ -23,7 +23,7 @@ Environment: { }
 
 Services: { }
 
-ScheduledTasks: { }
+ScheduledTasks: []
 
 Registry:
     HKCC:   { }
