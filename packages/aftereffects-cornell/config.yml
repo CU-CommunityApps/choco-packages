@@ -1,0 +1,35 @@
+Id:             'aftereffects-cornell'
+Description:    'Adobe After Effects CC 2018'
+Version:        '15.0.1'
+
+Install:
+    File:       '%INSTALL_DIR%\Build\setup.exe'
+    FileType:   'exe'
+    Arguments:  '--silent'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    aftereffects: 
+        DisplayName:    'Adobe After Effects CC 2018'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects CC 2018\Support Files\AfterFX.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: { }
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: { }
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
+
