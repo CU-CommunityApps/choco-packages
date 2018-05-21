@@ -19,7 +19,8 @@ $PYDIR =        Join-Path $Env:SYSTEMDRIVE 'Python36'
 $PYTHON =       Join-Path $PYDIR 'python.exe'
 $PIP =          [io.path]::combine($PYDIR, 'Scripts', 'pip.exe')
 
-$REPO =         'https://github.com/marty-sullivan/choco-packages.git'
+$REPO =         'https://github.com/CU-CommunityApps/choco-packages.git'
+$BRANCH =       "$($args[0])"
 $PREREQS =      'git sysinternals powershell'
 $PYVERSION =    '3.6.4'
 $PYDEPENDS =    'boto3 pyyaml'
@@ -45,6 +46,14 @@ if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
     Start-Process `
         -FilePath $GIT `
         -ArgumentList "clone $REPO $PACKAGES" `
+        -NoNewWindow -Wait `
+    | Tee-Object -Append -FilePath $CHOCOLOG
+
+    # Checkout the Selected Branch
+    Start-Process `
+        -FilePath $GIT `
+        -ArgumentList "checkout $BRANCH" `
+        -WorkingDirectory "$PACKAGES" `
         -NoNewWindow -Wait `
     | Tee-Object -Append -FilePath $CHOCOLOG
 

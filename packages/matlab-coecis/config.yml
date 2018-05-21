@@ -8,7 +8,8 @@ Install:
     Arguments:  '-inputFile %INSTALL_DIR%\installer_input.txt'
     ExitCodes:  [0]
 
-ChocoPackages: []
+ChocoPackages: 
+    - 'mingw'
 
 Applications:
     MATLAB:
@@ -17,9 +18,12 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: { }
+Files: 
+    '%TOOLS_DIR%\ncorr':            '%PUBLIC%\MATLAB'
 
-Environment: { }
+Environment:
+    MATLABPATH:     '%PUBLIC%\MATLAB'
+    MW_MINGW64_LOC: '%SYSTEMDRIVE%\tools\mingw64'
 
 Services: { }
 

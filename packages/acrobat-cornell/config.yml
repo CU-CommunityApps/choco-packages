@@ -1,0 +1,35 @@
+Id:             'acrobat-cornell'
+Description:    'Adobe Acrobat DC'
+Version:        '2018.011.20035'
+
+Install:
+    File:       '%INSTALL_DIR%\Build\setup.exe'
+    FileType:   'exe'
+    Arguments:  '--silent'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    acrobat: 
+        DisplayName:    'Adobe Acrobat DC'
+        Path:           '%PROGRAMFILES(x86)%\Adobe\Acrobat DC\Acrobat\Acrobat.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: { }
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: { }
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
+
