@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-16" standalone="no" ?>
+<ApplicationOptions Platform="Vista" Version="22.0 Production Candidate">
+
+  <!--Created by Autodesk Inventor Version 22.0 Production Candidate-->
+
+  <!--The schema of this file is subject to change without notice and is not guaranteed to remain the same from one release to the next.-->
+
+  <General/>
+
+  <Save/>
+
+  <File UndoPath="%USERPROFILE%\AppData\Local\Temp\2\"/>
+
+  <Colors/>
+
+  <Display SWDefaultWheel="4"/>
+
+  <Hardware GraphicsFeatureLevel="1" GraphicsOptimization="1"/>
+
+  <Prompts/>
+
+  <Drawing/>
+
+  <Notebook/>
+
+  <Sketch/>
+
+  <Part/>
+
+  <iFeatures/>
+
+  <Assembly/>
+
+  <ContentCenter/>
+
+</ApplicationOptions>

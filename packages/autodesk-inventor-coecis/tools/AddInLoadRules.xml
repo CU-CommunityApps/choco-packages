@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-16" standalone="no" ?>
+
+<AddInLoadRules>
+
+    <!-- Path rules                                                                     
+       
+        Only paths that require Administrator privileges to write to should be specified
+        as "Allow" here. Any path can be blocked with a "Block" setting.                                                                                         
+        The line below allows the 3Dconnexion (3D Mouse) add-in if it is installed to its 
+        default location.
+    -->
+  
+    <TrustedPath Policy="Allow">C:\Program Files\3Dconnexion\</TrustedPath>
+    <TrustedPath Policy="Allow">C:\Program Files\ANSYS Inc\v182\aisol\CADIntegration\Inventor\winx64\</TrustedPath>
+  
+
+    <!-- Publisher rules                                                                 
+       
+        Trusted publishers should be added to the Operating System's Trusted Store if possible. 
+        They can optionally be specified here. If they are in the Trusted Store, it is not
+        necessary to have an entry here. Note that publishers can be either trusted or not
+        trusted in the Trusted Store (and here).
+     
+        These examples show allowing and blocking fictitious publishers:
+                                                                                      
+            <Publisher Policy="Allow">ACME Software, Inc.</Publisher>
+          
+            <Publisher Policy="Block">Malware Unlimited, LLC.</Publisher>
+    -->
+
+ 
+  <!-- ID rules
+       
+        These rules refer to the add-in by its "ClientId" value (a GUID) in the .addin file
+        that describes the add-in. Add-ins should only be blocked, not allowed, by an ID rule,
+        since add-in GUIDs are easily discoverable and not checked for uniqueness. Thus a
+        malicious add-in could copy the GUID from an add-in that has been allowed by ID and
+        would be permitted to load. 
+        This example shows blocking a known (fictitious) bad add-in:     
+            <Id Policy="Block">{4CD437C3-1360-4A34-841F-F877DAF4969D}</Id>
+   -->
+
+
+  <!-- Fallback rule  
+  
+        This rule specifies what to do if no other rules apply to an add-in.
+        The other rules include Inventor's internal rules (for add-ins supplied by Autodesk) and any
+        rules appearing above this rule in this file.
+ 
+        If the policy for this rule is "Block", any add-ins not covered by previous rules will be
+        silently blocked. No dialog will be presented to the user. This is the most secure setting,
+        and is the one that should be used by administrators wishing to prevent all loading of
+        non-approved add-ins by end users.
+ 
+        If the policy for this rule is "Allow", any add-ins not covered by previous rules will be
+        silently allowed. No dialog will be presented to the user. This eliminates all checking
+        for unknown add-ins, so it is the most insecure option and is not recommended.
+ 
+        If there is no fallback rule (e.g. it is commented out), or the value of the rule is something
+        other than "Allow" or "Block", the end user will be prompted the first time an add-in attempts
+        to load. After the first time, the user's choice will be remembered. 
+    -->  
+
+    <!-- Uncomment this line for maximum administrator control
+    <Fallback Policy="Block"></Fallback>
+    -->
+
+</AddInLoadRules>
