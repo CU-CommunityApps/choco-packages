@@ -13,11 +13,11 @@ ChocoPackages: []
 Applications:
     stata:
         DisplayName:    'Stata15'
-        Path:           '%PROGRAMFILES (x86)%\Stata15\Stata-64.exe'
+        Path:           '%PROGRAMFILES(x86)%\Stata15\Stata-64.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: { }
+Files: '%INSTALL_DIR%\PROGRAMFILES(x86)\Stata15\STATA.lic'
 
 Environment: { }
 
@@ -25,23 +25,4 @@ Services: { }
 
 ScheduledTasks: []
 
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:
-        SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
-            (Default):
-                Type:   'String'
-                Value:  'Applying Enhanced Security Configuration'
-
-            ComponentID:
-                Type:   'String'
-                Value:  'IEHardenAdmin'
-
-            IsInstalled:
-                Type:   'DWORD'
-                Value:  '0'
 
