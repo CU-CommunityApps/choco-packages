@@ -25,4 +25,10 @@ Services: { }
 
 ScheduledTasks: []
 
-
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
