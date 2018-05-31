@@ -1,3 +1,4 @@
+
 Id:             'stata-ciser'
 Description:    'stata-ciser package'
 Version:        '15.0.0'
@@ -17,7 +18,8 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: '%INSTALL_DIR%\STATA.LIC':'%PROGRAMFILES(x86)%\Stata15\STATA.LIC'
+Files: 
+    '%INSTALL_DIR%\STATA.LIC':'%PROGRAMFILES(x86)%\Stata15\STATA.LIC'
 
 Environment: { }
 
