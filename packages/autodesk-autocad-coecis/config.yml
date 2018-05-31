@@ -8,8 +8,7 @@ Install:
     Arguments:  '/qb /W /I %INSTALL_DIR%\Img\autodesk-autocad-coecis.ini /language en-us'
     ExitCodes:  [0]
 
-ChocoPackages:
-    - 'achocopackagename'
+ChocoPackages: []
 
 Applications:
     autocad:
