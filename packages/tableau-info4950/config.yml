@@ -1,0 +1,36 @@
+Id:             'tableau-info4950'
+Description:    'Tableau - INFO4950'
+Version:        '10.5.0'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-silent --some-arg'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    tableau:
+        DisplayName:    'Tableau'
+        Path:           '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts\start-tableau.bat'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts'
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: []
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
+
