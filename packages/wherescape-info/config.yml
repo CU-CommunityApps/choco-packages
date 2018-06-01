@@ -1,0 +1,49 @@
+Id:             'wherescape-info'
+Description:    'Wherescape Red for - INFO4950'
+Version:        '6.8.6'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-silent --some-arg'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    wherescapered:
+        DisplayName:    'Wherescape Red'
+        Path:           '%PROGRAMFILES(x86)%\Wherescape\med.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    wherescapeadm:
+        DisplayName:    'Wherescape Administrator'
+        Path:           '%PROGRAMFILES(x86)%\Wherescape\adm.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: { }
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: []
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:
+        Software\WhereScape\MetaEditor\LicenseV7:
+            Licensed_To:
+                Type:   'String'
+                Value:  '%WHERESCAPE_LICENSED_TO%'
+
+        Software\WhereScape\MetaEditor\LicenseV7:
+            License_Key:
+                Type:   'String'
+                Value:  '%WHERESCAPE_LICENSE_KEY%'
