@@ -22,7 +22,7 @@ Files:
     '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2019\UserApplicationOptions.xml'
 
 Environment:
-    MY_ENVIRONMENT_VARIABLE: '27200@autodesk-lic.coecis.cornell.edu'
+    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
 
 Services: 
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
