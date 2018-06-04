@@ -3,9 +3,9 @@ Description:    'Wherescape Red for - INFO4950'
 Version:        '6.8.6'
 
 Install:
-    File:       '%INSTALL_DIR%\setup.exe'
+    File:       '%INSTALL_DIR%\red_686002.exe'
     FileType:   'exe'
-    Arguments:  '-silent --some-arg'
+    Arguments:  '/q'
     ExitCodes:  [0]
 
 ChocoPackages: []
