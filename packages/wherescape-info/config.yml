@@ -41,7 +41,7 @@ Registry:
         Software\WhereScape\MetaEditor\LicenseV7:
             Licensed_To:
                 Type:   'String'
-                Value:  '%WHERESCAPE_LICENSED_TO%'
+                Value:  'Cornell Student Expires 12/31/18'
 
         Software\WhereScape\MetaEditor\LicenseV7:
             License_Key:
