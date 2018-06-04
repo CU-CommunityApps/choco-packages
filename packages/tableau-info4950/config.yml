@@ -1,0 +1,70 @@
+Id:             'tableau-info'
+Description:    'Tableau - INFO4950'
+Version:        '10.5.1'
+
+Install:
+    File:       '%INSTALL_DIR%\TableauDesktop-64bit-10-5-1.exe'
+    FileType:   'exe'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0'
++Description:    'Tableau - INFO4950'
++Version:        '10.5.1'
++
++Install:
++    File:       '%INSTALL_DIR%\TableauDesktop-64bit-10-5-1.exe'
++    FileType:   'exe'
++    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0'
++    ExitCodes:  [0]
++
++ChocoPackages: []
++
++Applications:
++    tableau:
++        DisplayName:    'Tableau'
++        Path:           '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts\start-tableau.bat'
++        LaunchParams:   ''
++        WorkDir:        ''
++
++Files:
++    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts'
++
++Environment: { }
++
++Services: { }
++
++ScheduledTasks: []
++
++Registry:
++    HKCC:   { }
++    HKCR:   { }
++    HKCU:   { }
++    HKLM:   { }
++    HKU:    { }
++    HKUD:   { }'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    tableau:
+        DisplayName:    'Tableau'
+        Path:           '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts\start-tableau.bat'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts'
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: []
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
+
