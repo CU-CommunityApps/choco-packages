@@ -8,8 +8,6 @@ Install:
     Arguments:  '/qb /W /I %INSTALL_DIR%\Img\inventor-coecis.ini /language en-us'
     ExitCodes:  [0, 1641]
 
-ChocoPackages: []
-
 Applications:
     Inventor:
         DisplayName:    'Inventor 2018'
@@ -28,14 +26,7 @@ Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
     mitsijm2018: 'Manual' # Autodesk Simulation Moldflow MITSI 2018 Job Manager
 
-ScheduledTasks: []
-
 Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
     HKUD:
         Software\Autodesk\MC3:
             ADAOptIn:

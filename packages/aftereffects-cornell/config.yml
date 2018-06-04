@@ -8,28 +8,10 @@ Install:
     Arguments:  '--silent'
     ExitCodes:  [0]
 
-ChocoPackages: []
-
 Applications:
     aftereffects: 
         DisplayName:    'Adobe After Effects CC 2018'
         Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects CC 2018\Support Files\AfterFX.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files: { }
-
-Environment: { }
-
-Services: { }
-
-ScheduledTasks: { }
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
 

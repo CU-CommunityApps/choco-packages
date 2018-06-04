@@ -8,8 +8,6 @@ Install:
     Arguments:  '--silent'
     ExitCodes:  [0]
 
-ChocoPackages: []
-
 Applications:
     photoshop: 
         DisplayName:    'Adobe Photoshop CC 2018'
@@ -17,19 +15,4 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: { }
-
-Environment: { }
-
-Services: { }
-
-ScheduledTasks: { }
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
 
