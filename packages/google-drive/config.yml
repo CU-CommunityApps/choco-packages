@@ -1,0 +1,29 @@
+Id:             'google-drive'
+Description:    'Google Stream - Google Drive for Enterprise'
+Version:        '25.252.283.1957'
+
+Applications:
+    googledrive:
+        DisplayName:    'Google Drive'
+        Path:           '%PROGRAMFILES%\Google\Drive File Stream\25.252.283.1957\GoogleDriveFS.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\Drive File Stream': '%PROGRAMFILES%\Google\Drive File Stream'
+
+Registry:
+    HKLM:   
+        SOFTWARE\Google\DriveFS:
+            InstallLog:
+                Type:   'String'
+                Value:  'C:\\WINDOWS\\TEMP\\GoogleDFSSETUP_180515153838_7204.log'
+            
+            DriverVersion:
+                Type:   'String'
+                Value:  '2.356.1712.0'
+            
+            LastUpdateTime:
+                Type:   'DWORD'
+                Value:  '5afb3745'
+
