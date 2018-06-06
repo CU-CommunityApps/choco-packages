@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="./onboarding.css">
+    <script src="./jquery2.js"></script>
+</head>
+<body>
+    <div id="onboarding">
+        <button type="button" id="back" disabled tabindex="3">
+            <svg height="24" viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+            </svg>
+        </button>
+        <button type="button" id="forward" tabindex="1">
+            <svg height="24" viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+            </svg>
+        </button>
+        <div id="below-image">
+            <div id="text" class="fade"></div>
+            <button type="button" id="open" disabled onclick="window.close();" tabindex="2">
+                Open Google Drive
+            </button>
+            <div class="circles">
+                <svg id="circle-1" class="circle active" width="12px" height="12px" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="6"></circle>
+                </svg>
+                <svg id="circle-2" class="circle" width="12px" height="12px" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="6"></circle>
+                </svg>
+                <svg id="circle-3" class="circle" width="12px" height="12px" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="6"></circle>
+                </svg>
+                <svg id="circle-4" class="circle" width="12px" height="12px" viewBox="0 0 16 16">
+                    <circle cx="8" cy="8" r="6"></circle>
+                </svg>
+            </div>
+        </div>
+        <div id="player-wrap">
+            <video src="./onboarding.webm" id="player" width="600" height="600">
+            </video>
+        </div>
+    </div>
+    <script src="./base.js"></script>
+    <script src="./onboarding.js"></script>
+</body>
+</html>

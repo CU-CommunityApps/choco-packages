@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Header Actions</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="New-Menu-UI" transform="translate(-80.000000, -1199.000000)" fill="#757575">
+            <g id="Details" transform="translate(73.000000, 804.000000)">
+                <g id="Iconography">
+                    <g id="Header-Actions" transform="translate(7.000000, 395.000000)">
+                        <g id="Open-In-Actions">
+                            <g id="ic_folder_mydrive_black_24dp">
+                                <g id="Group">
+                                    <path d="M18,2 L10,2 L8,0 L2,0 C0.9,0 0.01,0.9 0.01,2 L0,14 C0,15.1 0.9,16 2,16 L18,16 C19.1,16 20,15.1 20,14 L20,4 C20,2.9 19.1,2 18,2 L18,2 Z M9.5,13 L8.4,10.86 L11.24,5.9 L12.74,8.56 L10.25,13 L9.5,13 L9.5,13 Z M16.3,13 L10.75,13 L12.15,10.5 L17.26,10.5 L17.52,10.96 L16.3,13 L16.3,13 Z M11.75,5 L14.14,5 L16.98,10 L14.05,10 L11.49,5.46 L11.75,5 L11.75,5 Z" id="Shape"></path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

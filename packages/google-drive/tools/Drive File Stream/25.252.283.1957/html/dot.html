@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <link rel="stylesheet" href="./material.min.css">
+    <link rel="stylesheet" href="./dot.css">
+    <link rel="stylesheet" href="./roboto.css">
+    <script src="./material.min.js"></script>
+    <script src="./jquery2.js"></script>
+    <script src="./base.js"></script>
+    <script src="./dot.js"></script>
+  </head>
+  <body oncontextmenu="return false;">
+    <!-- Note: tabindex=-1 is needed to prevent voice over apps from reading "On main..." -->
+    <main class="pages" tabindex=-1>
+      <!-- ERROR -->
+      <section class="page page-error page-hidden" data-page="page-error">
+        <nav class="top-bar">
+          <img class="nav-icon" src="ic_sync_problem.png">
+          <h3 class="error_title">HTML ERROR</h3>
+        </nav>
+      </section>
+
+      <!-- ERROR_COLLAPSED -->
+      <section class="page page-error_collapsed page-hidden" data-page="page-error_collapsed">
+        <nav class="icon-only">
+          <img class="nav-icon error_icon_alt_text" src="ic_sync_problem.png">
+        </nav>
+      </section>
+
+      <!-- LOADING -->
+      <section class="page page-loading page-hidden" data-page="page-loading">
+        <nav class="icon-only">
+          <img class="nav-icon loading_icon_alt_text" src="ic_loading.png">
+        </nav>
+      </section>
+
+      <!-- OFFLINE -->
+      <section class="page page-offline page-hidden" data-page="page-offline">
+        <nav class="top-bar">
+          <img class="nav-icon" src="ic_cloud_off_grey600_24dp.svg">
+          <h3 class="offline_title"></h3>
+        </nav>
+      </section>
+
+      <!-- OFFLINE_COLLAPSED -->
+      <section class="page page-offline_collapsed page-hidden" data-page="page-offline_collapsed">
+        <nav class="icon-only">
+          <img class="nav-icon offline_icon_alt_text" src="ic_cloud_off_grey600_24dp.svg">
+        </nav>
+      </section>
+
+      <!-- PRIVATE -->
+      <section class="page page-private page-hidden" data-page="page-private">
+        <nav class="top-bar">
+          <img class="nav-icon" src="ic_done_googgreen_24dp.svg">
+          <h3 class="private_title"></h3>
+        </nav>
+      </section>
+
+      <!-- PRIVATE_COLLAPSED -->
+      <section class="page page-private_collapsed page-hidden" data-page="page-private_collapsed">
+        <nav class="icon-only">
+          <img class="nav-icon private_icon_alt_text" src="ic_done_googgreen_24dp.svg">
+        </nav>
+      </section>
+
+      <!-- SAFE -->
+      <section class="page page-safe page-hidden" data-page="page-safe">
+        <nav class="top-bar">
+          <img class="nav-icon" src="ic_done_googgreen_24dp.svg">
+          <h3 class="safe_title"></h3>
+        </nav>
+      </section>
+
+      <!-- SAFE_VIEWER -->
+      <section class="page page-safe_viewer page-hidden" data-page="page-safe_viewer">
+        <nav class="top-bar">
+          <h3 class="safe_viewer_title"></h3>
+        </nav>
+        <div class="content">
+          <div class="heads safe_viewer_view_collaborators_alt_text">
+            <!-- Editor chips inserted here -->
+            <!-- TODO(jlure): Do we want to make this clickable? -->
+          </div>
+          <p class="safe_viewer_message"></p>
+        </div>
+      </section>
+
+      <!-- SAFE_COLLAPSED -->
+      <section class="page page-safe_collapsed page-hidden" data-page="page-safe_collapsed">
+        <nav class="icon-only">
+          <img class="nav-icon safe_icon_alt_text" src="ic_done_googgreen_24dp.svg">
+        </nav>
+      </section>
+
+      <!-- WAIT -->
+      <section class="page page-wait page-hidden" data-page="page-wait">
+        <nav class="top-bar">
+          <h3 class="wait_title"></h3>
+          <div class="spacer"></div>
+        </nav>
+        <div class="content">
+          <div class="heads wait_view_collaborators_alt_text" data-link-target="page-wait_collaborators">
+            <!-- Editor chips inserted here -->
+          </div>
+          <p class="wait_message"></p>
+          <div class="buttons">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect wait_got_it_button" data-link-target="page-wait_collapsed"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- WAIT_COLLAPSED -->
+      <section class="page page-wait_collapsed page-hidden" data-page="page-wait_collapsed">
+        <nav class="top-bar">
+          <img class="wait_icon_alt_text wait-icon" src="ic_schedule_orange_24dp.svg">
+          <h3 class="wait_title"></h3>
+        </nav>
+      </section>
+
+      <!-- WAIT_SEMI_COLLAPSED -->
+      <section class="page page-wait_semi_collapsed page-hidden" data-page="page-wait_semi_collapsed">
+        <nav class="top-bar">
+          <h3 class="wait_title"></h3>
+          <div class="spacer"></div>
+        </nav>
+        <div class="content">
+          <div class="heads wait_view_collaborators_alt_text" data-link-target="page-wait_collaborators">
+            <!-- Editor chips inserted here -->
+          </div>
+        </div>
+      </section>
+
+      <!-- WAIT_SEMI_COLLAPSED_WILL_NOTIFY -->
+      <section class="page page-wait_semi_collapsed_will_notify page-hidden" data-page="page-wait_semi_collapsed_will_notify">
+        <nav class="top-bar">
+          <h3 class="wait_title"></h3>
+          <div class="spacer"></div>
+        </nav>
+        <div class="content">
+          <div class="heads wait_view_collaborators_alt_text" data-link-target="page-wait_collaborators">
+            <!-- Editor chips inserted here -->
+          </div>
+          <p class="wait_semi_collapsed_will_notify_message"></p>
+        </div>
+      </section>
+
+      <!-- WAIT_COLLABORATORS -->
+      <section class="page page-wait_collaborators page-hidden" data-page="page-wait_collaborators">
+        <nav class="top-bar with-border">
+          <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored wait_collaborators_back_icon_alt_text back-button" data-link-target="page-wait">
+            <img class="arrow_back-icon" src="ic_arrow_back_grey600_24dp.svg">
+          </button>
+          <h3 class="wait_collaborators_title"></h3>
+          <div class="spacer"></div>
+          <button class="button-right mdl-button mdl-js-button mdl-button--icon mdl-button--colored has-js-handler wait_collaborators_email_button" id="wait_collaborators_email_icon">
+            <img class="email-icon" src="ic_email_grey600_24dp.svg">
+          </button>
+          <div class="mdl-tooltip wait_collaborators_email_icon_tooltip" for="wait_collaborators_email_icon"></div>
+        </nav>
+        <div class="content">
+          <section class="wait_collaborators_editing">
+            <h4 class="wait_collaborators_header_editing"></h4>
+            <ul class="people-list" id="people-list-editing">
+              <!-- Editoring people inserted here -->
+            </ul>
+          </section>
+          <section class="wait_collaborators_viewing">
+            <h4 class="wait_collaborators_header_viewing"></h4>
+            <ul class="people-list" id="people-list-viewing">
+              <!-- Viewing people inserted here -->
+            </ul>
+          </section>
+        </div>
+      </section>
+
+      <!-- STALE -->
+      <section class="page page-stale page-hidden" data-page="page-stale">
+        <nav class="top-bar">
+          <h3 class="stale_title"></h3>
+          <div class="spacer"></div>
+          <button class="button-right mdl-button mdl-js-button mdl-button--icon mdl-button--colored stale_close_button_alt_text" data-link-target="page-stale_collapsed">
+            <img class="close-icon" src="ic_close_grey600_24dp.svg">
+          </button>
+        </nav>
+        <div class="content">
+          <div class="creator stale_view_collaborators_alt_text">
+            <!-- Editor chip inserted here. -->
+          </div>
+          <p class="stale_message"></p>
+          <div class="buttons">
+            <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect  has-js-handler stale_get_latest_button" data-link-target="page-stale_downloading"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- STALE_DOWNLOADING -->
+      <section class="page page-stale_downloading page-hidden" data-page="page-stale_downloading">
+        <nav class="top-bar">
+          <h3 class="stale_title"></h3>
+          <div class="spacer"></div>
+        </nav>
+        <div class="content">
+          <div class="creator stale_downloading_view_collaborators_alt_text">
+            <!-- Editor chip inserted here. -->
+          </div>
+          <p class="stale_message"></p>
+          <p class="stale_downloading"></p>
+        </div>
+        <!-- MDL Progress Bar with Indeterminate Progress -->
+        <div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+      </section>
+
+      <!-- STALE_COLLAPSED -->
+      <section class="page page-stale_collapsed page-hidden" data-page="page-stale_collapsed">
+        <nav class="top-bar">
+          <img class="stale-icon" src="ic_refresh_googblue_24dp.svg">
+          <h3 class="stale_collapsed_title"></h3>
+        </nav>
+      </section>
+
+      <!-- CONFLICT -->
+      <section class="page page-conflict page-hidden" data-page="page-conflict">
+        <nav class="top-bar">
+          <h3 class="conflict_title"></h3>
+          <div class="spacer"></div>
+          <button class="button-right mdl-button mdl-js-button mdl-button--icon mdl-button--colored conflict_close_button_alt_text" data-link-target="page-conflict_dismiss">
+            <img class="close-icon" src="ic_close_grey600_24dp.svg">
+          </button>
+        </nav>
+        <div class="content">
+          <div class="creator conflict_view_collaborators_alt_text">
+            <!-- Editor chip inserted here. -->
+          </div>
+          <p class="conflict_message"></p>
+          <div class="buttons">
+            <!-- TODO(mdzoba): remove link target when Diff flow is done. -->
+            <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect has-js-handler conflict_preview_button" data-link-target="page-stale_downloading"></button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect has-js-handler conflict_copy_button"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFLICT_YOUR -->
+      <section class="page page-conflict_your page-hidden" data-page="page-conflict_your">
+        <!-- TODO(jlure): Person head in title. -->
+        <nav class="top-bar">
+          <h3 class="conflict_your_title"></h3>
+          <div class="spacer"></div>
+        </nav>
+        <div class="content">
+          <p class="conflict_your_message"></p>
+          <div class="buttons">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect has-js-handler conflict_your_back_button"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFLICT_THEIR -->
+      <section class="page page-conflict_their page-hidden" data-page="page-conflict_their">
+        <!-- TODO(jlure): Person head in title. -->
+        <nav class="top-bar">
+          <h3 class="conflict_their_title"></h3>
+          <div class="spacer"></div>
+        </nav>
+        <div class="content">
+          <p class="conflict_their_message"></p>
+          <div class="buttons">
+            <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect has-js-handler conflict_their_save_button"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFLICT_DISMISS -->
+      <section class="page page-conflict_dismiss page-hidden" data-page="page-conflict_dismiss">
+        <nav class="top-bar">
+          <h3 class="conflict_dismiss_title"></h3>
+          <div class="spacer"></div>
+        </nav>
+        <div class="content">
+          <p class="conflict_dismiss_message"></p>
+          <div class="buttons">
+            <button class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised mdl-js-ripple-effect has-js-handler conflict_dismiss_preview_button"></button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect conflict_dismiss_ignore_button" data-link-target="page-conflict_collapsed"></button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFLICT_COLLAPSED -->
+      <section class="page page-conflict_collapsed page-hidden" data-page="page-conflict_collapsed">
+        <nav class="top-bar">
+          <img class="conflict-icon" src="ic_schedule_orange_24dp.svg">
+          <h3 class="conflict_collapsed_title"></h3>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>

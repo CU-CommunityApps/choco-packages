@@ -1,0 +1,394 @@
+body {
+  background-color: #ececec;
+  color: rgba(0, 0, 0, .87);
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+}
+
+#left-pane {
+  background-color: #fcfdfe;
+  border-right: 2px solid #e6e6e6;
+  min-width: 240px;
+  padding: 20px 0;
+}
+
+#settings-section {
+  align-items: center;
+  background-color: #f1f4fc;
+  display: flex;
+  padding: 15px;
+}
+
+#settings-icon {
+  fill: #1976d2;
+  height: 25px;
+  padding-right: 16px;
+  width: 25px;
+}
+
+#settings-title {
+  display: flex;
+  flex-direction: column;
+}
+
+#settings-title-primary-text {
+  color: #1976d2;
+  font-weight: bold;
+}
+
+#settings-title-secondary-text {
+  color: rgba(0, 0, 0, .54);
+  font-size: 12px;
+}
+
+#right-pane {
+  background-color: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 16px;
+  width: calc(100% - 240px - 2px);  /* left panel size + separator width */
+}
+
+#settings-body {
+  flex-grow: 1;
+  padding: 16px;
+}
+
+#settings-body-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#account-info {
+  display: flex;
+  margin-top: 20px;
+}
+
+#user-photo {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+#user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+}
+
+#user-email {
+  color: rgba(0, 0, 0, .54);
+  font-size: 12px;
+}
+
+#account-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 15px 10px;
+}
+
+.button {
+  color: #1976d2;
+  font-weight: normal;
+  height: 34px;
+  margin-left: 16px;
+  min-width: 90px;
+}
+
+.button:first-child {
+  margin-left: 0;
+}
+
+html[dir='rtl'] .button {
+  margin-left: 0;
+  margin-right: 16px;
+}
+
+html[dir='rtl'] .button:first-child {
+  margin-right: 0;
+}
+
+#ok-button,
+#network-settings-ok-button,
+#restart-now-button,
+#error-message-ok-button {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+#ok-button,
+#cancel-button {
+  min-width: 90px
+}
+
+#upgrade-storage-button,
+#sign-out-button,
+#network-settings-button {
+  min-width: 180px;
+}
+
+.button[disabled] {
+  background-color: #e5e5e5 !important;
+  color: rgba(0, 0, 0, .26) !important;
+}
+
+.settings-list {
+  margin-top: 20px;
+}
+
+.separator {
+  background-color: #e6e6e6;
+  height: 1px;
+  margin: 10px 0;
+}
+
+.mdl-tooltip {
+  word-break: break-all;
+}
+
+.mdl-radio__label {
+  font-size: 13px;
+}
+
+.mdl-radio__outer-circle,
+.mdl-radio.is-checked .mdl-radio__outer-circle {
+  border-color: #1976d2;
+}
+
+.mdl-radio__inner-circle {
+  background-color: #1976d2;
+}
+
+.mdl-textfield__input,
+.mdl-textfield__label {
+  font-size: 13px;
+}
+
+.mdl-textfield {
+  padding: 10px 0;
+  width: 400px;
+}
+
+.mdl-textfield__label {
+  top: 12px;
+}
+
+.mdl-textfield__label:after {
+  background-color: #1976d2;
+  bottom: 10px;
+}
+
+.directory-picker {
+  align-items: center;
+  display: flex;
+}
+
+.local-directory-path {
+  flex-grow: 1;
+  margin-left: 10px;
+  margin-right: 30px;
+  outline: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.directory-icon {
+  fill: #888;
+  min-width: 24px;
+}
+
+#settings-footer {
+  align-items: center;
+  display: flex;
+}
+
+#network-settings-link {
+  color: #1976d2;
+}
+
+#settings-footer-buttons {
+  flex-grow: 1;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.subsection-title {
+  display: flex;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.help-icon {
+  fill: rgba(0, 0, 0, .54);
+  height: 18px;
+  padding-left: 16px;
+  width: 18px;
+}
+
+.dropdown-button-icon {
+  fill: rgba(0, 0, 0, .54);
+  height: 18px;
+  padding-left: 16px;
+  width: 18px;
+}
+
+#drive-letter-picker {
+  display: flex;
+  position: relative;
+}
+
+#drive-letter-button {
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  display: flex;
+  left: 0;
+  min-width: 100px;
+  padding: 0 10px;
+  position: absolute;
+  top: 0;
+}
+
+#drive-letter-list {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+#drive-letter-button-value {
+  flex-grow: 1;
+  font-weight: normal;
+  text-align: left;
+}
+
+.subsection-title a {
+  color: rgba(0, 0, 0, .54);
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+.subsection-title a:hover {
+  color: #1976d2;
+}
+
+.dialog-layer {
+  align-items: center;
+  background: rgba(0, 0, 0, .2);
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100;
+}
+
+#network-settings {
+  background-color: white;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: 0;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  position: relative;
+  top: -1px;
+  width: 450px;
+}
+
+#network-settings-proxy,
+#network-settings-bandwidth-throttling {
+  display: flex;
+  padding: 10px 0;
+}
+
+#network-settings-bandwidth-throttling .mdl-radio {
+  margin: 2px 0;
+}
+
+#network-settings .category-title {
+  font-weight: bold;
+  min-width: 120px;
+  text-align: right;
+}
+
+#network-settings .category-title::after,
+#network-settings-bandwidth-download-limit-label::after,
+#network-settings-bandwidth-upload-limit-label::after {
+  content: ':';
+}
+
+#network-settings .category-items {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-left: 30px;
+}
+
+#network-settings .category-items-section-title {
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+#network-settings .category-items-section-title:first-child {
+  margin-top: 0;
+}
+
+#network-settings-bandwidth-download-limit-option,
+#network-settings-bandwidth-upload-limit-option {
+  font-size: 13px;
+}
+
+#network-settings-bandwidth-download-limit-option .mdl-textfield,
+#network-settings-bandwidth-upload-limit-option .mdl-textfield {
+  margin: 0 10px;
+  padding: 0;
+  width: 100px;
+}
+
+#network-settings-bandwidth-download-limit-option .mdl-textfield__label,
+#network-settings-bandwidth-upload-limit-option .mdl-textfield__label {
+  top: 0;
+}
+
+#network-settings-bandwidth-download-limit-option .mdl-textfield__label::after,
+#network-settings-bandwidth-upload-limit-option .mdl-textfield__label::after {
+  bottom: 0;
+}
+
+#network-settings-footer {
+  margin-top: 20px;
+}
+
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#reboot-requested-layer,
+#error-message-layer {
+  justify-content: center;
+}
+
+#reboot-requested,
+#error-message {
+  background-color: white;
+  border-radius: 2px;
+  border: 1px solid #e6e6e6;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  padding: 16px;
+}
+
+#reboot-requested-label,
+#error-message-label {
+  font-size: 14px;
+  padding-bottom: 16px;
+}

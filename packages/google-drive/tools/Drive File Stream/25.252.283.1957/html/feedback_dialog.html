@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="./material.min.css">
+  <link rel="stylesheet" href="./feedback_dialog.css">
+  <script src="./jquery2.js"></script>
+  <script src="./material.min.js"></script>
+  <script src="./base.js"></script>
+  <script src="./feedback_dialog.js"></script>
+</head>
+<body>
+  <div id="main-layer">
+    <div id="header">
+      <img id="drive-logo" src="logo_drive_no_border.svg">
+      <div id="header-text">
+        <div id="title"></div>
+        <div id="description"></div>
+      </div>
+    </div>
+    <textarea id="feedback-text" tabindex="1" name="feedback-text" autofocus oninput="onInputChange_()"></textarea>
+    <div id="legal-notice"><!-- Set by the JS. --></div>
+    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect hidden" id="attach-logs-option" for="attach-logs-checkbox">
+      <input type="checkbox" id="attach-logs-checkbox" class="mdl-checkbox__input">
+      <span id="attach-logs-label" class="mdl-checkbox__label"><!-- Set by the JS. --></span>
+    </label>
+    <div id="footer">
+      <div id="submit-in-progress-message" class="submit-message hidden"><!-- Set by the JS. --></div>
+      <div id="submit-complete-message" class="submit-message"><!-- Set by the JS. --></div>
+      <button id="close-button" tabindex="4" class="button mdl-button mdl-js-button mdl-button--raised hidden" onclick="exit_()"></button>
+      <button id="cancel-button" tabindex="2" class="button mdl-button mdl-js-button" onclick="exit_()"></button>
+      <button id="submit-button" tabindex="3" class="button mdl-button mdl-js-button mdl-button--raised" disabled onclick="submit_()"></button>
+    </div>
+  </div>
+  <div id="additional-info-layer" class="hidden">
+    <div id="additional-info-header">
+      <button id="additional-info-back-button" class="mdl-button mdl-js-button mdl-button--icon" onclick="showAdditionalInfo_(false)">
+        <img id="additional-info-back-button-icon" src="ic_keyboard_backspace_grey600_24dp.svg">
+      </button>
+      <div id="additional-info-title"><!-- Set by the JS. --></div>
+    </div>
+    <div id="additional-info-list">
+      <div class="additional-info-list-item-template additional-info-list-item hidden">
+        <div class="additional-info-list-item-key"></div>
+        <div class="additional-info-list-item-value"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
