@@ -122,11 +122,39 @@ Function Installers {
 }
 
 ##############################################
+##################### S3 #####################
+##############################################
+Function S3 {
+
+    # Download and extract ZIP from S3
+    Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
+    Install-ChocolateyZipPackage `
+        -PackageName "$($CONFIG.Id)" `
+        -UnzipLocation "$INSTALL_DIR" `
+        -Url "$S3_URI" 
+
+    # Put any secrets into the environment
+    if (Test-Path $SECRETS_FILE) {
+        $secrets = Get-Content -Raw -Path "$SECRETS_FILE" | ConvertFrom-Yaml
+
+        foreach ($secret in $secrets) {
+            [Environment]::SetEnvironmentVariable("$secret", "$($secrets.$secret)", 'Process')
+        }
+    }
+
+    # Run Preinstall PowerShell script
+        Write-Output        "Running preinstall.ps1..."
+        Invoke-Expression   $(Join-Path $TOOLS_DIR 'preinstall.ps1')
+
+}
+
+##############################################
 ############## Registry Files ################
 ##############################################
 Function Registry {
     
     # Set all the Registry Keys listed in config
+
     $hives = ($CONFIG.Registry | Get-Member -MemberType NoteProperty).Name
     foreach ($hive in $hives) {
         $regKeys = ($CONFIG.Registry.$hive | Get-Member -MemberType NoteProperty).Name
@@ -283,6 +311,7 @@ Function SchedTask {
 If ($CONFIG.Environment){EnvVars}
 If ($CONFIG.ChocoPackages){Choco}
 If ($CONFIG.Install){Installers}
+If (!($CONFIG.Install)){S3}
 If ($CONFIG.Registry){Registry}
 If ($CONFIG.Files){Files}
 If ($CONFIG.Services){Services}
