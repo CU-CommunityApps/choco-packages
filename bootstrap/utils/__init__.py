@@ -467,6 +467,10 @@ class AppStreamImageBuild(ImageBuild):
                 self.logger.debug('Package Config:\r\n' + json.dumps(config, indent=4))
 
                 try:
+                    if 'Applications' not in config:
+                        self.logger.info('No AppStream Apps for Package: ' + package)
+                        continue
+
                     for app, appConfig in config['Applications'].items():
                         iconFile = '{App}.png'.format(App=app)
                         iconFilePath = path.join(packageDir, 'icons', iconFile)
@@ -484,7 +488,7 @@ class AppStreamImageBuild(ImageBuild):
 
                 except Exception as e:
                     logging.exception('APPSTREAM_APPLICATION_CATALOG_ERROR')
-                    self.logger.warning('Bad Application Config for Package: ' + package)
+                    self.logger.error('Bad Application Catalog Config for Package: ' + package)
                     
 
             sql.commit()
