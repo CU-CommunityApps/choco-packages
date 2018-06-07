@@ -148,7 +148,7 @@ Function Registry {
                 New-PSDrive `
                     -Name 'HKUD' `
                     -PSProvider 'Registry' `
-                    -Root 'HKU:\DefaultUser'
+                    -Root 'HKEY_USERS\DefaultUser'
             }
         }
 
