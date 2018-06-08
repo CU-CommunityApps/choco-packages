@@ -10,7 +10,7 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\Drive File Stream': '%PROGRAMFILES%\Google\Drive File Stream'
+    '%INSTALL_DIR%\Google Stream\Drive File Stream': '%PROGRAMFILES%\Google\Drive File Stream'
 
 Registry:
     HKLM:   
