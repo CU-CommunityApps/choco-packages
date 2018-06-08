@@ -32,8 +32,27 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
+    Powershell:
+        DisplayName:    'Windows Powershell'
+        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe''
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    Procexp:
+        DisplayName:    'Process Explorer'
+        Path:           '%ALLUSERSPROFILE%\chocolatey\lib\sysinternals\tools\procexp.exe'
+        LaunchParams:   '/AcceptEULA'
+        WorkDir:        ''
+
+    ExplorerPlus:
+        DisplayName:    'Explorer Plus'
+        Path:           '%PROGRAMFILES%\ExplorerPlus\Explorer++.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
 Files:
     '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb' # AMD GPU
+    '%INSTALL_DIR%\Explorer++.exe': '%PROGRAMFILES%\ExplorerPlus\Explorer++.exe'
 
 Registry:
     HKUD:
