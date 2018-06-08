@@ -125,14 +125,14 @@ Function Installers {
 ##################### S3 #####################
 ##############################################
 Function S3 {
-
+<#
     # Download and extract ZIP from S3
     Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
     Install-ChocolateyZipPackage `
         -PackageName "$($CONFIG.Id)" `
         -UnzipLocation "$INSTALL_DIR" `
         -Url "$S3_URI" 
-
+#>
     # Put any secrets into the environment
     if (Test-Path $SECRETS_FILE) {
         $secrets = Get-Content -Raw -Path "$SECRETS_FILE" | ConvertFrom-Yaml
