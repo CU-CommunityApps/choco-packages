@@ -2,6 +2,8 @@ Id:             'base-cornellstream'
 Description:    'Base Items for Cornell Stream Environments'
 Version:        '1.0.0'
 
+Install: null
+
 ChocoPackages:
     - '7zip'
     - 'notepadplusplus'

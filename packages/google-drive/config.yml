@@ -2,6 +2,8 @@ Id:             'google-drive'
 Description:    'Google Stream - Google Drive for Enterprise'
 Version:        '25.252.283.1957'
 
+Install: null
+
 Applications:
     googledrive:
         DisplayName:    'Google Drive'
