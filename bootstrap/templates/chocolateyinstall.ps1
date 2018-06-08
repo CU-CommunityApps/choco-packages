@@ -125,24 +125,13 @@ Function Installers {
 ##################### S3 #####################
 ##############################################
 Function S3 {
-    
-    $file = "$INSTALL_DIR\$($CONFIG.Id).zip"
-    iwr -Uri $S3_URI -OutFile $file
 
-    # Unzip the file to specified location
-    $shell = new-object -com shell.application 
-    $zip_file = $shell.namespace($file) 
-    $destination = $shell.namespace($INSTALL_DIR) 
-    $destination.Copyhere($zip_file.items())
-
-    <#
     # Download and extract ZIP from S3
     Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
     Install-ChocolateyZipPackage `
         -PackageName "$($CONFIG.Id)" `
         -UnzipLocation "$INSTALL_DIR" `
         -Url "$S3_URI" 
-    #>
 
     # Put any secrets into the environment
     if (Test-Path $SECRETS_FILE) {
