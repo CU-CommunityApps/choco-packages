@@ -34,7 +34,7 @@ Applications:
 
     Powershell:
         DisplayName:    'Windows Powershell'
-        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe''
+        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
