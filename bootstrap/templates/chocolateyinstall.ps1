@@ -310,8 +310,8 @@ Function SchedTask {
 # Only run config.yml sections if specified
 If ($CONFIG.Environment){EnvVars}
 If ($CONFIG.ChocoPackages){Choco}
-If ($CONFIG.Install){Installers}
-If (!($CONFIG.Install)){S3}
+Installers
+#If (!($CONFIG.Install)){S3}
 If ($CONFIG.Registry){Registry}
 If ($CONFIG.Files){Files}
 If ($CONFIG.Services){Services}
