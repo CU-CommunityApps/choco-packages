@@ -125,14 +125,14 @@ Function Installers {
 ##################### S3 #####################
 ##############################################
 Function S3 {
-<#
+
     # Download and extract ZIP from S3
     Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
     Install-ChocolateyZipPackage `
         -PackageName "$($CONFIG.Id)" `
         -UnzipLocation "$INSTALL_DIR" `
         -Url "$S3_URI" 
-#>
+
     # Put any secrets into the environment
     if (Test-Path $SECRETS_FILE) {
         $secrets = Get-Content -Raw -Path "$SECRETS_FILE" | ConvertFrom-Yaml
@@ -310,8 +310,8 @@ Function SchedTask {
 # Only run config.yml sections if specified
 If ($CONFIG.Environment){EnvVars}
 If ($CONFIG.ChocoPackages){Choco}
-Installers
-#If (!($CONFIG.Install)){S3}
+If ($CONFIG.Install){Installers}
+If (!($CONFIG.Install)){S3}
 If ($CONFIG.Registry){Registry}
 If ($CONFIG.Files){Files}
 If ($CONFIG.Services){Services}
