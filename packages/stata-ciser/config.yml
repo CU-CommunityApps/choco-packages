@@ -1,0 +1,35 @@
+Id:             'stata-ciser'
+Description:    'stata-ciser package'
+Version:        '15.0.0'
+
+Install:
+    File:       '%INSTALL_DIR%\SetupStata15.exe'
+    FileType:   'exe'
+    Arguments:  '/passive ADDLOCAL=Ado,Core,StataIC64'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    stata:
+        DisplayName:    'Stata15'
+        Path:           '%PROGRAMFILES(x86)%\Stata15\Stata-64.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: 
+    '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES(x86)%\Stata15\STATA.LIC'
+
+Environment: { }
+
+Services: { }
+
+ScheduledTasks: []
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }

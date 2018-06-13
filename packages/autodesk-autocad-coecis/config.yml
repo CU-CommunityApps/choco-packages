@@ -1,0 +1,36 @@
+Id:             'autodesk-autocad-coecis'
+Description:    'Autodesk AutoCAD 2018 - COECIS License'
+Version:        '49.0.0'
+
+Install:
+    File:       '%INSTALL_DIR%\Img\setup.exe'
+    FileType:   'exe'
+    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\autodesk-autocad-coecis.ini /language en-us'
+    ExitCodes:  [0]
+
+ChocoPackages: []
+
+Applications:
+    autocad:
+        DisplayName:    'AutoCAD 2018'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2018\acad.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: { }
+
+Environment:
+    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+
+Services: { }
+
+ScheduledTasks: { }
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:   { }
+       

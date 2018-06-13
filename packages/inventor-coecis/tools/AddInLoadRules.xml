@@ -6,7 +6,6 @@
        
         Only paths that require Administrator privileges to write to should be specified
         as "Allow" here. Any path can be blocked with a "Block" setting.                                                                                         
-
         The line below allows the 3Dconnexion (3D Mouse) add-in if it is installed to its 
         default location.
     -->
@@ -37,9 +36,7 @@
         since add-in GUIDs are easily discoverable and not checked for uniqueness. Thus a
         malicious add-in could copy the GUID from an add-in that has been allowed by ID and
         would be permitted to load. 
-
         This example shows blocking a known (fictitious) bad add-in:     
-
             <Id Policy="Block">{4CD437C3-1360-4A34-841F-F877DAF4969D}</Id>
    -->
 
@@ -69,4 +66,3 @@
     -->
 
 </AddInLoadRules>
-
