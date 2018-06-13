@@ -5,7 +5,7 @@ Version:        '49.0.0'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\autodesk-autocad-coecis.ini /language en-us'
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autodesk-autocad-coecis.ini /language en-us'
     ExitCodes:  [0]
 
 ChocoPackages: []
