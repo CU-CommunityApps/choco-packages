@@ -8,8 +8,6 @@ Install:
     Arguments:  '/q'
     ExitCodes:  [0]
 
-ChocoPackages: []
-
 Applications:
     wherescapered:
         DisplayName:    'Wherescape Red'
@@ -22,14 +20,6 @@ Applications:
         Path:           '%PROGRAMFILES(x86)%\Wherescape\adm.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files: { }
-
-Environment: { }
-
-Services: { }
-
-ScheduledTasks: []
 
 Registry:
     HKCC:   { }

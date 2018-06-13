@@ -17,20 +17,6 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: { }
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
-
-Services: { }
-
-ScheduledTasks: { }
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
-       

@@ -8,7 +8,6 @@ Install:
     Arguments:  '/W /q /I Img\Autodesk2019DeploymentPackage.ini /language en-us'
     ExitCodes:  [0]
 
-ChocoPackages: []
 
 Applications:
     Inventor:
@@ -28,7 +27,6 @@ Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
     mitsijm2018: 'Manual' # Autodesk Simulation Moldflow MITSI 2019 Job Manager
 
-ScheduledTasks: []
 
 Registry:
     HKCC:   { }

@@ -8,7 +8,6 @@ Install:
     Arguments:  '/passive ADDLOCAL=Ado,Core,StataIC64'
     ExitCodes:  [0]
 
-ChocoPackages: []
 
 Applications:
     stata:
@@ -19,17 +18,3 @@ Applications:
 
 Files: 
     '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES(x86)%\Stata15\STATA.LIC'
-
-Environment: { }
-
-Services: { }
-
-ScheduledTasks: []
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
