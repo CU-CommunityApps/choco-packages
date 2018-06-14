@@ -18,3 +18,21 @@ Applications:
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
 
+Services: 
+    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
+
+Registry:
+    HKUD:
+        Software\Autodesk\MC3:
+            ADAOptIn:
+                Type:   'DWORD'
+                Value:  '0'
+
+            ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+            OverridedByHKLM:
+                Type:   'DWORD'
+                Value:  '0'
+
