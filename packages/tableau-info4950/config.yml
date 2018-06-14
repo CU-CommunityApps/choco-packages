@@ -15,8 +15,6 @@ Install:
 +    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0'
 +    ExitCodes:  [0]
 +
-+ChocoPackages: []
-+
 +Applications:
 +    tableau:
 +        DisplayName:    'Tableau'
@@ -26,45 +24,3 @@ Install:
 +
 +Files:
 +    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts'
-+
-+Environment: { }
-+
-+Services: { }
-+
-+ScheduledTasks: []
-+
-+Registry:
-+    HKCC:   { }
-+    HKCR:   { }
-+    HKCU:   { }
-+    HKLM:   { }
-+    HKU:    { }
-+    HKUD:   { }'
-    ExitCodes:  [0]
-
-ChocoPackages: []
-
-Applications:
-    tableau:
-        DisplayName:    'Tableau'
-        Path:           '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts\start-tableau.bat'
-        LaunchParams:   ''
-        WorkDir:        ''
-
-Files:
-    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts'
-
-Environment: { }
-
-Services: { }
-
-ScheduledTasks: []
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
-
