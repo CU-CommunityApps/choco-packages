@@ -8,8 +8,6 @@ Install:
     Arguments:  '/q /W /I %INSTALL_DIR%\Img\autodesk-autocad-coecis.ini /language en-us'
     ExitCodes:  [0]
 
-ChocoPackages: []
-
 Applications:
     autocad:
         DisplayName:    'AutoCAD 2018'
@@ -17,6 +15,6 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+
