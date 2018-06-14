@@ -3,17 +3,11 @@ Description:    'Tableau - INFO4950'
 Version:        '10.5.1'
 
 Install:
-    File:       '%INSTALL_DIR%\TableauDesktop-64bit-10-5-1.exe'
+    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-1.exe'
     FileType:   'exe'
     Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0'
 +Description:    'Tableau - INFO4950'
 +Version:        '10.5.1'
-+
-+Install:
-+    File:       '%INSTALL_DIR%\TableauDesktop-64bit-10-5-1.exe'
-+    FileType:   'exe'
-+    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0'
-+    ExitCodes:  [0]
 +
 +Applications:
 +    tableau:
@@ -23,4 +17,4 @@ Install:
 +        WorkDir:        ''
 +
 +Files:
-+    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 10.5\bin\scripts'
++    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts'
