@@ -5,7 +5,7 @@ Version:        '22.0'
 Install:
     File:       '%INSTALL_DIR%\Img\Setup.exe'
     FileType:   'exe'
-    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\inventor-coecis.ini /language en-us'
+    Arguments:  '/qb /W /I %INSTALL_DIR%\inventor-coecis.ini /language en-us'
     ExitCodes:  [0, 1641]
 
 ChocoPackages: []
