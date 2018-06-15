@@ -1,13 +1,12 @@
 Id:             'inventor-coecis'
 Description:    'Autodesk Inventor 2019 - COECIS LICENSE'
-Version:        '2019'
+Version:        '2019.136'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
     Arguments:  '/W /q /I Img\Autodesk2019DeploymentPackage.ini /language en-us'
     ExitCodes:  [0]
-
 
 Applications:
     Inventor:
@@ -27,13 +26,7 @@ Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
     mitsijm2018: 'Manual' # Autodesk Simulation Moldflow MITSI 2019 Job Manager
 
-
 Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
     HKUD:
         SOFTWARE\Autodesk\MC3:
             ADAOptIn:
