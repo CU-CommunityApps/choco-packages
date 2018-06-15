@@ -6,15 +6,15 @@ Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-1.exe'
     FileType:   'exe'
     Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0'
-+Description:    'Tableau - INFO4950'
-+Version:        '2018.1.1'
-+
-+Applications:
-+    tableau:
-+        DisplayName:    'Tableau'
-+        Path:           '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\start-tableau.bat'
-+        LaunchParams:   ''
-+        WorkDir:        ''
-+
-+Files:
-+    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts'
+Description:    'Tableau - INFO4950'
+Version:        '2018.1.1'
+
+Applications:
+    tableau:
+        DisplayName:    'Tableau'
+        Path:           '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\start-tableau.bat'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:    
+       '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts'
