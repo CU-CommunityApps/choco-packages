@@ -5,8 +5,8 @@ Version:        '2019.136'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/W /q /I %INSTALL_DIR%\inventor-coecis.ini /language en-us'
-    ExitCodes:  [0]
+    Arguments:  '/W /q /I %INSTALL_DIR%\AutoDesk2019DeploymentPackage.ini /language en-us'
+    ExitCodes:  [0,1641]
 
 Applications:
     Inventor:
