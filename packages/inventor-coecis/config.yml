@@ -5,7 +5,7 @@ Version:        '2019.136'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/W /q /I %INSTALL_DIR%\AutoDesk2019DeploymentPackage.ini /language en-us'
+    Arguments:  '/W /q /I %INSTALL_DIR%\Img\Autodesk2019DeploymentPackage.ini /language en-us'
     ExitCodes:  [0,1641]
 
 Applications:
