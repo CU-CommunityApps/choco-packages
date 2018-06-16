@@ -1,17 +1,17 @@
 Id:             'autodesk-autocad-coecis'
-Description:    'Autodesk AutoCAD 2018 - COECIS License'
-Version:        '49.0.0'
+Description:    'Autodesk AutoCAD 2019 - COECIS License'
+Version:        '46.0.0'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autodesk-autocad-coecis.ini /language en-us'
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autodesk-autocad-coecis.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  [0,1641]
 
 Applications:
     autocad:
-        DisplayName:    'AutoCAD 2018'
-        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2018\acad.exe'
+        DisplayName:    'AutoCAD 2019'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2019\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
