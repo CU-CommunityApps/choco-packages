@@ -5,7 +5,7 @@ Version:        '2018.1.1'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-1.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 REGISTER=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 REGISTER=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 ACTIVATE_KEY=%ACTIVATE_KEY%'
 Description:    'Tableau - INFO4950'
 Version:        '2018.1.1'
 
