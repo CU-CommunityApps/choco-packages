@@ -5,7 +5,7 @@ Version:        '2018.1.1'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-1.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 REGISTER=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0'
 Description:    'Tableau - INFO4950'
 Version:        '2018.1.1'
 
@@ -18,3 +18,133 @@ Applications:
 
 Files:    
        '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts'
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:
+    
+        Software\tableau\License:
+            License_Key:
+                Type:   'String'
+                Value:  '%TABLEAU_LICENSE_KEY%'
+                
+        SOFTWARE\Tableau\Registration\Data:
+            (Default):
+                Type:   'String'
+                Value:  %TABLEAU_KEYS%
+
+            company:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            country:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_annnual_sales:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_country:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_employee_count:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_industry:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_sic:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_source:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_state:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_sub_industry:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_title:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_website:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            db_zip:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            department:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            elqCustomerGUID:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            email:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            first_name:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            form_environment:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            form_variant:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            ga_client_id:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            job_role:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            last_name:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            last_report_date:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            phone:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            product_name:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            state:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            title:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
+            zip:
+                Type:   'String'
+                Value:   %TABLEAU_KEYS%
+
