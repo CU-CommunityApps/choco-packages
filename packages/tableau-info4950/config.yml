@@ -5,7 +5,7 @@ Version:        '2018.1.1'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-1.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 REGISTER=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 ACTIVATE_KEY=%TABLEAU_KEYS'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 REGISTER=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0'
 Description:    'Tableau - INFO4950'
 Version:        '2018.1.1'
 
@@ -25,6 +25,11 @@ Registry:
     HKLM:   { }
     HKU:    { }
     HKUD:   
+        SOFTWARE\Tableau\License:
+            ACTIVATE_KEY:
+                Type:   'String'
+                Value:  %TABLEAU_KEYS%
+                
         SOFTWARE\Tableau\Registration\Data:
             (Default):
                 Type:   'String'
