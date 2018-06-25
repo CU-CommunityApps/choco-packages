@@ -14,5 +14,3 @@ Applications:
         Path:           '%PROGRAMFILES%\Adobe\Adobe Illustrator CC 2018\Support Files\Contents\Windows\illustrator.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-

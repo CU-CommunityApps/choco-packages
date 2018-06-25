@@ -14,5 +14,3 @@ Applications:
         Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign CC 2018\InDesign.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-

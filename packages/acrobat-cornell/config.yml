@@ -14,4 +14,4 @@ Applications:
         Path:           '%PROGRAMFILES(x86)%\Adobe\Acrobat DC\Acrobat\Acrobat.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
+        

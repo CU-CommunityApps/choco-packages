@@ -14,5 +14,3 @@ Applications:
         Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2018\photoshop.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-
