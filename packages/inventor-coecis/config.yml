@@ -1,52 +1,43 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2018 - COECIS License'
-Version:        '22.0'
+Description:    'Autodesk Inventor 2019 - COECIS LICENSE'
+Version:        '2019.136'
 
 Install:
-    File:       '%INSTALL_DIR%\Img\Setup.exe'
+    File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/qb /W /I %INSTALL_DIR%\inventor-coecis.ini /language en-us'
-    ExitCodes:  [0, 1641]
-
-ChocoPackages: []
+    Arguments:  '/W /q /I %INSTALL_DIR%\Img\AutoDesk Inventor 2019.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    ExitCodes:  [0,1641]
 
 Applications:
     Inventor:
-        DisplayName:    'Inventor 2018'
-        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2018\Bin\Inventor.exe'
+        DisplayName:    'Inventor 2019'
+        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2019\Bin\Inventor.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: 
-    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2018\Preferences\AddInLoadRules.xml'
-    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2018\UserApplicationOptions.xml'
+Files:
+    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2019\Preferences\AddInLoadRules.xml'
+    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2019\UserApplicationOptions.xml'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
 
 Services: 
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
-    mitsijm2018: 'Manual' # Autodesk Simulation Moldflow MITSI 2018 Job Manager
-
-ScheduledTasks: []
+    mitsijm2018: 'Manual' # Autodesk Simulation Moldflow MITSI 2019 Job Manager
 
 Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
     HKUD:
-        Software\Autodesk\MC3:
+        SOFTWARE\Autodesk\MC3:
             ADAOptIn:
                 Type:   'DWORD'
-                Value:  '0'
+                Value:  '1'
 
             ADARePrompted:
                 Type:   'DWORD'
                 Value:  '1'
 
-            OverridedByHKLM:
+            OverrideByHKLM:
                 Type:   'DWORD'
                 Value:  '0'
 

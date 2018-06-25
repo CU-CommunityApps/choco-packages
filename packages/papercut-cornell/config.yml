@@ -8,24 +8,7 @@ Install:
     Arguments:  '/qb /norestart ALLUSERS=1'
     ExitCodes:  [0]
 
-ChocoPackages: []
-
-Applications: { }
-
-Files: { }
-
-Environment: { }
-
-Services: { }
-
 ScheduledTasks:
     - 'papercut-startup'
 
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
 

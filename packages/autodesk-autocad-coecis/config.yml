@@ -1,0 +1,38 @@
+Id:             'autodesk-autocad-coecis'
+Description:    'Autodesk AutoCAD 2019 - COECIS License'
+Version:        '46.0.0'
+
+Install:
+    File:       '%INSTALL_DIR%\Img\setup.exe'
+    FileType:   'exe'
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autodesk-autocad-coecis.ini.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    ExitCodes:  [0,1641]
+
+Applications:
+    autocad:
+        DisplayName:    'AutoCAD 2019'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2019\acad.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Environment:
+    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+
+Services: 
+    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
+
+Registry:
+    HKUD:
+        Software\Autodesk\MC3:
+            ADAOptIn:
+                Type:   'DWORD'
+                Value:  '0'
+
+            ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+            OverridedByHKLM:
+                Type:   'DWORD'
+                Value:  '0'
+

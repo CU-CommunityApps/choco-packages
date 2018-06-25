@@ -45,17 +45,18 @@ if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
     # Clone the Choco Respository
     Start-Process `
         -FilePath $GIT `
-        -ArgumentList "clone $REPO $PACKAGES" `
+        -ArgumentList "clone -b $BRANCH $REPO $PACKAGES" `
         -NoNewWindow -Wait `
     | Tee-Object -Append -FilePath $CHOCOLOG
 
-    # Checkout the Selected Branch
+    <# # Checkout the Selected Branch
     Start-Process `
         -FilePath $GIT `
         -ArgumentList "checkout $BRANCH" `
         -WorkingDirectory "$PACKAGES" `
         -NoNewWindow -Wait `
     | Tee-Object -Append -FilePath $CHOCOLOG
+    #>
 
     # Install Python
     Start-Process `
