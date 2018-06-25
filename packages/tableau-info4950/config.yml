@@ -28,122 +28,122 @@ Registry:
         SOFTWARE\Tableau\License:
             ACTIVATE_KEY:
                 Type:   'String'
-                Value:  %TABLEAU_KEYS%
+                Value:  '%ACTIVATE_KEY%'
                 
         SOFTWARE\Tableau\Registration\Data:
             (Default):
                 Type:   'String'
-                Value:  %TABLEAU_KEYS%
+                Value:  ''
 
             company:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'Cornell'
 
             country:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'US'
 
             db_annnual_sales:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '%TABLEAU_SALES%'
 
             db_country:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'US'
 
             db_employee_count:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '%TABLEAU_EMPLOYEE_COUNT%'
 
             db_industry:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'Healthcare Providers'
 
             db_sic:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '8011'
 
             db_source:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'ip'
 
             db_state:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'NY'
 
             db_sub_industry:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'Clinics'
 
             db_title:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  ''
 
             db_website:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'cornell.edu'
 
             db_zip:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '14853'
 
             department:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'IT'
 
             elqCustomerGUID:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '%TABLEAU_ELQ_CUST%'
 
             email:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '%TABLEAU_EMAIL%'
 
             first_name:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '%TABLEAU_FIRST_NAME%'
 
             form_environment:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'qt'
 
             form_variant:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'short'
 
             ga_client_id:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '%TABLEAU_CLIENT_ID%'
 
             job_role:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'Professor/Teacher'
 
             last_name:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '%TABLEAU_LAST_NAME%'
 
             last_report_date:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '06-15-2018 06:18:03.599 PM'
 
             phone:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '%TABLEAU_PHONE%'
 
             product_name:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'desktop'
 
             state:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'NY'
 
             title:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  'IT Professor Teacher'
 
             zip:
                 Type:   'String'
-                Value:   %TABLEAU_KEYS%
+                Value:  '14853'
 
