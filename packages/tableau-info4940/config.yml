@@ -25,10 +25,6 @@ Registry:
     HKLM:   { }
     HKU:    { }
     HKUD:   
-        SOFTWARE\Tableau\License:
-            ACTIVATE_KEY:
-                Type:   'String'
-                Value:  '%TABLEAU_ACTIVATE_KEY%'
                 
         SOFTWARE\Tableau\Registration\Data:
             (Default):
