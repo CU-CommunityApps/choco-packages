@@ -8,7 +8,7 @@ Install:
     Arguments:  '/quiet /norestart ACCEPTEULA=1 REGISTER=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 ACTIVATE_KEY=%TABLEAU_ACTIVATE_KEY%'
 Description:    'Tableau - INFO4940'
 Version:        '2018.1.1'
-ExitCodes:  [1116]
+ExitCodes:  []
 
 Applications:
     tableau:
