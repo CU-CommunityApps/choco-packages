@@ -6,9 +6,7 @@ Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-1.exe'
     FileType:   'exe'
     Arguments:  '/quiet /norestart ACCEPTEULA=1 REGISTER=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 ACTIVATE_KEY=%TABLEAU_ACTIVATE_KEY%'
-Description:    'Tableau - INFO4940'
-Version:        '2018.1.1'
-ExitCodes:  []
+    ExitCodes:  [0,3010]
 
 Applications:
     tableau:
@@ -19,12 +17,8 @@ Applications:
 
 Files:    
        '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts'
+
 Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
     HKUD:   
                 
         SOFTWARE\Tableau\Registration\Data:
