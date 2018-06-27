@@ -89,7 +89,7 @@ Function Installers {
         if (Test-Path $SECRETS_FILE) {
             
             # Convert secrets.yml
-            $secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
+            [array]$secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
             $total = $secrets.Keys.Count
             $count = 0
 
@@ -141,7 +141,7 @@ Function S3 {
     if (Test-Path $SECRETS_FILE) {
            
         # Convert secrets.yml
-        $secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
+        [array]$secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
         $total = $secrets.Keys.Count
         $count = 0
 
