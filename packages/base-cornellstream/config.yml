@@ -19,6 +19,12 @@ Applications:
         Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
         LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
         WorkDir:        ''
+    
+    WINWORD:
+        DisplayName:    'Microsoft Word'
+        Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
+        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://office.live.com/start/Word.aspx'
+        WorkDir:        ''
 
     NotepadPP:
         DisplayName:    'Notepad++'
