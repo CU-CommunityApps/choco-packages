@@ -87,11 +87,15 @@ Function Installers {
 
         # Put any secrets into the environment
         if (Test-Path $SECRETS_FILE) {
-            $secrets = Get-Content -Raw -Path "$SECRETS_FILE" | ConvertFrom-Yaml
+            
+            # Convert secrets.yml
+            $secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
+            $total = $secrets.Keys.Count
+            $count = 0
 
-            foreach ($secret in $secrets) {
-                [Environment]::SetEnvironmentVariable("$secret", "$($secrets.$secret)", 'Process')
-            }
+            # Add environment variables
+            Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], "Machine");$count ++ } Until ($count -eq $total - 1)
+
         }
 
         # Run Preinstall PowerShell script
@@ -135,11 +139,15 @@ Function S3 {
 
     # Put any secrets into the environment
     if (Test-Path $SECRETS_FILE) {
-        $secrets = Get-Content -Raw -Path "$SECRETS_FILE" | ConvertFrom-Yaml
+           
+        # Convert secrets.yml
+        $secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
+        $total = $secrets.Keys.Count
+        $count = 0
 
-        foreach ($secret in $secrets) {
-            [Environment]::SetEnvironmentVariable("$secret", "$($secrets.$secret)", 'Process')
-        }
+        # Add environment variables
+        Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], "Machine");$count ++ } Until ($count -eq $total - 1)
+        
     }
 
     # Run Preinstall PowerShell script
