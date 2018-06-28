@@ -94,7 +94,7 @@ Function Installers {
             $count = 0
 
             # Add environment variables
-            Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], "Machine");$count ++ } Until ($count -eq $total - 1)
+            Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], "Machine");$count ++ } Until ($count -eq $total)
 
         }
 
@@ -146,7 +146,7 @@ Function S3 {
         $count = 0
 
         # Add environment variables
-        Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], "Machine");$count ++ } Until ($count -eq $total - 1)
+        Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], "Machine");$count ++ } Until ($count -eq $total)
         
     }
 
@@ -242,7 +242,7 @@ Function Registry {
                     -Name "$regProperty" `
                     -Path "$regKeyPath" `
                     -PropertyType "$($regItem.Type)" `
-                    -Value "$regValue" `
+                    -Value $regValue `
                     -Force
             }
         }
