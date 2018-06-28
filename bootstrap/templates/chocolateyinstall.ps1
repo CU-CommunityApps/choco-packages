@@ -242,7 +242,7 @@ Function Registry {
                     -Name "$regProperty" `
                     -Path "$regKeyPath" `
                     -PropertyType "$($regItem.Type)" `
-                    -Value "$($regItem.Value)" `
+                    -Value "$regValue" `
                     -Force
             }
         }
