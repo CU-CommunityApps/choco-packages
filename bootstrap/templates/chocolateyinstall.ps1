@@ -94,7 +94,12 @@ Function Installers {
             $count = 0
 
             # Add environment variables
-            Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
+            If ($total -gt 1){
+                
+                Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
+            
+            }
+            Else { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Process') }
 
         }
 
@@ -146,7 +151,12 @@ Function S3 {
         $count = 0
 
         # Add environment variables
-        Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
+        If ($total -gt 1){
+
+            Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
+ 
+        }
+        Else { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Process') }
         
     }
 
