@@ -33,7 +33,6 @@ Registry:
                 Type:   'String'
                 Value:  'Cornell Student Expires 12/31/18'
 
-        Software\WhereScape\MetaEditor\LicenseV7:
             License_Key:
                 Type:   'String'
                 Value:  '%WHERESCAPE_LICENSE_KEY%'
