@@ -1,0 +1,16 @@
+Id:             'jdk-info'
+Description:    'jdk-8u172-windows-i586'
+Version:        '8.0.1720.11'
+
+Install:
+    File:       '%INSTALL_DIR%\jdk-8u172-windows-i586.exe'
+    FileType:   'exe'
+    Arguments:  '/q'
+    ExitCodes:  [0]
+
+Applications:
+    java:
+        DisplayName:    'Java Development Kit'
+        Path:           '%PROGRAMFILES(x86)%\Java\jdk1.8.0_172\bin\java.exe'
+        LaunchParams:   ' '
+        WorkDir:        ' '
