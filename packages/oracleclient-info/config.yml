@@ -14,9 +14,7 @@ Files:
     '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper\bin'
 
 Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
+
     HKLM:   
         Software\Wow6432Node\ODBC\ODBC.INI\INFO4940
           Driver:
