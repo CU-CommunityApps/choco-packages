@@ -15,7 +15,7 @@ Files:
 
 Registry:
     HKLM:   
-        Software\Wow6432Node\ODBC\ODBC.INI\INFO4940
+        Software\Wow6432Node\ODBC\ODBC.INI\INFO4940:
           Driver:
             Type: 'string'
             Value: 'C:\Windows\system32\msorcl32.dll'
