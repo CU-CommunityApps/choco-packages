@@ -24,7 +24,7 @@ Registry:
             Type: 'string'
             Value: 'INFO4940'
 
-           Description"="INFO4940"
+           Description: 'INFO4940'
             Type: 'string'
             Value: ' '         
                         
