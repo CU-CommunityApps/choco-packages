@@ -62,8 +62,8 @@ Registry:
         
         Software\Wow6432Node\ODBC\ODBC.INI\ODBC Data Sources:
             INFO4940:
-            Type: 'string'
-            Value: 'Microsoft ODBC for Oracle'
+             Type: 'string'
+             Value: 'Microsoft ODBC for Oracle'
 
     
 
