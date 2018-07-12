@@ -12,15 +12,61 @@ Files:
     '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
     '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
     '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper\bin'
-    '%INSTALL_DIR%\odbc_install' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
-    '%INSTALL_DIR%\odbc_uninstall' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
-    '%INSTALL_DIR%\ODBCRelnotesJA' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
-    '%INSTALL_DIR%\ODBCRelnotesUS' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
-    '%INSTALL_DIR%\sqora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
-    '%INSTALL_DIR%\sqora32.dll' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
-    '%INSTALL_DIR%\sqoraja' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
-    '%INSTALL_DIR%\sqoras32.dll' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
-    '%INSTALL_DIR%\sqresja.dll' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
-    '%INSTALL_DIR%\sqresus.dll' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   
+        Software\Wow6432Node\ODBC\ODBC.INI\INFO4940
+          Driver:
+            Type: 'string'
+            Value: 'C:\Windows\system32\msorcl32.dll'
+           
+           DSN:
+            Type: 'string'
+            Value: 'INFO4940'
+
+           Description"="INFO4940"
+            Type: 'string'
+            Value: ' '         
+                        
+           UID:
+            Type: 'string'
+            Value: ' '
+            
+           PWD:
+            Type: 'string'
+            Value: ' '
+           
+           SERVER: 
+            Type: 'string'
+            Value: 'INFO4940'
+            
+           BufferSize:
+            Type: 'string'
+            Value: '65535'
+            
+           SynonymColumns:
+            Type: 'string'
+            Value: '1'
+           
+           StdDayOfWeek:
+            Type: 'string'
+            Value: '1'
+
+           GuessTheColDef:
+            Type: 'string'
+            Value: '0'
+
+           StripTrailingZero:
+            Type: 'string'
+            Value: '0'
+        
+        Software\Wow6432Node\ODBC\ODBC.INI\ODBC Data Sources:
+            INFO4940:
+            Type: 'string'
+            Value: 'Microsoft ODBC for Oracle'
+
     
 
