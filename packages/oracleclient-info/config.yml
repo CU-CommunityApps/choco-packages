@@ -12,4 +12,15 @@ Files:
     '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
     '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
     '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper\bin'
+    '%INSTALL_DIR%\odbc_install' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    '%INSTALL_DIR%\odbc_uninstall' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    '%INSTALL_DIR%\ODBCRelnotesJA' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    '%INSTALL_DIR%\ODBCRelnotesUS' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    '%INSTALL_DIR%\sqora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    '%INSTALL_DIR%\sqora32.dll' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    '%INSTALL_DIR%\sqoraja' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    '%INSTALL_DIR%\sqoras32.dll' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    '%INSTALL_DIR%\sqresja.dll' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    '%INSTALL_DIR%\sqresus.dll' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\instantclient'
+    
 
