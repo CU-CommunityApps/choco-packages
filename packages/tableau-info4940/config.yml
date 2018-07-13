@@ -20,7 +20,7 @@ Files:
 
 Registry:
     HKLM:
-        SOFTWARE\Tableau
+        SOFTWARE\Tableau:
             ATREnabled:
                 Type:   'string'
                 Value:  '1'
