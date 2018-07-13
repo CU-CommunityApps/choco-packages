@@ -1,4 +1,4 @@
-Id: 'oracleclient-info'
+Id:             'oracleclient-info'
 Description:    'Oracle Client 11gR2'
 Version:        '11.2.0'
 
@@ -16,52 +16,52 @@ Files:
 Registry:
     HKLM:   
         Software\Wow6432Node\ODBC\ODBC.INI\INFO4940:
-          Driver:
-            Type: 'string'
-            Value: 'C:\Windows\system32\msorcl32.dll'
+            Driver:
+                Type: 'string'
+                Value: 'C:\Windows\system32\msorcl32.dll'
            
-        DSN:
-            Type: 'string'
-            Value: 'INFO4940'
+            DSN:
+                Type: 'string'
+                Value: 'INFO4940'
 
-        Description: 'INFO4940'
-        Type:   'string'
-        Value: ' '         
+            Description:
+                Type: 'string'
+                Value: 'INFO4940'         
                         
-        UID:
-            Type: 'string'
-            Value: ' '
+            UID:
+                Type: 'string'
+                Value: ''
             
-        PWD:
-            Type: 'string'
-            Value: ' '
+            PWD:
+                Type: 'string'
+                Value: ''
            
-        SERVER: 
-            Type: 'string'
-            Value: 'INFO4940'
+            SERVER: 
+                Type: 'string'
+                Value: 'INFO4940'
             
-        BufferSize:
-            Type: 'string'
-            Value: '65535'
+            BufferSize:
+                Type: 'string'
+                Value: '65535'
             
-        SynonymColumns:
-            Type: 'string'
-            Value: '1'
+            SynonymColumns:
+                Type: 'string'
+                Value: '1'
            
-        StdDayOfWeek:
-            Type: 'string'
-            Value: '1'
+            StdDayOfWeek:
+                Type: 'string'
+                Value: '1'
 
-        GuessTheColDef:
-            Type: 'string'
-            Value: '0'
+            GuessTheColDef:
+                Type: 'string'
+                Value: '0'
 
-        StripTrailingZero:
-            Type: 'string'
-            Value: '0'
+            StripTrailingZero:
+                Type: 'string'
+                Value: '0'
         
         Software\Wow6432Node\ODBC\ODBC.INI\ODBC Data Sources:
-            
-        INFO4940:
-             Type: 'string'
-             Value: 'Microsoft ODBC for Oracle'
+            INFO4940:
+                Type: 'string'
+                Value: 'Microsoft ODBC for Oracle'
+                
