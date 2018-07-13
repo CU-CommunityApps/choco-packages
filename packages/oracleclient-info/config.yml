@@ -1,4 +1,4 @@
-Id:             'oracleclient-info'
+Id: 'oracleclient-info'
 Description:    'Oracle Client 11gR2'
 Version:        '11.2.0'
 
@@ -20,50 +20,48 @@ Registry:
             Type: 'string'
             Value: 'C:\Windows\system32\msorcl32.dll'
            
-           DSN:
+        DSN:
             Type: 'string'
             Value: 'INFO4940'
 
-           Description: 'INFO4940'
-            Type: 'string'
-            Value: ' '         
+        Description: 'INFO4940'
+        Type:   'string'
+        Value: ' '         
                         
-           UID:
+        UID:
             Type: 'string'
             Value: ' '
             
-           PWD:
+        PWD:
             Type: 'string'
             Value: ' '
            
-           SERVER: 
+        SERVER: 
             Type: 'string'
             Value: 'INFO4940'
             
-           BufferSize:
+        BufferSize:
             Type: 'string'
             Value: '65535'
             
-           SynonymColumns:
+        SynonymColumns:
             Type: 'string'
             Value: '1'
            
-           StdDayOfWeek:
+        StdDayOfWeek:
             Type: 'string'
             Value: '1'
 
-           GuessTheColDef:
+        GuessTheColDef:
             Type: 'string'
             Value: '0'
 
-           StripTrailingZero:
+        StripTrailingZero:
             Type: 'string'
             Value: '0'
         
         Software\Wow6432Node\ODBC\ODBC.INI\ODBC Data Sources:
-            INFO4940:
+            
+        INFO4940:
              Type: 'string'
              Value: 'Microsoft ODBC for Oracle'
-
-    
-
