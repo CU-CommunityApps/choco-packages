@@ -5,7 +5,7 @@ Version:        '2018.1.1'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-1.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 REGISTER=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 ACTIVATE_KEY=%TABLEAU_ACTIVATE_KEY%'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 ATRENABLED=1 ATRREQUESTEDDURATIONSECONDS=240 ACTIVATE_KEY=%TABLEAU_ACTIVATE_KEY%'
     ExitCodes:  [0,3010]
 
 Applications:
@@ -18,7 +18,17 @@ Applications:
 Files:    
        '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts'
 
-Registry:              
+Registry: 
+    HKLM:
+        SOFTWARE\Tableau:
+            ATREnabled:
+                Type:   'string'
+                Value:  '1'
+            
+            ATRREQUESTEDDURATIONSECONDS:
+                Type:    'string'
+                Value:   '240'
+
     HKUD:   
         SOFTWARE\Tableau\Registration\Data:
             (Default):
