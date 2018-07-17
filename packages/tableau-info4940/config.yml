@@ -1,6 +1,6 @@
 Id:             'tableau-info4940'
 Description:    'Tableau - INFO4940'
-Version:        '2018.1.1'
+Version:        '2018.1.2'
 
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-2.exe'
