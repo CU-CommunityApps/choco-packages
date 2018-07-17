@@ -3,7 +3,7 @@ Description:    'Tableau - INFO4940'
 Version:        '2018.1.1'
 
 Install:
-    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-1.exe'
+    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-2.exe'
     FileType:   'exe'
     Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 REGISTER=1 ACTIVATE_KEY=%TABLEAU_ACTIVATE_KEY%'
     ExitCodes:  [0,3010]
