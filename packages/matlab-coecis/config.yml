@@ -25,15 +25,4 @@ Environment:
     MATLABPATH:     '%PUBLIC%\MATLAB'
     MW_MINGW64_LOC: '%SYSTEMDRIVE%\tools\mingw64'
 
-Services: { }
-
-ScheduledTasks: []
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
 

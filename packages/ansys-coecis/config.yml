@@ -8,8 +8,6 @@ Install:
     Arguments:  '-silent -licserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
     ExitCodes:  [0]
 
-ChocoPackages: []
-
 Applications:
     ANSYSWB:
         DisplayName:    'ANSYS Workbench 18.2'
@@ -20,18 +18,4 @@ Applications:
 Files: 
     '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v182\ApipUserConfig.txt'
     '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v182\commonfiles\CAD\CADConfigurationInfo.XML'
-
-Environment: { }
-
-Services: { }
-
-ScheduledTasks: []
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
 

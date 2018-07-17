@@ -2,8 +2,6 @@ Id:             'base-cornellstream'
 Description:    'Base Items for Cornell Stream Environments'
 Version:        '1.0.0'
 
-Install: null
-
 ChocoPackages:
     - '7zip'
     - 'notepadplusplus'
@@ -21,6 +19,12 @@ Applications:
         Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
         LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
         WorkDir:        ''
+    
+    WINWORD:
+        DisplayName:    'Microsoft Word'
+        Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
+        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://office.live.com/start/Word.aspx'
+        WorkDir:        ''
 
     NotepadPP:
         DisplayName:    'Notepad++'
@@ -34,21 +38,29 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
+    Powershell:
+        DisplayName:    'Windows Powershell'
+        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    Procexp:
+        DisplayName:    'Process Explorer'
+        Path:           '%ALLUSERSPROFILE%\chocolatey\lib\sysinternals\tools\procexp.exe'
+        LaunchParams:   '/AcceptEULA'
+        WorkDir:        ''
+
+    ExplorerPlus:
+        DisplayName:    'Explorer Plus'
+        Path:           '%PROGRAMFILES%\ExplorerPlus\Explorer++.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
 Files:
     '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb' # AMD GPU
-
-Environment: { }
-
-Services: { }
-
-ScheduledTasks: []
+    '%INSTALL_DIR%\Explorer++.exe': '%PROGRAMFILES%\ExplorerPlus\Explorer++.exe'
 
 Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
     HKUD:
         Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
             ComponentID:
