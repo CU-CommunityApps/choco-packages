@@ -21,7 +21,7 @@ $PIP =          [io.path]::combine($PYDIR, 'Scripts', 'pip.exe')
 
 $REPO =         'https://github.com/CU-CommunityApps/choco-packages.git'
 $BRANCH =       "$($args[0])"
-$PREREQS =      'git sysinternals powershell'
+$PREREQS =      'git sysinternals'
 $PYVERSION =    '3.6.4'
 $PYDEPENDS =    'boto3 pyyaml'
 
@@ -35,7 +35,7 @@ if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
     iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) `
     | Tee-Object -Append -FilePath $CHOCOLOG
 
-    # Install Git, Sysinternals and PowerShell 5.x 
+    # Install Git, Sysinternals
     Start-Process `
         -FilePath $CHOCO `
         -ArgumentList "install $PREREQS --no-progress -r -y" `
