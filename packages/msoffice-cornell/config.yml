@@ -3,68 +3,26 @@ Description:    'Microsoft Office 2016 - Cornell Site License'
 Version:        16.0
 
 Applications:
-        WINWORD:
+    WINWORD:
         DisplayName:    'Microsoft Word'
         Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
         LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://office.live.com/start/Word.aspx'
-        WorkDir:        ''
-        
-        
-        EXCEL:
+        WorkDir:        ''       
+    
+    EXCEL:
         DisplayName:    'Microsoft Excel'
         Path: '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
         LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://office.live.com/start/Excel.aspx'
-        WorkDir:        ''
-        
-        
-        POWERPNT:
+        WorkDir:        ''    
+    
+    POWERPNT:
         DisplayName:    'Microsoft Powerpoint'
         Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
         LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://office.live.com/start/PowerPoint.aspx'
         WorkDir:        ''
 
-        ONENOTE:
+    ONENOTE:
         DisplayName:    'Microsoft OneNote'
         Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
         LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://www.onenote.com/hrd?wdorigin=ondcauth2&wdorigin=poc'
         WorkDir:        ''
-
-
-
-ScheduledTasks: []
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:
-        Software\Microsoft\Office\16.0\FirstRun:
-            BootedRTM:
-                Type:   'DWORD'
-                Value:  '1'
-
-            disablemovie:
-                Type:   'DWORD'
-                Value:  '1'
-
-        Software\Microsoft\Office\16.0\Common\General:
-            shownfirstrunoptin:
-                Type:   'DWORD'
-                Value:  '1'
-
-            ShownFileFmtPrompt:
-                Type:   'DWORD'
-                Value:  '1'
-
-        Software\Microsoft\Office\16.0\Common\PTWatson:
-            PTWOptIn:
-                Type:   'DWORD'
-                Value:  '1'
-
-        Software\Microsoft\Office\16.0\Common:
-            qmenable:
-                Type:   'DWORD'
-                Value:  '1'
-
