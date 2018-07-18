@@ -1,0 +1,16 @@
+Id:             'R'
+Description:    'R'
+Version:        '3.5.1'
+
+Install:
+    File:       '%INSTALL_DIR%\R-3.5.1-win.exe'
+    FileType:   'exe'
+    Arguments:  '/SILENT'
+    ExitCodes:  [0]
+    
+Applications:
+    r:
+        DisplayName:    'R'
+        Path:           '%PROGRAMFILES%\R\R-3.5.1\bin\R.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
