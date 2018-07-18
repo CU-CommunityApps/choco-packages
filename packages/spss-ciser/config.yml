@@ -4,14 +4,14 @@ Version:        '25.0'
 
 Install:
     File:       '%INSTALL_DIR%\SPSS_Statistics_25_win64.exe'
-    FileType:   'exe'
-    Arguments:  '/S /v/qn'
-    ExitCodes:  [0]
+        FileType:   'exe'
+        Arguments:  '/S /v/qn'
+        ExitCodes:  [0]
     
     File:       '%PROGRAMFILES%\IBM\SPSS\Statistics\25\licenseactivator.exe'
-    FileType:   'exe'
-    Arguments:  '/S /v/qn'
-    ExitCodes:  [0]
+        FileType:   'exe'
+        Arguments:  '/S /v/qn'
+        ExitCodes:  [0]
 
 Applications:
     spss:
