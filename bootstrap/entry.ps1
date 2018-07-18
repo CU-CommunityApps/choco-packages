@@ -90,6 +90,13 @@ elseif (-Not (Test-Path Env:CHOCO_INSTALL_COMPLETE)) {
     Install-Module 'powershell-yaml' -Force `
     | Tee-Object -Append -FilePath $CHOCOLOG
 
+    Install-Module 'PSWindowsUpdate' -Force `
+    | Tee-Object -Append -FilePath $CHOCOLOG
+
+    # Install Windows Updates
+    Get-WUInstall -WindowsUpdate -Install -IgnoreReboot -AcceptAll `
+    | Tee-Object -Append -FilePath $CHOCOLOG
+
     # Run Python Bootstrap via Sysinternals PsExec to enable GUI installs in the SYSTEM context
     Start-Process `
         -FilePath $PSEXEC `
