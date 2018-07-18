@@ -13,12 +13,12 @@ Install:
     Arguments:  '/S /v/qn'
     ExitCodes:  [0]
 
-    Applications:
+Applications:
     spss:
         DisplayName:    'spss'
         Path:           '%PROGRAMFILES%\IBM\SPSS\Statistics\25\stats.exe'
-        LaunchParams:   ' '
-        WorkDir:        ' '
+        LaunchParams:   ''
+        WorkDir:        ''
         
 Registry:
     HKUD:
