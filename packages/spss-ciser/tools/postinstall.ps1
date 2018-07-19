@@ -1,4 +1,4 @@
 # Runs after the choco package is installed
 # Runs after the choco package is installed
-Push-Location "$(${env:ProgramFiles})\IBM\SPSS\Statistics\25"; Invoke-Expression "& .\licenseactivator.exe %SPSS_LICENSE_KEY%"
+start-process "$env:programfiles\IBM\SPSS\Statistics\25\licenseactivator.exe" -ArgumentList "$env:SPSS_LICENSE_KEY"
 
