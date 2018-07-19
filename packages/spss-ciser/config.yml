@@ -22,11 +22,6 @@
 +        WorkDir:        ' '
 +        
 +Registry:
-+    HKCC:   { }
-+    HKCR:   { }
-+    HKCU:   { }
-+    HKLM:   { }
-+    HKU:    { }
 +    HKUD:
 +        SOFTWARE\ibm\spss\license:
 +            ACTIVATE_KEY:
