@@ -1,23 +1,34 @@
-Id: spss-ciser
-Description: 'SPSS Statistics'
-Version: '25.0'
-Install:
-  File: '%INSTALL_DIR%\SPSS_Statistics_25_win64.exe'
-  FileType: exe
-  Arguments: '/S /v/qn'
-  ExitCodes:
-    - 0
-Applications:
-  spss:
-    DisplayName: spss
-    Path: '%PROGRAMFILES%\IBM\SPSS\Statistics\25\stats.exe'
-    LaunchParams: ""
-    WorkDir: ""
-    
-    
-Registry:
-  HKUD:
-    SOFTWARE\ibm\spss\license:
-      ACTIVATE_KEY:
-        Type: String
-        Value: '%SPSS_LICENSE_KEY%'
++Id:             'spss-ciser'
++Description:    'SPSS Statistics'
++Version:        '25.0'
++
++Install:
++    File:       '%INSTALL_DIR%\SPSS_Statistics_25_win64.exe.exe'
++    FileType:   'exe'
++    Arguments:  '/S /v/qn'
++    ExitCodes:  [0]
++    
++Install:
++    File:       '%PROGRAMFILES%\IBM\SPSS\Statistics\25\licenseactivator.exe ACTIVATE_KEY=%ACTIVATE_KEY%'
++    FileType:   'exe'
++    Arguments:  '/S /v/qn'
++    ExitCodes:  [0]
++
++    Applications:
++    spss:
++        DisplayName:    'spss'
++        Path:           '%PROGRAMFILES%\IBM\SPSS\Statistics\25\stats.exe'
++        LaunchParams:   ' '
++        WorkDir:        ' '
++        
++Registry:
++    HKCC:   { }
++    HKCR:   { }
++    HKCU:   { }
++    HKLM:   { }
++    HKU:    { }
++    HKUD:
++        SOFTWARE\ibm\spss\license:
++            ACTIVATE_KEY:
++                Type:   'String'
++                Value:  '%ACTIVATE_KEY%'
