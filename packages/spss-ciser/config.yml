@@ -13,9 +13,11 @@ Applications:
     Path: '%PROGRAMFILES%\IBM\SPSS\Statistics\25\stats.exe'
     LaunchParams: ""
     WorkDir: ""
+    
+    
 Registry:
   HKUD:
     SOFTWARE\ibm\spss\license:
       ACTIVATE_KEY:
         Type: String
-        Value: '%SPSS_ACTIVATE_KEY%'
+        Value: '%SPSS_LICENSE_KEY%'
