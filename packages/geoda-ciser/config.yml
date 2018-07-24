@@ -1,6 +1,6 @@
-Id:             'my-package'
-Description:    'My Package Description'
-Version:        '1.0.0'
+Id:             'GeoDa'
+Description:    'GeoDa'
+Version:        '1.12.1.129'
 
 Install:
     File:       '%INSTALL_DIR%\vcredist_x64.exe'
