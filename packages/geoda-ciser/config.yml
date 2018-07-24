@@ -3,12 +3,12 @@ Description:    'GeoDa'
 Version:        '1.12.1.129'
 
 Install:
-    File:       '%INSTALL_DIR%\vcredist_x64.exe'
+    -File:       '%INSTALL_DIR%\vcredist_x64.exe'
     FileType:   'exe'
     Arguments:  '/quiet'
     ExitCodes:  [0]
 
-    File:       '%INSTALL_DIR%\GeoDa-1.12.1.129-Windows-64bit.exe'
+    -File:       '%INSTALL_DIR%\GeoDa-1.12.1.129-Windows-64bit.exe'
     FileType:   'exe'
     Arguments:  '/VERYSILENT /SUPPRESSMSGBOXES'
     ExitCodes:  [0]
