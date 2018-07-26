@@ -1,4 +1,4 @@
-Id:             'rstudio'
+Id:             'rstudio-ciser'
 Description:    'RStudio'
 Version:        '1.1.453'
 
@@ -9,7 +9,7 @@ Install:
     ExitCodes:  [0]
 
 Applications:
-    RStudio:
+    rstudio:
         DisplayName:    'RStudio'
         Path:           '%PROGRAMFILES%\RStudio\bin\rstudio.exe'
         LaunchParams:   ''
