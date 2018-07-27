@@ -3,7 +3,7 @@ Description:    'GeoDa'
 Version:        '1.12.1.129'
 
 Install:
-  - File:       '%INSTALL_DIR%\vc_redistx64.exe'
+  - File:       '%INSTALL_DIR%\vc_redist.x64.exe'
     FileType:   'exe'
     Arguments:  '/quiet'
     ExitCodes:  [0]
