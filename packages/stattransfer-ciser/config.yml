@@ -5,7 +5,7 @@ Version:        '13.3.984'
 Install:
     File:       '%INSTALL_DIR%\stdemo13-64window.exe'
     FileType:   'exe'
-    Arguments:  '/S /license %PROGRAMFILES%\StatTransfer13-64\license.dat /D'
+    Arguments:  '/S /license %INSTALL_DIR%\license.dat /D'
     ExitCodes:  [0]
 
 Applications:
