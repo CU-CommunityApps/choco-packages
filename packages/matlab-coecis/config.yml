@@ -1,5 +1,5 @@
 Id:             'matlab-coecis'
-Description:    'Matlab R2017a - COECIS License'
+Description:    'Matlab R2018a - COECIS License'
 Version:        '9.2'
 
 Install:
@@ -13,8 +13,8 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2017a'
-        Path:           '%PROGRAMFILES%\MATLAB\R2017a\bin\matlab.exe'
+        DisplayName:    'MATLAB R2018a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2018a\bin\matlab.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
