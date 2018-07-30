@@ -1,11 +1,11 @@
 Id:             'matlab-coecis'
 Description:    'Matlab R2018a - COECIS License'
-Version:        '9.2'
+Version:        '9.4'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-inputFile %INSTALL_DIR%\installer_input.txt'
+    Arguments:  '-inputFile %INSTALL_DIR%\myinstaller_input.txt'
     ExitCodes:  [0]
 
 ChocoPackages: 
