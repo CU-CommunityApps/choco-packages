@@ -5,7 +5,7 @@ Version:        '9.4'
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-inputFile %INSTALL_DIR%\myinstaller_input.txt'
+    Arguments:  '-inputFile %INSTALL_DIR%\my_installer_input.txt'
     ExitCodes:  [0]
 
 ChocoPackages: 
