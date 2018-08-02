@@ -5,7 +5,7 @@ Version:        '2019.136'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\AutoDesk Inventor 2019.ini /language en-us'
+    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\AutoDesk Inventor 2019.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  [0,1641]
 
 Applications:
