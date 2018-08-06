@@ -11,24 +11,14 @@ Install:
 Applications:
     tableau:
         DisplayName:    'Tableau'
-        Path:           '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\start-tableau.bat'
+        Path:           '%SYSTEMDRIVE%\scripts\start-tableau.bat'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:    
-       '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts'
+       '%INSTALL_DIR%\scripts': '%SYSTEMDRIVE%\scripts'
 
 Registry: 
-    HKLM:
-        SOFTWARE\Tableau\ATR:
-            ATREnabled:
-                Type:   'string'
-                Value:  '1'
-            
-            ATRREQUESTEDDURATIONSECONDS:
-                Type:    'string'
-                Value:   '240'
-
     HKUD:   
         SOFTWARE\Tableau\Registration\Data:
             (Default):
