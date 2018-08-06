@@ -1,0 +1,25 @@
+Id:             'winscp-cornell'
+Description:    'winscp'
+Version:        '5.13.3'
+
+Install:
+Id:             'winscp-cornell'
+Description:    'winscp'
+Version:        '5.13.3'
+
+Install:
+    File:       '%INSTALL_DIR%\WinSCP-5.13.3-Setup.exe'
+    FileType:   'exe'
+    Arguments:  '/VERYSILENT /NORESTART'
+    ExitCodes:  [0]
+
+Applications:
+    winscp:
+        DisplayName:    'WinSCP'
+        Path:           '%PROGRAMFILES(x86)%\WinSCP\WinSCP.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\WinSCP.ini': '%PROGRAMFILES(x86)%\WinSCP\WinSCP.ini'
+
