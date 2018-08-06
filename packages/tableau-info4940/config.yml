@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files:    
-       '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts'
+       '%INSTALL_DIR%\scripts': '%SYSTEMDRIVE%\scripts'
 
 Registry: 
     HKLM:
@@ -27,7 +27,7 @@ Registry:
             
             ATRREQUESTEDDURATIONSECONDS:
                 Type:    'string'
-                Value:   '240'
+                Value:   '43200'
 
     HKUD:   
         SOFTWARE\Tableau\Registration\Data:
