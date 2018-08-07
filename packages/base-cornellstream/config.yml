@@ -26,12 +26,6 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-    Taskmgr:
-        DisplayName:    'Task Manager'
-        Path:           '%SYSTEMROOT%\System32\Taskmgr.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
-
     Powershell:
         DisplayName:    'Windows Powershell'
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
