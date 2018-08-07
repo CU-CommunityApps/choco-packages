@@ -22,13 +22,13 @@ Files:
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
 
-Services: 
+Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
     mitsijm2018: 'Manual' # Autodesk Simulation Moldflow MITSI 2019 Job Manager
 
 Registry:
     HKUD:
-        SOFTWARE\Autodesk\MC3:
+        Software\Autodesk\MC3:
             ADAOptIn:
                 Type:   'DWORD'
                 Value:  '1'
@@ -37,7 +37,15 @@ Registry:
                 Type:   'DWORD'
                 Value:  '1'
 
-            OverrideByHKLM:
+            OverridedByHKLM:
                 Type:   'DWORD'
                 Value:  '0'
+    HKLM:
+        Software\Autodesk\MC3:
+            HKLMADAOptin:
+                Type:   'DWORD'
+                Value:  '1'
 
+            HKLMADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
