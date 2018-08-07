@@ -413,14 +413,14 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     Write-Output "$($CONFIG.Id) Install Complete!"
 }
 
-##################################
-###### Troubleshooting Mode ######
-##################################
-
+############################################
+########### Troubleshooting Mode ###########
+############################################
 Function Troubleshoot($CHOCO_BUCLET, $App) {
 
     write-host "TROUBLESHOOTING MODE!!" -ForegroundColor Green
 
+    # If no S3 bucket was specified, get one
     If (!($S3)){
     
         Write-Host "ERROR: Missing S3 Bucket!" -ForegroundColor Red
@@ -437,10 +437,13 @@ Function Troubleshoot($CHOCO_BUCLET, $App) {
 
     $env:CHOCO_BUCKET = $S3
 
+    # Import chocolatey powershell module
     Import-Module "$env:ChocolateyInstall\helpers\chocolateyInstaller.psm1"
 
+    # Ignore checksums during troubleshooting only
     [Environment]::SetEnvironmentVariable('ChocolateyIgnoreChecksums', $true, 'Process')
     
+    # If no application specified, get one
     If (!($APP)){
         
         Write-Host "No app specified, defaulting to $PSScriptRoot" -ForegroundColor Yellow
@@ -452,10 +455,12 @@ Function Troubleshoot($CHOCO_BUCLET, $App) {
     If ($App){
     
         Do {
+
+            # Search chocolatey directories for specified app
             $paths = "$env:ALLUSERSPROFILE\chocolatey\lib", "$env:ALLUSERSPROFILE\chocolatey\lib-bad"
             $paths | % {If (Test-Path "$_\*$App*"){$TOOLS_DIR = (gci "$_\*$App*\tools" -Directory).FullName}}
             
-
+            # Choose app from the list
             If (!($TOOLS_DIR)){
                 Write-Host "$App not found, please choose from list" -ForegroundColor Red
                 $paths | % {(gci $_ -Directory).Name}
@@ -474,25 +479,27 @@ Function Troubleshoot($CHOCO_BUCLET, $App) {
         Try {$CONFIG = Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') -ErrorAction Stop | ConvertFrom-Json}
         Catch {write-host "config.json missing from $TOOLS_DIR"}
         
+        # Check if the app has already been downloaded and extracted
         If (Test-Path $(Join-Path "$env:windir\Temp\chocolatey" $CONFIG.ID)){$INSTALL_DIR = $(Join-Path "$env:windir\Temp\chocolatey" $CONFIG.ID)}
         Else {$INSTALL_DIR =  Join-Path $Env:TEMP $CONFIG.Id}
 
     }
-    Write-Host $INSTALL_DIR
-    Write-Host $CONFIG
+
+    # Call Main with params
     Main $TOOLS_DIR $INSTALL_DIR $CONFIG
 }
 
-########################################
-########### Uninstall Mode #############
-########################################
-
+################################################
+################ Uninstall Mode ################
+################################################
 Function Uninstall($App) {
 
     write-host "UNINSTALL MODE!!" -ForegroundColor Green
 
+    # List locally installed choco packages
     $apps = & choco.exe list --local-only
 
+    # App parameter missing, get app
     If (!($App)){
     
         Write-Host "Currently installed apps..." -ForegroundColor Yellow
@@ -507,15 +514,22 @@ Function Uninstall($App) {
 
         }Until ($app -and ($appans.ToLower() -eq 'y' -or $appans.ToLower() -eq 'yes'))
 
+        # Uninstall choco package
         $apps -match $app | % { Try { & choco.exe uninstall $_.Split()[0] -f -a -y} Catch { "Error uninstalling $_" }}
         
             
     }
+    # Uninstall choco package
     Else { $apps -match $app | % { Try { & choco.exe uninstall $_.Split()[0] -f -a -y } Catch { "Error uninstalling $_" }}}
-
-    exit
+    
+    Exit
 }
 
+# Run Troubleshooting Mode if -Mode t or T is specified during runtime
 If ($Mode.ToLower() -eq "t"){Troubleshoot $S3 $App}
+
+# Run Uninstall Mode if -Mode u or U is specified during runtime
 ElseIf ($Mode.ToLower() -eq "u"){Uninstall $App}
+
+# Run Main if no Mode specified
 Else {Main}
