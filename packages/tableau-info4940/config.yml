@@ -15,9 +15,6 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files:    
-       '%INSTALL_DIR%\scripts': '%SYSTEMDRIVE%\scripts'
-
 Registry: 
     HKUD:   
         SOFTWARE\Tableau\Registration\Data:
