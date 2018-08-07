@@ -18,7 +18,7 @@ Applications:
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
 
-Services: 
+Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
 
 Registry:
@@ -35,4 +35,12 @@ Registry:
             OverridedByHKLM:
                 Type:   'DWORD'
                 Value:  '0'
+    HKLM:
+        Software\Autodesk\MC3:
+            HKLMADAOptin:
+                Type:   'DWORD'
+                Value:  '1'
 
+            HKLMADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
