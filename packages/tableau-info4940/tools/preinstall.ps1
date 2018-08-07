@@ -1,2 +1,2 @@
 # Runs before the choco package is installed
-Copy-item '$(INSTALL_DIR)\scripts' '$env:SYSTEMDRIVE\scripts'
+Copy-item "$env:INSTALL_DIR\scripts" -Destination "$env:SYSTEMDRIVE\scripts" -Recurse
