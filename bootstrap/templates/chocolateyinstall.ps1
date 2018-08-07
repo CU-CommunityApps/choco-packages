@@ -90,6 +90,45 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     [Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'Process')
     [Environment]::SetEnvironmentVariable('TOOLS_DIR', $TOOLS_DIR, 'Process')
 
+    # Verify installer files exist
+    Try {$S3_Valid = iwr -Uri $S3_URI -UseBasicParsing -Method Head}
+    Catch { If ($_.Exception.Response.StatusCode -match "Forbidden"){ Write-Output "$S3_URI does not exist" }Else { Write-Output "Error downloading $S3_URI" }}
+        
+    # Download and extract installer files
+    If ($S3_Valid.StatusCode -eq '200'){
+        
+        # Check if the package is already downloaded and extracted
+        If (!(gci $INSTALL_DIR -Recurse -Include *.exe, *.msi -ErrorAction SilentlyContinue)){
+            
+            # Download and extract ZIP from S3
+            Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
+            Install-ChocolateyZipPackage `
+                -PackageName "$($CONFIG.Id)" `
+                -UnzipLocation "$INSTALL_DIR" `
+                -Url "$S3_URI"
+        
+        }
+    
+        # Put any secrets into the environment
+        If (Test-Path $SECRETS_FILE) {
+            
+            # Convert secrets.yml
+            [array]$secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
+            $total = $secrets.Keys.Count
+            $count = 0
+
+            # Add environment variables
+            If ($total -gt 1){
+                
+                Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
+            
+            }
+            Else { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Process') }
+
+        }
+
+    }
+
     # Always Run Preinstall PowerShell script
     Write-Output        "Running preinstall.ps1..."
     Invoke-Expression   $(Join-Path "$TOOLS_DIR" 'preinstall.ps1')
@@ -134,97 +173,26 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     ##############################################
     Function Installers {
 
-        # Install the Packaged Application, if there is one
-        $install = $CONFIG.Install
-        if ($install) {
-            
-            # Check if the package is already downloaded and extracted
-            If (!(gci $INSTALL_DIR -Recurse -Include *.exe, *.msi -ErrorAction SilentlyContinue)){
-            
-                # Download and extract ZIP from S3
-                Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
-                Install-ChocolateyZipPackage `
-                    -PackageName "$($CONFIG.Id)" `
-                    -UnzipLocation "$INSTALL_DIR" `
-                    -Url "$S3_URI"
+        # Install each installer file
+        $CONFIG.Install | % {
+
+            # Expand environment variables in relevant vars
+            $installerFile = [Environment]::ExpandEnvironmentVariables($_.File).Replace('%%', '%')
+            $silentArgs = [Environment]::ExpandEnvironmentVariables($_.Arguments).Replace('%%', '%')
+
+            # Prepare Choco Install Args from config
+            $packageArgs = @{
+                packageName="$($CONFIG.Id)"
+                fileType="$($_.FileType)"
+                file="$installerFile"
+                silentArgs="$silentArgs"
+                validExitCodes=$_.ExitCodes
             }
 
-            # Put any secrets into the environment
-            if (Test-Path $SECRETS_FILE) {
-            
-                # Convert secrets.yml
-                [array]$secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
-                $total = $secrets.Keys.Count
-                $count = 0
-
-                # Add environment variables
-                If ($total -gt 1){
-                
-                    Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
-            
-                }
-                Else { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Process') }
-
-            }
-
-
-            # Install each installer file
-            $install | % {
-
-                # Expand environment variables in relevant vars
-                $installerFile = [Environment]::ExpandEnvironmentVariables($_.File).Replace('%%', '%')
-                $silentArgs = [Environment]::ExpandEnvironmentVariables($_.Arguments).Replace('%%', '%')
-
-                # Prepare Choco Install Args from config
-                $packageArgs = @{
-                    packageName="$($CONFIG.Id)"
-                    fileType="$($_.FileType)"
-                    file="$installerFile"
-                    silentArgs="$silentArgs"
-                    validExitCodes=$_.ExitCodes
-                }
-
-                # Run the Choco Install
-                Write-Output "Installing $($CONFIG.Id) With Args: $($packageArgs | Out-String)"
-                Install-ChocolateyInstallPackage @packageArgs
-            }
+            # Run the Choco Install
+            Write-Output "Installing $($CONFIG.Id) With Args: $($packageArgs | Out-String)"
+            Install-ChocolateyInstallPackage @packageArgs
         }
-    }
-
-    ##############################################
-    ##################### S3 #####################
-    ##############################################
-    Function S3 {
-
-        If (!(gci $INSTALL_DIR -Recurse -Include *.exe, *.msi -ErrorAction SilentlyContinue)){
-
-            # Download and extract ZIP from S3
-            Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
-            Install-ChocolateyZipPackage `
-                -PackageName "$($CONFIG.Id)" `
-                -UnzipLocation "$INSTALL_DIR" `
-                -Url "$S3_URI"
-                
-        } 
-
-        # Put any secrets into the environment
-        if (Test-Path $SECRETS_FILE -ErrorAction SilentlyContinue) {
-           
-            # Convert secrets.yml
-            [array]$secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
-            $total = $secrets.Keys.Count
-            $count = 0
-
-            # Add environment variables
-            If ($total -gt 1){
-
-                Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
- 
-            }
-            Else { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Process') }
-        
-        }
-
     }
 
     ##############################################
@@ -385,7 +353,6 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     If ($CONFIG.Environment){EnvVars}
     If ($CONFIG.ChocoPackages){Choco}
     If ($CONFIG.Install){Installers}
-    If (!($CONFIG.Install)){S3}
     If ($CONFIG.Registry){Registry}
     If ($CONFIG.Files){Files}
     If ($CONFIG.Services){Services}
@@ -400,7 +367,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     Remove-Item -Recurse -Force "$STARTUP"
 
     # Remove all installation files from disk
-    if (Test-Path $INSTALL_DIR) {
+    if ((Test-Path $INSTALL_DIR) -and ($Mode.ToLower() -ne 't')) {
         Write-Output "Removing Installer Files..."
         Remove-Item -Recurse -Force "$INSTALL_DIR"
     }
@@ -429,7 +396,7 @@ Function Troubleshoot($CHOCO_BUCLET, $App) {
             
             $S3 = Read-Host "Enter S3 Bucket Name"
             Write-Host "You entered '$S3'" -ForegroundColor Yellow `n
-            $bucketans = Read-Host "Is this correct? (y or n)"
+            $bucketans = Read-Host "Is this correct? (y/n)"
 
         }Until ($S3 -and ($bucketans.ToLower() -eq 'y' -or $bucketans.ToLower() -eq 'yes'))
     
@@ -446,10 +413,12 @@ Function Troubleshoot($CHOCO_BUCLET, $App) {
     # If no application specified, get one
     If (!($APP)){
         
-        Write-Host "No app specified, defaulting to $PSScriptRoot" -ForegroundColor Yellow
-        $appans = Read-Host "Do you want to specify a different app to troubleshoot? (y/n)"
+        Do {
+            Write-Host "No app specified, defaulting to $PSScriptRoot" -ForegroundColor Yellow
+            $appans = Read-Host "Do you want to specify a different app to troubleshoot? (y/n)"
+        }Until($appans.ToLower() -eq 'y' -or $appans.ToLower() -eq 'yes')
     
-        If ($appans.ToLower() -eq "y" -or $appans.ToLower() -eq "yes"){$APP = Read-Host "Enter app name to troubleshoot"}
+        If ($appans.ToLower() -eq "y" -or $appans.ToLower() -eq "yes"){$App = Read-Host "Enter app name to troubleshoot"}
     }
     
     If ($App){
