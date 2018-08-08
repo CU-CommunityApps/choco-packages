@@ -37,9 +37,6 @@ Registry:
                 Type:   'DWORD'
                 Value:  '1'
 
-            OverridedByHKLM:
-                Type:   'DWORD'
-                Value:  '0'
     HKLM:
         Software\Autodesk\MC3:
             HKLMADAOptin:
