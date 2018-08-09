@@ -198,6 +198,7 @@ class ImageBuild(object):
         self.heartbeat.heartbeat = True
         self.heartbeat.start()
 
+        self.bootstrapDir = path.join(environ['WINDIR'], 'Temp', 'choco-bootstrap', 'choco-packages', 'bootstrap', 'templates', 'chocolateyinstall.ps1')
         self.chocoTempDir = path.abspath(getcwd())
         self.chocoLogDir = path.join(environ['ALLUSERSPROFILE'], 'chocolatey', 'logs')
         self.packages = self.inputParams['Packages']
@@ -327,6 +328,15 @@ class ImageBuild(object):
             chdir(self.chocoTempDir)
 
         try:
+
+        	# Install Windows Updates after all apps have been installed
+			subprocess.Popen(["powershell.exe", "-executionpolicy", "bypass", bootstrapDir, "-Mode", "update"], stdout=stdout).communicate()
+
+		except Exception as e:
+			logging.exception('WINDOWS_UPDATE_ERROR')
+
+        try:
+
             self.heartbeat.heartbeat = False
             output = json.loads(task['input'])
             output['PackagesInstalled'] = True

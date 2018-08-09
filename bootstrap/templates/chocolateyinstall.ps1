@@ -28,6 +28,10 @@
 
     PS C:\Windows\Temp\choco-bootstrap\choco-packages\bootstrap\templates> 
     .\chocolateyinstall.ps1 -Mode u -App chrome
+.EXAMPLE
+
+    PS C:\Windows\Temp\choco-bootstrap\choco-packages\bootstrap\templates> 
+    .\chocolateyinstall.ps1 -Mode update
 .LINK
 
     https://github.com/CU-CommunityApps/choco-packages
@@ -39,7 +43,7 @@
 
 [CmdletBinding()]
 Param(
-    [Parameter(Mandatory=$false,Position=1,HelpMessage="Installation Mode - 't' (troubleshoot) or 'u' (uninstall)")]
+    [Parameter(Mandatory=$false,Position=1,HelpMessage="Installation Mode - 't' (troubleshoot), 'u' (uninstall) or 'update' (install windows updates)")]
     [ValidateNotNullOrEmpty()]
     [string]$Mode,
     [Parameter(Mandatory=$false,Position=2,HelpMessage="Application")]
@@ -494,11 +498,33 @@ Function Uninstall($App) {
     Exit
 }
 
+################################################
+################# Update Mode ##################
+################################################
+Function Update {
+
+    write-output "Installing Windows Updates"
+    
+    # Install PSWindowsUpdate Module
+    Try {If (!(Get-Module -ListAvailable -Name 'PSWindowsUpdate')){Install-Module 'PSWindowsUpdate' -Force -Verbose}}
+    Catch {Write-Output "Could not install PSWindowsUpdate module"}
+
+    # Install missing security and critical Windows Updates
+    Try {Get-WUInstall -WindowsUpdate -Install -Category 'Security Updates', 'Critical Updates' -IgnoreReboot -AcceptAll -Verbose}
+    Catch {Write-Output "Updates failed"}
+
+    Exit
+
+}
+
 # Run Troubleshooting Mode if -Mode t or T is specified during runtime
-If ($Mode.ToLower() -eq "t"){Troubleshoot $S3 $App}
+If ($Mode.ToLower() -eq "t" -or $Mode.ToLower() -eq "troubleshoot"){Troubleshoot $S3 $App}
 
 # Run Uninstall Mode if -Mode u or U is specified during runtime
-ElseIf ($Mode.ToLower() -eq "u"){Uninstall $App}
+ElseIf ($Mode.ToLower() -eq "u" -or $Mode.ToLower() -eq "uninstall"){Uninstall $App}
+
+# Run Windows Updates
+ElseIf ($Mode.ToLower() -eq "update"){Update}
 
 # Run Main if no Mode specified
 Else {Main}
