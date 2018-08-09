@@ -5,27 +5,27 @@ Version:        '18.1.1'
 Install:
   - File:       '%INSTALL_DIR%\edupack.msi'
     FileType:   'msi'
-    Arguments:  '/passive'
+    Arguments:  '/quiet'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\L1en.msi'
     FileType:   'msi'
-    Arguments:  '/passive'
+    Arguments:  '/quiet'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\L1elem.msi'
     FileType:   'msi'
-    Arguments:  '/passive'
+    Arguments:  '/quiet'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\L2en.msi'
     FileType:   'msi'
-    Arguments:  '/passive'
+    Arguments:  '/quiet'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\L3std.msi'
     FileType:   'msi'
-    Arguments:  '/passive'
+    Arguments:  '/quiet'
     ExitCodes:  [0]
 
 Applications:
