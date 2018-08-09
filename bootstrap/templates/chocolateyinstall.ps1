@@ -8,8 +8,9 @@
 .PARAMETER Mode
 
     The operating mode of this script. There are 2 modes for troubleshooting applications locally during preliminary test. 
-    t = TROUBLESHOOTING MODE - Enables local instance troubleshooting for applications
-    u = UNINSTALL MODE - Runs choco uninstall
+    t or troubleshoot = TROUBLESHOOTING MODE - Enables local instance troubleshooting for applications
+    u or uninstall = UNINSTALL MODE - Runs choco uninstall
+    update = UPDATE MODE - Installs Windows Updates
 .PARAMETER App
 
     Application name for TROUBLESHOOTING or UNINSTALL modes.
