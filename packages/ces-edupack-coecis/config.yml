@@ -27,7 +27,7 @@ Install:
     FileType:   'msi'
     Arguments:  '/quiet'
     ExitCodes:  [0]
-
+    
 Applications:
     CES:
         DisplayName:    'CES EduPack 2018'

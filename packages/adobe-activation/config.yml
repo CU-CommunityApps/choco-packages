@@ -2,26 +2,6 @@ Id:             'adobe-activation'
 Description:    'Adobe serializer for licensing Adobe apps'
 Version:        '1.0'
 
-Install: null
-
-ChocoPackages: []
-
-Applications: { }
-
-Files: { }
-
-Environment: { }
-
-Services: { }
-
 ScheduledTasks:
     - 'adobe_activation'
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
 

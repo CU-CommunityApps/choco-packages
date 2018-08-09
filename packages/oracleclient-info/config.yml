@@ -1,0 +1,67 @@
+Id:             'oracleclient-info'
+Description:    'Oracle Client 11gR2'
+Version:        '11.2.0'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-silent -debug -force -waitforcompletion FROM_LOCATION=%INSTALL_DIR%\stage\products.xml oracle.install.client.installType=Administrator ORACLE_HOME=C:\oracle\product\11.2.0\Client ORACLE_HOME_NAME=OraClient11g_Home1 ORACLE_BASE=C:\oracle DECLINE_SECURITY_UPDATES=true'
+    ExitCodes:  [0]
+       
+Files:
+    '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
+    '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
+    '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper\bin'
+
+Registry:
+    HKLM:   
+        Software\Wow6432Node\ODBC\ODBC.INI\INFO4940:
+            Driver:
+                Type: 'string'
+                Value: 'C:\Windows\system32\msorcl32.dll'
+           
+            DSN:
+                Type: 'string'
+                Value: 'INFO4940'
+
+            Description:
+                Type: 'string'
+                Value: 'INFO4940'         
+                        
+            UID:
+                Type: 'string'
+                Value: ''
+            
+            PWD:
+                Type: 'string'
+                Value: ''
+           
+            SERVER: 
+                Type: 'string'
+                Value: 'INFO4940'
+            
+            BufferSize:
+                Type: 'string'
+                Value: '65535'
+            
+            SynonymColumns:
+                Type: 'string'
+                Value: '1'
+           
+            StdDayOfWeek:
+                Type: 'string'
+                Value: '1'
+
+            GuessTheColDef:
+                Type: 'string'
+                Value: '0'
+
+            StripTrailingZero:
+                Type: 'string'
+                Value: '0'
+        
+        Software\Wow6432Node\ODBC\ODBC.INI\ODBC Data Sources:
+            INFO4940:
+                Type: 'string'
+                Value: 'Microsoft ODBC for Oracle'
+                

@@ -439,6 +439,10 @@ class AppStreamImageBuild(ImageBuild):
             c = sql.cursor()
 
             for package in self.packages:
+                self.logger.info('Adding {Package} Applications to AppStream Image Assistant'.format(
+                    Package=package,
+                ))
+
                 packageDir = path.join(
                     self.chocoTempDir, 
                     'choco-packages', 
@@ -447,6 +451,7 @@ class AppStreamImageBuild(ImageBuild):
                 )
 
                 packageConfigPath = path.join(packageDir, 'config.yml')
+                self.logger.debug('Package Config Path: ' + packageConfigPath)
 
                 iconDir = path.join(
                     environ['ALLUSERSPROFILE'], 
@@ -459,20 +464,32 @@ class AppStreamImageBuild(ImageBuild):
                 with open(packageConfigPath, 'r') as configYaml:
                     config = yaml.load(configYaml)
 
-                for app, appConfig in config['Applications'].items():
-                    iconFile = '{App}.png'.format(App=app)
-                    iconFilePath = path.join(packageDir, 'icons', iconFile)
-                    appstreamIcon = path.join(iconDir, iconFile)
-                    copyfile(iconFilePath, appstreamIcon)
+                self.logger.debug('Package Config:\r\n' + json.dumps(config, indent=4))
 
-                    c.execute(appSql, (
-                        app,
-                        path.expandvars(appConfig['Path']),
-                        appConfig['DisplayName'],
-                        appstreamIcon,
-                        path.expandvars(appConfig['LaunchParams']),
-                        path.expandvars(appConfig['WorkDir']),
-                    ))
+                try:
+                    if 'Applications' not in config:
+                        self.logger.info('No AppStream Apps for Package: ' + package)
+                        continue
+
+                    for app, appConfig in config['Applications'].items():
+                        iconFile = '{App}.png'.format(App=app)
+                        iconFilePath = path.join(packageDir, 'icons', iconFile)
+                        appstreamIcon = path.join(iconDir, iconFile)
+                        copyfile(iconFilePath, appstreamIcon)
+
+                        c.execute(appSql, (
+                            app,
+                            path.expandvars(appConfig['Path']),
+                            appConfig['DisplayName'],
+                            appstreamIcon,
+                            path.expandvars(appConfig['LaunchParams']),
+                            path.expandvars(appConfig['WorkDir']),
+                        ))
+
+                except Exception as e:
+                    logging.exception('APPSTREAM_APPLICATION_CATALOG_ERROR')
+                    self.logger.error('Bad Application Catalog Config for Package: ' + package)
+                    
 
             sql.commit()
             sql.close()

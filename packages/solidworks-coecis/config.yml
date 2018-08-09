@@ -8,8 +8,6 @@ Install:
     Arguments:  '/install /showui /now'
     ExitCodes:  [0]
 
-ChocoPackages: []
-
 Applications:
     SLDWORKS:
         DisplayName:    'SOLIDWORKS 2017'
@@ -38,8 +36,6 @@ Applications:
 Files: 
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
 
-Environment: { }
-
 Services:
     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
     SWVisualize2017.Queue.Server:   'Manual'
@@ -47,11 +43,4 @@ Services:
 ScheduledTasks:
     - 'solidworks-accept-eula'
 
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
 

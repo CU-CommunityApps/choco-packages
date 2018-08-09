@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - pip install pyyaml
+      - pip install boto3
+  build:
+    commands:
+      - python3 build/build.py
