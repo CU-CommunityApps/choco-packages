@@ -3,6 +3,11 @@ Description:    'CES Edupack 2018 - COECIS License'
 Version:        '18.1.1'
 
 Install:
+  - File:       '%INSTALL_DIR%\ReportViewer.exe'
+    FileType:   'exe'
+    Arguments:  '/q'
+    ExitCodes:  [0]
+
   - File:       '%INSTALL_DIR%\edupack.msi'
     FileType:   'msi'
     Arguments:  '/quiet'
@@ -27,7 +32,7 @@ Install:
     FileType:   'msi'
     Arguments:  '/quiet'
     ExitCodes:  [0]
-    
+
 Applications:
     CES:
         DisplayName:    'CES EduPack 2018'
