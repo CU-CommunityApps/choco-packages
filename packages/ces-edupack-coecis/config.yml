@@ -3,27 +3,27 @@ Description:    'CES Edupack 2018 - COECIS License'
 Version:        '18.1.1'
 
 Install:
-    File:       '%INSTALL_DIR%\edupack.msi'
+  - File:       '%INSTALL_DIR%\edupack.msi'
     FileType:   'msi'
     Arguments:  '/passive'
     ExitCodes:  [0]
 
-    File:       '%INSTALL_DIR%\L1en.msi'
+  - File:       '%INSTALL_DIR%\L1en.msi'
     FileType:   'msi'
     Arguments:  '/passive'
     ExitCodes:  [0]
 
-    File:       '%INSTALL_DIR%\L1elem.msi'
+  - File:       '%INSTALL_DIR%\L1elem.msi'
     FileType:   'msi'
     Arguments:  '/passive'
     ExitCodes:  [0]
 
-    File:       '%INSTALL_DIR%\L2en.msi'
+  - File:       '%INSTALL_DIR%\L2en.msi'
     FileType:   'msi'
     Arguments:  '/passive'
     ExitCodes:  [0]
 
-    File:       '%INSTALL_DIR%\L3std.msi'
+  - File:       '%INSTALL_DIR%\L3std.msi'
     FileType:   'msi'
     Arguments:  '/passive'
     ExitCodes:  [0]
