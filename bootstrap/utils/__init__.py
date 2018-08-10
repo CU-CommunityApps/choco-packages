@@ -328,12 +328,11 @@ class ImageBuild(object):
             chdir(self.chocoTempDir)
 
         try:
+	    # Install Windows Updates after all apps have been installed
+	    subprocess.Popen(["powershell.exe", "-executionpolicy", "bypass", bootstrapDir, "-Mode", "update"], stdout=stdout).communicate()
 
-        	# Install Windows Updates after all apps have been installed
-			subprocess.Popen(["powershell.exe", "-executionpolicy", "bypass", bootstrapDir, "-Mode", "update"], stdout=stdout).communicate()
-
-		except Exception as e:
-			logging.exception('WINDOWS_UPDATE_ERROR')
+	except Exception as e:
+	    logging.exception('WINDOWS_UPDATE_ERROR')
 
         try:
 
