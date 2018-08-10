@@ -64,7 +64,7 @@ class ImageBuild(object):
     def get_stack_outputs(self):
         cfn = self.aws.resource('cloudformation')
         stack = cfn.Stack('{App}{Env}Serverless'.format(
-            App=self.appName, 
+            App=self.appName,
             Env=self.envName,
         ))
 
@@ -80,7 +80,7 @@ class ImageBuild(object):
     def init_federated_session(self):
         try:
             sessionPath = 'https://s3.amazonaws.com/{Bucket}/builds/{BuildId}/federated-session.json'.format(
-                Bucket=self.bucketName, 
+                Bucket=self.bucketName,
                 BuildId=self.buildId
             )
 
@@ -107,7 +107,7 @@ class ImageBuild(object):
             raise ImageBuildException('BAD_CREDENTIALS')
 
     def run_command(self, cmd):
-        self.logger.info('Running Command: {Cmd}'.format(Cmd=cmd)) 
+        self.logger.info('Running Command: {Cmd}'.format(Cmd=cmd))
 
         p = subprocess.Popen(cmd.split(), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         out, error = p.communicate()
@@ -140,13 +140,13 @@ class ImageBuild(object):
         sfn = self.aws.client('stepfunctions')
 
         bootstrapOutput = '{App}{Env}AppStreamImageBootstrapActivity'.format(
-            App=self.appName, 
+            App=self.appName,
             Env=self.envName,
         )
 
         bootstrapActivity = self.outputs[bootstrapOutput]['value']
 
-        try: 
+        try:
             task = sfn.get_activity_task(
                 activityArn=bootstrapActivity,
                 workerName=self.buildId,
@@ -175,7 +175,7 @@ class ImageBuild(object):
         sfn = self.aws.client('stepfunctions')
 
         installOutput = '{App}{Env}AppStreamImageInstallActivity'.format(
-            App=self.appName, 
+            App=self.appName,
             Env=self.envName,
         )
 
@@ -228,18 +228,18 @@ class ImageBuild(object):
                 packageConfigJsonPath = path.join(nugetToolsPath, 'config.json')
 
                 nuspecTemplatePath = path.join(
-                    self.chocoTempDir, 
-                    'choco-packages', 
-                    'bootstrap', 
-                    'templates', 
+                    self.chocoTempDir,
+                    'choco-packages',
+                    'bootstrap',
+                    'templates',
                     'package.nuspec',
                 )
 
                 installTemplatePath = path.join(
-                    self.chocoTempDir, 
-                    'choco-packages', 
-                    'bootstrap', 
-                    'templates', 
+                    self.chocoTempDir,
+                    'choco-packages',
+                    'bootstrap',
+                    'templates',
                     'chocolateyinstall.ps1',
                 )
 
@@ -271,11 +271,11 @@ class ImageBuild(object):
                 logging.exception('BAD_PACKAGE_CONFIG')
                 raise ImageBuildException('BAD_PACKAGE_CONFIG')
 
-            try: 
+            try:
                 chocoPath = path.join(
-                    environ['ALLUSERSPROFILE'], 
-                    'chocolatey', 
-                    'bin', 
+                    environ['ALLUSERSPROFILE'],
+                    'chocolatey',
+                    'bin',
                     'choco.exe',
                 )
 
@@ -284,8 +284,8 @@ class ImageBuild(object):
                     '--out {PackageDir} '
                     '-r -y'
                 ).format(
-                    Choco=chocoPath, 
-                    Nuspec=packageNuspecPath, 
+                    Choco=chocoPath,
+                    Nuspec=packageNuspecPath,
                     PackageDir=packageDir,
                 )
 
@@ -295,7 +295,7 @@ class ImageBuild(object):
                     '--no-progress '
                     '-r -y'
                 ).format(
-                    Choco=chocoPath, 
+                    Choco=chocoPath,
                     Package=config['Id'],
                 )
 
@@ -328,11 +328,11 @@ class ImageBuild(object):
             chdir(self.chocoTempDir)
 
         try:
-	    # Install Windows Updates after all apps have been installed
-	    subprocess.Popen(["powershell.exe", "-executionpolicy", "bypass", bootstrapDir, "-Mode", "update"], stdout=stdout).communicate()
+            # Install Windows Updates after all apps have been installed
+            subprocess.Popen(["powershell.exe", "-executionpolicy", "bypass", self.bootstrapDir, "-Mode", "update"], stdout=stdout).communicate()
 
-	except Exception as e:
-	    logging.exception('WINDOWS_UPDATE_ERROR')
+        except Exception as e:
+            logging.exception('WINDOWS_UPDATE_ERROR')
 
         try:
 
@@ -344,7 +344,7 @@ class ImageBuild(object):
                 taskToken=task['taskToken'],
                 output=json.dumps(output),
             )
-        
+
         except Exception as e:
             logging.exception('INSTALL_SEND_SUCCESS_ERROR')
             raise ImageBuildException('INSTALL_SEND_SUCCESS_ERROR')
@@ -394,18 +394,18 @@ class AppStreamImageBuild(ImageBuild):
 
     def init_appstream_catalog(self):
         self.appstream_catalog = path.join(
-            environ['ALLUSERSPROFILE'], 
-            'Amazon', 
-            'Photon', 
+            environ['ALLUSERSPROFILE'],
+            'Amazon',
+            'Photon',
             'PhotonAppCatalog.sqlite',
         )
 
         catalog_sql = (
             'CREATE TABLE Applications ('
-                'Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY,' 
-                'AbsolutePath TEXT,' 
-                'DisplayName TEXT,' 
-                'IconFilePath TEXT,' 
+                'Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY,'
+                'AbsolutePath TEXT,'
+                'DisplayName TEXT,'
+                'IconFilePath TEXT,'
                 'LaunchParameters TEXT,'
                 'WorkingDirectory TEXT'
             ');'
@@ -433,11 +433,11 @@ class AppStreamImageBuild(ImageBuild):
         try:
             appSql = (
                 'INSERT INTO Applications ('
-                    'Name,' 
-                    'AbsolutePath,' 
-                    'DisplayName,' 
+                    'Name,'
+                    'AbsolutePath,'
+                    'DisplayName,'
                     'IconFilePath,'
-                    'LaunchParameters,' 
+                    'LaunchParameters,'
                     'WorkingDirectory'
                 ') VALUES ('
                     '?,?,?,?,?,?'
@@ -453,9 +453,9 @@ class AppStreamImageBuild(ImageBuild):
                 ))
 
                 packageDir = path.join(
-                    self.chocoTempDir, 
-                    'choco-packages', 
-                    'packages', 
+                    self.chocoTempDir,
+                    'choco-packages',
+                    'packages',
                     package,
                 )
 
@@ -463,10 +463,10 @@ class AppStreamImageBuild(ImageBuild):
                 self.logger.debug('Package Config Path: ' + packageConfigPath)
 
                 iconDir = path.join(
-                    environ['ALLUSERSPROFILE'], 
-                    'Amazon', 
-                    'Photon', 
-                    'AppCatalogHelper', 
+                    environ['ALLUSERSPROFILE'],
+                    'Amazon',
+                    'Photon',
+                    'AppCatalogHelper',
                     'AppIcons',
                 )
 
@@ -498,7 +498,7 @@ class AppStreamImageBuild(ImageBuild):
                 except Exception as e:
                     logging.exception('APPSTREAM_APPLICATION_CATALOG_ERROR')
                     self.logger.error('Bad Application Catalog Config for Package: ' + package)
-                    
+
 
             sql.commit()
             sql.close()
