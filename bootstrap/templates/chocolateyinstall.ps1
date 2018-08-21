@@ -153,7 +153,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             }
 
             Write-Output "Setting Environment Variable $envVar to $envValue)"
-            [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
+            [Environment]::SetEnvironmentVariable($envVar, $envValue, 'Machine')
         }
     }
 
