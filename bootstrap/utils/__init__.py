@@ -328,6 +328,13 @@ class ImageBuild(object):
             chdir(self.chocoTempDir)
 
         try:
+            # Optimize apps and create PrewarmManifest
+            subprocess.Popen(["powershell.exe", "-executionpolicy", "bypass", self.bootstrapDir, "-Mode", "optimize"], stdout=stdout).communicate()
+
+        except Exception as e:
+            logging.exception('OPTIMIZATION_ERROR')
+
+        try:
             # Install Windows Updates after all apps have been installed
             subprocess.Popen(["powershell.exe", "-executionpolicy", "bypass", self.bootstrapDir, "-Mode", "update"], stdout=stdout).communicate()
 
