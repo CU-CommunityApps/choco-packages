@@ -8,28 +8,9 @@ Install:
     Arguments:  '--silent'
     ExitCodes:  [0]
 
-ChocoPackages: []
-
 Applications:
-    premierepro: 
+    premiere: 
         DisplayName:    'Adobe Premiere Pro CC 2018'
         Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro CC 2018\Adobe Premiere Pro.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files: { }
-
-Environment: { }
-
-Services: { }
-
-ScheduledTasks: []
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
-

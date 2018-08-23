@@ -2,26 +2,6 @@
 Description:    'Adobe Remote Updater - Auto Update Adobe Apps'
 Version:        '1.0'
 
-Install: null
-
-ChocoPackages: []
-
-Applications: { }
-
-Files: { }
-
-Environment: { }
-
-Services: { }
-
 ScheduledTasks:
     - 'update_adobe_products'
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
 

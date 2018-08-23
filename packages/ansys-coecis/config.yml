@@ -1,6 +1,6 @@
 Id:             'ansys-coecis'
 Description:    'ANSYS - COECIS License'
-Version:        '18.2'
+Version:        '19.1'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -8,30 +8,14 @@ Install:
     Arguments:  '-silent -licserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
     ExitCodes:  [0]
 
-ChocoPackages: []
-
 Applications:
     ANSYSWB:
-        DisplayName:    'ANSYS Workbench 18.2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v182\Framework\bin\Win64\RunWB2.exe'
+        DisplayName:    'ANSYS Workbench 19.1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v191\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v182\ApipUserConfig.txt'
-    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v182\commonfiles\CAD\CADConfigurationInfo.XML'
-
-Environment: { }
-
-Services: { }
-
-ScheduledTasks: []
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
+    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v191\ApipUserConfig.txt'
+    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v191\commonfiles\CAD\CADConfigurationInfo.XML'
 

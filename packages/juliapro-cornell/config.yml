@@ -1,0 +1,28 @@
+Id:             'juliapro-cornell'
+Description:    'Julia Pro'
+Version:        '0.6.3'
+
+Install:
+    File:       '%INSTALL_DIR%\JuliaPro_v0.6.3.1_build-408.exe'
+    FileType:   'exe'
+    Arguments:  '/S'
+    ExitCodes:  [0]
+
+Applications:
+    juliapro:
+        DisplayName:    'JuliaPro'
+        Path:           '%SYSTEMDRIVE%\JuliaPro-0.6.3.1\Julia-0.6.3\bin\julia.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    juno:
+        DisplayName:    'Juno for JuliaPro'
+        Path:           '%SYSTEMDRIVE%\JuliaPro-0.6.3.1\Juno.bat'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    Jupyter:
+        DisplayName:    'Jupyter'
+        Path:           '%SYSTEMDRIVE%\JuliaPro-0.6.3.1\IJulia.bat'
+        LaunchParams:   ''
+        WorkDir:        ''

@@ -1,11 +1,11 @@
 Id:             'matlab-coecis'
-Description:    'Matlab R2017a - COECIS License'
-Version:        '9.2'
+Description:    'Matlab R2018a - COECIS License'
+Version:        '9.4'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-inputFile %INSTALL_DIR%\installer_input.txt'
+    Arguments:  '-inputFile %INSTALL_DIR%\my_installer_input.txt'
     ExitCodes:  [0]
 
 ChocoPackages: 
@@ -13,8 +13,8 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2017a'
-        Path:           '%PROGRAMFILES%\MATLAB\R2017a\bin\matlab.exe'
+        DisplayName:    'MATLAB R2018a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2018a\bin\matlab.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
@@ -25,15 +25,4 @@ Environment:
     MATLABPATH:     '%PUBLIC%\MATLAB'
     MW_MINGW64_LOC: '%SYSTEMDRIVE%\tools\mingw64'
 
-Services: { }
-
-ScheduledTasks: []
-
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:   { }
 

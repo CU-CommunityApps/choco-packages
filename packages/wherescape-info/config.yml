@@ -1,0 +1,38 @@
+Id:             'wherescape-info'
+Description:    'Wherescape Red for - INFO4950'
+Version:        '6.8.6'
+
+Install:
+    File:       '%INSTALL_DIR%\red_686002.exe'
+    FileType:   'exe'
+    Arguments:  '/q'
+    ExitCodes:  [0]
+
+Applications:
+    wherescapered:
+        DisplayName:    'Wherescape Red'
+        Path:           '%PROGRAMFILES(x86)%\Wherescape\med.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    wherescapeadm:
+        DisplayName:    'Wherescape Administrator'
+        Path:           '%PROGRAMFILES(x86)%\Wherescape\adm.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:
+        Software\WhereScape\MetaEditor\LicenseV7:
+            Licensed_To:
+                Type:   'String'
+                Value:  'Cornell Student Expires 12/31/18'
+
+            License_Key:
+                Type:   'String'
+                Value:  '%WHERESCAPE_LICENSE_KEY%'

@@ -21,7 +21,7 @@ $PIP =          [io.path]::combine($PYDIR, 'Scripts', 'pip.exe')
 
 $REPO =         'https://github.com/CU-CommunityApps/choco-packages.git'
 $BRANCH =       "$($args[0])"
-$PREREQS =      'git sysinternals powershell'
+$PREREQS =      'git sysinternals'
 $PYVERSION =    '3.6.4'
 $PYDEPENDS =    'boto3 pyyaml'
 
@@ -35,7 +35,7 @@ if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
     iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) `
     | Tee-Object -Append -FilePath $CHOCOLOG
 
-    # Install Git, Sysinternals and PowerShell 5.x 
+    # Install Git, Sysinternals
     Start-Process `
         -FilePath $CHOCO `
         -ArgumentList "install $PREREQS --no-progress -r -y" `
@@ -45,17 +45,18 @@ if (-Not (Test-Path Env:CHOCO_BOOTSTRAP_COMPLETE)) {
     # Clone the Choco Respository
     Start-Process `
         -FilePath $GIT `
-        -ArgumentList "clone $REPO $PACKAGES" `
+        -ArgumentList "clone -b $BRANCH $REPO $PACKAGES" `
         -NoNewWindow -Wait `
     | Tee-Object -Append -FilePath $CHOCOLOG
 
-    # Checkout the Selected Branch
+    <# # Checkout the Selected Branch
     Start-Process `
         -FilePath $GIT `
         -ArgumentList "checkout $BRANCH" `
         -WorkingDirectory "$PACKAGES" `
         -NoNewWindow -Wait `
     | Tee-Object -Append -FilePath $CHOCOLOG
+    #>
 
     # Install Python
     Start-Process `
@@ -88,6 +89,13 @@ elseif (-Not (Test-Path Env:CHOCO_INSTALL_COMPLETE)) {
 
     Install-Module 'powershell-yaml' -Force `
     | Tee-Object -Append -FilePath $CHOCOLOG
+
+    Install-Module 'PSWindowsUpdate' -Force `
+    | Tee-Object -Append -FilePath $CHOCOLOG
+
+    # Install Windows Updates
+    #Get-WUInstall -WindowsUpdate -Install -Category 'Security Updates', 'Critical Updates' -IgnoreReboot -AcceptAll -Verbose `
+    #| Tee-Object -Append -FilePath $CHOCOLOG
 
     # Run Python Bootstrap via Sysinternals PsExec to enable GUI installs in the SYSTEM context
     Start-Process `
