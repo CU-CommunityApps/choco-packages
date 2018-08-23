@@ -153,7 +153,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             }
 
             Write-Output "Setting Environment Variable $envVar to $envValue)"
-            [Environment]::SetEnvironmentVariable($envVar, $envValue, 'Machine')
+            [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
         }
     }
 
@@ -518,6 +518,79 @@ Function Update {
 
 }
 
+################################################
+################ Optimize Mode #################
+################################################
+Function Optimize {
+
+    $procLoc = "$env:SystemDrive\Procmon"
+    $proc = "$env:SystemDrive\Procmon\procmon.exe"
+    $prewarm = "$env:ProgramData\Amazon\Photon\Prewarm"
+    $prewarmUsers = "$env:SystemDrive\Users\ImageBuilderAdmin\Temp", "$env:SystemDrive\Users\Default\Temp"
+    $packageLoc = "$env:windir\Temp\choco-bootstrap\choco-packages\packages"
+
+    # Check if procmon.exe exists
+    If (!(Test-Path $proc)){Write-Output "Process Explorer missing";exit}
+
+    # Check if any applications failed to install
+    If (Test-Path "$env:ALLUSERSPROFILE\chocolatey\lib-bad"){Write-Output "Applications failed to install";exit}
+    
+    write-output "Optimizing Applications"
+    
+    # Search chocolatey directories for each app
+    $apps = gci "$env:ALLUSERSPROFILE\chocolatey\lib" -Filter "config.json" -Recurse
+    
+    # Run process explorer to capture prewarm file requirements
+    Start-Process $proc -ArgumentList "/accepteula /loadconfig $procLoc\ProcmonConfiguration.pmc /profiling /quiet /minimized /backingfile $procLoc\back.pml";Start-Sleep -Seconds 10
+
+    $apps | % {
+    
+        $CONFIG = Get-Content -Raw -Path $_.FullName -ErrorAction Stop | ConvertFrom-Json
+        
+        Write-Output "Optimizing $($CONFIG.Id)"
+        
+        $launchApps = (Select-String -Path "$packageLoc\$($CONFIG.Id)\config.yml" -Pattern "Path:").Line
+        $launchApps | % { 
+            
+            # Edit strings
+            $path = $_ -replace "Path:"
+            
+            # Expand environment variables
+            $path = [Environment]::ExpandEnvironmentVariables($path).Replace('%%', '%')
+            
+            # Edit strings
+            $path = $path -replace "'"
+           
+            # Launch each application listed in config.yml
+            Try {Start-Process "$path"; If ($? -eq $true){Write-Output "Successfully optimized $path"; Start-Sleep -Seconds 10}}
+            Catch {Write-Output "Failed to optimize $($CONFIG.Id) $path"}
+
+        }
+
+    }
+
+    # Stop process explorer capture process
+    Start-Process $proc -ArgumentList "/terminate";Start-Sleep -Seconds 10
+
+    # Convert log to .csv
+    Start-Process $proc -ArgumentList "/openlog $procLoc\back.pml /saveas $procLoc\back.csv";Start-Sleep -Seconds 10
+
+    # Only grab .exe and .dll files critical for app operation
+    $csv = import-csv "$procLoc\back.csv" | where {$_.Path -like "*.exe" -or $_.Path -like "*.dll"} | sort Path -Unique
+
+    # Remove headers 
+    $csv | ConvertTo-Csv | select -Skip 2 | Out-File "$procLoc\PrewarmManifest.csv"
+
+    # Remove quotes and move file to default location for sysprep
+    gc "$procLoc\PrewarmManifest.csv" | % {$_ -replace '"'} > "$prewarm\PrewarmManifest.txt"
+
+    # Copy PrewarmManifest.txt to additional file locations
+    $prewarmUsers | % {cp "$prewarm\PrewarmManifest.txt" $_ -Force}
+
+    Exit
+
+}
+
 # Run Troubleshooting Mode if -Mode t or T is specified during runtime
 If ($Mode.ToLower() -eq "t" -or $Mode.ToLower() -eq "troubleshoot"){Troubleshoot $S3 $App}
 
@@ -526,6 +599,9 @@ ElseIf ($Mode.ToLower() -eq "u" -or $Mode.ToLower() -eq "uninstall"){Uninstall $
 
 # Run Windows Updates
 ElseIf ($Mode.ToLower() -eq "update"){Update}
+
+# Run App Optimization
+ElseIf ($Mode.ToLower() -eq "optimize"){Optimize}
 
 # Run Main if no Mode specified
 Else {Main}
