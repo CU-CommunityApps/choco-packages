@@ -585,7 +585,7 @@ Function Optimize {
     gc "$procLoc\PrewarmManifest.csv" | % {$_ -replace '"'} > "$prewarm\PrewarmManifest.txt"
 
     # Copy PrewarmManifest.txt to additional file locations
-    $prewarmUsers | % {cp "$prewarm\PrewarmManifest.txt" $_ -Force}
+    $prewarmUsers | % {If (!(Test-Path $_ -PathType Container)){New-Item -ItemType Directory -Path $_ -Force};cp "$prewarm\PrewarmManifest.txt" "$_" -Force}
 
     Exit
 
