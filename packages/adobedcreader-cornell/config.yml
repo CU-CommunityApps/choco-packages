@@ -1,0 +1,35 @@
+Id:             'adobedcreader-cornell'
+Description:    'adobedcreader-cornell'
+Version:        '2018.011.20055'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '/sall /rs / l /msi /qn /norestart UPDATE_MODE=0 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read'
+    ExitCodes:  [0]
+
+
+Applications:
+    AdobeReaderDC:
+        DisplayName:    'Adobe Reader DC'
+        Path:           '%PROGRAMFILES(x86)%\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:
+        SOFTWARE\Adobe\Acrobat Reader\DC\AVAlert\cCheckbox:
+            iAppDoNotTakePDFOwnershipAtLaunch:
+                Type:   'DWORD'
+                Value:  '1'
+
+        SOFTWARE\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts:
+            AppXd4nrz8ff68srnhf9t5a8sbjyar1cr723_.pdf:
+                Type:   'DWORD'
+                Value:  '0'
