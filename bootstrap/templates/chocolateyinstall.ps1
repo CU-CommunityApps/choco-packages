@@ -421,7 +421,7 @@ Function Troubleshoot($CHOCO_BUCLET, $App) {
         Do {
             Write-Host "No app specified, defaulting to $PSScriptRoot" -ForegroundColor Yellow
             $appans = Read-Host "Do you want to specify a different app to troubleshoot? (y/n)"
-        }Until($appans.ToLower() -eq 'y' -or $appans.ToLower() -eq 'yes')
+        }Until($appans.ToLower() -eq 'y' -or $appans.ToLower() -eq 'yes' -or $appans.ToLower() -eq 'n' -or $appans.ToLower() -eq 'no')
     
         If ($appans.ToLower() -eq "y" -or $appans.ToLower() -eq "yes"){$App = Read-Host "Enter app name to troubleshoot"}
     }
