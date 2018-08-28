@@ -358,6 +358,20 @@ class ImageBuild(object):
 
         self.logger.info('Packages Installed')
 
+        try:
+            # Create image
+            prewarmExe = path.join(
+                    environ['ALLUSERSPROFILE'],
+                    'Amazon',
+                    'Photon',
+                    'Prewarm',
+                    'ImageBuilderSnapshot.exe'
+                )
+            subprocess.Popen([prewarmExe, self.buildId], stdout=stdout).communicate()
+
+        except Exception as e:
+            logging.exception('IMAGE_CREATION_ERROR')
+
 class AppStreamImageBuild(ImageBuild):
 
     def __init__(self):
