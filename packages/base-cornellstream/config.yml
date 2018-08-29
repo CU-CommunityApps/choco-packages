@@ -74,4 +74,8 @@ Registry:
             IEHarden:
                 Type:   'DWORD'
                 Value:  '0'
-
+    HKLM:
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap:
+            IEHarden:
+                Type:   'DWORD'
+                Value:  '0'
