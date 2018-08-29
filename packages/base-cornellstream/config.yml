@@ -49,6 +49,7 @@ Files:
     '%TOOLS_DIR%\ProcmonConfiguration.pmc': '%SYSTEMDRIVE%\Procmon\ProcmonConfiguration.pmc'
     '%INSTALL_DIR%\Explorer++.exe': '%PROGRAMFILES%\ExplorerPlus\Explorer++.exe'
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
+    '%INSTALL_DIR%\defaultassociations.xml': '%SYSTEMDRIVE%\windows\system32\defaultassociations.xml'
 
 Registry:
     HKUD:
