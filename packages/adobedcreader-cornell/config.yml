@@ -18,11 +18,6 @@ Applications:
 
 
 Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
     HKUD:
         SOFTWARE\Adobe\Acrobat Reader\DC\AVAlert\cCheckbox:
             iAppDoNotTakePDFOwnershipAtLaunch:
@@ -31,5 +26,10 @@ Registry:
 
         SOFTWARE\Microsoft\Windows\CurrentVersion\ApplicationAssociationToasts:
             AppXd4nrz8ff68srnhf9t5a8sbjyar1cr723_.pdf:
+                Type:   'DWORD'
+                Value:  '0'
+
+        SOFTWARE\Adobe\Acrobat Reader\DC\FTEDialog:
+            bShowInstallFTE:
                 Type:   'DWORD'
                 Value:  '0'
