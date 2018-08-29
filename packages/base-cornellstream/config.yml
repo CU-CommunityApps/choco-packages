@@ -47,9 +47,10 @@ Applications:
 Files:
     '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb' # AMD GPU
     '%TOOLS_DIR%\ProcmonConfiguration.pmc': '%SYSTEMDRIVE%\Procmon\ProcmonConfiguration.pmc'
+    '%TOOLS_DIR%\defaultassociations.xml': '%SYSTEMDRIVE%\windows\system32\defaultassociations.xml'
     '%INSTALL_DIR%\Explorer++.exe': '%PROGRAMFILES%\ExplorerPlus\Explorer++.exe'
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
-    '%INSTALL_DIR%\defaultassociations.xml': '%SYSTEMDRIVE%\windows\system32\defaultassociations.xml'
+    
 
 Registry:
     HKUD:
