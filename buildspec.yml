@@ -1,10 +1,12 @@
 version: 0.2
 
 phases:
-  install:
+  pre_build:
     commands:
-      - pip install pyyaml
-      - pip install boto3
+      - New-Item -ItemType Junction -Path C:\ChocoPacker -Value $Env:CODEBUILD_SRC_DIR\build\ChocoPacker
+      - cd C:\ChocoPacker
+      - nuget.exe restore
+
   build:
     commands:
-      - python3 build/build.py
+      - msbuild
