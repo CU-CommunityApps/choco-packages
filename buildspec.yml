@@ -4,9 +4,13 @@ phases:
   pre_build:
     commands:
       - New-Item -ItemType Junction -Path C:\ChocoPacker -Value $Env:CODEBUILD_SRC_DIR\build\ChocoPacker
-      - cd C:\ChocoPacker
+      - cd C:\ChocoPackerBuild
       - nuget.exe restore
 
   build:
     commands:
-      - msbuild
+      - msbuild /p:OutputPath=C:\ChocoPacker
+      
+  post_build:
+    commands:
+      - C:\ChocoPacker\ChocoPacker.exe
