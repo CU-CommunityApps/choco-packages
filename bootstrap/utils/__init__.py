@@ -347,7 +347,6 @@ class ImageBuild(object):
             output = json.loads(task['input'])
             output['PackagesInstalled'] = True
 
-            try:
             # Create image
             prewarmExe = path.join(
                     environ['ALLUSERSPROFILE'],
@@ -357,9 +356,6 @@ class ImageBuild(object):
                     'ImageBuilderSnapshot.exe'
                 )
             subprocess.Popen([prewarmExe, self.buildId], stdout=stdout).communicate()
-
-            except Exception as e:
-                logging.exception('IMAGE_CREATION_ERROR')
 
             sfn.send_task_success(
                 taskToken=task['taskToken'],
