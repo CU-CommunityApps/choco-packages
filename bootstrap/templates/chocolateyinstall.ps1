@@ -270,7 +270,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
                 $regKeyPath = "$($hive):\$regKeyExpanded"
 
                 Write-Output "Creating Registry Key $regKeyPath"
-                New-Item -Path "$regKeyPath" -Force 
+                If (!(Test-Path "$regKeyPath")){New-Item -Path "$regKeyPath" -Force} 
 
                 foreach ($regProperty in $regProperties) {
                     $regItem = $CONFIG.Registry.$hive.$regKey.$regProperty
