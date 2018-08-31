@@ -3,6 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
+      - Get-ChildItem Env:
       - New-Item -ItemType Junction -Path C:\ChocoPackerBuild -Value $Env:CODEBUILD_SRC_DIR\build\ChocoPacker
       - cd C:\ChocoPackerBuild
       - nuget.exe restore
