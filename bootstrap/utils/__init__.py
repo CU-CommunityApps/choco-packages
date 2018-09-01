@@ -334,12 +334,12 @@ class ImageBuild(object):
         except Exception as e:
             logging.exception('OPTIMIZATION_ERROR')
 
-        try:
+        #try:
             # Install Windows Updates after all apps have been installed
-            subprocess.Popen(["powershell.exe", "-executionpolicy", "bypass", self.bootstrapDir, "-Mode", "update"], stdout=stdout).communicate()
+            #subprocess.Popen(["powershell.exe", "-executionpolicy", "bypass", self.bootstrapDir, "-Mode", "update"], stdout=stdout).communicate()
 
-        except Exception as e:
-            logging.exception('WINDOWS_UPDATE_ERROR')
+        #except Exception as e:
+            #logging.exception('WINDOWS_UPDATE_ERROR')
 
         try:
 
