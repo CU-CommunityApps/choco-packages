@@ -5,6 +5,7 @@ Start-Process -FilePath $git `
     -RedirectStandardOutput "$Env:TEMP\git-branch.txt"
     
 #$branch = Get-Content "$Env:TEMP\git-branch.txt" | Select -Index 4
-$branch = Get-Content "$Env:TEMP\git-branch.txt"
+$branch = Get-Content "$Env:TEMP\git-branch.txt" -Raw
 $Env:CODEBUILD_SOURCE_BRANCH = $branch
-Write-Output $Env:CODEBUILD_SOURCE_BRANCH
+Write-Output "$Env:CODEBUILD_SOURCE_BRANCH"
+Write-Output "branch $branch"

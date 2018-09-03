@@ -5,7 +5,7 @@ phases:
     commands:
       - 'Invoke-Expression -Command "$Env:CODEBUILD_SRC_DIR\build\ChocoPacker\build.ps1"'
       - 'Invoke-Expression -Command "$Env:CODEBUILD_SRC_DIR\build\git-branch.ps1"'
-      - 'Write-Output $Env:CODEBUILD_SOURCE_BRANCH'
+      - 'Write-Output "$Env:CODEBUILD_SOURCE_BRANCH"'
       
   #build:
   #  commands:
