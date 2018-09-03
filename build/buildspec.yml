@@ -8,13 +8,7 @@ phases:
   pre_build:
     commands:
       - 'Get-ChildItem Env:'
-      - '[Environment]::SetEnvironmentVariable("CODEBUILD_SOURCE_BRANCH", ((& "$Env:TEMP\ChocoPackerBuild\packages\Git-Windows-Minimal.2.18.0\tools\cmd\git.exe" branch --contains "$Env:CODEBUILD_SOURCE_VERSION") -Split "`r`n")[1], "Machine")'
-      - '[Environment]::GetEnvironmentVariable("CODEBUILD_SOURCE_BRANCH")'
       
-  #build:
-  #  commands:
-      
-  post_build:
+  build:
     commands:
-      - 'Write-Output $Env:CODEBUILD_SOURCE_BRANCH'
       - 'Start-Process -NoNewWindow -FilePath $Env:TEMP\ChocoPacker\ChocoPacker.exe'
