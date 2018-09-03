@@ -8,7 +8,7 @@ phases:
   pre_build:
     commands:
       - '$Env:GIT = "$Env:TEMP\ChocoPackerBuild\packages\Git-Windows-Minimal.2.18.0\tools\cmd\git.exe"'
-      - '$Env:CODEBUILD_SOURCE_BRANCH = ((& git.exe branch -a) -Split "`r`n")[1]'
+      - '$Env:CODEBUILD_SOURCE_BRANCH = ((& $Env:GIT branch -a) -Split "`r`n")[1]'
       
   #build:
   #  commands:
