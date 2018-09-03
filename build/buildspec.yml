@@ -1,15 +1,19 @@
 version: 0.2
 
 phases:
-  pre_build:
+  install:
     commands:
       - 'Invoke-Expression -Command "$Env:CODEBUILD_SRC_DIR\build\ChocoPacker\build.ps1"'
-      - 'Invoke-Expression -Command "$Env:CODEBUILD_SRC_DIR\build\git-branch.ps1"'
-      - 'Write-Output "$Env:CODEBUILD_SOURCE_BRANCH"'
+
+  pre_build:
+    commands:
+      - '$Env:GIT = "$Env:TEMP\ChocoPackerBuild\packages\Git-Windows-Minimal.2.18.0\tools\cmd\git.exe"'
+      - '$Env:CODEBUILD_SOURCE_BRANCH = ((& git.exe branch -a) -Split "`r`n")[1]'
       
   #build:
   #  commands:
       
   post_build:
     commands:
+      - 'Write-Output $Env:CODEBUILD_SOURCE_BRANCH'
       - 'Start-Process -NoNewWindow -FilePath $Env:TEMP\ChocoPacker\ChocoPacker.exe'
