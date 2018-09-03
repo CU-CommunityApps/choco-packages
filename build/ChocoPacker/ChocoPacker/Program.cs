@@ -82,7 +82,7 @@ namespace ChocoPacker
         void App()
         {
             string branches = this.RunGit("branch -a --contains " + this.src_version);
-            string branch = this.GetBranch(branches, 0);
+            string branch = this.GetBranch(branches, 1);
             string diffs = this.RunGit("show --name-only");
             List<string> packages = this.GetPackages(diffs);
 
