@@ -3,12 +3,13 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - 'Get-Command git.exe'
       - 'Get-ChildItem Env: | Format-Table -Wrap -AutoSize'
       - 'New-Item -ItemType Junction -Path $Env:TEMP\ChocoPackerBuild -Value $Env:CODEBUILD_SRC_DIR\build\ChocoPacker'
       - 'cd $Env:TEMP\ChocoPackerBuild'
       - 'nuget.exe restore'
       - 'msbuild /p:OutputPath=$Env:TEMP\ChocoPacker'
+      - 'cd $Env:CODEBUILD_SRC_DIR'
+      - 'Start-Process -FilePath $Env:TEMP\ChocoPackerBuild\packages\Git-Windows-Minimal.2.18.0\tools\cmd\git.exe -ArgumentList "branch -a --contains $Env:CODEBUILD_SOURCE_VERSION"'
       
   #build:
   #  commands:
