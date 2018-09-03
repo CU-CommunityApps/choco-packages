@@ -9,7 +9,7 @@ phases:
       - 'nuget.exe restore'
       - 'msbuild /p:OutputPath=$Env:TEMP\ChocoPacker'
       - 'cd $Env:CODEBUILD_SRC_DIR'
-      - 'Start-Process -FilePath $Env:TEMP\ChocoPackerBuild\packages\Git-Windows-Minimal.2.18.0\tools\cmd\git.exe branch --contains $Env:CODEBUILD_SOURCE_VERSION'
+      - 'Start-Process -FilePath $Env:TEMP\ChocoPackerBuild\packages\Git-Windows-Minimal.2.18.0\tools\cmd\git.exe -ArgumentList "branch --contains $Env:CODEBUILD_SOURCE_VERSION"'
       
   #build:
   #  commands:
