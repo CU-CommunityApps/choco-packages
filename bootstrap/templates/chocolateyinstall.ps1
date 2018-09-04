@@ -504,6 +504,8 @@ Function Uninstall($App) {
 ################################################
 Function Update {
 
+    Write-Output "Restarting computer before installing updates"
+    Restart-Computer
     write-output "Installing Windows Updates"
     
     # Install PSWindowsUpdate Module
