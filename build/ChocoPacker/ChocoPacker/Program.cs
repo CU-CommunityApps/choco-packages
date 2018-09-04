@@ -45,11 +45,11 @@ namespace ChocoPacker
 
         string GetBranch(string branches, int index)
         {
-            string branch = branches.Trim().Split("\r\n".ToCharArray())[index];
+            string branch = branches.Split("\r\n".ToCharArray())[index].Trim();
 
             if (branch.Contains("/"))
             {
-                branch = branch.Split('/').Last();
+                branch = branch.Split('/').Last().Trim();
             }
 
             return branch;
@@ -87,6 +87,7 @@ namespace ChocoPacker
             bool exists;
 
             string package_prefix = $"installers/{branch}/{package}.zip";
+            Console.WriteLine("Package: " + package_prefix);
             AmazonS3Client s3 = new AmazonS3Client();
 
             ListObjectsV2Request req = new ListObjectsV2Request();
@@ -110,9 +111,16 @@ namespace ChocoPacker
             
             foreach (string package in packages)
             {
-                Console.WriteLine(package);
                 bool exists = this.PackageInstallerExists(branch, package);
-                Console.WriteLine(exists);
+
+                if (exists)
+                {
+                    Console.WriteLine("hello");
+                }
+                else
+                {
+                    Console.WriteLine("goodbye");
+                }
             }
         }
 
