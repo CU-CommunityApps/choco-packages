@@ -1,3 +1,5 @@
+using Amazon.S3;
+using Amazon.S3.Model;
 using chocolatey;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,7 @@ namespace ChocoPacker
 {
     class Program
     {
+        private string package_bucket = Environment.GetEnvironmentVariable("PACKAGE_BUCKET");
         private string temp_dir = Environment.GetEnvironmentVariable("TEMP");
         private string src_dir = Environment.GetEnvironmentVariable("CODEBUILD_SRC_DIR");
         private string src_version = Environment.GetEnvironmentVariable("CODEBUILD_SOURCE_VERSION");
@@ -23,7 +26,7 @@ namespace ChocoPacker
 
             git.StartInfo.FileName = git_path;
             git.StartInfo.WorkingDirectory = src_dir;
-            git.StartInfo.Arguments = args; //"branch -a --contains " + src_version;
+            git.StartInfo.Arguments = args;
             git.StartInfo.CreateNoWindow = true;
             git.StartInfo.UseShellExecute = false;
             git.StartInfo.RedirectStandardOutput = true;
@@ -79,6 +82,23 @@ namespace ChocoPacker
             return packages;
         }
 
+        bool PackageInstallerExists(string branch, string package)
+        {
+            bool exists;
+
+            string package_prefix = $"installers/{branch}/{package}.zip";
+            AmazonS3Client s3 = new AmazonS3Client();
+
+            ListObjectsV2Request req = new ListObjectsV2Request();
+            req.BucketName = this.package_bucket;
+            req.Prefix = package_prefix;
+
+            ListObjectsV2Response resp =  s3.ListObjectsV2(req);
+            exists = (resp.KeyCount > 0) ? true : false;
+
+            return exists;
+        }
+
         void App()
         {
             string branches = this.RunGit("branch -a --contains " + this.src_version);
@@ -90,7 +110,9 @@ namespace ChocoPacker
             
             foreach (string package in packages)
             {
-                Console.WriteLine("Package: " + package);
+                Console.WriteLine(package);
+                bool exists = this.PackageInstallerExists(branch, package);
+                Console.WriteLine(exists);
             }
         }
 
