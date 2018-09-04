@@ -97,6 +97,8 @@ elseif (-Not (Test-Path Env:CHOCO_INSTALL_COMPLETE)) {
     Get-WUInstall -WindowsUpdate -Install -Category 'Security Updates', 'Critical Updates' -AutoReboot -AcceptAll -Verbose `
     | Tee-Object -Append -FilePath $CHOCOLOG
 
+    Start-Sleep -Seconds 300
+
     # Run Python Bootstrap via Sysinternals PsExec to enable GUI installs in the SYSTEM context
     Start-Process `
         -FilePath $PSEXEC `
