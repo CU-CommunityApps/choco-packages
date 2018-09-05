@@ -65,6 +65,7 @@ namespace ChocoPacker
         List<string> GetPackages(string diffs)
         {
             List<string> packages = new List<string>();
+            packages.Add("_image-builder");
 
             using (StringReader reader = new StringReader(diffs))
             {
