@@ -287,8 +287,21 @@ namespace ChocoPacker
 
             Console.WriteLine($"Using Branch: {branch}");
             
+            if (packages.Count() == 0)
+            {
+                Console.WriteLine($"No changes to packages in commit {this.src_version}, exiting...");
+            }
+            
             foreach (string package in packages)
             {
+                string package_dir = $"{this.src_dir}\\packages\\{package}";
+
+                if (!Directory.Exists(package_dir))
+                {
+                    Console.WriteLine($"{package} doesn't exist in repository for commit {this.src_version}, skipping...");
+                    continue;
+                }
+                
                 Console.WriteLine($"Building Package: {package}");
 
                 Dictionary<string, string> package_config = this.ReadPackageConfig(branch, package);
