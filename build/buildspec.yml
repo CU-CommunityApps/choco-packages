@@ -11,4 +11,4 @@ phases:
       
   build:
     commands:
-      - 'Start-Process -NoNewWindow -FilePath $Env:TEMP\ChocoPacker\ChocoPacker.exe'
+      - 'Start-Process -NoNewWindow -Wait -FilePath $Env:TEMP\ChocoPacker\ChocoPacker.exe'
