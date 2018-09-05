@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using YamlDotNet.RepresentationModel;
 
-namespace ChocoPacker
+namespace ImageBuilder
 {
     class Program
     {
