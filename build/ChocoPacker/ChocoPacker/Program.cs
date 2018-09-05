@@ -78,7 +78,7 @@ namespace ChocoPacker
                     {
                         string package = line.Split('/')[1];
 
-                        if (!package.StartsWith("_"))
+                        if (!package.StartsWith("_") && !packages.Contains(package))
                         {
                             packages.Add(package);
                         }
