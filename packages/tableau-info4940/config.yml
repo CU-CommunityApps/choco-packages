@@ -15,6 +15,9 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
+Files: 
+    '%INSTALL_DIR%\scripts': '%SYSTEMDRIVE%\'
+
 Registry: 
     HKUD:   
         SOFTWARE\Tableau\Registration\Data:
@@ -109,10 +112,6 @@ Registry:
             last_name:
                 Type:   'String'
                 Value:  '%TABLEAU_LAST_NAME%'
-
-            last_report_date:
-                Type:   'String'
-                Value:  '06-15-2018 06:18:03.599 PM'
 
             phone:
                 Type:   'String'
