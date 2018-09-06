@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\'
+    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin'
 
 Registry: 
     HKUD:   
