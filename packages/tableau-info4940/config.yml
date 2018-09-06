@@ -5,14 +5,14 @@ Version:        '2018.1.2'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-2.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 REGISTER=1 ACTIVATE_KEY=%TABLEAU_ACTIVATE_KEY%'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 REGISTER=1 ACTIVATE_KEY=%STATIC_SYSTEM_TABLEAU_ACTIVATE_KEY%'
     ExitCodes:  [0,3010]
 
 Applications:
     tableau:
         DisplayName:    'Tableau'
-        Path:           '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\start-tableau.bat'
-        LaunchParams:   ''
+        Path:           'powershell.exe'
+        LaunchParams:   '-windowstyle hidden -executionpolicy bypass -file %PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\tableau.ps1'
         WorkDir:        ''
 
 Registry: 
