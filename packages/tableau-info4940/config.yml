@@ -11,8 +11,8 @@ Install:
 Applications:
     tableau:
         DisplayName:    'Tableau'
-        Path:           'powershell.exe'
-        LaunchParams:   '-windowstyle hidden -executionpolicy bypass -file %PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\tableau.ps1'
+        Path:           '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   '-windowstyle hidden -executionpolicy bypass -file \"%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\tableau.ps1\"'
         WorkDir:        ''
 
 Registry: 
