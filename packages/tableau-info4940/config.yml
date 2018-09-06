@@ -11,12 +11,12 @@ Install:
 Applications:
     tableau:
         DisplayName:    'Tableau'
-        Path:           '%SYSTEMDRIVE%\scripts\start-tableau.bat'
+        Path:           '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\start-tableau.bat'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\scripts': '%SYSTEMDRIVE%\'
+    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\'
 
 Registry: 
     HKUD:   
