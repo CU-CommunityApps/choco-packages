@@ -15,9 +15,6 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: 
-    '%INSTALL_DIR%\scripts': '%PROGRAMFILES%\Tableau\Tableau 2018.1\bin'
-
 Registry: 
     HKUD:   
         SOFTWARE\Tableau\Registration\Data:

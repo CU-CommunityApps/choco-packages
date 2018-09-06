@@ -125,9 +125,24 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             # Add environment variables
             If ($total -gt 1){
                 
-                Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
+                $secrets.Keys | % {
+                    
+                    # Get array position of static env_var
+                    $arrayPos = $secrets.Keys.IndexOf($_)
+
+                    If ($_ -match "STATIC_SYSTEM"){
+
+                        # Add machine level env_var
+                        [System.Environment]::SetEnvironmentVariable($secrets.Keys[$arrayPos], $secrets.Values[$arrayPos], 'Machine')
+
+                    }
+                    # Add process level env_var
+                    Else {[System.Environment]::SetEnvironmentVariable($secrets.Keys[$arrayPos], $secrets.Values[$arrayPos], 'Process')}
             
+                }
+
             }
+            ElseIf ($secrets.Keys -match "STATIC_SYSTEM") { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Machine') }
             Else { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Process') }
 
         }

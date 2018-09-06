@@ -1,2 +1,2 @@
 # Runs before the choco package is installed
-Copy-item "$env:INSTALL_DIR\scripts" -Destination "$env:SYSTEMDRIVE\scripts" -Recurse
+Copy-item "$env:INSTALL_DIR\scripts" -Destination "$env:ProgramFiles\Tableau\Tableau 2018.1\bin\scripts" -Recurse
