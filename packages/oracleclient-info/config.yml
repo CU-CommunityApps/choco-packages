@@ -11,7 +11,7 @@ Install:
 Applications:
     sqldeveloper:
         DisplayName:    'sqldeveloper'
-        Path:           '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper.exe'
+        Path:           '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
