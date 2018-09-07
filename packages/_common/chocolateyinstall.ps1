@@ -131,7 +131,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             }
 
             Write-Output "Setting Environment Variable $envVar to $envValue)"
-            [Environment]::SetEnvironmentVariable($envVar, $CONFIG.Environment.$envVar, 'Machine')
+            [Environment]::SetEnvironmentVariable($envVar, $envValue, 'Machine')
         }
     }
 
@@ -248,7 +248,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
                 $regKeyPath = "$($hive):\$regKeyExpanded"
 
                 Write-Output "Creating Registry Key $regKeyPath"
-                New-Item -Path "$regKeyPath" -Force 
+                If (!(Test-Path "$regKeyPath")){New-Item -Path "$regKeyPath" -Force} 
 
                 foreach ($regProperty in $regProperties) {
                     $regItem = $CONFIG.Registry.$hive.$regKey.$regProperty
@@ -482,6 +482,8 @@ Function Uninstall($App) {
 ################################################
 Function Update {
 
+    Write-Output "Restarting computer before installing updates"
+    Restart-Computer
     write-output "Installing Windows Updates"
     
     # Install PSWindowsUpdate Module

@@ -47,8 +47,10 @@ Applications:
 Files:
     '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb' # AMD GPU
     '%TOOLS_DIR%\ProcmonConfiguration.pmc': '%SYSTEMDRIVE%\Procmon\ProcmonConfiguration.pmc'
+    '%TOOLS_DIR%\defaultassociations.xml': '%SYSTEMDRIVE%\windows\system32\defaultassociations.xml'
     '%INSTALL_DIR%\Explorer++.exe': '%PROGRAMFILES%\ExplorerPlus\Explorer++.exe'
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
+    
 
 Registry:
     HKUD:
@@ -74,4 +76,8 @@ Registry:
             IEHarden:
                 Type:   'DWORD'
                 Value:  '0'
-
+    HKLM:
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap:
+            IEHarden:
+                Type:   'DWORD'
+                Value:  '0'

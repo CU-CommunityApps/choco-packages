@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DefaultAssociations>
+  <Association Identifier=".htm" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
+  <Association Identifier=".html" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
+  <Association Identifier="http" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
+  <Association Identifier="https" ProgId="ChromeHTML" ApplicationName="Google Chrome" />
+  <Association Identifier=".pdf" ProgID="AcroExch.Document.DC" ApplicationName="Adobe Acrobat Reader DC" />
+  <Association Identifier=".pdfxml" ProgID="AcroExch.pdfxml" ApplicationName="Adobe Acrobat Reader DC" />
+  <Association Identifier=".acrobatsecuritysettings" ProgID="AcroExch.acrobatsecuritysettings" ApplicationName="Adobe Acrobat Reader DC" />
+  <Association Identifier=".fdf" ProgID="AcroExch.FDFDoc" ApplicationName="Adobe Acrobat Reader DC" />
+  <Association Identifier=".xfdf" ProgID="AcroExch.XFDFDoc" ApplicationName="Adobe Acrobat Reader DC" />
+  <Association Identifier=".xdp" ProgID="AcroExch.XDPDoc" ApplicationName="Adobe Acrobat Reader DC" />
+  <Association Identifier=".pdx" ProgID="PDXFileType" ApplicationName="Adobe Acrobat Reader DC" />
+  <Association Identifier=".api" ProgID="AcroExch.Plugin" ApplicationName="Adobe Acrobat Reader DC" />
+  <Association Identifier=".secstore" ProgID="AcroExch.SecStore" ApplicationName="Adobe Acrobat Reader DC" />
+</DefaultAssociations>

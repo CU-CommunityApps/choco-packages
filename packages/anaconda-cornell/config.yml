@@ -11,6 +11,9 @@ Install:
 Applications:
     anaconda:
         DisplayName:    'Anaconda'
-        Path:           '%PROGRAMFILES%\Anaconda\pythonw.exe'
+        Path:           '%PROGRAMFILES%\Anaconda\Scripts\anaconda-navigator.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
+Files: 
+    '%TOOLS_DIR%\anaconda-navigator.ini': '%SYSTEMDRIVE%\Users\Default\.anaconda\navigator\anaconda-navigator.ini'

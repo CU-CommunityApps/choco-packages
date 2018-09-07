@@ -1,3 +1,3 @@
 # Runs after the choco package is installed
-
-conda install -y numpy
+start-sleep -second 60
+start-process "$env:programFiles\Anaconda\Scripts\conda.exe" -argumentlist "install -y numpy" -NoNewWindow
