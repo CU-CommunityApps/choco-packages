@@ -1,16 +1,6 @@
 Id:             'miktex-cornell'
 Description:    'miktex-cornell package'
-Version:        '2.9.0'
+Version:        '2.9.6753'
 
-Install:
-    File:       '%INSTALL_DIR%\miktexsetup.exe'
-    FileType:   'exe'
-    Arguments:  '--quiet --shared --user-install="%APPDATA%\MiKTeX\2.9" --user-config="%APPDATA%\MiKTeX\2.9" --user-data="%LOCALAPPDATA%\MiKTeX\2.9" --modify-path install'
-    ExitCodes:  [0]
-
-Applications:
-    miktex:
-        DisplayName:    'MikteX'
-        Path:           '%PROGRAMFILES%\MiKTeX 2.9\miktex\bin\x64miktex-console_admin.exe'
-        LaunchParams:   ''
-        WorkDir:        '%SYSTEMDRIVE%\ProgramData\MiKTeX\2.9'
+ChocoPackages:
+    - 'miktex.install'
