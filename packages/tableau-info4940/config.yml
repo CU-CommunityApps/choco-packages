@@ -5,7 +5,7 @@ Version:        '2018.1.2'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-2.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 REGISTER=1 ACTIVATE_KEY=%STATIC_SYSTEM_TABLEAU_ACTIVATE_KEY%'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 REGISTER=1'
     ExitCodes:  [0,3010]
 
 Applications:
