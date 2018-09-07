@@ -1,9 +1,9 @@
 Id:             'tableau-info4940'
 Description:    'Tableau - INFO4940'
-Version:        '2018.1.2'
+Version:        '2018.1.4'
 
 Install:
-    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-2.exe'
+    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-4.exe'
     FileType:   'exe'
     Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 REGISTER=1'
     ExitCodes:  [0,3010]
@@ -12,5 +12,5 @@ Applications:
     tableau:
         DisplayName:    'Tableau'
         Path:           '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-windowstyle hidden -executionpolicy bypass -file "%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\tableau.ps1"'
+        LaunchParams:   '-executionpolicy bypass -file "%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\tableau.ps1"'
         WorkDir:        ''
