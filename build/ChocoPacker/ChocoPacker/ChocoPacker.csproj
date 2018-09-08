@@ -29,11 +29,9 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
-    <Reference Include="System.Collections.Generic" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Diagnostics" />
     <Reference Include="System.IO" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Xml" />
