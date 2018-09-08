@@ -59,6 +59,12 @@ Param(
 Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 
     $ErrorActionPreference = 'Stop'
+    
+    if (-Not (Get-Module -ListAvailable -Name 'powershell-yaml')) {
+        Install-PackageProvider -Name 'NuGet' -Force
+        Install-Module 'powershell-yaml' -Force
+    }
+    
     Import-Module "powershell-yaml"
 
     # Initialize list of packages, if needed
@@ -75,7 +81,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 
     If (!($TOOLS_DIR)){
         $TOOLS_DIR = $PSScriptRoot
-        $CONFIG =   Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.yml') | ConvertFrom-Yaml
+        $CONFIG =   Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.yml') | ConvertFrom-Yaml | ConvertTo-Yaml -JsonCompatible | ConvertFrom-Json
         $INSTALL_DIR =  Join-Path $TOOLS_DIR 'installer'
     }
 
@@ -98,7 +104,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     If (Test-Path $SECRETS_FILE) {
         
         # Convert secrets.yml
-        [array]$secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
+        [array]$secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml 
         $total = $secrets.Keys.Count
         $count = 0
 
