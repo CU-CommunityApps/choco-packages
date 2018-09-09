@@ -10,11 +10,13 @@ $BUILDER_VERSION = "1.0"
 
 if (-Not (Test-Path $BUILD_DIR)) {
     
-    # Create Temp Folders
+    # Create Temp Directories
+    Write-Output "Creating Temporary Build Directories"
     New-Item -ItemType Directory -Force -Path $BUILD_DIR
     New-Item -ItemType Directory -Force -Path $PACKAGE_DIR
     
-    # Parse EC2 User Data
+    # Parse EC2 Metadata
+    Write-Output "Parsing EC2 Metadata"
     $raw_user_data = (Invoke-WebRequest $USER_DATA_URI).Content
     $user_data = [System.Text.Encoding]::ASCII.GetString($raw_user_data) | ConvertFrom-Json
     $arn = $user_data.resourceArn.split(':')
@@ -25,16 +27,21 @@ if (-Not (Test-Path $BUILD_DIR)) {
     $build_id = $builder[2]
     $bucket = "$BUCKET_PREFIX-$account-$region"
     $build_package_uri = "https://s3.amazonaws.com/$bucket/packages/$package_branch/$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"
+    Write-Output "Build Id: $build_id; Package Branch: $package_branch; "
     
-    # Download ImageBuilder Nupkg
+    # Download ImageBuild Package
+    Write-Output "Downloading ImageBuilder Nupkg: $build_package_uri"
     Invoke-WebRequest $build_package_uri -OutFile (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg")
     
     # Install Chocolatey
+    Write-Output "Installing Chocolatey"
     Invoke-Expression ((Invoke-WebRequest "https://chocolatey.org/install.ps1").Content)
     
     # Install ImageBuilder and Sysinternals
+    Write-Output "Installing ImageBuilder Package and Sysinternals"
     Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE sysinternals -s $PACKAGE_DIR;$CHOCO_REPO -y" -NoNewWindow -Wait
 }
 
 # Run ImageBuilder
+Write-Output "Running ImageBuilder"
 Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -NoNewWindow -Wait
