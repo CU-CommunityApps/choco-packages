@@ -17,8 +17,19 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     # Parse EC2 Metadata
     Write-Output "Parsing EC2 Metadata"
-    $raw_user_data = (Invoke-WebRequest $USER_DATA_URI).Content
-    $user_data = [System.Text.Encoding]::ASCII.GetString($raw_user_data) | ConvertFrom-Json
+    $user_data_string = ""
+    
+    while ($user_data_string.length -lt 1) {
+        $raw_user_data = (Invoke-WebRequest $USER_DATA_URI).Content
+        $user_data_string = [System.Text.Encoding]::ASCII.GetString($raw_user_data) | ConvertFrom-Json
+        
+        if ($user_data_string.length -lt 1) {
+            Write-Output "Waiting for user-data"
+            Start-Sleep -s 15
+        }
+    }
+    
+    $user_data = $user_data_string | ConvertFrom-Json
     Write-Output "User Data: $user_data"
     $arn = $user_data.resourceArn.split(':')
     $region = $arn[3]
