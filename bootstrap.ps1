@@ -15,25 +15,9 @@ if (-Not (Test-Path $BUILD_DIR)) {
     New-Item -ItemType Directory -Force -Path $BUILD_DIR
     New-Item -ItemType Directory -Force -Path $PACKAGE_DIR
     
-    # Install Chocolatey
-    Write-Output "Installing Chocolatey"
-    Invoke-Expression ((Invoke-WebRequest "https://chocolatey.org/install.ps1").Content)
-    
     # Parse EC2 Metadata
     Write-Output "Parsing EC2 Metadata"
-    $user_data_string = ""
-    
-    while ($user_data_string.length -lt 1) {
-        $raw_user_data = (Invoke-WebRequest $USER_DATA_URI).Content
-        $user_data_string = [System.Text.Encoding]::ASCII.GetString($raw_user_data)
-        
-        if ($user_data_string.length -lt 1) {
-            Write-Output "Waiting for user-data"
-            Start-Sleep -s 15
-        }
-    }
-    
-    $user_data = $user_data_string | ConvertFrom-Json
+    $user_data = Invoke-RestMethod -Uri $USER_DATA_URI
     Write-Output "User Data: $user_data"
     $arn = $user_data.resourceArn.split(':')
     $region = $arn[3]
@@ -44,6 +28,10 @@ if (-Not (Test-Path $BUILD_DIR)) {
     $bucket = "$BUCKET_PREFIX-$account-$region"
     $build_package_uri = "https://s3.amazonaws.com/$bucket/packages/$package_branch/$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"
     Write-Output "Build Id: $build_id; Package Branch: $package_branch; "
+    
+    # Install Chocolatey
+    Write-Output "Installing Chocolatey"
+    Invoke-Expression ((Invoke-WebRequest "https://chocolatey.org/install.ps1").Content)
     
     # Download ImageBuild Package
     Write-Output "Downloading ImageBuilder Nupkg: $build_package_uri"
