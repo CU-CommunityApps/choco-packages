@@ -17,7 +17,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     # Parse EC2 Metadata
     Write-Output "Parsing EC2 Metadata"
-    $user_data = Invoke-RestMethod -Uri $USER_DATA_URI
+    $user_data = ((New-Object System.Net.WebClient).DownloadString($USER_DATA_URI)) | ConvertFrom-Json
     Write-Output "User Data: $user_data"
     $arn = $user_data.resourceArn.split(':')
     $region = $arn[3]
@@ -31,7 +31,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     # Install Chocolatey
     Write-Output "Installing Chocolatey"
-    Invoke-Expression ((Invoke-WebRequest "https://chocolatey.org/install.ps1").Content)
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     
     # Download ImageBuild Package
     Write-Output "Downloading ImageBuilder Nupkg: $build_package_uri"
