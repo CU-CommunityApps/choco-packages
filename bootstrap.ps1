@@ -19,6 +19,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Parsing EC2 Metadata"
     $raw_user_data = (Invoke-WebRequest $USER_DATA_URI).Content
     $user_data = [System.Text.Encoding]::ASCII.GetString($raw_user_data) | ConvertFrom-Json
+    Write-Output "User Data: $user_data"
     $arn = $user_data.resourceArn.split(':')
     $region = $arn[3]
     $account = $arn[4]
