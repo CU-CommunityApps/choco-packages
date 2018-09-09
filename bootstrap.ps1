@@ -15,13 +15,17 @@ if (-Not (Test-Path $BUILD_DIR)) {
     New-Item -ItemType Directory -Force -Path $BUILD_DIR
     New-Item -ItemType Directory -Force -Path $PACKAGE_DIR
     
+    # Install Chocolatey
+    Write-Output "Installing Chocolatey"
+    Invoke-Expression ((Invoke-WebRequest "https://chocolatey.org/install.ps1").Content)
+    
     # Parse EC2 Metadata
     Write-Output "Parsing EC2 Metadata"
     $user_data_string = ""
     
     while ($user_data_string.length -lt 1) {
         $raw_user_data = (Invoke-WebRequest $USER_DATA_URI).Content
-        $user_data_string = [System.Text.Encoding]::ASCII.GetString($raw_user_data) | ConvertFrom-Json
+        $user_data_string = [System.Text.Encoding]::ASCII.GetString($raw_user_data)
         
         if ($user_data_string.length -lt 1) {
             Write-Output "Waiting for user-data"
@@ -44,10 +48,6 @@ if (-Not (Test-Path $BUILD_DIR)) {
     # Download ImageBuild Package
     Write-Output "Downloading ImageBuilder Nupkg: $build_package_uri"
     Invoke-WebRequest $build_package_uri -OutFile (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg")
-    
-    # Install Chocolatey
-    Write-Output "Installing Chocolatey"
-    Invoke-Expression ((Invoke-WebRequest "https://chocolatey.org/install.ps1").Content)
     
     # Install ImageBuilder and Sysinternals
     Write-Output "Installing ImageBuilder Package and Sysinternals"
