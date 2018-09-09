@@ -35,7 +35,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     # Download ImageBuild Package
     Write-Output "Downloading ImageBuilder Nupkg: $build_package_uri"
-    Invoke-WebRequest $build_package_uri -OutFile (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg")
+    (New-Object System.Net.WebClient).DownloadFile($build_package_uri, (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"))
     
     # Install ImageBuilder and Sysinternals
     Write-Output "Installing ImageBuilder Package and Sysinternals"
@@ -45,3 +45,4 @@ if (-Not (Test-Path $BUILD_DIR)) {
 # Run ImageBuilder
 Write-Output "Running ImageBuilder"
 Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -NoNewWindow -Wait
+Write-Output "ImageBuilder Done!"
