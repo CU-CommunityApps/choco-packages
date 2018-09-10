@@ -60,12 +60,14 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 
     $ErrorActionPreference = 'Stop'
     
-    if (-Not (Get-Module -ListAvailable -Name 'powershell-yaml')) {
+    if ((-Not (Get-Module -ListAvailable -Name 'powershell-yaml')) -Or (-Not (Get-Module -ListAvailable -Name 'PSSQLite'))) {
         Install-PackageProvider -Name 'NuGet' -Force
         Install-Module 'powershell-yaml' -Force
+        Install-Module 'PSSQLite' -Force
     }
     
     Import-Module "powershell-yaml"
+    Import-Module "PSSQLite"
 
     # Initialize list of packages, if needed
     if (-Not (Test-Path Env:CHOCO_INSTALLED_PACKAGES)) {
@@ -78,6 +80,8 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     $USER_DIR =     Join-Path $Env:SYSTEMDRIVE 'Users'
     $DEFAULT_HIVE = [io.path]::combine($USER_DIR, 'Default', 'NTUSER.DAT')
     $STARTUP =      [io.path]::combine($Env:ALLUSERSPROFILE, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'StartUp', '*')
+    $APP_CATALOG =  [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
+    $APP_ICONS =    [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'AppCatalogHelper', 'AppIcons')
 
     If (!($TOOLS_DIR)){
         $TOOLS_DIR = $PSScriptRoot
@@ -337,6 +341,33 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
                 -Xml (Get-Content "$taskConfig" | Out-String)
         }
     }
+    
+    ##############################################
+    ################# AppCatalog #################
+    ##############################################
+    Function AppCatalog {
+        if (-Not (Test-Path $APP_ICONS)) {
+            New-Item -ItemType Directory -Force -Path $APP_ICONS
+        }
+        
+        $create_table = "CREATE TABLE IF NOT EXISTS Applications (Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY, AbsolutePath TEXT, DisplayName TEXT, IconFilePath TEXT, LaunchParameters TEXT, WorkingDirectory TEXT)"
+        $app_entry = "INSERT INTO Applications (Name, AbsolutePath, DisplayName, IconFilePath, LaunchParameters, WorkingDirectory) VALUES (@name, @path, @display, @icon, @params, @workdir)"
+        
+        Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $create_table
+        
+        foreach ($application in $CONFIG.Applications) {
+            Write-Output "Creating App Catalog Entry for $($application.DisplayName)"
+            
+            Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $app_entry -SqlParameters @{
+                name = $application
+                path = $application.Path
+                display = $application.DisplayName
+                icon = (Join-Path "$APP_ICONS" "$($application).png")
+                params = $application.LaunchParams
+                workdir = $application.WorkDir
+            }
+        }
+    }
 
     # Only run config.yml sections if specified
     If ($CONFIG.Environment){EnvVars}
@@ -346,6 +377,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     If ($CONFIG.Files){Files}
     If ($CONFIG.Services){Services}
     If ($CONFIG.ScheduledTasks){SchedTask}
+    If ($CONFIG.Applications){AppCatalog}
 
     # Run Postinstall PowerShell script
     Write-Output "Running postinstall.ps1..."
