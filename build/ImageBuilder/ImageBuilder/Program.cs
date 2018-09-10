@@ -3,6 +3,7 @@ using Amazon.S3.Model;
 using Amazon.S3.Transfer;
 using chocolatey;
 using chocolatey.infrastructure.app.configuration;
+using log4net;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,10 +21,13 @@ namespace ImageBuilder
 {
     class Program
     {
+        private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         void InstallUpdates()
         {
             // See http://www.nullskull.com/a/1592/install-windows-updates-using-c--wuapi.aspx
+
+            log.Info("Checking for Windows Updates...");
 
             UpdateSession us = new UpdateSession();
             IUpdateSearcher uss = us.CreateUpdateSearcher();
@@ -36,7 +40,7 @@ namespace ImageBuilder
                 {
                     if (c.Name.ToLower().Contains("security") || c.Name.ToLower().contains("critical"))
                     {
-                        Console.WriteLine($"Installing {u.Title}");
+                        log.Info($"Installing {u.Title}");
                         uc.Add(u);
                         break;
                     }
@@ -45,9 +49,11 @@ namespace ImageBuilder
 
             if (uc.Count == 0)
             {
-                Console.WriteLine("No Windows Updates to Install");
+                log.Info("No Windows Updates to Install");
                 return;
             }
+
+            log.Info($"Installing {uc.Count} Critical/Security Updates...");
 
             UpdateDownloader ud = us.CreateUpdateDownloader();
             ud.Updates = uc;
@@ -61,11 +67,11 @@ namespace ImageBuilder
             {
                 if (uir.GetUpdateResult(i).HResult == 0)
                 {
-                    Console.WriteLine($"Installed: {uc[i].Title}");
+                    log.Info($"Installed: {uc[i].Title}");
                 }
                 else
                 {
-                    Console.WriteLine($"Failed: {uc[i].Title}");
+                    log.Info($"Failed: {uc[i].Title}");
                 }
             }
         }
