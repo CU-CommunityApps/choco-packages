@@ -15,6 +15,10 @@ if (-Not (Test-Path $BUILD_DIR)) {
     New-Item -ItemType Directory -Force -Path $BUILD_DIR
     New-Item -ItemType Directory -Force -Path $PACKAGE_DIR
     
+    # Install Chocolatey
+    Write-Output "Installing Chocolatey"
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    
     # Parse EC2 Metadata
     Write-Output "Parsing EC2 Metadata"
     $user_data = ((New-Object System.Net.WebClient).DownloadString($USER_DATA_URI)) | ConvertFrom-Json
@@ -28,10 +32,6 @@ if (-Not (Test-Path $BUILD_DIR)) {
     $bucket = "$BUCKET_PREFIX-$account-$region"
     $build_package_uri = "https://s3.amazonaws.com/$bucket/packages/$package_branch/$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"
     Write-Output "Build Id: $build_id; Package Branch: $package_branch; "
-    
-    # Install Chocolatey
-    Write-Output "Installing Chocolatey"
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     
     # Download ImageBuild Package
     Write-Output "Downloading ImageBuilder Nupkg: $build_package_uri"
