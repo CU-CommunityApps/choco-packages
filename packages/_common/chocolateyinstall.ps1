@@ -355,20 +355,22 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
         
         Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $create_table
         
-        foreach ($application in $CONFIG.Applications) {
+        $applications = ($CONFIG.Applications | Get-Member -MemberType NoteProperty).Name
+        
+        foreach ($application in $applications) {
             Write-Output "Creating App Catalog Entry for $($application.DisplayName)"
             
-            $app_icon_src = [io.path]::combine($TOOLS_DIR, 'icons', "$($application).png")
-            $app_icon = Join-Path "$APP_ICONS" "$($application).png"
+            $app_icon_src = [io.path]::combine($TOOLS_DIR, 'icons', "$application.png")
+            $app_icon = Join-Path "$APP_ICONS" "$application.png"
             Copy-Item -Path $app_icon_src -Destination $app_icon
             
             Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $app_entry -SqlParameters @{
                 name = $application
-                path = $application.Path
-                display = $application.DisplayName
+                path = $CONFIG.Applications.$application.Path
+                display = $CONFIG.Applications.$application.DisplayName
                 icon = $app_icon
-                params = $application.LaunchParams
-                workdir = $application.WorkDir
+                params = $CONFIG.Applications.$application.LaunchParams
+                workdir = $CONFIG.Applications.$application.WorkDir
             }
         }
     }
