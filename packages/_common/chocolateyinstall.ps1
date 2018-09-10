@@ -358,7 +358,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
         foreach ($application in $CONFIG.Applications) {
             Write-Output "Creating App Catalog Entry for $($application.DisplayName)"
             
-            $app_icon_src = [io.path]::combine($TOOLS_DIR, 'icons', "$($application).png"
+            $app_icon_src = [io.path]::combine($TOOLS_DIR, 'icons', "$($application).png")
             $app_icon = Join-Path "$APP_ICONS" "$($application).png"
             Copy-Item -Path $app_icon_src -Destination $app_icon
             
