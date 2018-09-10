@@ -24,7 +24,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     # Install Sysinterals
     Write-Output "Installing Sysinterals"
-    Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y"
+    Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y" -NoNewWindow -Wait
     
     # Parse EC2 Metadata
     Write-Output "Parsing EC2 Metadata"
@@ -44,12 +44,11 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Downloading ImageBuilder Nupkg: $build_package_uri"
     (New-Object System.Net.WebClient).DownloadFile($build_package_uri, (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"))
     
-    # Install ImageBuilder and Sysinternals
-    Write-Output "Installing ImageBuilder Package and Sysinternals"
+    # Install ImageBuilder
+    Write-Output "Installing ImageBuilder Package"
     Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
 }
 
 # Run ImageBuilder
 Write-Output "Running ImageBuilder"
 Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -NoNewWindow -Wait
-Write-Output "ImageBuilder Done!"
