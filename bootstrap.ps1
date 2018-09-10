@@ -15,6 +15,9 @@ if (-Not (Test-Path $BUILD_DIR)) {
     New-Item -ItemType Directory -Force -Path $BUILD_DIR
     New-Item -ItemType Directory -Force -Path $PACKAGE_DIR
     
+    # No Path set for SYSTEM so move to BUILD_DIR
+    Set-Location $BUILD_DIR
+    
     # Install Chocolatey
     Write-Output "Installing Chocolatey"
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
