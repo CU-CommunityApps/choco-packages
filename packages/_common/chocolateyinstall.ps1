@@ -350,11 +350,12 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             New-Item -ItemType Directory -Force -Path $APP_ICONS
         }
         
-        $create_table = "CREATE TABLE IF NOT EXISTS Applications (Name TEXT NOT NULL CONSTRAINT PK_Applications PRIMARY KEY, AbsolutePath TEXT, DisplayName TEXT, IconFilePath TEXT, LaunchParameters TEXT, WorkingDirectory TEXT)"
+        if (-Not (Test-Path $APP_CATALOG)) {
+            $create_table = 'CREATE TABLE IF NOT EXISTS "Applications" ("Name" TEXT NOT NULL CONSTRAINT "PK_Applications" PRIMARY KEY, "AbsolutePath" TEXT, "DisplayName" TEXT, "IconFilePath" TEXT, "LaunchParameters" TEXT, "WorkingDirectory" TEXT)'
+            Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $create_table
+        }
+        
         $app_entry = "INSERT INTO Applications (Name, AbsolutePath, DisplayName, IconFilePath, LaunchParameters, WorkingDirectory) VALUES (@name, @path, @display, @icon, @params, @workdir)"
-        
-        Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $create_table
-        
         $applications = ($CONFIG.Applications | Get-Member -MemberType NoteProperty).Name
         
         foreach ($application in $applications) {
@@ -370,12 +371,12 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             $workdir = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.WorkDir).Replace('%%', '%')
             
             Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $app_entry -SqlParameters @{
-                name = $application
-                path = $path
-                display = $display
-                icon = $app_icon
-                params = $params
-                workdir = $workdir
+                name = "$application"
+                path = "$path"
+                display = "$display"
+                icon = "$app_icon"
+                params = "$params"
+                workdir = "$workdir"
             }
         }
     }
