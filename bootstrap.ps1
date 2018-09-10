@@ -19,6 +19,10 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing Chocolatey"
     Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     
+    # Install Sysinterals
+    Write-Output "Installing Sysinterals"
+    Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y"
+    
     # Parse EC2 Metadata
     Write-Output "Parsing EC2 Metadata"
     $user_data = ((New-Object System.Net.WebClient).DownloadString($USER_DATA_URI)) | ConvertFrom-Json
@@ -39,7 +43,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     # Install ImageBuilder and Sysinternals
     Write-Output "Installing ImageBuilder Package and Sysinternals"
-    Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE sysinternals -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
+    Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
 }
 
 # Run ImageBuilder
