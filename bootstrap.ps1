@@ -39,7 +39,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     # Install ImageBuilder and Sysinternals
     Write-Output "Installing ImageBuilder Package and Sysinternals"
-    Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE sysinternals -s $PACKAGE_DIR;$CHOCO_REPO -y" -NoNewWindow -Wait
+    Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE sysinternals -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
 }
 
 # Run ImageBuilder
