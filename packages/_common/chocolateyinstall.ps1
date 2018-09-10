@@ -364,13 +364,18 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             $app_icon = Join-Path "$APP_ICONS" "$application.png"
             Copy-Item -Path $app_icon_src -Destination $app_icon
             
+            $path = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.Path).Replace('%%', '%')
+            $display = $CONFIG.Applications.$application.DisplayName
+            $params = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.LaunchParams).Replace('%%', '%')
+            $workdir = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.WorkDir).Replace('%%', '%')
+            
             Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $app_entry -SqlParameters @{
                 name = $application
-                path = $CONFIG.Applications.$application.Path
-                display = $CONFIG.Applications.$application.DisplayName
+                path = $path
+                display = $display
                 icon = $app_icon
-                params = $CONFIG.Applications.$application.LaunchParams
-                workdir = $CONFIG.Applications.$application.WorkDir
+                params = $params
+                workdir = $workdir
             }
         }
     }
