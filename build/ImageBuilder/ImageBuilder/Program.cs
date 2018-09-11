@@ -15,12 +15,13 @@ namespace ImageBuilder
     class Program
     {
         private const string BUCKET_PREFIX = "image-build-package-bucket";
+        private const string CHOCO_REPO = "https://chocolatey.org/api/v2";
         private const string USER_DATA_URI = "http://169.254.169.254/latest/user-data";
         private const string DUMMY_USER_DATA = "{\"resourceArn\":\"arn:aws:appstream:us-east-1:530735016655:image-builder/custream.dev.mjs472\",\"Dummy\":\"true\"}";
         private const string DUMMY_BUILD_INFO = "{\"Packages\":[\"adobedcreader-cornell;2018.011.20055\"],\"Dummy\":\"true\"}";
 
-        private static string temp_dir = Environment.GetEnvironmentVariable("TEMP");
-        private static string package_path = Path.Combine(temp_dir, "packages");
+        private static string TEMP_DIR = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "image-build");
+        private static string PACKAGE_PATH = Path.Combine(TEMP_DIR, "packages");
 
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -67,6 +68,8 @@ namespace ImageBuilder
                     resp.GetResponseStream().CopyTo(s);
                 }
             }
+
+            log.Info($"{uri} Downloaded!");
         }
 
         private JObject CallRestService(string uri, string method, dynamic body)
@@ -158,7 +161,7 @@ namespace ImageBuilder
                     string package_name = package.Split(';')[0];
                     string package_version = package.Split(';')[1];
                     string package_uri = $"{this.bucket_uri}/packages/{this.build_branch}/{package_name}.{package_version}.nupkg";
-                    string package_local = Path.Combine(package_path, $"{package_name}.{package_version}.nupkg");
+                    string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
 
                     this.DownloadFile(package_uri, package_local);
 
@@ -170,6 +173,13 @@ namespace ImageBuilder
 
         private void InstallPackages()
         {
+            for (int i = 0; i < 3; i++)
+            {
+                ThreadStart sd = this.DownloadPackages;
+                Thread td = new Thread(sd);
+                td.Start();
+            }
+
             while (true)
             {
                 if (this.install_q.Count == 0 && this.downloaded.Count == 0)
@@ -197,7 +207,7 @@ namespace ImageBuilder
 
                         if (this.install_q.Count == 1)
                         {
-                            Thread.Sleep(5000);
+                            Thread.Sleep(2000);
                         }
 
                         continue;
@@ -205,11 +215,25 @@ namespace ImageBuilder
 
                     string package_name = package.Split(';')[0];
                     string package_version = package.Split(';')[1];
-                    string package_local = Path.Combine(package_path, $"{package_name}.{package_version}.nupkg");
+                    string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
 
-                    log.Info($"Installing {package_local}");
+                    log.Info($"Installing {package_name}.{package_version}");
 
-                    while(!this.downloaded.TryRemove(package, out package_downloaded));                    
+                    var choco = new GetChocolatey();
+
+                    choco.Set(c =>
+                    {
+                        c.CommandName = "install";
+                        c.PackageNames = package_name;
+                        c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
+                        c.AcceptLicense = true;
+                        //c.AdditionalLogFileLocation
+                    }).Run();
+
+                    File.Delete(package_local);
+                    while(!this.downloaded.TryRemove(package, out package_downloaded));
+
+                    log.Info($"{package_name}.{package_version} Installed!");
                 }
             }
         }
@@ -269,25 +293,16 @@ namespace ImageBuilder
         void App()
         {
             this.ParseUserData();
-
-            for (int i = 0; i < 3; i++)
-            {
-                ThreadStart sd = this.DownloadPackages;
-                Thread td = new Thread(sd);
-                td.Start();
-            }
-
             this.InstallPackages();
             
-            //log.Info(this.build_info.ToString());
             //this.InstallUpdates();
         }
 
         static void Main(string[] args)
         {
-            if (!Directory.Exists(package_path))
+            if (!Directory.Exists(PACKAGE_PATH))
             {
-                Directory.CreateDirectory(package_path);
+                Directory.CreateDirectory(PACKAGE_PATH);
             }
 
             new Program().App();
