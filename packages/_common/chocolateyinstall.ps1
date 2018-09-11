@@ -69,12 +69,6 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     Import-Module "powershell-yaml"
     Import-Module "PSSQLite"
 
-    # Initialize list of packages, if needed
-    if (-Not (Test-Path Env:CHOCO_INSTALLED_PACKAGES)) {
-        Write-Output "Creating CHOCO_INSTALLED_PACKAGES Environment Variable"
-        $Env:CHOCO_INSTALLED_PACKAGES = 'choco'
-    }
-
     $CHOCO =        [io.path]::combine($Env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
     $REG =          [io.path]::combine($Env:SYSTEMROOT, 'System32', 'reg.exe')
     $USER_DIR =     Join-Path $Env:SYSTEMDRIVE 'Users'
@@ -90,15 +84,6 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     }
 
     $SECRETS_FILE = Join-Path $INSTALL_DIR 'secrets.yml'
-    If ($Mode.ToLower() -eq "t"){$INSTALLED = ""}
-    Else {$INSTALLED =    $Env:CHOCO_INSTALLED_PACKAGES.Split(';')}
-
-
-    # Check if current package is already installed
-    if ($INSTALLED.Contains($CONFIG.Id)) {
-        Write-Output "$($CONFIG.Id) Already Installed"
-        Exit
-    }
 
     # Make useful directories available to the environment
     [Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'Process')
@@ -414,7 +399,6 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     # Update environment to list this package as installed
     $INSTALLED += $CONFIG.Id
     $INSTALLED = $INSTALLED -Join ';'
-    [Environment]::SetEnvironmentVariable('CHOCO_INSTALLED_PACKAGES', $INSTALLED, 'Machine')
 
     Write-Output "$($CONFIG.Id) Install Complete!"
 }
