@@ -353,6 +353,12 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
         if (-Not (Test-Path $APP_CATALOG)) {
             $create_table = 'CREATE TABLE IF NOT EXISTS "Applications" ("Name" TEXT NOT NULL CONSTRAINT "PK_Applications" PRIMARY KEY, "AbsolutePath" TEXT, "DisplayName" TEXT, "IconFilePath" TEXT, "LaunchParameters" TEXT, "WorkingDirectory" TEXT)'
             Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $create_table
+            
+            $acl = Get-Acl $APP_CATALOG
+            $permission = "Everyone","FullControl","Allow"
+            $rule = New-Object System.Security.AccessControl.FileSystemAccessRule $permission
+            $acl.SetAccessRule($rule)
+            $acl | Set-Acl $APP_CATALOG
         }
         
         $app_entry = "INSERT INTO Applications (Name, AbsolutePath, DisplayName, IconFilePath, LaunchParameters, WorkingDirectory) VALUES (@name, @path, @display, @icon, @params, @workdir)"
