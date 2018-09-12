@@ -1,13 +1,18 @@
+using Amazon.PhotonAgentProxy;
+using Amazon.PhotonAgentProxy.Model;
 using chocolatey;
 using log4net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Photon.PhotonAgentCommon.Utils;
 using System;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using WUApiLib;
 
 namespace ImageBuilder
@@ -20,8 +25,11 @@ namespace ImageBuilder
         private const string DUMMY_USER_DATA = "{\"resourceArn\":\"arn:aws:appstream:us-east-1:530735016655:image-builder/custream.dev.mjs472\",\"Dummy\":\"true\"}";
         private const string DUMMY_BUILD_INFO = "{\"Packages\":[\"adobedcreader-cornell;2018.011.20055\"],\"Dummy\":\"true\"}";
 
+        private static string SYSTEM_DRIVE = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
         private static string TEMP_DIR = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "image-build");
         private static string PACKAGE_PATH = Path.Combine(TEMP_DIR, "packages");
+        private static string INSTALLED_LOCK = Path.Combine(TEMP_DIR, "INSTALLED.lock");
+        private static string UPDATED_LOCK = Path.Combine(TEMP_DIR, "UPDATED.lock");
 
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -37,6 +45,7 @@ namespace ImageBuilder
         private string build_id;
         private string build_bucket;
         private string build_branch;
+        private string image_name;
         private string bucket_uri;
         private string api_uri;
 
@@ -115,6 +124,11 @@ namespace ImageBuilder
             return result;
         }
 
+        private void RebootSystem()
+        {
+            Process.Start("shutdown.exe", "/r /f /t 300");
+        }
+
         private void ParseUserData()
         {
             this.user_data = this.CallRestService(USER_DATA_URI, "GET", null);
@@ -124,6 +138,7 @@ namespace ImageBuilder
             this.build_id = arn[5].Split('/')[1];
             this.build_bucket = $"{BUCKET_PREFIX}-{this.aws_account}-{this.aws_region}";
             this.build_branch = this.build_id.Split('.')[1];
+            this.image_name = this.build_id.Split('.')[2];
             this.bucket_uri = $"https://{this.build_bucket}.s3.amazonaws.com";
             this.api_uri = this.DownloadString($"{this.bucket_uri}/api_endpoint.txt");
 
@@ -216,6 +231,7 @@ namespace ImageBuilder
                     string package_name = package.Split(';')[0];
                     string package_version = package.Split(';')[1];
                     string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
+                    string package_log = Path.Combine(Environment.GetEnvironmentVariable("SYSTEMDRIVE"), $"{package_name}.{package_version}.log");
 
                     log.Info($"Installing {package_name}.{package_version}");
 
@@ -227,7 +243,7 @@ namespace ImageBuilder
                         c.PackageNames = package_name;
                         c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
                         c.AcceptLicense = true;
-                        //c.AdditionalLogFileLocation
+                        c.AdditionalLogFileLocation = package_log;
                     }).Run();
 
                     File.Delete(package_local);
@@ -235,6 +251,12 @@ namespace ImageBuilder
 
                     log.Info($"{package_name}.{package_version} Installed!");
                 }
+            }
+
+            using (StreamWriter s = File.CreateText(INSTALLED_LOCK))
+            {
+                s.Write("PACKAGES INSTALLED");
+                s.Close();
             }
         }
 
@@ -288,14 +310,60 @@ namespace ImageBuilder
                     log.Info($"Failed: {uc[i].Title}");
                 }
             }
+
+            using (StreamWriter s = File.CreateText(UPDATED_LOCK))
+            {
+                s.Write("WINDOWS UPDATES INSTALLED");
+                s.Close();
+            }
+        }
+
+        private void InitiateSnapshot()
+        {
+            IEC2MetadataProvider metadataProvider = (IEC2MetadataProvider)new EC2MetadataProvider();
+            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
+            Task<IAmazonPhotonAgentProxy> proxyClientAsync = metadataProvider.GetProxyClientAsync(cancellationTokenSource.Token);
+            proxyClientAsync.Wait();
+            IAmazonPhotonAgentProxy result = proxyClientAsync.Result;
+
+            CreateImageRequest request = new CreateImageRequest();
+            request.Name = this.image_name;
+            request.DisplayName = this.image_name;
+            request.Description = this.image_name;
+            request.DynamicApplicationCatalogEnabled = true;
+            request.PhotonSoftwareVersion = "LATEST";
+
+            try
+            {
+                result.CreateImage(request);
+                Console.WriteLine("Success!!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error!!");
+                Console.WriteLine(ex.ToString());
+            }
         }
 
         void App()
         {
             this.ParseUserData();
-            this.InstallPackages();
-            
-            //this.InstallUpdates();
+
+            if (!File.Exists(INSTALLED_LOCK))
+            {
+                this.InstallPackages();
+                this.RebootSystem();
+            }
+            else if (!File.Exists(UPDATED_LOCK))
+            {
+                this.InstallUpdates();
+                this.RebootSystem();
+            }
+            else
+            {
+                this.InitiateSnapshot();
+            }
         }
 
         static void Main(string[] args)
