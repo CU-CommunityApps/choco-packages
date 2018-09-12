@@ -30,6 +30,7 @@ namespace ImageBuilder
         private static string PACKAGE_PATH = Path.Combine(TEMP_DIR, "packages");
         private static string INSTALLED_LOCK = Path.Combine(TEMP_DIR, "INSTALLED.lock");
         private static string UPDATED_LOCK = Path.Combine(TEMP_DIR, "UPDATED.lock");
+        private static string SNAPSHOT_LOCK = Path.Combine(TEMP_DIR, "SNAPSHOT.lock");
 
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -337,12 +338,19 @@ namespace ImageBuilder
             try
             {
                 result.CreateImage(request);
-                Console.WriteLine("Success!!");
+
+                using (StreamWriter s = File.CreateText(SNAPSHOT_LOCK))
+                {
+                    s.Write("SNAPSHOT INITIATED");
+                    s.Close();
+                }
+
+                log.Info("Successfully initiated snapshot!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error!!");
-                Console.WriteLine(ex.ToString());
+                log.Fatal("Error initiating snapshot!");
+                log.Fatal(ex.ToString());
             }
         }
 
