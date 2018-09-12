@@ -113,12 +113,14 @@ namespace ImageBuilder
                     }
                     catch (JsonReaderException)
                     {
+                        log.Info("Using dummy user data");
                         result = JObject.Parse(DUMMY_USER_DATA);
                     }
                 }
             }
             catch (WebException)
             {
+                log.Info("Using dummy build info");
                 result = JObject.Parse(DUMMY_BUILD_INFO);
             }
 
@@ -127,6 +129,7 @@ namespace ImageBuilder
 
         private void RebootSystem()
         {
+            log.Warn("Rebooting in 5 min");
             Process.Start("shutdown.exe", "/r /f /t 300");
         }
 
@@ -247,10 +250,10 @@ namespace ImageBuilder
                         c.AdditionalLogFileLocation = package_log;
                     }).Run();
 
+                    log.Info($"{package_name}.{package_version} Installed!");
+
                     File.Delete(package_local);
                     while(!this.downloaded.TryRemove(package, out package_downloaded));
-
-                    log.Info($"{package_name}.{package_version} Installed!");
                 }
             }
 
@@ -308,9 +311,11 @@ namespace ImageBuilder
                 }
                 else
                 {
-                    log.Info($"Failed: {uc[i].Title}");
+                    log.Error($"Failed: {uc[i].Title}");
                 }
             }
+
+            log.Info("Windows Upate Completed!");
 
             using (StreamWriter s = File.CreateText(UPDATED_LOCK))
             {
@@ -368,7 +373,7 @@ namespace ImageBuilder
                 this.InstallUpdates();
                 this.RebootSystem();
             }
-            else
+            else if (!File.Exists(SNAPSHOT_LOCK))
             {
                 this.InitiateSnapshot();
             }
