@@ -20,5 +20,5 @@
   <PDMTools>
     <Teamcenter Installed="True" Configured="False" />
   </PDMTools>
-  <SpaceClaim Configured="True" Target="SCDM" Location="C:\Program Files\ANSYS Inc\v181\scdm" />
+  <SpaceClaim Configured="True" Target="SCDM" Location="C:\Program Files\ANSYS Inc\v191\scdm" />
 </ANSYS_Geometry_Configurations>
