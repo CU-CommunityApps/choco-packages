@@ -23,7 +23,7 @@ namespace ImageBuilder
         private const string CHOCO_REPO = "https://chocolatey.org/api/v2";
         private const string USER_DATA_URI = "http://169.254.169.254/latest/user-data";
         private const string DUMMY_USER_DATA = "{\"resourceArn\":\"arn:aws:appstream:us-east-1:530735016655:image-builder/custream.dev.mjs472\",\"Dummy\":\"true\"}";
-        private const string DUMMY_BUILD_INFO = "{\"Packages\":[\"adobedcreader-cornell;2018.011.20055\"],\"Dummy\":\"true\"}";
+        private const string DUMMY_BUILD_INFO = "{\"InstallUpdates\":false,\"Packages\":[\"adobedcreader-cornell;2018.011.20055\"],\"Dummy\":\"true\"}";
 
         private static string SYSTEM_DRIVE = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
         private static string TEMP_DIR = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "image-build");
@@ -40,6 +40,8 @@ namespace ImageBuilder
         private ConcurrentQueue<string> download_q = new ConcurrentQueue<string>();
         private ConcurrentDictionary<string, bool> downloaded = new ConcurrentDictionary<string, bool>();
         private ConcurrentQueue<string> install_q = new ConcurrentQueue<string>();
+
+        private bool install_updates;
 
         private string aws_region;
         private string aws_account;
@@ -111,16 +113,18 @@ namespace ImageBuilder
                     {
                         result = JObject.Parse(results);
                     }
-                    catch (JsonReaderException)
+                    catch (JsonReaderException ex)
                     {
-                        log.Info("Using dummy user data");
+                        log.Error(ex.StackTrace);
+                        log.Warn("Using dummy user data");
                         result = JObject.Parse(DUMMY_USER_DATA);
                     }
                 }
             }
-            catch (WebException)
+            catch (WebException ex)
             {
-                log.Info("Using dummy build info");
+                log.Error(ex.StackTrace);
+                log.Warn("Using dummy build info");
                 result = JObject.Parse(DUMMY_BUILD_INFO);
             }
 
@@ -148,6 +152,7 @@ namespace ImageBuilder
 
             string build_post = $"{{ \"BuildId\":\"{this.build_id}\" }}";
             this.build_info = this.CallRestService($"{this.api_uri}/image-build", "POST", build_post);
+            this.install_updates = (bool) this.build_info["InstallUpdates"];
             JArray packages = (JArray) this.build_info["Packages"];
             
             foreach (string package in packages)
@@ -368,7 +373,7 @@ namespace ImageBuilder
                 this.InstallPackages();
                 this.RebootSystem();
             }
-            else if (!File.Exists(UPDATED_LOCK))
+            else if (this.install_updates && !File.Exists(UPDATED_LOCK))
             {
                 this.InstallUpdates();
                 this.RebootSystem();

@@ -17,6 +17,15 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWS.Logger.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWS.Logger.Core.1.2.0\lib\net45\AWS.Logger.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWS.Logger.Log4net, Version=1.2.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWS.Logger.Log4net.1.2.0\lib\net45\AWS.Logger.Log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudWatchLogs, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.CloudWatchLogs.3.3.6.1\lib\net45\AWSSDK.CloudWatchLogs.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.Core.3.3.25.3\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
@@ -66,6 +75,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.CloudWatchLogs.3.3.6.1\analyzers\dotnet\cs\AWSSDK.CloudWatchLogs.CodeAnalysis.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
