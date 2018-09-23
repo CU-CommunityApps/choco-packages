@@ -19,7 +19,7 @@ namespace ImageBuilder
 {
     class Program
     {
-        private const string BUCKET_PREFIX = "image-build-package-bucket";
+        private const string BUCKET_PREFIX = "image-build";
         private const string CHOCO_REPO = "https://chocolatey.org/api/v2";
         private const string USER_DATA_URI = "http://169.254.169.254/latest/user-data";
         private const string DUMMY_USER_DATA = "{\"resourceArn\":\"arn:aws:appstream:us-east-1:530735016655:image-builder/custream.dev.mjs472\",\"Dummy\":\"true\"}";
@@ -147,7 +147,7 @@ namespace ImageBuilder
             this.api_uri = this.DownloadString($"{this.bucket_uri}/api_endpoint.txt");
 
             string build_post = $"{{ \"BuildId\":\"{this.build_id}\" }}";
-            this.build_info = this.CallRestService($"{this.api_uri}/get-build", "POST", build_post);
+            this.build_info = this.CallRestService($"{this.api_uri}/image-build", "POST", build_post);
             JArray packages = (JArray) this.build_info["Packages"];
             
             foreach (string package in packages)
@@ -235,7 +235,7 @@ namespace ImageBuilder
                     string package_name = package.Split(';')[0];
                     string package_version = package.Split(';')[1];
                     string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
-                    string package_log = Path.Combine(Environment.GetEnvironmentVariable("SYSTEMDRIVE"), $"{package_name}.{package_version}.log");
+                    string package_log = Path.Combine(SYSTEM_DRIVE, $"{package_name}.{package_version}.log");
 
                     log.Info($"Installing {package_name}.{package_version}");
 
