@@ -22,8 +22,6 @@ namespace ImageBuilder
         private const string BUCKET_PREFIX = "image-build";
         private const string CHOCO_REPO = "https://chocolatey.org/api/v2";
         private const string USER_DATA_URI = "http://169.254.169.254/latest/user-data";
-        private const string DUMMY_USER_DATA = "{\"resourceArn\":\"arn:aws:appstream:us-east-1:530735016655:image-builder/custream.dev.mjs472\",\"Dummy\":\"true\"}";
-        private const string DUMMY_BUILD_INFO = "{\"InstallUpdates\":false,\"Packages\":[\"adobedcreader-cornell;2018.011.20055\"],\"Dummy\":\"true\"}";
 
         private static string SYSTEM_DRIVE = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
         private static string TEMP_DIR = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "image-build");
@@ -96,8 +94,6 @@ namespace ImageBuilder
             req.Method = method;
             req.ContentType = "application/json";
 
-            try
-            {
                 if (body != null)
                 {
                     byte[] bytes = UTF8Encoding.UTF8.GetBytes(body);
@@ -112,25 +108,8 @@ namespace ImageBuilder
                 using (var resp = req.GetResponse())
                 {
                     var results = new StreamReader(resp.GetResponseStream()).ReadToEnd();
-
-                    try
-                    {
-                        result = JObject.Parse(results);
-                    }
-                    catch (JsonReaderException ex)
-                    {
-                        log.Error(ex.StackTrace);
-                        log.Warn("Using dummy user data");
-                        result = JObject.Parse(DUMMY_USER_DATA);
-                    }
+                    result = JObject.Parse(results);
                 }
-            }
-            catch (WebException ex)
-            {
-                log.Error(ex.StackTrace);
-                log.Warn("Using dummy build info");
-                result = JObject.Parse(DUMMY_BUILD_INFO);
-            }
 
             return result;
         }
