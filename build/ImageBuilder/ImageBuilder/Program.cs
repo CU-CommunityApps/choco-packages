@@ -135,10 +135,10 @@ namespace ImageBuilder
             this.build_branch = this.build_id.Split('.')[1];
             this.image_name = this.build_id.Split('.')[2];
             this.bucket_uri = $"https://{this.build_bucket}.s3.amazonaws.com";
-            this.api_uri = this.DownloadString($"{this.bucket_uri}/api_endpoint.txt");
+            this.api_uri = this.DownloadString($"{this.bucket_uri}/api_endpoint.txt").Trim();
 
             string build_post = $"{{ \"BuildId\":\"{this.build_id}\" }}";
-            this.build_info = this.CallRestService($"{this.api_uri}/image-build", "POST", build_post);
+            this.build_info = this.CallRestService($"{this.api_uri}/image-build", "POST", this.image_name);
             this.install_updates = (bool) this.build_info["InstallUpdates"];
             JArray packages = (JArray) this.build_info["Packages"];
             
