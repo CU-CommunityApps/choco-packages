@@ -138,7 +138,7 @@ namespace ImageBuilder
             this.api_uri = this.DownloadString($"{this.bucket_uri}/api_endpoint.txt").Trim();
 
             string build_post = $"{{ \"BuildId\":\"{this.build_id}\" }}";
-            this.build_info = this.CallRestService($"{this.api_uri}/image-build", "POST", $"{{\"BuildId\":\"{this.image_name}\"");
+            this.build_info = this.CallRestService($"{this.api_uri}/image-build", "POST", $"{{\"BuildId\":\"{this.image_name}\"}}");
             this.install_updates = (bool) this.build_info["InstallUpdates"];
             JArray packages = (JArray) this.build_info["Packages"];
             
