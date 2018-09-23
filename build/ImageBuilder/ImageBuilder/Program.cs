@@ -56,6 +56,7 @@ namespace ImageBuilder
         {
             string result;
 
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
             var req = HttpWebRequest.Create(uri);
             req.Method = "GET";
 
@@ -70,6 +71,8 @@ namespace ImageBuilder
         private void DownloadFile(string uri, string out_path)
         {
             log.Info($"Downloading: {uri} to {out_path}");
+
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
             var req = HttpWebRequest.Create(uri);
             req.Method = "GET";
 
@@ -88,6 +91,7 @@ namespace ImageBuilder
         {
             JObject result;
 
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
             var req = HttpWebRequest.Create(uri);
             req.Method = method;
             req.ContentType = "application/json";
