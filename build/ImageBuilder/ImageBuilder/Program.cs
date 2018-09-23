@@ -52,6 +52,8 @@ namespace ImageBuilder
 
         private string DownloadString(string uri)
         {
+            log.Info($"Downloading String: {uri}");
+
             string result;
 
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
@@ -87,6 +89,8 @@ namespace ImageBuilder
 
         private JObject CallRestService(string uri, string method, dynamic body)
         {
+            log.Info($"Calling Rest Service {uri} with body {body}");
+
             JObject result;
 
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
