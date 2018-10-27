@@ -579,7 +579,7 @@ Function Optimize {
             $path = $path -replace "'"
            
             # Launch each application listed in config.yml
-            Try {Start-Process "$path"; If ($? -eq $true){Write-Output "Successfully optimized $path"; Start-Sleep -Seconds 10}}
+            Try {Start-Process "$path"; If ($? -eq $true){Write-Output "Successfully optimized $path"; Start-Sleep -Seconds 60}}
             Catch {Write-Output "Failed to optimize $($CONFIG.Id) $path"}
 
         }
