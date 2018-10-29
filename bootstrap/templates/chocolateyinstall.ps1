@@ -593,7 +593,7 @@ Function Optimize {
     Start-Process $proc -ArgumentList "/openlog $procLoc\back.pml /saveas $procLoc\back.csv";Start-Sleep -Seconds 10
 
     # Only grab .exe and .dll files critical for app operation
-    $csv = import-csv "$procLoc\back.csv" | where {$_.Path -like "*.exe" -or $_.Path -like "*.dll"} | sort Path -Unique
+    $csv = import-csv "$procLoc\back.csv" | where {$_.Path -like "*.exe" -or $_.Path -like "*.dll" -or $_.Path -match "MatLab"} | sort Path -Unique
 
     # Remove headers 
     $csv | ConvertTo-Csv | select -Skip 2 | Out-File "$procLoc\PrewarmManifest.csv"
