@@ -12,7 +12,7 @@ Applications:
         DisplayName:    '7-Zip'
         Path:           '%PROGRAMFILES%\7-Zip\7zFM.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:'
 
     Chrome:
         DisplayName:    'Google Chrome'
@@ -24,7 +24,7 @@ Applications:
         DisplayName:    'Notepad++'
         Path:           '%PROGRAMFILES%\Notepad++\notepad++.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:'
 
 #     Powershell:
 #         DisplayName:    'Windows Powershell'
