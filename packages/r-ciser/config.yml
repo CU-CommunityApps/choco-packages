@@ -13,4 +13,4 @@ Applications:
         DisplayName:    'R'
         Path:           '%PROGRAMFILES%\R\R-3.5.1\bin\R.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
