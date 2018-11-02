@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'sqldeveloper'
         Path:           '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
         
 Files:
     '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
