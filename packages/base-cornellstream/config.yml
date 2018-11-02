@@ -77,8 +77,26 @@ Registry:
             IEHarden:
                 Type:   'DWORD'
                 Value:  '0'
-    HKLM:
-        Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap:
-            IEHarden:
-                Type:   'DWORD'
-                Value:  '0'
+    # HKLM:
+    #     Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap:
+    #         IEHarden:
+    #             Type:   'DWORD'
+    #             Value:  '0'
+
+    #     Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
+    #         ComponentID:
+    #             Type:   'String'
+    #             Value:  'IEHardenAdmin'
+
+    #         IsInstalled:
+    #             Type:   'DWORD'
+    #             Value:  '0'
+
+    #     Software\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}:
+    #         ComponentID:
+    #             Type:   'String'
+    #             Value:  'IEHardenUser'
+
+    #         IsInstalled:
+    #             Type:   'DWORD'
+    #             Value:  '0'
