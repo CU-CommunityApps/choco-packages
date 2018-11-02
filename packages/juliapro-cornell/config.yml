@@ -13,19 +13,19 @@ Applications:
         DisplayName:    'JuliaPro'
         Path:           '%SYSTEMDRIVE%\JuliaPro-0.6.3.1\Julia-0.6.3\bin\julia.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
 
     juno:
         DisplayName:    'Juno for JuliaPro'
         Path:           '%SYSTEMDRIVE%\JuliaPro-0.6.3.1\Juno.bat'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
         
     Jupyter:
         DisplayName:    'Jupyter'
         Path:           '%SYSTEMDRIVE%\JuliaPro-0.6.3.1\IJulia.bat'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
         
     julia:
         DisplayName:    'JuliaPro Command Prompt'
