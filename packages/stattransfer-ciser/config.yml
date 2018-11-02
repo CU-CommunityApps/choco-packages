@@ -13,4 +13,4 @@ Applications:
         DisplayName:    'StatTransfer'
         Path:           '%PROGRAMFILES%\StatTransfer13-64\st64w.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
