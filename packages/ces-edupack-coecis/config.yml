@@ -38,4 +38,4 @@ Applications:
         DisplayName:    'CES EduPack 2018'
         Path:           '%PROGRAMFILES(X86)%\CES EduPack 2018\CES.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
