@@ -5,7 +5,7 @@ Version:        '1.0.0'
 ChocoPackages:
     - '7zip'
     - 'notepadplusplus'
-    - 'googlechrome'
+#    - 'googlechrome'
 
 Applications:
     7zip:
@@ -14,10 +14,10 @@ Applications:
         LaunchParams:   ''
         WorkDir:        'Z:\'
 
-    Chrome:
-        DisplayName:    'Google Chrome'
-        Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
-        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
+    IE:
+        DisplayName:    'Internet Explorer'
+        Path:           '%PROGRAMFILES%\Internet Explorer\iexplore.exe'
+        LaunchParams:   'https://it.cornell.edu/students'
         WorkDir:        ''
     
     NotepadPP:
