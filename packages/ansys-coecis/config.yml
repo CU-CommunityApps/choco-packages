@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'ANSYS Workbench 19.1'
         Path:           '%PROGRAMFILES%\ANSYS Inc\v191\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
 
 Files: 
     '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v191\ApipUserConfig.txt'
