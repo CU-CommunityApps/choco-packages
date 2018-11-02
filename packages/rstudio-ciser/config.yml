@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'RStudio'
         Path:           '%PROGRAMFILES%\RStudio\bin\rstudio.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
 
 ChocoPackages:
     - 'miktex.install'
