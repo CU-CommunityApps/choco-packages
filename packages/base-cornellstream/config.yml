@@ -40,7 +40,7 @@ Applications:
 
     Explorer:
         DisplayName:    'File Explorer'
-        Path:           '%WINDIR%\System32\Explorer.exe'
+        Path:           '%WINDIR%\Explorer.exe'
         LaunchParams:   'Z:'
         WorkDir:        ''
 
