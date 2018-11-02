@@ -13,13 +13,13 @@ Applications:
         DisplayName:    'Wherescape Red'
         Path:           '%PROGRAMFILES(x86)%\Wherescape\med.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
 
     wherescapeadm:
         DisplayName:    'Wherescape Administrator'
         Path:           '%PROGRAMFILES(x86)%\Wherescape\adm.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'Z:\'
 
 Registry:
     HKCC:   { }
