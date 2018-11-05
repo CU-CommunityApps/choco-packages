@@ -82,6 +82,12 @@ Registry:
             WarnonZoneCrossing:
                 Type:   'DWORD'
                 Value:  '0'
+
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings:
+            Zones:
+                Type:   'DWORD'
+                Value:  '0'
+
     # HKLM:
     #     Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap:
     #         IEHarden:
