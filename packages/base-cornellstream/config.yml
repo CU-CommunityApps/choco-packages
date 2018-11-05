@@ -40,7 +40,7 @@ Applications:
 
     Explorer:
         DisplayName:    'File Explorer'
-        Path:           '%WINDIR%\Explorer.exe'
+        Path:           '%WINDIR%\explorer.exe'
         LaunchParams:   'Z:'
         WorkDir:        ''
 
@@ -75,6 +75,11 @@ Registry:
 
         Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap:
             IEHarden:
+                Type:   'DWORD'
+                Value:  '0'
+
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings:
+            WarnonZoneCrossing:
                 Type:   'DWORD'
                 Value:  '0'
     # HKLM:
