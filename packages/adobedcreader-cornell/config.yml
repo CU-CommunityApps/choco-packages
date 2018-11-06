@@ -8,7 +8,6 @@ Install:
     Arguments:  '/sall /rs / l /msi /qn /norestart UPDATE_MODE=3 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read'
     ExitCodes:  [0]
 
-
 Applications:
     AdobeReaderDC:
         DisplayName:    'Adobe Reader DC'
