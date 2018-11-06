@@ -16,6 +16,8 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
+ScheduledTasks:
+    - 'Adobe_Acrobat_Update_Task'
 
 Registry:
     HKUD:
