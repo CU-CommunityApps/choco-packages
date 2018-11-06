@@ -16,9 +16,6 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-ScheduledTasks:
-    - 'Adobe_Acrobat_Update_Task'
-
 Registry:
     HKUD:
         SOFTWARE\Adobe\Acrobat Reader\DC\AVAlert\cCheckbox:
