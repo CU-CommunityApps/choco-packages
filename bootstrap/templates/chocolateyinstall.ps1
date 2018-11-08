@@ -545,20 +545,6 @@ Function Optimize {
     $prewarm = "$env:ProgramData\Amazon\Photon\Prewarm"
     $prewarmUsers = "$env:SystemDrive\Users\ImageBuilderAdmin\Temp", "$env:SystemDrive\Users\Default\Temp"
     $packageLoc = "$env:windir\Temp\choco-bootstrap\choco-packages\packages"
-    
-    # List of applications to remove
-    $app = "Firefox"
-
-    # Get uninstall info for each possible application
-    If (gci -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall  | `
-    gp | where {$_.DisplayName -match $app}){
-
-        $install = gci -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall  | `
-        gp | where {$_.DisplayName -match $app} | select DisplayName, InstallLocation, UninstallString
-    
-        Start-Process $install.UninstallString -ArgumentList "/S" -WorkingDirectory $install.InstallLocation -WindowStyle Hidden
-
-    }
 
     # Check if procmon.exe exists
     If (!(Test-Path $proc)){Write-Output "Process Explorer missing";exit}
