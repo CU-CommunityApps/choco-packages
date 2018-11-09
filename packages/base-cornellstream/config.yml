@@ -7,6 +7,12 @@ ChocoPackages:
     - 'notepadplusplus'
 #    - 'googlechrome'
 
+Install:
+    File:       '%INSTALL_DIR%\SCEPInstall.exe'
+    FileType:   'exe'
+    Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
+    ExitCodes:  [0]
+
 Applications:
     7zip:
         DisplayName:    '7-Zip'
