@@ -92,9 +92,6 @@ elseif (-Not (Test-Path Env:CHOCO_INSTALL_COMPLETE)) {
 
     Install-Module 'PSWindowsUpdate' -Force `
     | Tee-Object -Append -FilePath $CHOCOLOG
-    
-    Add-WindowsFeature RSAT-AD-PowerShell `
-    | Tee-Object -Append -FilePath $CHOCOLOG
 
     # Install Windows Updates
     Get-WUInstall -WindowsUpdate -Install -Category 'Security Updates', 'Critical Updates' -AutoReboot -AcceptAll -Verbose `
