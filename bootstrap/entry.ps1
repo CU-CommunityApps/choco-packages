@@ -89,6 +89,9 @@ elseif (-Not (Test-Path Env:CHOCO_INSTALL_COMPLETE)) {
 
     Install-Module 'powershell-yaml' -Force `
     | Tee-Object -Append -FilePath $CHOCOLOG
+    
+    Install-Module 'activedirectory' -Force `
+    | Tee-Object -Append -FilePath $CHOCOLOG
 
     Install-Module 'PSWindowsUpdate' -Force `
     | Tee-Object -Append -FilePath $CHOCOLOG
