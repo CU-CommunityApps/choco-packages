@@ -15,14 +15,9 @@ Applications:
         LaunchParams:   '-executionpolicy bypass -file "%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\tableau.ps1"'
         WorkDir:        'Z:\'
 
-        HKCU:
-        Software\Tableau\Registration\Data:
+Registry:
+    HKCU:   
+        Software\WhereScape\MetaEditor\LicenseV7:
             email:
                 Type:   'String'
-                Value:  'jrc42@cornell.edu'
-
-        HKLM:
-        Software\Tableau\Registration\Data:
-            email:
-                Type:   'String'
-                Value:  'jrc42@cornell.edu'
+                Value:  'jrc42@cornell'
