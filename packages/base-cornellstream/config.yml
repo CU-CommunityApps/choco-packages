@@ -7,11 +7,11 @@ ChocoPackages:
     - 'notepadplusplus'
 #    - 'googlechrome'
 
-# Install:
-#     File:       '%INSTALL_DIR%\SCEPInstall.exe'
-#     FileType:   'exe'
-#     Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
-#     ExitCodes:  [0]
+Install:
+    File:       '%INSTALL_DIR%\SCEPInstall.exe'
+    FileType:   'exe'
+    Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
+    ExitCodes:  [0]
 
 Applications:
     7zip:
@@ -51,6 +51,8 @@ Files:
     '%TOOLS_DIR%\Kill_Process.ps1': '%SYSTEMDRIVE%\windows\system32\Kill_Process.ps1'
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
     
+ScheduledTasks:
+    - 'Update_SCEP'
 
 Registry:
     HKUD:
