@@ -17,7 +17,7 @@ Applications:
 
 Registry:
     HKCU:   
-        Software\WhereScape\MetaEditor\LicenseV7:
+        Software\Tableau\Registration\Data:
             email:
                 Type:   'String'
                 Value:  'jrc42@cornell'
