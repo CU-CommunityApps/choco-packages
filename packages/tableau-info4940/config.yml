@@ -5,7 +5,7 @@ Version:        '2018.1.4'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2018-1-4.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 REGISTER=1'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 REGISTER=1 ATRENABLED=1 ATRREQUESTEDDURATIONSECONDS=57600'
     ExitCodes:  [0,3010]
 
 Applications:
@@ -14,3 +14,10 @@ Applications:
         Path:           '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
         LaunchParams:   '-executionpolicy bypass -file "%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\tableau.ps1"'
         WorkDir:        'Z:\'
+
+Registry:
+    HKUD:   
+        Software\Tableau\Registration\Data:
+            email:
+                Type:   'String'
+                Value:  'jrc42@cornell'
