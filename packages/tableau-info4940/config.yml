@@ -14,3 +14,15 @@ Applications:
         Path:           '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
         LaunchParams:   '-executionpolicy bypass -file "%PROGRAMFILES%\Tableau\Tableau 2018.1\bin\scripts\tableau.ps1"'
         WorkDir:        'Z:\'
+
+        HKCU:
+        Software\Tableau\Registration\Data:
+            email:
+                Type:   'String'
+                Value:  'jrc42@cornell.edu'
+
+        HKLM:
+        Software\Tableau\Registration\Data:
+            email:
+                Type:   'String'
+                Value:  'jrc42@cornell.edu'
