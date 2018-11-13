@@ -16,7 +16,7 @@ Applications:
         WorkDir:        'Z:\'
 
 Registry:
-    HKCU:   
+    HKUD:   
         Software\Tableau\Registration\Data:
             email:
                 Type:   'String'
