@@ -1,5 +1,5 @@
 # Runs before the choco package is installed
-
+<#
 # Copy scripts folder to local machine
 #Copy-item "$env:INSTALL_DIR\scripts" -Destination "$env:ProgramFiles\Tableau\Tableau 2018.1\bin\scripts" -Recurse
 
@@ -22,3 +22,4 @@ New-ItemProperty -Path $path -Name $key -PropertyType $type -Value $value -Force
 
 # Unload hive for default user
 Start-Process -FilePath "$REG" -ArgumentList "UNLOAD HKU\DefaultUser" -NoNewWindow -Wait
+#>
