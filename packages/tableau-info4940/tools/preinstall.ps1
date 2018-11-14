@@ -1,7 +1,7 @@
 # Runs before the choco package is installed
 
 # Copy scripts folder to local machine
-Copy-item "$env:INSTALL_DIR\scripts" -Destination "$env:ProgramFiles\Tableau\Tableau 2018.1\bin\scripts" -Recurse
+#Copy-item "$env:INSTALL_DIR\scripts" -Destination "$env:ProgramFiles\Tableau\Tableau 2018.1\bin\scripts" -Recurse
 
 # Registry keys must exist prior to application installation, hence this...(dpk25)
 $REG =          [io.path]::combine($Env:SYSTEMROOT, 'System32', 'reg.exe')
