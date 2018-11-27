@@ -16,7 +16,7 @@ Applications:
         WorkDir:        'Z:\'
 
 ScheduledTasks:
-    - 'Tableau_Activate'
+    - 'Tableau_Activation'
     - 'Tableau_Registration'
     
 Registry:
