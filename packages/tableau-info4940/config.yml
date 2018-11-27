@@ -14,6 +14,9 @@ Applications:
         Path:           '%ProgramFiles%\Tableau\Tableau 2018.3\bin\tableau.exe'
         LaunchParams:   ''
         WorkDir:        'Z:\'
+        
+Files:
+    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2018.3\bin\tableau.ps1' # Scheduled Task Script
 
 ScheduledTasks:
     - 'Tableau_Activation'
