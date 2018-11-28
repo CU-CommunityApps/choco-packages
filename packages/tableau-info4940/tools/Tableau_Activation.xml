@@ -6,13 +6,13 @@
     <Description>Activate Tableau at system startup</Description>
   </RegistrationInfo>
   <Triggers>
-    <BootTrigger>
+    <LogonTrigger>
       <Enabled>true</Enabled>
-    </BootTrigger>
+    </LogonTrigger>
   </Triggers>
   <Principals>
     <Principal id="Author">
-      <UserId>S-1-5-18</UserId>
+      <GroupId>CORNELL\Domain Users</GroupId>
       <RunLevel>HighestAvailable</RunLevel>
     </Principal>
   </Principals>
@@ -38,7 +38,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>powershell.exe</Command>
-      <Arguments>-File "C:\Program Files\Tableau\Tableau 2018.3\bin\tableau.ps1" -Mode activate</Arguments>
+      <Arguments>-WindowStyle Hidden -File "C:\Program Files\Tableau\Tableau 2018.3\bin\tableau.ps1"</Arguments>
       <WorkingDirectory>C:\Windows\System32\WindowsPowerShell\v1.0</WorkingDirectory>
     </Exec>
   </Actions>
