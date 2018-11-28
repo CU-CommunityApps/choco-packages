@@ -20,7 +20,6 @@ Files:
 
 ScheduledTasks:
     - 'Tableau_Activation'
-    - 'Tableau_Registration'
     
 Registry:
     HKUD:
