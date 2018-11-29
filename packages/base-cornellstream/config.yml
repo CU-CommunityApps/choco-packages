@@ -97,3 +97,8 @@ Registry:
                 Type:   'DWORD'
                 Value:  '0'
                 
+    HKLM:
+        SYSTEM\CurrentControlSet\Control\TimeZoneInformation:
+            TimeZoneKeyName:
+                Type:   'String'
+                Value:  'Eastern Standard Time'
