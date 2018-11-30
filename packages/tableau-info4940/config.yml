@@ -11,14 +11,12 @@ Install:
 Applications:
     tableau:
         DisplayName:    'Tableau'
-        Path:           '%ProgramFiles%\Tableau\Tableau 2018.3\bin\launch.ps1'
-        LaunchParams:   ''
-        WorkDir:        'Z:\'
+        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   '-File "%ProgramFiles%\Tableau\Tableau 2018.3\bin\tableau.ps1" -ArgumentList "-Mode launch"'
+        WorkDir:        ''
         
 Files:
     '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2018.3\bin\tableau.ps1' # Scheduled Task Script
-    '%TOOLS_DIR%\logon_tasks.ps1': '%ProgramFiles%\Tableau\Tableau 2018.3\bin\logon_tasks.ps1' # Scheduled Task Script
-    '%TOOLS_DIR%\launch.ps1': '%ProgramFiles%\Tableau\Tableau 2018.3\bin\launch.ps1' # Scheduled Task Script
 
 ScheduledTasks:
     - 'Tableau_Activation'
