@@ -17,9 +17,11 @@ Applications:
         
 Files:
     '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2018.3\bin\tableau.ps1' # Scheduled Task Script
+    '%TOOLS_DIR%\logon_tasks.ps1': '%ProgramFiles%\Tableau\Tableau 2018.3\bin\logon_tasks.ps1' # Scheduled Task Script
 
 ScheduledTasks:
     - 'Tableau_Activation'
+    - 'Tableau_Prereqs'
     
 Registry:
     HKUD:
