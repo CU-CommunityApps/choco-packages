@@ -11,7 +11,7 @@ Install:
 Applications:
     ANSYSWB:
         DisplayName:    'ANSYS Workbench 19.2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v191\Framework\bin\Win64\RunWB2.exe'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v192\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        'Z:\'
 
