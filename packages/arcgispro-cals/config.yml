@@ -8,25 +8,21 @@ Install:
     Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 /qb'
     ExitCodes:  [0]
 
-Install:
     File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelpd2.msi'
     FileType:   'msi'
     Arguments:  '/qb'
     ExitCodes:  [0]
 
-Install:
     File:       '%INSTALL_DIR%\ArcGISd3\DataInteropProd3.msi'
     FileType:   'msi'
     Arguments:  '/qb'
     ExitCodes:  [0]
 
-Install:
     File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsDatad4.msi'
     FileType:   'msi'
     Arguments:  '/qb'
     ExitCodes:  [0]
 
-Install:
     File:       '%INSTALL_DIR%\ArcGISd5\ArcGIS_Pro_221_164752d5.msp'
     FileType:   'msp'
     Arguments:  '/qb'
