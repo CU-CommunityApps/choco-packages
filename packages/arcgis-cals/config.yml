@@ -24,8 +24,8 @@ Install:
     ExitCodes:  [0]
 
     File:       '%INSTALL_DIR%\arcgisd4\Support\VCREDIST\VC_redist.x64.exe'
-    FileType:   'msi'
-    Arguments:  '/qn'
+    FileType:   'exe'
+    Arguments:  '/q'
     ExitCodes:  [0]
     
     File:       '%INSTALL_DIR%\arcgisd4\setup.msi'
