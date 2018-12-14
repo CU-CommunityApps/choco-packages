@@ -1,0 +1,16 @@
+Id:             'sas-ciser'
+Description:    'sas-ciser'
+Version:        '9.4'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-quiet -responsefile "%INSTALL_DIR%\response.properties'
+    ExitCodes:  [0]
+
+Applications:
+    sas:
+        DisplayName:    'SAS'
+        Path:           '%PROGRAMFILES%\SASHome\SASFoundation\9.4\sas.exe'
+        LaunchParams:   ''
+        WorkDir:        'z:\'
