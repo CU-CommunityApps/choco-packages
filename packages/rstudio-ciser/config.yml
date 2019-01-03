@@ -1,9 +1,9 @@
 Id:             'rstudio-ciser'
 Description:    'RStudio'
-Version:        '1.1.453'
+Version:        '1.1.463'
 
 Install:
-    File:       '%INSTALL_DIR%\RStudio-1.1.453.exe'
+    File:       '%INSTALL_DIR%\RStudio-1.1.463.exe'
     FileType:   'exe'
     Arguments:  '/S'
     ExitCodes:  [0]
