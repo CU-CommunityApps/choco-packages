@@ -1,0 +1,13 @@
+Id:             'atom-ciser'
+Description:    'atom-ciser'
+Version:        '1.33.1'
+
+ChocoPackages:
+    - 'atom'
+
+Applications:
+    atom:
+        DisplayName:    'Atom'
+        Path:           '%SYSTEMDRIVE%\Users\Default\atom.exe'
+        LaunchParams:   ''
+        WorkDir:        'z:\'
