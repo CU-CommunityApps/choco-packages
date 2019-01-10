@@ -1,0 +1,23 @@
+Id:             'atlasti-cals'
+Description:    'atlasti-cals'
+Version:        '8.3.20.0'
+
+Install:
+    File:       '%INSTALL_DIR%\Atlasti_8.3.msi'
+    FileType:   'msi'
+    Arguments:  '/qb /i APPLICATIONFOLDER="%PROGRAMFILES%\My ATLAS.ti" PIDKEY="%PIDKEY%" /quiet'
+    ExitCodes:  [0]
+
+Applications:
+    atlasti:
+        DisplayName:    'Atlasti8'
+        Path:           '%PROGRAMFILES(x86)%\My ATLAS.ti\Atlasti8.exe'
+        LaunchParams:   ''
+        WorkDir:        'z:\'
+
+Registry:
+    HKUD:
+        SOFTWARE\Scientific Software\ATLAS.ti.8:
+            SendTelemetry:
+                Type:   'DWORD'
+                Value:  '00000000'
