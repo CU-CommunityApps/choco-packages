@@ -1,0 +1,13 @@
+Id:             'dnrgps-cals'
+Description:    'dnrgps-cals'
+Version:        '6.1.0.6'
+
+Applications:
+    dnrgps:
+        DisplayName:    'dnrgps'
+        Path:           '%PROGRAMFILES(x86)%\dnrgps\dnrgps.exe'
+        LaunchParams:   ''
+        WorkDir:        'z:\'
+
+Files:
+    '%INSTALL_DIR%\dnrgps': '%PROGRAMFILES(x86)%\dnrgps\dnrgps.exe'
