@@ -14,3 +14,6 @@ Applications:
         Path:           '%PROGRAMFILES%\R\R-3.5.2\bin\R.exe'
         LaunchParams:   ''
         WorkDir:        'Z:\'
+
+Files:
+    'INSTALL_DIR%\rpackages': '%PROGRAMFILES%\r\R-3.5.2\library\'
