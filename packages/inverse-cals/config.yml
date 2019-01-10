@@ -1,0 +1,15 @@
+Id:             'inverse-cals'
+Description:    'inverse-cals'
+Version:        '2.0'
+
+Applications:
+    forward:
+        DisplayName:    'forward'
+        Path:           '%PROGRAMFILES%\apps\inverse\inverse.exe'
+        LaunchParams:   ''
+        WorkDir:        'z:\'
+
+Files:
+    '%INSTALL_DIR%\inverse.exe': '%PROGRAMFILES%\apps\inverse\inverse.exe'
+
+
