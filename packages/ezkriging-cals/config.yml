@@ -1,0 +1,13 @@
+Id:             'ezkriging-cals'
+Description:    'exkriging-cals'
+Version:        '0.2'
+
+Applications:
+    ezkriging:
+        DisplayName:    'E{Z}-Kriging'
+        Path:           '%PROGRAMFILES(x86)%\apps\E{Z}-Kriging.exe'
+        LaunchParams:   ''
+        WorkDir:        'z:\'
+
+Files:
+    '%INSTALL_DIR%\E{Z}-Kriging.exe': '%PROGRAMFILES(x86)%apps\E{Z}-Kriging\E{Z}-Kriging.exe'
