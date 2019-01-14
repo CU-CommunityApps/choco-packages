@@ -16,4 +16,4 @@ Applications:
         WorkDir:        'Z:\'
 
 Files:
-    'INSTALL_DIR%\rpackages': '%PROGRAMFILES%\r\R-3.5.2\library\'
+    '%INSTALL_DIR%\rpackages': '%PROGRAMFILES%\r\R-3.5.2\library\'
