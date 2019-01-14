@@ -3,31 +3,26 @@ Description:    'arcgispro-cals'
 Version:        '2.2'
 
 Install:
-    File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro_22_163783d1.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro_22_163783d1.msi'
     FileType:   'msi'
     Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 /qb'
     ExitCodes:  [0]
 
-    File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelpd2.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelpd2.msi'
     FileType:   'msi'
     Arguments:  '/qb'
     ExitCodes:  [0]
 
-    File:       '%INSTALL_DIR%\ArcGISd3\DataInteropProd3.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd3\DataInteropProd3.msi'
     FileType:   'msi'
     Arguments:  '/qb'
     ExitCodes:  [0]
 
-    File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsDatad4.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsDatad4.msi'
     FileType:   'msi'
     Arguments:  '/qb'
     ExitCodes:  [0]
-
-    File:       '%INSTALL_DIR%\ArcGISd5\ArcGIS_Pro_221_164752d5.msp'
-    FileType:   'msp'
-    Arguments:  '/qb'
-    ExitCodes:  [0]
-    
+   
 Applications:
     arcgispro:
         DisplayName:    'ArcGISPro'
