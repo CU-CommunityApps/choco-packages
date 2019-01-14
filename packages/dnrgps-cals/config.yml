@@ -10,4 +10,4 @@ Applications:
         WorkDir:        'z:\'
 
 Files:
-    '%INSTALL_DIR%\dnrgps': '%PROGRAMFILES(x86)%\apps\dnrgps\dnrgps.exe'
+    '%INSTALL_DIR%\dnrgps':'%PROGRAMFILES(x86)%\apps\dnrgps\'
