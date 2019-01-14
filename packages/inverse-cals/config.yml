@@ -3,8 +3,8 @@ Description:    'inverse-cals'
 Version:        '2.0'
 
 Applications:
-    forward:
-        DisplayName:    'forward'
+    inverse:
+        DisplayName:    'inverse'
         Path:           '%PROGRAMFILES%\apps\inverse\inverse.exe'
         LaunchParams:   ''
         WorkDir:        'z:\'
