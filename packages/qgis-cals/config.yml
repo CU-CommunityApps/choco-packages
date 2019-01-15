@@ -1,0 +1,13 @@
+Id:             'qgis-cals'
+Description:    'qgis-cals'
+Version:        '3.4.3'
+
+ChocoPackages:
+    - 'qgis'
+
+Applications:
+    qgis:
+        DisplayName:    'qgis-bin'
+        Path:           '%SYSTEMDRIVE%\OSGeo4W64\qgis-bin.exe'
+        LaunchParams:   ''
+        WorkDir:        'z:\'
