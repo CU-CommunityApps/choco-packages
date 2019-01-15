@@ -10,6 +10,4 @@ Applications:
         WorkDir:        'z:\'
 
 Files:
-    '%INSTALL_DIR%\inverse.exe': '%PROGRAMFILES%\apps\inverse\inverse.exe'
-
-
+    '%INSTALL_DIR%\inverse.exe': '%PROGRAMFILES%\apps\inverse\'
