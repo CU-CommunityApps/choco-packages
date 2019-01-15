@@ -10,4 +10,4 @@ Applications:
         WorkDir:        'z:\'
 
 Files:
-    '%INSTALL_DIR%\corpscon': '%PROGRAMFILES%\apps\corpscon\corpscon6.exe'
+    '%INSTALL_DIR%\corpscon': '%PROGRAMFILES%\apps\corpscon\'
