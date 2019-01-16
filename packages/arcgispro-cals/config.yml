@@ -5,22 +5,22 @@ Version:        '2.2'
 Install:
   - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro_22_163783d1.msi'
     FileType:   'msi'
-    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 /qb'
+    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 /qn'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelpd2.msi'
     FileType:   'msi'
-    Arguments:  '/qb'
+    Arguments:  '/qn'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\ArcGISd3\DataInteropProd3.msi'
     FileType:   'msi'
-    Arguments:  '/qb'
+    Arguments:  '/qn'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsDatad4.msi'
     FileType:   'msi'
-    Arguments:  '/qb'
+    Arguments:  '/qn'
     ExitCodes:  [0]
    
 Applications:
