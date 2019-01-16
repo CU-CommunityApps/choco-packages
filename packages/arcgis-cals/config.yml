@@ -25,7 +25,7 @@ Install:
 
   - File:       '%INSTALL_DIR%\arcgisd4\Support\VCREDIST\VC_redist.x64.exe'
     FileType:   'exe'
-    Arguments:  '/q'
+    Arguments:  '/qn'
     ExitCodes:  [3010,0]
     
   - File:       '%INSTALL_DIR%\arcgisd4\setup.msi'
