@@ -29,6 +29,12 @@ Applications:
         
      atom:
         DisplayName:    'Atom'
-        Path:           "%SYSTEMDRIVE%\JuliaPro-1.0.2.1\app-1.32.2\atom.exe'
+        Path:           '%SYSTEMDRIVE%\JuliaPro-1.0.2.1\app-1.32.2\atom.exe'
         LaunchParams:   ''
         WorkDir:        'C:\Work'
+
+Files:
+    '%INSTALL_DIR%\ntrights.exe': '%%SYSTEMDRIVE%\JuliaPro-1.0.2.1\ntrights.exe'
+
+ScheduledTasks:
+    - 'symlink_allows'
