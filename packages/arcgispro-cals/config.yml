@@ -31,7 +31,6 @@ Applications:
         WorkDir:        'z:\'
         
 Registry:
-
     HKLM:
         SOFTWARE\ESRI\ArcGISPro\Licensing:
             SEAT_PREFERENCE:
@@ -71,4 +70,3 @@ Registry:
                 Type:   'dword'
                 Value:  '0'
                 
-                  
