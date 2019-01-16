@@ -39,7 +39,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>C:\JuliaPro-1.0.2.1\ntrights.exe</Command>
-      <Arguments>+r SeCreateSymbolicLinkPrivilege -u %GROUP_CONTROL%</Arguments>
+      <Arguments>+r SeCreateSymbolicLinkPrivilege -u %STATIC_SYSTEM_GROUP_CONTROL%</Arguments>
     </Exec>
   </Actions>
 </Task>
