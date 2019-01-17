@@ -5,7 +5,7 @@ Version:        '8.3.20.0'
 Install:
     File:       '%INSTALL_DIR%\Atlasti_8.3.msi'
     FileType:   'msi'
-    Arguments:  '/qn /i APPLICATIONFOLDER="%PROGRAMFILES%\My ATLAS.ti" PIDKEY="%PIDKEY%"'
+    Arguments:  '/qn APPLICATIONFOLDER="%PROGRAMFILES%\My ATLAS.ti" PIDKEY="%PIDKEY%"'
     ExitCodes:  [0]
 
 Applications:
