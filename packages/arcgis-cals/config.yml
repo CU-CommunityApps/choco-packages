@@ -10,17 +10,17 @@ Install:
 
   - File:       '%INSTALL_DIR%\arcgisd1\setup.msi'
     FileType:   'msi'
-    Arguments:  '/i ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 /qn'
+    Arguments:  'ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 /qn'
     ExitCodes:  [0]
     
   - File:       '%INSTALL_DIR%\arcgisd2\setup.msi'
     FileType:   'msi'
-    Arguments:  '/i /qn'
+    Arguments:  '/qn'
     ExitCodes:  [0]
  
   - File:       '%INSTALL_DIR%\arcgisd3\CSD.msi'
     FileType:   'msi'
-    Arguments:  '/i /qn'
+    Arguments:  '/qn'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\arcgisd4\Support\VCREDIST\VC_redist.x64.exe'
@@ -30,12 +30,12 @@ Install:
     
   - File:       '%INSTALL_DIR%\arcgisd4\setup.msi'
     FileType:   'msi'
-    Arguments:  '/i /qn'
+    Arguments:  '/qn'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\arcgisd6\setup.msi'
     FileType:   'msi'
-    Arguments:  '/i /qn'
+    Arguments:  '/qn'
     ExitCodes:  [0]
     
 Applications:
