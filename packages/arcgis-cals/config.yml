@@ -5,7 +5,7 @@ Version:        '10.6.1'
 Install:
   - File:       '%INSTALL_DIR%\arcgisd1\VC_redist.x86.exe'
     FileType:   'exe'
-    Arguments:  '/q'
+    Arguments:  '/install /quiet /norestart'
     ExitCodes:  [3010,0]
 
   - File:       '%INSTALL_DIR%\arcgisd1\setup.msi'
@@ -25,7 +25,7 @@ Install:
 
   - File:       '%INSTALL_DIR%\arcgisd4\Support\VCREDIST\VC_redist.x64.exe'
     FileType:   'exe'
-    Arguments:  '/q'
+    Arguments:  '/install /quiet /norestart'
     ExitCodes:  [3010,0]
     
   - File:       '%INSTALL_DIR%\arcgisd4\setup.msi'
