@@ -1,0 +1,13 @@
+Id:             'julia-cornell'
+Description:    'Julia'
+Version:        '1.0.3'
+
+ChocoPackages:
+    - 'julia'
+
+Applications:
+    julia:
+        DisplayName:    'Julia'
+        Path:           '%ALLUSERSPROFILE%\chocolatey\bin\julia.exe'
+        LaunchParams:   ''
+        WorkDir:        'C:\Work'
