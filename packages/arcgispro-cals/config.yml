@@ -25,7 +25,7 @@ Install:
    
 Applications:
     arcgispro:
-        DisplayName:    'ArcGISPro'
+        DisplayName:    'ArcGIS Pro'
         Path:           '%PROGRAMFILES%\ArcGIS\Pro\bin\ArcGISPro.exe'
         LaunchParams:   ''
         WorkDir:        'z:\'                
