@@ -3,9 +3,9 @@ Description:    'arcgispro-cals'
 Version:        '2.2'
 
 Install:
-  - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro_22_163783d1.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro.msi'
     FileType:   'msi'
-    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 /qn'
+    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE /qn'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelpd2.msi'
@@ -28,45 +28,4 @@ Applications:
         DisplayName:    'ArcGISPro'
         Path:           '%PROGRAMFILES%\ArcGIS\Pro\bin\ArcGISPro.exe'
         LaunchParams:   ''
-        WorkDir:        'z:\'
-        
-Registry:
-    HKLM:
-        SOFTWARE\ESRI\ArcGISPro\Licensing:
-            SEAT_PREFERENCE:
-                Type:   'String'
-                Value:  'Float'
-                
-            ARCPRO_AUTH_TYPE:
-                Type:   'String'
-                Value:  'STANDARD'
-                
-            SOFTWARE_TYPE:
-                Type:   'String'
-                Value:  'CLASSIC'
-                
-            AUTHORIZATION_TYPE:
-                Type:   'String'
-                Value:  'CONCURRENT_USE'      
-
-            LOCK_AUTH_SETTINGS:
-                Type:   'String'
-                Value:  'True'
-
-            LICENSE_SERVER:
-                Type:   'String'
-                Value:  '%LICENSE_SERVER%'
-                
-            SOFTWARE_CLASS_FN:
-                Type:   'String'
-                Value:  'Professional'                  
-
-        SOFTWARE\ESRI\ArcGISPro\Settings:
-            ENABLEEUEI:
-                Type:   'dword'
-                Value:  '0'
-             
-            ArcGIS_Connection:
-                Type:   'dword'
-                Value:  '0'
-                
+        WorkDir:        'z:\'                
