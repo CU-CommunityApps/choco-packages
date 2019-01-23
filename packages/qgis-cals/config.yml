@@ -10,4 +10,4 @@ Applications:
         DisplayName:    'qgis-bin'
         Path:           '%SYSTEMDRIVE%\OSGeo4W64\qgis-bin.exe'
         LaunchParams:   ''
-        WorkDir:        'z:\'
+        WorkDir:        ''
