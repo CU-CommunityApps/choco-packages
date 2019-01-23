@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'R'
         Path:           '%PROGRAMFILES%\R\R-3.5.2\bin\R.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
 Files:
     '%INSTALL_DIR%\rpackages\*':'%PROGRAMFILES%\R\R-3.5.2\library\'
