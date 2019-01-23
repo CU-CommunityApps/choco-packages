@@ -6,3 +6,7 @@ $Ar = New-Object System.Security.AccessControl.FileSystemAccessRule("Everyone", 
 
 $Acl.SetAccessRule($Ar)
 Set-Acl "C:\Work" $Acl
+
+push!(LOAD_PATH, "C:\\Work")
+empty!(DEPOT_PATH)
+push!(DEPOT_PATH, "C:\\Work")
