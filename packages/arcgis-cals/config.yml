@@ -43,5 +43,5 @@ Applications:
         DisplayName:    'ArcMap'
         Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.6\bin\ArcMap.exe'
         LaunchParams:   ''
-        WorkDir:        'z:\'
+        WorkDir:        ''
         
