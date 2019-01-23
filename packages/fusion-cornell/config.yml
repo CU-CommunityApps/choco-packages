@@ -1,6 +1,6 @@
 Id:             'fusion-cornell'
 Description:    'Autodesk Fusion 360'
-Version:        '2.0.4801'
+Version:        '2.0.5338'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
