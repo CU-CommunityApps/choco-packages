@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'Inventor 2019'
         Path:           '%PROGRAMFILES%\Autodesk\Inventor 2019\Bin\Inventor.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
 Files:
     '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2019\Preferences\AddInLoadRules.xml'
