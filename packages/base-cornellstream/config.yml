@@ -30,7 +30,7 @@ Applications:
         DisplayName:    'Notepad++'
         Path:           '%PROGRAMFILES%\Notepad++\notepad++.exe'
         LaunchParams:   ''
-        WorkDir:        '%USERPROFILE%\My Files\Temporary Files'
+        WorkDir:        'Z:'
 
     Procexp:
         DisplayName:    'Process Explorer'
@@ -41,7 +41,7 @@ Applications:
     Explorer:
         DisplayName:    'File Explorer'
         Path:           '%WINDIR%\explorer.exe'
-        LaunchParams:   '%USERPROFILE%\My Files\Temporary Files'
+        LaunchParams:   'Z:'
         WorkDir:        ''
 
 Files:
@@ -53,6 +53,7 @@ Files:
     
 ScheduledTasks:
     - 'Update_SCEP'
+    - 'temporary_files'
 
 Registry:
     HKUD:
