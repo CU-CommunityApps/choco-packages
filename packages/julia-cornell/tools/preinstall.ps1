@@ -7,7 +7,7 @@ $dir = "$env:SystemDrive\Work"
 Start-Process "$env:ALLUSERSPROFILE\chocolatey\choco.exe" -ArgumentList "install julia --confirm --install-arguments=/D=C:\ProgramData\Julia" -NoNewWindow
 
 # Julia working dir permission adjustments
-MD $dir
+MD $dir -Force
 $Acl = Get-Acl $dir
 $Ar = New-Object System.Security.AccessControl.FileSystemAccessRule("Everyone", "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow")
 $Acl.SetAccessRule($Ar)
