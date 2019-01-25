@@ -13,5 +13,5 @@ Applications:
         DisplayName:    'Autodesk Fusion 360'
         Path:           '%PROGRAMFILES%\Autodesk\webdeploy\production\6a0c9611291d45bb9226980209917c3d\FusionLauncher.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
