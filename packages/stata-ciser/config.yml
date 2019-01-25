@@ -14,7 +14,7 @@ Applications:
         DisplayName:    'Stata15'
         Path:           '%PROGRAMFILES(x86)%\Stata15\Stata-64.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
 Files: 
     '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES(x86)%\Stata15\STATA.LIC'
