@@ -325,10 +325,12 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 
             Write-Output "Copying $sourcePath to $destPath"
 
-            New-Item `
-                -Path $(Split-Path -Path "$destPath") `
-                -ItemType "Directory" `
-                -Force
+            If (!(Test-Path $destPath)){
+                New-Item `
+                    -Path $(Split-Path -Path "$destPath") `
+                    -ItemType "Directory" `
+                    -Force
+            }
 
             Copy-Item `
                 -Path "$sourcePath" `
