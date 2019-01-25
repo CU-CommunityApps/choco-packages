@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'AutoCAD 2019'
         Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2019\acad.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
