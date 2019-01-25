@@ -16,7 +16,7 @@ Applications:
         DisplayName:    'MATLAB R2018a'
         Path:           '%PROGRAMFILES%\MATLAB\R2018a\bin\matlab.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        '%USERPROFILE%\My Files\Temporary Files'
 
 Files: 
     '%TOOLS_DIR%\ncorr':            '%PUBLIC%\MATLAB'
