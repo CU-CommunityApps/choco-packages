@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'spss'
         Path:           '%PROGRAMFILES%\IBM\SPSS\Statistics\25\stats.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
         
 Registry:
     HKUD:
