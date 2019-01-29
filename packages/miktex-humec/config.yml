@@ -1,0 +1,13 @@
+Id:             'miktex-humec'
+Description:    'miktex-humec'
+Version:        '2.9.6850'
+
+ChocoPackages:
+    - 'miktex'
+
+Applications:
+    miktex:
+        DisplayName:    'miktex'
+        Path:           '%PROGRAMFILES%\MiKTeX 2.9\miktex\bin\x64\miktex-console.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
