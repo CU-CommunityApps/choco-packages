@@ -1,0 +1,17 @@
+Id:             'k2client-cornell'
+Description:    'k2client-cornell'
+Version:        '7.5.0.6'
+
+Install:
+    File:       '%INSTALL_DIR%\K2Client-x64.msi'
+    FileType:   'msi'
+    Arguments:  '-gpo -q -v PROP_HOSTNAME=keyserver.cornell.edu -v PROP_MAIDLIST=YU -v PROP_SITE=appstream'
+    ExitCodes:  [0]
+   
+Registry:
+
+    HKLM:   
+        SOFTWARE\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\logon:
+            MACHINE:
+                Type:   'String'
+                Value:  'appstream'
