@@ -1,0 +1,51 @@
+Id:             'my-package'
+Description:    'My Package Description'
+Version:        '1.0.0'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-silent --some-arg'
+    ExitCodes:  [0]
+
+ChocoPackages:
+    - 'achocopackagename'
+
+Applications:
+    MyPackage:
+        DisplayName:    'My Package As User Sees It'
+        Path:           '%PROGRAMFILES%\MyPackage\run.exe'
+        LaunchParams:   '--my-runtime-argument'
+        WorkDir:        '%SYSTEMDRIVE%\MyPackage\Working\Directory'
+
+Files:
+    MyFiles: '%PROGRAMFILES%\My\File\Destination\Dir'
+
+Environment:
+    MY_ENVIRONMENT_VARIABLE: 'My Environment Value'
+
+Services: { }
+
+ScheduledTasks:
+    - 'MyScheduledTask'
+
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:
+        SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
+            (Default):
+                Type:   'String'
+                Value:  'Applying Enhanced Security Configuration'
+
+            ComponentID:
+                Type:   'String'
+                Value:  'IEHardenAdmin'
+
+            IsInstalled:
+                Type:   'DWORD'
+                Value:  '0'
+
