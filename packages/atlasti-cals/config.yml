@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'Atlasti8'
         Path:           '%PROGRAMFILES(x86)%\My ATLAS.ti\Atlasti8.exe'
         LaunchParams:   ''
-        WorkDir:        'z:\'
+        WorkDir:        ''
 
 Registry:
     HKUD:
