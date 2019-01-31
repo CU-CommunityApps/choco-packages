@@ -1,6 +1,6 @@
 Id:             'atom-cornell'
 Description:    'atom-cornell'
-Version:        '1.33.1'
+Version:        '1.34.0'
 
 ChocoPackages:
     - 'atom'
@@ -10,4 +10,4 @@ Applications:
         DisplayName:    'Atom'
         Path:           '%SYSTEMDRIVE%\Users\Default\atom.exe'
         LaunchParams:   ''
-        WorkDir:        'z:\'
+        WorkDir:        ''
