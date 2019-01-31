@@ -1,0 +1,12 @@
+Id:             'tortoisesvn-cornell'
+Description:    'tortoisesvn-cornell'
+Version:        '1.11.1.28492'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.msi'
+    FileType:   'msi'
+    Arguments:  '/qn'
+    ExitCodes:  [0]
+
+ChocoPackages:
+    - 'tortoisesvn'
