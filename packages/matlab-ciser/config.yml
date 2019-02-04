@@ -1,0 +1,30 @@
+Id:             'matlab-ciser'
+Description:    'Matlab R2018a - CISER License'
+Version:        '9.4'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-inputFile %INSTALL_DIR%\my_installer_input.txt'
+    ExitCodes:  [0]
+
+ChocoPackages: 
+    - 'mingw'
+
+Applications:
+    MATLAB:
+        DisplayName:    'MATLAB R2018a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2018a\bin\matlab.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: 
+    '%TOOLS_DIR%\ncorr':            '%PUBLIC%\MATLAB'
+    '%TOOLS_DIR%\toolbox_cache-9.4.0-411087837-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2018A\toolbox_cache-9.4.0-411087837-win64.xml'
+    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2018A\graphicsState.bin'
+
+Environment:
+    MATLABPATH:     '%PUBLIC%\MATLAB'
+    MW_MINGW64_LOC: '%SYSTEMDRIVE%\tools\mingw64'
+
+
