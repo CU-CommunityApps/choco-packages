@@ -1,0 +1,13 @@
+Id:             'pycharm-cornell'
+Description:    'pycharm-cornell'
+Version:        '2018.3'
+
+ChocoPackages:
+    - 'pycharm-edu'
+
+Applications:
+    pycharm:
+        DisplayName:    'JetBrains PyCharm Edu 2018.3'
+        Path:           '%PROGRAMFILES (x86)%\JetBrains\PyCharm Edu 2018.3\bin\pycharm64.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
