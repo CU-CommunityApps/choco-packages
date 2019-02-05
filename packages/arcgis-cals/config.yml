@@ -44,4 +44,15 @@ Applications:
         Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.6\bin\ArcMap.exe'
         LaunchParams:   ''
         WorkDir:        ''
-        
+
+    arcglobe:
+        DisplayName:    'ArcGlobe'
+        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.6\bin\ArcGlobe.exe'
+        LaunchParams:   ''
+        WorkDir:        ''   
+
+    arcscene:
+        DisplayName:    'ArcScene'
+        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.6\bin\ArcScene.exe'
+        LaunchParams:   ''
+        WorkDir:        ''      
