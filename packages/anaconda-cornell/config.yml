@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'Anaconda'
         Path:           '%PROGRAMFILES%\Anaconda\Scripts\anaconda-navigator.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
         
 Files: 
     '%TOOLS_DIR%\anaconda-navigator.ini': '%SYSTEMDRIVE%\Users\Default\.anaconda\navigator\anaconda-navigator.ini'
