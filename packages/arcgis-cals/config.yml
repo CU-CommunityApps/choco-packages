@@ -57,7 +57,7 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''      
 
-    ArcCatalog:
+    arccatalogue:
         DisplayName:    'ArcCatalog'
         Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.6\bin\ArcCatalog.exe'
         LaunchParams:   ''
