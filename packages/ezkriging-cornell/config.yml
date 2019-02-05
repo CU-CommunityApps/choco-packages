@@ -5,7 +5,7 @@ Version:        '0.2'
 Applications:
     ezkriging:
         DisplayName:    'E{Z}-Kriging'
-        Path:           '%PROGRAMFILES(x86)%\apps\E{Z}-Kriging.exe'
+        Path:           '%PROGRAMFILES(x86)%\apps\E{Z}-Kriging\E{Z}-Kriging.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
