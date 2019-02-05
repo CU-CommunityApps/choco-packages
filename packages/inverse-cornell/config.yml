@@ -7,7 +7,7 @@ Applications:
         DisplayName:    'inverse'
         Path:           '%PROGRAMFILES%\apps\inverse\inverse.exe'
         LaunchParams:   ''
-        WorkDir:        'z:\'
+        WorkDir:        ''
 
 Files:
     '%INSTALL_DIR%\inverse.exe': '%PROGRAMFILES%\apps\inverse\inverse.exe'
