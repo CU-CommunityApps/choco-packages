@@ -7,7 +7,7 @@ ChocoPackages:
 
 Applications:
     qgis:
-        DisplayName:    'qgis'
+        DisplayName:    'qgis-bin'
         Path:           '%PROGRAMFILES%\QGIS 3.4\bin\qgis-bin.exe'
         LaunchParams:   ''
         WorkDir:        ''
