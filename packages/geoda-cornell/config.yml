@@ -18,4 +18,4 @@ Applications:
         DisplayName:    'GeoDa'
         Path:           '%PROGRAMFILES%\GeoDa Software\GeoDa.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
