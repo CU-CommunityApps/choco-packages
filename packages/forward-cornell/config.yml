@@ -7,7 +7,7 @@ Applications:
         DisplayName:    'forward'
         Path:           '%PROGRAMFILES%\apps\forward\forward.exe'
         LaunchParams:   ''
-        WorkDir:        'z:\'
+        WorkDir:        ''
 
 Files:
     '%INSTALL_DIR%\forward.exe': '%PROGRAMFILES%\apps\forward\forward.exe'
