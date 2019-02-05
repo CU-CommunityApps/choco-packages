@@ -8,6 +8,6 @@ ChocoPackages:
 Applications:
     qgis:
         DisplayName:    'qgis'
-        Path:           '%SYSTEMDRIVE%\OSGeo4W64\qgis-bin.exe'
+        Path:           '%PROGRAMFILES%\QGIS 3.4\bin\qgis-bin.exe'
         LaunchParams:   ''
         WorkDir:        ''
