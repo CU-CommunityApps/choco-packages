@@ -5,7 +5,7 @@ Version:        '7.5.0.6'
 Install:
     File:       '%INSTALL_DIR%\K2Client-x64.exe'
     FileType:   'exe'
-    Arguments:  '-gpo -q -v PROP_HOSTNAME=keyserver.cornell.edu -v PROP_MAIDLIST=YU -v PROP_SITE=appstream'
+    Arguments:  '-gpo -q -v PROP_HOSTNAME=licensing.citlabs.cornell.edu -v PROP_MAIDLIST=YU -v PROP_SITE=AppStream'
     ExitCodes:  [0]
    
 Registry:
