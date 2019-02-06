@@ -8,6 +8,6 @@ ChocoPackages:
 Applications:
     pycharm:
         DisplayName:    'JetBrains PyCharm Edu 2018.3'
-        Path:           '%PROGRAMFILES (x86)%\JetBrains\PyCharm Edu 2018.3\bin\pycharm64.exe'
+        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Edu 2018.3\bin\pycharm64.exe'
         LaunchParams:   ''
         WorkDir:        ''
