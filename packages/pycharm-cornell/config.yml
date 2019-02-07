@@ -13,4 +13,6 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\.PyCharmEdu2018.3': '%SYSTEMDRIVE%\Users\Default\.PyCharmEdu2018.3'
+    '%TOOLS_DIR%\.PyCharmEdu2018.3': '%SYSTEMDRIVE%\Users\Default\.PyCharmEdu2018.3'
+    '%TOOLS_DIR%\PyCharmProjects': '%SYSTEMDRIVE%\Users\Default\PyCharmProjects'
+    '%TOOLS_DIR%\JetBrains': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\JetBrains'
