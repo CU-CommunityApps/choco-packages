@@ -8,6 +8,9 @@ ChocoPackages:
 Applications:
     atom:
         DisplayName:    'Atom'
-        Path:           '%ALLUSERSPROFILE%\AppData\Local\atom\atom.exe'
+        Path:           '%WINDIR%\SysWOW64\config\systemprofile\AppData\Local\atom\atom.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
+Files:
+    '%TOOLS_DIR%\config.cson': '%SYSTEMDRIVE%\Users\Default\.atom\config.cson'
