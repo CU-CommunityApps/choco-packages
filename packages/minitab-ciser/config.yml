@@ -13,7 +13,7 @@ Applications:
         DisplayName:    'Minitab 18'
         Path:           '%PROGRAMFILES%\Minitab\Minitab 18\Mtb.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
 Files:
     '%INSTALL_DIR%\License.ini': '%SYSTEMDRIVE%\ProgramData\Minitab\License.ini'
