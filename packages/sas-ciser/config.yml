@@ -13,4 +13,4 @@ Applications:
         DisplayName:    'SAS'
         Path:           '%PROGRAMFILES%\SASHome\SASFoundation\9.4\sas.exe'
         LaunchParams:   ''
-        WorkDir:        'z:\'
+        WorkDir:        ''
