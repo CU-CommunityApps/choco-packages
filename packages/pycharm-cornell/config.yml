@@ -11,3 +11,6 @@ Applications:
         Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Edu 2018.3\bin\pycharm64.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files: 
+    '%INSTALL_DIR%\.PyCharmEdu2018.3': '%SYSTEMDRIVE%\Users\Default\.PyCharmEdu2018.3'
