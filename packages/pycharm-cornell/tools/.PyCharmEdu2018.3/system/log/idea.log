@@ -1,0 +1,717 @@
+2019-02-04 09:05:23,324 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2019-02-04 09:05:23,344 [     20]   INFO -        #com.intellij.idea.Main - IDE: PyCharm (build #PE-183.4588.180, 10 Dec 2018 06:23) 
+2019-02-04 09:05:23,344 [     20]   INFO -        #com.intellij.idea.Main - OS: Windows 10 (10.0, amd64) 
+2019-02-04 09:05:23,344 [     20]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_152-release-1343-b16 (JetBrains s.r.o) 
+2019-02-04 09:05:23,344 [     20]   INFO -        #com.intellij.idea.Main - JVM: 25.152-b16 (OpenJDK 64-Bit Server VM) 
+2019-02-04 09:05:23,344 [     20]   INFO -        #com.intellij.idea.Main - JVM Args: -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -Djdk.http.auth.tunneling.disabledSchemes="" -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Djb.vmOptionsFile=C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\bin\pycharm64.exe.vmoptions -Didea.platform.prefix=PyCharmEdu -Dide.native.launcher=true -Didea.paths.selector=PyCharmEdu2018.3 -XX:ErrorFile=C:\Users\cit-labs\java_error_in_pycharm_%p.log -XX:HeapDumpPath=C:\Users\cit-labs\java_error_in_pycharm.hprof 
+2019-02-04 09:05:23,344 [     20]   INFO -        #com.intellij.idea.Main - ext: C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\jre64\lib\ext: [access-bridge-64.jar, cldrdata.jar, dnsns.jar, jaccess.jar, jfxrt.jar, localedata.jar, meta-index, nashorn.jar, sunec.jar, sunjce_provider.jar, sunmscapi.jar, sunpkcs11.jar, zipfs.jar] 
+2019-02-04 09:05:23,344 [     20]   INFO -        #com.intellij.idea.Main - charsets: JNU=Cp1252 file=Cp1252 
+2019-02-04 09:05:23,374 [     50]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 30 ms 
+2019-02-04 09:05:23,384 [     60]   INFO - penapi.util.io.win32.IdeaWin32 - Native filesystem for Windows is operational 
+2019-02-04 09:05:23,458 [    134]   INFO -     #com.intellij.util.ui.JBUI - User scale factor: 1.0 
+2019-02-04 09:05:23,527 [    203]   INFO -     #com.intellij.util.ui.JBUI - System scale factor: 1.0 (JRE-managed HiDPI) 
+2019-02-04 09:05:31,534 [   8210]   INFO - m.intellij.ui.mac.touchbar.NST - OS doesn't support touchbar, skip nst loading 
+2019-02-04 09:05:34,278 [  10954]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2019-02-04 09:05:34,278 [  10954]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2019-02-04 09:05:52,323 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2019-02-04 09:05:52,343 [     20]   INFO -        #com.intellij.idea.Main - IDE: PyCharm (build #PE-183.4588.180, 10 Dec 2018 06:52) 
+2019-02-04 09:05:52,343 [     20]   INFO -        #com.intellij.idea.Main - OS: Windows 10 (10.0, amd64) 
+2019-02-04 09:05:52,343 [     20]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_152-release-1343-b16 (JetBrains s.r.o) 
+2019-02-04 09:05:52,343 [     20]   INFO -        #com.intellij.idea.Main - JVM: 25.152-b16 (OpenJDK 64-Bit Server VM) 
+2019-02-04 09:05:52,353 [     30]   INFO -        #com.intellij.idea.Main - JVM Args: -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -Djdk.http.auth.tunneling.disabledSchemes="" -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Djb.vmOptionsFile=C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\bin\pycharm64.exe.vmoptions -Didea.platform.prefix=PyCharmEdu -Dide.native.launcher=true -Didea.paths.selector=PyCharmEdu2018.3 -XX:ErrorFile=C:\Users\cit-labs\java_error_in_pycharm_%p.log -XX:HeapDumpPath=C:\Users\cit-labs\java_error_in_pycharm.hprof 
+2019-02-04 09:05:52,353 [     30]   INFO -        #com.intellij.idea.Main - ext: C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\jre64\lib\ext: [access-bridge-64.jar, cldrdata.jar, dnsns.jar, jaccess.jar, jfxrt.jar, localedata.jar, meta-index, nashorn.jar, sunec.jar, sunjce_provider.jar, sunmscapi.jar, sunpkcs11.jar, zipfs.jar] 
+2019-02-04 09:05:52,353 [     30]   INFO -        #com.intellij.idea.Main - charsets: JNU=Cp1252 file=Cp1252 
+2019-02-04 09:05:52,383 [     60]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 30 ms 
+2019-02-04 09:05:52,383 [     60]   INFO - penapi.util.io.win32.IdeaWin32 - Native filesystem for Windows is operational 
+2019-02-04 09:05:52,473 [    150]   INFO -     #com.intellij.util.ui.JBUI - User scale factor: 1.0 
+2019-02-04 09:05:53,097 [    774]   INFO - m.intellij.ui.mac.touchbar.NST - OS doesn't support touchbar, skip nst loading 
+2019-02-04 09:05:53,439 [   1116]   INFO -     #com.intellij.util.ui.JBUI - System scale factor: 1.0 (JRE-managed HiDPI) 
+2019-02-04 09:05:56,656 [   4333]   INFO - .intellij.idea.IdeaApplication - CPU cores: 8; ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@4c4b2269[Running, parallelism = 7, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]; factory: com.intellij.concurrency.IdeaForkJoinWorkerThreadFactory@6411a99a 
+2019-02-04 09:05:57,166 [   4843]   INFO - llij.ide.plugins.PluginManager - 9 plugins initialized in 400 ms 
+2019-02-04 09:05:57,166 [   4843]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: EduTools (2.2-2018.3-1082), Git Integration (8.1), GitHub (183.4588.180), IDEA CORE (183.4588.180), IPython Notebook (0.1), Mercurial Integration (10.0), Python Terminal (VERSION), Subversion Integration (1.1), Terminal (0.1) 
+2019-02-04 09:05:57,443 [   5120]   INFO - ellij.vfs.persistent.FSRecords - Marking VFS as corrupted: 'C:\Users\cit-labs\.PyCharmEdu2018.3\system\caches\names.dat' does not exist 
+2019-02-04 09:05:57,443 [   5120]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=705 
+2019-02-04 09:05:57,483 [   5160]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\bin\fsnotifier64.exe 
+2019-02-04 09:05:57,523 [   5200]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2019-02-04 09:05:57,823 [   5500]   INFO - .history.utils.LocalHistoryLog - local history version mismatch (was: 0, expected: 6), rebuilding... 
+2019-02-04 09:05:57,823 [   5500]   INFO - .history.utils.LocalHistoryLog - FS has been rebuild, rebuilding local history... 
+2019-02-04 09:05:58,156 [   5833]   INFO - j.ide.ui.OptionsTopHitProvider - 70 ms spent to cache options in application 
+2019-02-04 09:05:58,156 [   5833]   INFO - .openapi.application.Preloader - com.intellij.ide.ui.OptionsTopHitProvider$Activity took 72 ms 
+2019-02-04 09:05:58,185 [   5862]   INFO - til.net.ssl.CertificateManager - Default SSL context initialized 
+2019-02-04 09:05:58,199 [   5876]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2019-02-04 09:05:58,234 [   5911]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2019-02-04 09:05:58,361 [   6038]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:85, number of extensions:18 
+2019-02-04 09:05:58,361 [   6038]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:2 
+2019-02-04 09:05:58,424 [   6101]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:54, number of extensions:9 
+2019-02-04 09:05:58,425 [   6102]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:0 
+2019-02-04 09:05:58,700 [   6377]   INFO - ndex.PrebuiltIndexProviderBase - Using prebuilt id-index from C:\Users\cit-labs\.PyCharmEdu2018.3\system\index\.persistent\prebuilt\Python\id-index.input 
+2019-02-04 09:05:58,726 [   6403]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=12, fontScale=1.0; restored: fontSize=12, fontScale=1.0 
+2019-02-04 09:05:58,823 [   6500]   INFO -            PyTestLegacyInterop - Disabling com.jetbrains.python.testing.unittestLegacy.PythonUnitTestConfigurationProducer@52a405c2 
+2019-02-04 09:05:58,824 [   6501]   INFO -            PyTestLegacyInterop - Disabling com.jetbrains.python.testing.pytestLegacy.PyTestConfigurationProducer@4dfa2b33 
+2019-02-04 09:05:58,824 [   6501]   INFO -            PyTestLegacyInterop - Disabling com.jetbrains.python.testing.nosetestLegacy.PythonNoseTestConfigurationProducer@2b500a8d 
+2019-02-04 09:05:58,824 [   6501]   INFO - plication.impl.ApplicationImpl - 73 application components initialized in 2058ms 
+2019-02-04 09:05:58,855 [   6532]   INFO - ij.psi.stubs.StubUpdatingIndex - Following new file types will be indexed:XML,HTML,PythonStub,Python 
+2019-02-04 09:05:59,032 [   6709]   INFO - pl$FileIndexDataInitialization - Initialization done:669 
+2019-02-04 09:05:59,107 [   6784]   INFO - exImpl$StubIndexInitialization - Initialization done:71 
+2019-02-04 09:05:59,308 [   6985]   INFO - .openapi.application.Preloader - com.intellij.openapi.actionSystem.impl.ActionPreloader took 1148 ms 
+2019-02-04 09:05:59,378 [   7055]   INFO - .openapi.application.Preloader - com.intellij.ide.ui.search.SearchableOptionPreloader took 73 ms 
+2019-02-04 09:05:59,479 [   7156]   INFO - .openapi.application.Preloader - com.intellij.codeInsight.completion.CompletionPreloader took 94 ms 
+2019-02-04 09:05:59,481 [   7158]   INFO - .openapi.application.Preloader - com.intellij.ide.actions.GotoClassPresentationUpdater took 1 ms 
+2019-02-04 09:06:02,899 [  10576]   INFO - .intellij.idea.IdeaApplication - App initialization took 11037 ms 
+2019-02-04 09:06:03,426 [  11103]   INFO - j.ide.ui.OptionsTopHitProvider - 287 ms spent on EDT to cache options in application 
+2019-02-04 09:06:05,642 [  13319]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2019-02-04 09:06:05,642 [  13319]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2019-02-04 09:06:05,642 [  13319]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2019-02-04 09:06:05,652 [  13329]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2019-02-04 09:06:05,662 [  13339]  ERROR - api.util.objectTree.ObjectNode - Sorry but parent: Application is being disposed so the child: com.intellij.openapi.vfs.newvfs.RefreshQueueImpl@6ddd1e58 will never be disposed 
+com.intellij.util.IncorrectOperationException: Sorry but parent: Application is being disposed so the child: com.intellij.openapi.vfs.newvfs.RefreshQueueImpl@6ddd1e58 will never be disposed
+	at com.intellij.openapi.util.objectTree.ObjectTree.register(ObjectTree.java:79)
+	at com.intellij.openapi.util.Disposer.register(Disposer.java:97)
+	at com.intellij.openapi.util.Disposer.register(Disposer.java:93)
+	at com.intellij.openapi.components.impl.ServiceManagerImpl$MyComponentAdapter.getComponentInstance(ServiceManagerImpl.java:212)
+	at com.intellij.util.pico.DefaultPicoContainer.getLocalInstance(DefaultPicoContainer.java:246)
+	at com.intellij.util.pico.DefaultPicoContainer.getComponentInstance(DefaultPicoContainer.java:213)
+	at com.intellij.openapi.components.ServiceManager.doGetService(ServiceManager.java:52)
+	at com.intellij.openapi.components.ServiceManager.getService(ServiceManager.java:26)
+	at com.intellij.openapi.vfs.newvfs.RefreshQueue.getInstance(RefreshQueue.java:32)
+	at com.intellij.ide.SaveAndSyncHandlerImpl.dispose(SaveAndSyncHandlerImpl.java:111)
+	at com.intellij.openapi.util.Disposer$1.execute(Disposer.java:48)
+	at com.intellij.openapi.util.Disposer$1.execute(Disposer.java:44)
+	at com.intellij.openapi.util.objectTree.ObjectNode$1.execute(ObjectNode.java:138)
+	at com.intellij.openapi.util.objectTree.ObjectNode$1.execute(ObjectNode.java:107)
+	at com.intellij.openapi.util.objectTree.ObjectTree.executeActionWithRecursiveGuard(ObjectTree.java:182)
+	at com.intellij.openapi.util.objectTree.ObjectNode.execute(ObjectNode.java:107)
+	at com.intellij.openapi.util.objectTree.ObjectNode$1.execute(ObjectNode.java:126)
+	at com.intellij.openapi.util.objectTree.ObjectNode$1.execute(ObjectNode.java:107)
+	at com.intellij.openapi.util.objectTree.ObjectTree.executeActionWithRecursiveGuard(ObjectTree.java:182)
+	at com.intellij.openapi.util.objectTree.ObjectNode.execute(ObjectNode.java:107)
+	at com.intellij.openapi.util.objectTree.ObjectTree.executeAll(ObjectTree.java:151)
+	at com.intellij.openapi.util.Disposer.dispose(Disposer.java:129)
+	at com.intellij.openapi.util.Disposer.dispose(Disposer.java:125)
+	at com.intellij.openapi.application.impl.ApplicationImpl.lambda$disposeSelf$7(ApplicationImpl.java:253)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runWriteAction(ApplicationImpl.java:1057)
+	at com.intellij.openapi.application.impl.ApplicationImpl.disposeSelf(ApplicationImpl.java:253)
+	at com.intellij.openapi.application.impl.ApplicationImpl.doExit(ApplicationImpl.java:818)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:788)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:777)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:773)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:740)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:735)
+	at com.intellij.openapi.wm.impl.welcomeScreen.WelcomeFrame$3.windowClosing(WelcomeFrame.java:111)
+	at java.awt.Window.processWindowEvent(Window.java:2054)
+	at javax.swing.JFrame.processWindowEvent(JFrame.java:305)
+	at java.awt.Window.processEvent(Window.java:2013)
+	at java.awt.Component.dispatchEventImpl(Component.java:4903)
+	at java.awt.Container.dispatchEventImpl(Container.java:2295)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4725)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:764)
+	at java.awt.EventQueue.access$500(EventQueue.java:98)
+	at java.awt.EventQueue$3.run(EventQueue.java:715)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:737)
+	at java.awt.EventQueue$4.run(EventQueue.java:735)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:734)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.java:719)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.java:668)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:363)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-02-04 09:06:05,662 [  13339]  ERROR - api.util.objectTree.ObjectNode - PyCharm 2018.3  Build #PE-183.4588.180 
+2019-02-04 09:06:05,662 [  13339]  ERROR - api.util.objectTree.ObjectNode - JDK: 1.8.0_152-release; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o 
+2019-02-04 09:06:05,662 [  13339]  ERROR - api.util.objectTree.ObjectNode - OS: Windows 10 
+2019-02-04 09:06:05,662 [  13339]  ERROR - api.util.objectTree.ObjectNode - Last Action:  
+2019-02-04 09:06:05,662 [  13339]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2019-02-04 09:06:05,672 [  13349]   INFO - Types.impl.FileTypeManagerImpl - FileTypeManager: 0 auto-detected files
+Elapsed time on auto-detect: 0 ms 
+2019-02-04 09:06:05,672 [  13349]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2019-02-04 09:06:05,672 [  13349]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2019-02-04 09:06:05,722 [  13399]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2019-02-04 09:06:05,722 [  13399]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2019-02-04 09:06:05,722 [  13399]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2019-02-04 09:15:36,385 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2019-02-04 09:15:36,405 [     20]   INFO -        #com.intellij.idea.Main - IDE: PyCharm (build #PE-183.4588.180, 10 Dec 2018 06:36) 
+2019-02-04 09:15:36,405 [     20]   INFO -        #com.intellij.idea.Main - OS: Windows 10 (10.0, amd64) 
+2019-02-04 09:15:36,405 [     20]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_152-release-1343-b16 (JetBrains s.r.o) 
+2019-02-04 09:15:36,405 [     20]   INFO -        #com.intellij.idea.Main - JVM: 25.152-b16 (OpenJDK 64-Bit Server VM) 
+2019-02-04 09:15:36,405 [     20]   INFO -        #com.intellij.idea.Main - JVM Args: -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -Djdk.http.auth.tunneling.disabledSchemes="" -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Djb.vmOptionsFile=C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\bin\pycharm64.exe.vmoptions -Didea.platform.prefix=PyCharmEdu -Dide.native.launcher=true -Didea.paths.selector=PyCharmEdu2018.3 -XX:ErrorFile=C:\Users\cit-labs\java_error_in_pycharm_%p.log -XX:HeapDumpPath=C:\Users\cit-labs\java_error_in_pycharm.hprof 
+2019-02-04 09:15:36,405 [     20]   INFO -        #com.intellij.idea.Main - ext: C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\jre64\lib\ext: [access-bridge-64.jar, cldrdata.jar, dnsns.jar, jaccess.jar, jfxrt.jar, localedata.jar, meta-index, nashorn.jar, sunec.jar, sunjce_provider.jar, sunmscapi.jar, sunpkcs11.jar, zipfs.jar] 
+2019-02-04 09:15:36,405 [     20]   INFO -        #com.intellij.idea.Main - charsets: JNU=Cp1252 file=Cp1252 
+2019-02-04 09:15:36,445 [     60]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 40 ms 
+2019-02-04 09:15:36,445 [     60]   INFO - penapi.util.io.win32.IdeaWin32 - Native filesystem for Windows is operational 
+2019-02-04 09:15:36,525 [    140]   INFO -     #com.intellij.util.ui.JBUI - User scale factor: 1.0 
+2019-02-04 09:15:36,938 [    553]   INFO - .intellij.idea.IdeaApplication - CPU cores: 8; ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@3ca2958c[Running, parallelism = 7, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]; factory: com.intellij.concurrency.IdeaForkJoinWorkerThreadFactory@48d948d6 
+2019-02-04 09:15:36,978 [    593]   INFO -     #com.intellij.util.ui.JBUI - System scale factor: 1.0 (JRE-managed HiDPI) 
+2019-02-04 09:15:37,541 [   1156]   INFO - llij.ide.plugins.PluginManager - 9 plugins initialized in 413 ms 
+2019-02-04 09:15:37,541 [   1156]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: EduTools (2.2-2018.3-1082), Git Integration (8.1), GitHub (183.4588.180), IDEA CORE (183.4588.180), IPython Notebook (0.1), Mercurial Integration (10.0), Python Terminal (VERSION), Subversion Integration (1.1), Terminal (0.1) 
+2019-02-04 09:15:37,828 [   1443]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=705 
+2019-02-04 09:15:37,858 [   1473]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\bin\fsnotifier64.exe 
+2019-02-04 09:15:37,868 [   1483]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2019-02-04 09:15:38,028 [   1643]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=12, fontScale=0.0; restored: fontSize=12, fontScale=1.0 
+2019-02-04 09:15:38,489 [   2104]   INFO - j.ide.ui.OptionsTopHitProvider - 80 ms spent to cache options in application 
+2019-02-04 09:15:38,489 [   2104]   INFO - .openapi.application.Preloader - com.intellij.ide.ui.OptionsTopHitProvider$Activity took 78 ms 
+2019-02-04 09:15:38,525 [   2140]   INFO - til.net.ssl.CertificateManager - Default SSL context initialized 
+2019-02-04 09:15:38,539 [   2154]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2019-02-04 09:15:38,572 [   2187]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2019-02-04 09:15:38,633 [   2248]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:16, number of extensions:18 
+2019-02-04 09:15:38,636 [   2251]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:2 
+2019-02-04 09:15:38,646 [   2261]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:3, number of extensions:9 
+2019-02-04 09:15:38,646 [   2261]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:0 
+2019-02-04 09:15:38,694 [   2309]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=12, fontScale=1.0; restored: fontSize=12, fontScale=1.0 
+2019-02-04 09:15:38,786 [   2401]   INFO -            PyTestLegacyInterop - Disabling com.jetbrains.python.testing.unittestLegacy.PythonUnitTestConfigurationProducer@6addef1d 
+2019-02-04 09:15:38,786 [   2401]   INFO -            PyTestLegacyInterop - Disabling com.jetbrains.python.testing.pytestLegacy.PyTestConfigurationProducer@59bd267c 
+2019-02-04 09:15:38,786 [   2401]   INFO -            PyTestLegacyInterop - Disabling com.jetbrains.python.testing.nosetestLegacy.PythonNoseTestConfigurationProducer@58ac1dbe 
+2019-02-04 09:15:38,786 [   2401]   INFO - plication.impl.ApplicationImpl - 73 application components initialized in 1658ms 
+2019-02-04 09:15:38,806 [   2421]   INFO - .intellij.idea.IdeaApplication - App initialization took 2852 ms 
+2019-02-04 09:15:38,855 [   2470]   INFO - ndex.PrebuiltIndexProviderBase - Using prebuilt id-index from C:\Users\cit-labs\.PyCharmEdu2018.3\system\index\.persistent\prebuilt\Python\id-index.input 
+2019-02-04 09:15:39,021 [   2636]   INFO - pl$FileIndexDataInitialization - Initialization done:386 
+2019-02-04 09:15:39,031 [   2646]   INFO - exImpl$StubIndexInitialization - Initialization done:10 
+2019-02-04 09:15:39,219 [   2834]   INFO - m.intellij.ui.mac.touchbar.NST - OS doesn't support touchbar, skip nst loading 
+2019-02-04 09:15:39,580 [   3195]   INFO - j.ide.ui.OptionsTopHitProvider - 294 ms spent on EDT to cache options in application 
+2019-02-04 09:15:39,850 [   3465]   INFO - .openapi.application.Preloader - com.intellij.openapi.actionSystem.impl.ActionPreloader took 1363 ms 
+2019-02-04 09:15:39,941 [   3556]   INFO - .openapi.application.Preloader - com.intellij.ide.ui.search.SearchableOptionPreloader took 93 ms 
+2019-02-04 09:15:40,041 [   3656]   INFO - .openapi.application.Preloader - com.intellij.codeInsight.completion.CompletionPreloader took 94 ms 
+2019-02-04 09:15:40,041 [   3656]   INFO - .openapi.application.Preloader - com.intellij.ide.actions.GotoClassPresentationUpdater took 2 ms 
+2019-02-04 09:15:42,581 [   6196]   INFO - ellij.project.impl.ProjectImpl - 15 project components initialized in 123 ms 
+2019-02-04 09:15:43,097 [   6712]   WARN - til.ui.update.LazyUiDisposable - use application as a parent disposable 
+2019-02-04 09:16:31,083 [  54698]   INFO - ellij.project.impl.ProjectImpl - 89 project components initialized in 210 ms 
+2019-02-04 09:16:31,083 [  54698]   INFO - le.impl.ModuleManagerComponent - 0 module(s) loaded in 0 ms 
+2019-02-04 09:16:31,243 [  54858]   WARN - rationStore.ComponentStoreImpl - Cannot find virtual file null 
+2019-02-04 09:16:31,319 [  54934]   INFO - j.ide.script.IdeStartupScripts - 0 startup script(s) found 
+2019-02-04 09:16:31,459 [  55074]   INFO - rojectCodeStyleSettingsManager - Initialized from default code style settings. 
+2019-02-04 09:16:31,759 [  55374]   INFO - .diagnostic.PerformanceWatcher - Post-startup activities under progress took 50ms; general responsiveness: ok; EDT responsiveness: ok 
+2019-02-04 09:16:31,769 [  55384]   INFO - .diagnostic.PerformanceWatcher - Pushing Python language level to 0 roots in 0 SDKs took 0ms; general responsiveness: ok; EDT responsiveness: ok 
+2019-02-04 09:16:31,899 [  55514]   INFO - .diagnostic.PerformanceWatcher - Pushing properties took 20ms; general responsiveness: ok; EDT responsiveness: ok 
+2019-02-04 09:16:31,929 [  55544]   INFO - packaging.PyPackageManagerImpl - Running packaging tool: c:\Program Files\Anaconda\python.exe C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\helpers\packaging_tool.py pyvenv C:\Users\cit-labs\PycharmProjects\untitled\venv 
+2019-02-04 09:16:31,959 [  55574]   INFO - .diagnostic.PerformanceWatcher - Indexable file iteration took 60ms; general responsiveness: ok; EDT responsiveness: ok 
+2019-02-04 09:16:31,959 [  55574]   INFO - indexing.UnindexedFilesUpdater - Unindexed files update started: 210 files to update 
+2019-02-04 09:16:32,480 [  56095]   INFO - .diagnostic.PerformanceWatcher - Unindexed files update took 521ms; general responsiveness: ok; EDT responsiveness: ok 
+2019-02-04 09:16:32,540 [  56155]   INFO - j.ide.ui.OptionsTopHitProvider - 50 ms spent to cache options in project 
+2019-02-04 09:16:32,660 [  56275]   INFO - j.ide.ui.OptionsTopHitProvider - 80 ms spent on EDT to cache options in project 
+2019-02-04 09:16:32,670 [  56285]   INFO - j.ide.plugins.RepositoryHelper - using cached plugin list (updated at 2/4/2019 9:05 AM) 
+2019-02-04 09:16:35,105 [  58720]   INFO - g.FileBasedIndexProjectHandler - Reindexing refreshed files: 6 to update, calculated in 0ms 
+2019-02-04 09:16:35,125 [  58740]   INFO - .diagnostic.PerformanceWatcher - Reindexing refreshed files took 20ms; general responsiveness: ok; EDT responsiveness: ok 
+2019-02-04 09:16:35,135 [  58750]   INFO - packaging.PyPackageManagerImpl - Running packaging tool: C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\helpers\packaging_tool.py list 
+2019-02-04 09:16:35,215 [  58830]   INFO - packaging.PyPackageManagerImpl - Error: Python packaging tool 'setuptools' not found
+
+Exit code 3 
+2019-02-04 09:16:35,215 [  58830]   INFO - packaging.PyPackageManagerImpl - Running packaging tool: C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\helpers\packaging_tool.py untar C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\helpers\setuptools-39.1.0.tar.gz 
+2019-02-04 09:16:36,658 [  60273]   INFO - packaging.PyPackageManagerImpl - Running packaging tool: C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe C:\Users\cit-labs\AppData\Local\Temp\tmpu3dtx4dqpycharm-management\setuptools-39.1.0\setup.py install 
+2019-02-04 09:16:38,881 [  62496]   INFO - packaging.PyPackageManagerImpl - Running packaging tool: C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\helpers\packaging_tool.py untar C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\helpers\pip-10.0.1.tar.gz 
+2019-02-04 09:16:41,017 [  64632]   INFO - packaging.PyPackageManagerImpl - Running packaging tool: C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe C:\Users\cit-labs\AppData\Local\Temp\tmp6cxj087fpycharm-management\pip-10.0.1\setup.py install 
+2019-02-04 09:16:46,025 [  69640]   INFO - ns.python.sdk.PythonSdkUpdater - Updating sys.path took 70 ms 
+2019-02-04 09:16:46,025 [  69640]   INFO - ns.python.sdk.PythonSdkUpdater - Bogus sys.path entry C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python36.zip 
+2019-02-04 09:16:46,075 [  69690]   INFO - ns.python.sdk.PythonSdkUpdater - Binary skeletons directory for SDK Python 3.6 (untitled) (C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe)): C:/Users/cit-labs/.PyCharmEdu2018.3/system/python_stubs/1841820039 
+2019-02-04 09:16:46,075 [  69690]   INFO - ns.python.sdk.PythonSdkUpdater - User skeletons directory for SDK Python 3.6 (untitled) (C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe)): C:/Program Files (x86)/JetBrains/PyCharm Edu 2018.3/helpers/python-skeletons 
+2019-02-04 09:16:46,125 [  69740]   INFO - pl.ProjectRootManagerComponent - project roots have changed 
+2019-02-04 09:16:46,136 [  69751]   INFO - pl.ProjectRootManagerComponent - project roots have changed 
+2019-02-04 09:16:46,145 [  69760]   INFO - pl.ProjectRootManagerComponent - project roots have changed 
+2019-02-04 09:16:46,148 [  69763]   INFO - tartup.impl.StartupManagerImpl - C:/Users/cit-labs/PycharmProjects/untitled/.idea case-sensitivity: expected=false actual=false 
+2019-02-04 09:16:46,154 [  69769]   INFO - pl.projectlevelman.NewMappings - VCS Root: [] - [<Project>] 
+2019-02-04 09:16:46,178 [  69793]   INFO - ns.python.sdk.PythonSdkUpdater - Performing background update of skeletons for SDK Python 3.6 (untitled) (C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe) 
+2019-02-04 09:16:46,178 [  69793]   INFO - .skeletons.PySkeletonRefresher - Refreshing skeletons for C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe 
+2019-02-04 09:16:46,198 [  69813]   INFO - tor.impl.FileEditorManagerImpl - Project opening took 15425 ms 
+2019-02-04 09:16:46,218 [  69833]   INFO - .intellij.util.EnvironmentUtil - shell environment loaded (78 vars) 
+2019-02-04 09:16:46,328 [  69943]   INFO - g.FileBasedIndexProjectHandler - Reindexing refreshed files: 298 to update, calculated in 140ms 
+2019-02-04 09:16:46,448 [  70063]   INFO - ndex.PrebuiltIndexProviderBase - Using prebuilt sdk-stubs from C:\Users\cit-labs\.PyCharmEdu2018.3\system\index\.persistent\prebuilt\Python\sdk-stubs.input 
+2019-02-04 09:16:47,218 [  70833]   INFO - .diagnostic.PerformanceWatcher - Reindexing refreshed files took 890ms; general responsiveness: ok; EDT responsiveness: ok 
+2019-02-04 09:16:48,988 [  72603]   INFO - .skeletons.PySkeletonGenerator - Retrieving binary module list took 2810 ms 
+2019-02-04 09:16:48,988 [  72603]   INFO - tPregeneratedSkeletonsProvider - Home path is C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3 
+2019-02-04 09:16:48,988 [  72603]   INFO - tPregeneratedSkeletonsProvider - Pregenerated skeletons root is C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\skeletons 
+2019-02-04 09:16:48,988 [  72603]   INFO - tPregeneratedSkeletonsProvider - Found pre-generated skeletons at C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\skeletons\skeletons-win-402-python-3.6.6.zip 
+2019-02-04 09:16:49,682 [  73297]   INFO - .diagnostic.PerformanceWatcher - Pushing Python language level to 9 roots in 1 SDKs took 2464ms; general responsiveness: ok; EDT responsiveness: ok 
+2019-02-04 09:16:49,682 [  73297]   INFO - .diagnostic.PerformanceWatcher - Pushing properties took 0ms; general responsiveness: ok; EDT responsiveness: ok 
+2019-02-04 09:16:49,868 [  73483]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._asyncio 
+2019-02-04 09:16:50,478 [  74093]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._bz2 
+2019-02-04 09:16:50,638 [  74253]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._ctypes 
+2019-02-04 09:16:50,808 [  74423]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._ctypes_test 
+2019-02-04 09:16:50,955 [  74570]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._decimal 
+2019-02-04 09:16:51,175 [  74790]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._distutils_findvs 
+2019-02-04 09:16:51,325 [  74940]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._elementtree 
+2019-02-04 09:16:51,498 [  75113]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._hashlib 
+2019-02-04 09:16:51,678 [  75293]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._lzma 
+2019-02-04 09:16:51,828 [  75443]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._msi 
+2019-02-04 09:16:52,020 [  75635]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._multiprocessing 
+2019-02-04 09:16:52,190 [  75805]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._overlapped 
+2019-02-04 09:16:52,390 [  76005]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._socket 
+2019-02-04 09:16:52,574 [  76189]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._sqlite3 
+2019-02-04 09:16:52,904 [  76519]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._ssl 
+2019-02-04 09:16:53,131 [  76746]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._testbuffer 
+2019-02-04 09:16:53,341 [  76956]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._testcapi 
+2019-02-04 09:16:53,511 [  77126]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._testconsole 
+2019-02-04 09:16:53,704 [  77319]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._testimportmultiple 
+2019-02-04 09:16:53,864 [  77479]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._testmultiphase 
+2019-02-04 09:16:54,024 [  77639]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts._tkinter 
+2019-02-04 09:16:54,238 [  77853]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts.pyexpat 
+2019-02-04 09:16:54,398 [  78013]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts.select 
+2019-02-04 09:16:54,548 [  78163]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts.unicodedata 
+2019-02-04 09:16:54,721 [  78336]   INFO - .skeletons.PySkeletonRefresher - Skeleton for Scripts.winsound 
+2019-02-04 09:16:54,901 [  78516]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._asyncio 
+2019-02-04 09:16:55,051 [  78666]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._asyncio failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._asyncio' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:55,051 [  78666]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._bz2 
+2019-02-04 09:16:55,208 [  78823]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._bz2 failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._bz2' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:55,208 [  78823]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._ctypes 
+2019-02-04 09:16:55,388 [  79003]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._ctypes failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._ctypes' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:55,388 [  79003]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._ctypes_test 
+2019-02-04 09:16:55,568 [  79183]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._decimal 
+2019-02-04 09:16:55,717 [  79332]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._decimal failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._decimal' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:55,718 [  79333]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._distutils_findvs 
+2019-02-04 09:16:55,868 [  79483]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._distutils_findvs failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._distutils_findvs' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:55,868 [  79483]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._elementtree 
+2019-02-04 09:16:56,008 [  79623]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._elementtree failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._elementtree' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:56,008 [  79623]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._hashlib 
+2019-02-04 09:16:56,208 [  79823]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._hashlib failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._hashlib' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:56,208 [  79823]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._lzma 
+2019-02-04 09:16:56,354 [  79969]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._lzma failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._lzma' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:56,354 [  79969]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._msi 
+2019-02-04 09:16:56,504 [  80119]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._msi failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._msi' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:56,504 [  80119]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._multiprocessing 
+2019-02-04 09:16:56,644 [  80259]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._multiprocessing failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._multiprocessing' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:56,644 [  80259]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._overlapped 
+2019-02-04 09:16:56,791 [  80406]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._overlapped failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._overlapped' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:56,791 [  80406]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._socket 
+2019-02-04 09:16:56,931 [  80546]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._socket failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._socket' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:56,931 [  80546]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._sqlite3 
+2019-02-04 09:16:57,081 [  80696]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._sqlite3 failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._sqlite3' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:57,081 [  80696]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._ssl 
+2019-02-04 09:16:57,231 [  80846]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._ssl failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._ssl' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:57,231 [  80846]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._testbuffer 
+2019-02-04 09:16:57,391 [  81006]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._testcapi 
+2019-02-04 09:16:57,551 [  81166]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._testconsole 
+2019-02-04 09:16:57,701 [  81316]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._testimportmultiple 
+2019-02-04 09:16:57,847 [  81462]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._testmultiphase 
+2019-02-04 09:16:57,997 [  81612]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented._tkinter 
+2019-02-04 09:16:58,137 [  81752]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented._tkinter failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented._tkinter' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:58,137 [  81752]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented.pyexpat 
+2019-02-04 09:16:58,287 [  81902]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented.pyexpat failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented.pyexpat' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:58,287 [  81902]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented.select 
+2019-02-04 09:16:58,417 [  82032]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented.select failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented.select' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:58,417 [  82032]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented.unicodedata 
+2019-02-04 09:16:58,567 [  82182]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented.unicodedata failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented.unicodedata' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:58,567 [  82182]   INFO - .skeletons.PySkeletonRefresher - Skeleton for instrumented.winsound 
+2019-02-04 09:16:58,717 [  82332]   INFO - .skeletons.PySkeletonGenerator - Skeleton for instrumented.winsound failed on C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe. stderr: --
+Failed to process 'instrumented.winsound' while nothing yet: DLL load failed: The specified module could not be found.
+-- 
+2019-02-04 09:16:58,717 [  82332]   INFO - .skeletons.PySkeletonRefresher - Rebuilding skeletons for binaries took 8849 ms 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - Some skeletons failed to generate 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - 19 modules failed in 1 interpreter. <a href="#">Details...</a> 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - Failed modules 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._asyncio 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._bz2 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._ctypes 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._decimal 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._distutils_findvs 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._elementtree 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._hashlib 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._lzma 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._msi 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._multiprocessing 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._overlapped 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._socket 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._sqlite3 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._ssl 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented._tkinter 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented.pyexpat 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented.select 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented.unicodedata 
+2019-02-04 09:17:03,348 [  86963]   WARN - .skeletons.PySkeletonRefresher - instrumented.winsound 
+2019-02-04 09:17:03,358 [  86973]   INFO - ns.python.sdk.PythonSdkUpdater - Performing background scan of packages for SDK Python 3.6 (untitled) (C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe) 
+2019-02-04 09:17:03,358 [  86973]   INFO - packaging.PyPackageManagerImpl - Running packaging tool: C:\Users\cit-labs\PycharmProjects\untitled\venv\Scripts\python.exe C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\helpers\packaging_tool.py list 
+2019-02-04 09:18:10,711 [ 154326]   INFO - .diagnostic.PerformanceWatcher - Indexable file iteration took 81029ms; general responsiveness: ok; EDT responsiveness: 1/81 sluggish, 1/81 very slow 
+2019-02-04 09:18:10,711 [ 154326]   INFO - indexing.UnindexedFilesUpdater - Unindexed files update started: 52495 files to update 
+2019-02-04 09:18:12,211 [ 155826]   WARN - ij.images.util.ImageInfoReader - minusnode.gif 
+java.io.IOException: org.apache.commons.imaging.ImageReadException: GIF: unexpected end of data
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getInfo(CommonsImagingImageReaderSpi.java:186)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getWidth(CommonsImagingImageReaderSpi.java:220)
+	at org.intellij.images.util.ImageInfoReader.read(ImageInfoReader.java:79)
+	at org.intellij.images.util.ImageInfoReader.getInfo(ImageInfoReader.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:56)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:43)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:30)
+	at com.intellij.util.indexing.impl.MapReduceIndex.mapInput(MapReduceIndex.java:276)
+	at com.intellij.util.indexing.VfsAwareMapReduceIndex.calculateUpdateData(VfsAwareMapReduceIndex.java:83)
+	at com.intellij.util.indexing.impl.MapReduceIndex.update(MapReduceIndex.java:216)
+	at com.intellij.util.indexing.FileBasedIndexImpl.updateSingleIndex(FileBasedIndexImpl.java:1668)
+	at com.intellij.util.indexing.FileBasedIndexImpl.lambda$doIndexFileContent$27(FileBasedIndexImpl.java:1596)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.freezeFileTypeTemporarilyIn(FileTypeManagerImpl.java:522)
+	at com.intellij.util.indexing.FileBasedIndexImpl.doIndexFileContent(FileBasedIndexImpl.java:1555)
+	at com.intellij.util.indexing.FileBasedIndexImpl.indexFileContent(FileBasedIndexImpl.java:1543)
+	at com.intellij.util.indexing.UnindexedFilesUpdater.lambda$indexFiles$0(UnindexedFilesUpdater.java:110)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$0(CacheUpdateRunner.java:230)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1168)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$1(CacheUpdateRunner.java:246)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:164)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:582)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:532)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:87)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:151)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.run(CacheUpdateRunner.java:243)
+	at com.intellij.openapi.application.impl.ApplicationImpl$1.run(ApplicationImpl.java:314)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.commons.imaging.ImageReadException: GIF: unexpected end of data
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readBlocks(GifImageParser.java:253)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:456)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:440)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.getImageInfo(GifImageParser.java:521)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:703)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:637)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getInfo(CommonsImagingImageReaderSpi.java:183)
+	... 31 more
+2019-02-04 09:18:15,429 [ 159044]   WARN - ij.images.util.ImageInfoReader - earth.gif 
+java.io.IOException: GIF: corrupt block count: -1 read: 28 length: 130
+	at org.apache.commons.imaging.common.BinaryFunctions.readBytes(BinaryFunctions.java:92)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readSubBlock(GifImageParser.java:216)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readGenericGIFBlock(GifImageParser.java:233)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readGenericGIFBlock(GifImageParser.java:221)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readImageDescriptor(GifImageParser.java:386)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readBlocks(GifImageParser.java:256)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:456)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:440)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.getImageInfo(GifImageParser.java:521)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:703)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:637)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getInfo(CommonsImagingImageReaderSpi.java:183)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getWidth(CommonsImagingImageReaderSpi.java:220)
+	at org.intellij.images.util.ImageInfoReader.read(ImageInfoReader.java:79)
+	at org.intellij.images.util.ImageInfoReader.getInfo(ImageInfoReader.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:56)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:43)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:30)
+	at com.intellij.util.indexing.impl.MapReduceIndex.mapInput(MapReduceIndex.java:276)
+	at com.intellij.util.indexing.VfsAwareMapReduceIndex.calculateUpdateData(VfsAwareMapReduceIndex.java:83)
+	at com.intellij.util.indexing.impl.MapReduceIndex.update(MapReduceIndex.java:216)
+	at com.intellij.util.indexing.FileBasedIndexImpl.updateSingleIndex(FileBasedIndexImpl.java:1668)
+	at com.intellij.util.indexing.FileBasedIndexImpl.lambda$doIndexFileContent$27(FileBasedIndexImpl.java:1596)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.freezeFileTypeTemporarilyIn(FileTypeManagerImpl.java:522)
+	at com.intellij.util.indexing.FileBasedIndexImpl.doIndexFileContent(FileBasedIndexImpl.java:1555)
+	at com.intellij.util.indexing.FileBasedIndexImpl.indexFileContent(FileBasedIndexImpl.java:1543)
+	at com.intellij.util.indexing.UnindexedFilesUpdater.lambda$indexFiles$0(UnindexedFilesUpdater.java:110)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$0(CacheUpdateRunner.java:230)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1168)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$1(CacheUpdateRunner.java:246)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:164)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:582)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:532)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:87)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:151)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.run(CacheUpdateRunner.java:243)
+	at com.intellij.openapi.application.impl.ApplicationImpl$1.run(ApplicationImpl.java:314)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2019-02-04 09:18:30,198 [ 173813]   WARN - ij.images.util.ImageInfoReader - earth.gif 
+java.io.IOException: GIF: corrupt block count: -1 read: 28 length: 130
+	at org.apache.commons.imaging.common.BinaryFunctions.readBytes(BinaryFunctions.java:92)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readSubBlock(GifImageParser.java:216)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readGenericGIFBlock(GifImageParser.java:233)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readGenericGIFBlock(GifImageParser.java:221)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readImageDescriptor(GifImageParser.java:386)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readBlocks(GifImageParser.java:256)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:456)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:440)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.getImageInfo(GifImageParser.java:521)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:703)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:637)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getInfo(CommonsImagingImageReaderSpi.java:183)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getWidth(CommonsImagingImageReaderSpi.java:220)
+	at org.intellij.images.util.ImageInfoReader.read(ImageInfoReader.java:79)
+	at org.intellij.images.util.ImageInfoReader.getInfo(ImageInfoReader.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:56)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:43)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:30)
+	at com.intellij.util.indexing.impl.MapReduceIndex.mapInput(MapReduceIndex.java:276)
+	at com.intellij.util.indexing.VfsAwareMapReduceIndex.calculateUpdateData(VfsAwareMapReduceIndex.java:83)
+	at com.intellij.util.indexing.impl.MapReduceIndex.update(MapReduceIndex.java:216)
+	at com.intellij.util.indexing.FileBasedIndexImpl.updateSingleIndex(FileBasedIndexImpl.java:1668)
+	at com.intellij.util.indexing.FileBasedIndexImpl.lambda$doIndexFileContent$27(FileBasedIndexImpl.java:1596)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.freezeFileTypeTemporarilyIn(FileTypeManagerImpl.java:522)
+	at com.intellij.util.indexing.FileBasedIndexImpl.doIndexFileContent(FileBasedIndexImpl.java:1555)
+	at com.intellij.util.indexing.FileBasedIndexImpl.indexFileContent(FileBasedIndexImpl.java:1543)
+	at com.intellij.util.indexing.UnindexedFilesUpdater.lambda$indexFiles$0(UnindexedFilesUpdater.java:110)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$0(CacheUpdateRunner.java:230)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1168)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$1(CacheUpdateRunner.java:246)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:164)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:582)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:532)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:87)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:151)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.run(CacheUpdateRunner.java:243)
+	at com.intellij.openapi.application.impl.ApplicationImpl$1.run(ApplicationImpl.java:314)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2019-02-04 09:18:41,757 [ 185372]   WARN - ij.images.util.ImageInfoReader - minusnode.gif 
+java.io.IOException: org.apache.commons.imaging.ImageReadException: GIF: unexpected end of data
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getInfo(CommonsImagingImageReaderSpi.java:186)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getWidth(CommonsImagingImageReaderSpi.java:220)
+	at org.intellij.images.util.ImageInfoReader.read(ImageInfoReader.java:79)
+	at org.intellij.images.util.ImageInfoReader.getInfo(ImageInfoReader.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:56)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:43)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:30)
+	at com.intellij.util.indexing.impl.MapReduceIndex.mapInput(MapReduceIndex.java:276)
+	at com.intellij.util.indexing.VfsAwareMapReduceIndex.calculateUpdateData(VfsAwareMapReduceIndex.java:83)
+	at com.intellij.util.indexing.impl.MapReduceIndex.update(MapReduceIndex.java:216)
+	at com.intellij.util.indexing.FileBasedIndexImpl.updateSingleIndex(FileBasedIndexImpl.java:1668)
+	at com.intellij.util.indexing.FileBasedIndexImpl.lambda$doIndexFileContent$27(FileBasedIndexImpl.java:1596)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.freezeFileTypeTemporarilyIn(FileTypeManagerImpl.java:522)
+	at com.intellij.util.indexing.FileBasedIndexImpl.doIndexFileContent(FileBasedIndexImpl.java:1555)
+	at com.intellij.util.indexing.FileBasedIndexImpl.indexFileContent(FileBasedIndexImpl.java:1543)
+	at com.intellij.util.indexing.UnindexedFilesUpdater.lambda$indexFiles$0(UnindexedFilesUpdater.java:110)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$0(CacheUpdateRunner.java:230)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1168)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$1(CacheUpdateRunner.java:246)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:164)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:582)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:532)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:87)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:151)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.run(CacheUpdateRunner.java:243)
+	at com.intellij.openapi.application.impl.ApplicationImpl$1.run(ApplicationImpl.java:314)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.commons.imaging.ImageReadException: GIF: unexpected end of data
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readBlocks(GifImageParser.java:253)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:456)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:440)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.getImageInfo(GifImageParser.java:521)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:703)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:637)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getInfo(CommonsImagingImageReaderSpi.java:183)
+	... 31 more
+2019-02-04 09:18:42,557 [ 186172]   WARN - ij.images.util.ImageInfoReader - earth.gif 
+java.io.IOException: GIF: corrupt block count: -1 read: 28 length: 130
+	at org.apache.commons.imaging.common.BinaryFunctions.readBytes(BinaryFunctions.java:92)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readSubBlock(GifImageParser.java:216)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readGenericGIFBlock(GifImageParser.java:233)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readGenericGIFBlock(GifImageParser.java:221)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readImageDescriptor(GifImageParser.java:386)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readBlocks(GifImageParser.java:256)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:456)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.readFile(GifImageParser.java:440)
+	at org.apache.commons.imaging.formats.gif.GifImageParser.getImageInfo(GifImageParser.java:521)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:703)
+	at org.apache.commons.imaging.Imaging.getImageInfo(Imaging.java:637)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getInfo(CommonsImagingImageReaderSpi.java:183)
+	at org.intellij.images.util.imageio.CommonsImagingImageReaderSpi$MyImageReader.getWidth(CommonsImagingImageReaderSpi.java:220)
+	at org.intellij.images.util.ImageInfoReader.read(ImageInfoReader.java:79)
+	at org.intellij.images.util.ImageInfoReader.getInfo(ImageInfoReader.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:59)
+	at org.intellij.images.index.ImageInfoIndex$2.computeValue(ImageInfoIndex.java:56)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:43)
+	at com.intellij.util.indexing.SingleEntryIndexer.map(SingleEntryIndexer.java:30)
+	at com.intellij.util.indexing.impl.MapReduceIndex.mapInput(MapReduceIndex.java:276)
+	at com.intellij.util.indexing.VfsAwareMapReduceIndex.calculateUpdateData(VfsAwareMapReduceIndex.java:83)
+	at com.intellij.util.indexing.impl.MapReduceIndex.update(MapReduceIndex.java:216)
+	at com.intellij.util.indexing.FileBasedIndexImpl.updateSingleIndex(FileBasedIndexImpl.java:1668)
+	at com.intellij.util.indexing.FileBasedIndexImpl.lambda$doIndexFileContent$27(FileBasedIndexImpl.java:1596)
+	at com.intellij.openapi.fileTypes.impl.FileTypeManagerImpl.freezeFileTypeTemporarilyIn(FileTypeManagerImpl.java:522)
+	at com.intellij.util.indexing.FileBasedIndexImpl.doIndexFileContent(FileBasedIndexImpl.java:1555)
+	at com.intellij.util.indexing.FileBasedIndexImpl.indexFileContent(FileBasedIndexImpl.java:1543)
+	at com.intellij.util.indexing.UnindexedFilesUpdater.lambda$indexFiles$0(UnindexedFilesUpdater.java:110)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$0(CacheUpdateRunner.java:230)
+	at com.intellij.openapi.application.impl.ApplicationImpl.tryRunReadAction(ApplicationImpl.java:1168)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.lambda$run$1(CacheUpdateRunner.java:246)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:164)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:582)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:532)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:87)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:151)
+	at com.intellij.openapi.project.CacheUpdateRunner$MyRunnable.run(CacheUpdateRunner.java:243)
+	at com.intellij.openapi.application.impl.ApplicationImpl$1.run(ApplicationImpl.java:314)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2019-02-04 09:18:43,576 [ 187191]   INFO - ellij.vfs.persistent.FSRecords - Contents:16384 of 169138331, reuses:4141 of 32830723 for 828 
+2019-02-04 09:56:44,408 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2019-02-04 09:56:44,428 [     20]   INFO -        #com.intellij.idea.Main - IDE: PyCharm (build #PE-183.4588.180, 10 Dec 2018 06:44) 
+2019-02-04 09:56:44,428 [     20]   INFO -        #com.intellij.idea.Main - OS: Windows 10 (10.0, amd64) 
+2019-02-04 09:56:44,428 [     20]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_152-release-1343-b16 (JetBrains s.r.o) 
+2019-02-04 09:56:44,428 [     20]   INFO -        #com.intellij.idea.Main - JVM: 25.152-b16 (OpenJDK 64-Bit Server VM) 
+2019-02-04 09:56:44,428 [     20]   INFO -        #com.intellij.idea.Main - JVM Args: -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -Djdk.http.auth.tunneling.disabledSchemes="" -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Djb.vmOptionsFile=C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\bin\pycharm64.exe.vmoptions -Didea.platform.prefix=PyCharmEdu -Dide.native.launcher=true -Didea.paths.selector=PyCharmEdu2018.3 -XX:ErrorFile=C:\Users\cit-labs\java_error_in_pycharm_%p.log -XX:HeapDumpPath=C:\Users\cit-labs\java_error_in_pycharm.hprof 
+2019-02-04 09:56:44,428 [     20]   INFO -        #com.intellij.idea.Main - ext: C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\jre64\lib\ext: [access-bridge-64.jar, cldrdata.jar, dnsns.jar, jaccess.jar, jfxrt.jar, localedata.jar, meta-index, nashorn.jar, sunec.jar, sunjce_provider.jar, sunmscapi.jar, sunpkcs11.jar, zipfs.jar] 
+2019-02-04 09:56:44,428 [     20]   INFO -        #com.intellij.idea.Main - charsets: JNU=Cp1252 file=Cp1252 
+2019-02-04 09:56:44,458 [     50]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 30 ms 
+2019-02-04 09:56:44,468 [     60]   INFO - penapi.util.io.win32.IdeaWin32 - Native filesystem for Windows is operational 
+2019-02-04 09:56:44,538 [    130]   INFO -     #com.intellij.util.ui.JBUI - User scale factor: 1.0 
+2019-02-04 09:56:47,427 [   3019]   INFO - m.intellij.ui.mac.touchbar.NST - OS doesn't support touchbar, skip nst loading 
+2019-02-04 09:56:47,704 [   3296]   INFO -     #com.intellij.util.ui.JBUI - System scale factor: 1.0 (JRE-managed HiDPI) 
+2019-02-04 09:56:51,063 [   6655]   INFO - .intellij.idea.IdeaApplication - CPU cores: 8; ForkJoinPool.commonPool: java.util.concurrent.ForkJoinPool@27be658a[Running, parallelism = 7, size = 0, active = 0, running = 0, steals = 0, tasks = 0, submissions = 0]; factory: com.intellij.concurrency.IdeaForkJoinWorkerThreadFactory@7637f23e 
+2019-02-04 09:56:51,471 [   7063]   INFO - llij.ide.plugins.PluginManager - 9 plugins initialized in 318 ms 
+2019-02-04 09:56:51,471 [   7063]   INFO - llij.ide.plugins.PluginManager - Loaded bundled plugins: EduTools (2.2-2018.3-1082), Git Integration (8.1), GitHub (183.4588.180), IDEA CORE (183.4588.180), IPython Notebook (0.1), Mercurial Integration (10.0), Python Terminal (VERSION), Subversion Integration (1.1), Terminal (0.1) 
+2019-02-04 09:56:51,734 [   7326]   INFO - ellij.util.io.PagedFileStorage - lower=100; upper=500; buffer=10; max=705 
+2019-02-04 09:56:51,754 [   7346]   INFO - tellij.util.io.storage.Storage - Records table for 'C:\Users\cit-labs\.PyCharmEdu2018.3\system\caches\attrib.dat.storageRecordIndex' haven't been closed correctly. Rebuild required. 
+2019-02-04 09:56:51,764 [   7356]   INFO - tellij.util.io.storage.Storage - Records table for 'C:\Users\cit-labs\.PyCharmEdu2018.3\system\caches\content.dat.storageData' haven't been closed correctly. Rebuild required. 
+2019-02-04 09:56:51,784 [   7376]   INFO - ellij.vfs.persistent.FSRecords - Filesystem storage is corrupted or does not exist. [Re]Building. Reason: FS repository version mismatch 
+2019-02-04 09:56:51,804 [   7396]   INFO - ellij.vfs.persistent.FSRecords - Marking VFS as corrupted: 'C:\Users\cit-labs\.PyCharmEdu2018.3\system\caches\names.dat' does not exist 
+2019-02-04 09:56:51,814 [   7406]   INFO - pl.local.NativeFileWatcherImpl - Starting file watcher: C:\Program Files (x86)\JetBrains\PyCharm Edu 2018.3\bin\fsnotifier64.exe 
+2019-02-04 09:56:51,854 [   7446]   INFO - pl.local.NativeFileWatcherImpl - Native file watcher is operational. 
+2019-02-04 09:56:52,004 [   7596]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=12, fontScale=0.0; restored: fontSize=12, fontScale=1.0 
+2019-02-04 09:56:52,154 [   7746]   INFO - .history.utils.LocalHistoryLog - FS has been rebuild, rebuilding local history... 
+2019-02-04 09:56:52,414 [   8006]   INFO - j.ide.ui.OptionsTopHitProvider - 70 ms spent to cache options in application 
+2019-02-04 09:56:52,414 [   8006]   INFO - .openapi.application.Preloader - com.intellij.ide.ui.OptionsTopHitProvider$Activity took 72 ms 
+2019-02-04 09:56:52,439 [   8031]   INFO - til.net.ssl.CertificateManager - Default SSL context initialized 
+2019-02-04 09:56:52,458 [   8050]   INFO - rains.ide.BuiltInServerManager - built-in server started, port 63342 
+2019-02-04 09:56:52,492 [   8084]   INFO - gs.impl.UpdateCheckerComponent - channel: release 
+2019-02-04 09:56:52,559 [   8151]   INFO - il.indexing.FileBasedIndexImpl - Index exts enumerated:20, number of extensions:18 
+2019-02-04 09:56:52,562 [   8154]   INFO - il.indexing.FileBasedIndexImpl - Index scheduled:2 
+2019-02-04 09:56:52,573 [   8165]   INFO - tellij.psi.stubs.StubIndexImpl - All stub exts enumerated:2, number of extensions:9 
+2019-02-04 09:56:52,575 [   8167]   INFO - tellij.psi.stubs.StubIndexImpl - stub exts update scheduled:0 
+2019-02-04 09:56:52,630 [   8222]   INFO - com.intellij.ide.ui.UISettings - Loaded: fontSize=12, fontScale=1.0; restored: fontSize=12, fontScale=1.0 
+2019-02-04 09:56:52,704 [   8296]   INFO - stubs.SerializationManagerImpl - Name storage is repaired 
+2019-02-04 09:56:52,754 [   8346]   INFO -            PyTestLegacyInterop - Disabling com.jetbrains.python.testing.unittestLegacy.PythonUnitTestConfigurationProducer@468c47b6 
+2019-02-04 09:56:52,754 [   8346]   INFO -            PyTestLegacyInterop - Disabling com.jetbrains.python.testing.pytestLegacy.PyTestConfigurationProducer@6ac52017 
+2019-02-04 09:56:52,754 [   8346]   INFO -            PyTestLegacyInterop - Disabling com.jetbrains.python.testing.nosetestLegacy.PythonNoseTestConfigurationProducer@74504d7c 
+2019-02-04 09:56:52,754 [   8346]   INFO - plication.impl.ApplicationImpl - 73 application components initialized in 1601ms 
+2019-02-04 09:56:52,780 [   8372]   INFO - .intellij.idea.IdeaApplication - App initialization took 9792 ms 
+2019-02-04 09:56:53,001 [   8593]   INFO - ndex.PrebuiltIndexProviderBase - Using prebuilt id-index from C:\Users\cit-labs\.PyCharmEdu2018.3\system\index\.persistent\prebuilt\Python\id-index.input 
+2019-02-04 09:56:53,146 [   8738]   INFO - ij.psi.stubs.StubUpdatingIndex - Following new file types will be indexed:XML,Python,HTML,PythonStub 
+2019-02-04 09:56:53,317 [   8909]   INFO - pl$FileIndexDataInitialization - Initialization done:761 
+2019-02-04 09:56:53,397 [   8989]   INFO - exImpl$StubIndexInitialization - Initialization done:78 
+2019-02-04 09:56:53,500 [   9092]   INFO - j.ide.ui.OptionsTopHitProvider - 263 ms spent on EDT to cache options in application 
+2019-02-04 09:56:53,760 [   9352]   INFO - .openapi.application.Preloader - com.intellij.openapi.actionSystem.impl.ActionPreloader took 1345 ms 
+2019-02-04 09:56:53,850 [   9442]   INFO - .openapi.application.Preloader - com.intellij.ide.ui.search.SearchableOptionPreloader took 85 ms 
+2019-02-04 09:56:53,930 [   9522]   INFO - .openapi.application.Preloader - com.intellij.codeInsight.completion.CompletionPreloader took 86 ms 
+2019-02-04 09:56:53,930 [   9522]   INFO - .openapi.application.Preloader - com.intellij.ide.actions.GotoClassPresentationUpdater took 1 ms 
+2019-02-04 09:56:58,997 [  14589]   INFO - stubs.SerializationManagerImpl - START StubSerializationManager SHUTDOWN 
+2019-02-04 09:56:58,997 [  14589]   INFO - stubs.SerializationManagerImpl - END StubSerializationManager SHUTDOWN 
+2019-02-04 09:56:58,997 [  14589]   INFO - il.indexing.FileBasedIndexImpl - START INDEX SHUTDOWN 
+2019-02-04 09:56:59,007 [  14599]   INFO - il.indexing.FileBasedIndexImpl - END INDEX SHUTDOWN 
+2019-02-04 09:56:59,017 [  14609]  ERROR - api.util.objectTree.ObjectNode - Sorry but parent: Application is being disposed so the child: com.intellij.openapi.vfs.newvfs.RefreshQueueImpl@5cd1c07e will never be disposed 
+com.intellij.util.IncorrectOperationException: Sorry but parent: Application is being disposed so the child: com.intellij.openapi.vfs.newvfs.RefreshQueueImpl@5cd1c07e will never be disposed
+	at com.intellij.openapi.util.objectTree.ObjectTree.register(ObjectTree.java:79)
+	at com.intellij.openapi.util.Disposer.register(Disposer.java:97)
+	at com.intellij.openapi.util.Disposer.register(Disposer.java:93)
+	at com.intellij.openapi.components.impl.ServiceManagerImpl$MyComponentAdapter.getComponentInstance(ServiceManagerImpl.java:212)
+	at com.intellij.util.pico.DefaultPicoContainer.getLocalInstance(DefaultPicoContainer.java:246)
+	at com.intellij.util.pico.DefaultPicoContainer.getComponentInstance(DefaultPicoContainer.java:213)
+	at com.intellij.openapi.components.ServiceManager.doGetService(ServiceManager.java:52)
+	at com.intellij.openapi.components.ServiceManager.getService(ServiceManager.java:26)
+	at com.intellij.openapi.vfs.newvfs.RefreshQueue.getInstance(RefreshQueue.java:32)
+	at com.intellij.ide.SaveAndSyncHandlerImpl.dispose(SaveAndSyncHandlerImpl.java:111)
+	at com.intellij.openapi.util.Disposer$1.execute(Disposer.java:48)
+	at com.intellij.openapi.util.Disposer$1.execute(Disposer.java:44)
+	at com.intellij.openapi.util.objectTree.ObjectNode$1.execute(ObjectNode.java:138)
+	at com.intellij.openapi.util.objectTree.ObjectNode$1.execute(ObjectNode.java:107)
+	at com.intellij.openapi.util.objectTree.ObjectTree.executeActionWithRecursiveGuard(ObjectTree.java:182)
+	at com.intellij.openapi.util.objectTree.ObjectNode.execute(ObjectNode.java:107)
+	at com.intellij.openapi.util.objectTree.ObjectNode$1.execute(ObjectNode.java:126)
+	at com.intellij.openapi.util.objectTree.ObjectNode$1.execute(ObjectNode.java:107)
+	at com.intellij.openapi.util.objectTree.ObjectTree.executeActionWithRecursiveGuard(ObjectTree.java:182)
+	at com.intellij.openapi.util.objectTree.ObjectNode.execute(ObjectNode.java:107)
+	at com.intellij.openapi.util.objectTree.ObjectTree.executeAll(ObjectTree.java:151)
+	at com.intellij.openapi.util.Disposer.dispose(Disposer.java:129)
+	at com.intellij.openapi.util.Disposer.dispose(Disposer.java:125)
+	at com.intellij.openapi.application.impl.ApplicationImpl.lambda$disposeSelf$7(ApplicationImpl.java:253)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runWriteAction(ApplicationImpl.java:1057)
+	at com.intellij.openapi.application.impl.ApplicationImpl.disposeSelf(ApplicationImpl.java:253)
+	at com.intellij.openapi.application.impl.ApplicationImpl.doExit(ApplicationImpl.java:818)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:788)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:777)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:773)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:740)
+	at com.intellij.openapi.application.impl.ApplicationImpl.exit(ApplicationImpl.java:735)
+	at com.intellij.openapi.wm.impl.welcomeScreen.WelcomeFrame$3.windowClosing(WelcomeFrame.java:111)
+	at java.awt.Window.processWindowEvent(Window.java:2054)
+	at javax.swing.JFrame.processWindowEvent(JFrame.java:305)
+	at java.awt.Window.processEvent(Window.java:2013)
+	at java.awt.Component.dispatchEventImpl(Component.java:4903)
+	at java.awt.Container.dispatchEventImpl(Container.java:2295)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4725)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:764)
+	at java.awt.EventQueue.access$500(EventQueue.java:98)
+	at java.awt.EventQueue$3.run(EventQueue.java:715)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:737)
+	at java.awt.EventQueue$4.run(EventQueue.java:735)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:734)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.java:719)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.java:668)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:363)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-02-04 09:56:59,017 [  14609]  ERROR - api.util.objectTree.ObjectNode - PyCharm 2018.3  Build #PE-183.4588.180 
+2019-02-04 09:56:59,017 [  14609]  ERROR - api.util.objectTree.ObjectNode - JDK: 1.8.0_152-release; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o 
+2019-02-04 09:56:59,017 [  14609]  ERROR - api.util.objectTree.ObjectNode - OS: Windows 10 
+2019-02-04 09:56:59,017 [  14609]  ERROR - api.util.objectTree.ObjectNode - Last Action:  
+2019-02-04 09:56:59,017 [  14609]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
+2019-02-04 09:56:59,027 [  14619]   INFO - Types.impl.FileTypeManagerImpl - FileTypeManager: 0 auto-detected files
+Elapsed time on auto-detect: 0 ms 
+2019-02-04 09:56:59,027 [  14619]   INFO - pl.local.NativeFileWatcherImpl - Watcher terminated with exit code 0 
+2019-02-04 09:56:59,027 [  14619]   INFO - newvfs.persistent.PersistentFS - VFS dispose started 
+2019-02-04 09:56:59,067 [  14659]   INFO - newvfs.persistent.PersistentFS - VFS dispose completed 
+2019-02-04 09:56:59,067 [  14659]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE SHUTDOWN ------------------------------------------------------ 
+2019-02-04 09:56:59,067 [  14659]   INFO - org.jetbrains.io.BuiltInServer - web server stopped 
