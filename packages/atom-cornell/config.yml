@@ -8,6 +8,6 @@ ChocoPackages:
 Applications:
     atom:
         DisplayName:    'Atom'
-        Path:           ''%ALLUSERSPROFILE%\AppData\Local\atom\atom.exe'
+        Path:           '%ALLUSERSPROFILE%\AppData\Local\atom\atom.exe'
         LaunchParams:   ''
         WorkDir:        ''
