@@ -11,7 +11,7 @@ Install:
 Applications:
     minitab:
         DisplayName:    'Minitab 18'
-        Path:           '%PROGRAMFILES%\Minitab\Minitab 18\Mtb.exe'
+        Path:           '%PROGRAMFILES(x86)%\Minitab\Minitab 18\Mtb.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
