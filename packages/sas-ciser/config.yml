@@ -5,7 +5,7 @@ Version:        '9.4'
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-quiet -responsefile "%INSTALL_DIR%\response.properties'
+    Arguments:  '-quiet -responsefile %INSTALL_DIR%\response.properties'
     ExitCodes:  [0]
 
 Applications:
