@@ -14,7 +14,3 @@ Applications:
         Path:           '%PROGRAMFILES%\SASHome\SASFoundation\9.4\sas.exe'
         LaunchParams:   ''
         WorkDir:        ''
-        
-Files: 
-    '%TOOLS_DIR%\sdwresponse.properties': '%WINDIR%\Temp\sdwresponse.properties'
-    '%INSTALL_DIR%\sid_files\SAS94_9BYDPR_70084772_Win_X64_Srv.txt': '%WINDIR%\Temp\SAS94_9BYDPR_70084772_Win_X64_Srv.txt'
