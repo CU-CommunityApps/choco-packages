@@ -14,3 +14,8 @@ Applications:
         Path:           '%PROGRAMFILES%\SASHome\SASFoundation\9.4\sas.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files:
+    '%TOOLS_DIR%\profile.sas7bcat': '%SYSTEMDRIVE%\Users\Default\Documents\My SAS Files\9.4\profile.sas7bcat'
+    '%TOOLS_DIR%\profile2.sas7bcat': '%SYSTEMDRIVE%\Users\Default\Documents\My SAS Files\9.4\profile2.sas7bcat'
+    '%TOOLS_DIR%\registry.sas7bitm': '%SYSTEMDRIVE%\Users\Default\Documents\My SAS Files\9.4\registry.sas7bitm'
