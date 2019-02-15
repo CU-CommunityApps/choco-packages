@@ -14,72 +14,72 @@ cp "$env:INSTALL_DIR\sid_files\SAS94_9BYDPR_70084772_Win_X64_Srv.txt" "$env:wind
 :: SAS Enterprise Guide
 :: SAS Enterprise Miner Workstation Configuration
 :: SAS Foundation
-::	• BASE Infrastructure to support Hadoop
-::	• Base SAS
-::	• GfK GeoMarketing CITIES Maps for SAS/GRAPH
-::	• GfK GeoMarketing WORLD Maps for SAS/GRAPH
-::	• SAS Accelerator Publishing Agent for Aster
-::	• SAS Accelerator Publishing Agent for DB2
-::	• SAS Accelerator Publishing Agent for Greenplum
-::	• SAS Accelerator Publishing Agent for Hadoop
-::	• SAS Accelerator Publishing Agent for Netezza
-::	• SAS Accelerator Publishing Agent for Oracle
-::	• SAS Accelerator Publishing Agent for SAP HANA
-::	• SAS Accelerator Publishing Agent for Teradata
-::	• SAS Clinical Standards Toolkit Framework
-::	• SAS Data Quality Secure
-::	• SAS Data Quality Server
-::	• SAS Enterprise Miner
-::	• SAS High-Performance Data Mining Server Components
-::	• SAS High-Performance Econometrics Server Components
-::	• SAS High-Performance Server
-::	• SAS High-Performance Statistics Server Components
-::	• SAS High-Performance Text Mining Server Components
-::	• SAS Integration Technologies
-::	• SAS LASR Analytic Server Access Tools
-::	• SAS Network Algorithms
-::	• SAS Scalable Performance Data Client
-::	• SAS Text Analytics Common Components
-::	• SAS Text Analytics for Spanish
-::	• SAS Text Miner
-::	• SAS/ACCESS Interface Products Samples
-::	• SAS/ACCESS Interface to Amazon Redshift
-::	• SAS/ACCESS Interface to Aster
-::	• SAS/ACCESS Interface to DB2
-::	• SAS/ACCESS Interface to Greenplum
-::	• SAS/ACCESS Interface to HAWQ
-::	• SAS/ACCESS Interface to Hadoop
-::	• SAS/ACCESS Interface to Impala
-::	• SAS/ACCESS Interface to Microsoft SQL Server
-::	• SAS/ACCESS Interface to MySQL
-::	• SAS/ACCESS Interface to Netezza
-::	• SAS/ACCESS Interface to ODBC
-::	• SAS/ACCESS Interface to OLE DB
-::	• SAS/ACCESS Interface to Oracle
-::	• SAS/ACCESS Interface to PC Files
-::	• SAS/ACCESS Interface to PostgreSQL
-::	• SAS/ACCESS Interface to SAP ASE
-::	• SAS/ACCESS Interface to SAP HANA
-::	• SAS/ACCESS Interface to SAP IQ
-::	• SAS/ACCESS Interface to Teradata
-::	• SAS/ACCESS Interface to Vertica
-::	• SAS/ACCESS Interface to the PI System
-::	• SAS/AF
-::	• SAS/ASSIST
-::	• SAS/CONNECT
-::	• SAS/EIS
-::	• SAS/ETS
-::	• SAS/FSP
-::	• SAS/GIS
-::	• SAS/GRAPH
-::	• SAS/GRAPH Obsolete Maps Data
-::	• SAS/Genetics
-::	• SAS/IML
-::	• SAS/IntrNet
-::	• SAS/OR
-::	• SAS/QC
-::	• SAS/SHARE
-::	• SAS/STAT
+::	â€¢ BASE Infrastructure to support Hadoop
+::	â€¢ Base SAS
+::	â€¢ GfK GeoMarketing CITIES Maps for SAS/GRAPH
+::	â€¢ GfK GeoMarketing WORLD Maps for SAS/GRAPH
+::	â€¢ SAS Accelerator Publishing Agent for Aster
+::	â€¢ SAS Accelerator Publishing Agent for DB2
+::	â€¢ SAS Accelerator Publishing Agent for Greenplum
+::	â€¢ SAS Accelerator Publishing Agent for Hadoop
+::	â€¢ SAS Accelerator Publishing Agent for Netezza
+::	â€¢ SAS Accelerator Publishing Agent for Oracle
+::	â€¢ SAS Accelerator Publishing Agent for SAP HANA
+::	â€¢ SAS Accelerator Publishing Agent for Teradata
+::	â€¢ SAS Clinical Standards Toolkit Framework
+::	â€¢ SAS Data Quality Secure
+::	â€¢ SAS Data Quality Server
+::	â€¢ SAS Enterprise Miner
+::	â€¢ SAS High-Performance Data Mining Server Components
+::	â€¢ SAS High-Performance Econometrics Server Components
+::	â€¢ SAS High-Performance Server
+::	â€¢ SAS High-Performance Statistics Server Components
+::	â€¢ SAS High-Performance Text Mining Server Components
+::	â€¢ SAS Integration Technologies
+::	â€¢ SAS LASR Analytic Server Access Tools
+::	â€¢ SAS Network Algorithms
+::	â€¢ SAS Scalable Performance Data Client
+::	â€¢ SAS Text Analytics Common Components
+::	â€¢ SAS Text Analytics for Spanish
+::	â€¢ SAS Text Miner
+::	â€¢ SAS/ACCESS Interface Products Samples
+::	â€¢ SAS/ACCESS Interface to Amazon Redshift
+::	â€¢ SAS/ACCESS Interface to Aster
+::	â€¢ SAS/ACCESS Interface to DB2
+::	â€¢ SAS/ACCESS Interface to Greenplum
+::	â€¢ SAS/ACCESS Interface to HAWQ
+::	â€¢ SAS/ACCESS Interface to Hadoop
+::	â€¢ SAS/ACCESS Interface to Impala
+::	â€¢ SAS/ACCESS Interface to Microsoft SQL Server
+::	â€¢ SAS/ACCESS Interface to MySQL
+::	â€¢ SAS/ACCESS Interface to Netezza
+::	â€¢ SAS/ACCESS Interface to ODBC
+::	â€¢ SAS/ACCESS Interface to OLE DB
+::	â€¢ SAS/ACCESS Interface to Oracle
+::	â€¢ SAS/ACCESS Interface to PC Files
+::	â€¢ SAS/ACCESS Interface to PostgreSQL
+::	â€¢ SAS/ACCESS Interface to SAP ASE
+::	â€¢ SAS/ACCESS Interface to SAP HANA
+::	â€¢ SAS/ACCESS Interface to SAP IQ
+::	â€¢ SAS/ACCESS Interface to Teradata
+::	â€¢ SAS/ACCESS Interface to Vertica
+::	â€¢ SAS/ACCESS Interface to the PI System
+::	â€¢ SAS/AF
+::	â€¢ SAS/ASSIST
+::	â€¢ SAS/CONNECT
+::	â€¢ SAS/EIS
+::	â€¢ SAS/ETS
+::	â€¢ SAS/FSP
+::	â€¢ SAS/GIS
+::	â€¢ SAS/GRAPH
+::	â€¢ SAS/GRAPH Obsolete Maps Data
+::	â€¢ SAS/Genetics
+::	â€¢ SAS/IML
+::	â€¢ SAS/IntrNet
+::	â€¢ SAS/OR
+::	â€¢ SAS/QC
+::	â€¢ SAS/SHARE
+::	â€¢ SAS/STAT
 :: SAS Integration Technologies Client
 :: SAS ODS Graphics Designer
 :: SAS Providers for OLE DB
@@ -109,8 +109,8 @@ $DEPOT_HOME="C:\Windows\Temp\chocolatey\sas-ciser\products"
 :: --------------------------------------------------------------------------------
 :: Microsoft Office Access Database Engine 2010 (REQUIRED)
 #>
-Start-Process "$DEPOT_HOME\ace__99140__prt__xx__sp0__1\w32\native\AccessDatabaseEngine.exe" -ArgumentList "/quiet" -Wait
-Start-Process "$DEPOT_HOME\ace__99140__prt__xx__sp0__1\wx6\native\AccessDatabaseEngine_X64.exe" -ArgumentList "/quiet" -Wait
+Start-Process "$DEPOT_HOME\ace__99140__prt__xx__sp0__1\w32\native\AccessDatabaseEngine.exe" -ArgumentList "/quiet /norestart" -Wait
+Start-Process "$DEPOT_HOME\ace__99140__prt__xx__sp0__1\wx6\native\AccessDatabaseEngine_X64.exe" -ArgumentList "/quiet /norestart" -Wait
 <#
 :: --------------------------------------------------------------------------------
 :: Microsoft Runtime Components 2013 (REQUIRED)
