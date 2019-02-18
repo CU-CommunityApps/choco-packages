@@ -1,9 +1,9 @@
 Id:             'stattransfer-ciser'
 Description:    'stattransfer-ciser package'
-Version:        '13.3.984'
+Version:        '14.0.0.0'
 
 Install:
-    File:       '%INSTALL_DIR%\stdemo13-64window.exe'
+    File:       '%INSTALL_DIR%\stdemo64.exe'
     FileType:   'exe'
     Arguments:  '/S /license %INSTALL_DIR%\license.dat /D'
     ExitCodes:  [0]
@@ -11,6 +11,6 @@ Install:
 Applications:
     stattransfer:
         DisplayName:    'StatTransfer'
-        Path:           '%PROGRAMFILES%\StatTransfer13-64\st64w.exe'
+        Path:           '%PROGRAMFILES%\StatTransfer14-64\st64w.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
