@@ -16,5 +16,4 @@ Applications:
         WorkDir:        ''
 
 Files:        
-    '%INSTALL_DIR%\License.Dat': '%PROGRAMFILES%\StatTransfer14-64\License.Dat'
     '%INSTALL_DIR%\stattransfer14': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\stattransfer14\'
