@@ -2,9 +2,6 @@ Id:             'atom-cornell'
 Description:    'Atom'
 Version:        '1.34.0'
 
-ChocoPackages:
-    - 'atom'
-
 Applications:
     atom:
         DisplayName:    'Atom'
