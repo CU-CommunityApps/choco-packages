@@ -1,16 +1,10 @@
 Id:             'atom-cornell'
-Description:    'atom-cornell'
+Description:    'Atom'
 Version:        '1.34.0'
-
-ChocoPackages:
-    - 'atom'
 
 Applications:
     atom:
         DisplayName:    'Atom'
-        Path:           '%WINDIR%\SysWOW64\config\systemprofile\AppData\Local\atom\atom.exe'
+        Path:           '%ALLUSERSPROFILE%\atom\atom.exe'
         LaunchParams:   ''
         WorkDir:        ''
-        
-Files:
-    '%TOOLS_DIR%\config.cson': '%SYSTEMDRIVE%\Users\Default\.atom\config.cson'
