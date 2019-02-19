@@ -16,4 +16,4 @@ Applications:
         WorkDir:        ''
 
 Files:        
-    '%INSTALL_DIR%\stattransfer14': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\stattransfer14\'
+    '%INSTALL_DIR%\stattransfer14\': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\stattransfer14\'
