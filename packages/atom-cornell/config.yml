@@ -8,3 +8,6 @@ Applications:
         Path:           '%ALLUSERSPROFILE%\atom\atom.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files:
+    '%TOOLS_DIR%\config.cson': '%SYSTEMDRIVE%\Users\Default\.atom\config.cson'
