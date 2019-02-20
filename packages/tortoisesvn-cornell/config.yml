@@ -8,6 +8,6 @@ ChocoPackages:
 Applications:
     svn:
         DisplayName:    ''
-        Path:           '%PROGRAMFILES%\.exe'
+        Path:           '%PROGRAMFILES%\TortoiseSVN\bin\svn.exe'
         LaunchParams:   ''
         WorkDir:        ''
