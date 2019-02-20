@@ -4,3 +4,10 @@ Version:        '1.11.1.28492'
 
 ChocoPackages:
     - 'tortoisesvn'
+
+Applications:
+    svn:
+        DisplayName:    ''
+        Path:           '%PROGRAMFILES%\.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
