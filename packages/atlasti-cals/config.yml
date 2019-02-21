@@ -5,7 +5,7 @@ Version:        '8.3.20.0'
 Install:
     File:       '%INSTALL_DIR%\Atlasti_8.3.msi'
     FileType:   'msi'
-    Arguments:  '/qn APPLICATIONFOLDER="%PROGRAMFILES(x86)%\My ATLAS.ti" PIDKEY=%PIDKEY%'
+    Arguments:  '/qn APPLICATIONFOLDER="%PROGRAMFILES(x86)%\My ATLAS.ti"'
     ExitCodes:  [0]
 
 Applications:
@@ -21,3 +21,9 @@ Registry:
             SendTelemetry:
                 Type:   'DWORD'
                 Value:  '00000000'
+
+    HKLM:
+        SOFTWARE\Scientific Software\ATLAS.ti.8:
+            License:
+                Type:   'string'
+                Value:  '%ATLASTI_LICENSE_KEY%'
