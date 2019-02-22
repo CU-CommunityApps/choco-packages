@@ -23,7 +23,7 @@ Registry:
                 Value:  '00000000'
 
     HKLM:
-        SOFTWARE\Scientific Software\ATLAS.ti.8:
-            License:
+        SOFTWARE\Scientific Software\ATLAS.ti.8\License:
+            LicenseKey:
                 Type:   'string'
                 Value:  '%ATLASTI_LICENSE_KEY%'
