@@ -5,7 +5,7 @@ Version:        '9.4'
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-quiet -nomsupdate -responsefile C:\Windows\Temp\sdwresponse.properties'
+    Arguments:  '-quiet -wait -nomsupdate -responsefile C:\Windows\Temp\sdwresponse.properties'
     ExitCodes:  [0,1641]
 
 Applications:
