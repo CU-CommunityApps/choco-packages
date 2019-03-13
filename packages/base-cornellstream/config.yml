@@ -30,7 +30,7 @@ Applications:
         DisplayName:    'Notepad++'
         Path:           '%PROGRAMFILES%\Notepad++\notepad++.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:'
+        WorkDir:        ''
 
     Procexp:
         DisplayName:    'Process Explorer'
