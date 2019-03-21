@@ -13,25 +13,25 @@ Applications:
         DisplayName:    'SOLIDWORKS 2018'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
     composerplayer:
         DisplayName:    'SOLIDWORKS Composer Player'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Composer Player\Bin\composerplayer.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
     SLDWORKSVisualize:
         DisplayName:    'SOLIDWORKS Visualize'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
     eDrawings:
         DisplayName:    'SOLIDWORKS eDrawings'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
