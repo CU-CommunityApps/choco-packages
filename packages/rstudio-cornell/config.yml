@@ -1,12 +1,9 @@
 Id:             'rstudio-cornell'
 Description:    'RStudio'
-Version:        '1.1.463'
+Version:        '1.2.1335'
 
-Install:
-    File:       '%INSTALL_DIR%\RStudio-1.1.463.exe'
-    FileType:   'exe'
-    Arguments:  '/S'
-    ExitCodes:  [0]
+ChocoPackages:
+    - 'r.studio'
 
 Applications:
     rstudio:
