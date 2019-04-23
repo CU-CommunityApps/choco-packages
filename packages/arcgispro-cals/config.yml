@@ -28,4 +28,17 @@ Applications:
         DisplayName:    'ArcGIS Pro'
         Path:           '%PROGRAMFILES%\ArcGIS\Pro\bin\ArcGISPro.exe'
         LaunchParams:   ''
-        WorkDir:        ''                
+        WorkDir:        ''
+        
+    arcgisproauth:
+        DisplayName:    'ArcGIS Pro Duo Auth'
+        Path:           '%PROGRAMFILESX86%\Internet Explorer\iexplore.exe'
+        LaunchParams:   'https://ccegeomaps.maps.arcgis.com'
+        WorkDir:        ''
+
+Registry:
+    HKUD:
+        Software\ESRI\ArcGIS Online For Pro\Portals:
+            URL0:
+                Type:   'String'
+                Value:  'https://ccegeomaps.maps.arcgis.com'
