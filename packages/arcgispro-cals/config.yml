@@ -1,6 +1,6 @@
 Id:             'arcgispro-cals'
 Description:    'arcgispro-cals'
-Version:        '2.4'
+Version:        '2.2.0'
 
 Install:
   - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro.msi'
