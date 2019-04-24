@@ -42,3 +42,17 @@ Registry:
             URL0:
                 Type:   'String'
                 Value:  'https://ccegeomaps.maps.arcgis.com'
+                
+        Software\ESRI\ArcGIS Online For Pro\SignIn:
+            HomeServerURIFile:
+                Type:   'String'
+                Value:  'https://ccegeomaps.maps.arcgis.com'
+                
+        Software\ESRI\ArcGIS Online For Pro\SignIn\ccegeomaps.maps.arcgis.com:
+            Authentication:
+                Type:   'DWORD'
+                Value:  '0'
+                
+            IsPortal:
+                Type:   'DWORD'
+                Value:  '1'                
