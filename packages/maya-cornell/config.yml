@@ -1,0 +1,48 @@
+Id:             'maya-cornell'
+Description:    'maya-cornell'
+Version:        '2019'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\maya.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    ExitCodes:  [0,1641]
+
+Applications:
+    maya:
+        DisplayName:    'Maya'
+        Path:           '%PROGRAMFILES%\Autodesk\Maya2019\bin\maya.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Environment:
+    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+    
+Services:
+    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
+
+Registry:
+
+    HKUD:
+        SOFTWARE\Autodesk\MC3:
+            ADAOptIn:
+                Type:   'DWORD'
+                Value:  '0'
+                
+            ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+            OverridedByHKLM:
+                Type:   'DWORD'
+                Value:  '0'
+                
+    HKLM:
+        Software\Autodesk\MC3:
+            HKLMADAOptin:
+                Type:   'DWORD'
+                Value:  '0'
+
+            HKLMADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
