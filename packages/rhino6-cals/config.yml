@@ -1,0 +1,27 @@
+Id:             'rhino6-cals'
+Description:    'rhino6-cals'
+Version:        '6.13.19058.371'
+
+Install:
+    File:       '%INSTALL_DIR%\rhino_en-us_6.13.19058.00371.exe'
+    FileType:   'exe'
+    Arguments:  '-package -quiet LICENSE_METHOD=ZOO ENABLE_AUTOMATIC_UPDATES=0 SEND_STATISTICS=0'
+    ExitCodes:  [0]
+
+Applications:
+    rhino6:
+        DisplayName:    'Rhino'
+        Path:           '%PROGRAMFILES%\Rhino 6\System\Rhino.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Services: 
+    McNeelUpdate: 'Disabled'
+    
+Registry:
+              
+    HKLM:
+        SOFTWARE\WOW6432Node\McNeel\Rhinoceros\6.0\License Manager:
+            server:
+                Type:   'String'
+                Value:  '%RHINO_SERVER%'
