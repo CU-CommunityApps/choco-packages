@@ -3,7 +3,7 @@ Description:    'miktex-cornell'
 Version:        '2.9.6850'
 
 ChocoPackages:
-    - 'miktex'
+    - 'miktex.install'
 
 Applications:
     miktex:
