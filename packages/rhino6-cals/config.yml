@@ -17,10 +17,3 @@ Applications:
 
 Services: 
     McNeelUpdate: 'Disabled'
-    
-Registry:
-    HKLM:   
-        SOFTWARE\McNeel\Rhinoceros\6.0\Install:
-            send_statistics:
-                Type:   'String'
-                Value:  '0'
