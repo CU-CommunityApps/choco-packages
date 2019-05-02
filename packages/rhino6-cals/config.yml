@@ -17,10 +17,3 @@ Applications:
 
 Services: 
     McNeelUpdate: 'Disabled'
-    
-Registry:
-    HKUD:
-        SOFTWARE\McNeel\Rhinoceros\5.0\Global Options\Privacy:
-            RhinoSplash.UsageStatsEnabledDialog Shown:
-                Type:   'String'
-                Value:  'no'
