@@ -1,9 +1,9 @@
 Id:             'atlasti-cals'
 Description:    'atlasti-cals'
-Version:        '8.3.20.0'
+Version:        '8.4.15.0
 
 Install:
-    File:       '%INSTALL_DIR%\Atlasti_8.3.msi'
+    File:       '%INSTALL_DIR%\Atlasti_8.4.msi'
     FileType:   'msi'
     Arguments:  '/q APPLICATIONFOLDER="%PROGRAMFILES(x86)%\Scientific Software\My ATLAS.ti"'
     ExitCodes:  [0]
