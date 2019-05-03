@@ -1,6 +1,6 @@
 Id:             'atlasti-cals'
 Description:    'atlasti-cals'
-Version:        '8.4.15.0
+Version:        '8.4.15.0'
 
 Install:
     File:       '%INSTALL_DIR%\Atlasti_8.4.msi'
@@ -11,7 +11,7 @@ Install:
 Applications:
     atlasti:
         DisplayName:    'Atlasti8'
-        Path:           '%PROGRAMFILES(x86)%\Scientific Software\My ATLAS.ti\Atlasti8.exe'
+        Path:           '%PROGRAMFILES(x86)%\My ATLAS.ti\Atlasti8.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
