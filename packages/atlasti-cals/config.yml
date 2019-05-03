@@ -3,7 +3,7 @@ Description:    'atlasti-cals'
 Version:        '8.4.15.0
 
 Install:
-    File:       '%INSTALL_DIR%\Atlasti_8.4.msi'
+  - File:       '%INSTALL_DIR%\Atlasti_8.4.msi'
     FileType:   'msi'
     Arguments:  '/qn APPLICATIONFOLDER="%PROGRAMFILES(x86)%\My ATLAS.ti"'
     ExitCodes:  [0]
