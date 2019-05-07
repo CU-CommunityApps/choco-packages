@@ -5,7 +5,7 @@ Version:        '2.9.7031'
 Install:
     File:       '%INSTALL_DIR%\basic-miktex-2.9.7031-x64.exe'
     FileType:   'exe'
-    Arguments:  ' --unattended install'
+    Arguments:  '--unattended install'
     ExitCodes:  [0]
 
 Applications:
