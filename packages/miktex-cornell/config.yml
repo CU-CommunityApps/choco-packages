@@ -1,9 +1,12 @@
 Id:             'miktex-cornell'
 Description:    'miktex-cornell'
-Version:        '2.9.6942'
+Version:        '2.9.7031'
 
-ChocoPackages:
-    - 'miktex.install'
+Install:
+    File:       '%INSTALL_DIR%\basic-miktex-2.9.7031-x64.exe'
+    FileType:   'exe'
+    Arguments:  ' --unattended install'
+    ExitCodes:  [0]
 
 Applications:
     miktex:
