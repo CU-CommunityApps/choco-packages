@@ -14,6 +14,3 @@ Applications:
         Path:           '%PROGRAMFILES%\MiKTeX 2.9\miktex\bin\x64\miktex-console.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files: 
-    '%INSTALL_DIR%\profile.do': '%PROGRAMFILES(x86)%\Stata15\ado\base\profile.do'
