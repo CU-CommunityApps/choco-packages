@@ -1,5 +1,5 @@
 Id:             'matlab-coecis'
-Description:    'Matlab R2018a - COECIS License'
+Description:    'Matlab R2019a - COECIS License'
 Version:        '9.4'
 
 Install:
@@ -13,18 +13,18 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2018a'
+        DisplayName:    'MATLAB R2019a'
         Path:           '%PROGRAMFILES%\MATLAB\R2018a\bin\matlab.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\ncorr':            '%PUBLIC%\MATLAB'
-    '%TOOLS_DIR%\toolbox_cache-9.4.0-411087837-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2018A\toolbox_cache-9.4.0-411087837-win64.xml'
-    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2018A\graphicsState.bin'
+    '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
+    '%TOOLS_DIR%\toolbox_cache-9.4.0-411087837-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2019A\toolbox_cache-9.4.0-411087837-win64.xml'
+    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2019A\graphicsState.bin'
 
 Environment:
-    MATLABPATH:     '%PUBLIC%\MATLAB'
+    MATLABPATH: '%PUBLIC%\MATLAB'
     MW_MINGW64_LOC: '%SYSTEMDRIVE%\tools\mingw64'
 
 
