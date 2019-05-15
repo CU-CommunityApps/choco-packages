@@ -20,7 +20,7 @@ Applications:
 
 Files: 
     '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
-    '%TOOLS_DIR%\toolbox_cache-9.4.0-411087837-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2019A\toolbox_cache-9.4.0-411087837-win64.xml'
+    '%TOOLS_DIR%\toolbox_cache-9.4.0-411087837-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2019A\toolbox_cache-9.6.0-423811562-win64.xml'
     '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2019A\graphicsState.bin'
 
 Environment:
