@@ -14,7 +14,7 @@ ChocoPackages:
 Applications:
     MATLAB:
         DisplayName:    'MATLAB R2019a'
-        Path:           '%PROGRAMFILES%\MATLAB\R2018a\bin\matlab.exe'
+        Path:           '%PROGRAMFILES%\MATLAB\R2019a\bin\matlab.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
