@@ -1,19 +1,19 @@
 Id:             'pycharm-cornell'
 Description:    'pycharm-cornell'
-Version:        '2018.3'
+Version:        '2019.1'
 
 ChocoPackages:
     - 'pycharm-edu'
 
 Applications:
     pycharm:
-        DisplayName:    'JetBrains PyCharm Edu 2018.3'
-        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Edu 2018.3\bin\pycharm64.exe'
+        DisplayName:    'JetBrains PyCharm Edu 2019.1'
+        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Edu 2019.1\bin\pycharm64.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\.PyCharmEdu2018.3\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmEdu2018.3\config'
+    '%TOOLS_DIR%\.PyCharmEdu2019.1\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmEdu2019.1\config'
     '%TOOLS_DIR%\JetBrains': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\JetBrains'
     
 Registry:
