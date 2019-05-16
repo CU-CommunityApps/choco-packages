@@ -1,6 +1,6 @@
 Id:             'matlab-coecis'
 Description:    'Matlab R2019a - COECIS License'
-Version:        '9.4'
+Version:        '9.6.0.1072779'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
