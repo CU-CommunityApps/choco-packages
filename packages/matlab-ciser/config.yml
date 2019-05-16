@@ -1,6 +1,6 @@
 Id:             'matlab-ciser'
 Description:    'Matlab R2019a - CISER License'
-Version:        '9.4'
+Version:        '9.6.0.1072779'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
