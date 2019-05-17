@@ -1,6 +1,6 @@
 Id:             'ansys-coecis'
 Description:    'ANSYS - COECIS License'
-Version:        '2019R2'
+Version:        '2019 R2'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
