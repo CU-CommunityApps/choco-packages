@@ -24,7 +24,7 @@ Environment:
 
 Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
-    mitsijm2018: 'Manual' # Autodesk Simulation Moldflow MITSI 2020 Job Manager
+    mitsijm2019: 'Manual' # Autodesk Simulation Moldflow MITSI 2020 Job Manager
 
 Registry:
     HKUD:
