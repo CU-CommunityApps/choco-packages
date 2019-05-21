@@ -329,7 +329,7 @@ namespace ImageBuilder
             request.Name = this.image_name;
             request.DisplayName = this.image_name;
             request.Description = this.image_name;
-            request.DynamicApplicationCatalogEnabled = true;
+            request.DynamicApplicationCatalogEnabled = false;
             request.PhotonSoftwareVersion = "LATEST";
 
             try
