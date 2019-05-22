@@ -3,7 +3,7 @@ Description:    'maya-cornell'
 Version:        '2019'
 
 Install:
-    File:       '%INSTALL_DIR%\setup.exe'
+    File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
     Arguments:  '/qb /W /I %INSTALL_DIR%\Img\maya.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  [0,1641]
