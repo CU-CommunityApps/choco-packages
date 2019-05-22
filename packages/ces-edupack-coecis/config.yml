@@ -1,41 +1,16 @@
 Id:             'ces-edupack-coecis'
-Description:    'CES Edupack 2018 - COECIS License'
-Version:        '18.1.1'
+Description:    'CES Edupack 2019 - COECIS License'
+Version:        '19.2.0'
 
 Install:
-  - File:       '%INSTALL_DIR%\ReportViewer.exe'
+  - File:       '%INSTALL_DIR%\edupack_setup2019.exe'
     FileType:   'exe'
-    Arguments:  '/q'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\edupack.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\L1en.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\L1elem.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\L2en.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\L3std.msi'
-    FileType:   'msi'
     Arguments:  '/quiet'
     ExitCodes:  [0]
 
 Applications:
     CES:
-        DisplayName:    'CES EduPack 2018'
-        Path:           '%PROGRAMFILES(X86)%\CES EduPack 2018\CES.exe'
+        DisplayName:    'CES EduPack 2019'
+        Path:           '%PROGRAMFILES(X86)%\CES EduPack 2019\CES.exe'
         LaunchParams:   ''
         WorkDir:        ''
