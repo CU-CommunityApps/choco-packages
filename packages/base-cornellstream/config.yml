@@ -13,7 +13,7 @@ Install:
     Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\pc-client-admin-deploy.msi'
+  - File:       '%INSTALL_DIR%\papercut\pc-client-admin-deploy.msi'
     FileType:   'msi'
     Arguments:  '/qb /norestart ALLUSERS=1'
     ExitCodes:  [0]
