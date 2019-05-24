@@ -3,11 +3,11 @@ using Amazon.S3.Model;
 using Amazon.S3.Transfer;
 using chocolatey;
 using chocolatey.infrastructure.app.configuration;
+using Ionic.Zip;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -224,7 +224,8 @@ namespace ChocoPacker
                 Console.WriteLine($"Extracting {local_zip} to {installer_dir}...");
 
                 Directory.CreateDirectory(installer_dir);
-                ZipFile.ExtractToDirectory(local_zip, installer_dir);
+                ZipFile local_zip_file = ZipFile.Read(local_zip);
+                local_zip_file.ExtractAll(installer_dir, ExtractExistingFileAction.OverwriteSilently);
                 File.Delete(local_zip);
             }
         }
