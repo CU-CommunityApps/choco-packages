@@ -1,6 +1,6 @@
 Id:             'adobedcreader-cornell'
 Description:    'adobedcreader-cornell'
-Version:        '2018.011.20055'
+Version:        '2018.011.2005'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'

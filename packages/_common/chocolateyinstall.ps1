@@ -59,58 +59,48 @@ Param(
 Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 
     $ErrorActionPreference = 'Stop'
-    Import-Module "powershell-yaml"
-
-    # Initialize list of packages, if needed
-    if (-Not (Test-Path Env:CHOCO_INSTALLED_PACKAGES)) {
-        Write-Output "Creating CHOCO_INSTALLED_PACKAGES Environment Variable"
-        $Env:CHOCO_INSTALLED_PACKAGES = 'choco'
+    
+    if ((-Not (Get-Module -ListAvailable -Name 'powershell-yaml')) -Or (-Not (Get-Module -ListAvailable -Name 'PSSQLite'))) {
+        Install-PackageProvider -Name 'NuGet' -Force
+        Install-Module 'powershell-yaml' -Force
+        Install-Module 'PSSQLite' -Force
     }
+    
+    Import-Module "powershell-yaml"
+    Import-Module "PSSQLite"
 
     $CHOCO =        [io.path]::combine($Env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
     $REG =          [io.path]::combine($Env:SYSTEMROOT, 'System32', 'reg.exe')
     $USER_DIR =     Join-Path $Env:SYSTEMDRIVE 'Users'
     $DEFAULT_HIVE = [io.path]::combine($USER_DIR, 'Default', 'NTUSER.DAT')
     $STARTUP =      [io.path]::combine($Env:ALLUSERSPROFILE, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'StartUp', '*')
+    $APP_CATALOG =  [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
+    $APP_ICONS =    [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'AppCatalogHelper', 'AppIcons')
 
     If (!($TOOLS_DIR)){
         $TOOLS_DIR = $PSScriptRoot
-        $CONFIG =   Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') | ConvertFrom-Json
-        $INSTALL_DIR =  Join-Path $Env:TEMP $CONFIG.Id
+        $CONFIG =   Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.yml') | ConvertFrom-Yaml | ConvertTo-Yaml -JsonCompatible | ConvertFrom-Json
+        $INSTALL_DIR =  Join-Path $TOOLS_DIR 'installer'
     }
 
     $SECRETS_FILE = Join-Path $INSTALL_DIR 'secrets.yml'
-    $S3_URI =       "https://s3.amazonaws.com/$($Env:CHOCO_BUCKET)/packages/$($CONFIG.Id).zip"
-    If ($Mode.ToLower() -eq "t"){$INSTALLED = ""}
-    Else {$INSTALLED =    $Env:CHOCO_INSTALLED_PACKAGES.Split(';')}
-
-
-    # Check if current package is already installed
-    if ($INSTALLED.Contains($CONFIG.Id)) {
-        Write-Output "$($CONFIG.Id) Already Installed"
-        Exit
-    }
 
     # Make useful directories available to the environment
     [Environment]::SetEnvironmentVariable('INSTALL_DIR', $INSTALL_DIR, 'Process')
     [Environment]::SetEnvironmentVariable('TOOLS_DIR', $TOOLS_DIR, 'Process')
 
-    # Verify installer files exist
-    Try {$S3_Valid = iwr -Uri $S3_URI -UseBasicParsing -Method Head}
-    Catch { If ($_.Exception.Response.StatusCode -match "Forbidden"){ Write-Output "$S3_URI does not exist" }Else { Write-Output "Error downloading $S3_URI" }}
         
-    # Download and extract installer files
-    If ($S3_Valid.StatusCode -eq '200'){
+    If (Test-Path $SECRETS_FILE) {
         
-        # Check if the package is already downloaded and extracted
-        If (!(gci $INSTALL_DIR -Recurse -Include *.exe, *.msi -ErrorAction SilentlyContinue)){
+        # Convert secrets.yml
+        [array]$secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml 
+        $total = $secrets.Keys.Count
+        $count = 0
+
+        # Add environment variables
+        If ($total -gt 1){
             
-            # Download and extract ZIP from S3
-            Write-Output "Unzipping $($CONFIG.Id) From $S3_URI"
-            Install-ChocolateyZipPackage `
-                -PackageName "$($CONFIG.Id)" `
-                -UnzipLocation "$INSTALL_DIR" `
-                -Url "$S3_URI"
+            Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
         
         }
     
@@ -146,7 +136,6 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             Else { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Process') }
 
         }
-
     }
 
     # Always Run Preinstall PowerShell script
@@ -370,6 +359,51 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
                 -Xml (Get-Content "$taskConfig" | Out-String)
         }
     }
+    
+    ##############################################
+    ################# AppCatalog #################
+    ##############################################
+    Function AppCatalog {
+        if (-Not (Test-Path $APP_ICONS)) {
+            New-Item -ItemType Directory -Force -Path $APP_ICONS
+        }
+        
+        if (-Not (Test-Path $APP_CATALOG)) {
+            $create_table = 'CREATE TABLE IF NOT EXISTS "Applications" ("Name" TEXT NOT NULL CONSTRAINT "PK_Applications" PRIMARY KEY, "AbsolutePath" TEXT, "DisplayName" TEXT, "IconFilePath" TEXT, "LaunchParameters" TEXT, "WorkingDirectory" TEXT)'
+            Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $create_table
+            
+            $acl = Get-Acl $APP_CATALOG
+            $permission = "Everyone","FullControl","Allow"
+            $rule = New-Object System.Security.AccessControl.FileSystemAccessRule $permission
+            $acl.SetAccessRule($rule)
+            $acl | Set-Acl $APP_CATALOG
+        }
+        
+        $app_entry = "INSERT INTO Applications (Name, AbsolutePath, DisplayName, IconFilePath, LaunchParameters, WorkingDirectory) VALUES (@name, @path, @display, @icon, @params, @workdir)"
+        $applications = ($CONFIG.Applications | Get-Member -MemberType NoteProperty).Name
+        
+        foreach ($application in $applications) {
+            Write-Output "Creating App Catalog Entry for $($application.DisplayName)"
+            
+            $app_icon_src = [io.path]::combine($TOOLS_DIR, 'icons', "$application.png")
+            $app_icon = Join-Path "$APP_ICONS" "$application.png"
+            Copy-Item -Path $app_icon_src -Destination $app_icon
+            
+            $path = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.Path).Replace('%%', '%')
+            $display = $CONFIG.Applications.$application.DisplayName
+            $params = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.LaunchParams).Replace('%%', '%')
+            $workdir = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.WorkDir).Replace('%%', '%')
+            
+            Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $app_entry -SqlParameters @{
+                name = "$application"
+                path = "$path"
+                display = "$display"
+                icon = "$app_icon"
+                params = "$params"
+                workdir = "$workdir"
+            }
+        }
+    }
 
     # Only run config.yml sections if specified
     If ($CONFIG.Environment){EnvVars}
@@ -379,6 +413,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     If ($CONFIG.Files){Files}
     If ($CONFIG.Services){Services}
     If ($CONFIG.ScheduledTasks){SchedTask}
+    If ($CONFIG.Applications){AppCatalog}
 
     # Run Postinstall PowerShell script
     Write-Output "Running postinstall.ps1..."
@@ -397,7 +432,6 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     # Update environment to list this package as installed
     $INSTALLED += $CONFIG.Id
     $INSTALLED = $INSTALLED -Join ';'
-    [Environment]::SetEnvironmentVariable('CHOCO_INSTALLED_PACKAGES', $INSTALLED, 'Machine')
 
     Write-Output "$($CONFIG.Id) Install Complete!"
 }

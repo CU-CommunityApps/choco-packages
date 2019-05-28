@@ -1,0 +1,11 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - 'Invoke-Expression -Command "$Env:CODEBUILD_SRC_DIR\build\ChocoPacker\build.ps1"'
+      - 'Invoke-Expression -Command "$Env:CODEBUILD_SRC_DIR\build\ImageBuilder\build.ps1"'
+
+  build:
+    commands:
+      - 'Start-Process -NoNewWindow -Wait -FilePath $Env:TEMP\ChocoPacker\ChocoPacker.exe'
