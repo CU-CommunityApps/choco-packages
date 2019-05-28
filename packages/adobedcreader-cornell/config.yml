@@ -5,7 +5,7 @@ Version:        '2018.011.20055'
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '/sall /rs / l /msi /qn /norestart UPDATE_MODE=3 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read'
+    Arguments:  '/sall /rs /l /msi /qn /norestart UPDATE_MODE=3 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read'
     ExitCodes:  [0]
 
 Applications:
