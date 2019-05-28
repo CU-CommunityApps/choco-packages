@@ -5,7 +5,18 @@ Version:        '1.0.0'
 ChocoPackages:
     - '7zip'
     - 'notepadplusplus'
-    - 'googlechrome'
+#    - 'googlechrome'
+
+Install:
+  - File:       '%INSTALL_DIR%\SCEPInstall.exe'
+    FileType:   'exe'
+    Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\papercut\pc-client-admin-deploy.msi'
+    FileType:   'msi'
+    Arguments:  '/qb /norestart ALLUSERS=1'
+    ExitCodes:  [0]
 
 Applications:
     7zip:
@@ -14,10 +25,10 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-    Chrome:
-        DisplayName:    'Google Chrome'
-        Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
-        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
+    IE:
+        DisplayName:    'Internet Explorer'
+        Path:           '%PROGRAMFILES%\Internet Explorer\iexplore.exe'
+        LaunchParams:   'https://it.cornell.edu/students'
         WorkDir:        ''
     
     NotepadPP:
@@ -26,32 +37,29 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-    Powershell:
-        DisplayName:    'Windows Powershell'
-        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
-
     Procexp:
         DisplayName:    'Process Explorer'
-        Path:           '%ALLUSERSPROFILE%\chocolatey\lib\sysinternals\tools\procexp.exe'
-        LaunchParams:   '/AcceptEULA'
+        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   '-File %WINDIR%\system32\Kill_Process.ps1'
         WorkDir:        ''
 
-    ExplorerPlus:
-        DisplayName:    'Explorer Plus'
-        Path:           '%PROGRAMFILES%\ExplorerPlus\Explorer++.exe'
-        LaunchParams:   ''
+    Explorer:
+        DisplayName:    'File Explorer'
+        Path:           '%WINDIR%\explorer.exe'
+        LaunchParams:   'Z:'
         WorkDir:        ''
 
 Files:
     '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb' # AMD GPU
     '%TOOLS_DIR%\ProcmonConfiguration.pmc': '%SYSTEMDRIVE%\Procmon\ProcmonConfiguration.pmc'
     '%TOOLS_DIR%\defaultassociations.xml': '%SYSTEMDRIVE%\windows\system32\defaultassociations.xml'
-    '%INSTALL_DIR%\Explorer++.exe': '%PROGRAMFILES%\ExplorerPlus\Explorer++.exe'
+    '%TOOLS_DIR%\Kill_Process.ps1': '%SYSTEMDRIVE%\windows\system32\Kill_Process.ps1'
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
     
-
+ScheduledTasks:
+    - 'Update_SCEP'
+    - 'temporary_files'
+    - 'papercut-startup'
 Registry:
     HKUD:
         Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
@@ -76,8 +84,27 @@ Registry:
             IEHarden:
                 Type:   'DWORD'
                 Value:  '0'
-    HKLM:
-        Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap:
-            IEHarden:
+
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings:
+            WarnonZoneCrossing:
                 Type:   'DWORD'
                 Value:  '0'
+
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3:
+            1803: # Enable file downloads
+                Type:   'DWORD'
+                Value:  '0'
+                
+            1400: # Enable active scripting (two factor processing)
+                Type:   'DWORD'
+                Value:  '0'
+                
+            1608: # Allow META REFRESH (some URL redirects)
+                Type:   'DWORD'
+                Value:  '0'
+                
+    HKLM:
+        SYSTEM\CurrentControlSet\Control\TimeZoneInformation:
+            TimeZoneKeyName:
+                Type:   'String'
+                Value:  'Eastern Standard Time'

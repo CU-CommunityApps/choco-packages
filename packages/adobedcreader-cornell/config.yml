@@ -5,9 +5,8 @@ Version:        '2018.011.2005'
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '/sall /rs / l /msi /qn /norestart UPDATE_MODE=0 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read'
+    Arguments:  '/sall /rs / l /msi /qn /norestart UPDATE_MODE=3 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read'
     ExitCodes:  [0]
-
 
 Applications:
     AdobeReaderDC:
@@ -15,7 +14,6 @@ Applications:
         Path:           '%PROGRAMFILES(x86)%\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
 
 Registry:
     HKUD:

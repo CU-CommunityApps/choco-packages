@@ -18,3 +18,4 @@ Applications:
 
 Files: 
     '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES(x86)%\Stata15\STATA.LIC'
+    '%INSTALL_DIR%\profile.do': '%PROGRAMFILES(x86)%\Stata15\ado\base\profile.do'

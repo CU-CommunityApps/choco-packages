@@ -1,0 +1,16 @@
+Id:             'qgis-cornell'
+Description:    'qgis-cornell'
+Version:        '3.4.3'
+
+ChocoPackages:
+    - 'qgis'
+
+Applications:
+    qgis:
+        DisplayName:    'qgis-bin'
+        Path:           '%PROGRAMFILES%\QGIS 3.4\bin\qgis-bin.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\QGIS': '%SYSTEMDRIVE%\Users\Default\AppData\roaming\QGIS\'

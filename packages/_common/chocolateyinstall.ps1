@@ -103,8 +103,39 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             Do { [System.Environment]::SetEnvironmentVariable($secrets.Keys[$count], $secrets.Values[$count], 'Process');$count ++ } Until ($count -eq $total)
         
         }
-        Else { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Process') }
+    
+        # Put any secrets into the environment
+        If (Test-Path $SECRETS_FILE) {
+            
+            # Convert secrets.yml
+            [array]$secrets = Get-Content -Raw $SECRETS_FILE | ConvertFrom-Yaml
+            $total = $secrets.Keys.Count
+            $count = 0
 
+            # Add environment variables
+            If ($total -gt 1){
+                
+                $secrets.Keys | % {
+                    
+                    # Get array position of static env_var
+                    $arrayPos = $secrets.Keys.IndexOf($_)
+
+                    If ($_ -match "STATIC_SYSTEM"){
+
+                        # Add machine level env_var
+                        [System.Environment]::SetEnvironmentVariable($secrets.Keys[$arrayPos], $secrets.Values[$arrayPos], 'Machine')
+
+                    }
+                    # Add process level env_var
+                    Else {[System.Environment]::SetEnvironmentVariable($secrets.Keys[$arrayPos], $secrets.Values[$arrayPos], 'Process')}
+            
+                }
+
+            }
+            ElseIf ($secrets.Keys -match "STATIC_SYSTEM") { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Machine') }
+            Else { [System.Environment]::SetEnvironmentVariable($secrets.Keys, $secrets.Values, 'Process') }
+
+        }
     }
 
     # Always Run Preinstall PowerShell script
@@ -283,10 +314,12 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 
             Write-Output "Copying $sourcePath to $destPath"
 
-            New-Item `
-                -Path $(Split-Path -Path "$destPath") `
-                -ItemType "Directory" `
-                -Force
+            If (!(Test-Path $destPath)){
+                New-Item `
+                    -Path $(Split-Path -Path "$destPath") `
+                    -ItemType "Directory" `
+                    -Force
+            }
 
             Copy-Item `
                 -Path "$sourcePath" `
@@ -521,7 +554,7 @@ Function Uninstall($App) {
 ################# Update Mode ##################
 ################################################
 Function Update {
-
+    
     Write-Output "Restarting computer before installing updates"
     Restart-Computer
     write-output "Installing Windows Updates"
@@ -582,7 +615,7 @@ Function Optimize {
             $path = $path -replace "'"
            
             # Launch each application listed in config.yml
-            Try {Start-Process "$path"; If ($? -eq $true){Write-Output "Successfully optimized $path"; Start-Sleep -Seconds 10}}
+            Try {Start-Process "$path"; If ($? -eq $true){Write-Output "Successfully optimized $path"; Start-Sleep -Seconds 60}}
             Catch {Write-Output "Failed to optimize $($CONFIG.Id) $path"}
 
         }

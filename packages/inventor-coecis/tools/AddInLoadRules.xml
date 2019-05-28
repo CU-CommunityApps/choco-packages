@@ -11,7 +11,7 @@
     -->
   
     <TrustedPath Policy="Allow">C:\Program Files\3Dconnexion\</TrustedPath>
-    <TrustedPath Policy="Allow">C:\Program Files\ANSYS Inc\v191\aisol\CADIntegration\Inventor\winx64\</TrustedPath>
+    <TrustedPath Policy="Allow">C:\Program Files\ANSYS Inc\v194\aisol\CADIntegration\Inventor\winx64\</TrustedPath>
   
 
     <!-- Publisher rules                                                                 

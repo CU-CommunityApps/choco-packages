@@ -7,7 +7,14 @@ Install:
     FileType:   'exe'
     Arguments:  '-silent -debug -force -waitforcompletion FROM_LOCATION=%INSTALL_DIR%\stage\products.xml oracle.install.client.installType=Administrator ORACLE_HOME=C:\oracle\product\11.2.0\Client ORACLE_HOME_NAME=OraClient11g_Home1 ORACLE_BASE=C:\oracle DECLINE_SECURITY_UPDATES=true'
     ExitCodes:  [0]
-       
+
+Applications:
+    sqldeveloper:
+        DisplayName:    'sqldeveloper'
+        Path:           '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper.exe'
+        LaunchParams:   ''
+        WorkDir:        'Z:\'
+        
 Files:
     '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
     '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'

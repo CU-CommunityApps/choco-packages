@@ -1,9 +1,9 @@
 Id:             'juliapro-cornell'
 Description:    'Julia Pro'
-Version:        '0.6.3'
+Version:        '1.0.2.1'
 
 Install:
-    File:       '%INSTALL_DIR%\JuliaPro_v0.6.3.1_build-408.exe'
+    File:       '%INSTALL_DIR%\JuliaPro_v1.0.2.1_build-430.exe'
     FileType:   'exe'
     Arguments:  '/S'
     ExitCodes:  [0]
@@ -11,18 +11,30 @@ Install:
 Applications:
     juliapro:
         DisplayName:    'JuliaPro'
-        Path:           '%SYSTEMDRIVE%\JuliaPro-0.6.3.1\Julia-0.6.3\bin\julia.exe'
+        Path:           '%SYSTEMDRIVE%\JuliaPro-1.0.2.1\Julia-1.0.2\bin\julia.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'C:\Work'
 
     juno:
         DisplayName:    'Juno for JuliaPro'
-        Path:           '%SYSTEMDRIVE%\JuliaPro-0.6.3.1\Juno.bat'
+        Path:           '%SYSTEMDRIVE%\JuliaPro-1.0.2.1\Juno.bat'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'C:\Work'
         
-    Jupyter:
-        DisplayName:    'Jupyter'
-        Path:           '%SYSTEMDRIVE%\JuliaPro-0.6.3.1\IJulia.bat'
+    julia:
+        DisplayName:    'JuliaPro Command Prompt'
+        Path:           '%SYSTEMDRIVE%\JuliaPro-1.0.2.1\Julia-1.0.2\bin\julia.exe'
         LaunchParams:   ''
-        WorkDir:        ''
+        WorkDir:        'C:\Work'
+    
+    atom:
+        DisplayName:    'Atom'
+        Path:           '%SYSTEMDRIVE%\JuliaPro-1.0.2.1\app-1.32.2\atom.exe'
+        LaunchParams:   ''
+        WorkDir:        'C:\Work'
+
+Files:
+    '%INSTALL_DIR%\ntrights.exe': '%SYSTEMDRIVE%\JuliaPro-1.0.2.1\ntrights.exe'
+
+ScheduledTasks:
+    - 'symlink_allows'

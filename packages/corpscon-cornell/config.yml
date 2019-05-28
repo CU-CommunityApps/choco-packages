@@ -1,0 +1,13 @@
+Id:             'corpscon-cornell'
+Description:    'corpscon-cornell'
+Version:        '6.0.1'
+
+Applications:
+    corpscon:
+        DisplayName:    'corpscon6'
+        Path:           '%PROGRAMFILES%\apps\corpscon\corpscon6.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\corpscon': '%PROGRAMFILES%\apps\corpscon\'

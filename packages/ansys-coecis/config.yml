@@ -1,6 +1,6 @@
 Id:             'ansys-coecis'
-Description:    'ANSYS 19 - COECIS License'
-Version:        '19.1'
+Description:    'ANSYS - COECIS License'
+Version:        '2019 R2'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -10,12 +10,12 @@ Install:
 
 Applications:
     ANSYSWB:
-        DisplayName:    'ANSYS Workbench 19.1'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v191\Framework\bin\Win64\RunWB2.exe'
+        DisplayName:    'Workbench 2019 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v194\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v191\ApipUserConfig.txt'
-    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v191\commonfiles\CAD\CADConfigurationInfo.XML'
+    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v194\ApipUserConfig.txt'
+    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v194\commonfiles\CAD\CADConfigurationInfo.XML'
 

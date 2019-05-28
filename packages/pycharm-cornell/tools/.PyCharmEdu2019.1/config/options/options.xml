@@ -1,0 +1,17 @@
+<application>
+  <component name="PropertiesComponent">
+    <property name="Edu.CourseCreator.Enabled" value="true" />
+    <property name="Educational.conflictingPluginsDisabled" value="true" />
+    <property name="PyCharmEDU.InitialConfiguration" value="true" />
+    <property name="PyCharmEDU.InitialConfiguration.V1" value="true" />
+    <property name="PyCharmEDU.InitialConfiguration.V2" value="true" />
+    <property name="PyCharmEDU.InitialConfiguration.V3" value="true" />
+    <property name="PyCharmEDU.InitialConfiguration.V4" value="true" />
+    <property name="PyCharmEDU.initialConfigurationShown" value="true" />
+    <property name="ShowDocumentationInToolWindow" value="true" />
+    <property name="StudyPyCharm.InitialConfiguration40" value="true" />
+    <property name="file.gist.reindex.count" value="33801" />
+    <property name="fileTypeChangedCounter" value="1" />
+    <property name="toolwindow.stripes.buttons.info.shown" value="true" />
+  </component>
+</application>

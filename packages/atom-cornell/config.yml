@@ -1,0 +1,15 @@
+Id:             'atom-cornell'
+Description:    'Atom'
+Version:        '1.34.0'
+
+Applications:
+    atom:
+        DisplayName:    'Atom'
+        Path:           '%PROGRAMFILES%\Atom\Atom\atom.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%TOOLS_DIR%\config.cson': '%SYSTEMDRIVE%\Users\Default\.atom\config.cson'
+    '%INSTALL_DIR%\Atom':      '%PROGRAMFILES%\Atom\Atom'
+    '%INSTALL_DIR%\app':       '%PROGRAMFILES%\Atom\app'
