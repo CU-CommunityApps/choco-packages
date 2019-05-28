@@ -5,7 +5,6 @@ Version:        '1.0.0'
 ChocoPackages:
     - '7zip'
     - 'notepadplusplus'
-#    - 'googlechrome'
 
 Install:
   - File:       '%INSTALL_DIR%\SCEPInstall.exe'
