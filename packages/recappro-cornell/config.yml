@@ -1,0 +1,38 @@
+Id:             'recappro-cornell'
+Description:    'recappro-cornell'
+Version:        '1.0.0'
+
+Install:
+    File:       '%INSTALL_DIR%\Img\setup.exe'
+    FileType:   'exe'
+    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\ReCap Pro.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    ExitCodes:  [0,1641]
+    
+Applications:
+    recap:
+        DisplayName:    'ReCap'
+        Path:           '%PROGRAMFILES%\Autodesk\Autodesk ReCap\ReCap.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    recapphoto:
+        DisplayName:    'Autodesk ReCap Photo'
+        Path:           '%PROGRAMFILES%\Autodesk\Autodesk ReCap Photo\recapphoto.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Environment:
+    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+
+Services: 
+    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
+    
+Registry:
+    HKCC:   { }
+    HKCR:   { }
+    HKCU:   { }
+    HKLM:   { }
+    HKU:    { }
+    HKUD:
+
+

@@ -1,0 +1,13 @@
+Id:             'inverse-cornell'
+Description:    'inverse-cornell'
+Version:        '2.0'
+
+Applications:
+    inverse:
+        DisplayName:    'inverse'
+        Path:           '%PROGRAMFILES%\apps\inverse\inverse.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\inverse.exe': '%PROGRAMFILES%\apps\inverse\inverse.exe'

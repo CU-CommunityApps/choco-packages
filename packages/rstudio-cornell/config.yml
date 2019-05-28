@@ -1,0 +1,13 @@
+Id:             'rstudio-cornell'
+Description:    'RStudio'
+Version:        '1.2.1335'
+
+ChocoPackages:
+    - 'r.studio'
+
+Applications:
+    rstudio:
+        DisplayName:    'RStudio'
+        Path:           '%PROGRAMFILES%\RStudio\bin\rstudio.exe'
+        LaunchParams:   ''
+        WorkDir:        ''

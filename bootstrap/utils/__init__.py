@@ -293,6 +293,7 @@ class ImageBuild(object):
                     '{Choco} install {Package} '
                     '-s ".;https://chocolatey.org/api/v2" '
                     '--no-progress '
+                    '--execution-timeout=7200 '
                     '-r -y'
                 ).format(
                     Choco=chocoPath,

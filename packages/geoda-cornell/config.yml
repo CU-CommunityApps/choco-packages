@@ -1,0 +1,21 @@
+Id:             'geoda-cornell'
+Description:    'geoda-cornell'
+Version:        '1.12.1.129'
+
+Install:
+  - File:       '%INSTALL_DIR%\vcredist_x64.exe'
+    FileType:   'exe'
+    Arguments:  '/quiet'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\GeoDa-1.12.1.129-Windows-64bit.exe'
+    FileType:   'exe'
+    Arguments:  '/VERYSILENT /SUPPRESSMSGBOXES /NORESTART'
+    ExitCodes:  [0]
+
+Applications:
+    geoda:
+        DisplayName:    'GeoDa'
+        Path:           '%PROGRAMFILES%\GeoDa Software\GeoDa.exe'
+        LaunchParams:   ''
+        WorkDir:        ''

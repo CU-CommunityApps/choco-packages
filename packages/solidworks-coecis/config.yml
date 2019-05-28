@@ -1,5 +1,5 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2018 - COECIS License'
+Description:    'SOLIDWORKS 2019 - COECIS License'
 Version:        '26.4.0.75'
 
 Install:
@@ -10,7 +10,7 @@ Install:
 
 Applications:
     SLDWORKS:
-        DisplayName:    'SOLIDWORKS 2018'
+        DisplayName:    'SOLIDWORKS 2019'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -38,7 +38,7 @@ Files:
 
 Services:
     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
-    SWVisualize2018.Queue.Server:   'Manual'
+    SWVisualize2019.Queue.Server:   'Manual'
 
 ScheduledTasks:
     - 'solidworks-accept-eula'

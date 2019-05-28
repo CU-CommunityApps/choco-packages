@@ -325,10 +325,12 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 
             Write-Output "Copying $sourcePath to $destPath"
 
-            New-Item `
-                -Path $(Split-Path -Path "$destPath") `
-                -ItemType "Directory" `
-                -Force
+            If (!(Test-Path $destPath)){
+                New-Item `
+                    -Path $(Split-Path -Path "$destPath") `
+                    -ItemType "Directory" `
+                    -Force
+            }
 
             Copy-Item `
                 -Path "$sourcePath" `
@@ -518,7 +520,7 @@ Function Uninstall($App) {
 ################# Update Mode ##################
 ################################################
 Function Update {
-
+    
     Write-Output "Restarting computer before installing updates"
     Restart-Computer
     write-output "Installing Windows Updates"
@@ -579,7 +581,7 @@ Function Optimize {
             $path = $path -replace "'"
            
             # Launch each application listed in config.yml
-            Try {Start-Process "$path"; If ($? -eq $true){Write-Output "Successfully optimized $path"; Start-Sleep -Seconds 10}}
+            Try {Start-Process "$path"; If ($? -eq $true){Write-Output "Successfully optimized $path"; Start-Sleep -Seconds 60}}
             Catch {Write-Output "Failed to optimize $($CONFIG.Id) $path"}
 
         }

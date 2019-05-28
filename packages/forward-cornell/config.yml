@@ -1,0 +1,15 @@
+Id:             'forward-cornell'
+Description:    'forward-cornell'
+Version:        '2.0'
+
+Applications:
+    forward:
+        DisplayName:    'forward'
+        Path:           '%PROGRAMFILES%\apps\forward\forward.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\forward.exe': '%PROGRAMFILES%\apps\forward\forward.exe'
+
+
