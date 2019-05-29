@@ -14,7 +14,7 @@ Install:
 
   - File:       '%INSTALL_DIR%\papercut\pc-client-admin-deploy.msi'
     FileType:   'msi'
-    Arguments:  '/qb /norestart ALLUSERS=1'
+    Arguments:  '/qn /norestart ALLUSERS=1'
     ExitCodes:  [0]
 
 Applications:
@@ -59,6 +59,7 @@ ScheduledTasks:
     - 'Update_SCEP'
     - 'temporary_files'
     - 'papercut-startup'
+    
 Registry:
     HKUD:
         Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
