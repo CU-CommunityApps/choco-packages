@@ -14,25 +14,25 @@ Install:
 
   - File:       '%INSTALL_DIR%\papercut\pc-client-admin-deploy.msi'
     FileType:   'msi'
-    Arguments:  '/qb /norestart ALLUSERS=1'
+    Arguments:  '/qn /norestart ALLUSERS=1'
     ExitCodes:  [0]
 
 Applications:
     7zip:
         DisplayName:    '7-Zip'
-        Path:           '%PROGRAMFILES%\7-Zip\7zFM.exe'
+        Path:           '%ProgramW6432%\7-Zip\7zFM.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     IE:
         DisplayName:    'Internet Explorer'
-        Path:           '%PROGRAMFILES%\Internet Explorer\iexplore.exe'
+        Path:           '%ProgramW6432%\Internet Explorer\iexplore.exe'
         LaunchParams:   'https://it.cornell.edu/students'
         WorkDir:        ''
     
     NotepadPP:
         DisplayName:    'Notepad++'
-        Path:           '%PROGRAMFILES%\Notepad++\notepad++.exe'
+        Path:           '%ProgramW6432%\Notepad++\notepad++.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
@@ -59,6 +59,7 @@ ScheduledTasks:
     - 'Update_SCEP'
     - 'temporary_files'
     - 'papercut-startup'
+    
 Registry:
     HKUD:
         Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
