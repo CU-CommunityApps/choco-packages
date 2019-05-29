@@ -20,19 +20,19 @@ Install:
 Applications:
     7zip:
         DisplayName:    '7-Zip'
-        Path:           '%ProgramW6432%\7-Zip\7zFM.exe'
+        Path:           '%PROGRAMFILES%\7-Zip\7zFM.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     IE:
         DisplayName:    'Internet Explorer'
-        Path:           '%ProgramW6432%\Internet Explorer\iexplore.exe'
+        Path:           '%PROGRAMFILES%\Internet Explorer\iexplore.exe'
         LaunchParams:   'https://it.cornell.edu/students'
         WorkDir:        ''
     
     NotepadPP:
         DisplayName:    'Notepad++'
-        Path:           '%ProgramW6432%\Notepad++\notepad++.exe'
+        Path:           '%PROGRAMFILES%\Notepad++\notepad++.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
