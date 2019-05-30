@@ -193,7 +193,7 @@ namespace ImageBuilder
 
             while (true)
             {
-                if (this.install_q.Count == 0 && this.downloaded.Count == 0)
+                if (this.install_q.Count == 0 && this.download_q.Count == 0 && this.downloaded.Count == 0)
                 {
                     break;
                 }
@@ -240,6 +240,7 @@ namespace ImageBuilder
                         c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
                         c.AcceptLicense = true;
                         c.AdditionalLogFileLocation = package_log;
+                        c.Input = " --ignore-detected-reboot ";
                     }).Run();
 
                     log.Info($"{package_name}.{package_version} Installed!");
