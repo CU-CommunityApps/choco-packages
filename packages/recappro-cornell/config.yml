@@ -1,5 +1,5 @@
 Id:             'recappro-cornell'
-Description:    'recappro-cornell'
+Description:    'recappro-cornell - buildtest'
 Version:        '1.0.0'
 
 Install:
@@ -26,13 +26,3 @@ Environment:
 
 Services: 
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
-    
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:
-
-
