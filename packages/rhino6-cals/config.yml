@@ -1,6 +1,6 @@
 Id:             'rhino6-cals'
-Description:    'rhino6-cals'
-Version:        'rhino_en-us_6.14.19118.15561'
+Description:    'rhino6-cals - buildtest'
+Version:        '6.14.19118.15561'
 
 Install:
     File:       '%INSTALL_DIR%\rhino_en-us_rhino_en-us_6.14.19118.15561.exe'
