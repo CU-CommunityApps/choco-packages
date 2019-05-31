@@ -57,7 +57,7 @@ Files:
     
 ScheduledTasks:
     - 'Update_SCEP'
-    - 'temporary_files'
+#     - 'temporary_files'
     - 'papercut-startup'
     
 Registry:
