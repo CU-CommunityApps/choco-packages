@@ -22,11 +22,6 @@ Applications:
         WorkDir:        ''
 
 Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
     HKUD:
         Software\WhereScape\MetaEditor\LicenseV7:
             Licensed_To:
