@@ -1,6 +1,6 @@
 Id:             'ansys-coecis'
-Description:    'ANSYS - COECIS License'
-Version:        '2019 R2'
+Description:    'ANSYS - COECIS License - buildtesting'
+Version:        '19.2'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'

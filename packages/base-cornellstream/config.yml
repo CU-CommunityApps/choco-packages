@@ -1,11 +1,10 @@
 Id:             'base-cornellstream'
-Description:    'Base Items for Cornell Stream Environments'
+Description:    'Base Items for Cornell Stream - buildtest2'
 Version:        '1.0.0'
 
 ChocoPackages:
     - '7zip'
     - 'notepadplusplus'
-#    - 'googlechrome'
 
 Install:
   - File:       '%INSTALL_DIR%\SCEPInstall.exe'
@@ -15,7 +14,7 @@ Install:
 
   - File:       '%INSTALL_DIR%\papercut\pc-client-admin-deploy.msi'
     FileType:   'msi'
-    Arguments:  '/qb /norestart ALLUSERS=1'
+    Arguments:  '/qn /norestart ALLUSERS=1'
     ExitCodes:  [0]
 
 Applications:
@@ -53,13 +52,14 @@ Files:
     '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb' # AMD GPU
     '%TOOLS_DIR%\ProcmonConfiguration.pmc': '%SYSTEMDRIVE%\Procmon\ProcmonConfiguration.pmc'
     '%TOOLS_DIR%\defaultassociations.xml': '%SYSTEMDRIVE%\windows\system32\defaultassociations.xml'
-    '%TOOLS_DIR%\Kill_Process.ps1': '%SYSTEMDRIVE%\windows\system32\Kill_Process.ps1'
+    '%INSTALL_DIR%\Kill_Process.ps1': '%SYSTEMDRIVE%\windows\system32\Kill_Process.ps1'
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
     
 ScheduledTasks:
     - 'Update_SCEP'
     - 'temporary_files'
     - 'papercut-startup'
+    
 Registry:
     HKUD:
         Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
