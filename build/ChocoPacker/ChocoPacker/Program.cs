@@ -20,6 +20,7 @@ namespace ChocoPacker
     {
         private string package_bucket = Environment.GetEnvironmentVariable("PACKAGE_BUCKET");
         private string temp_dir = Environment.GetEnvironmentVariable("TEMP");
+        private string system_drive = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
         private string src_dir = Environment.GetEnvironmentVariable("CODEBUILD_SRC_DIR");
         private string src_version = Environment.GetEnvironmentVariable("CODEBUILD_SOURCE_VERSION");
 
@@ -92,7 +93,7 @@ namespace ChocoPacker
 
         private Dictionary<string, string> ReadPackageConfig(string branch, string package)
         {
-            string package_dir = $"{this.src_dir}\\packages\\{package}";
+            string package_dir = $"{this.system_drive}\\{package}";
             string package_yaml = $"{package_dir}\\config.yml";
 
             Dictionary<string, string> package_config = new Dictionary<string, string>();
@@ -120,7 +121,7 @@ namespace ChocoPacker
 
         private void WritePackageNuspec(string branch, string package, Dictionary<string, string> package_config)
         {
-            string package_dir = $"{this.src_dir}\\packages\\{package}";
+            string package_dir = $"{this.system_drive}\\{package}";
             string package_nuspec = $"{package_dir}\\package.nuspec";
 
             XmlWriter x = XmlWriter.Create(package_nuspec);
@@ -191,15 +192,12 @@ namespace ChocoPacker
 
         private void WritePackageInstaller(string branch, string package)
         {
-            string package_dir = $"{this.src_dir}\\packages\\{package}";
-            string temp_package_dir = $"{this.temp_dir}\\packages\\{package}";
+            string package_dir = $"{this.system_drive}\\{package}";
             string local_zip = $"{this.temp_dir}\\{package}.zip";
             string installer_prefix = $"installers/{branch}/{package}.zip";           
-            string tools_dir = $"{temp_package_dir}\\tools";
+            string tools_dir = $"{package_dir}\\tools";
             string installer_dir = $"{tools_dir}\\installer";
             
-            Directory.Move(package_dir, temp_package_dir);
-
             ListObjectsV2Request list_req = new ListObjectsV2Request
             {
                 BucketName = this.package_bucket,
@@ -234,7 +232,7 @@ namespace ChocoPacker
 
         private void WriteChocoPackage(string branch, string package)
         {
-            string package_dir = $"{this.temp_dir}\\packages\\{package}";
+            string package_dir = $"{this.system_drive}\\{package}";
             string package_nuspec = $"{package_dir}\\package.nuspec";
             string pack_args = $"{package_nuspec}";
 
@@ -249,7 +247,7 @@ namespace ChocoPacker
 
         private void PutChocoPackage(string branch, string package, Dictionary<string, string> package_config)
         {
-            string package_dir = $"{this.temp_dir}\\packages\\{package}";
+            string package_dir = $"{this.system_drive}\\{package}";
             string local_nupkg = $"{package_dir}\\{package}.{package_config["Version"]}.nupkg";
             string s3_nupkg = $"packages/{branch}/{package}.{package_config["Version"]}.nupkg";
 
@@ -269,7 +267,7 @@ namespace ChocoPacker
 
         private void CleanupPackage(string branch, string package, Dictionary<string, string> package_config)
         {
-            string package_dir = $"{this.temp_dir}\\packages\\{package}";
+            string package_dir = $"{this.system_drive}\\{package}";
             string local_nupkg = $"{package_dir}\\{package}.{package_config["Version"]}.nupkg";
             string tools_dir = $"{package_dir}\\tools";
             string installer_dir = $"{tools_dir}\\installer";
@@ -299,6 +297,7 @@ namespace ChocoPacker
             foreach (string package in packages)
             {
                 string package_dir = $"{this.src_dir}\\packages\\{package}";
+                string temp_package_dir = $"{this.system_drive}\\{package}";
 
                 if (!Directory.Exists(package_dir))
                 {
@@ -306,8 +305,12 @@ namespace ChocoPacker
                     continue;
                 }
                 
-                Console.WriteLine($"Building Package: {package}");
+                Console.WriteLine($"Moving Package Directory to: {temp_package_dir}");
+                
+                Directory.Move(package_dir, temp_package_dir);
 
+                Console.WriteLine($"Building Package: {package}");
+                
                 Dictionary<string, string> package_config = this.ReadPackageConfig(branch, package);
                 this.WritePackageNuspec(branch, package, package_config);
                 this.WritePackageInstaller(branch, package);
