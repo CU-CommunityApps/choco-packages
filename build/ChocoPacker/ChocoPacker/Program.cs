@@ -179,7 +179,7 @@ namespace ChocoPacker
                     x.WriteEndElement();
 
                     x.WriteStartElement("file");
-                    x.WriteAttributeString("src", "..\\_common\\chocolateyinstall.ps1");
+                    x.WriteAttributeString("src", $"{this.src_dir}\\packages\\_common\\chocolateyinstall.ps1");
                     x.WriteAttributeString("target", "tools\\chocolateyinstall.ps1");
                     x.WriteEndElement();
 
