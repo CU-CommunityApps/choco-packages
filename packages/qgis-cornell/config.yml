@@ -1,5 +1,5 @@
 Id:             'qgis-cornell'
-Description:    'qgis-cornell'
+Description:    'qgis-cornell - buildtest'
 Version:        '3.4.3'
 
 ChocoPackages:
