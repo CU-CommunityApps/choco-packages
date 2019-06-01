@@ -369,11 +369,6 @@ namespace ImageBuilder
             }
             else if (!File.Exists(SNAPSHOT_LOCK))
             {
-                if (Directory.Exists(TEMP_DIR))
-                {
-                    Directory.Delete(TEMP_DIR, true);
-                }
-
                 this.InitiateSnapshot();
             }
         }
