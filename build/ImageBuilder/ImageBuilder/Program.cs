@@ -24,7 +24,7 @@ namespace ImageBuilder
         private const string USER_DATA_URI = "http://169.254.169.254/latest/user-data";
 
         private static string SYSTEM_DRIVE = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
-        private static string TEMP_DIR = Path.Combine(Environment.GetEnvironmentVariable("TEMP"), "image-build");
+        private static string TEMP_DIR = Path.Combine(SYSTEM_DRIVE, "TEMP");
         private static string PACKAGE_PATH = Path.Combine(TEMP_DIR, "packages");
         private static string INSTALLED_LOCK = Path.Combine(TEMP_DIR, "INSTALLED.lock");
         private static string UPDATED_LOCK = Path.Combine(TEMP_DIR, "UPDATED.lock");
@@ -240,6 +240,7 @@ namespace ImageBuilder
                         c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
                         c.AcceptLicense = true;
                         c.AdditionalLogFileLocation = package_log;
+                        c.CacheLocation = TEMP_DIR;
                         // c.Input = " --ignore-detected-reboot ";
                     }).Run();
 
@@ -368,6 +369,11 @@ namespace ImageBuilder
             }
             else if (!File.Exists(SNAPSHOT_LOCK))
             {
+                if (Directory.Exists(TEMP_DIR))
+                {
+                    Directory.Delete(TEMP_DIR, true);
+                }
+
                 this.InitiateSnapshot();
             }
         }
