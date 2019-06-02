@@ -23,8 +23,8 @@ namespace ImageBuilder
         private const string CHOCO_REPO = "https://chocolatey.org/api/v2";
         private const string USER_DATA_URI = "http://169.254.169.254/latest/user-data";
 
-        private static string SYSTEM_DRIVE = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
-        private static string TEMP_DIR = Path.Combine(SYSTEM_DRIVE, "TEMP");
+        private static string PROGRAM_DATA = Environment.GetEnvironmentVariable("ALLUSERSPROFILE");
+        private static string TEMP_DIR = Path.Combine(PROGRAM_DATA, "TEMP");
         private static string PACKAGE_PATH = Path.Combine(TEMP_DIR, "packages");
         private static string INSTALLED_LOCK = Path.Combine(TEMP_DIR, "INSTALLED.lock");
         private static string UPDATED_LOCK = Path.Combine(TEMP_DIR, "UPDATED.lock");
@@ -227,7 +227,8 @@ namespace ImageBuilder
                     string package_name = package.Split(';')[0];
                     string package_version = package.Split(';')[1];
                     string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
-                    string package_log = Path.Combine(SYSTEM_DRIVE, $"{package_name}.{package_version}.log");
+                    string package_local_choco = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.nupkg");
+                    string package_log = Path.Combine(PROGRAM_DATA, $"{package_name}.{package_version}.log");
 
                     log.Info($"Installing {package_name}.{package_version}");
 
@@ -247,6 +248,12 @@ namespace ImageBuilder
                     log.Info($"{package_name}.{package_version} Installed!");
 
                     File.Delete(package_local);
+
+                    if (File.Exists(package_local_choco))
+                    {
+                        File.Delete(package_local_choco);
+                    }
+
                     while(!this.downloaded.TryRemove(package, out package_downloaded));
                 }
             }
