@@ -5,7 +5,7 @@ Version:        '26.4.0.75'
 Install:
     File:       '%INSTALL_DIR%\startswinstall.exe'
     FileType:   'exe'
-    Arguments:  '/install /showui /now'
+    Arguments:  '/install /now'
     ExitCodes:  [0]
 
 Applications:
