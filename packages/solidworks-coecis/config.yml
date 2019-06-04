@@ -1,6 +1,6 @@
 Id:             'solidworks-coecis'
 Description:    'SOLIDWORKS 2019 - COECIS License'
-Version:        '26.4.0.75'
+Version:        '27.3.0.52'
 
 Install:
     File:       '%INSTALL_DIR%\startswinstall.exe'
