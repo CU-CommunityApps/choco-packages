@@ -1,5 +1,5 @@
 Id:             'rstudio-cornell'
-Description:    'RStudio'
+Description:    'RStudio - buildtest'
 Version:        '1.2.1335'
 
 ChocoPackages:
