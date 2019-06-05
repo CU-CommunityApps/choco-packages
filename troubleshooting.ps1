@@ -8,6 +8,10 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 $env:Path += "$env:ALLUSERSPROFILE\chocolatey\bin"
 Invoke-Expression "choco.exe upgrade -y chocolatey"
 Invoke-Expression "choco.exe install -y 7zip"
+Install-Module powershell-yaml -Force
+Install-Module pssqlite -Force
+Import-Module powershell-yaml -Force
+Import-Module pssqlite -Force
 $app = Read-Host "Enter app name and version (ie. adobedcreader-cornell.2018.011.20055)"
 $appName = $app.Split(".")[0]
 $output = "c:\users\$env:USERNAME\desktop\$app.nupkg"
