@@ -4,6 +4,8 @@
 Write-Host "Checking admin mode..." -ForegroundColor Yellow
 If ([bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") -ne $true){Write-Host "Please run app tests in Administrative mode" -ForegroundColor Red;exit 1}
 Write-Host "Installing pre-reqs..." -ForegroundColor Yellow
+iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+$env:Path += "$env:ALLUSERSPROFILE\chocolatey\bin"
 Invoke-Expression "choco.exe upgrade -y chocolatey"
 Invoke-Expression "choco.exe install -y 7zip"
 $app = Read-Host "Enter app name and version (ie. adobedcreader-cornell.2018.011.20055)"
