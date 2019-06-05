@@ -439,7 +439,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 ############################################
 ########### Troubleshooting Mode ###########
 ############################################
-Function Troubleshoot($CHOCO_BUCLET, $App) {
+Function Troubleshoot($CHOCO_BUCKET, $App) {
 
     write-host "TROUBLESHOOTING MODE!!" -ForegroundColor Green
 
@@ -501,8 +501,8 @@ Function Troubleshoot($CHOCO_BUCLET, $App) {
         }
         Until($TOOLS_DIR)
         
-        Try {$CONFIG = Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.json') -ErrorAction Stop | ConvertFrom-Json}
-        Catch {write-host "config.json missing from $TOOLS_DIR"}
+        Try {$CONFIG = Get-Content -Raw -Path $(Join-Path $TOOLS_DIR 'config.yml') -ErrorAction Stop | ConvertFrom-Yaml}
+        Catch {write-host "config.yml missing from $TOOLS_DIR"}
         
         # Check if the app has already been downloaded and extracted
         If (Test-Path $(Join-Path "$env:windir\Temp\chocolatey" $CONFIG.ID)){$INSTALL_DIR = $(Join-Path "$env:windir\Temp\chocolatey" $CONFIG.ID)}
