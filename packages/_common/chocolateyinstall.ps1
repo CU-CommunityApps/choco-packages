@@ -58,7 +58,7 @@ Param(
 
 Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 
-    $ErrorActionPreference = 'Stop'
+    If (!($Mode)){$ErrorActionPreference = 'Stop'}
     
     if ((-Not (Get-Module -ListAvailable -Name 'powershell-yaml')) -Or (-Not (Get-Module -ListAvailable -Name 'PSSQLite'))) {
         Install-PackageProvider -Name 'NuGet' -Force
