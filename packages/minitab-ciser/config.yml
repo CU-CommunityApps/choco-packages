@@ -5,7 +5,7 @@ Version:        '18.1.0.0'
 Install:
     File:       '%INSTALL_DIR%\minitab18.1.0.0setup.exe'
     FileType:   'exe'
-    Arguments:  '/exenoui /exelang 1031 /qn ACCEPT_EULA=1'
+    Arguments:  '/exenoui /exelang 1033 /qn ACCEPT_EULA=1'
     ExitCodes:  [0]
 
 Applications:
