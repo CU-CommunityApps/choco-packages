@@ -3,7 +3,7 @@ Description:    'pycharm-cornell - buildtest1'
 Version:        '2019.1'
 
 ChocoPackages:
-    - 'pycharm-edu'
+    - 'pycharm-community'
 
 Applications:
     pycharm:
