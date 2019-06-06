@@ -217,7 +217,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             $regKeys = ($CONFIG.Registry.$hive | Get-Member -MemberType NoteProperty).Name
 
             # Load Default User
-            if ($hive -eq 'HKUD') {
+            if ($hive -eq 'HKUD' -and !($Mode)) {
                 Start-Process `
                     -ArgumentList "LOAD HKU\DefaultUser $DEFAULT_HIVE" `
                     -FilePath "$REG" `
@@ -290,7 +290,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
                 }
             }
 
-            if ($hive -eq 'HKUD') {
+            if ($hive -eq 'HKUD' -and !($Mode)) {
                 Start-Process `
                     -FilePath "$REG" `
                     -ArgumentList "UNLOAD HKU\DefaultUser" `
