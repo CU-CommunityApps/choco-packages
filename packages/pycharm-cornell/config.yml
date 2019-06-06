@@ -16,9 +16,9 @@ Files:
     '%TOOLS_DIR%\.PyCharmCE2019.1\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.1\config'
     '%TOOLS_DIR%\JetBrains': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\JetBrains'
     
-#Registry:
-#    HKUD:
-#        Software\JavaSoft\Prefs\jetbrains\privacy_policy:
-#            accepted_version:
-#                Type:   'String'
-#                Value:  '2.0'
+Registry:
+    HKUD:
+        Software\JavaSoft\Prefs\jetbrains\privacy_policy:
+            accepted_version:
+                Type:   'String'
+                Value:  '2.0'
