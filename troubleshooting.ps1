@@ -17,11 +17,13 @@ $appName = $app.Split(".")[0]
 $output = "c:\users\$env:USERNAME\desktop\$app.nupkg"
 $extract = "c:\users\$env:USERNAME\desktop\$app"
 
-try{
-    $URI = "https://image-build-113704540485-us-east-1.s3.amazonaws.com/packages/test/$app.nupkg"
-    Invoke-WebRequest -Uri $uri -OutFile $output
+If (!(test-path $output)){
+    try{
+        $URI = "https://image-build-113704540485-us-east-1.s3.amazonaws.com/packages/test/$app.nupkg"
+        Invoke-WebRequest -Uri $uri -OutFile $output
+    }
+    catch{Write-Host "Error downloading, try again..."}
 }
-catch{Write-Host "Error downloading, try again..."}
 
 Invoke-Expression "choco.exe install -y $output --force --debug --cache-location="
 
