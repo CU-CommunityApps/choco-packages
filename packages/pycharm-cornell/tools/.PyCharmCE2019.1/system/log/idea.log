@@ -1,0 +1,13 @@
+2019-06-06 13:26:32,471 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2019-06-06 13:26:32,491 [     20]   INFO -        #com.intellij.idea.Main - IDE: PyCharm (build #PC-191.7479.30, 29 May 2019 11:16) 
+2019-06-06 13:26:32,491 [     20]   INFO -        #com.intellij.idea.Main - OS: Windows 10 (10.0, amd64) 
+2019-06-06 13:26:32,501 [     30]   INFO -        #com.intellij.idea.Main - JRE: 11.0.2+9-b159.60 (JetBrains s.r.o) 
+2019-06-06 13:26:32,501 [     30]   INFO -        #com.intellij.idea.Main - JVM: 11.0.2+9-b159.60 (OpenJDK 64-Bit Server VM) 
+2019-06-06 13:26:32,501 [     30]   INFO -        #com.intellij.idea.Main - JVM Args: -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=240m -XX:+UseConcMarkSweepGC -XX:SoftRefLRUPolicyMSPerMB=50 -ea -Dsun.io.useCanonCaches=false -Djava.net.preferIPv4Stack=true -Djdk.http.auth.tunneling.disabledSchemes="" -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Djb.vmOptionsFile=C:\Program Files (x86)\JetBrains\PyCharm Community Edition 2019.1.3\bin\pycharm64.exe.vmoptions -Didea.platform.prefix=PyCharmCore -Dide.native.launcher=true -Didea.paths.selector=PyCharmCE2019.1 -XX:ErrorFile=C:\Users\cit-labs\java_error_in_pycharm_%p.log -XX:HeapDumpPath=C:\Users\cit-labs\java_error_in_pycharm.hprof 
+2019-06-06 13:26:32,501 [     30]   INFO -        #com.intellij.idea.Main - charsets: JNU=Cp1252 file=Cp1252 
+2019-06-06 13:26:32,531 [     60]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 30 ms 
+2019-06-06 13:26:32,531 [     60]   INFO - penapi.util.io.win32.IdeaWin32 - Native filesystem for Windows is operational 
+2019-06-06 13:26:32,647 [    176]   INFO -     #com.intellij.util.ui.JBUI - User scale factor: 1.0 
+2019-06-06 13:26:32,742 [    271]   INFO -     #com.intellij.util.ui.JBUI - System scale factor: 1.0 (JRE-managed HiDPI) 
+2019-06-06 13:26:35,860 [   3389]   INFO - m.intellij.ui.mac.touchbar.NST - OS doesn't support touchbar, skip nst loading 
+2019-06-06 13:26:40,781 [   8310]   INFO - llij.ide.plugins.PluginManager - load plugin descriptors took 131 ms 
