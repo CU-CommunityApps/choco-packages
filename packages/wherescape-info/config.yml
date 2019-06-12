@@ -11,13 +11,13 @@ Install:
 Applications:
     wherescapered:
         DisplayName:    'Wherescape Red'
-        Path:           '%PROGRAMFILES(x86)%\Wherescape\med.exe'
+        Path:           '%PROGRAMFILES%\Wherescape\RED\med.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     wherescapeadm:
         DisplayName:    'Wherescape Administrator'
-        Path:           '%PROGRAMFILES(x86)%\Wherescape\adm.exe'
+        Path:           '%PROGRAMFILES%\Wherescape\RED\adm.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
