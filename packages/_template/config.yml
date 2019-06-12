@@ -28,6 +28,15 @@ Services: { }
 
 ScheduledTasks:
     - 'MyScheduledTask'
+    
+Scripts:
+    start:
+        User:    '%INSTALL_DIR%\some_script.ps1' # Runs at user logon
+        System:  '%INSTALL_DIR%\some_other_script.ps1' # Run at system startup
+        
+    end:
+        User:    '%INSTALL_DIR%\some_script.ps1' # Runs at user logout
+        System:  '%INSTALL_DIR%\some_other_script.ps1' # Runs at system shutdown
 
 Registry:
     HKCC:   { }
