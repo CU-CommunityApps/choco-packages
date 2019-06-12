@@ -3,7 +3,7 @@ Description:    'Wherescape Red for - INFO4950 - buildtest'
 Version:        '6.8.6'
 
 Install:
-    File:       '%INSTALL_DIR%\red_686002.exe'
+    File:       '%INSTALL_DIR%\red_RED_8311.exe'
     FileType:   'exe'
     Arguments:  '/q'
     ExitCodes:  [0]
