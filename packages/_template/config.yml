@@ -1,50 +1,51 @@
-Id:             'my-package'
-Description:    'My Package Description'
-Version:        '1.0.0'
+Id:             'my-package'                ## Application package name ie. chrome-cornell
+Description:    'My Package Description'    ## Application packages description
+Version:        '1.0.0'                     ## Application version number - MUST BE in #.# format
 
-Install:
-    File:       '%INSTALL_DIR%\setup.exe'
-    FileType:   'exe'
-    Arguments:  '-silent --some-arg'
-    ExitCodes:  [0]
+Install:                                    ## If there are installation files in a .zip to be installed, specify here
+    File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
+    FileType:   'exe'                       ## exe or msi are the only options currently
+    Arguments:  '-silent --some-arg'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success
 
-ChocoPackages:
-    - 'achocopackagename'
+ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
+    - 'achocopackagename'                   ## Package name - https://chocolatey.org/packages - ie. adobereader
 
-Applications:
-    MyPackage:
-        DisplayName:    'My Package As User Sees It'
-        Path:           '%PROGRAMFILES%\MyPackage\run.exe'
-        LaunchParams:   '--my-runtime-argument'
-        WorkDir:        '%SYSTEMDRIVE%\MyPackage\Working\Directory'
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    MyPackage:                                                      ## This must match the icons.png file name
+        DisplayName:    'My Package As User Sees It'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\MyPackage\run.exe'          ## The path to the app
+        LaunchParams:   '--my-runtime-argument'                     ## Launch parameters for the app
+        WorkDir:        '%SYSTEMDRIVE%\MyPackage\Working\Directory' ## Working directory
 
-Files:
-    MyFiles: '%PROGRAMFILES%\My\File\Destination\Dir'
+Files:                                                                  ## File copy feature
+    '%TOOLS_DIR%\tempfile.txt': '%PROGRAMFILES%\Dest\Dir\tempfile.txt'  ## Source directory to destination directory
 
-Environment:
-    MY_ENVIRONMENT_VARIABLE: 'My Environment Value'
+Environment:                                            ## Create custom environment variables
+    MY_ENVIRONMENT_VARIABLE: 'My Environment Value'     ## Variable Name: Value
 
-Services: { }
-
-ScheduledTasks:
-    - 'MyScheduledTask'
+Services:                   ## Set default service behavior
+    ServiceName: 'Manual'   ## ServiceName: Behavior
     
-Scripts:
-    start:
-        User:    '%INSTALL_DIR%\some_script.ps1' # Runs at user logon
-        System:  '%INSTALL_DIR%\some_other_script.ps1' # Run at system startup
+ScheduledTasks:             ## Create any custom scheduled tasks
+    - 'MyScheduledTask'     ## Name of exported scheduled task in .xml format in the /tools directory with UTF-8 encoding
+    
+Scripts:                                                ## AppStream session scripts feature
+    start:                                              ## Startup / Logon trigger
+        User:    '%INSTALL_DIR%\some_script.ps1'        ## Runs at user logon
+        System:  '%INSTALL_DIR%\some_other_script.ps1'  ## Run at system startup
         
-    end:
-        User:    '%INSTALL_DIR%\some_script.ps1' # Runs at user logout
-        System:  '%INSTALL_DIR%\some_other_script.ps1' # Runs at system shutdown
+    end:                                                ## Shutdown / Logoff trigger
+        User:    '%INSTALL_DIR%\some_script.ps1'        ## Runs at user logout
+        System:  '%INSTALL_DIR%\some_other_script.ps1'  ## Runs at system shutdown
 
-Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
-    HKUD:
+Registry:               ## Registry values to be copied to each streaming instance
+    HKCC:   { }         ## Current Config
+    HKCR:   { }         ## Classes Root
+    HKCU:   { }         ## Current User (use HKUD to survive sysprep/snapshot)
+    HKLM:   { }         ## Local Machine
+    HKU:    { }         ## Users
+    HKUD:               ## Use for typical Current User settings to apply to all users in AppStream
         SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
             (Default):
                 Type:   'String'
@@ -57,4 +58,3 @@ Registry:
             IsInstalled:
                 Type:   'DWORD'
                 Value:  '0'
-
