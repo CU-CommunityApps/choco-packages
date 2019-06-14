@@ -2,9 +2,9 @@
 This repository contains application configuration settings for silent installations in a non-persistent environment
 
 ### Prerequisites
-test system (Windows Server 2012R2 +)
-7zip
-git
+* test system (Windows Server 2012R2 +)
+* 7zip
+* git
 
 ## Getting Started
 1. Test silent install switches for your new app on a test box (preferably Windows Server 2012R2 +) - including any registry settings or appdata configuration files to minimize user pop ups ```ie. accept EULA```
