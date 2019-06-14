@@ -359,6 +359,23 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
                 -Xml (Get-Content "$taskConfig" | Out-String)
         }
     }
+
+    ##############################################
+    ############## Session Scripts ###############
+    ##############################################
+    Function SessionScripts {
+        
+        $STARTUP_USER = "$env:ALLUSERSPROFILE\SessionScripts\startupuser.ps1"
+        $STARTUP_SYSTEM = "$env:ALLUSERSPROFILE\SessionScripts\startupsystem.ps1"
+        $SHUTDOWN_USER = "$env:ALLUSERSPROFILE\SessionScripts\shutdownuser.ps1"
+        $SHUTDOWN_SYSTEM = "$env:ALLUSERSPROFILE\SessionScripts\shutdownsystem.ps1"
+        
+        If ($CONFIG.Scripts.start.System){Get-Content $([Environment]::ExpandEnvironmentVariables($CONFIG.Scripts.start.System)) | Add-Content $STARTUP_SYSTEM}
+        If ($CONFIG.Scripts.start.User){Get-Content $([Environment]::ExpandEnvironmentVariables($CONFIG.Scripts.start.User)) | Add-Content $STARTUP_USER}
+        If ($CONFIG.Scripts.end.System){Get-Content $([Environment]::ExpandEnvironmentVariables($CONFIG.Scripts.end.System)) | Add-Content $SHUTDOWN_SYSTEM}
+        If ($CONFIG.Scripts.end.User){Get-Content $([Environment]::ExpandEnvironmentVariables($CONFIG.Scripts.end.User)) | Add-Content $SHUTDOWN_USER}   
+    
+    }
     
     ##############################################
     ################# AppCatalog #################
@@ -413,6 +430,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     If ($CONFIG.Files){Files}
     If ($CONFIG.Services){Services}
     If ($CONFIG.ScheduledTasks){SchedTask}
+    If ($CONFIG.Scripts){SessionScripts}
     If ($CONFIG.Applications){AppCatalog}
 
     # Run Postinstall PowerShell script
