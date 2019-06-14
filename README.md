@@ -1,24 +1,52 @@
-# Application Packaging Template
-This repository contains application configuration settings for silent installations in a non-persistent environment
+# CU Choco Package Metadata Repository
 
-### Prerequisites
-test system (Windows Server 2012R2 +)
-7zip
-git
+## To run bootstrap locally:
 
-## Getting Started
-1. Test silent install switches for your new app on a test box (preferably Windows Server 2012R2 +) - including any registry settings or appdata configuration files to minimize user pop ups ```ie. accept EULA```
-2. Use 7-zip to compress all installation files, custom scripts and any secrets, naming compressed file accordingly to application being packaged```ie. chrome-cornell.zip``` which includes ```setup.exe and/or activation.ps1```
-3. Upload .zip to S3 bucket using current admin website
+    Invoke-Command -ScriptBlock ([scriptblock]::Create(((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/bootstrap/entry.ps1')))) -ArgumentList 'manual'
 
-## Packaging
-* Create a new package in choco-packages test branch using the same name from step 2. minus .zip ```ie. chrome-cornell```
-* Add custom icon to [icons](./icons) directory in .png format
-* Edit the [preinstall](./tools/preinstall.ps1) or [postinstall](./tools/postinstall.ps1) scripts to run commands respectively
-* Add any custom scripts or files to the [tools directory](./tools) to be used during installation that are not private or known 'secrets' ```ie. startup.xml or eula.ini```
-* Begin editing [config.yml](./config.yml) for current application, view template for additional references
+## Manually troubleshoot applications with the chocolateyinstall script
 
-### Deployment
-* Commits to github will begin the build process using Chocolatey compressing installation .zip files and current package repo contents to a .nupkg file for installation on any Windows machine
-* Test your package on a supported subnet with the [troubleshooting script](./troubleshooting.ps1)
-* Create pull request once all testing is complete!
+	PS C:\Windows\Temp\choco-bootstrap\choco-packages\bootstrap\templates>
+	
+	help .\chocolateyinstall.ps1 -Full
+	help .\chocolateyinstall.ps1 -Examples
+
+<#
+.SYNOPSIS
+
+    AppStream 2.0 installer script
+.DESCRIPTION
+
+    Perform standard or custom Windows tasks on an AppStream 2.0 Image Builder for Fleet automation. Install applications and choco packages, copy files, create environment variables, edit registry, services and scheduled tasks.
+.PARAMETER Mode
+
+    The operating mode of this script. There are 2 modes for troubleshooting applications locally during preliminary test. 
+    t = TROUBLESHOOTING MODE - Enables local instance troubleshooting for applications
+    u = UNINSTALL MODE - Runs choco uninstall
+.PARAMETER App
+
+    Application name for TROUBLESHOOTING or UNINSTALL modes.
+.PARAMETER S3
+
+    S3 bucket name for installer files. Bucket name only, do not include entire path. i.e. if S3 bucket path is https://s3.amazonaws.com/mybucket input 'mybucket'
+.EXAMPLE
+
+    PS C:\Programdata\chocolatey\lib-bad\firefox> 
+    .\chocolateyinstall.ps1 -Mode t
+.EXAMPLE
+
+    PS C:\Windows\Temp\choco-bootstrap\choco-packages\bootstrap\templates>
+    .\chocolateyinstall.ps1 -Mode t -App firefox -S3 mybucket
+.EXAMPLE
+
+    PS C:\Windows\Temp\choco-bootstrap\choco-packages\bootstrap\templates> 
+    .\chocolateyinstall.ps1 -Mode u -App chrome
+.LINK
+
+    https://github.com/CU-CommunityApps/choco-packages
+    https://confluence.cornell.edu/display/CLOUD/Cornell+Stream
+.NOTES
+
+    TROUBLESHOOTING and UNINSTALL modes can be used locally when performing preliminary application testing
+#>
+
