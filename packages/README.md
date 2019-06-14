@@ -13,10 +13,10 @@ This repository contains application configuration settings for silent installat
 
 ## Packaging
 * Create a new package in choco-packages test branch using the same name from step 2. minus .zip ```ie. chrome-cornell```
-* Add custom icon to [icons](./icons) directory in .png format
-* Edit the [preinstall](./tools/preinstall.ps1) or [postinstall](./tools/postinstall.ps1) scripts to run commands respectively
-* Add any custom scripts or files to the [tools directory](./tools) to be used during installation that are not private or known 'secrets' ```ie. startup.xml or eula.ini```
-* Begin editing [config.yml](./config.yml) for current application, view template for additional references
+* Add custom icon to [icons](_template/icons) directory in .png format
+* Edit the [preinstall](_template/tools/preinstall.ps1) or [postinstall](_template/tools/postinstall.ps1) scripts to run commands respectively
+* Add any custom scripts or files to the [tools directory](_template/tools) to be used during installation that are not private or known 'secrets' ```ie. startup.xml or eula.ini```
+* Begin editing [config.yml](_template/config.yml) for current application, view template for additional references
 
 ## Deployment
 * Commits to github will begin the build process using Chocolatey compressing installation .zip files and current package repo contents to a .nupkg file for installation on any Windows machine
