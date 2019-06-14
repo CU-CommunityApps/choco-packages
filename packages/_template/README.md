@@ -18,7 +18,7 @@ This repository contains application configuration settings for silent installat
 * Add any custom scripts or files to the [tools directory](./tools) to be used during installation that are not private or known 'secrets' ```ie. startup.xml or eula.ini```
 * Begin editing [config.yml](./config.yml) for current application, view template for additional references
 
-### Deployment
+## Deployment
 * Commits to github will begin the build process using Chocolatey compressing installation .zip files and current package repo contents to a .nupkg file for installation on any Windows machine
 * Test your package on a supported subnet with the [troubleshooting script](./troubleshooting.ps1)
 * Create pull request once all testing is complete!
