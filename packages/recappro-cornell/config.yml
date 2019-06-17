@@ -1,6 +1,6 @@
 Id:             'recappro-cornell'
 Description:    'recappro-cornell - buildtest'
-Version:        '1.0.0'
+Version:        '6.0.1.21'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
