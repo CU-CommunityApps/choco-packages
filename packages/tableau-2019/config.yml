@@ -5,7 +5,7 @@ Version:        '2019.2.0'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2019-2-0.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://test.tableau.cornell.edu'
     ExitCodes:  [0,3010]
 
 Applications:
