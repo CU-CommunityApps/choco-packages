@@ -3,10 +3,15 @@ Description:    'My Package Description'    ## Application packages description
 Version:        '1.0.0'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
-    File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
+  - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '-silent --some-arg'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success
+    
+  - File:       '%INSTALL_DIR%\setup.exe'   ## Multiple installation files require '-' to specify an array of apps are to be installed
+    FileType:   'exe'                       
+    Arguments:  '-silent --some-arg'        
+    ExitCodes:  [0]                         
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
     - 'achocopackagename'                   ## Package name - https://chocolatey.org/packages - ie. adobereader
