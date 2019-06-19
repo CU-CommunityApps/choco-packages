@@ -5,7 +5,7 @@ Version:        '12.0.77.3'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/W /q /I %INSTALL_DIR%\Img\maya.ini /language en-us /c CUSTOMERINVOLVEMENTPROGRAM no FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\maya.ini /language en-us /c CUSTOMERINVOLVEMENTPROGRAM no FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  [0,1641]
 
 Applications:
