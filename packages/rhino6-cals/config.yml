@@ -10,7 +10,7 @@ Install:
 
   - File:       '%INSTALL_DIR%\vray_edu36003_rhino_6_win_xw64.exe'
     FileType:   'exe'
-    Arguments:  '-gui=0 -configFile=%INSTALL_DIR%\config.xml -quiet'
+    Arguments:  '-gui=0 -configFile=%INSTALL_DIR%\config.xml -quiet=1'
     ExitCodes:  [0]
     
 Applications:
