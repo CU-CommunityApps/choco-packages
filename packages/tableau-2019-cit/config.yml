@@ -10,7 +10,7 @@ Install:
 
 Applications:
     tableau:
-        DisplayName:    'Tableau 2019.1'
+        DisplayName:    'Tableau 2019.2'
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
         LaunchParams:   '-File "%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1" -Mode launch'
         WorkDir:        ''
