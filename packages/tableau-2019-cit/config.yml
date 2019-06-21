@@ -1,9 +1,9 @@
 Id:             'tableau-2019-cit'
 Description:    'Tableau - 2019'
-Version:        '2019.1.3'
+Version:        '2019.2.0'
 
 Install:
-    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2019-1-3.exe'
+    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2019-2-0.exe'
     FileType:   'exe'
     Arguments:  '/quiet /norestart ACCEPTEULA=1 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://test.tableau.cornell.edu'
     ExitCodes:  [0,3010]
@@ -12,11 +12,11 @@ Applications:
     tableau:
         DisplayName:    'Tableau 2019.1'
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-File "%ProgramFiles%\Tableau\Tableau 2019.1\bin\tableau.ps1" -Mode launch'
+        LaunchParams:   '-File "%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1" -Mode launch'
         WorkDir:        ''
         
 Files:
-    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2019.1\bin\tableau.ps1' # Scheduled Task Script
+    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1' # Scheduled Task Script
     
 Registry:
     HKUD:
