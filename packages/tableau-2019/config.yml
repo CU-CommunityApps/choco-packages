@@ -5,133 +5,135 @@ Version:        '2019.2.0'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2019-2-0.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 ATRENABLED=1 ATRREQUESTEDDURATIONSECONDS=57600 SKIPAPPLICATIONLAUNCH=1 SENDTELEMETRY=0 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://test.tableau.cornell.edu'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 SKIPAPPLICATIONLAUNCH=1 SENDTELEMETRY=0 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://test.tableau.cornell.edu'
     ExitCodes:  [0,3010]
 
 Applications:
     tableau:
         DisplayName:    'Tableau'
-        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-WindowStyle Hidden -NonInteractive -File "%ProgramFiles%\Tableau\Tableau 2019.2\bin\activation.ps1"'
+        Path:           '%PROGRAMFILES%\Tableau\Tableau 2019.2\bin\tableau.exe'
+        LaunchParams:   ''
         WorkDir:        ''
         
-Files:
-    '%TOOLS_DIR%\activation.ps1': '%ProgramFiles%\Tableau\Tableau 2019.2\bin\activation.ps1' # Scheduled Task Script
-        
-Registry:
-    HKUD:
-        SOFTWARE\Tableau\Registration\Data:
-            (Default):
-                Type:   'String'
-                Value:  ''
+Scripts:
+    start:
+        User:    '%TOOLS_DIR%\activation.ps1' # Runs at user logon
+        System:  '%TOOLS_DIR%\ATR.ps1' # Run at system startup
 
-            company:
-                Type:   'String'
-                Value:  'Cornell'
+# Registry:
+#     HKUD:
+#         SOFTWARE\Tableau\Registration\Data:
+#             (Default):
+#                 Type:   'String'
+#                 Value:  ''
 
-            country:
-                Type:   'String'
-                Value:  'US'
+#             company:
+#                 Type:   'String'
+#                 Value:  'Cornell'
 
-            db_annnual_sales:
-                Type:   'String'
-                Value:  '%TABLEAU_SALES%'
+#             country:
+#                 Type:   'String'
+#                 Value:  'US'
 
-            db_country:
-                Type:   'String'
-                Value:  'US'
+#             db_annnual_sales:
+#                 Type:   'String'
+#                 Value:  '%TABLEAU_SALES%'
 
-            db_employee_count:
-                Type:   'String'
-                Value:  '%TABLEAU_EMPLOYEE_COUNT%'
+#             db_country:
+#                 Type:   'String'
+#                 Value:  'US'
 
-            db_industry:
-                Type:   'String'
-                Value:  'Healthcare Providers'
+#             db_employee_count:
+#                 Type:   'String'
+#                 Value:  '%TABLEAU_EMPLOYEE_COUNT%'
 
-            db_sic:
-                Type:   'String'
-                Value:  '8011'
+#             db_industry:
+#                 Type:   'String'
+#                 Value:  'Healthcare Providers'
 
-            db_source:
-                Type:   'String'
-                Value:  'ip'
+#             db_sic:
+#                 Type:   'String'
+#                 Value:  '8011'
 
-            db_state:
-                Type:   'String'
-                Value:  'NY'
+#             db_source:
+#                 Type:   'String'
+#                 Value:  'ip'
 
-            db_sub_industry:
-                Type:   'String'
-                Value:  'Clinics'
+#             db_state:
+#                 Type:   'String'
+#                 Value:  'NY'
 
-            db_title:
-                Type:   'String'
-                Value:  ''
+#             db_sub_industry:
+#                 Type:   'String'
+#                 Value:  'Clinics'
 
-            db_website:
-                Type:   'String'
-                Value:  'cornell.edu'
+#             db_title:
+#                 Type:   'String'
+#                 Value:  ''
 
-            db_zip:
-                Type:   'String'
-                Value:  '14853'
+#             db_website:
+#                 Type:   'String'
+#                 Value:  'cornell.edu'
 
-            department:
-                Type:   'String'
-                Value:  'IT'
+#             db_zip:
+#                 Type:   'String'
+#                 Value:  '14853'
 
-            elqCustomerGUID:
-                Type:   'String'
-                Value:  '%TABLEAU_ELQ_CUST%'
+#             department:
+#                 Type:   'String'
+#                 Value:  'IT'
 
-            email:
-                Type:   'String'
-                Value:  '%TABLEAU_EMAIL%'
+#             elqCustomerGUID:
+#                 Type:   'String'
+#                 Value:  '%TABLEAU_ELQ_CUST%'
 
-            first_name:
-                Type:   'String'
-                Value:  '%TABLEAU_FIRST_NAME%'
+#             email:
+#                 Type:   'String'
+#                 Value:  '%TABLEAU_EMAIL%'
 
-            form_environment:
-                Type:   'String'
-                Value:  'qt'
+#             first_name:
+#                 Type:   'String'
+#                 Value:  '%TABLEAU_FIRST_NAME%'
 
-            form_variant:
-                Type:   'String'
-                Value:  'short'
+#             form_environment:
+#                 Type:   'String'
+#                 Value:  'qt'
 
-            ga_client_id:
-                Type:   'String'
-                Value:  '%TABLEAU_CLIENT_ID%'
+#             form_variant:
+#                 Type:   'String'
+#                 Value:  'short'
 
-            job_role:
-                Type:   'String'
-                Value:  'Professor/Teacher'
+#             ga_client_id:
+#                 Type:   'String'
+#                 Value:  '%TABLEAU_CLIENT_ID%'
 
-            last_name:
-                Type:   'String'
-                Value:  '%TABLEAU_LAST_NAME%'
+#             job_role:
+#                 Type:   'String'
+#                 Value:  'Professor/Teacher'
 
-            phone:
-                Type:   'String'
-                Value:  '%TABLEAU_PHONE%'
+#             last_name:
+#                 Type:   'String'
+#                 Value:  '%TABLEAU_LAST_NAME%'
 
-            product_name:
-                Type:   'String'
-                Value:  'desktop'
+#             phone:
+#                 Type:   'String'
+#                 Value:  '%TABLEAU_PHONE%'
 
-            state:
-                Type:   'String'
-                Value:  'NY'
+#             product_name:
+#                 Type:   'String'
+#                 Value:  'desktop'
 
-            title:
-                Type:   'String'
-                Value:  'IT Professor Teacher'
+#             state:
+#                 Type:   'String'
+#                 Value:  'NY'
 
-            zip:
-                Type:   'String'
-                Value:  '14853'
+#             title:
+#                 Type:   'String'
+#                 Value:  'IT Professor Teacher'
+
+#             zip:
+#                 Type:   'String'
+#                 Value:  '14853'
                 
 #     HKLM:
 #         Software\Tableau\ATR:
