@@ -11,13 +11,12 @@ Install:
 Applications:
     tableau:
         DisplayName:    'Tableau'
-        Path:           '%PROGRAMFILES%\Tableau\Tableau 2019.2\bin\tableau.exe'
+        Path:           '%WINDIR%\Tableau\Tableau 2019.2\bin\tableau.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
 Scripts:
     start:
-        User:   '%TOOLS_DIR%\activation.ps1' # Runs at user login
         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
 
 # Registry:
