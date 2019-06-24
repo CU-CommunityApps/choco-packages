@@ -8,6 +8,6 @@ ChocoPackages:
 Applications:
     googleearthpro:
         DisplayName:    'Google Earth Pro'
-        Path:           '%PROGRAMFILES%\Google\Google Earth Pro\client\googleearth.exe'
+        Path:           '%PROGRAMFILES(x86)%\Google\Google Earth Pro\client\googleearth.exe'
         LaunchParams:   ''
         WorkDir:        ''
