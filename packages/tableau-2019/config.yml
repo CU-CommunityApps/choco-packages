@@ -17,7 +17,8 @@ Applications:
         
 Scripts:
     start:
-        System:  '%TOOLS_DIR%\activation.ps1' # Runs at system startup
+        User:   '%TOOLS_DIR%\activation.ps1' # Runs at user login
+        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
 
 # Registry:
 #     HKUD:
