@@ -1,39 +1,36 @@
 Id:             'oracleclient-info'
-Description:    'Oracle Client 11gR2'
-Version:        '11.2.0'
+Description:    'Oracle Client 12c'
+Version:        '12.2.0'
 
-Install:
-    File:       '%INSTALL_DIR%\setup.exe'
-    FileType:   'exe'
-    Arguments:  '-silent -debug -force -waitforcompletion FROM_LOCATION=%INSTALL_DIR%\stage\products.xml oracle.install.client.installType=Administrator ORACLE_HOME=C:\oracle\product\11.2.0\Client ORACLE_HOME_NAME=OraClient11g_Home1 ORACLE_BASE=C:\oracle DECLINE_SECURITY_UPDATES=true'
+-silent -debug -force -waitforcompletion FROM_LOCATION=%INSTALL_DIR%\stage\products.xml oracle.install.client.installType=Administrator ORACLE_HOME=C:\oracle\product\12.2.0\Client ORACLE_HOME_NAME=OraClient12g_Home1 ORACLE_BASE=C:\oracle DECLINE_SECURITY_UPDATES=true'
     ExitCodes:  [0]
 
 Applications:
     sqldeveloper:
         DisplayName:    'sqldeveloper'
-        Path:           '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper.exe'
+        Path:           '%SYSTEMDRIVE%\oracle\product\12.2.0\Client\sqldeveloper\sqldeveloper.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
         
 Files:
-    '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
-    '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
-    '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper\bin'
+    '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\oracle\product\12.2.0\Client\network\admin'
+    '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\oracle\product\12.2.0\Client\network\admin'
+    '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\oracle\product\12.2.0\Client\sqldeveloper\sqldeveloper\bin'
 
 Registry:
     HKLM:   
-        Software\Wow6432Node\ODBC\ODBC.INI\INFO4940:
+        Software\Wow6432Node\ODBC\ODBC.INI\INFO4555:
             Driver:
                 Type: 'string'
                 Value: 'C:\Windows\system32\msorcl32.dll'
            
             DSN:
                 Type: 'string'
-                Value: 'INFO4940'
+                Value: 'INFO4555'
 
             Description:
                 Type: 'string'
-                Value: 'INFO4940'         
+                Value: 'INFO4555'         
                         
             UID:
                 Type: 'string'
@@ -45,7 +42,7 @@ Registry:
            
             SERVER: 
                 Type: 'string'
-                Value: 'INFO4940'
+                Value: 'INFO4555'
             
             BufferSize:
                 Type: 'string'
@@ -68,7 +65,7 @@ Registry:
                 Value: '0'
         
         Software\Wow6432Node\ODBC\ODBC.INI\ODBC Data Sources:
-            INFO4940:
+            INFO4555:
                 Type: 'string'
                 Value: 'Microsoft ODBC for Oracle'
                 
