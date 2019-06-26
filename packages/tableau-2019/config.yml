@@ -21,3 +21,5 @@ Files:
 Scripts:
     start:
         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
+    end:
+        System: '%TOOLS_DIR%\shutdown.ps1' # Runs at system shutdown
