@@ -5,12 +5,12 @@ Version:        '12.2.0'
 Install:
   - File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-silent -responseFile %INSTALL_DIR%\response\client.rsp'
+    Arguments:  '-silent -nowait -responseFile %INSTALL_DIR%\response\client.rsp'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  -silent -responseFile %INSTALL_DIR%\response\sqlclient.rsp'
+    Arguments:  -silent -nowait -responseFile %INSTALL_DIR%\response\sqlclient.rsp'
     ExitCodes:  [0]
     
 Applications:
