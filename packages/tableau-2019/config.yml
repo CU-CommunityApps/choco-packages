@@ -1,5 +1,5 @@
 Id:             'tableau-2019'
-Description:    'Tableau - 2019 - buildtest'
+Description:    'Tableau - 2019'
 Version:        '2019.2.0'
 
 Install:
@@ -11,15 +11,13 @@ Install:
 Applications:
     tableau:
         DisplayName:    'Tableau'
-        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-WindowStyle Hidden -NonInteractive -File "%ProgramFiles%\Tableau\Tableau 2019.2\bin\activation.ps1"'
+        Path:           '%PROGRAMFILES%\Tableau\Tableau 2019.2\bin\tableau.exe'
+        LaunchParams:   ''
         WorkDir:        ''
-        
-Files:
-    '%TOOLS_DIR%\activation.ps1': '%ProgramFiles%\Tableau\Tableau 2019.2\bin\activation.ps1' # Scheduled Task Script
         
 Scripts:
     start:
+        User:   '%TOOLS_DIR%\activation.ps1' # Runs at user login
         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
     end:
         System: '%TOOLS_DIR%\shutdown.ps1' # Runs at system shutdown
