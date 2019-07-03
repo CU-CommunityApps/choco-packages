@@ -20,4 +20,5 @@ Scripts:
         User:   '%TOOLS_DIR%\activation.ps1' # Runs at user login
         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
     end:
+        User:   '%TOOLS_DIR%\shutdown.ps1' # Runs at user logoff
         System: '%TOOLS_DIR%\shutdown.ps1' # Runs at system shutdown
