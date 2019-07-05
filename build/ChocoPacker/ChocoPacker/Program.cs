@@ -1,6 +1,8 @@
 using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.S3.Transfer;
+using Amazon.SimpleNotificationService;
+using Amazon.SimpleNotificationService.Model;
 using chocolatey;
 using chocolatey.infrastructure.app.configuration;
 using System;
@@ -19,12 +21,14 @@ namespace ChocoPacker
     class Program
     {
         private string package_bucket = Environment.GetEnvironmentVariable("PACKAGE_BUCKET");
+        private string sns_topic = Environment.GetEnvironmentVariable("SNS_INFO");
         private string temp_dir = Environment.GetEnvironmentVariable("TEMP");
         private string system_drive = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
         private string src_dir = Environment.GetEnvironmentVariable("CODEBUILD_SRC_DIR");
         private string src_version = Environment.GetEnvironmentVariable("CODEBUILD_SOURCE_VERSION");
 
         private AmazonS3Client s3 = new AmazonS3Client();
+        private AmazonSimpleNotificationServiceClient snsClient = new AmazonSimpleNotificationServiceClient();
 
         string RunGit(string args)
         {
@@ -279,6 +283,27 @@ namespace ChocoPacker
             if (Directory.Exists(installer_dir))
                 Directory.Delete(installer_dir, true);
         }
+        
+        private void AlertSuccess(string branch, string package)
+        {
+            if (package!="image-builder-cornell")
+            {
+                PublishRequest publishRequest = new PublishRequest(this.sns_topic, $"SUCCESS: Build for {package} on {branch} branch successfully packaged!");
+                PublishResponse publishResponse = snsClient.Publish(publishRequest);
+
+                // Print the MessageId of the published message.
+                Console.WriteLine("Sending success build SNS; MessageId: " + publishResponse.MessageId);
+            }
+        }
+
+        private void AlertFailure(string branch, string package)
+        {
+            PublishRequest publishRequest = new PublishRequest(this.sns_topic, $"FAILED: Build for {package} on {branch} branch failed packaging, check YAML formatting!");
+            PublishResponse publishResponse = snsClient.Publish(publishRequest);
+
+            // Print the MessageId of the published message.
+            Console.WriteLine("Sending failed build SNS; MessageId: " + publishResponse.MessageId);
+        }
 
         void App()
         {
@@ -314,11 +339,20 @@ namespace ChocoPacker
                 Dictionary<string, string> package_config = this.ReadPackageConfig(branch, package);
                 this.WritePackageNuspec(branch, package, package_config);
                 this.WritePackageInstaller(branch, package);
-                this.WriteChocoPackage(branch, package);
-                this.PutChocoPackage(branch, package, package_config);
-                this.CleanupPackage(branch, package, package_config);
+                
+                if (this.WriteChocoPackage(branch, package, package_config))
+                {
+                    this.PutChocoPackage(branch, package, package_config);
+                }
+                else
+                {
+                    this.AlertFailure(branch, package);
+                }
 
-                Console.WriteLine($"Successfully Built: {package}");
+                this.CleanupPackage(branch, package, package_config);
+                this.AlertSuccess(branch, package);
+
+//                 Console.WriteLine($"Successfully Built: {package}");
             }
         }
 
