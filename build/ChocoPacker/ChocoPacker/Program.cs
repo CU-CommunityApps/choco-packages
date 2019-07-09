@@ -26,6 +26,9 @@ namespace ChocoPacker
         private string system_drive = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
         private string src_dir = Environment.GetEnvironmentVariable("CODEBUILD_SRC_DIR");
         private string src_version = Environment.GetEnvironmentVariable("CODEBUILD_SOURCE_VERSION");
+        private string src_repo = Environment.GetEnvironmentVariable("CODEBUILD_SOURCE_REPO_URL").Replace(".git","");
+
+        private bool package_fail = false;
 
         private AmazonS3Client s3 = new AmazonS3Client();
         private AmazonSimpleNotificationServiceClient snsClient = new AmazonSimpleNotificationServiceClient();
@@ -104,14 +107,19 @@ namespace ChocoPacker
 
             StringReader yaml_text = new StringReader(File.ReadAllText(package_yaml));
             YamlStream yaml = new YamlStream();
-            yaml.Load(yaml_text);
+            try {yaml.Load(yaml_text);}
+            catch (Exception e){
+                Console.WriteLine("{0} Exception caught.", e);
+                this.AlertFailure(branch, package, e.ToString());
+                package_fail = true;
+            }
             YamlMappingNode package_root = (YamlMappingNode)yaml.Documents[0].RootNode;
 
             string[] keys_of_interest = { "Id", "Version", "Description"};
             foreach (var entry in package_root.Children)
             {
                 string entry_key = ((YamlScalarNode) entry.Key).Value;
-                
+
                 if (keys_of_interest.Contains(entry_key))
                 {
                     string entry_value = ((YamlScalarNode) entry.Value).Value;
@@ -198,10 +206,10 @@ namespace ChocoPacker
         {
             string package_dir = $"{this.system_drive}\\{package}";
             string local_zip = $"{this.temp_dir}\\{package}.zip";
-            string installer_prefix = $"installers/{branch}/{package}.zip";           
+            string installer_prefix = $"installers/{branch}/{package}.zip";
             string tools_dir = $"{package_dir}\\tools";
             string installer_dir = $"{tools_dir}\\installer";
-            
+
             ListObjectsV2Request list_req = new ListObjectsV2Request
             {
                 BucketName = this.package_bucket,
@@ -224,29 +232,55 @@ namespace ChocoPacker
 
                 Console.WriteLine($"Downloading s3://{this.package_bucket}/{installer_prefix} to {local_zip}...");
 
-                s3_transfer.Download(download_req);
+                try {s3_transfer.Download(download_req);}
+                catch (Exception e){
+                    Console.WriteLine($"ERROR: Downloading s3://{this.package_bucket}/{installer_prefix} to {local_zip}...");
+                    Console.WriteLine("{0} Exception caught.", e);
+                    this.AlertFailure(branch, package, e.ToString());
+                    package_fail = true;
+                }
 
                 Console.WriteLine($"Extracting {local_zip} to {installer_dir}...");
 
-                Directory.CreateDirectory(installer_dir);
-                ZipFile.ExtractToDirectory(local_zip, installer_dir);
-                File.Delete(local_zip);
+                try {
+                    Directory.CreateDirectory(installer_dir);
+                    ZipFile.ExtractToDirectory(local_zip, installer_dir);
+                    File.Delete(local_zip);
+                }
+                catch (Exception e){
+                    Console.WriteLine($"ERROR: Extracting {local_zip} to {installer_dir}...");
+                    Console.WriteLine("{0} Exception caught.", e);
+                    this.AlertFailure(branch, package, e.ToString());
+                    package_fail = true;
+                }
             }
         }
 
-        private void WriteChocoPackage(string branch, string package)
+        private void WriteChocoPackage(string branch, string package, Dictionary<string, string> package_config)
         {
             string package_dir = $"{this.system_drive}\\{package}";
             string package_nuspec = $"{package_dir}\\package.nuspec";
             string pack_args = $"{package_nuspec}";
+            string local_nupkg = $"{package_dir}\\{package}.{package_config["Version"]}.nupkg";
 
             GetChocolatey choco = new GetChocolatey();
 
-            choco.Set(c => {
-                c.CommandName = "pack";
-                c.Input = pack_args;
-                c.OutputDirectory = package_dir;
-            }).Run();
+            try{
+                choco.Set(c => {
+                    c.CommandName = "pack";
+                    c.Input = pack_args;
+                    c.OutputDirectory = package_dir;
+                }).Run();
+            }
+            catch (Exception e) {
+                Console.WriteLine($"ERROR: Building {package}...");
+                Console.WriteLine("{0} Exception caught.", e);
+                this.AlertFailure(branch, package, e.ToString());
+                package_fail = true;
+            }
+
+            // if (File.Exists(local_nupkg)){return true;}
+            // else {return false;}
         }
 
         private void PutChocoPackage(string branch, string package, Dictionary<string, string> package_config)
@@ -266,7 +300,14 @@ namespace ChocoPacker
 
             Console.WriteLine($"Uploading s3://{this.package_bucket}/{s3_nupkg}...");
 
-            s3_transfer.Upload(upload_req);
+            try{
+                s3_transfer.Upload(upload_req);
+            }
+            catch (Exception e){
+                Console.WriteLine($"ERROR: Uploading s3://{this.package_bucket}/{s3_nupkg}...");
+                Console.WriteLine("{0} Exception caught.", e);
+                this.AlertFailure(branch, package, e.ToString());
+            }
         }
 
         private void CleanupPackage(string branch, string package, Dictionary<string, string> package_config)
@@ -277,13 +318,16 @@ namespace ChocoPacker
             string installer_dir = $"{tools_dir}\\installer";
             string package_nuspec = $"{package_dir}\\package.nuspec";
 
-            File.Delete(local_nupkg);
+            if (File.Exists(local_nupkg)) {
+                File.Delete(local_nupkg);
+            }
+
             File.Delete(package_nuspec);
 
             if (Directory.Exists(installer_dir))
                 Directory.Delete(installer_dir, true);
         }
-        
+
         private void AlertSuccess(string branch, string package)
         {
             if (package!="image-builder-cornell")
@@ -296,13 +340,14 @@ namespace ChocoPacker
             }
         }
 
-        private void AlertFailure(string branch, string package)
+        private void AlertFailure(string branch, string package, string error)
         {
-            PublishRequest publishRequest = new PublishRequest(this.sns_topic, $"FAILED: Build for {package} on {branch} branch failed packaging, check YAML formatting!");
+            PublishRequest publishRequest = new PublishRequest(this.sns_topic, $"FAILED: Build for {package} on {branch} branch...\n\n{error} \n\n{src_repo}/commit/{src_version}");
             PublishResponse publishResponse = snsClient.Publish(publishRequest);
 
             // Print the MessageId of the published message.
             Console.WriteLine("Sending failed build SNS; MessageId: " + publishResponse.MessageId);
+            package_fail = true;
         }
 
         void App()
@@ -313,12 +358,12 @@ namespace ChocoPacker
             List<string> packages = this.GetPackages(diffs);
 
             Console.WriteLine($"Using Branch: {branch}");
-            
+
             if (packages.Count() == 0)
             {
                 Console.WriteLine($"No changes to packages in commit {this.src_version}, exiting...");
             }
-            
+
             foreach (string package in packages)
             {
                 string package_dir = $"{this.src_dir}\\packages\\{package}";
@@ -329,31 +374,39 @@ namespace ChocoPacker
                     Console.WriteLine($"{package} doesn't exist in repository for commit {this.src_version}, skipping...");
                     continue;
                 }
-                
+
                 Console.WriteLine($"Moving Package Directory to: {temp_package_dir}");
-                
                 Directory.Move(package_dir, temp_package_dir);
 
                 Console.WriteLine($"Building Package: {package}");
-                
-                Dictionary<string, string> package_config = this.ReadPackageConfig(branch, package);
-                this.WritePackageNuspec(branch, package, package_config);
-                this.WritePackageInstaller(branch, package);
-                
-                if (this.WriteChocoPackage(branch, package, package_config))
-                {
+                try {
+                    Dictionary<string, string> package_config = this.ReadPackageConfig(branch, package);
+
+                    this.WritePackageNuspec(branch, package, package_config);
+                    this.WritePackageInstaller(branch, package);
+
+                    this.WriteChocoPackage(branch, package, package_config);
                     this.PutChocoPackage(branch, package, package_config);
-                }
-                else
-                {
-                    this.AlertFailure(branch, package);
-                }
 
-                this.CleanupPackage(branch, package, package_config);
-                this.AlertSuccess(branch, package);
-
-//                 Console.WriteLine($"Successfully Built: {package}");
+                    this.CleanupPackage(branch, package, package_config);
+                    this.AlertSuccess(branch, package);
+                    Console.WriteLine(" ");
+                    Console.WriteLine($"SUCCESS: Built {package}");
+                }
+                catch (Exception e){
+                    Console.WriteLine(" ");
+                    Console.WriteLine($"FAILED: {package}");
+                    Console.WriteLine("{0} Exception caught.", e);
+                    package_fail = true;
+                }
             }
+            
+            // If any packages failed set variable flag for post_build stage
+            if (package_fail){
+                Environment.SetEnvironmentVariable("PACKAGES_INSTALLED", "1", EnvironmentVariableTarget.Machine);
+                Console.WriteLine(Environment.GetEnvironmentVariable("PACKAGES_INSTALLED", EnvironmentVariableTarget.Machine));
+            }
+
         }
 
         static void Main(string[] args)
