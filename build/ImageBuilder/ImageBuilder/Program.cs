@@ -7,6 +7,7 @@ using Newtonsoft.Json.Linq;
 using Photon.PhotonAgentCommon.Utils;
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -133,7 +134,12 @@ namespace ImageBuilder
             this.build_id = arn[5].Split('/')[1];
             this.build_bucket = $"{BUCKET_PREFIX}-{this.aws_account}-{this.aws_region}";
             this.build_branch = this.build_id.Split('.')[1];
-            this.image_name = this.build_id.Split('.')[2];
+            List<string> build_ids = new List<string>();
+            string[] temp_build_id = this.build_id.Split('.');
+            for (int i = 2; i < temp_build_id.Length; i++){
+                build_ids.Add(temp_build_id[i]);
+            }
+            this.image_name = string.Join(".", build_ids);
             this.bucket_uri = $"https://{this.build_bucket}.s3.amazonaws.com";
             this.api_uri = this.DownloadString($"{this.bucket_uri}/api_endpoint.txt").Trim();
 
@@ -376,6 +382,8 @@ namespace ImageBuilder
             }
             else if (!File.Exists(SNAPSHOT_LOCK))
             {
+                int milliseconds = 180000;
+                Thread.Sleep(milliseconds);
                 this.InitiateSnapshot();
             }
         }
