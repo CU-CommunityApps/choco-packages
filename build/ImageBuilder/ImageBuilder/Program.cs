@@ -382,8 +382,8 @@ namespace ImageBuilder
             }
             else if (!File.Exists(SNAPSHOT_LOCK))
             {
-                int milliseconds = 180000;
-                Thread.Sleep(milliseconds);
+//                 int milliseconds = 180000;
+//                 Thread.Sleep(milliseconds);
                 this.InitiateSnapshot();
             }
         }
