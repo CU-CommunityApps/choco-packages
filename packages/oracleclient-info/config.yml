@@ -16,7 +16,7 @@ Install:
 Applications:
     sqldeveloper:
         DisplayName:    'sqldeveloper'
-        Path:           '%SYSTEMDRIVE%\app\client\product\12.2.0\sql\sqldeveloper\sqldeveloper\bin\sqldeveloper.exe'
+        Path:           '%SYSTEMDRIVE%\app\client\product\12.2.0\client_1\sqldeveloper\sqldeveloper\bin\sqldeveloper.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
