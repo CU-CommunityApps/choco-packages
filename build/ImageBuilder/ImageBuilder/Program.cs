@@ -247,7 +247,7 @@ namespace ImageBuilder
                         c.PackageNames = package_name;
                         c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
                         c.AcceptLicense = true;
-                        c.AdditionalLogFileLocation = package_log;
+                        // c.AdditionalLogFileLocation = package_log;
                         // c.CacheLocation = ;
                         // c.Input = " --ignore-detected-reboot ";
                     }).Run();
