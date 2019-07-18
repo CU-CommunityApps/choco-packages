@@ -12,6 +12,11 @@ Install:
     FileType:   'exe'
     Arguments:  '-silent -nowait -noconsole -waitforcompletion -debug -force -responseFile %INSTALL_DIR%\response\sqlclient.rsp'
     ExitCodes:  '0'
+
+  - File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-silent -nowait -noconsole -waitforcompletion -debug -force -responseFile %INSTALL_DIR%\response\odbc.rsp'
+    ExitCodes:  '0'
     
 Applications:
     sqldeveloper:
