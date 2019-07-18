@@ -234,8 +234,9 @@ namespace ImageBuilder
                     string package_version = package.Split(';')[1];
                     string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
                     string package_local_choco = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.nupkg");
-                    string package_log = Path.Combine(PROGRAM_DATA, $"{package_name}.{package_version}.log");
-
+                    string package_log = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.{package_version}.log");
+                    
+                    log.Info(package_log);
                     log.Info($"Installing {package_name}.{package_version}");
 
                     var choco = new GetChocolatey();
@@ -373,17 +374,21 @@ namespace ImageBuilder
             if (!File.Exists(INSTALLED_LOCK))
             {
                 this.InstallPackages();
+                int milliseconds = 300000;
+                Thread.Sleep(milliseconds);
                 this.RebootSystem();
             }
             else if (this.install_updates && !File.Exists(UPDATED_LOCK))
             {
+                int milliseconds = 180000;
+                Thread.Sleep(milliseconds);
                 this.InstallUpdates();
                 this.RebootSystem();
             }
             else if (!File.Exists(SNAPSHOT_LOCK))
             {
-//                 int milliseconds = 180000;
-//                 Thread.Sleep(milliseconds);
+                int milliseconds = 180000;
+                Thread.Sleep(milliseconds);
                 this.InitiateSnapshot();
             }
         }
