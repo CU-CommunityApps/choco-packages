@@ -15,7 +15,7 @@ Install:
 
   - File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-silent -nowait -noconsole -waitforcompletion -debug -force -responseFile %INSTALL_DIR%\response\odbc.rsp'
+    Arguments:  '-silent -nowait -noconsole -waitforcompletion -debug -force -responseFile %INSTALL_DIR%\response\odbcclient.rsp'
     ExitCodes:  '0'
     
 Applications:
