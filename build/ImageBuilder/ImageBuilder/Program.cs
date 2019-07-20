@@ -6,8 +6,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Photon.PhotonAgentCommon.Utils;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -35,10 +35,7 @@ namespace ImageBuilder
 
         private JObject user_data;
         private JObject build_info;
-
-        private ConcurrentQueue<string> download_q = new ConcurrentQueue<string>();
-        private ConcurrentDictionary<string, bool> downloaded = new ConcurrentDictionary<string, bool>();
-        private ConcurrentQueue<string> install_q = new ConcurrentQueue<string>();
+        private ArrayList package_q = new ArrayList();
 
         private bool install_updates;
 
@@ -150,118 +147,44 @@ namespace ImageBuilder
             
             foreach (string package in packages)
             {
-                bool queued = false;
-
-                while (!queued)
-                {
-                    queued = this.downloaded.TryAdd(package, false);
-                }
-                
-                this.download_q.Enqueue(package);
-            }
-        }
-
-        private void DownloadPackages()
-        {
-            while (true)
-            {
-                if (this.download_q.Count == 0)
-                {
-                    break;
-                }
-
-                string package;
-                bool success = this.download_q.TryDequeue(out package);
-
-                if (success)
-                {
-                    string package_name = package.Split(';')[0];
-                    string package_version = package.Split(';')[1];
-                    string package_uri = $"{this.bucket_uri}/packages/{this.build_branch}/{package_name}.{package_version}.nupkg";
-                    string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
-
-                    this.DownloadFile(package_uri, package_local);
-
-                    while (!this.downloaded.TryUpdate(package, true, false));
-                    this.install_q.Enqueue(package);
-                }
+                this.package_q.Add(package);
             }
         }
 
         private void InstallPackages()
         {
-            for (int i = 0; i < 3; i++)
+
+            foreach (string package in package_q)
             {
-                ThreadStart sd = this.DownloadPackages;
-                Thread td = new Thread(sd);
-                td.Start();
-            }
+                string package_name = package.Split(';')[0];
+                string package_version = package.Split(';')[1];
+                string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
+                string package_local_choco = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.nupkg");
+                string package_uri = $"{this.bucket_uri}/packages/{this.build_branch}/{package_name}.{package_version}.nupkg";
+                string package_log = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.{package_version}.log");
 
-            while (true)
-            {
-                if (this.install_q.Count == 0 && this.download_q.Count == 0 && this.downloaded.Count == 0)
+                log.Info($"Downloading {package_name}.{package_version}");
+                this.DownloadFile(package_uri, package_local);
+
+                log.Info($"Installing {package_name}.{package_version}");
+                var choco = new GetChocolatey();
+
+                choco.Set(c => {
+                    c.CommandName = "install";
+                    c.PackageNames = package_name;
+                    c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
+                    c.AcceptLicense = true;
+                    // c.AdditionalLogFileLocation = package_log;
+                    // c.CacheLocation = ;
+                    // c.Input = " --ignore-detected-reboot ";
+                }).Run();
+
+                log.Info($"{package_name}.{package_version} Installed!");
+                File.Delete(package_local);
+
+                if (File.Exists(package_local_choco))
                 {
-                    break;
-                }
-
-                string package;
-                bool success = this.install_q.TryDequeue(out package);
-
-                if (success)
-                {
-                    bool package_downloaded;
-                    success = this.downloaded.TryGetValue(package, out package_downloaded);
-
-                    if (!success)
-                    {
-                        this.install_q.Enqueue(package);
-                        continue;
-                    }
-
-                    if (!package_downloaded)
-                    {
-                        this.install_q.Enqueue(package);
-
-                        if (this.install_q.Count == 1)
-                        {
-                            Thread.Sleep(2000);
-                        }
-
-                        continue;
-                    }
-
-                    string package_name = package.Split(';')[0];
-                    string package_version = package.Split(';')[1];
-                    string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
-                    string package_local_choco = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.nupkg");
-                    string package_log = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.{package_version}.log");
-                    
-                    log.Info(package_log);
-                    log.Info($"Installing {package_name}.{package_version}");
-
-                    var choco = new GetChocolatey();
-
-                    choco.Set(c =>
-                    {
-                        c.CommandName = "install";
-                        c.PackageNames = package_name;
-                        c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
-                        c.AcceptLicense = true;
-                        // c.AdditionalLogFileLocation = package_log;
-                        // c.CacheLocation = ;
-                        // c.Input = " --ignore-detected-reboot ";
-                    }).Run();
-
-                    log.Info($"{package_name}.{package_version} Installed!");
-
-                    File.Delete(package_local);
-
-                    if (File.Exists(package_local_choco))
-                    {
-                        File.Delete(package_local_choco);
-                    }
-
-                    while(!this.downloaded.TryRemove(package, out package_downloaded));
+                    File.Delete(package_local_choco);
                 }
             }
 
