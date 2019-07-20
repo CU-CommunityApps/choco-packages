@@ -7,7 +7,6 @@ using Newtonsoft.Json.Linq;
 using Photon.PhotonAgentCommon.Utils;
 using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -35,7 +34,7 @@ namespace ImageBuilder
 
         private JObject user_data;
         private JObject build_info;
-        private ArrayList package_q = new ArrayList();
+        private JArray packages;
 
         private bool install_updates;
 
@@ -143,18 +142,13 @@ namespace ImageBuilder
             string build_post = $"{{ \"BuildId\":\"{this.build_id}\" }}";
             this.build_info = this.CallRestService($"{this.api_uri}/image-build", "POST", $"{{\"BuildId\":\"{this.image_name}\"}}");
             this.install_updates = (bool) this.build_info["InstallUpdates"];
-            JArray packages = (JArray) this.build_info["Packages"];
-            
-            foreach (string package in packages)
-            {
-                this.package_q.Add(package);
-            }
+            this.packages = (JArray) this.build_info["Packages"];
         }
 
         private void InstallPackages()
         {
 
-            foreach (string package in package_q)
+            foreach (string package in this.packages)
             {
                 string package_name = package.Split(';')[0];
                 string package_version = package.Split(';')[1];
