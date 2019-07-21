@@ -1,6 +1,5 @@
 using Amazon.PhotonAgentProxy;
 using Amazon.PhotonAgentProxy.Model;
-using chocolatey;
 using log4net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -155,25 +154,15 @@ namespace ImageBuilder
                 string package_local_choco = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.nupkg");
                 string package_uri = $"{this.bucket_uri}/packages/{this.build_branch}/{package_name}.{package_version}.nupkg";
                 string package_log = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.{package_version}.log");
+                string choco_path = Path.Combine(PROGRAM_DATA, "chocolatey", "bin", "choco.exe");
 
                 log.Info($"Downloading {package_name}.{package_version}");
                 this.DownloadFile(package_uri, package_local);
 
                 log.Info($"Installing {package_name}.{package_version}");
-                var choco = new GetChocolatey();
-
-                choco.Set(c => {
-                    c.CommandName = "install";
-                    c.PackageNames = package_name;
-                    c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
-                    c.AcceptLicense = true;
-                    c.Verbose = true;
-                    c.NotSilent = true;
-                    // c.AdditionalLogFileLocation = package_log;
-                    // c.CacheLocation = ;
-                    // c.Input = " --ignore-detected-reboot ";
-                }).Run();
-                
+                Process choco_process = Process.Start(choco_path, $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH}");
+                choco_process.WaitForExit();
+                                
                 log.Info($"{package_name}.{package_version} Installed!");
                 File.Delete(package_local);
 
@@ -205,7 +194,7 @@ namespace ImageBuilder
             {
                 foreach (ICategory c in u.Categories)
                 {
-                    if (c.Name.ToLower().Contains("security") || c.Name.ToLower().contains("critical"))
+                    if (c.Name.ToLower().Contains("security") || c.Name.ToLower().Contains("critical"))
                     {
                         uc.Add(u);
                         break;
