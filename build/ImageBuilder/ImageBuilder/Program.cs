@@ -163,10 +163,7 @@ namespace ImageBuilder
                     logGroupName: "image-builds"
                 ));
             }
-            catch (AmazonClientException ex)
-            {
-                log.Warn(ex.Message);
-            }
+            catch (Amazon.CloudWatchLogs.Model.ResourceAlreadyExistsException ex) { }
 
             try
             {
@@ -175,9 +172,9 @@ namespace ImageBuilder
                     logStreamName: this.build_id
                 ));
             }
-            catch (AmazonClientException ex)
+            catch (Amazon.CloudWatchLogs.Model.ResourceAlreadyExistsException ex)
             {
-                log.Warn(ex.Message);
+                log.Warn(ex.Message); 
             }
         }
 
