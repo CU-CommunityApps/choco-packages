@@ -147,7 +147,6 @@ namespace ImageBuilder
 
         private void InstallPackages()
         {
-
             foreach (string package in this.packages)
             {
                 string package_name = package.Split(';')[0];
@@ -168,11 +167,13 @@ namespace ImageBuilder
                     c.PackageNames = package_name;
                     c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
                     c.AcceptLicense = true;
+                    c.Verbose = true;
+                    c.NotSilent = true;
                     // c.AdditionalLogFileLocation = package_log;
                     // c.CacheLocation = ;
                     // c.Input = " --ignore-detected-reboot ";
                 }).Run();
-
+                
                 log.Info($"{package_name}.{package_version} Installed!");
                 File.Delete(package_local);
 
