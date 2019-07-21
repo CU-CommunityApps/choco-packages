@@ -160,10 +160,23 @@ namespace ImageBuilder
                 this.DownloadFile(package_uri, package_local);
 
                 log.Info($"Installing {package_name}.{package_version}");
-                Process choco_process = Process.Start(choco_path, $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH}");
+                Process choco_process = new Process(); 
+                choco_process.StartInfo.UseShellExecute = false;
+                choco_process.StartInfo.FileName = choco_path;
+                choco_process.StartInfo.Arguments = $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH}";
+                choco_process.StartInfo.RedirectStandardOutput = true;
+                choco_process.StartInfo.RedirectStandardError = true;
+                choco_process.Start();
+
+                string output = choco_process.StandardOutput.ReadToEnd();
+                string err = choco_process.StandardError.ReadToEnd();
+
                 choco_process.WaitForExit();
-                                
+
+                log.Info(output);
+                log.Warn(err);
                 log.Info($"{package_name}.{package_version} Installed!");
+
                 File.Delete(package_local);
 
                 if (File.Exists(package_local_choco))
