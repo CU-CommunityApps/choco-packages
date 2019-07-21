@@ -162,7 +162,14 @@ namespace ImageBuilder
                 this.cwl.CreateLogGroup(new CreateLogGroupRequest(
                     logGroupName: "image-builds"
                 ));
+            }
+            catch (AmazonClientException ex)
+            {
+                log.Warn(ex.Message);
+            }
 
+            try
+            {
                 this.cwl.CreateLogStream(new CreateLogStreamRequest(
                     logGroupName: "image-builds",
                     logStreamName: this.build_id
