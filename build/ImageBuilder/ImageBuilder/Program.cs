@@ -1,5 +1,8 @@
+using Amazon.CloudWatchLogs;
+using Amazon.CloudWatchLogs.Model;
 using Amazon.PhotonAgentProxy;
 using Amazon.PhotonAgentProxy.Model;
+using Amazon.Runtime;
 using log4net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -34,6 +37,9 @@ namespace ImageBuilder
         private JObject user_data;
         private JObject build_info;
         private JArray packages;
+
+        private SessionAWSCredentials aws_credentials;
+        private AmazonCloudWatchLogsClient cwl;
 
         private bool install_updates;
 
@@ -120,10 +126,10 @@ namespace ImageBuilder
             Process.Start("shutdown.exe", "/r /f /t 300");
         }
 
-        private void ParseUserData()
+        private void InitiateEnvironment()
         {
             this.user_data = this.CallRestService(USER_DATA_URI, "GET", null);
-            string[] arn = ((string) user_data["resourceArn"]).Split(':');
+            string[] arn = ((string)user_data["resourceArn"]).Split(':');
             this.aws_region = arn[3];
             this.aws_account = arn[4];
             this.build_id = arn[5].Split('/')[1];
@@ -131,7 +137,7 @@ namespace ImageBuilder
             this.build_branch = this.build_id.Split('.')[1];
             List<string> build_ids = new List<string>();
             string[] temp_build_id = this.build_id.Split('.');
-            for (int i = 2; i < temp_build_id.Length; i++){
+            for (int i = 2; i < temp_build_id.Length; i++) {
                 build_ids.Add(temp_build_id[i]);
             }
             this.image_name = string.Join(".", build_ids);
@@ -140,8 +146,32 @@ namespace ImageBuilder
 
             string build_post = $"{{ \"BuildId\":\"{this.build_id}\" }}";
             this.build_info = this.CallRestService($"{this.api_uri}/image-build", "POST", $"{{\"BuildId\":\"{this.image_name}\"}}");
-            this.install_updates = (bool) this.build_info["InstallUpdates"];
-            this.packages = (JArray) this.build_info["Packages"];
+            this.install_updates = (bool)this.build_info["InstallUpdates"];
+            this.packages = (JArray)this.build_info["Packages"];
+
+            this.aws_credentials = new SessionAWSCredentials(
+                (string) this.build_info["AwsSession"]["Credentials"]["AccessKeyId"],
+                (string) this.build_info["AwsSession"]["Credentials"]["SecretAccessKey"],
+                (string) this.build_info["AwsSession"]["Credentials"]["SessionToken"]
+            );
+
+            this.cwl = new AmazonCloudWatchLogsClient(this.aws_credentials);
+
+            try
+            {
+                this.cwl.CreateLogGroup(new CreateLogGroupRequest(
+                    logGroupName: "image-builds"
+                ));
+
+                this.cwl.CreateLogStream(new CreateLogStreamRequest(
+                    logGroupName: "image-builds",
+                    logStreamName: this.build_id
+                ));
+            }
+            catch (AmazonClientException ex)
+            {
+                log.Warn(ex.Message);
+            }
         }
 
         private void InstallPackages()
@@ -289,7 +319,7 @@ namespace ImageBuilder
 
         void App()
         {
-            this.ParseUserData();
+            this.InitiateEnvironment();
 
             if (!File.Exists(INSTALLED_LOCK))
             {
