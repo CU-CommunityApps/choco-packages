@@ -32,10 +32,10 @@ Files:
 
 Registry:
     HKLM:   
-        Software\Wow6432Node\ODBC\ODBC.INI\INFO4555:
+        Software\ODBC\ODBC.INI\INFO4555:
             Driver:
                 Type: 'string'
-                Value: 'c:\app\client\product\12.2.0\client_1\bin\sqora32.dll'
+                Value: 'c:\\app\\client\\product\\12.2.0\\client_1\\BIN\\SQORA32.dll'
            
             DSN:
                 Type: 'string'
@@ -77,8 +77,8 @@ Registry:
                 Type: 'string'
                 Value: '0'
         
-        Software\Wow6432Node\ODBC\ODBC.INI\ODBC Data Sources:
+        Software\ODBC\ODBC.INI\ODBC Data Sources:
             INFO4555:
                 Type: 'string'
-                Value: 'Microsoft ODBC for Oracle'
+                Value: 'Oracle in OraClient12Home1'
                 
