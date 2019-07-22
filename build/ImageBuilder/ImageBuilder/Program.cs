@@ -369,13 +369,6 @@ namespace ImageBuilder
             try
             {
                 result.CreateImage(request);
-
-                using (StreamWriter s = File.CreateText(SNAPSHOT_LOCK))
-                {
-                    s.Write("SNAPSHOT INITIATED");
-                    s.Close();
-                }
-
                 this.PutCloudWatchLog("Successfully initiated snapshot!");
             }
             catch (Exception ex)
@@ -399,7 +392,7 @@ namespace ImageBuilder
                 this.InstallUpdates();
                 this.RebootSystem();
             }
-            else if (!File.Exists(SNAPSHOT_LOCK))
+            else 
             {
                 this.InitiateSnapshot();
             }
