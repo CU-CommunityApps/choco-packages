@@ -175,6 +175,7 @@ namespace ImageBuilder
 
                 InputLogEvent log_message = new InputLogEvent();
                 log_message.Message = "Initialized Log Stream";
+                log_message.Timestamp = DateTime.UtcNow;
 
                 PutLogEventsResponse resp = this.cwl.PutLogEvents(new PutLogEventsRequest(
                     logGroupName: "image-builds",
@@ -201,6 +202,7 @@ namespace ImageBuilder
             log.Info(message);
             InputLogEvent log_message = new InputLogEvent();
             log_message.Message = message;
+            log_message.Timestamp = DateTime.UtcNow;
 
             try
             {
