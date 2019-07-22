@@ -13,6 +13,8 @@ $SHUTDOWN_USER = "$env:ALLUSERSPROFILE\SessionScripts\shutdownuser.ps1"
 $SHUTDOWN_SYSTEM = "$env:ALLUSERSPROFILE\SessionScripts\shutdownsystem.ps1"
 $POWERSHELL_PATH = "$env:WINDIR\System32\WindowsPowerShell\v1.0\powershell.exe"
 $SESSION_SCRIPTS = "$env:SystemDrive\AppStream\SessionScripts\config.json"
+$BUILDER_STDOUT_LOG = "$env:SystemDrive\builder-console.log"
+$BUILDER_STDERR_LOG = "$env:SystemDrive\builder-console-err.log"
 $SESSION_CONTENTS = Get-Content $SESSION_SCRIPTS | Out-String | ConvertFrom-Json
 $LONGPATH_KEY = "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
 
@@ -97,4 +99,4 @@ else {
 
 # Run ImageBuilder
 Write-Output "Running ImageBuilder"
-Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -NoNewWindow -Wait
+Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait

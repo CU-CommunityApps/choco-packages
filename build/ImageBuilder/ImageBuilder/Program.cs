@@ -166,7 +166,7 @@ namespace ImageBuilder
                     logGroupName: "image-builds"
                 ));
             }
-            catch (Amazon.CloudWatchLogs.Model.ResourceAlreadyExistsException ex) { }
+            catch (Amazon.CloudWatchLogs.Model.ResourceAlreadyExistsException) { }
 
             try
             {
@@ -176,7 +176,7 @@ namespace ImageBuilder
                 LogStream log_stream = resp.LogStreams[0];
                 this.log_stream_token = log_stream.UploadSequenceToken;
             }
-            catch (ArgumentOutOfRangeException ex) {
+            catch (ArgumentOutOfRangeException) {
                 this.cwl.CreateLogStream(new CreateLogStreamRequest(
                     logGroupName: "image-builds",
                     logStreamName: this.build_id
@@ -258,7 +258,7 @@ namespace ImageBuilder
                 Process choco_process = new Process(); 
                 choco_process.StartInfo.UseShellExecute = false;
                 choco_process.StartInfo.FileName = choco_path;
-                choco_process.StartInfo.Arguments = $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH}";
+                choco_process.StartInfo.Arguments = $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH} --ignore-checksum";
                 choco_process.StartInfo.RedirectStandardOutput = true;
                 //choco_process.StartInfo.RedirectStandardError = true;
                 choco_process.Start();
