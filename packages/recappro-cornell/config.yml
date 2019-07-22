@@ -1,5 +1,5 @@
 Id:             'recappro-cornell'
-Description:    'recappro-cornell - buildtest2'
+Description:    'recappro-cornell'
 Version:        '6.0.1.21'
 
 Install:
@@ -23,6 +23,3 @@ Applications:
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
-
-Services: 
-    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
