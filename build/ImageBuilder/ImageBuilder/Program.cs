@@ -260,16 +260,14 @@ namespace ImageBuilder
                 choco_process.StartInfo.FileName = choco_path;
                 choco_process.StartInfo.Arguments = $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH}";
                 choco_process.StartInfo.RedirectStandardOutput = true;
-                choco_process.StartInfo.RedirectStandardError = true;
+                //choco_process.StartInfo.RedirectStandardError = true;
                 choco_process.Start();
 
                 string output = choco_process.StandardOutput.ReadToEnd();
-                string err = choco_process.StandardError.ReadToEnd();
-
+                //string err = choco_process.StandardError.ReadToEnd();
                 choco_process.WaitForExit();
-
                 this.PutCloudWatchLog(output);
-                this.PutCloudWatchLog(err);
+                //this.PutCloudWatchLog(err);
                 this.PutCloudWatchLog($"{package_name}.{package_version} Installed!");
 
                 File.Delete(package_local);
