@@ -35,7 +35,7 @@ Registry:
         Software\ODBC\ODBC.INI\INFO4555:
             Driver:
                 Type: 'string'
-                Value: 'c:\\app\\client\\product\\12.2.0\\client_1\\BIN\\SQORA32.dll'
+                Value: 'c:\app\client\product\12.2.0\client_1\BIN\SQORA32.dll'
            
             DSN:
                 Type: 'string'
