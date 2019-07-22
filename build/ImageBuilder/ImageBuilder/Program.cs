@@ -176,7 +176,7 @@ namespace ImageBuilder
                 LogStream log_stream = resp.LogStreams[0];
                 this.log_stream_token = log_stream.UploadSequenceToken;
             }
-            catch (Amazon.CloudWatchLogs.Model.ResourceNotFoundException ex) {
+            catch (ArgumentOutOfRangeException ex) {
                 this.cwl.CreateLogStream(new CreateLogStreamRequest(
                     logGroupName: "image-builds",
                     logStreamName: this.build_id
@@ -344,6 +344,9 @@ namespace ImageBuilder
 
         private void InitiateSnapshot()
         {
+            this.PutCloudWatchLog("Initiating Snapshot in two minutes...");
+            Thread.Sleep(120000);
+
             IEC2MetadataProvider metadataProvider = (IEC2MetadataProvider)new EC2MetadataProvider();
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
@@ -393,7 +396,6 @@ namespace ImageBuilder
             }
             else if (!File.Exists(SNAPSHOT_LOCK))
             {
-                Thread.Sleep(60000);
                 this.InitiateSnapshot();
             }
         }
