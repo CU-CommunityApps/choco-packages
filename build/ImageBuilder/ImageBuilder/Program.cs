@@ -393,6 +393,7 @@ namespace ImageBuilder
             }
             else if (!File.Exists(SNAPSHOT_LOCK))
             {
+                Thread.Sleep(60000);
                 this.InitiateSnapshot();
             }
         }
