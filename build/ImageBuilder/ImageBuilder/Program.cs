@@ -200,6 +200,11 @@ namespace ImageBuilder
 
         private void PutCloudWatchLog(string message)
         {
+            if (message.Length < 1)
+            {
+                return;
+            }
+
             log.Info(message);
             InputLogEvent log_message = new InputLogEvent();
             log_message.Message = message;
