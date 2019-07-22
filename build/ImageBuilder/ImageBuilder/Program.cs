@@ -138,9 +138,11 @@ namespace ImageBuilder
             this.build_branch = this.build_id.Split('.')[1];
             List<string> build_ids = new List<string>();
             string[] temp_build_id = this.build_id.Split('.');
+
             for (int i = 2; i < temp_build_id.Length; i++) {
                 build_ids.Add(temp_build_id[i]);
             }
+
             this.image_name = string.Join(".", build_ids);
             this.bucket_uri = $"https://{this.build_bucket}.s3.amazonaws.com";
             this.api_uri = this.DownloadString($"{this.bucket_uri}/api_endpoint.txt").Trim();
@@ -168,6 +170,13 @@ namespace ImageBuilder
 
             try
             {
+                DescribeLogStreamsRequest req = new DescribeLogStreamsRequest("image-builds");
+                req.LogStreamNamePrefix = this.build_id;
+                DescribeLogStreamsResponse resp = this.cwl.DescribeLogStreams(req);
+                LogStream log_stream = resp.LogStreams[0];
+                this.log_stream_token = log_stream.UploadSequenceToken;
+            }
+            catch (Amazon.CloudWatchLogs.Model.ResourceNotFoundException ex) {
                 this.cwl.CreateLogStream(new CreateLogStreamRequest(
                     logGroupName: "image-builds",
                     logStreamName: this.build_id
@@ -185,14 +194,6 @@ namespace ImageBuilder
 
                 this.log_stream_token = resp.NextSequenceToken;
             }
-            catch (Amazon.CloudWatchLogs.Model.ResourceAlreadyExistsException ex)
-            {
-                DescribeLogStreamsRequest req = new DescribeLogStreamsRequest("image-builds");
-                req.LogStreamNamePrefix = this.build_id;
-                DescribeLogStreamsResponse resp = this.cwl.DescribeLogStreams(req);
-                LogStream log_stream = resp.LogStreams[0];
-                this.log_stream_token = log_stream.UploadSequenceToken;
-            }
 
             this.PutCloudWatchLog("Environment Initialized");
         }
@@ -206,12 +207,14 @@ namespace ImageBuilder
 
             try
             {
-                PutLogEventsResponse resp = this.cwl.PutLogEvents(new PutLogEventsRequest(
+                PutLogEventsRequest req = new PutLogEventsRequest(
                     logGroupName: "image-builds",
                     logStreamName: this.build_id,
                     logEvents: new List<InputLogEvent>() { log_message }
-                ));
+                );
 
+                req.SequenceToken = this.log_stream_token;
+                PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
                 this.log_stream_token = resp.NextSequenceToken;
             }
             catch (Amazon.CloudWatchLogs.Model.UnrecognizedClientException ex)
@@ -219,12 +222,14 @@ namespace ImageBuilder
                 log.Warn($"Refreshing AWS Credentials: {ex.ErrorCode}");
                 this.InitiateEnvironment();
 
-                PutLogEventsResponse resp = this.cwl.PutLogEvents(new PutLogEventsRequest(
+                PutLogEventsRequest req = new PutLogEventsRequest(
                     logGroupName: "image-builds",
                     logStreamName: this.build_id,
                     logEvents: new List<InputLogEvent>() { log_message }
-                ));
+                );
 
+                req.SequenceToken = this.log_stream_token;
+                PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
                 this.log_stream_token = resp.NextSequenceToken;
             }
         }
