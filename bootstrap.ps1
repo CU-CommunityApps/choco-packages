@@ -21,6 +21,9 @@ $LONGPATH_KEY = "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
 
 if (-Not (Test-Path $BUILD_DIR)) {
 
+	# Wait Five Minutes on First Run
+	Start-Sleep -Seconds 300
+
     # Create Session Script Template Files
     If (!(Test-Path "$env:ALLUSERSPROFILE\SessionScripts")){New-Item -Path $env:ALLUSERSPROFILE -ItemType Directory -Name SessionScripts}
     If (!(Test-Path $STARTUP_USER)){New-Item -Path "$env:ALLUSERSPROFILE\SessionScripts" -Name startupuser.ps1}
