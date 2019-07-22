@@ -1,3 +1,5 @@
+using Amazon.AppStream;
+using Amazon.AppStream.Model;
 using Amazon.CloudWatchLogs;
 using Amazon.CloudWatchLogs.Model;
 using Amazon.PhotonAgentProxy;
@@ -40,11 +42,13 @@ namespace ImageBuilder
 
         private SessionAWSCredentials aws_credentials;
         private AmazonCloudWatchLogsClient cwl;
+        private AmazonAppStreamClient appstream;
 
         private bool install_updates;
 
         private string aws_region;
         private string aws_account;
+        private string build_arn;
         private string build_id;
         private string build_bucket;
         private string build_branch;
@@ -124,13 +128,28 @@ namespace ImageBuilder
         private void RebootSystem()
         {
             this.PutCloudWatchLog("Rebooting in 5 min");
-            Process.Start("shutdown.exe", "/r /f /t 300");
+            Thread.Sleep(300000);
+            this.PutCloudWatchLog("Requesting Image Builder Stop...");
+
+            StopImageBuilderRequest req = new StopImageBuilderRequest();
+            req.Name = this.build_id;
+
+            try
+            {
+                StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
+            }
+            catch (Amazon.AppStream.Model.OperationNotPermittedException)
+            {
+                this.InitiateEnvironment();
+                StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
+            }
         }
 
         private void InitiateEnvironment()
         {
             this.user_data = this.CallRestService(USER_DATA_URI, "GET", null);
-            string[] arn = ((string)user_data["resourceArn"]).Split(':');
+            this.build_arn = (string) user_data["resourceArn"];
+            string[] arn = (this.build_arn).Split(':');
             this.aws_region = arn[3];
             this.aws_account = arn[4];
             this.build_id = arn[5].Split('/')[1];
@@ -159,6 +178,7 @@ namespace ImageBuilder
             );
 
             this.cwl = new AmazonCloudWatchLogsClient(this.aws_credentials);
+            this.appstream = new AmazonAppStreamClient(this.aws_credentials);
 
             try
             {

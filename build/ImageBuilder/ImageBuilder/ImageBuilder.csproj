@@ -35,6 +35,9 @@
     <Reference Include="AWS.Logger.Log4net, Version=1.4.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWS.Logger.Log4net.1.4.0\lib\net45\AWS.Logger.Log4net.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AppStream, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.AppStream.3.3.102.16\lib\net45\AWSSDK.AppStream.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.CloudWatchLogs.3.3.100.50\lib\net45\AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
@@ -86,6 +89,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.AppStream.3.3.102.16\analyzers\dotnet\cs\AWSSDK.AppStream.CodeAnalysis.dll" />
     <Analyzer Include="..\packages\AWSSDK.CloudWatchLogs.3.3.100.50\analyzers\dotnet\cs\AWSSDK.CloudWatchLogs.CodeAnalysis.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
