@@ -35,7 +35,7 @@ Registry:
         Software\Wow6432Node\ODBC\ODBC.INI\INFO4555:
             Driver:
                 Type: 'string'
-                Value: 'C:\Windows\system32\msorcl32.dll'
+                Value: 'c:\app\client\product\12.2.0\client_1\bin\sqora32.dll'
            
             DSN:
                 Type: 'string'
