@@ -33,22 +33,26 @@ Files:
 Registry:
     HKLM:   
         Software\ODBC\ODBC.INI\INFO4555:
+            BufferSize:
+                Type: 'string'
+                Value: '65535'
+                
+            Description:
+                Type: 'string'
+                Value: 'INFO4555'
+                
             Driver:
                 Type: 'string'
-                Value: 'c:\app\client\product\12.2.0\client_1\BIN\SQORA32.dll'
-           
+                Value: 'c:\\app\\client\\product\\12.2.0\\client_1\\BIN\\SQORA32.dll'
+                
             DSN:
                 Type: 'string'
                 Value: 'INFO4555'
 
-            Description:
+            GuessTheColDef:
                 Type: 'string'
-                Value: 'INFO4555'         
-                        
-            UID:
-                Type: 'string'
-                Value: ''
-            
+                Value: '0'
+       
             PWD:
                 Type: 'string'
                 Value: ''
@@ -56,26 +60,146 @@ Registry:
             SERVER: 
                 Type: 'string'
                 Value: 'INFO4555'
-            
-            BufferSize:
+
+            StdDayOfWeek:
                 Type: 'string'
-                Value: '65535'
+                Value: '1'
+            
+            StripTrailingZero:
+                Type: 'string'
+                Value: '0'
             
             SynonymColumns:
                 Type: 'string'
                 Value: '1'
-           
-            StdDayOfWeek:
+                
+            UID:
                 Type: 'string'
-                Value: '1'
+                Value: ''
+            
+            DisableRULEHint:
+                Type: 'string'
+                Value: 'T'  
+                
+            Attributes:
+                Type: 'string'
+                Value: 'W'
+                
+           SQLTranslateErrors:
+                Type: 'string'
+                Value: 'F'           
 
-            GuessTheColDef:
+           AggregateSQLType:
                 Type: 'string'
-                Value: '0'
-
-            StripTrailingZero:
+                Value: 'FLOAT'
+                
+           MaxTokenSize:
                 Type: 'string'
-                Value: '0'
+                Value: '8192'
+                
+           FetchBufferSize:
+                Type: 'string'
+                Value: '64000'
+                
+           NumericSetting:
+                Type: 'string'
+                Value: 'NLS'       
+                
+           ForceWCHAR:
+                Type: 'string'
+                Value: 'F'                
+       
+           FailoverDelay:
+                Type: 'string'
+                Value: '10' 
+                
+           FailoverRetryCount:
+                Type: 'string'
+                Value: '10'     
+                
+           MetadataIdDefault:
+                Type: 'string'
+                Value: 'F'    
+                
+           BindAsFLOAT:
+                Type: 'string'
+                Value: 'F'   
+                
+           BindAsDATE:
+                Type: 'string'
+                Value: 'F'     
+                
+           CloseCursor:
+                Type: 'string'
+                Value: 'F'     
+                
+           EXECSchemaOpt:
+                Type: 'string'
+                Value: ''
+                
+           EXECSyntax:
+                Type: 'string'
+                Value: 'F'
+                
+           Application Attributes:
+                Type: 'string'
+                Value: 'T'
+                
+           QueryTimeout:
+                Type: 'string'
+                Value: 'T'       
+                
+           CacheBufferSize:
+                Type: 'string'
+                Value: '20'        
+                
+           StatementCache:
+                Type: 'string'
+                Value: 'F'       
+                
+           ResultSets:
+                Type: 'string'
+                Value: 'T'       
+                
+           MaxLargeData:
+                Type: 'string'
+                Value: '0'        
+                
+           UseOCIDescribeAny:
+                Type: 'string'
+                Value: 'F'       
+                
+           Failover:
+                Type: 'string'
+                Value: 'T'          
+                
+           Lobs:
+                Type: 'string'
+                Value: 'T'      
+                
+           DisableMTS:
+                Type: 'string'
+                Value: 'T'      
+                
+           DisableDPM:
+                Type: 'string'
+                Value: 'F'       
+                
+           BatchAutocommitMode:
+                Type: 'string'
+                Value: 'IfAllSuccessful'         
+                
+           ServerName:
+                Type: 'string'
+                Value: 'info4555'       
+                
+           Password:
+                Type: 'string'
+                Value: ''       
+                
+           UserID:
+                Type: 'string'
+                Value: ''
         
         Software\ODBC\ODBC.INI\ODBC Data Sources:
             INFO4555:
