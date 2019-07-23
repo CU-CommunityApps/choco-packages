@@ -1,11 +1,11 @@
 Id:             'recappro-cornell'
-Description:    'recappro-cornell - buildtest2'
-Version:        '6.0.1.21'
+Description:    'recappro-cornell'
+Version:        '2020.0.1'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\Recap.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\recap.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  [0,1641]
     
 Applications:
@@ -23,6 +23,3 @@ Applications:
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
-
-Services: 
-    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
