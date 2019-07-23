@@ -143,6 +143,11 @@ namespace ImageBuilder
                 this.InitiateEnvironment();
                 StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
             }
+            catch (Amazon.AppStream.AmazonAppStreamException)
+            {
+                this.InitiateEnvironment();
+                StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
+            }
         }
 
         private void InitiateEnvironment()
@@ -242,7 +247,7 @@ namespace ImageBuilder
                 PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
                 this.log_stream_token = resp.NextSequenceToken;
             }
-            catch (Amazon.CloudWatchLogs.Model.UnrecognizedClientException ex)
+            catch (Amazon.CloudWatchLogs.AmazonCloudWatchLogsException ex)
             {
                 log.Warn($"Refreshing AWS Credentials: {ex.ErrorCode}");
                 this.InitiateEnvironment();
