@@ -1,12 +1,15 @@
+using Amazon.AppStream;
+using Amazon.AppStream.Model;
+using Amazon.CloudWatchLogs;
+using Amazon.CloudWatchLogs.Model;
 using Amazon.PhotonAgentProxy;
 using Amazon.PhotonAgentProxy.Model;
-using chocolatey;
+using Amazon.Runtime;
 using log4net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Photon.PhotonAgentCommon.Utils;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -35,21 +38,24 @@ namespace ImageBuilder
 
         private JObject user_data;
         private JObject build_info;
+        private JArray packages;
 
-        private ConcurrentQueue<string> download_q = new ConcurrentQueue<string>();
-        private ConcurrentDictionary<string, bool> downloaded = new ConcurrentDictionary<string, bool>();
-        private ConcurrentQueue<string> install_q = new ConcurrentQueue<string>();
+        private SessionAWSCredentials aws_credentials;
+        private AmazonCloudWatchLogsClient cwl;
+        private AmazonAppStreamClient appstream;
 
         private bool install_updates;
 
         private string aws_region;
         private string aws_account;
+        private string build_arn;
         private string build_id;
         private string build_bucket;
         private string build_branch;
         private string image_name;
         private string bucket_uri;
         private string api_uri;
+        private string log_stream_token;
 
         private string DownloadString(string uri)
         {
@@ -121,14 +127,40 @@ namespace ImageBuilder
 
         private void RebootSystem()
         {
-            log.Warn("Rebooting in 5 min");
-            Process.Start("shutdown.exe", "/r /f /t 300");
+            this.PutCloudWatchLog("Rebooting in 5 min");
+            Thread.Sleep(300000);
+            this.PutCloudWatchLog("Requesting Image Builder Stop...");
+
+            StopImageBuilderRequest req = new StopImageBuilderRequest();
+            req.Name = this.build_id;
+
+            try
+            {
+                StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
+            }
+            catch (Amazon.AppStream.Model.OperationNotPermittedException)
+            {
+                this.InitiateEnvironment();
+                StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
+            }
+            catch (Amazon.AppStream.AmazonAppStreamException)
+            {
+                this.InitiateEnvironment();
+                StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
+            }
+            catch (Exception ex)
+            {
+                log.Error($"Uncaught Image Builder Reboot Exception:\n\n{ex.StackTrace}");
+                log.Warn("Restarting using shutdown.exe");
+                Process.Start("shutdown.exe", "/r /f /t 0");
+            }
         }
 
-        private void ParseUserData()
+        private void InitiateEnvironment()
         {
             this.user_data = this.CallRestService(USER_DATA_URI, "GET", null);
-            string[] arn = ((string) user_data["resourceArn"]).Split(':');
+            this.build_arn = (string) user_data["resourceArn"];
+            string[] arn = (this.build_arn).Split(':');
             this.aws_region = arn[3];
             this.aws_account = arn[4];
             this.build_id = arn[5].Split('/')[1];
@@ -136,132 +168,148 @@ namespace ImageBuilder
             this.build_branch = this.build_id.Split('.')[1];
             List<string> build_ids = new List<string>();
             string[] temp_build_id = this.build_id.Split('.');
-            for (int i = 2; i < temp_build_id.Length; i++){
+
+            for (int i = 2; i < temp_build_id.Length; i++) {
                 build_ids.Add(temp_build_id[i]);
             }
+
             this.image_name = string.Join(".", build_ids);
             this.bucket_uri = $"https://{this.build_bucket}.s3.amazonaws.com";
             this.api_uri = this.DownloadString($"{this.bucket_uri}/api_endpoint.txt").Trim();
 
             string build_post = $"{{ \"BuildId\":\"{this.build_id}\" }}";
             this.build_info = this.CallRestService($"{this.api_uri}/image-build", "POST", $"{{\"BuildId\":\"{this.image_name}\"}}");
-            this.install_updates = (bool) this.build_info["InstallUpdates"];
-            JArray packages = (JArray) this.build_info["Packages"];
-            
-            foreach (string package in packages)
-            {
-                bool queued = false;
+            this.install_updates = (bool)this.build_info["InstallUpdates"];
+            this.packages = (JArray)this.build_info["Packages"];
 
-                while (!queued)
-                {
-                    queued = this.downloaded.TryAdd(package, false);
-                }
-                
-                this.download_q.Enqueue(package);
+            this.aws_credentials = new SessionAWSCredentials(
+                (string) this.build_info["AwsSession"]["Credentials"]["AccessKeyId"],
+                (string) this.build_info["AwsSession"]["Credentials"]["SecretAccessKey"],
+                (string) this.build_info["AwsSession"]["Credentials"]["SessionToken"]
+            );
+
+            this.cwl = new AmazonCloudWatchLogsClient(this.aws_credentials);
+            this.appstream = new AmazonAppStreamClient(this.aws_credentials);
+
+            try
+            {
+                this.cwl.CreateLogGroup(new CreateLogGroupRequest(
+                    logGroupName: "image-builds"
+                ));
             }
+            catch (Amazon.CloudWatchLogs.Model.ResourceAlreadyExistsException) { }
+
+            try
+            {
+                DescribeLogStreamsRequest req = new DescribeLogStreamsRequest("image-builds");
+                req.LogStreamNamePrefix = this.build_id;
+                DescribeLogStreamsResponse resp = this.cwl.DescribeLogStreams(req);
+                LogStream log_stream = resp.LogStreams[0];
+                this.log_stream_token = log_stream.UploadSequenceToken;
+            }
+            catch (ArgumentOutOfRangeException) {
+                this.cwl.CreateLogStream(new CreateLogStreamRequest(
+                    logGroupName: "image-builds",
+                    logStreamName: this.build_id
+                ));
+
+                InputLogEvent log_message = new InputLogEvent();
+                log_message.Message = "Initialized Log Stream";
+                log_message.Timestamp = DateTime.UtcNow;
+
+                PutLogEventsResponse resp = this.cwl.PutLogEvents(new PutLogEventsRequest(
+                    logGroupName: "image-builds",
+                    logStreamName: this.build_id,
+                    logEvents: new List<InputLogEvent>() { log_message }
+                ));
+
+                this.log_stream_token = resp.NextSequenceToken;
+            }
+
+            this.PutCloudWatchLog("Environment Initialized");
         }
 
-        private void DownloadPackages()
+        private void PutCloudWatchLog(string message)
         {
-            while (true)
+            if (message.Length < 1)
             {
-                if (this.download_q.Count == 0)
-                {
-                    break;
-                }
+                return;
+            }
 
-                string package;
-                bool success = this.download_q.TryDequeue(out package);
+            log.Info(message);
+            InputLogEvent log_message = new InputLogEvent();
+            log_message.Message = message;
+            log_message.Timestamp = DateTime.UtcNow;
 
-                if (success)
-                {
-                    string package_name = package.Split(';')[0];
-                    string package_version = package.Split(';')[1];
-                    string package_uri = $"{this.bucket_uri}/packages/{this.build_branch}/{package_name}.{package_version}.nupkg";
-                    string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
+            try
+            {
+                PutLogEventsRequest req = new PutLogEventsRequest(
+                    logGroupName: "image-builds",
+                    logStreamName: this.build_id,
+                    logEvents: new List<InputLogEvent>() { log_message }
+                );
 
-                    this.DownloadFile(package_uri, package_local);
+                req.SequenceToken = this.log_stream_token;
+                PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
+                this.log_stream_token = resp.NextSequenceToken;
+            }
+            catch (Amazon.CloudWatchLogs.AmazonCloudWatchLogsException ex)
+            {
+                log.Warn($"Refreshing AWS Credentials: {ex.ErrorCode}");
+                this.InitiateEnvironment();
 
-                    while (!this.downloaded.TryUpdate(package, true, false));
-                    this.install_q.Enqueue(package);
-                }
+                PutLogEventsRequest req = new PutLogEventsRequest(
+                    logGroupName: "image-builds",
+                    logStreamName: this.build_id,
+                    logEvents: new List<InputLogEvent>() { log_message }
+                );
+
+                req.SequenceToken = this.log_stream_token;
+                PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
+                this.log_stream_token = resp.NextSequenceToken;
+            }
+            catch(Exception ex)
+            {
+                log.Error($"Uncaught CloudWatch Exception:\n\n{ex.StackTrace}");                
             }
         }
 
         private void InstallPackages()
         {
-            for (int i = 0; i < 3; i++)
+            foreach (string package in this.packages)
             {
-                ThreadStart sd = this.DownloadPackages;
-                Thread td = new Thread(sd);
-                td.Start();
-            }
+                string package_name = package.Split(';')[0];
+                string package_version = package.Split(';')[1];
+                string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
+                string package_local_choco = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.nupkg");
+                string package_uri = $"{this.bucket_uri}/packages/{this.build_branch}/{package_name}.{package_version}.nupkg";
+                string package_log = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.{package_version}.log");
+                string choco_path = Path.Combine(PROGRAM_DATA, "chocolatey", "bin", "choco.exe");
 
-            while (true)
-            {
-                if (this.install_q.Count == 0 && this.download_q.Count == 0 && this.downloaded.Count == 0)
+                this.PutCloudWatchLog($"Downloading {package_name}.{package_version}");
+                this.DownloadFile(package_uri, package_local);
+
+                this.PutCloudWatchLog($"Installing {package_name}.{package_version}");
+                Process choco_process = new Process(); 
+                choco_process.StartInfo.UseShellExecute = false;
+                choco_process.StartInfo.FileName = choco_path;
+                choco_process.StartInfo.Arguments = $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH} --ignore-checksum";
+                choco_process.StartInfo.RedirectStandardOutput = true;
+                //choco_process.StartInfo.RedirectStandardError = true;
+                choco_process.Start();
+
+                string output = choco_process.StandardOutput.ReadToEnd();
+                //string err = choco_process.StandardError.ReadToEnd();
+                choco_process.WaitForExit();
+                this.PutCloudWatchLog(output);
+                //this.PutCloudWatchLog(err);
+                this.PutCloudWatchLog($"{package_name}.{package_version} Installed!");
+
+                File.Delete(package_local);
+
+                if (File.Exists(package_local_choco))
                 {
-                    break;
-                }
-
-                string package;
-                bool success = this.install_q.TryDequeue(out package);
-
-                if (success)
-                {
-                    bool package_downloaded;
-                    success = this.downloaded.TryGetValue(package, out package_downloaded);
-
-                    if (!success)
-                    {
-                        this.install_q.Enqueue(package);
-                        continue;
-                    }
-
-                    if (!package_downloaded)
-                    {
-                        this.install_q.Enqueue(package);
-
-                        if (this.install_q.Count == 1)
-                        {
-                            Thread.Sleep(2000);
-                        }
-
-                        continue;
-                    }
-
-                    string package_name = package.Split(';')[0];
-                    string package_version = package.Split(';')[1];
-                    string package_local = Path.Combine(PACKAGE_PATH, $"{package_name}.{package_version}.nupkg");
-                    string package_local_choco = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.nupkg");
-                    string package_log = Path.Combine(PROGRAM_DATA, "chocolatey", "lib", package_name, $"{package_name}.{package_version}.log");
-                    
-                    log.Info(package_log);
-                    log.Info($"Installing {package_name}.{package_version}");
-
-                    var choco = new GetChocolatey();
-
-                    choco.Set(c =>
-                    {
-                        c.CommandName = "install";
-                        c.PackageNames = package_name;
-                        c.Sources = $"{CHOCO_REPO};{PACKAGE_PATH}";
-                        c.AcceptLicense = true;
-                        // c.AdditionalLogFileLocation = package_log;
-                        // c.CacheLocation = ;
-                        // c.Input = " --ignore-detected-reboot ";
-                    }).Run();
-
-                    log.Info($"{package_name}.{package_version} Installed!");
-
-                    File.Delete(package_local);
-
-                    if (File.Exists(package_local_choco))
-                    {
-                        File.Delete(package_local_choco);
-                    }
-
-                    while(!this.downloaded.TryRemove(package, out package_downloaded));
+                    File.Delete(package_local_choco);
                 }
             }
 
@@ -276,7 +324,7 @@ namespace ImageBuilder
         {
             // See http://www.nullskull.com/a/1592/install-windows-updates-using-c--wuapi.aspx
 
-            log.Info("Checking for Windows Updates...");
+            this.PutCloudWatchLog("Checking for Windows Updates...");
 
             UpdateSession us = new UpdateSession();
             IUpdateSearcher uss = us.CreateUpdateSearcher();
@@ -287,7 +335,7 @@ namespace ImageBuilder
             {
                 foreach (ICategory c in u.Categories)
                 {
-                    if (c.Name.ToLower().Contains("security") || c.Name.ToLower().contains("critical"))
+                    if (c.Name.ToLower().Contains("security") || c.Name.ToLower().Contains("critical"))
                     {
                         uc.Add(u);
                         break;
@@ -297,11 +345,11 @@ namespace ImageBuilder
 
             if (uc.Count == 0)
             {
-                log.Info("No Windows Updates to Install");
+                this.PutCloudWatchLog("No Windows Updates to Install");
                 return;
             }
 
-            log.Info($"Installing {uc.Count} Critical/Security Updates...");
+            this.PutCloudWatchLog($"Installing {uc.Count} Critical/Security Updates...");
 
             UpdateDownloader ud = us.CreateUpdateDownloader();
             ud.Updates = uc;
@@ -315,15 +363,15 @@ namespace ImageBuilder
             {
                 if (uir.GetUpdateResult(i).HResult == 0)
                 {
-                    log.Info($"Installed: {uc[i].Title}");
+                    this.PutCloudWatchLog($"Installed: {uc[i].Title}");
                 }
                 else
                 {
-                    log.Error($"Failed: {uc[i].Title}");
+                    this.PutCloudWatchLog($"Failed: {uc[i].Title}");
                 }
             }
 
-            log.Info("Windows Upate Completed!");
+            this.PutCloudWatchLog("Windows Upate Completed!");
 
             using (StreamWriter s = File.CreateText(UPDATED_LOCK))
             {
@@ -334,6 +382,9 @@ namespace ImageBuilder
 
         private void InitiateSnapshot()
         {
+            this.PutCloudWatchLog("Initiating Snapshot in two minutes...");
+            Thread.Sleep(120000);
+
             IEC2MetadataProvider metadataProvider = (IEC2MetadataProvider)new EC2MetadataProvider();
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
@@ -351,45 +402,39 @@ namespace ImageBuilder
             try
             {
                 result.CreateImage(request);
-
-                using (StreamWriter s = File.CreateText(SNAPSHOT_LOCK))
-                {
-                    s.Write("SNAPSHOT INITIATED");
-                    s.Close();
-                }
-
-                log.Info("Successfully initiated snapshot!");
+                this.PutCloudWatchLog("Successfully initiated snapshot!");
             }
             catch (Exception ex)
             {
-                log.Fatal("Error initiating snapshot!");
-                log.Fatal(ex.ToString());
+                this.PutCloudWatchLog("Error initiating snapshot!");
+                this.PutCloudWatchLog(ex.ToString());
             }
         }
 
         void App()
         {
-            this.ParseUserData();
+            try
+            {
+                this.InitiateEnvironment();
 
-            if (!File.Exists(INSTALLED_LOCK))
-            {
-                this.InstallPackages();
-                int milliseconds = 300000;
-                Thread.Sleep(milliseconds);
-                this.RebootSystem();
+                if (!File.Exists(INSTALLED_LOCK))
+                {
+                    this.InstallPackages();
+                    this.RebootSystem();
+                }
+                else if (this.install_updates && !File.Exists(UPDATED_LOCK))
+                {
+                    this.InstallUpdates();
+                    this.RebootSystem();
+                }
+                else
+                {
+                    this.InitiateSnapshot();
+                }
             }
-            else if (this.install_updates && !File.Exists(UPDATED_LOCK))
+            catch (Exception ex)
             {
-                int milliseconds = 180000;
-                Thread.Sleep(milliseconds);
-                this.InstallUpdates();
-                this.RebootSystem();
-            }
-            else if (!File.Exists(SNAPSHOT_LOCK))
-            {
-                int milliseconds = 180000;
-                Thread.Sleep(milliseconds);
-                this.InitiateSnapshot();
+                log.Fatal($"Uncaught Exception:\n\n{ex.StackTrace}");
             }
         }
 
