@@ -24,6 +24,9 @@ if (-Not (Test-Path $BUILD_DIR)) {
     # Wait Five Minutes on First Run
     Start-Sleep -Seconds 300
 
+    # Set system time zone
+    Set-TimeZone -Name "Eastern Standard Time"
+    
     # Create Session Script Template Files
     If (!(Test-Path "$env:ALLUSERSPROFILE\SessionScripts")){New-Item -Path $env:ALLUSERSPROFILE -ItemType Directory -Name SessionScripts}
     If (!(Test-Path $STARTUP_USER)){New-Item -Path "$env:ALLUSERSPROFILE\SessionScripts" -Name startupuser.ps1}
