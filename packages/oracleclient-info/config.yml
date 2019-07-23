@@ -85,119 +85,119 @@ Registry:
                 Type: 'string'
                 Value: 'W'
                 
-           SQLTranslateErrors:
+            SQLTranslateErrors:
                 Type: 'string'
                 Value: 'F'           
 
-           AggregateSQLType:
+            AggregateSQLType:
                 Type: 'string'
                 Value: 'FLOAT'
                 
-           MaxTokenSize:
+            MaxTokenSize:
                 Type: 'string'
                 Value: '8192'
                 
-           FetchBufferSize:
+            FetchBufferSize:
                 Type: 'string'
                 Value: '64000'
                 
-           NumericSetting:
+            NumericSetting:
                 Type: 'string'
                 Value: 'NLS'       
                 
-           ForceWCHAR:
+            ForceWCHAR:
                 Type: 'string'
                 Value: 'F'                
        
-           FailoverDelay:
+            FailoverDelay:
                 Type: 'string'
                 Value: '10' 
                 
-           FailoverRetryCount:
+            FailoverRetryCount:
                 Type: 'string'
                 Value: '10'     
                 
-           MetadataIdDefault:
+            MetadataIdDefault:
                 Type: 'string'
                 Value: 'F'    
                 
-           BindAsFLOAT:
+            BindAsFLOAT:
                 Type: 'string'
                 Value: 'F'   
                 
-           BindAsDATE:
+            BindAsDATE:
                 Type: 'string'
                 Value: 'F'     
                 
-           CloseCursor:
+            CloseCursor:
                 Type: 'string'
                 Value: 'F'     
                 
-           EXECSchemaOpt:
+            EXECSchemaOpt:
                 Type: 'string'
                 Value: ''
                 
-           EXECSyntax:
+            EXECSyntax:
                 Type: 'string'
                 Value: 'F'
                 
-           Application Attributes:
+            Application Attributes:
                 Type: 'string'
                 Value: 'T'
                 
-           QueryTimeout:
+            QueryTimeout:
                 Type: 'string'
                 Value: 'T'       
                 
-           CacheBufferSize:
+            CacheBufferSize:
                 Type: 'string'
                 Value: '20'        
                 
-           StatementCache:
+            StatementCache:
                 Type: 'string'
                 Value: 'F'       
                 
-           ResultSets:
+            ResultSets:
                 Type: 'string'
                 Value: 'T'       
                 
-           MaxLargeData:
+            MaxLargeData:
                 Type: 'string'
                 Value: '0'        
                 
-           UseOCIDescribeAny:
+            UseOCIDescribeAny:
                 Type: 'string'
                 Value: 'F'       
                 
-           Failover:
+            Failover:
                 Type: 'string'
                 Value: 'T'          
                 
-           Lobs:
+            Lobs:
                 Type: 'string'
                 Value: 'T'      
                 
-           DisableMTS:
+            DisableMTS:
                 Type: 'string'
                 Value: 'T'      
                 
-           DisableDPM:
+            DisableDPM:
                 Type: 'string'
                 Value: 'F'       
                 
-           BatchAutocommitMode:
+            BatchAutocommitMode:
                 Type: 'string'
                 Value: 'IfAllSuccessful'         
                 
-           ServerName:
+            ServerName:
                 Type: 'string'
                 Value: 'info4555'       
                 
-           Password:
+            Password:
                 Type: 'string'
                 Value: ''       
                 
-           UserID:
+            UserID:
                 Type: 'string'
                 Value: ''
         
@@ -205,4 +205,3 @@ Registry:
             INFO4555:
                 Type: 'string'
                 Value: 'Oracle in OraClient12Home1'
-                
