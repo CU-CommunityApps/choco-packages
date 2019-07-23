@@ -1,11 +1,13 @@
 Id:             'recappro-cornell'
 Description:    'recappro-cornell'
-Version:        '6.0.1.21'
+Version:        '2020.0.1'
+
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/qn /W /I %INSTALL_DIR%\Img\Recap.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\recap.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+
     ExitCodes:  [0,1641]
     
 Applications:

@@ -29,26 +29,26 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AWS.Logger.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWS.Logger.Core.1.2.0\lib\net45\AWS.Logger.Core.dll</HintPath>
+    <Reference Include="AWS.Logger.Core, Version=1.4.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWS.Logger.Core.1.4.0\lib\net45\AWS.Logger.Core.dll</HintPath>
     </Reference>
-    <Reference Include="AWS.Logger.Log4net, Version=1.2.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWS.Logger.Log4net.1.2.0\lib\net45\AWS.Logger.Log4net.dll</HintPath>
+    <Reference Include="AWS.Logger.Log4net, Version=1.4.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWS.Logger.Log4net.1.4.0\lib\net45\AWS.Logger.Log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.AppStream, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.AppStream.3.3.102.16\lib\net45\AWSSDK.AppStream.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatchLogs, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.CloudWatchLogs.3.3.6.1\lib\net45\AWSSDK.CloudWatchLogs.dll</HintPath>
+      <HintPath>..\packages\AWSSDK.CloudWatchLogs.3.3.100.50\lib\net45\AWSSDK.CloudWatchLogs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.Core.3.3.25.3\lib\net45\AWSSDK.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="chocolatey, Version=0.10.11.0, Culture=neutral, PublicKeyToken=79d02ea9cad655eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\chocolatey.lib.0.10.11\lib\chocolatey.dll</HintPath>
+      <HintPath>..\packages\AWSSDK.Core.3.3.103.13\lib\net45\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PhotonAgentCommon">
       <HintPath>$(SYSTEMDRIVE)\ImageBuilderLibs\PhotonAgentCommon.dll</HintPath>
@@ -89,7 +89,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\packages\AWSSDK.CloudWatchLogs.3.3.6.1\analyzers\dotnet\cs\AWSSDK.CloudWatchLogs.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.AppStream.3.3.102.16\analyzers\dotnet\cs\AWSSDK.AppStream.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.CloudWatchLogs.3.3.100.50\analyzers\dotnet\cs\AWSSDK.CloudWatchLogs.CodeAnalysis.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
