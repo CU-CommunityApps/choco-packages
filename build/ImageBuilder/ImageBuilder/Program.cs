@@ -148,6 +148,12 @@ namespace ImageBuilder
                 this.InitiateEnvironment();
                 StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
             }
+            catch (Exception ex)
+            {
+                log.Error($"Uncaught Image Builder Reboot Exception:\n\n{ex.StackTrace}");
+                log.Warn("Restarting using shutdown.exe");
+                Process.Start("shutdown.exe", "/r /f /t 0");
+            }
         }
 
         private void InitiateEnvironment()
@@ -261,6 +267,10 @@ namespace ImageBuilder
                 req.SequenceToken = this.log_stream_token;
                 PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
                 this.log_stream_token = resp.NextSequenceToken;
+            }
+            catch(Exception ex)
+            {
+                log.Error($"Uncaught CloudWatch Exception:\n\n{ex.StackTrace}");                
             }
         }
 
@@ -403,21 +413,28 @@ namespace ImageBuilder
 
         void App()
         {
-            this.InitiateEnvironment();
+            try
+            {
+                this.InitiateEnvironment();
 
-            if (!File.Exists(INSTALLED_LOCK))
-            {
-                this.InstallPackages();
-                this.RebootSystem();
+                if (!File.Exists(INSTALLED_LOCK))
+                {
+                    this.InstallPackages();
+                    this.RebootSystem();
+                }
+                else if (this.install_updates && !File.Exists(UPDATED_LOCK))
+                {
+                    this.InstallUpdates();
+                    this.RebootSystem();
+                }
+                else
+                {
+                    this.InitiateSnapshot();
+                }
             }
-            else if (this.install_updates && !File.Exists(UPDATED_LOCK))
+            catch (Exception ex)
             {
-                this.InstallUpdates();
-                this.RebootSystem();
-            }
-            else 
-            {
-                this.InitiateSnapshot();
+                log.Fatal($"Uncaught Exception:\n\n{ex.StackTrace}");
             }
         }
 
