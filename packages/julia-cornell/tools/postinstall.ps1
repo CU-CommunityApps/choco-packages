@@ -1,4 +1,10 @@
 # Runs after the choco package is installed
+############################################################################
+# This post installer downloads and extracts the Julia packages separately #
+# from chocolatey due to nuget core limitations with file path length      #
+# https://github.com/chocolatey/choco/issues/1361                          #
+# The Julia packages are stored in S3 in the installers folder             #
+############################################################################
 $resourceArn = (invoke-restmethod http://169.254.169.254/latest/user-data).resourceArn
 $branch = $resourceArn.split(":")[5].split("/")[1].split(".")[1]
 $account = $resourceArn.split(":")[4]
