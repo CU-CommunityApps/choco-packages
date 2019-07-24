@@ -7,7 +7,6 @@ Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
     Arguments:  '/q /W /I %INSTALL_DIR%\Img\recap.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
-
     ExitCodes:  [0,1641]
     
 Applications:
