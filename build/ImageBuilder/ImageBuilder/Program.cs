@@ -257,6 +257,7 @@ namespace ImageBuilder
             {
                 log.Warn($"Refreshing AWS Credentials: {ex.ErrorCode}");
                 this.InitiateEnvironment();
+                this.PutCloudWatchLog("Refreshed AWS Credentials");
 
                 PutLogEventsRequest req = new PutLogEventsRequest(
                     logGroupName: "image-builds",
@@ -270,7 +271,8 @@ namespace ImageBuilder
             }
             catch(Exception ex)
             {
-                log.Error($"Uncaught CloudWatch Exception:\n\n{ex.StackTrace}");                
+                log.Error($"Uncaught CloudWatch Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
+                log.Fatal($"Uncaught CloudWatch Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
             }
         }
 
@@ -293,7 +295,7 @@ namespace ImageBuilder
                 Process choco_process = new Process(); 
                 choco_process.StartInfo.UseShellExecute = false;
                 choco_process.StartInfo.FileName = choco_path;
-                choco_process.StartInfo.Arguments = $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH} --ignore-checksum";
+                choco_process.StartInfo.Arguments = $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH}";
                 choco_process.StartInfo.RedirectStandardOutput = true;
                 //choco_process.StartInfo.RedirectStandardError = true;
                 choco_process.Start();
@@ -303,7 +305,7 @@ namespace ImageBuilder
                 choco_process.WaitForExit();
                 this.PutCloudWatchLog(output);
                 //this.PutCloudWatchLog(err);
-                this.PutCloudWatchLog($"{package_name}.{package_version} Installed!");
+                this.PutCloudWatchLog($"{package_name}.{package_version} Installed! (perhaps, check the log above to be sure)");
 
                 File.Delete(package_local);
 
@@ -371,7 +373,7 @@ namespace ImageBuilder
                 }
             }
 
-            this.PutCloudWatchLog("Windows Upate Completed!");
+            this.PutCloudWatchLog("Windows Update Completed!");
 
             using (StreamWriter s = File.CreateText(UPDATED_LOCK))
             {
@@ -434,7 +436,7 @@ namespace ImageBuilder
             }
             catch (Exception ex)
             {
-                log.Fatal($"Uncaught Exception:\n\n{ex.StackTrace}");
+                this.PutCloudWatchLog($"Uncaught Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
             }
         }
 
