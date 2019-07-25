@@ -57,6 +57,12 @@ namespace ImageBuilder
         private string api_uri;
         private string log_stream_token;
 
+        static IEnumerable<string> SplitString(string str, int maxChunkSize)
+        {
+            for (int i = 0; i < str.Length; i += maxChunkSize)
+                yield return str.Substring(i, Math.Min(maxChunkSize, str.Length - i));
+        }
+
         private string DownloadString(string uri)
         {
             log.Info($"Downloading String: {uri}");
@@ -237,42 +243,45 @@ namespace ImageBuilder
             }
 
             log.Info(message);
-            InputLogEvent log_message = new InputLogEvent();
-            log_message.Message = message;
-            log_message.Timestamp = DateTime.UtcNow;
 
-            try
+            foreach (string msg in SplitString(message, 260000))
             {
-                PutLogEventsRequest req = new PutLogEventsRequest(
-                    logGroupName: "image-builds",
-                    logStreamName: this.build_id,
-                    logEvents: new List<InputLogEvent>() { log_message }
-                );
+                InputLogEvent log_message = new InputLogEvent();
+                log_message.Message = message;
+                log_message.Timestamp = DateTime.UtcNow;
 
-                req.SequenceToken = this.log_stream_token;
-                PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
-                this.log_stream_token = resp.NextSequenceToken;
-            }
-            catch (Amazon.CloudWatchLogs.AmazonCloudWatchLogsException ex)
-            {
-                log.Warn($"Refreshing AWS Credentials: {ex.ErrorCode}");
-                this.InitiateEnvironment();
-                this.PutCloudWatchLog("Refreshed AWS Credentials");
+                try
+                {
+                    PutLogEventsRequest req = new PutLogEventsRequest(
+                        logGroupName: "image-builds",
+                        logStreamName: this.build_id,
+                        logEvents: new List<InputLogEvent>() { log_message }
+                    );
 
-                PutLogEventsRequest req = new PutLogEventsRequest(
-                    logGroupName: "image-builds",
-                    logStreamName: this.build_id,
-                    logEvents: new List<InputLogEvent>() { log_message }
-                );
+                    req.SequenceToken = this.log_stream_token;
+                    PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
+                    this.log_stream_token = resp.NextSequenceToken;
+                }
+                catch (Amazon.CloudWatchLogs.AmazonCloudWatchLogsException ex)
+                {
+                    log.Warn($"Refreshing AWS Credentials: {ex.ErrorCode}");
+                    this.InitiateEnvironment();
+                    this.PutCloudWatchLog("Refreshed AWS Credentials");
 
-                req.SequenceToken = this.log_stream_token;
-                PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
-                this.log_stream_token = resp.NextSequenceToken;
-            }
-            catch(Exception ex)
-            {
-                log.Error($"Uncaught CloudWatch Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
-                log.Fatal($"Uncaught CloudWatch Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
+                    PutLogEventsRequest req = new PutLogEventsRequest(
+                        logGroupName: "image-builds",
+                        logStreamName: this.build_id,
+                        logEvents: new List<InputLogEvent>() { log_message }
+                    );
+
+                    req.SequenceToken = this.log_stream_token;
+                    PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
+                    this.log_stream_token = resp.NextSequenceToken;
+                }
+                catch (Exception ex)
+                {
+                    log.Error($"Uncaught CloudWatch Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
+                }
             }
         }
 
