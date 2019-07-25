@@ -1,19 +1,19 @@
 Id:             'pycharm-cornell'
 Description:    'pycharm-cornell - buildtest1'
-Version:        '2019.1.3'
+Version:        '2019.2'
 
 ChocoPackages:
     - 'pycharm-community'
 
 Applications:
     pycharm:
-        DisplayName:    'Jetbrains PyCharm Community 2019.1.3'
-        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Community Edition 2019.1.3\bin\pycharm64.exe'
+        DisplayName:    'Jetbrains PyCharm Community 2019.2'
+        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Community Edition 2019.2\bin\pycharm64.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\.PyCharmCE2019.1\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.1\config'
+    '%TOOLS_DIR%\.PyCharmCE2019.2\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2\config'
     '%TOOLS_DIR%\JetBrains': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\JetBrains'
     
 Registry:
