@@ -268,15 +268,22 @@ namespace ImageBuilder
                     this.InitiateEnvironment();
                     this.PutCloudWatchLog("Refreshed AWS Credentials");
 
-                    PutLogEventsRequest req = new PutLogEventsRequest(
-                        logGroupName: "image-builds",
-                        logStreamName: this.build_id,
-                        logEvents: new List<InputLogEvent>() { log_message }
-                    );
+                    try
+                    {
+                        PutLogEventsRequest req = new PutLogEventsRequest(
+                            logGroupName: "image-builds",
+                            logStreamName: this.build_id,
+                            logEvents: new List<InputLogEvent>() { log_message }
+                        );
 
-                    req.SequenceToken = this.log_stream_token;
-                    PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
-                    this.log_stream_token = resp.NextSequenceToken;
+                        req.SequenceToken = this.log_stream_token;
+                        PutLogEventsResponse resp = this.cwl.PutLogEvents(req);
+                        this.log_stream_token = resp.NextSequenceToken;
+                    }
+                    catch(Exception ex2)
+                    {
+                        log.Error($"Uncaught CloudWatch Exception:\n\n{ex.StackTrace}\n\n{ex2.Message}");
+                    }
                 }
                 catch (Exception ex)
                 {
