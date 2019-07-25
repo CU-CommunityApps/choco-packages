@@ -244,10 +244,10 @@ namespace ImageBuilder
 
             log.Info(message);
 
-            foreach (string msg in SplitString(message, 260000))
+            foreach (string chunk in SplitString(message, 260000))
             {
                 InputLogEvent log_message = new InputLogEvent();
-                log_message.Message = message;
+                log_message.Message = chunk;
                 log_message.Timestamp = DateTime.UtcNow;
 
                 try
@@ -266,7 +266,7 @@ namespace ImageBuilder
                 {
                     log.Warn($"Refreshing AWS Credentials: {ex.ErrorCode}");
                     this.InitiateEnvironment();
-                    this.PutCloudWatchLog("Refreshed AWS Credentials");
+                    this.PutCloudWatchLog($"Refreshed AWS Credentials when hitting: {ex.ErrorCode}");
 
                     try
                     {
