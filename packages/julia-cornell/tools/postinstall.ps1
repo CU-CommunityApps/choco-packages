@@ -17,7 +17,9 @@ $extractOutput = "$env:SystemDrive\Work"
 While (!(test-path $downloadOutput)){
     try{
         $URI = "https://image-build-$account-$region.s3.amazonaws.com/installers/$branch/$extractFile"
+        $progressPreference = 'silentlyContinue'
         Invoke-WebRequest -Uri $uri -OutFile $downloadOutput
+        $progressPreference = 'Continue'
     }
     catch{Write-Host "Error downloading, try again..."}
 }
