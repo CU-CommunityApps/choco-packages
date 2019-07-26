@@ -24,7 +24,7 @@ While (!(test-path $downloadOutput)){
 
 # Extract post install zip file
 If (test-path $extractOutput){
-    Invoke-Expression "7z x `"$downloadOutput`" -y -o`"$extractOutput`""
+    Invoke-Expression "7z x `"$downloadOutput`" -y -bd -o`"$extractOutput`""
     Write-Output "Files extracted to $extractOutput"
 }
 Else {Write-Output "$extractOutput does not exist"}
