@@ -311,7 +311,7 @@ namespace ImageBuilder
                 Process choco_process = new Process(); 
                 choco_process.StartInfo.UseShellExecute = false;
                 choco_process.StartInfo.FileName = choco_path;
-                choco_process.StartInfo.Arguments = $"install {package_name} -y -r -s {CHOCO_REPO};{PACKAGE_PATH}";
+                choco_process.StartInfo.Arguments = $"install {package_name} -y --no-progress -r -s {CHOCO_REPO};{PACKAGE_PATH}";
                 choco_process.StartInfo.RedirectStandardOutput = true;
                 //choco_process.StartInfo.RedirectStandardError = true;
                 choco_process.Start();
