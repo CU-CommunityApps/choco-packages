@@ -156,8 +156,8 @@ namespace ImageBuilder
             }
             catch (Exception ex)
             {
-                log.Error($"Uncaught Image Builder Reboot Exception:\n\n{ex.StackTrace}");
-                log.Warn("Restarting using shutdown.exe");
+                this.PutCloudWatchLog($"Uncaught Image Builder Reboot Exception:\n\n{ex.StackTrace}");
+                this.PutCloudWatchLog("Restarting using shutdown.exe");
                 Process.Start("shutdown.exe", "/r /f /t 0");
             }
         }
@@ -426,6 +426,7 @@ namespace ImageBuilder
             {
                 this.PutCloudWatchLog("Error initiating snapshot!");
                 this.PutCloudWatchLog(ex.ToString());
+                this.RebootSystem();
             }
         }
 
@@ -452,7 +453,8 @@ namespace ImageBuilder
             }
             catch (Exception ex)
             {
-                this.PutCloudWatchLog($"Uncaught Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
+                this.PutCloudWatchLog($"[FATAL] Uncaught Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
+                this.RebootSystem();
             }
         }
 
