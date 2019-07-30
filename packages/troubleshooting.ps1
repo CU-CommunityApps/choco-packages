@@ -25,7 +25,7 @@ If (!(test-path $output)){
     catch{Write-Host "Error downloading, try again..."}
 }
 
-If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install -y $output --force --debug"}
+If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install -y $output --force --debug --cache-location=C:\Temp"}
 Else{Invoke-Expression "choco.exe install -y $output --force --debug --cache-location="}
 
 Do{$ans = Read-Host "Extract and troubleshoot $app ?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
