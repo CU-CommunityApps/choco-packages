@@ -20,7 +20,7 @@ $extract = "c:\users\$env:USERNAME\desktop\$app"
 If (!(test-path $output)){
     try{
         $URI = "https://image-build-113704540485-us-east-1.s3.amazonaws.com/packages/test/$app.nupkg"
-        Invoke-WebRequest -Uri $uri -OutFile $output
+        Start-BitsTransfer -Source $uri -Destination $output
     }
     catch{Write-Host "Error downloading, try again..."}
 }
