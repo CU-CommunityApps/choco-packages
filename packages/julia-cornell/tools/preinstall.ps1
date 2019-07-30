@@ -4,7 +4,7 @@
 $dir = "$env:SystemDrive\Work"
 
 # Install Julia.exe in specified location
-Start-Process "$env:ALLUSERSPROFILE\chocolatey\choco.exe" -ArgumentList "install julia -r --confirm --install-arguments=/D=C:\ProgramData\Julia" -NoNewWindow
+Start-Process "$env:ALLUSERSPROFILE\chocolatey\choco.exe" -ArgumentList "install julia --no-progress --confirm --install-arguments=/D=C:\ProgramData\Julia" -NoNewWindow
 
 # Julia working dir permission adjustments
 MD $dir -Force
