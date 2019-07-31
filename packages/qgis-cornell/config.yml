@@ -1,6 +1,6 @@
 Id:             'qgis-cornell'
 Description:    'qgis-cornell - buildtest'
-Version:        '3.4.3'
+Version:        '3.8.0'
 
 ChocoPackages:
     - 'qgis'
@@ -8,7 +8,7 @@ ChocoPackages:
 Applications:
     qgis:
         DisplayName:    'qgis-bin'
-        Path:           '%PROGRAMFILES%\QGIS 3.4\bin\qgis-bin.exe'
+        Path:           '%PROGRAMFILES%\QGIS 3.8\bin\qgis-bin.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
