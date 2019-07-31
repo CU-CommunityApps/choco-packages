@@ -1,6 +1,6 @@
 Id:             'atlasti-cals'
 Description:    'atlasti-cals'
-Version:        '8.4.15.0'
+Version:        '8.4.0'
 
 Install:
     File:       '%INSTALL_DIR%\Atlasti_8.4.msi'
