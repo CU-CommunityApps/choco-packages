@@ -1,6 +1,6 @@
 Id:             'arcgis-cals'
-Description:    'arcgis-cals - buildtest'
-Version:        '10.6.1'
+Description:    'arcgis-cals - fa2019'
+Version:        '10.7.1'
 
 Install:
   - File:       '%INSTALL_DIR%\arcgisd1\VC_redist.x86.exe'
@@ -41,24 +41,24 @@ Install:
 Applications:
     arcmap:
         DisplayName:    'ArcMap'
-        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.6\bin\ArcMap.exe'
+        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.7\bin\ArcMap.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     arcglobe:
         DisplayName:    'ArcGlobe'
-        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.6\bin\ArcGlobe.exe'
+        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.7\bin\ArcGlobe.exe'
         LaunchParams:   ''
         WorkDir:        ''   
 
     arcscene:
         DisplayName:    'ArcScene'
-        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.6\bin\ArcScene.exe'
+        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.7\bin\ArcScene.exe'
         LaunchParams:   ''
         WorkDir:        ''      
 
     arccatalogue:
         DisplayName:    'ArcCatalog'
-        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.6\bin\ArcCatalog.exe'
+        Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.7\bin\ArcCatalog.exe'
         LaunchParams:   ''
         WorkDir:        ''     
