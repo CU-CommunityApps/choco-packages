@@ -1,6 +1,6 @@
 Id:             'atlasti-cals'
-Description:    'atlasti-cals - buildtest1'
-Version:        '8.4.15.0'
+Description:    'atlasti-cals -fa2019'
+Version:        '8.4.0'
 
 Install:
     File:       '%INSTALL_DIR%\Atlasti_8.4.msi'
