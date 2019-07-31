@@ -1,6 +1,6 @@
 Id:             'arcgispro-cals'
-Description:    'arcgispro-cals - buildtest'
-Version:        '2.2.0'
+Description:    'arcgispro-cals - fa2019'
+Version:        '2.4.0'
 
 Install:
   - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro.msi'
@@ -8,17 +8,17 @@ Install:
     Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE /qn'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelpd2.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelp.msi'
     FileType:   'msi'
     Arguments:  '/qn'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\ArcGISd3\DataInteropProd3.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd3\DataInteropPro.msi'
     FileType:   'msi'
     Arguments:  '/qn'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsDatad4.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsData.msi'
     FileType:   'msi'
     Arguments:  '/qn'
     ExitCodes:  [0]
