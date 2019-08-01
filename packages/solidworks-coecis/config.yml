@@ -35,6 +35,7 @@ Applications:
 
 Files: 
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
+    'TOOLS_DIR%\user.config': 'C:\Users\Default\AppData\Local\Dassault_Systèmes\SLDWORKSVisualize.exe_StrongName_m1hrhdwyiihwvztj1jjjmmmt1uiqebob\27.0.0.0\user.config'
 
 Services:
     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
