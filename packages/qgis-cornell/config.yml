@@ -2,8 +2,11 @@ Id:             'qgis-cornell'
 Description:    'qgis-cornell - buildtest'
 Version:        '3.8.1'
 
-ChocoPackages:
-    - 'qgis'
+Install:
+    File:       '%INSTALL_DIR%\QGIS-OSGeo4W-3.8.1-1-Setup-x86_64.exe'
+    FileType:   'exe'
+    Arguments:  '/S'
+    ExitCodes:  [0]
 
 Applications:
     qgis:
