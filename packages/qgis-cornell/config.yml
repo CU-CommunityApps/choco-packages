@@ -3,7 +3,7 @@ Description:    'qgis-cornell - buildtest'
 Version:        '3.8.1'
 
 ChocoPackages:
-    -'qgis'
+ -'qgis'
 
 Applications:
     qgis:
