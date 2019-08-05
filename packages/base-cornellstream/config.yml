@@ -108,3 +108,8 @@ Registry:
             TimeZoneKeyName:
                 Type:   'String'
                 Value:  'Eastern Standard Time'
+        
+        Software\Policies\Microsoft\Internet Explorer\Main:
+            DisableFirstRunCustomize:
+                Type:   'DWORD'
+                Value:  '1'
