@@ -11,6 +11,3 @@ Applications:
         Path:           '%PROGRAMFILES%\QGIS 3.8\bin\qgis-bin.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files:
-    '%INSTALL_DIR%\QGIS': '%SYSTEMDRIVE%\Users\Default\AppData\roaming\QGIS\'
