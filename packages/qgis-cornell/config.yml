@@ -13,4 +13,4 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\QGIS':'%SYSTEMDRIVE%\Users\Default\AppData\roaming\QGIS\'
+    '%INSTALL_DIR%\QGIS': '%SYSTEMDRIVE%\Users\Default\AppData\roaming\QGIS\'
