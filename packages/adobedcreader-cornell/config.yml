@@ -32,7 +32,7 @@ Registry:
             
             iFTEVersion:       # Disable Welcome Tour
                 Type:   'DWORD'
-                Value:  'a'
+                Value:  '10'
                 
             iLastCardShown:    # Disable Welcome Tour
                 Type:   'DWORD'
