@@ -3,8 +3,11 @@ Description:    'Base Items for Cornell Stream - buildtest1'
 Version:        '1.0.0'
 
 ChocoPackages:
-    - '7zip'
-    - 'notepadplusplus'
+  - PackageName:    '7zip'
+    InstallParams:  ''
+    
+  - PackageName:    'notepadplusplus'
+    InstallParams:  ''
 
 Install:
   - File:       '%INSTALL_DIR%\SCEPInstall.exe'
