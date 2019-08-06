@@ -17,14 +17,16 @@ $extractOutput = "$env:SystemDrive\Work"
 While (!(test-path $downloadOutput)){
     try{
         $URI = "https://image-build-$account-$region.s3.amazonaws.com/installers/$branch/$extractFile"
-        Invoke-WebRequest -Uri $uri -OutFile $downloadOutput
+        $progressPreference = 'silentlyContinue'
+        Start-BitsTransfer -Source $uri -Destination $downloadOutput
+        $progressPreference = 'Continue'
     }
     catch{Write-Host "Error downloading, try again..."}
 }
 
 # Extract post install zip file
 If (test-path $extractOutput){
-    Invoke-Expression "7z x `"$downloadOutput`" -y -o`"$extractOutput`""
+    Invoke-Expression "7z x `"$downloadOutput`" -y -bd -o`"$extractOutput`""
     Write-Output "Files extracted to $extractOutput"
 }
 Else {Write-Output "$extractOutput does not exist"}

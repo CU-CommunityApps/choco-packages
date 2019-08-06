@@ -27,6 +27,7 @@ namespace ImageBuilder
         private const string CHOCO_REPO = "https://chocolatey.org/api/v2";
         private const string USER_DATA_URI = "http://169.254.169.254/latest/user-data";
 
+        private static string SYSTEM_DRIVE = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
         private static string PROGRAM_DATA = Environment.GetEnvironmentVariable("ALLUSERSPROFILE");
         private static string TEMP_DIR = Path.Combine(PROGRAM_DATA, "TEMP");
         private static string PACKAGE_PATH = Path.Combine(TEMP_DIR, "packages");
@@ -156,8 +157,8 @@ namespace ImageBuilder
             }
             catch (Exception ex)
             {
-                log.Error($"Uncaught Image Builder Reboot Exception:\n\n{ex.StackTrace}");
-                log.Warn("Restarting using shutdown.exe");
+                this.PutCloudWatchLog($"Uncaught Image Builder Reboot Exception:\n\n{ex.StackTrace}");
+                this.PutCloudWatchLog("Restarting using shutdown.exe");
                 Process.Start("shutdown.exe", "/r /f /t 0");
             }
         }
@@ -311,7 +312,8 @@ namespace ImageBuilder
                 Process choco_process = new Process(); 
                 choco_process.StartInfo.UseShellExecute = false;
                 choco_process.StartInfo.FileName = choco_path;
-                choco_process.StartInfo.Arguments = $"install {package_name} -y --no-progress -r -s {CHOCO_REPO};{PACKAGE_PATH}";
+
+                choco_process.StartInfo.Arguments = $"install {package_name} -y --no-progress -r -s {CHOCO_REPO};{PACKAGE_PATH} --cachelocation {SYSTEM_DRIVE}\\TEMP";
                 choco_process.StartInfo.RedirectStandardOutput = true;
                 //choco_process.StartInfo.RedirectStandardError = true;
                 choco_process.Start();
@@ -426,6 +428,7 @@ namespace ImageBuilder
             {
                 this.PutCloudWatchLog("Error initiating snapshot!");
                 this.PutCloudWatchLog(ex.ToString());
+                this.RebootSystem();
             }
         }
 
@@ -452,7 +455,8 @@ namespace ImageBuilder
             }
             catch (Exception ex)
             {
-                this.PutCloudWatchLog($"Uncaught Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
+                this.PutCloudWatchLog($"[FATAL] Uncaught Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
+                this.RebootSystem();
             }
         }
 

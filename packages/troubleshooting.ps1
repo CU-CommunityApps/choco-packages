@@ -20,12 +20,12 @@ $extract = "c:\users\$env:USERNAME\desktop\$app"
 If (!(test-path $output)){
     try{
         $URI = "https://image-build-113704540485-us-east-1.s3.amazonaws.com/packages/test/$app.nupkg"
-        Invoke-WebRequest -Uri $uri -OutFile $output
+        Start-BitsTransfer -Source $uri -Destination $output
     }
     catch{Write-Host "Error downloading, try again..."}
 }
 
-If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install -y $output --force --debug"}
+If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install -y $output --force --debug --cache-location=C:\Temp"}
 Else{Invoke-Expression "choco.exe install -y $output --force --debug --cache-location="}
 
 Do{$ans = Read-Host "Extract and troubleshoot $app ?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
