@@ -1,5 +1,5 @@
 Id:             'adobedcreader-cornell'
-Description:    'adobedcreader-cornell - buildtest'
+Description:    'adobedcreader-cornell'
 Version:        '2019.012.20035'
 
 ChocoPackages:
@@ -26,5 +26,13 @@ Registry:
 
         SOFTWARE\Adobe\Acrobat Reader\DC\FTEDialog:
             bShowInstallFTE:
+                Type:   'DWORD'
+                Value:  '0'
+            
+            iFTEVersion:       # Disable Welcome Tour
+                Type:   'DWORD'
+                Value:  'a'
+                
+            iLastCardShown:    # Disable Welcome Tour
                 Type:   'DWORD'
                 Value:  '0'
