@@ -167,12 +167,12 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     Function Choco {
 
         # Install any listed Choco Gallery packages
-        foreach ($chocoPackage in $CONFIG.ChocoPackages) {
-            Write-Output "Installing Choco Package $chocoPackage"
+        $CONFIG.ChocoPackages | % {
+            Write-Output "Installing Choco Package $($_.PackageName)"
 
             Start-Process `
                 -FilePath "$CHOCO" `
-                -ArgumentList "install $chocoPackage --no-progress -r -y" `
+                -ArgumentList "install $($_.PackageName) --no-progress -r -y --install-arguments='$($_.InstallParams)'" `
                 -NoNewWindow -Wait
         }
     }
