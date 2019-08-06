@@ -16,7 +16,6 @@ Applications:
         WorkDir:        'Z:\'
         
 Files:
-    '%INSTALL_DIR%\SQL Developer' : '%Photonuser%\AppData\Roaming'
     '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
     '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
     '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper\bin'
