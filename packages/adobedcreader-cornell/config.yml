@@ -4,7 +4,7 @@ Version:        '2019.012.20035'
 
 ChocoPackages:
   - PackageName:    'adobereader'
-    InstallParams:  '"/msi qn UPDATE_MODE=3 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read"'
+    InstallParams:  '"/msi /qn UPDATE_MODE=3 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read"'
 
 Applications:
     AdobeReaderDC:
