@@ -2,6 +2,11 @@ Id:             'my-package'                ## Application package name ie. chro
 Description:    'My Package Description'    ## Application packages description
 Version:        '1.0.0'                     ## Application version number - MUST BE in #.# format
 
+ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
+  - PackageName:    'achocopackagename'     ## Package name - https://chocolatey.org/packages - ie. adobereader
+    InstallParams:  '/msi /qb /extras'      ## Install args to pass to the native installer in the package. Defaults to unspecified.
+                                            ## Leave blank '' if no parameters to pass
+
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
@@ -12,9 +17,6 @@ Install:                                    ## If there are installation files i
     FileType:   'exe'                       
     Arguments:  '-silent --some-arg'        
     ExitCodes:  [0]                         
-
-ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
-    - 'achocopackagename'                   ## Package name - https://chocolatey.org/packages - ie. adobereader
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     MyPackage:                                                      ## This must match the icons.png file name
