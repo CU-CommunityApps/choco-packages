@@ -13,7 +13,6 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\.PyCharmCE2019.2\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2\config'
     '%TOOLS_DIR%\JetBrains': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\JetBrains'
     
 Registry:
