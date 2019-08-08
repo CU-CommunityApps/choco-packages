@@ -2,9 +2,10 @@ Id:             'pycharm-cornell'
 Description:    'pycharm-cornell - buildtest1'
 Version:        '2019.2'
 
-ChocoPackages:
-    - 'pycharm-community'
-
+ChocoPackages:                              
+  - PackageName:    'pycharm-community'     
+    InstallParams:  ''
+                                            
 Applications:
     pycharm:
         DisplayName:    'Jetbrains PyCharm Community 2019.2'
