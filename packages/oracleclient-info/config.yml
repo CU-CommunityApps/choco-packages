@@ -26,7 +26,7 @@ Applications:
         WorkDir:        ''
         
 Files:
-    '%TOOLS_DIR%\o.sqldeveloper.12.2.0.21.21' : '%SYSTEMDRIVE%\Users\DeFault\AppData\Roaming\SQL Developer\system4.1.4.21.21\'
+    '%TOOLS_DIR%\o.sqldeveloper.12.2.0.21.21' : '%SYSTEMDRIVE%\Users\DeFault\AppData\Roaming\SQL Developer\system4.1.4.21.21\o.sqldeveloper.12.2.0.21.21'
     '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\app\client\product\12.2.0\Client_1\network\admin'
     '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\app\client\product\12.2.0\Client_1\network\admin'
     '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\app\client\product\12.2.0\Client_1\sqldeveloper\sqldeveloper\bin'
