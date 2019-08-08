@@ -1,5 +1,5 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2019 - COECIS License testbuild6'
+Description:    'SOLIDWORKS 2019 - COECIS License testbuild7'
 Version:        '27.3.0.52'
 
 Install:
@@ -35,7 +35,7 @@ Applications:
 
 Files: 
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
-    '%TOOLS_DIR%\user.config': 'C:\Users\Default\AppData\Local\DassaultSystèmes\SLDWORKSVisualize.exe_StrongName_m1hrhdwyiihwvztj1jjjmmmt1uiqebob\27.0.0.0\user.config'
+    '%TOOLS_DIR%\user.config': 'C:\Users\Default\AppData\Local\Dassault_Systèmes\SLDWORKSVisualize.exe_StrongName_m1hrhdwyiihwvztj1jjjmmmt1uiqebob\27.0.0.0\user.config'
 
 Services:
     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
