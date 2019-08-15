@@ -6,7 +6,7 @@ Install:
     File:       '%INSTALL_DIR%\Atlasti_8.4.msi'
     FileType:   'msi'
     Arguments:  '/qn APPLICATIONFOLDER="%PROGRAMFILES(x86)%\Scientific Software\ATLASti.8"'
-    ExitCodes:  '[0]'
+    ExitCodes:  [0]
 
 Applications:
     atlasti:
