@@ -17,11 +17,3 @@ Applications:                                                       ## Applicati
 
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\jmp.per': '%PROGRAMFILES%\SAS\JMPPRO\14\jmp.per'  ## Source directory to destination directory
-
-Registry:               ## Registry values to be copied to each streaming instance
-
-    HKUD:               ## Use for typical Current User settings to apply to all users in AppStream
-        SOFTWARE\SAS Institute Inc.\JMPPRO\14.0\License:
-            RegistrationRequested:
-                Type:   'DWORD'
-                Value:  '00000000'
