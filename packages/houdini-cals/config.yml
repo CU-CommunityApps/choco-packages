@@ -5,7 +5,7 @@ Version:        '17.5.229'
 Install:
     File:       '%INSTALL_DIR%\houdini-17.5.229-win64-vc141.exe'
     FileType:   'exe'
-    Arguments:  '/S /AcceptEula=yes /LicenseServer=Yes /DesktopIcon=No /FileAssociations=Yes /HoudiniServer=%LICENSE_SERVER% /EngineUnity=Yes /EngineMaya=Yes /EngineUnreal=Yes /HQueueServer=No /HQueueClient=No /IndustryFileAssociations=Yes /InstallDir="c:\Program Files\Side Effects Software\Houdini 17.5.229" /LicenseServer=Yes /ForceLicenseServer=Yes /MainApp=Yes /Registry=Yes'
+    Arguments:  '/S /AcceptEula=yes /LicenseServer=Yes /DesktopIcon=No /FileAssociations=Yes /HoudiniServer=yes /EngineUnity=Yes /EngineMaya=Yes /EngineUnreal=Yes /HQueueServer=No /HQueueClient=No /IndustryFileAssociations=Yes /InstallDir="c:\Program Files\Side Effects Software\Houdini 17.5.229" /LicenseServer=Yes /ForceLicenseServer=Yes /MainApp=Yes /Registry=Yes'
     ExitCodes:  [0]
 
 Applications:
