@@ -22,3 +22,6 @@ Registry:
                 Type:   'String'
                 Value:  'c:\Program Files\Side Effects Software\Houdini 17.5.229'
     
+            LicenseServer:
+                Type:   'String'
+                Value:  '%LICENSESERVER%'
