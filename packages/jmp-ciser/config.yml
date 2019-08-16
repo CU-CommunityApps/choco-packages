@@ -1,5 +1,5 @@
-Id:             'my-package'                ## Application package name ie. chrome-cornell
-Description:    'My Package Description'    ## Application packages description
+Id:             'jmp-ciser'                ## Application package name ie. chrome-cornell
+Description:    'jmp-ciser - build1'    ## Application packages description
 Version:        '14.0.0'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
