@@ -10,7 +10,7 @@ Install:                                    ## If there are installation files i
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     jmp:                                                      ## This must match the icons.png file name
-        DisplayName:    'My Package As User Sees It'                ## How the app displayed to the user
+        DisplayName:    'JMP Pro 14'                ## How the app displayed to the user
         Path:           '%PROGRAMFILES%\SAS\JMPPRO\14\jmp.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
