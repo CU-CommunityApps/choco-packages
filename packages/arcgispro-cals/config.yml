@@ -22,7 +22,12 @@ Install:
     FileType:   'msi'
     Arguments:  '/qn'
     ExitCodes:  [0]
-   
+ 
+  - File:       '%INSTALL_DIR%\ArcGISd1\ArcGIS_Pro_241_170796.msp'
+    FileType:   'msp'
+    Arguments:  '/qn'
+    ExitCodes:  [0]
+
 Applications:
     arcgispro:
         DisplayName:    'ArcGIS Pro'
@@ -30,11 +35,11 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
         
-    arcgisproauth:
-        DisplayName:    'ArcGIS Pro Duo Auth'
-        Path:           '%PROGRAMFILESX86%\Internet Explorer\iexplore.exe'
-        LaunchParams:   'https://ccegeomaps.maps.arcgis.com/sharing/rest/oauth2/authorize?client_id=arcgisonline&display=default&response_type=token&state=%7B%22useLandingPage%22%3Atrue%7D&expiration=20160&locale=en-us&redirect_uri=https%3A%2F%2Fccegeomaps.maps.arcgis.com%2Fhome%2Faccountswitcher-callback.html&force_login=true&showSignupOption=true'
-        WorkDir:        ''
+    #arcgisproauth:
+        #DisplayName:    'ArcGIS Pro Duo Auth'
+        #Path:           '%PROGRAMFILESX86%\Internet Explorer\iexplore.exe'
+        #LaunchParams:   'https://ccegeomaps.maps.arcgis.com/sharing/rest/oauth2/authorize?client_id=arcgisonline&display=default&response_type=token&state=%7B%22useLandingPage%22%3Atrue%7D&expiration=20160&locale=en-us&redirect_uri=https%3A%2F%2Fccegeomaps.maps.arcgis.com%2Fhome%2Faccountswitcher-callback.html&force_login=true&showSignupOption=true'
+        #WorkDir:        ''
 
 Registry:
     HKUD:
