@@ -22,11 +22,6 @@ Install:
     FileType:   'msi'
     Arguments:  '/qn'
     ExitCodes:  [0]
- 
-  - File:       '%INSTALL_DIR%\ArcGISd1\ArcGIS_Pro_241_170796.msp'
-    FileType:   'msp'
-    Arguments:  '/qn'
-    ExitCodes:  [0]
 
 Applications:
     arcgispro:
