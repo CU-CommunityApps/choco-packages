@@ -3,7 +3,7 @@ Description:    'arcgispro-cals'
 Version:        '2.4.1'
 
 Install:
-  - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro.msi /update ArcGIS_Pro_241_170796.msp'
+  - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro.msi PATCH=ArcGIS_Pro_241_170796.msp /qb'
     FileType:   'msi'
     Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE /qn'
     ExitCodes:  [0]
