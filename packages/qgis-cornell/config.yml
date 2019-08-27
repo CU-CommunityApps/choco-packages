@@ -2,8 +2,9 @@ Id:             'qgis-cornell'
 Description:    'qgis-cornell - buildtest'
 Version:        '3.8.2'
 
-ChocoPackages:
- - 'qgis'
+ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
+  - PackageName:    'qgis'     ## Package name - https://chocolatey.org/packages - ie. adobereader
+    InstallParams:  ''  
 
 Applications:
     qgis:
