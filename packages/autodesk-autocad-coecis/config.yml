@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Environment:
-    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+    ADSKFLEX_LICENSE_FILE: '%ADSKFLEX_LICENSE_FILE%'
 
 Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
