@@ -3,11 +3,16 @@ Description:    'anaconda36-cornell - buildtest1'
 Version:        '3.6.5'
 
 Install:
-    File:       '%INSTALL_DIR%\Anaconda3-5.2.0-Windows-x86_64.exe'
+  - File:       '%INSTALL_DIR%\Anaconda3-5.2.0-Windows-x86_64.exe'
     FileType:   'exe'
     Arguments:  '/S /InstallationType=AllUsers /AddToPath=1 /RegisterPython=1 /D=c:\Program Files\Anaconda'
     ExitCodes:  [0]
 
+  - File:       '%INSTALL_DIR%\cornellext.exe'
+    FileType:   'exe'
+    Arguments:  '/q'
+    ExitCodes:  [0]
+    
 Applications:
     anaconda:
         DisplayName:    'Anaconda'
