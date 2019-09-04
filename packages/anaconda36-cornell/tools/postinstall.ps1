@@ -1,2 +1,2 @@
 # Runs after the choco package is installed
-$INSTALL_DIR\script.bat
+Start-Process "cmd.exe" "/c %INSTALL_DIR%\script.bat
