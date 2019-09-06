@@ -8,11 +8,6 @@ Install:
     Arguments:  '/S /InstallationType=AllUsers /AddToPath=1 /RegisterPython=1 /D=c:\Program Files\Anaconda'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\cornellext.exe'
-    FileType:   'exe'
-    Arguments:  '/passive'
-    ExitCodes:  [0]
-    
 Applications:
     anaconda:
         DisplayName:    'Anaconda'
