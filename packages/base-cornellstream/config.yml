@@ -106,6 +106,10 @@ Registry:
                 Type:   'DWORD'
                 Value:  '0'
                 
+            1A10: # Allow cookies with security (https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users)
+                Type:   'DWORD'
+                Value:  '1'
+                
     HKLM:
         SYSTEM\CurrentControlSet\Control\TimeZoneInformation:
             TimeZoneKeyName:
