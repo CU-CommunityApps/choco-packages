@@ -15,9 +15,6 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Environment:
-    ADSKFLEX_LICENSE_FILE: '%ADSKFLEX_LICENSE_FILE%'
-
 Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
 
