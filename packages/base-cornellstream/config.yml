@@ -8,12 +8,15 @@ ChocoPackages:
     
   - PackageName:    'notepadplusplus'
     InstallParams:  ''
+    
+  - PackageName:    'googlechrome'
+    InstallParams:  ''
 
-Install:
-  - File:       '%INSTALL_DIR%\SCEPInstall.exe'
-    FileType:   'exe'
-    Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
-    ExitCodes:  [0]
+# Install:
+#  - File:       '%INSTALL_DIR%\SCEPInstall.exe'
+#    FileType:   'exe'
+#    Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
+#    ExitCodes:  [0]
 
 #  - File:       '%INSTALL_DIR%\papercut\pc-client-admin-deploy.msi'
 #    FileType:   'msi'
