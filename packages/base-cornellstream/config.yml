@@ -96,7 +96,7 @@ Registry:
                 Type:   'DWORD'
                 Value:  '0'
 
-        SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\0:
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\0:
             1201: #stop popups for unsafe activex controls
                 Type:   'DWORD'
                 Value:  '0'
