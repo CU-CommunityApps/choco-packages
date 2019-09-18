@@ -96,6 +96,11 @@ Registry:
                 Type:   'DWORD'
                 Value:  '0'
 
+        SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\0:
+            1201:
+                Type:   'DWORD'
+                Value:  '0'
+
         Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3:
             1803: # Enable file downloads
                 Type:   'DWORD'
