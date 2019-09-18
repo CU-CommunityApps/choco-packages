@@ -61,4 +61,11 @@ Applications:
         DisplayName:    'ArcCatalog'
         Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.7\bin\ArcCatalog.exe'
         LaunchParams:   ''
-        WorkDir:        ''     
+        WorkDir:        ''
+     
+Registry:               ## Registry values to be copied to each streaming instance
+    HKUD:               ## Use for typical Current User settings to apply to all users in AppStream
+        SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\0:
+            1201:
+                Type:   'DWORD'
+                Value:  '0'
