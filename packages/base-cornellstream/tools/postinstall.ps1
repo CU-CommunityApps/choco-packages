@@ -12,3 +12,6 @@ gp | where {$_.DisplayName -match $app}){
     Start-Process $install.UninstallString -ArgumentList "/S" -WorkingDirectory $install.InstallLocation -WindowStyle Hidden
 
 }
+
+#Setup Windows Defender Preferences
+Set-MpPreference -UILockdown:$True -ExclusionProcess test ‑ScanAvgCPULoadFactor 20 ‑RemediationScheduleDay Sunday ‑RemediationScheduleTime 120
