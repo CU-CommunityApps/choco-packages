@@ -62,7 +62,7 @@ Files:
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
     
 ScheduledTasks:
-    - 'Update_SCEP'
+#    - 'Update_SCEP'
 #     - 'temporary_files'
 #    - 'papercut-startup'
     
