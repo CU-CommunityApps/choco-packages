@@ -53,6 +53,12 @@ Applications:
         Path:           '%WINDIR%\explorer.exe'
         LaunchParams:   'Z:'
         WorkDir:        ''
+        
+    Google Chrome:
+        DisplayName:    'Google Chrome'
+        Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
+        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
+        WorkDir:        ''
 
 Files:
     '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb' # AMD GPU
