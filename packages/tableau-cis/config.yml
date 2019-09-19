@@ -9,11 +9,11 @@ Install:
     ExitCodes:  [0,3010]
 
 Applications:
-	tableau:
-	    DisplayName:    'Tableau'
-	    Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-	    LaunchParams:   '-File "%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1" -Mode launch'
-	    WorkDir:        ''
+    tableau:
+        DisplayName:    'Tableau'
+        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   '-File "%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1" -Mode launch'
+        WorkDir:        ''
 
 Files:
     '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1' # Scheduled Task Script
