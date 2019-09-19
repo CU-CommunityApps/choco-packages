@@ -17,7 +17,7 @@ Applications:
 
 Files:
     '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1' # Scheduled Task Script
-	
+    
 Scripts:
     start:
         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
