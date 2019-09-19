@@ -102,6 +102,14 @@ Registry:
                 Value:  '0'
 
         Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3:
+            1200: #stop popups for unsafe activex controls
+                Type:   'DWORD'
+                Value:  '0'            
+            
+            1201: #stop popups for unsafe activex controls
+                Type:   'DWORD'
+                Value:  '0' 
+                       
             1803: # Enable file downloads
                 Type:   'DWORD'
                 Value:  '0'
