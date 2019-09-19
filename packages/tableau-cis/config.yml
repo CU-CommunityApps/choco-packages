@@ -12,7 +12,7 @@ Applications:
     tableau:
         DisplayName:    'Tableau'
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-File "%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1" -Mode launch'
+        LaunchParams:   '-Windowstyle Hidden -File "%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1" -Mode launch'
         WorkDir:        ''
 
 Files:
