@@ -7,10 +7,10 @@ ChocoPackages:                              ## Chocolatey packages installed str
     InstallParams:  '-y'                    ## Install args to pass to the native installer in the package. Defaults to unspecified.
                                             ## Leave blank '' if no parameters to pass
   - PackageName:    'mysql.workbench'       ## Package name - https://chocolatey.org/packages - ie. adobereader
-    InstallParams:  '-y'                    ## Install args to pass to the native installer in the package. Defaults to unspecified.
+    InstallParams:  ''                    ## Install args to pass to the native installer in the package. Defaults to unspecified.
     
   - PackageName:    'mysql-connector'       ## Package name - https://chocolatey.org/packages - ie. adobereader
-    InstallParams:  '-y'                    ## Install args to pass to the native installer in the package. Defaults to unspecified.   
+    InstallParams:  ''                    ## Install args to pass to the native installer in the package. Defaults to unspecified.   
     
 Applications:                                                                              ## Applications to be published to the user / Added to Image Assistant
     mysqlworkbench:                                                                        ## This must match the icons.png file name
