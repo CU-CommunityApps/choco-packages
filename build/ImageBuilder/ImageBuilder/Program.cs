@@ -455,6 +455,7 @@ namespace ImageBuilder
             }
             catch (Exception ex)
             {
+                this.InitiateEnvironment();
                 this.PutCloudWatchLog($"[FATAL] Uncaught Exception:\n\n{ex.StackTrace}\n\n{ex.Message}");
                 this.RebootSystem();
             }
