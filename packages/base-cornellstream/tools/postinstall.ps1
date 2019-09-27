@@ -1,4 +1,6 @@
 # Runs after the choco package is installed
+$INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
+
 # List of applications to remove
 $app = "Firefox"
 
@@ -18,7 +20,7 @@ $OSVersion = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\Curren
 # Install and configure SCEP on Server 2012
 If($OSVersion -match "2012")
 {
-    Start-Process "$env:INSTALL_DIR\SCEPInstall.exe" -ArgumentList "/s /q /policy $env:INSTALL_DIR\SCEPpolicy.xml"
+    Start-Process "$INSTALL_DIR\SCEPInstall.exe" -ArgumentList "/s /q /policy $INSTALL_DIR\SCEPpolicy.xml"
 }
 
 #Setup Windows Defender Preferences for Server 2016 or 2019 (not 2012)
@@ -31,5 +33,5 @@ If($OSVersion -notmatch "2012")
     Start-Service -Name WinDefend
     
     # Apply custom policies
-    Set-MpPreference -UILockdown:$False -ExclusionPath "%USERPROFILE%\My Files" -SignatureFallbackOrder {MMPC | MicrosoftUpdateServer} -SignatureScheduleDay Everyday -SignatureScheduletime 480 -SignatureFirstAuGracePeriod 15 -SignatureAuGracePeriod 20 -SubmitSamplesConsent Never -CheckForSignaturesBeforeRunningScan $True -DisableRealTimeMonitoring $False -ExclusionProcess "StorageConnector.exe", "dcvserver.exe", "dcvagent.exe", "PhotonAgentWebServer.exe", "PhotonAgent.exe", "PhotonWindowsAppSwitcher.exe", "PhotonWindowsCustomerShell*.exe", "amazon-cloudwatch-agent.exe", "*amazon*.*", "*Photon*.*" -DisableRestorePoint $True -DisableScanningMappedNetworkDrivesForFullScan $True -DisableScanningNetworkFiles $True  -ThrottleLimit 10 -DisableBehaviorMonitoring $True -DisableCatchupFullScan $True -MAPSReporting Disabled -RealtimeScanDirection Incoming -RemediationScheduleDay Never -ScanAvgCPULoadFactor 10 -ScanOnlyIfIdleEnabled $True -ScanParameters QuickScan -ScanScheduleQuickScanTime 960 -SevereThreatDefaultAction Remove 
+    Set-MpPreference -UILockdown:$False -ExclusionPath "$env:USERPROFILE\My Files" -SignatureFallbackOrder {MMPC | MicrosoftUpdateServer} -SignatureScheduleDay Everyday -SignatureScheduletime 480 -SignatureFirstAuGracePeriod 15 -SignatureAuGracePeriod 20 -SubmitSamplesConsent Never -CheckForSignaturesBeforeRunningScan $True -DisableRealTimeMonitoring $False -ExclusionProcess "StorageConnector.exe", "dcvserver.exe", "dcvagent.exe", "PhotonAgentWebServer.exe", "PhotonAgent.exe", "PhotonWindowsAppSwitcher.exe", "PhotonWindowsCustomerShell*.exe", "amazon-cloudwatch-agent.exe", "*amazon*.*", "*Photon*.*" -DisableRestorePoint $True -DisableScanningMappedNetworkDrivesForFullScan $True -DisableScanningNetworkFiles $True  -ThrottleLimit 10 -DisableBehaviorMonitoring $True -DisableCatchupFullScan $True -MAPSReporting Disabled -RealtimeScanDirection Incoming -RemediationScheduleDay Never -ScanAvgCPULoadFactor 10 -ScanOnlyIfIdleEnabled $True -ScanParameters QuickScan -ScanScheduleQuickScanTime 960 -SevereThreatDefaultAction Remove 
 }
