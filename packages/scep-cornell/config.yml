@@ -1,6 +1,6 @@
 Id:             'scep-cornell'
 Description:    'scep - Server 2012R2 Only'
-Version:        '1.0.1'
+Version:        '1.0.2'
 
 Install:
     File:       '%INSTALL_DIR%\SCEPInstall.exe'
