@@ -1,9 +1,0 @@
-Id:             'SECEP-cornell
-Description:    'SCEP - Server 2012R2 Only'
-Version:        '1.0.0'
-
-Install:
-    File:       '%INSTALL_DIR%\SCEPInstall.exe'
-    FileType:   'exe'
-    Arguments:  '/s /policy %INSTALL_DIR%\SCEPpolicy.xml'
-    ExitCodes:  [0]
