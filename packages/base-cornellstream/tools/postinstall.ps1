@@ -33,5 +33,6 @@ If($OSVersion -notmatch "2012")
     Start-Service -Name WinDefend
     
     # Apply custom policies
+    ## https://docs.microsoft.com/en-us/powershell/module/defender/Set-MpPreference?view=win10-ps ##
     Set-MpPreference -UILockdown:$False -ExclusionPath "$env:USERPROFILE\My Files" -SignatureFallbackOrder {MMPC | MicrosoftUpdateServer} -SignatureScheduleDay Everyday -SignatureScheduletime 480 -SignatureFirstAuGracePeriod 5 -SignatureAuGracePeriod 5 -SubmitSamplesConsent Never -CheckForSignaturesBeforeRunningScan $True -DisableRealTimeMonitoring $False -ExclusionProcess "StorageConnector.exe", "dcvserver.exe", "dcvagent.exe", "PhotonAgentWebServer.exe", "PhotonAgent.exe", "PhotonWindowsAppSwitcher.exe", "PhotonWindowsCustomerShell*.exe", "amazon-cloudwatch-agent.exe", "*amazon*.*", "*Photon*.*" -DisableRestorePoint $True -DisableScanningMappedNetworkDrivesForFullScan $True -DisableScanningNetworkFiles $True  -ThrottleLimit 10 -DisableBehaviorMonitoring $True -DisableCatchupFullScan $True -MAPSReporting Disabled -RealtimeScanDirection Incoming -RemediationScheduleDay Never -ScanAvgCPULoadFactor 10 -ScanOnlyIfIdleEnabled $True -ScanParameters QuickScan -ScanScheduleQuickScanTime 960 -SevereThreatDefaultAction Remove 
 }
