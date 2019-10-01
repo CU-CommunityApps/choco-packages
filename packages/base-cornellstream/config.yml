@@ -66,6 +66,7 @@ Files:
     '%TOOLS_DIR%\defaultassociations.xml': '%SYSTEMDRIVE%\windows\system32\defaultassociations.xml'
     '%INSTALL_DIR%\Kill_Process.ps1': '%SYSTEMDRIVE%\windows\system32\Kill_Process.ps1'
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
+    '%TOOLS_DIR%\update_windefend.ps1': '%SYSTEMDRIVE%\windows\TEMP\update_windefend.ps1'
     
 #ScheduledTasks:
 #    - 'Update_SCEP'
