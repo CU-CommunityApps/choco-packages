@@ -35,5 +35,5 @@ If($OSVersion -notmatch "2012")
     Start-Sleep -s 10
     
     # Update Defender
-    Update-MpSignature
+    Update-MpSignature -verbose
 }
