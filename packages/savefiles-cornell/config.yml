@@ -3,4 +3,4 @@ Description:    'savefiles-cornell - build 1'
 Version:        '1.0'
 
 ScheduledTasks:
-    - 'Save_your_work'
+    - 'savefiles'
