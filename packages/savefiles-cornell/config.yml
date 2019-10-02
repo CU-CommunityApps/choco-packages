@@ -1,0 +1,6 @@
+Id:             'savefiles-cornell'
+Description:    'savefiles-cornell - build 1'
+Version:        '1.0'
+
+ScheduledTasks:
+    - 'save_your_work'
