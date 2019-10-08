@@ -4,7 +4,7 @@ Version:        '19.3'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
-    FileType:   'exe'
+    FileType:   'exe' 
     Arguments:  '-silent -licserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
     ExitCodes:  [0]
 
