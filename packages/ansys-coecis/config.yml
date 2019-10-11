@@ -1,16 +1,11 @@
 Id:             'ansys-coecis'
-Description:    'ANSYS - COECIS License - build'
+Description:    'ANSYS - COECIS License - buildtesting'
 Version:        '19.2'
 
 Install:
-  - File:       '%INSTALL_DIR%\setup.exe'
+    File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-silent -licenseserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\patch\setup.exe'
-    FileType:   'exe'
-    Arguments:  '-silent'
+    Arguments:  '-silent -licserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
     ExitCodes:  [0]
 
 Applications:
