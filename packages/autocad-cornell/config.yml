@@ -1,6 +1,6 @@
 Id:             'autocad-cornell'
 Description:    'AutoCad 2020 - buildtest'
-Version:        '1.0.0'
+Version:        '1.0.1'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
