@@ -1,0 +1,19 @@
+Id:             'anaconda36-cornell'
+Description:    'anaconda36-cornell - buildtest1'
+Version:        '3.6.5'
+
+Install:
+  - File:       '%INSTALL_DIR%\Anaconda3-5.2.0-Windows-x86_64.exe'
+    FileType:   'exe'
+    Arguments:  '/S /InstallationType=AllUsers /AddToPath=1 /RegisterPython=1 /D=c:\Program Files\Anaconda'
+    ExitCodes:  [0]
+
+Applications:
+    anaconda:
+        DisplayName:    'Anaconda'
+        Path:           '%PROGRAMFILES%\Anaconda\Scripts\anaconda-navigator.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+Files: 
+    '%TOOLS_DIR%\anaconda-navigator.ini': '%SYSTEMDRIVE%\Users\Default\.anaconda\navigator\anaconda-navigator.ini'

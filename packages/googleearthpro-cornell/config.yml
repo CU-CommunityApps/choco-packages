@@ -1,5 +1,5 @@
 Id:             'googleearthpro-cornell'
-Description:    'googleearthpro-cornell'
+Description:    'googleearthpro-buildtest'
 Version:        '7.3.2.5776'
 
 ChocoPackages:
@@ -8,6 +8,6 @@ ChocoPackages:
 Applications:
     googleearthpro:
         DisplayName:    'Google Earth Pro'
-        Path:           '%PROGRAMFILES%\Google\Google Earth Pro\client\googleearth.exe'
+        Path:           '%PROGRAMFILES(x86)%\Google\Google Earth Pro\client\googleearth.exe'
         LaunchParams:   ''
         WorkDir:        ''

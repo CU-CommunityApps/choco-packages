@@ -1,6 +1,6 @@
 Id:             'julia-cornell'
-Description:    'Julia'
-Version:        '1.0.3'
+Description:    'Julia w/ custom packages in S3'
+Version:        '1.1.1'
 
 Applications:
     julia:
@@ -8,7 +8,3 @@ Applications:
         Path:           '%ALLUSERSPROFILE%\Julia\bin\julia.exe'
         LaunchParams:   ''
         WorkDir:        'C:\Work'
-        
-Files:
-    '%INSTALL_DIR%\startup.jl': '%SYSTEMDRIVE%\Users\Default\.julia\config\startup.jl'
-    '%INSTALL_DIR%\Packages\*': '%SYSTEMDRIVE%\Work'

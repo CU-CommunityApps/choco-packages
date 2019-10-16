@@ -1,74 +1,208 @@
 Id:             'oracleclient-info'
-Description:    'Oracle Client 11gR2'
-Version:        '11.2.0'
+Description:    'Oracle Client 12c build1'
+Version:        '12.2.0'
 
 Install:
-    File:       '%INSTALL_DIR%\setup.exe'
+  - File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-silent -debug -force -waitforcompletion FROM_LOCATION=%INSTALL_DIR%\stage\products.xml oracle.install.client.installType=Administrator ORACLE_HOME=C:\oracle\product\11.2.0\Client ORACLE_HOME_NAME=OraClient11g_Home1 ORACLE_BASE=C:\oracle DECLINE_SECURITY_UPDATES=true'
-    ExitCodes:  [0]
+    Arguments:  '-silent -nowait -noconsole -waitforcompletion -debug -force -responseFile %INSTALL_DIR%\response\client.rsp'
+    ExitCodes:  '0'
+  
+  - File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-silent -nowait -noconsole -waitforcompletion -debug -force -responseFile %INSTALL_DIR%\response\sqlclient.rsp'
+    ExitCodes:  '0'
 
+  - File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-silent -nowait -noconsole -waitforcompletion -debug -force -responseFile %INSTALL_DIR%\response\odbcclient.rsp'
+    ExitCodes:  '0'
+    
 Applications:
     sqldeveloper:
         DisplayName:    'sqldeveloper'
-        Path:           '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper.exe'
+        Path:           '%SYSTEMDRIVE%\app\client\product\12.2.0\sql\sqldeveloper\sqldeveloper\bin\sqldeveloperW.exe'
         LaunchParams:   ''
-        WorkDir:        'Z:\'
+        WorkDir:        ''
         
 Files:
-    '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
-    '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\network\admin'
-    '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\oracle\product\11.2.0\Client\sqldeveloper\sqldeveloper\bin'
+    '%TOOLS_DIR%\o.sqldeveloper.12.2.0.21.21' : '%SYSTEMDRIVE%\Users\DeFault\AppData\Roaming\SQL Developer\system4.1.4.21.21\o.sqldeveloper.12.2.0.21.21'
+    '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\app\client\product\12.2.0\Client_1\network\admin'
+    '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\app\client\product\12.2.0\Client_1\network\admin'
+    '%INSTALL_DIR%\sqldeveloper.conf' : '%SYSTEMDRIVE%\app\client\product\12.2.0\Client_1\sqldeveloper\sqldeveloper\bin'
 
 Registry:
     HKLM:   
-        Software\Wow6432Node\ODBC\ODBC.INI\INFO4940:
-            Driver:
+        Software\ODBC\ODBC.INI\INFO4555:
+            BufferSize:
                 Type: 'string'
-                Value: 'C:\Windows\system32\msorcl32.dll'
-           
-            DSN:
-                Type: 'string'
-                Value: 'INFO4940'
-
+                Value: '65535'
+                
             Description:
                 Type: 'string'
-                Value: 'INFO4940'         
-                        
-            UID:
+                Value: 'INFO4555'
+                
+            Driver:
                 Type: 'string'
-                Value: ''
-            
+                Value: 'c:\\app\\client\\product\\12.2.0\\client_1\\BIN\\SQORA32.dll'
+                
+            DSN:
+                Type: 'string'
+                Value: 'INFO4555'
+
+            GuessTheColDef:
+                Type: 'string'
+                Value: '0'
+       
             PWD:
                 Type: 'string'
                 Value: ''
            
             SERVER: 
                 Type: 'string'
-                Value: 'INFO4940'
-            
-            BufferSize:
+                Value: 'INFO4555'
+
+            StdDayOfWeek:
                 Type: 'string'
-                Value: '65535'
+                Value: '1'
+            
+            StripTrailingZero:
+                Type: 'string'
+                Value: '0'
             
             SynonymColumns:
                 Type: 'string'
                 Value: '1'
-           
-            StdDayOfWeek:
-                Type: 'string'
-                Value: '1'
-
-            GuessTheColDef:
-                Type: 'string'
-                Value: '0'
-
-            StripTrailingZero:
-                Type: 'string'
-                Value: '0'
-        
-        Software\Wow6432Node\ODBC\ODBC.INI\ODBC Data Sources:
-            INFO4940:
-                Type: 'string'
-                Value: 'Microsoft ODBC for Oracle'
                 
+            UID:
+                Type: 'string'
+                Value: ''
+            
+            DisableRULEHint:
+                Type: 'string'
+                Value: 'T'  
+                
+            Attributes:
+                Type: 'string'
+                Value: 'W'
+                
+            SQLTranslateErrors:
+                Type: 'string'
+                Value: 'F'           
+
+            AggregateSQLType:
+                Type: 'string'
+                Value: 'FLOAT'
+                
+            MaxTokenSize:
+                Type: 'string'
+                Value: '8192'
+                
+            FetchBufferSize:
+                Type: 'string'
+                Value: '64000'
+                
+            NumericSetting:
+                Type: 'string'
+                Value: 'NLS'       
+                
+            ForceWCHAR:
+                Type: 'string'
+                Value: 'F'                
+       
+            FailoverDelay:
+                Type: 'string'
+                Value: '10' 
+                
+            FailoverRetryCount:
+                Type: 'string'
+                Value: '10'     
+                
+            MetadataIdDefault:
+                Type: 'string'
+                Value: 'F'    
+                
+            BindAsFLOAT:
+                Type: 'string'
+                Value: 'F'   
+                
+            BindAsDATE:
+                Type: 'string'
+                Value: 'F'     
+                
+            CloseCursor:
+                Type: 'string'
+                Value: 'F'     
+                
+            EXECSchemaOpt:
+                Type: 'string'
+                Value: ''
+                
+            EXECSyntax:
+                Type: 'string'
+                Value: 'F'
+                
+            Application Attributes:
+                Type: 'string'
+                Value: 'T'
+                
+            QueryTimeout:
+                Type: 'string'
+                Value: 'T'       
+                
+            CacheBufferSize:
+                Type: 'string'
+                Value: '20'        
+                
+            StatementCache:
+                Type: 'string'
+                Value: 'F'       
+                
+            ResultSets:
+                Type: 'string'
+                Value: 'T'       
+                
+            MaxLargeData:
+                Type: 'string'
+                Value: '0'        
+                
+            UseOCIDescribeAny:
+                Type: 'string'
+                Value: 'F'       
+                
+            Failover:
+                Type: 'string'
+                Value: 'T'          
+                
+            Lobs:
+                Type: 'string'
+                Value: 'T'      
+                
+            DisableMTS:
+                Type: 'string'
+                Value: 'T'      
+                
+            DisableDPM:
+                Type: 'string'
+                Value: 'F'       
+                
+            BatchAutocommitMode:
+                Type: 'string'
+                Value: 'IfAllSuccessful'         
+                
+            ServerName:
+                Type: 'string'
+                Value: 'info4555'       
+                
+            Password:
+                Type: 'string'
+                Value: ''       
+                
+            UserID:
+                Type: 'string'
+                Value: ''
+        
+        Software\ODBC\ODBC.INI\ODBC Data Sources:
+            INFO4555:
+                Type: 'string'
+                Value: 'Oracle in OraClient12Home1'

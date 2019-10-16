@@ -1,12 +1,10 @@
 Id:             'adobedcreader-cornell'
 Description:    'adobedcreader-cornell'
-Version:        '2018.011.20055'
+Version:        '2019.012.20035'
 
-Install:
-    File:       '%INSTALL_DIR%\setup.exe'
-    FileType:   'exe'
-    Arguments:  '/sall /rs /l /msi /qn /norestart UPDATE_MODE=3 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read'
-    ExitCodes:  [0]
+ChocoPackages:
+  - PackageName:    'adobereader'
+    InstallParams:  '"/msi /qn UPDATE_MODE=3 EULA_ACCEPT=YES SUPPRESS_APP_LAUNCH=YES IW_DEFAULT_VERB=Read"'
 
 Applications:
     AdobeReaderDC:
@@ -29,5 +27,13 @@ Registry:
 
         SOFTWARE\Adobe\Acrobat Reader\DC\FTEDialog:
             bShowInstallFTE:
+                Type:   'DWORD'
+                Value:  '0'
+            
+            iFTEVersion:       # Disable Welcome Tour
+                Type:   'DWORD'
+                Value:  '10'
+                
+            iLastCardShown:    # Disable Welcome Tour
                 Type:   'DWORD'
                 Value:  '0'

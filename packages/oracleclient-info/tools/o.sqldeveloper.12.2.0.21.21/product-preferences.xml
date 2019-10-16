@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ide:preferences xmlns:ide="http://xmlns.oracle.com/ide/hash">
+   <hash n="CodeEditorBookmarkOptions">
+      <list n="persistedBookmarks"/>
+   </hash>
+   <value n="db.system.id" v="6ce0a0d5-3ae8-4ca3-a555-fdbb6b7c7852"/>
+   <hash n="DebugWindowOptions">
+      <list n="UNINSTALLED_WINDOWS">
+         <string v="Debugger.SmartWindow"/>
+         <string v="Debugger.LocalsWindow"/>
+         <string v="Debugger.WatchWindow"/>
+         <string v="Debugger.StackWindow"/>
+         <string v="Debugger.ThreadsWindow"/>
+      </list>
+   </hash>
+   <hash n="HelpOptions">
+      <value n="helpCenterWindowOpen" v="false"/>
+   </hash>
+   <hash n="oracle.bali.xml.add.schema.SchemaOptionsPrefs">
+      <list n="schemaMapList"/>
+   </hash>
+   <hash n="oracle.ide.hover.HoverOptions">
+      <value n="flavorEnabled-Data Values" v="true"/>
+      <value n="flavorEnabled-Documentation" v="true"/>
+      <value n="flavorEnabled-Errors and Warnings" v="true"/>
+      <value n="flavorEnabled-Info" v="true"/>
+      <value n="flavorEnabled-Source" v="true"/>
+      <list n="flavorPriority">
+         <string v="info"/>
+         <string v="data"/>
+         <string v="errors"/>
+         <string v="doc"/>
+         <string v="source"/>
+      </list>
+      <value n="flavorShortcut-Data Values" v="NONE"/>
+      <value n="flavorShortcut-Documentation" v="NONE ALT"/>
+      <value n="flavorShortcut-Errors and Warnings" v="NONE"/>
+      <value n="flavorShortcut-Info" v="NONE"/>
+      <value n="flavorShortcut-Source" v="NONE SHIFT"/>
+   </hash>
+   <hash n="oracle.ideimpl.usages.UsagesPrefs">
+      <value n="track-usages" v="false"/>
+   </hash>
+   <hash n="oracle.ideimpl.webupdate.CheckForUpdatesPreferences">
+      <value n="instanceGuid" v="6716b2a9-016c-1000-8001-80548df46e34"/>
+      <value n="lastError" v="oracle/i18n/util/LocaleMapper"/>
+      <value n="lastErrorType" v="generic"/>
+      <hash n="pingedVersions">
+         <list n="4.1.4.21.21">
+            <string v="http://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/162026.xml"/>
+            <string v="http://apex.oracle.com/pls/apex/dbtools/usage/cfu"/>
+         </list>
+      </hash>
+   </hash>
+   <hash n="proxy-options">
+      <value n="IsIdeProxy" v="true"/>
+      <value n="proxyType" v="SYSTEM_PROXY"/>
+   </hash>
+   <hash n="SaveActionsOptions">
+      <value n="migratedSaveActions" v="true"/>
+   </hash>
+   <hash n="SyntaxColorsOptions">
+      <value n="firstTime" v="false"/>
+      <value n="migrated" v="true"/>
+   </hash>
+   <hash n="WebBrowserOptions">
+      <value n="browserCmdLine" v="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe ${URL}"/>
+      <list n="browserIconList">
+         <string v="IE"/>
+         <string v="FIREFOX"/>
+         <string v="CHROME"/>
+      </list>
+      <list n="browserIsDefaultList">
+         <boolean v="false"/>
+         <boolean v="false"/>
+         <boolean v="true"/>
+      </list>
+      <list n="browserNameList">
+         <string v="Internet Explorer"/>
+         <string v="Firefox"/>
+         <string v="Chrome"/>
+      </list>
+      <list n="browserParamList">
+         <string v="${URL}"/>
+         <string v="${URL}"/>
+         <string v="${URL}"/>
+      </list>
+      <list n="browserPathList">
+         <string v="C:\Program Files\Internet Explorer\iexplore.exe"/>
+         <string v="C:\Program Files\Mozilla Firefox\firefox.exe"/>
+         <string v="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"/>
+      </list>
+      <value n="useEmbeddedBrowserForPreview" v="false"/>
+   </hash>
+</ide:preferences>

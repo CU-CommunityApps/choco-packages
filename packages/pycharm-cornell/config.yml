@@ -1,20 +1,24 @@
 Id:             'pycharm-cornell'
-Description:    'pycharm-cornell'
-Version:        '2019.1'
+Description:    'pycharm-cornell - buildtest1'
+Version:        '2019.2'
 
-ChocoPackages:
-    - 'pycharm-edu'
-
+ChocoPackages:                              
+  - PackageName:    'pycharm-community'     
+    InstallParams:  ''
+                                            
 Applications:
     pycharm:
-        DisplayName:    'JetBrains PyCharm Edu 2019.1'
-        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Edu 2019.1\bin\pycharm64.exe'
+        DisplayName:    'Jetbrains PyCharm Community 2019.2'
+        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Community Edition 2019.2.3\bin\pycharm64.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\.PyCharmEdu2019.1\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmEdu2019.1\config'
     '%TOOLS_DIR%\JetBrains': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\JetBrains'
+    '%TOOLS_DIR%\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2'
+    '%TOOLS_DIR%\codestyles': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2\config'
+    '%TOOLS_DIR%\options': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2\config'
+    '%TOOLS_DIR%\plugins': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2\config'
     
 Registry:
     HKUD:

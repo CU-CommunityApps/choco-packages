@@ -1,0 +1,6 @@
+Id:             'image-builder-cornell'
+Description:    'Custom app for image build tasks - buildtest'
+Version:        '1.0'
+
+Files: 
+    '%TOOLS_DIR%\ImageBuilder': '%PROGRAMFILES%\ImageBuilder'

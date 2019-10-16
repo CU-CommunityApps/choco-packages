@@ -1,9 +1,9 @@
 Id:             'wherescape-info'
-Description:    'Wherescape Red for - INFO4950'
-Version:        '6.8.6'
+Description:    'Wherescape Red for - INFO4950 - buildtest'
+Version:        '8.3.1.1'
 
 Install:
-    File:       '%INSTALL_DIR%\red_686002.exe'
+    File:       '%INSTALL_DIR%\RED_8311.exe'
     FileType:   'exe'
     Arguments:  '/q'
     ExitCodes:  [0]
@@ -11,27 +11,22 @@ Install:
 Applications:
     wherescapered:
         DisplayName:    'Wherescape Red'
-        Path:           '%PROGRAMFILES(x86)%\Wherescape\med.exe'
+        Path:           '%PROGRAMFILES%\Wherescape\RED\med.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     wherescapeadm:
         DisplayName:    'Wherescape Administrator'
-        Path:           '%PROGRAMFILES(x86)%\Wherescape\adm.exe'
+        Path:           '%PROGRAMFILES%\Wherescape\RED\adm.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Registry:
-    HKCC:   { }
-    HKCR:   { }
-    HKCU:   { }
-    HKLM:   { }
-    HKU:    { }
     HKUD:
         Software\WhereScape\MetaEditor\LicenseV7:
             Licensed_To:
                 Type:   'String'
-                Value:  'Cornell Student Expires 12/31/18'
+                Value:  'Cornell University - Fall Term 2019 - Expires Dec 31 2010 - for instruction purposes only'
 
             License_Key:
                 Type:   'String'

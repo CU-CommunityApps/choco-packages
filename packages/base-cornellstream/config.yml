@@ -1,22 +1,27 @@
 Id:             'base-cornellstream'
-Description:    'Base Items for Cornell Stream Environments'
+Description:    'Base Items for Cornell Stream - buildtest1'
 Version:        '1.0.0'
 
 ChocoPackages:
-    - '7zip'
-    - 'notepadplusplus'
-#    - 'googlechrome'
+  - PackageName:    '7zip'
+    InstallParams:  ''
+    
+  - PackageName:    'notepadplusplus'
+    InstallParams:  ''
+    
+  - PackageName:    'googlechrome'
+    InstallParams:  ''
 
-Install:
-  - File:       '%INSTALL_DIR%\SCEPInstall.exe'
-    FileType:   'exe'
-    Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
-    ExitCodes:  [0]
+# Install:
+#  - File:       '%INSTALL_DIR%\SCEPInstall.exe'
+#    FileType:   'exe'
+#    Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
+#    ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\papercut\pc-client-admin-deploy.msi'
-    FileType:   'msi'
-    Arguments:  '/qb /norestart ALLUSERS=1'
-    ExitCodes:  [0]
+#  - File:       '%INSTALL_DIR%\papercut\pc-client-admin-deploy.msi'
+#    FileType:   'msi'
+#    Arguments:  '/qn /norestart ALLUSERS=1'
+#    ExitCodes:  [0]
 
 Applications:
     7zip:
@@ -48,18 +53,25 @@ Applications:
         Path:           '%WINDIR%\explorer.exe'
         LaunchParams:   'Z:'
         WorkDir:        ''
+        
+    Chrome:
+        DisplayName:    'Google Chrome'
+        Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
+        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
+        WorkDir:        ''
 
 Files:
     '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb' # AMD GPU
     '%TOOLS_DIR%\ProcmonConfiguration.pmc': '%SYSTEMDRIVE%\Procmon\ProcmonConfiguration.pmc'
     '%TOOLS_DIR%\defaultassociations.xml': '%SYSTEMDRIVE%\windows\system32\defaultassociations.xml'
-    '%TOOLS_DIR%\Kill_Process.ps1': '%SYSTEMDRIVE%\windows\system32\Kill_Process.ps1'
+    '%INSTALL_DIR%\Kill_Process.ps1': '%SYSTEMDRIVE%\windows\system32\Kill_Process.ps1'
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
+    '%TOOLS_DIR%\update_windefend.ps1': '%SYSTEMDRIVE%\windows\TEMP\update_windefend.ps1'
     
-ScheduledTasks:
-    - 'Update_SCEP'
-    - 'temporary_files'
-    - 'papercut-startup'
+# Scripts:
+#     start:
+#         System: '%TOOLS_DIR%\update_windefend.ps1' # Runs at system startup
+    
 Registry:
     HKUD:
         Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
@@ -90,7 +102,20 @@ Registry:
                 Type:   'DWORD'
                 Value:  '0'
 
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\0:
+            1201: #stop popups for unsafe activex controls
+                Type:   'DWORD'
+                Value:  '0'
+
         Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\3:
+            1200: #stop popups for unsafe activex controls
+                Type:   'DWORD'
+                Value:  '0'            
+            
+            1201: #stop popups for unsafe activex controls
+                Type:   'DWORD'
+                Value:  '0' 
+                       
             1803: # Enable file downloads
                 Type:   'DWORD'
                 Value:  '0'
@@ -103,8 +128,17 @@ Registry:
                 Type:   'DWORD'
                 Value:  '0'
                 
+            1A10: # Allow cookies with security (https://support.microsoft.com/en-us/help/182569/internet-explorer-security-zones-registry-entries-for-advanced-users)
+                Type:   'DWORD'
+                Value:  '1'
+                
     HKLM:
         SYSTEM\CurrentControlSet\Control\TimeZoneInformation:
             TimeZoneKeyName:
                 Type:   'String'
                 Value:  'Eastern Standard Time'
+        
+        Software\Policies\Microsoft\Internet Explorer\Main:
+            DisableFirstRunCustomize:
+                Type:   'DWORD'
+                Value:  '1'

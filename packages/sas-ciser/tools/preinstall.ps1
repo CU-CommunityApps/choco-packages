@@ -1,7 +1,7 @@
 # Runs before the choco package is installed
 # Copy pre installation files
 cp "$env:TOOLS_DIR\sdwresponse.properties" "$env:windir\temp\sdwresponse.properties" -Force
-cp "$env:INSTALL_DIR\sid_files\SAS94_9BYDPR_70084772_Win_X64_Srv.txt" "$env:windir\temp\SAS94_9BYDPR_70084772_Win_X64_Srv.txt" -Force
+cp "$env:INSTALL_DIR\sid_files\SAS94_9C5M7J_70084773_Win_X64_Srv.txt" "$env:windir\temp\SAS94_9C5M7J_70084773_Win_X64_Srv.txt" -Force
 <#
 :: --------------------------------------------------------------------------------
 :: This is a batch system requirements file created from order 9BVPLP at
@@ -104,7 +104,7 @@ cp "$env:INSTALL_DIR\sid_files\SAS94_9BYDPR_70084772_Win_X64_Srv.txt" "$env:wind
 ::    the command for each requirement listed below.
 ::
 #>
-$DEPOT_HOME="C:\Windows\Temp\chocolatey\sas-ciser\products"
+$DEPOT_HOME="C:\ProgramData\chocolatey\lib\sas-ciser\tools\installer\products"
 <#::
 :: --------------------------------------------------------------------------------
 :: Microsoft Office Access Database Engine 2010 (REQUIRED)

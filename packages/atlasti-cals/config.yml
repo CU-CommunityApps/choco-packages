@@ -1,17 +1,17 @@
 Id:             'atlasti-cals'
-Description:    'atlasti-cals'
-Version:        '8.4.0'
+Description:    'atlasti-cals - buildb'
+Version:        '8.4.18'
 
 Install:
     File:       '%INSTALL_DIR%\Atlasti_8.4.msi'
     FileType:   'msi'
-    Arguments:  '/qn APPLICATIONFOLDER="%PROGRAMFILES(x86)%\My ATLAS.ti"'
+    Arguments:  '/qn APPLICATIONFOLDER="%PROGRAMFILES(x86)%\Scientific Software\ATLASti.8"'
     ExitCodes:  [0]
 
 Applications:
     atlasti:
         DisplayName:    'Atlasti8'
-        Path:           '%PROGRAMFILES(x86)%\My ATLAS.ti\Atlasti8.exe'
+        Path:           '%PROGRAMFILES(x86)%\Scientific Software\ATLASti.8\Atlasti8.exe'
         LaunchParams:   ''
         WorkDir:        ''
 

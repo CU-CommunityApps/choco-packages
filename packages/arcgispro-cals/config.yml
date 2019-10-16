@@ -1,28 +1,28 @@
 Id:             'arcgispro-cals'
 Description:    'arcgispro-cals'
-Version:        '2.2.0'
+Version:        '2.4.1'
 
 Install:
   - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro.msi'
     FileType:   'msi'
-    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE /qn'
+    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE PATCH=%INSTALL_DIR%\ArcGISd1\ArcGIS_Pro_241_170796.msp /qn'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelpd2.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelp.msi'
     FileType:   'msi'
     Arguments:  '/qn'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\ArcGISd3\DataInteropProd3.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd3\DataInteropPro.msi'
     FileType:   'msi'
     Arguments:  '/qn'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsDatad4.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsData.msi'
     FileType:   'msi'
     Arguments:  '/qn'
     ExitCodes:  [0]
-   
+
 Applications:
     arcgispro:
         DisplayName:    'ArcGIS Pro'
@@ -30,11 +30,11 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
         
-    arcgisproauth:
-        DisplayName:    'ArcGIS Pro Duo Auth'
-        Path:           '%PROGRAMFILESX86%\Internet Explorer\iexplore.exe'
-        LaunchParams:   'https://ccegeomaps.maps.arcgis.com/sharing/rest/oauth2/authorize?client_id=arcgisonline&display=default&response_type=token&state=%7B%22useLandingPage%22%3Atrue%7D&expiration=20160&locale=en-us&redirect_uri=https%3A%2F%2Fccegeomaps.maps.arcgis.com%2Fhome%2Faccountswitcher-callback.html&force_login=true&showSignupOption=true'
-        WorkDir:        ''
+    ##arcgisproauth:
+        #DisplayName:    'ArcGIS Pro Duo Auth'
+        #Path:           '%PROGRAMFILESX86%\Internet Explorer\iexplore.exe'
+        #LaunchParams:   'https://ccegeomaps.maps.arcgis.com/sharing/rest/oauth2/authorize?client_id=arcgisonline&display=default&response_type=token&state=%7B%22useLandingPage%22%3Atrue%7D&expiration=20160&locale=en-us&redirect_uri=https%3A%2F%2Fccegeomaps.maps.arcgis.com%2Fhome%2Faccountswitcher-callback.html&force_login=true&showSignupOption=true'
+        #WorkDir:        ''
 
 Registry:
     HKUD:
