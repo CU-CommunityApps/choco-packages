@@ -1,5 +1,5 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2019 - COECIS License testbuild7'
+Description:    'SOLIDWORKS 2019 - COECIS License'
 Version:        '27.3.0.52'
 
 Install:
@@ -21,11 +21,11 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-    SLDWORKSVisualize:
-        DisplayName:    'SOLIDWORKS Visualize'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
+    #SLDWORKSVisualize:
+        #DisplayName:    'SOLIDWORKS Visualize'
+        #Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
+        #LaunchParams:   ''
+        #WorkDir:        ''
 
     eDrawings:
         DisplayName:    'SOLIDWORKS eDrawings'
