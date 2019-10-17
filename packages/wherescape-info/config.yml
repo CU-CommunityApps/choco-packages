@@ -28,6 +28,10 @@ Registry:
                 Type:   'String'
                 Value:  'Cornell University - Fall Term 2019 - Expires Dec 31 2010 - for instruction purposes only'
 
+            LicenseAgreementAccepted:
+                Type:   'dword'
+                Value:  '00000001'
+                
             License_Key:
                 Type:   'String'
                 Value:  '%WHERESCAPE_LICENSE_KEY%'
