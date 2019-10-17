@@ -37,12 +37,11 @@ Registry:
                 Value:  '%WHERESCAPE_LICENSE_KEY%'
             
         Software\Wherescape\RED\DB_Logon:
-        
             Meta_Dsn_Arch:
                 Type:   'String'
                 Value:  '64'
                 
-                Connect_ID:
-                 Type:  'String'
-                 Value: 'INFO4555'
+            Connect_ID:
+                Type:  'String'
+                Value: 'INFO4555'
                 
