@@ -28,6 +28,20 @@ Registry:
                 Type:   'String'
                 Value:  'Cornell University - Fall Term 2019 - Expires Dec 31 2010 - for instruction purposes only'
 
+            LicenseAgreementAccepted:
+                Type:   'DWORD'
+                Value:  '00000001'
+                
             License_Key:
                 Type:   'String'
                 Value:  '%WHERESCAPE_LICENSE_KEY%'
+            
+        Software\Wherescape\RED\DB_Logon:
+            Meta_Dsn_Arch:
+                Type:   'String'
+                Value:  '64'
+                
+            Connect_ID:
+                Type:  'String'
+                Value: 'INFO4555'
+                
