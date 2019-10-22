@@ -29,7 +29,7 @@ Registry:
                 Value:  'Cornell University - Fall Term 2019 - Expires Dec 31 2010 - for instruction purposes only'
 
             LicenseAgreementAccepted:
-                Type:   'dword'
+                Type:   'DWORD'
                 Value:  '00000001'
                 
             License_Key:
