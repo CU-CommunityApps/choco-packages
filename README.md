@@ -47,6 +47,6 @@
     https://confluence.cornell.edu/display/CLOUD/Cornell+Stream
 .NOTES
 
-    TROUBLESHOOTING and UNINSTALL modes can be used locally when performing preliminary application testing
+    TROUBLESHOOTING and UNINSTALL modes can be used locally when performing preliminary application testing.
 #>
 
