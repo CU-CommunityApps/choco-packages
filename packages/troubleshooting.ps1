@@ -13,13 +13,14 @@ Install-Module pssqlite -Force
 Import-Module powershell-yaml -Force
 Import-Module pssqlite -Force
 $app = Read-Host "Enter app name and version (ie. adobedcreader-cornell.2018.011.20055)"
+$branch = Read-Host "Enter test branch name"
 $appName = $app.Split(".")[0]
 $output = "c:\users\$env:USERNAME\desktop\$app.nupkg"
 $extract = "c:\users\$env:USERNAME\desktop\$app"
 
 If (!(test-path $output)){
     try{
-        $URI = "https://image-build-113704540485-us-east-1.s3.amazonaws.com/packages/test/$app.nupkg"
+        $URI = "https://image-build-113704540485-us-east-1.s3.amazonaws.com/packages/$branch/$app.nupkg"
         Start-BitsTransfer -Source $uri -Destination $output
     }
     catch{Write-Host "Error downloading, try again..."}
