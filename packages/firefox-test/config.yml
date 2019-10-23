@@ -8,7 +8,7 @@ Install:                                    ## If there are installation files i
     Arguments:  '/s'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success
     
- Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     firefox:                                                      ## This must match the icons.png file name
         DisplayName:    'Firefox'                ## How the app displayed to the user
         Path:           '%PROGRAMFILES%\Mozilla Firefox\firefox.exe'          ## The path to the app
