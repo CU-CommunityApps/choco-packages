@@ -4,14 +4,17 @@
 .DESCRIPTION
     Test custom .nupkg installers on Windows OS' prior to building an AppStream image
 .PARAMETER s3
-    S3 bucket name for installer files. Bucket name only, do not include entire path. i.e. if S3 bucket path is https://s3.amazonaws.com/mybucket input 'mybucket'
+    S3 bucket name for installer files. Bucket name only, do not include entire path. i.e. if S3 bucket path is https://s3.amazonaws.com/mybucket input 'mybucket' - Required
 .PARAMETER package
-    Application name for testing (ie. adobedcreader-cornell)
+    Application name for testing (ie. adobedcreader-cornell) - Optional
 .PARAMETER branch
-    Test branch name (ie. adobedcreader)
+    Test branch name (ie. adobedcreader) - Optional
 .EXAMPLE
     PS C:\Users\test\Desktop> 
-    .\troubleshooting.ps1 -S3 somebucketname -App_Version adobedcreader-cornell.2018.011.20055 -Branch adobedcreader
+    .\troubleshooting.ps1 -s3 somebucketname -package adobedcreader-cornell -branch adobedcreader
+.EXAMPLE
+    PS C:\Users\test\Desktop> 
+    .\troubleshooting.ps1 -s3 somebucketname
 .LINK
     https://github.com/CU-CommunityApps/choco-packages
     https://confluence.cornell.edu/display/CLOUD/Cornell+Stream
