@@ -1,0 +1,16 @@
+Id:             'firefox-test'                ## Application package name ie. chrome-cornell
+Description:    'firefox-test'    ## Application packages description
+Version:        '68.2.0'                     ## Application version number - MUST BE in #.# format
+
+Install:                                    ## If there are installation files in a .zip to be installed, specify here
+  - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
+    FileType:   'exe'                       ## exe or msi are the only options currently
+    Arguments:  '/s'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success
+    
+ Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    firefox:                                                      ## This must match the icons.png file name
+        DisplayName:    'Firefox'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\Mozilla Firefox\firefox.exe'          ## The path to the app
+        LaunchParams:   ''                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
