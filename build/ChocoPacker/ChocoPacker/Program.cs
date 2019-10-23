@@ -206,7 +206,7 @@ namespace ChocoPacker
         {
             string package_dir = $"{this.system_drive}\\{package}";
             string local_zip = $"{this.temp_dir}\\{package}.zip";
-            string installer_prefix = $"installers/{branch}/{package}.zip";
+            string installer_prefix = $"installers/master/{package}.zip";
             string tools_dir = $"{package_dir}\\tools";
             string installer_dir = $"{tools_dir}\\installer";
 
