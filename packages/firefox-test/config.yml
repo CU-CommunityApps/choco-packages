@@ -3,7 +3,7 @@ Description:    'firefox-test'    ## Application packages description
 Version:        '68.2.0'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
+  - File:       '%INSTALL_DIR%\Firefox Setup 68.2.0esr.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '/s'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success
