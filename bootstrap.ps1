@@ -17,6 +17,7 @@ $BUILDER_STDOUT_LOG = "$env:SystemDrive\builder-console.log"
 $BUILDER_STDERR_LOG = "$env:SystemDrive\builder-console-err.log"
 $SESSION_CONTENTS = Get-Content $SESSION_SCRIPTS | Out-String | ConvertFrom-Json
 $LONGPATH_KEY = "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
+$OSVersion = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
 
 
 if (-Not (Test-Path $BUILD_DIR)) {
@@ -74,9 +75,6 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing Sysinterals"
     Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y" -NoNewWindow -Wait
     
-    # Get OS version
-    $OSVersion = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
-    
     If($OSVersion -match "2016")
     {
         # Remove disable key
@@ -116,7 +114,7 @@ else {
 }
 
 # Install Windows Defender if not installed
-If (!(Get-WindowsFeature -Name Windows-Defender).Installed){Install-WindowsFeature -Name Windows-Defender}
+If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVersion -match "2016"){Install-WindowsFeature -Name Windows-Defender}
 
 # Run ImageBuilder
 Write-Output "Running ImageBuilder"
