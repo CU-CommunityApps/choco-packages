@@ -74,6 +74,21 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing Sysinterals"
     Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y" -NoNewWindow -Wait
     
+    # Get OS version
+    $OSVersion = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
+    
+    If($OSVersion -match "2016")
+    {
+        # Remove disable key
+        Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name DisableAntiSpyware -Force
+
+        # Start WindDefend
+        Start-Service -Name WinDefend
+
+        # Uninstall Corrupt Windows Feature from AWS AMI
+        Uninstall-WindowsFeature -Name Windows-Defender
+    }
+    
     # Parse EC2 Metadata
     Write-Output "Parsing EC2 Metadata"
     $user_data = ((New-Object System.Net.WebClient).DownloadString($USER_DATA_URI)) | ConvertFrom-Json
