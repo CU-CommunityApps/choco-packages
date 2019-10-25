@@ -110,7 +110,7 @@ Function troubleshoot($package, $branch, $version) {
             $URI = "https://$s3.s3.amazonaws.com/packages/$branch/$package.$version.nupkg"
             Start-BitsTransfer -Source $URI -Destination $output -ErrorAction Stop
         }
-        catch{Write-Host "$package.$version has not been built yet or does not exist, commit to github and wait for successful build, then try again..." -ForegroundColor Red;branches}
+        catch{Write-Host "$package.$version has not been built yet or does not exist, commit to github and wait for successful build, then try again! Verify your IP address is within the approved range as well..." -ForegroundColor Red;branches}
     }
 
     # Cache process to disk if file is greater than 2GB
