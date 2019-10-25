@@ -82,9 +82,6 @@ if (-Not (Test-Path $BUILD_DIR)) {
         # Remove disable key
         Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name DisableAntiSpyware -Force
 
-        # Start WindDefend
-        Start-Service -Name WinDefend
-
         # Uninstall Corrupt Windows Feature from AWS AMI
         Uninstall-WindowsFeature -Name Windows-Defender
     }
