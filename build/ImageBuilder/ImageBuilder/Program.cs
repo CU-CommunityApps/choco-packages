@@ -440,7 +440,6 @@ namespace ImageBuilder
 
                 if (!File.Exists(INSTALLED_LOCK))
                 {
-                    this.RebootSystem();
                     this.InstallPackages();
                     this.RebootSystem();
                 }
