@@ -112,9 +112,6 @@ else {
     Set-Location $BUILD_DIR
 }
 
-# Install Windows Defender if not installed
-If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVersion -match "2016"){Install-WindowsFeature -Name Windows-Defender}
-
 # Run ImageBuilder
 Write-Output "Running ImageBuilder"
 Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait
