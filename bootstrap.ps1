@@ -112,6 +112,7 @@ else {
     Set-Location $BUILD_DIR
     
     # Install Windows Defender if not installed
+    Write-Output "Installing Windows Defender"
     If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVersion -match "2016"){Install-WindowsFeature -Name Windows-Defender}
 
 }
