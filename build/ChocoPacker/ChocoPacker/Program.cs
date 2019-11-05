@@ -1,5 +1,6 @@
 using Amazon.S3;
 using Amazon.S3.Model;
+using S3Tag = Amazon.S3.Model.Tag;
 using Amazon.S3.Transfer;
 using Amazon.SimpleNotificationService;
 using Amazon.SimpleNotificationService.Model;
@@ -288,14 +289,23 @@ namespace ChocoPacker
             string package_dir = $"{this.system_drive}\\{package}";
             string local_nupkg = $"{package_dir}\\{package}.{package_config["Version"]}.nupkg";
             string s3_nupkg = $"packages/{branch}/{package}.{package_config["Version"]}.nupkg";
+            string tag1_name = "Temporary";
+            string tag1_value = "True";
+            
+            if (branch.Equals("master")) {   
+                tag1_value = "False";
+            }
 
             TransferUtility s3_transfer = new TransferUtility();
-
+            
             TransferUtilityUploadRequest upload_req = new TransferUtilityUploadRequest
             {
                 BucketName = this.package_bucket,
                 Key = s3_nupkg,
                 FilePath = local_nupkg,
+                TagSet = new List<S3Tag>{
+                    new S3Tag {Key = tag1_name, Value = tag1_value}
+                }
             };
 
             Console.WriteLine($"Uploading s3://{this.package_bucket}/{s3_nupkg}...");
