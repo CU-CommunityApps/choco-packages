@@ -144,10 +144,13 @@ namespace ImageBuilder
 
             try
             {
-                using (StreamWriter s = File.CreateText(REBOOT_LOCK))
+                if (!File.Exists(REBOOT_LOCK))
                 {
-                    s.Write("REBOOT");
-                    s.Close();
+                    using (StreamWriter s = File.CreateText(REBOOT_LOCK))
+                    {
+                        s.Write("REBOOT");
+                        s.Close();
+                    }
                 }
                 StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
             }
