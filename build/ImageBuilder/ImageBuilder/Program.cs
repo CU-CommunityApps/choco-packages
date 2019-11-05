@@ -34,6 +34,7 @@ namespace ImageBuilder
         private static string INSTALLED_LOCK = Path.Combine(TEMP_DIR, "INSTALLED.lock");
         private static string UPDATED_LOCK = Path.Combine(TEMP_DIR, "UPDATED.lock");
         private static string SNAPSHOT_LOCK = Path.Combine(TEMP_DIR, "SNAPSHOT.lock");
+        private static string REBOOT_LOCK = Path.Combine(TEMP_DIR, "REBOOT.lock");
 
         private static readonly ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -143,6 +144,11 @@ namespace ImageBuilder
 
             try
             {
+                using (StreamWriter s = File.CreateText(REBOOT_LOCK))
+                {
+                    s.Write("REBOOT");
+                    s.Close();
+                }
                 StopImageBuilderResponse resp = appstream.StopImageBuilder(req);
             }
             catch (Amazon.AppStream.Model.OperationNotPermittedException)
@@ -437,8 +443,12 @@ namespace ImageBuilder
             try
             {
                 this.InitiateEnvironment();
-
-                if (!File.Exists(INSTALLED_LOCK))
+                
+                if (!File.Exists(REBOOT_LOCK))
+                {
+                    this.RebootSystem();
+                }
+                else if (!File.Exists(INSTALLED_LOCK))
                 {
                     this.InstallPackages();
                     this.RebootSystem();
