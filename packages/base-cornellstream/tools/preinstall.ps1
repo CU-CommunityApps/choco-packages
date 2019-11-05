@@ -4,7 +4,7 @@
 $OSVersion = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
 
 # Enable Windows Defender
-If($OSVersion -match "2019")
+If($OSVersion -ge "2019")
 {
     # Enable WinDefend
     Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name DisableAntiSpyware -force -ErrorAction SilentlyContinue
