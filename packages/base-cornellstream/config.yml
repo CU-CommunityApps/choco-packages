@@ -1,5 +1,5 @@
 Id:             'base-cornellstream'
-Description:    'Base Items for Cornell Stream - buildtest1'
+Description:    'Base Items for Cornell Stream'
 Version:        '1.0.0'
 
 ChocoPackages:
