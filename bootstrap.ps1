@@ -15,7 +15,7 @@ $BUILDER_STDOUT_LOG = "$env:SystemDrive\builder-console.log"
 $BUILDER_STDERR_LOG = "$env:SystemDrive\builder-console-err.log"
 $SESSION_CONTENTS = Get-Content $SESSION_SCRIPTS | Out-String | ConvertFrom-Json
 $LONGPATH_KEY = "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
-$REBOOT_LOCK = "$ALLUSERSPROFILE\TEMP\REBOOT.lock"
+$REBOOT_LOCK = "$env:ALLUSERSPROFILE\TEMP\REBOOT.lock"
 $OSVERSION = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
 
 if (-Not (Test-Path $BUILD_DIR)) {
