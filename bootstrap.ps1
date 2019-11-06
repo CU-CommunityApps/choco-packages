@@ -1,7 +1,5 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$USER_DATA_URI = "http://169.254.169.254/latest/user-data"
-$BUCKET_PREFIX = "image-build"
 $BUILD_DIR = Join-Path $Env:TEMP "image-build"
 $PACKAGE_DIR = Join-Path $BUILD_DIR "packages"
 $CHOCO_REPO = "https://chocolatey.org/api/v2"
@@ -17,7 +15,8 @@ $BUILDER_STDOUT_LOG = "$env:SystemDrive\builder-console.log"
 $BUILDER_STDERR_LOG = "$env:SystemDrive\builder-console-err.log"
 $SESSION_CONTENTS = Get-Content $SESSION_SCRIPTS | Out-String | ConvertFrom-Json
 $LONGPATH_KEY = "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
-$OSVersion = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
+$OSVERSION = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
+
 
 if (-Not (Test-Path $BUILD_DIR)) {
 
@@ -74,7 +73,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing Sysinterals"
     Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y" -NoNewWindow -Wait
     
-    If($OSVersion -match "2016")
+    If($OSVERSION -match "2016")
     {
         # Enable Windows Defender
         Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" DisableAntiSpyware 0 -Force -ErrorAction SilentlyContinue
@@ -82,24 +81,35 @@ if (-Not (Test-Path $BUILD_DIR)) {
         # Uninstall Corrupt Windows Feature from AWS AMI
         Uninstall-WindowsFeature -Name Windows-Defender
     }
-    
+
     # Parse EC2 Metadata
-    Write-Output "Parsing EC2 Metadata"
-    $user_data = ((New-Object System.Net.WebClient).DownloadString($USER_DATA_URI)) | ConvertFrom-Json
-    Write-Output "User Data: $user_data"
-    $arn = $user_data.resourceArn.split(':')
-    $region = $arn[3]
-    $account = $arn[4]
-    $builder = $arn[5].split('/')[1].split('.')
-    $package_branch = $builder[1]
-    $build_id = $builder[2]
-    $bucket = "$BUCKET_PREFIX-$account-$region"
-    $build_package_uri = "https://s3.amazonaws.com/$bucket/packages/$package_branch/$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"
-    Write-Output "Build Id: $build_id; Package Branch: $package_branch; "
+    $user_data_uri = "http://169.254.169.254/latest/user-data"
+    $bucket_prefix = "image-build"
+    $user_data = (irm -Uri $user_data_uri).resourceARN
+    $region = $user_data.Split(":")[3]
+    $account = $user_data.Split(":")[4]
+    $build_id = $user_data.Split(":")[5].Split("/")[1]
+    $package_branch = $build_id.Split(".")[1]
+    $image_id = $build_id.Split(".")[2..$build_id.Split(".").Length] -join "."
+    $build_bucket = "$bucket_prefix-$account-$region"
+    $build_package_uri = "https://s3.amazonaws.com/$build_bucket/packages/$package_branch/$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"
     
+    # Parse Database
+    $build_bucket_uri = "https://$build_bucket.s3.amazonaws.com"
+    $api_uri = (irm -URI "$build_bucket_uri/api_endpoint.txt").Trim()
+    $api_headers = @{"Accept"="application/json"}
+    $api_post = @{
+        BuildId="$image_id"
+    }
+    $json = $api_post | ConvertTo-Json
+    $build_info = irm -URI "$api_uri/$bucket_prefix" -Headers $api_headers -Method POST -Body $json -ContentType "application/json"
+
+    # Set system level environment variable for manual processing
+    If ($build_info.Manual -eq $true){[System.Environment]::SetEnvironmentVariable("AoD_Manual", $true, 'Machine')}
+
     # Download ImageBuild Package
-    Write-Output "Downloading ImageBuilder Nupkg: $build_package_uri"
-    (New-Object System.Net.WebClient).DownloadFile($build_package_uri, (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"))
+    Write-Output "Downloading ImageBuilder Nupkg: $BUILD_PACKAGE_URI"
+    (New-Object System.Net.WebClient).DownloadFile($BUILD_PACKAGE_URI, (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"))
     
     # Install ImageBuilder
     Write-Output "Installing ImageBuilder Package"
@@ -110,12 +120,13 @@ else {
     
     # No Path set for SYSTEM so move to BUILD_DIR
     Set-Location $BUILD_DIR
-    
-    # Install Windows Defender if not installer
-    If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVersion -match "2016"){Write-Output "Installing Windows Defender";Install-WindowsFeature -Name Windows-Defender}
 
+    # Install Windows Defender if not installer
+    If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVERSION -match "2016"){Write-Output "Installing Windows Defender";Install-WindowsFeature -Name Windows-Defender}
 }
 
 # Run ImageBuilder
-Write-Output "Running ImageBuilder"
-Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait
+If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $true){
+    Write-Output "Running ImageBuilder"
+    Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait
+}
