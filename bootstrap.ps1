@@ -76,9 +76,9 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     If($OSVersion -match "2016")
     {
-        # Remove disable key
-        Remove-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name DisableAntiSpyware -Force -ErrorAction SilentlyContinue
-
+        # Enable Windows Defender
+        Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" DisableAntiSpyware 0 -Force -ErrorAction SilentlyContinue
+        
         # Uninstall Corrupt Windows Feature from AWS AMI
         Uninstall-WindowsFeature -Name Windows-Defender
     }
