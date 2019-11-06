@@ -73,9 +73,6 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing Sysinterals"
     Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y" -NoNewWindow -Wait
     
-    # Enable Windows Defender
-    If($OSVERSION -notmatch "2012"){Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" DisableAntiSpyware 0 -Force -ErrorAction SilentlyContinue}
-    
     # Uninstall Corrupt Windows Feature from AWS AMI
     If($OSVERSION -match "2016"){Uninstall-WindowsFeature -Name Windows-Defender}
     Else{New-Item $REBOOT_LOCK -Force}
@@ -115,12 +112,20 @@ if (-Not (Test-Path $BUILD_DIR)) {
 
 }
 else {
-    
     # No Path set for SYSTEM so move to BUILD_DIR
     Set-Location $BUILD_DIR
 
     # Install Windows Defender if not installer
-    If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVERSION -match "2016"){Write-Output "Installing Windows Defender";Install-WindowsFeature -Name Windows-Defender;Remove-Item $REBOOT_LOCK -Force -ErrorAction SilentlyContinue}
+    If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVERSION -match "2016"){
+        Write-Output "Installing Windows Defender"
+        
+        # Re-install Windows Defender
+        Install-WindowsFeature -Name Windows-Defender
+        
+        # Disable Windows Defender
+        Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" DisableAntiSpyware 1 -Force -ErrorAction SilentlyContinue
+        Remove-Item $REBOOT_LOCK -Force -ErrorAction SilentlyContinue
+    }
 }
 
 # Run ImageBuilder
