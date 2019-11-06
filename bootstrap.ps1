@@ -73,14 +73,11 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing Sysinterals"
     Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y" -NoNewWindow -Wait
     
-    If($OSVERSION -match "2016")
-    {
-        # Enable Windows Defender
-        Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" DisableAntiSpyware 0 -Force -ErrorAction SilentlyContinue
-        
-        # Uninstall Corrupt Windows Feature from AWS AMI
-        Uninstall-WindowsFeature -Name Windows-Defender
-    }
+    # Enable Windows Defender
+    If($OSVERSION -notmatch "2012"){Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" DisableAntiSpyware 0 -Force -ErrorAction SilentlyContinue}
+    
+    # Uninstall Corrupt Windows Feature from AWS AMI
+    If($OSVERSION -match "2016"){Uninstall-WindowsFeature -Name Windows-Defender}
     Else{New-Item $REBOOT_LOCK -Force}
 
     # Parse EC2 Metadata
