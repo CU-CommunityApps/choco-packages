@@ -15,8 +15,8 @@ $BUILDER_STDOUT_LOG = "$env:SystemDrive\builder-console.log"
 $BUILDER_STDERR_LOG = "$env:SystemDrive\builder-console-err.log"
 $SESSION_CONTENTS = Get-Content $SESSION_SCRIPTS | Out-String | ConvertFrom-Json
 $LONGPATH_KEY = "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
+$REBOOT_LOCK = "$ALLUSERSPROFILE\TEMP\REBOOT.lock"
 $OSVERSION = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
-
 
 if (-Not (Test-Path $BUILD_DIR)) {
 
@@ -81,6 +81,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
         # Uninstall Corrupt Windows Feature from AWS AMI
         Uninstall-WindowsFeature -Name Windows-Defender
     }
+    Else{New-Item $REBOOT_LOCK -Force}
 
     # Parse EC2 Metadata
     $user_data_uri = "http://169.254.169.254/latest/user-data"
