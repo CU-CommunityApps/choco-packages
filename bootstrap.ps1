@@ -123,7 +123,7 @@ else {
     Set-Location $BUILD_DIR
 
     # Install Windows Defender if not installer
-    If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVERSION -match "2016"){Write-Output "Installing Windows Defender";Install-WindowsFeature -Name Windows-Defender}
+    If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVERSION -match "2016"){Write-Output "Installing Windows Defender";Install-WindowsFeature -Name Windows-Defender;Remove-Item $REBOOT_LOCK -Force -ErrorAction SilentlyContinue}
 }
 
 # Run ImageBuilder
