@@ -12,17 +12,6 @@ ChocoPackages:
   - PackageName:    'googlechrome'
     InstallParams:  ''
 
-# Install:
-#  - File:       '%INSTALL_DIR%\SCEPInstall.exe'
-#    FileType:   'exe'
-#    Arguments:  '/s /q /policy %INSTALL_DIR%\SCEPpolicy.xml'
-#    ExitCodes:  [0]
-
-#  - File:       '%INSTALL_DIR%\papercut\pc-client-admin-deploy.msi'
-#    FileType:   'msi'
-#    Arguments:  '/qn /norestart ALLUSERS=1'
-#    ExitCodes:  [0]
-
 Applications:
     7zip:
         DisplayName:    '7-Zip'
