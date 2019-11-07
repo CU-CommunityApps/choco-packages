@@ -126,3 +126,8 @@ Registry:
             DisableFirstRunCustomize:
                 Type:   'DWORD'
                 Value:  '1'
+                
+        SYSTEM\CurrentControlSet\Control\TimeZoneInformation:
+             TimeZoneKeyName:
+                 Type:   'String'
+                 Value:  'Eastern Standard Time'
