@@ -399,7 +399,7 @@ namespace ChocoPacker
                     this.PutChocoPackage(branch, package, package_config);
 
                     this.CleanupPackage(branch, package, package_config);
-                    this.AlertSuccess(branch, package);
+                    if (!package_fail){this.AlertSuccess(branch, package);}
                     Console.WriteLine(" ");
                     Console.WriteLine($"SUCCESS: Built {package}");
                 }
