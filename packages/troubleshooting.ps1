@@ -25,7 +25,7 @@
 #>
 [CmdletBinding()]
 Param(
-    [Parameter(Mandatory=$true,Position=1,HelpMessage="S3 bucket name containing .nupkg files")]
+    [Parameter(Mandatory=$false,Position=1,HelpMessage="S3 bucket name containing .nupkg files")]
     [ValidateNotNullOrEmpty()]
     [string]$s3,
     [Parameter(Mandatory=$false,Position=2,HelpMessage="Application name")]
@@ -35,6 +35,32 @@ Param(
     [ValidateNotNullOrEmpty()]
     [string]$branch
 )
+
+try {
+    
+    Write-Host "Checking system for bucket information..."
+
+    $user_data_uri = "http://169.254.169.254/latest/user-data"
+    $bucket_prefix = "image-build"
+    $user_data = (irm -Uri $user_data_uri).resourceARN
+    $region = $user_data.Split(":")[3]
+    $account = $user_data.Split(":")[4]
+    $build_id = $user_data.Split(":")[5].Split("/")[1]
+    $package_branch = $build_id.Split(".")[1]
+    $image_id = $build_id.Split(".")[2..$build_id.Split(".").Length] -join "."
+    $s3 = "$bucket_prefix-$account-$region"
+
+    Write-Host "Bucket found, $s3" -ForegroundColor Green
+
+}
+catch{
+    
+    Write-Host "System is not an AppStream Image Builder!" -ForegroundColor Red
+    $s3 = Read-Host "Enter S3 package bucket name"
+
+    Do{$ans = Read-Host "You entered $s3, is this correct (ie. y or n)?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "yes"))
+
+}
 
 # Must run in Administrator Mode
 Write-Host "Checking admin mode..." -ForegroundColor Yellow
