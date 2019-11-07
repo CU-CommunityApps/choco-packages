@@ -5,8 +5,8 @@ Version:        '1.1.0'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autocad2020.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
-    ExitCodes:  [0,1641]
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autocad-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    ExitCodes:  [0, 1641]
 
 Applications:
     autocad:
