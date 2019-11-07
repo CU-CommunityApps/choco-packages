@@ -346,7 +346,7 @@ namespace ChocoPacker
                 PublishResponse publishResponse = snsClient.Publish(publishRequest);
 
                 // Print the MessageId of the published message.
-                Console.WriteLine("Sending success build SNS; MessageId: " + publishResponse.MessageId);
+                Console.WriteLine($"Sending success build SNS for {package}; MessageId: " + publishResponse.MessageId);
             }
         }
 
@@ -356,7 +356,7 @@ namespace ChocoPacker
             PublishResponse publishResponse = snsClient.Publish(publishRequest);
 
             // Print the MessageId of the published message.
-            Console.WriteLine("Sending failed build SNS; MessageId: " + publishResponse.MessageId);
+            Console.WriteLine($"Sending failed build SNS for {package}; MessageId: " + publishResponse.MessageId);
             package_fail = true;
         }
 
