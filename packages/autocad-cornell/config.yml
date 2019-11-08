@@ -1,12 +1,12 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad 2020 - buildtest'
-Version:        '1.0.1'
+Description:    'AutoCad 2020'
+Version:        '1.1.0'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\Autocad2020.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
-    ExitCodes:  [0,1641]
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autocad-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    ExitCodes:  [0, 1641]
 
 Applications:
     autocad:
@@ -17,9 +17,6 @@ Applications:
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
-
-Services:
-    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
 
 Registry:
 
