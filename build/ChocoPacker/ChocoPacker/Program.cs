@@ -26,7 +26,7 @@ namespace ChocoPacker
         private string temp_dir = Environment.GetEnvironmentVariable("TEMP");
         private string system_drive = Environment.GetEnvironmentVariable("SYSTEMDRIVE");
         private string src_dir = Environment.GetEnvironmentVariable("CODEBUILD_SRC_DIR");
-        private string src_version = Environment.GetEnvironmentVariable("CODEBUILD_SOURCE_VERSION");
+        private string src_version = Environment.GetEnvironmentVariable("CODEBUILD_RESOLVED_SOURCE_VERSION");
         private string src_repo = Environment.GetEnvironmentVariable("CODEBUILD_SOURCE_REPO_URL").Replace(".git","");
 
         private bool package_fail = false;
