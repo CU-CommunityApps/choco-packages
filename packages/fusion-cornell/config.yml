@@ -1,5 +1,5 @@
 Id:             'fusion-cornell'
-Description:    'Autodesk Fusion 360 - buildtest'
+Description:    'Autodesk Fusion 360 - buildtest1'
 Version:        '2.0.6658'
 
 Install:
@@ -14,4 +14,3 @@ Applications:
         Path:           '%PROGRAMFILES%\Autodesk\webdeploy\production\6a0c9611291d45bb9226980209917c3d\FusionLauncher.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
