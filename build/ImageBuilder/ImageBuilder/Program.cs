@@ -135,8 +135,8 @@ namespace ImageBuilder
 
         private void RebootSystem()
         {
-            this.PutCloudWatchLog("Rebooting in 5 min");
-            Thread.Sleep(300000);
+            this.PutCloudWatchLog("Rebooting in 2 min");
+            Thread.Sleep(120000);
             this.PutCloudWatchLog("Requesting Image Builder Stop...");
 
             StopImageBuilderRequest req = new StopImageBuilderRequest();
