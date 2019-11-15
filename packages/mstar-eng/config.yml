@@ -1,0 +1,41 @@
+Id:             'mstar-eng'                ## Application package name ie. chrome-cornell
+Description:    'mstar-eng'    ## Application packages description
+Version:        '2.4.34'                     ## Application version number - MUST BE in #.# format
+
+Install:                                    ## If there are installation files in a .zip to be installed, specify here
+  - File:       '%INSTALL_DIR%\msmpisdk.msi'   ## Installation file
+    FileType:   'msi'                       ## exe or msi are the only options currently
+    Arguments:  '/q'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success
+    
+  - File:       '%INSTALL_DIR%\setup.exe'   ## Multiple installation files require '-' to specify an array of apps are to be installed
+    FileType:   'exe'                       
+    Arguments:  '-s'        
+    ExitCodes:  [0]                         
+
+  - File:       '%INSTALL_DIR%\mstarcfd-2.4.34-windows.msi'   ## Multiple installation files require '-' to specify an array of apps are to be installed
+    FileType:   'msi'                       
+    Arguments:  '/q'        
+    ExitCodes:  [0]      
+
+  - File:       '%INSTALL_DIR%\ParaView.exe'   ## Multiple installation files require '-' to specify an array of apps are to be installed
+    FileType:   'exe'                       
+    Arguments:  '/S'        
+    ExitCodes:  [0]        
+    
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    mstarsolve:                                                      ## This must match the icons.png file name
+        DisplayName:    'M-Star Solve'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\M-Star CFD\mstar-solve-gui.exe'          ## The path to the app
+        LaunchParams:   ''                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
+
+    mstarpre:                                                      ## This must match the icons.png file name
+        DisplayName:    'M-Star Pre'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\M-Star CFD\mstar-gui.exe'          ## The path to the app
+        LaunchParams:   ''                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
+Files:                                                                  ## File copy feature
+    '%INSTALL_DIR%\08-Dec-2019.lic': '%PROGRAMFILES%\M-Star CFD\08-Dec-2019.lic'
+    '%INSTALL_DIR%\Cornell_PG_dye_particles.msb': '%PROGRAMFILES%\M-Star CFD\Cornell_PG_dye_particles.msb'    ## Source directory to destination directory
+
