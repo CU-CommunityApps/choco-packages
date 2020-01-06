@@ -1,0 +1,13 @@
+Id:             'googledrivefilestream-cornell'                ## Application package name ie. chrome-cornell
+Description:    'GoogleDriveFileStream'    ## Application packages description
+Version:        '35.0.13.0'                     ## Application version number - MUST BE in #.# format
+
+ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
+  - PackageName:    'google-drive-file-stream'     ## Package name - https://chocolatey.org/packages - ie. adobereader
+  
+Applications:
+    GoogleDriveFileStream:
+        DisplayName:    'Google Drive File Stream'
+        Path:           '%PROGRAMFILES%\Google\Drive File Stream\35.0.13.0\GoogleDriveFS.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
