@@ -36,5 +36,5 @@ Applications:                                                       ## Applicati
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\08-Dec-2019.lic': '%PROGRAMFILES%\M-Star CFD\08-Dec-2019.lic'
+    '%INSTALL_DIR%\cornell-ls64.rlmcloud.com.lic': '%PROGRAMFILES%\M-Star CFD\cornell-ls64.rlmcloud.com.lic'
     '%INSTALL_DIR%\Cornell_PG_dye_particles.msb': '%PROGRAMFILES%\M-Star CFD\Cornell_PG_dye_particles.msb'    ## Source directory to destination directory
