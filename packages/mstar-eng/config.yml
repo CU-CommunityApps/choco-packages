@@ -3,10 +3,15 @@ Description:    'mstar-eng2'    ## Application packages description
 Version:        '2.4.34'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
+  - File:       '%INSTALL_DIR%\msmpisetup.exe'   ## Installation file
+    FileType:   'exe'                       ## exe or msi are the only options currently
+    Arguments:  '-unattend -minimal'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success                   
+
   - File:       '%INSTALL_DIR%\msmpisdk.msi'   ## Installation file
     FileType:   'msi'                       ## exe or msi are the only options currently
-    Arguments:  '/q'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]                         ## Exit codes - returns a success                   
+    Arguments:  '/quiet /qn /norestart'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success       
 
   - File:       '%INSTALL_DIR%\mstarcfd-2.4.34-windows.msi'   ## Multiple installation files require '-' to specify an array of apps are to be installed
     FileType:   'msi'                       
