@@ -8,15 +8,10 @@ Install:                                    ## If there are installation files i
     Arguments:  '/quiet /qn /norestart'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success       
 
-  - File:       '%INSTALL_DIR%\mstarcfd-2.5.47-windows.msi'   ## Multiple installation files require '-' to specify an array of apps are to be installed
+  - File:       '%INSTALL_DIR%\mstarcfd-2.4.34-windows.msi'   ## Multiple installation files require '-' to specify an array of apps are to be installed
     FileType:   'msi'                       
     Arguments:  '/q'        
     ExitCodes:  [0]      
-
-  - File:       '%INSTALL_DIR%\cuda\setup.exe'   ## Multiple installation files require '-' to specify an array of apps are to be installed
-    FileType:   'exe'                       
-    Arguments:  '/s'        
-    ExitCodes:  [0]  
     
   - File:       '%INSTALL_DIR%\ParaView.exe'   ## Multiple installation files require '-' to specify an array of apps are to be installed
     FileType:   'exe'                       
