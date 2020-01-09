@@ -1,6 +1,6 @@
 Id:             'mstar-eng'                ## Application package name ie. chrome-cornell
 Description:    'mstar-eng2'    ## Application packages description
-Version:        '2.5.47'                     ## Application version number - MUST BE in #.# format
+Version:        '2.4.34'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify he 
   - File:       '%INSTALL_DIR%\msmpisdk.msi'   ## Installation file
