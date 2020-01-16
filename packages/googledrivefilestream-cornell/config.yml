@@ -11,3 +11,7 @@ Applications:
         Path:           '%PROGRAMFILES%\Google\Drive File Stream\35.0.13.0\GoogleDriveFS.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
+Scripts:                                                ## AppStream session scripts feature
+    start:                                              ## Startup / Logon trigger
+        User:    '%INSTALL_DIR%\Tools\some_script.ps1'      ## Runs at user logon
