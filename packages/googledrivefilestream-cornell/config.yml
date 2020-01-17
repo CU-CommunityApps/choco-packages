@@ -14,5 +14,4 @@ Applications:
         
 Scripts:                                                ## AppStream session scripts feature
     start:                                              ## Startup / Logon trigger
-        User:    '%INSTALL_DIR%\tools\startup.ps1'      ## Runs at user logon
-        System:  '%INSTALL_DIR%\tools\startup.ps1'  ## Run at system startup
+        User:    '%INSTALL_DIR%\tools\startup.ps1'      ## Runs at user logo
