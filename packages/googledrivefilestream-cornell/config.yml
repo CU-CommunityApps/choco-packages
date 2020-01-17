@@ -12,6 +12,5 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
         
-Scripts:                                                ## AppStream session scripts feature
-    start:                                              ## Startup / Logon trigger
-        System:    '%TOOLS_DIR%\startup.ps1'      ## Runs at user logo
+ScheduledTasks:             ## Create any custom scheduled tasks
+    - 'GoogleDriveFileStream'     ## Name of exported scheduled task in .xml format in the /tools directory with UTF-8 encoding
