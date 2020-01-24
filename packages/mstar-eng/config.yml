@@ -38,5 +38,5 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
         
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\02-Feb-2020.lic': '%PROGRAMFILES%\M-Star CFD\02-Feb-2020.lic'
+    '%INSTALL_DIR%\cornell-ls64.rlmcloud.com.lic': '%PROGRAMFILES%\M-Star CFD\cornell-ls64.rlmcloud.com.lic'
     '%INSTALL_DIR%\Cornell_PG_dye_particles.msb': '%PROGRAMFILES%\M-Star CFD\Cornell_PG_dye_particles.msb'    ## Source directory to destination directory
