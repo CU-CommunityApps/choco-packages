@@ -421,7 +421,15 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             }
         }
     }
-
+    
+    Function PostInstall {
+    
+        # Run Postinstall PowerShell script
+        Write-Output "Running postinstall.ps1..."
+        Invoke-Expression $(Join-Path "$TOOLS_DIR" 'postinstall.ps1')
+        
+    }
+    
     # Only run config.yml sections if specified
     If ($CONFIG.Environment){EnvVars}
     If ($CONFIG.ChocoPackages){Choco}
@@ -430,16 +438,19 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     If ($CONFIG.Files){Files}
     If ($CONFIG.Services){Services}
     If ($CONFIG.ScheduledTasks){SchedTask}
-    If ($CONFIG.Scripts){SessionScripts}
-    If ($CONFIG.Applications){AppCatalog}
+    
+    # Only run if package install is on an AppStream resource
+    If ($ENV:AppStream_Resource_Type){
+        If ($CONFIG.Scripts){SessionScripts}
+        If ($CONFIG.Applications){AppCatalog}
+        
+        PostInstall        
 
-    # Run Postinstall PowerShell script
-    Write-Output "Running postinstall.ps1..."
-    Invoke-Expression $(Join-Path "$TOOLS_DIR" 'postinstall.ps1')
-
-    # Remove any files that might have been added to the Startup directory
-    Write-Output "Removing any startup files"
-    Remove-Item -Recurse -Force "$STARTUP"
+        # Remove any files that might have been added to the Startup directory
+        Write-Output "Removing any startup files"
+        Remove-Item -Recurse -Force "$STARTUP"
+    }
+    Else {PostInstall}    
 
     # Remove all installation files from disk
     if ((Test-Path $INSTALL_DIR) -and ($Mode.ToLower() -ne 't')) {
