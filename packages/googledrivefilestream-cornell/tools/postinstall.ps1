@@ -2,5 +2,8 @@
 SCHTASKS /DELETE /TN "GoogleUpdateTaskMachineUA" /F
 SCHTASKS /DELETE /TN "GoogleUpdateTaskMachineCore" /F
 Stop-process -processname GoogleUpdate
-"C:\Program Files (x86)\Google\Update\GoogleUpdate.exe /uninstall" 
 Rename-Item "C:\Program Files (x86)\Google\Update" -NewName noup
+Stop-Service gupdate
+Set-Service gupdate -StartupType Disabled
+Stop-Service gupdatem
+Set-Service gupdatem -StartupType Disabled
