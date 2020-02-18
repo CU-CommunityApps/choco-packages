@@ -1,5 +1,5 @@
 Id:             'maya-cornell'
-Description:    'maya-cornell - buildtest2'
+Description:    'maya-cornell - buildtest3'
 Version:        '12.0.77.3'
 
 Install:
@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Environment:
-    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+    ADSKFLEX_LICENSE_FILE: '%MAYA_LICENSE_FILE%'
     
 Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
