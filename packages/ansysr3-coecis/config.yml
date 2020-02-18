@@ -1,11 +1,11 @@
 Id:             'ansysr3-coecis'
-Description:    'ANSYS R3 - COECIS'
+Description:    'ANSYS R3 - COECIS-r2'
 Version:        '19.3'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent -licserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
+    Arguments:  '-silent'
     ExitCodes:  [0]
 
 Applications:
@@ -18,3 +18,4 @@ Applications:
 Files: 
     '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v195\ApipUserConfig.txt'
     '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v195\commonfiles\CAD\CADConfigurationInfo.XML'
+    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
