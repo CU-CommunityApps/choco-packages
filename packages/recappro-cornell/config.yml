@@ -23,4 +23,4 @@ Applications:
         WorkDir:        ''
 
 Environment:
-    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+    ADSKFLEX_LICENSE_FILE: '%RECAP_LICENSE_FILE%'
