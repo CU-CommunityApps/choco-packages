@@ -1,5 +1,5 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad 2020'
+Description:    'AutoCad 2020 - COECIS LICENSE2'
 Version:        '1.1.0'
 
 Install:
@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Environment:
-    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
 
 Registry:
 
