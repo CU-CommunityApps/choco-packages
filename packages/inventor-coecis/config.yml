@@ -1,5 +1,5 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2020 - COECIS LICENSE'
+Description:    'Autodesk Inventor 2020 - COECIS LICENSE2a'
 Version:        '2020.0'
 
 Install:
@@ -20,7 +20,7 @@ Files:
     '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2020\UserApplicationOptions.xml'
 
 Environment:
-    ADSKFLEX_LICENSE_FILE: '27200@autodesk-lic.coecis.cornell.edu'
+    ADSKFLEX_LICENSE_FILE: '%INVENTOR_LICENSE_FILE%'
 
 Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
