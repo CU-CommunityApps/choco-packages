@@ -1,5 +1,5 @@
 Id:             'rstudio-cornell'
-Description:    'RStudio - buildtest'
+Description:    'RStudio - buildtest1'
 Version:        '1.2.5019'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
