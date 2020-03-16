@@ -440,7 +440,8 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     If ($CONFIG.ScheduledTasks){SchedTask}
     
     # Only run if package install is on an AppStream resource
-    If ($ENV:AppStream_Resource_Type){
+    If ($env:AoD_Manual){
+        write-output "AppStream Resource"
         If ($CONFIG.Scripts){SessionScripts}
         If ($CONFIG.Applications){AppCatalog}
         
@@ -450,7 +451,10 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
         Write-Output "Removing any startup files"
         Remove-Item -Recurse -Force "$STARTUP"
     }
-    Else {PostInstall}    
+    Else {
+        write-output "Not AppStream resource"
+        PostInstall
+    }   
 
     # Remove all installation files from disk
     if ((Test-Path $INSTALL_DIR) -and ($Mode.ToLower() -ne 't')) {
