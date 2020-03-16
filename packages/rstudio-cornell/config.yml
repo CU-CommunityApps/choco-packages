@@ -1,9 +1,9 @@
 Id:             'rstudio-cornell'
-Description:    'RStudio - buildtest'
-Version:        '1.2.1335'
+Description:    'RStudio - buildtest1'
+Version:        '1.2.5033'
 
-ChocoPackages:
-    - 'r.studio'
+ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
+  - PackageName:    'r.studio'     ## Package name - https://chocolatey.org/packages - ie. adobereader
 
 Applications:
     rstudio:

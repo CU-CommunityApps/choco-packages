@@ -398,9 +398,11 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
         
         $app_entry = "INSERT INTO Applications (Name, AbsolutePath, DisplayName, IconFilePath, LaunchParameters, WorkingDirectory) VALUES (@name, @path, @display, @icon, @params, @workdir)"
         $applications = ($CONFIG.Applications | Get-Member -MemberType NoteProperty).Name
+        write-output "$applications"
         
         foreach ($application in $applications) {
-            Write-Output "Creating App Catalog Entry for $($application.DisplayName)"
+            Write-Output "$application"
+            Write-Output "Creating App Catalog Entry for $CONFIG.Applications.$application.DisplayName"
             
             $app_icon_src = [io.path]::combine($TOOLS_DIR, 'icons', "$application.png")
             $app_icon = Join-Path "$APP_ICONS" "$application.png"
@@ -421,7 +423,15 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             }
         }
     }
-
+    
+    Function PostInstall {
+    
+        # Run Postinstall PowerShell script
+        Write-Output "Running postinstall.ps1..."
+        Invoke-Expression $(Join-Path "$TOOLS_DIR" 'postinstall.ps1')
+        
+    }
+    
     # Only run config.yml sections if specified
     If ($CONFIG.Environment){EnvVars}
     If ($CONFIG.ChocoPackages){Choco}
@@ -430,16 +440,23 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     If ($CONFIG.Files){Files}
     If ($CONFIG.Services){Services}
     If ($CONFIG.ScheduledTasks){SchedTask}
-    If ($CONFIG.Scripts){SessionScripts}
-    If ($CONFIG.Applications){AppCatalog}
+    
+    # Only run if package install is on an AppStream resource
+    If ($ENV:AppStream_Resource_Type){
+        write-output "AppStream Resource"
+        If ($CONFIG.Scripts){SessionScripts}
+        If ($CONFIG.Applications){AppCatalog}
+        
+        PostInstall        
 
-    # Run Postinstall PowerShell script
-    Write-Output "Running postinstall.ps1..."
-    Invoke-Expression $(Join-Path "$TOOLS_DIR" 'postinstall.ps1')
-
-    # Remove any files that might have been added to the Startup directory
-    Write-Output "Removing any startup files"
-    Remove-Item -Recurse -Force "$STARTUP"
+        # Remove any files that might have been added to the Startup directory
+        Write-Output "Removing any startup files"
+        Remove-Item -Recurse -Force "$STARTUP"
+    }
+    Else {
+        write-output "Not AppStream resource"
+        PostInstall
+    }    
 
     # Remove all installation files from disk
     if ((Test-Path $INSTALL_DIR) -and ($Mode.ToLower() -ne 't')) {

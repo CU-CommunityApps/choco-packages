@@ -15,7 +15,7 @@ Applications:
     MATLAB:
         DisplayName:    'MATLAB R2019a'
         Path:           '%PROGRAMFILES%\MATLAB\R2019a\bin\matlab.exe'
-        LaunchParams:   ''
+        LaunchParams:   '-useStartupFolderPref "C:\Users\PhotonUser\My Files"'
         WorkDir:        ''
 
 Files: 
