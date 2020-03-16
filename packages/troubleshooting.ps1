@@ -67,6 +67,7 @@ Write-Host "Checking admin mode..." -ForegroundColor Yellow
 If ([bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") -ne $true){Write-Host "Please run app tests in Administrative mode" -ForegroundColor Red;exit 1}
 Write-Host "Installing pre-reqs..." -ForegroundColor Yellow
 # Download and install Chocolatey
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 # Add choco.exe to user path
 $env:Path += "$env:ALLUSERSPROFILE\chocolatey\bin"
