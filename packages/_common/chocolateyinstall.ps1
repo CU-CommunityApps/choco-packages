@@ -400,7 +400,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
         $applications = ($CONFIG.Applications | Get-Member -MemberType NoteProperty).Name
         
         foreach ($application in $applications) {
-            Write-Output "Creating App Catalog Entry for $($application.DisplayName)"
+            Write-Output "Creating App Catalog Entry for $($CONFIG.Applications.$application.DisplayName)"
             
             $app_icon_src = [io.path]::combine($TOOLS_DIR, 'icons', "$application.png")
             $app_icon = Join-Path "$APP_ICONS" "$application.png"
