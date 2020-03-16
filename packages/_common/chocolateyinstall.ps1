@@ -398,9 +398,11 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
         
         $app_entry = "INSERT INTO Applications (Name, AbsolutePath, DisplayName, IconFilePath, LaunchParameters, WorkingDirectory) VALUES (@name, @path, @display, @icon, @params, @workdir)"
         $applications = ($CONFIG.Applications | Get-Member -MemberType NoteProperty).Name
+        write-output "$applications"
         
         foreach ($application in $applications) {
-            Write-Output "Creating App Catalog Entry for $($application.DisplayName)"
+            Write-Output "$application"
+            Write-Output "Creating App Catalog Entry for $CONFIG.Applications.$application.DisplayName"
             
             $app_icon_src = [io.path]::combine($TOOLS_DIR, 'icons', "$application.png")
             $app_icon = Join-Path "$APP_ICONS" "$application.png"
@@ -441,6 +443,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
     
     # Only run if package install is on an AppStream resource
     If ($ENV:AppStream_Resource_Type){
+        write-output "AppStream Resource"
         If ($CONFIG.Scripts){SessionScripts}
         If ($CONFIG.Applications){AppCatalog}
         
@@ -450,7 +453,10 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
         Write-Output "Removing any startup files"
         Remove-Item -Recurse -Force "$STARTUP"
     }
-    Else {PostInstall}    
+    Else {
+        write-output "Not AppStream resource"
+        PostInstall
+    }    
 
     # Remove all installation files from disk
     if ((Test-Path $INSTALL_DIR) -and ($Mode.ToLower() -ne 't')) {
