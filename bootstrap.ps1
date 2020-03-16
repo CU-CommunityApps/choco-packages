@@ -101,6 +101,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
 
     # Set system level environment variable for manual processing
     If ($build_info.Manual -eq $true){[System.Environment]::SetEnvironmentVariable("AoD_Manual", $true, 'Machine')}
+    Else {[System.Environment]::SetEnvironmentVariable("AoD_Manual", $false, 'Machine')}
 
     # Download ImageBuild Package
     Write-Output "Downloading ImageBuilder Nupkg: $BUILD_PACKAGE_URI"
