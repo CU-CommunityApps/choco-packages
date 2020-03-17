@@ -5,7 +5,7 @@ Version:        '5.4.0'                     ## Application version number - MUST
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
-    Arguments:  '-silent %INSTALL_DIR%\mysetupconfig.ini'        ## Silent installation switches/parmeters
+    Arguments:  '-s %INSTALL_DIR%\mysetupconfig.ini'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success                 
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
