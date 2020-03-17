@@ -1,0 +1,17 @@
+Id:             'comsol-coecis'                ## Application package name ie. chrome-cornell
+Description:    'Comsol Multiphysics'    ## Application packages description
+Version:        '5.4.0'                     ## Application version number - MUST BE in #.# format
+
+Install:                                    ## If there are installation files in a .zip to be installed, specify here
+  - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
+    FileType:   'exe'                       ## exe or msi are the only options currently
+    Arguments:  '-s %INSTALL_DIR%\mysetupconfig.ini'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success                 
+
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    comsol:                                                      ## This must match the icons.png file name
+        DisplayName:    'Comsol Multiphysics'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\COMSOL\COMSOL54\Multiphysics\comsol.exe'          ## The path to the app
+        LaunchParams:   ''                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
+
