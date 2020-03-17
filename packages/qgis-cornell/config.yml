@@ -1,5 +1,5 @@
 Id:             'qgis-cornell'
-Description:    'qgis-cornell - buildtest'
+Description:    'qgis-cornell'
 Version:        '3.12.0'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
