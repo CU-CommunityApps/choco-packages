@@ -1,5 +1,5 @@
 Id:             'tortoisesvn-cornell'
-Description:    'tortoisesvn-cornell - buildtest2'
+Description:    'tortoisesvn-cornell'
 Version:        '1.13.1.28686'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
