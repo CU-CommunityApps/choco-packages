@@ -1,7 +1,11 @@
 Id:             'atom-cornell'
 Description:    'Atom'
-Version:        '1.34.0'
+Version:        '1.45.0'
 
+ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
+  - PackageName:    'atom'     ## Package name - https://chocolatey.org/packages - ie. adobereader
+    InstallParams:  '-s'      ## Install args to pass to the native installer in the package. Defaults to unspecified.
+                                            ## Leave blank '' if no parameters to pass
 Applications:
     atom:
         DisplayName:    'Atom'
@@ -11,5 +15,5 @@ Applications:
 
 Files:
     '%TOOLS_DIR%\config.cson': '%SYSTEMDRIVE%\Users\Default\.atom\config.cson'
-    '%INSTALL_DIR%\Atom':      '%PROGRAMFILES%\Atom\Atom'
+    '%INSTALL_DIR%\atom':      '%PROGRAMFILES%\Atom\atom'
     '%INSTALL_DIR%\app':       '%PROGRAMFILES%\Atom\app'
