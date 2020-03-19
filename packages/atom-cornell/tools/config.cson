@@ -1,3 +1,7 @@
 "*":
   core:
     uriHandlerRegistration: "never"
+  editor:
+    showIndentGuide: true
+    showInvisibles: true
+    tabLength: 4
