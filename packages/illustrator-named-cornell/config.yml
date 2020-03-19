@@ -1,0 +1,23 @@
+Id:             'illustrator-cornell'
+Description:    'Adobe Illustrator CC 2020'
+Version:        '24.0.2'
+
+Install:
+    File:       '%INSTALL_DIR%\Build\setup.exe'
+    FileType:   'exe'
+    Arguments:  '--silent'
+    ExitCodes:  [0]
+
+Applications:
+    illustrator: 
+        DisplayName:    'Adobe Illustrator CC 2020'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Illustrator CC 2020\Support Files\Contents\Windows\illustrator.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+Registry:
+    HKUD:
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings:
+            DisableCachingOfSSLPages:
+                Type:   'DWORD'
+                Value:  '0'

@@ -1,6 +1,6 @@
 Id:             'acrobat-cornell'
 Description:    'Adobe Acrobat DC'
-Version:        '2018.011.20035'
+Version:        '20.0'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
@@ -15,3 +15,9 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
         
+Registry:
+    HKUD:
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings:
+            DisableCachingOfSSLPages:
+                Type:   'DWORD'
+                Value:  '0'
