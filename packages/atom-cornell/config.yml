@@ -1,6 +1,6 @@
 Id:             'atom-cornell'
 Description:    'Atom'
-Version:        '1.34.0'
+Version:        '1.45.0'
 
 Applications:
     atom:
