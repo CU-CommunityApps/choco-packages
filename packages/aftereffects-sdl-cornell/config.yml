@@ -10,8 +10,8 @@ Install:
 
 Applications:
     aftereffects: 
-        DisplayName:    'Adobe After Effects CC 2020'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects CC 2020\Support Files\AfterFX.exe'
+        DisplayName:    'Adobe After Effects 2020'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects 2020\Support Files\AfterFX.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
