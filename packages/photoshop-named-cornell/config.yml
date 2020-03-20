@@ -10,8 +10,8 @@ Install:
 
 Applications:
     photoshop: 
-        DisplayName:    'Adobe Photoshop CC 2020'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop CC 2020\photoshop.exe'
+        DisplayName:    'Adobe Photoshop 2020'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop 2020\photoshop.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
