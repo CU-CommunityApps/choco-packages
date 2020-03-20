@@ -12,4 +12,4 @@ Applications:
 Files:
     '%TOOLS_DIR%\config.cson': '%SYSTEMDRIVE%\Users\Default\.atom\config.cson'
     '%INSTALL_DIR%\atom':      '%PROGRAMFILES%\Atom\atom'
-    '%INSTALL_DIR%\app':       '%PROGRAMFILES%\Atom\app'
+    '%INSTALL_DIR%\app-1.45.0':       '%PROGRAMFILES%\Atom\app-1.45.0'
