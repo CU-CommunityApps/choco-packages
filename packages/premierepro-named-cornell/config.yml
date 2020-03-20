@@ -10,8 +10,8 @@ Install:
 
 Applications:
     premierepro: 
-        DisplayName:    'Adobe Premiere Pro CC 2020'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro CC 2020\Adobe Premiere Pro.exe'
+        DisplayName:    'Adobe Premiere Pro 2020'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro 2020\Adobe Premiere Pro.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
