@@ -10,8 +10,8 @@ Install:
 
 Applications:
     indesign: 
-        DisplayName:    'Adobe InDesign CC 2020'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign CC 2020\InDesign.exe'
+        DisplayName:    'Adobe InDesign 2020'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign 2020\InDesign.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
