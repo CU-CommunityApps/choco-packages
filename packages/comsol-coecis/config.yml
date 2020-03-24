@@ -15,3 +15,5 @@ Applications:                                                       ## Applicati
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
+Files:
+    '%TOOLS_DIR%\comsol.prefs': '%SYSTEMDRIVE%\Users\Default\.comsol\v54\comsol.prefs' # comsol.prefs default settings
