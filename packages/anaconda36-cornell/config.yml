@@ -9,9 +9,9 @@ Install:
     ExitCodes:  [0]
 
 Applications:
-    anaconda:
-        DisplayName:    'Anaconda'
-        Path:           '%PROGRAMFILES%\Anaconda\Scripts\anaconda-navigator.exe'
+    powershell:
+        DisplayName:    'Powershell'
+        Path:           '%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
