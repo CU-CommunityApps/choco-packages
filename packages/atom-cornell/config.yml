@@ -5,7 +5,7 @@ Version:        '1.45.0'
 Applications:
     atom:
         DisplayName:    'Atom'
-        Path:           '%PROGRAMFILES%\Atom\Atom\atom.exe'
+        Path:           '%PROGRAMFILES%\Atom\atom.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
