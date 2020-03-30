@@ -12,12 +12,7 @@ Install:                                    ## If there are installation files i
     FileType:   'msi'                       
     Arguments:  '/q'        
     ExitCodes:  [0]      
-    
-  - File:       '%INSTALL_DIR%\ParaView.exe'   ## Multiple installation files require '-' to specify an array of apps are to be installed
-    FileType:   'exe'                       
-    Arguments:  '/S'        
-    ExitCodes:  [0]        
-    
+
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     mstarsolve:                                                      ## This must match the icons.png file name
         DisplayName:    'M-Star Solve'                ## How the app displayed to the user
@@ -28,12 +23,6 @@ Applications:                                                       ## Applicati
     mstarpre:                                                      ## This must match the icons.png file name
         DisplayName:    'M-Star Pre'                ## How the app displayed to the user
         Path:           '%PROGRAMFILES%\M-Star CFD\mstar-gui.exe'          ## The path to the app
-        LaunchParams:   ''                     ## Launch parameters for the app
-        WorkDir:        '' ## Working directory
-        
-    paraview:                                                      ## This must match the icons.png file name
-        DisplayName:    'ParaView'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\ParaView 5.4.1-Qt5-OpenGL2-Windows-64bit\bin\paraview.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
         
