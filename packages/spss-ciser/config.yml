@@ -5,7 +5,7 @@ Version:        '25.0'
 Install:
     File:       '%INSTALL_DIR%\SPSS_Statistics_25_win64.exe'
     FileType:   'exe'
-    Arguments:  '/S /quiet /log %SYSTEMDRIVE%\spsslogs\install.log'
+    Arguments:  '/S /quiet /log "%SYSTEMDRIVE%\spsslogs\install.log"'
     ExitCodes:  [0]
 
 Applications:
