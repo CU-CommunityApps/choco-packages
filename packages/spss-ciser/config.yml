@@ -3,7 +3,7 @@ Description:    'SPSS Statistics'
 Version:        '25.0'
 
 Install:
-    File:       '%INSTALL_DIR%\IBM SPSS Statistics 25.msi'
+    File:       '%INSTALL_DIR%\IBM_SPSS_Statistics_25.msi'
     FileType:   'msi'
     Arguments:  '/qn'
     ExitCodes:  [0]
