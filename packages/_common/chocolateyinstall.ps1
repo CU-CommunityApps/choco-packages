@@ -516,7 +516,7 @@ Function Troubleshoot($CHOCO_BUCKET, $App) {
             # Search chocolatey directories for specified app
             #$paths = "$env:ALLUSERSPROFILE\chocolatey\lib", "$env:ALLUSERSPROFILE\chocolatey\lib-bad"
             $paths = "$env:USERPROFILE\Desktop"
-            $paths | % {If (Test-Path "$_\*$App*"){$TOOLS_DIR = (gci "$_\*$App*" -Directory).FullName;write-host $TOOLS_DIR}}
+            $paths | % {If (Test-Path "$_\*$App.*"){$TOOLS_DIR = (gci "$_\*$App.*" -Directory).FullName;write-host $TOOLS_DIR}}
             
             # Choose app from the list
             If (!($TOOLS_DIR)){
