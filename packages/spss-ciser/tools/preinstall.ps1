@@ -1,3 +1,2 @@
 # Runs before the choco package is installed
-
-New-Item -ItemType directory -Force -Path C:\spsslogs
+Start-Process "$env:INSTALL_DIR\vcredist_x64.exe" -ArgumentList "/q /norestart" -Wait
