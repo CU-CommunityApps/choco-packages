@@ -1,12 +1,12 @@
 Id:             'spss-ciser'
-Description:    'SPSS Statistics - buildtest'
+Description:    'SPSS Statistics'
 Version:        '25.0'
 
 Install:
-    File:       '%INSTALL_DIR%\SPSS_Statistics_25_win64.exe'
-    FileType:   'exe'
-    Arguments:  '/S /V/qn /L*v'
-    ExitCodes:  [0, 1622]
+    File:       '%INSTALL_DIR%\IBM SPSS Statistics 25.msi'
+    FileType:   'msi'
+    Arguments:  '/qn'
+    ExitCodes:  [0]
 
 Applications:
     spss:
