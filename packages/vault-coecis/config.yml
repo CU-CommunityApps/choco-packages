@@ -1,0 +1,45 @@
+Id:             'vault-coecis'
+Description:    'Vault 2020 - COECIS'
+Version:        '25.0.66'
+
+Install:
+    File:       '%INSTALL_DIR%\Img\setup.exe'
+    FileType:   'exe'
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\Vault_2020.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    ExitCodes:  [0]
+
+Applications:
+    vault:
+        DisplayName:    'Autodesk Vault Professional'
+        Path:           '%PROGRAMFILES%\Autodesk\Vault Professional 2020\Explorer\Connectivity.VaultPro.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
+
+Registry:
+
+    HKUD:
+        SOFTWARE\Autodesk\MC3:
+            ADAOptIn:
+                Type:   'DWORD'
+                Value:  '0'
+                
+            ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+            OverridedByHKLM:
+                Type:   'DWORD'
+                Value:  '0'
+                
+    HKLM:
+        Software\Autodesk\MC3:
+            HKLMADAOptin:
+                Type:   'DWORD'
+                Value:  '0'
+
+            HKLMADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
