@@ -7,7 +7,7 @@
     <Catia6 Installed="True" Reader="True" Configured="True" />
     <CreoElementsDirect Installed="True" Reader="False" Configured="False" />
     <CreoParametric Installed="True" Reader="True" Configured="True" />
-    <Inventor Installed="True" Reader="False" Configured="False" />
+    <Inventor Installed="True" Reader="False" Configured="True" />
     <JTOpen Installed="True" Reader="True" Configured="True" />
     <NX Installed="True" Reader="True" Configured="True" />
     <SolidEdge Installed="True" Reader="True" Configured="True" />
