@@ -75,7 +75,7 @@ namespace ChocoPacker
         {
             List<string> packages = new List<string>();
             packages.Add("image-builder-cornell");
-            packages.Add("base-cornellstream")
+            packages.Add("base-cornellstream");
 
             using (StringReader reader = new StringReader(diffs))
             {
