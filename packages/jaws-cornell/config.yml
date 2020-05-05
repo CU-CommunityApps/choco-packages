@@ -3,7 +3,7 @@ Description:    'jaws-cornell'    ## Application packages description
 Version:        '2018.1811.30'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\J2020.2004.66.400-any.exe'   ## Installation file
+  - File:       '%INSTALL_DIR%\J2018.1811.30.400-enu-x64.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '/Type Silent'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success                   
