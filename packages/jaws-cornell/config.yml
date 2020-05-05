@@ -16,4 +16,4 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Environment:                                            ## Create custom environment variables
-    LSFORCEHOST: 'JAWS_LICENSE_FILE'     ## Variable Name: Value
+    LSFORCEHOST: '%JAWS_LICENSE_KEY%'     ## Variable Name: Value
