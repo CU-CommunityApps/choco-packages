@@ -1,6 +1,6 @@
-Id:             'ansysr3-coecis'
-Description:    'ANSYS R3 - COECIS-r2 - buildtest'
-Version:        '19.3'
+Id:             'ansys2020-coecis'
+Description:    'ANSYS 2020 R1 '
+Version:        '20.1.0.13095'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -10,12 +10,12 @@ Install:
 
 Applications:
     ANSYSWB:
-        DisplayName:    'Workbench 2019 R3'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v195\Framework\bin\Win64\RunWB2.exe'
+        DisplayName:    'Workbench 2020 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v201\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v195\ApipUserConfig.txt'
-    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v195\commonfiles\CAD\CADConfigurationInfo.XML'
+    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v201\ApipUserConfig.txt'
+    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v201\commonfiles\CAD\CADConfigurationInfo.XML'
     '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
