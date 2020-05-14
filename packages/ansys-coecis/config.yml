@@ -1,6 +1,6 @@
 Id:             'ansys-coecis'
 Description:    'ANSYS 2020 R1 - buildtest 1 '
-Version:        '20.1.0.13095'
+Version:        '20.1.0'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
