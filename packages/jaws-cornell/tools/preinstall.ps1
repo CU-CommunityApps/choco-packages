@@ -4,6 +4,6 @@
 Start-Process "$INSTALL_DIR\vcredist2010_x86.exe" -ArgumentList "/quiet /norestart" -Wait
 Start-Process "$INSTALL_DIR\vcredist2010_x64.exe" -ArgumentList "/quiet /norestart" -Wait
 
-# Install prereq's 2010
+# Install prereq's 2013
 Start-Process "$INSTALL_DIR\vcredist2013_x86.exe" -ArgumentList "/quiet /norestart" -Wait
 Start-Process "$INSTALL_DIR\vcredist2013_x64.exe" -ArgumentList "/quiet /norestart" -Wait
