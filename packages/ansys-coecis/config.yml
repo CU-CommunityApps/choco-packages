@@ -1,26 +1,21 @@
 Id:             'ansys-coecis'
-Description:    'ANSYS - COECIS License - buildtesting'
-Version:        '19.2'
+Description:    'ANSYS 2020 R1 - buildtest 2'
+Version:        '20.1.0'
 
 Install:
-  - File:       '%INSTALL_DIR%\setup.exe'
-    FileType:   'exe'
-    Arguments:  '-silent -licserverinfo 2325:1055:ansys-lic.coecis.cornell.edu'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\patch\setup.exe'
-    FileType:   'exe'
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe' 
     Arguments:  '-silent'
     ExitCodes:  [0]
-    
+
 Applications:
     ANSYSWB:
-        DisplayName:    'Workbench 2019 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v194\Framework\bin\Win64\RunWB2.exe'
+        DisplayName:    'Workbench 2020 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v201\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v194\ApipUserConfig.txt'
-    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v194\commonfiles\CAD\CADConfigurationInfo.XML'
-
+    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v201\ApipUserConfig.txt'
+    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v201\commonfiles\CAD\CADConfigurationInfo.XML'
+    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
