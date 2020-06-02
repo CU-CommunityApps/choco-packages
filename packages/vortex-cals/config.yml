@@ -13,16 +13,10 @@ Applications:                                                       ## Applicati
         DisplayName:    'Vortex Adaptive Manger'                ## How the app displayed to the user
         Path:           '%Program Files(x86)%\Species Conservation Toolkit Initiative\Vortex10\AMVortex.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
-        WorkDir:        'g:\' ## Working directory
-
-    eddy:                                                      ## This must match the icons.png file name
-        DisplayName:    'Eddy'                ## How the app displayed to the user
-        Path:           '%Program Files(x86)%\Species Conservation Toolkit Initiative\Vortex10\Eddy.exe'          ## The path to the app
-        LaunchParams:   ''                     ## Launch parameters for the app
-        WorkDir:        'g:\' ## Working directory
+        WorkDir:        '' ## Working directory
 
     vortex10:                                                      ## This must match the icons.png file name
         DisplayName:    'Vortex10'                ## How the app displayed to the user
         Path:           '%Program Files(x86)%\Species Conservation Toolkit Initiative\Vortex10\Eddy.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
-        WorkDir:        'g:\' ## Working directory
+        WorkDir:        '' ## Working directory
