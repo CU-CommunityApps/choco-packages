@@ -1,17 +1,17 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad 2020 - COECIS LICENSE2 - buildtest'
+Description:    'AutoCad 2021 - COECIS LICENSE2 - buildtest'
 Version:        '1.1.0'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autocad-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autocad2021.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  [0, 1641]
 
 Applications:
     autocad:
-        DisplayName:    'AutoCAD 2020'
-        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2020\acad.exe'
+        DisplayName:    'AutoCAD 2021'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2021\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
