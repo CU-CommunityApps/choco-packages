@@ -10,7 +10,7 @@ Install:
 
 Applications:
     Inventor:
-        DisplayName:    'Inventor 2020'
+        DisplayName:    'Inventor 2021'
         Path:           '%PROGRAMFILES%\Autodesk\Inventor 2021\Bin\Inventor.exe'
         LaunchParams:   ''
         WorkDir:        ''
