@@ -1,6 +1,6 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad 2021 - COECIS LICENSE2 - buildtest'
-Version:        '1.1.0'
+Description:    'AutoCad 2021 - COECIS LICENSE'
+Version:        '47.0.0'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
