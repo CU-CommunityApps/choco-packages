@@ -1,6 +1,6 @@
 Id:             'inventor-coecis'
 Description:    'Autodesk Inventor 2021 - COECIS LICENSE'
-Version:        '2020.0'
+Version:        '2021.0'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
