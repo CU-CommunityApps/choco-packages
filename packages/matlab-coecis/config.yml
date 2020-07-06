@@ -1,6 +1,6 @@
 Id:             'matlab-coecis'
-Description:    'Matlab R2019a - COECIS License'
-Version:        '9.6.0.1072779'
+Description:    'Matlab R2020a - COECIS License'
+Version:        '9.8.0.1298242'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -13,15 +13,15 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2019a'
-        Path:           '%PROGRAMFILES%\MATLAB\R2019a\bin\matlab.exe'
+        DisplayName:    'MATLAB R2020a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2020a\bin\matlab.exe'
         LaunchParams:   '-useStartupFolderPref "C:\Users\PhotonUser\My Files"'
         WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
-    '%TOOLS_DIR%\toolbox_cache-9.6.0-423811562-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2019A\toolbox_cache-9.6.0-423811562-win64.xml'
-    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2019A\graphicsState.bin'
+    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2020A\toolbox_cache-9.8.0-69619083-win64.xml'
+    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2020A\graphicsState.bin'
 
 Environment:
     MATLABPATH: '%PUBLIC%\MATLAB'
