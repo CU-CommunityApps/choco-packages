@@ -1,6 +1,6 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2019 - COECIS License - buildtest'
-Version:        '27.3.0.52'
+Description:    'SOLIDWORKS 2020 - COECIS License'
+Version:        '28.3.0.0086'
 
 Install:
     File:       '%INSTALL_DIR%\startswinstall.exe'
@@ -10,7 +10,7 @@ Install:
 
 Applications:
     SLDWORKS:
-        DisplayName:    'SOLIDWORKS 2019'
+        DisplayName:    'SOLIDWORKS 2020'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
         WorkDir:        ''
