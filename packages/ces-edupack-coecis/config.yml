@@ -3,7 +3,7 @@ Description:    'CES Edupack 2020 - COECIS License - buildtest 1'
 Version:        '20.1.0.0'
 
 Install:
-  - File:       '%INSTALL_DIR%\edupack_setup2020.exe'
+  - File:       '%INSTALL_DIR%\edupack_setup.2020.exe'
     FileType:   'exe'
     Arguments:  '/quiet'
     ExitCodes:  [0]
