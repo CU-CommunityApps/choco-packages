@@ -1,7 +1,9 @@
 "*":
   core:
-    uriHandlerRegistration: "never"
+    telemetryConsent: "no"
+    uriHandlerRegistration: "always"
   editor:
     showIndentGuide: true
-    showInvisibles: true
     tabLength: 4
+  "exception-reporting":
+    userId: "f14bc667-26dd-4c3c-9717-c9d83371aa9f"
