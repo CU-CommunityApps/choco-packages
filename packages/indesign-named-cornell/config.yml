@@ -1,6 +1,6 @@
 Id:             'indesign-named-cornell'
 Description:    'Adobe InDesign CC 2020'
-Version:        '15.0.2'
+Version:        '15.1.1'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
