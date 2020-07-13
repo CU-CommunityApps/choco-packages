@@ -1,6 +1,6 @@
 Id:             'illustrator-named-cornell'
 Description:    'Adobe Illustrator 2020'
-Version:        '24.0.2'
+Version:        '24.2.1'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
