@@ -1,6 +1,6 @@
 Id:             'inverse-cornell'
 Description:    'inverse-cornell - buildtest'
-Version:        '2.0'
+Version:        '3.0'
 
 Applications:
     inverse:
