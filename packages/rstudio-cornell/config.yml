@@ -1,10 +1,11 @@
 Id:             'rstudio-cornell'
 Description:    'RStudio'
-Version:        '1.2.5033'
+Version:        '1.3.959'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
   - PackageName:    'r.studio'     ## Package name - https://chocolatey.org/packages - ie. adobereader
-
+    InstallParams:  ''      ## Install args to pass to the native installer in the package. Defaults to unspecified.
+                                            ## Leave blank '' if no parameters to pass
 Applications:
     rstudio:
         DisplayName:    'RStudio'
