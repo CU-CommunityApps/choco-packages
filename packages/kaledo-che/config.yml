@@ -1,0 +1,42 @@
+Id:             'kaledo-che'
+Description:    'Lectra Kaledo'
+Version:        '4.3.6'
+
+Install:
+  - File:       '%INSTALL_DIR%\KaledoKnitV4R1sp10.exe'
+    FileType:   'exe'
+    Arguments:  '/S /v/qn'
+    ExitCodes:  [0]
+    
+  - File:       '%INSTALL_DIR%\KaledoStyleV4R1sp10.exe'
+    FileType:   'exe'
+    Arguments:  '/S /v/qn'
+    ExitCodes:  [0]
+    
+  - File:       '%INSTALL_DIR%\KaledoWeaveV4R1sp10.exe'
+    FileType:   'exe'
+    Arguments:  '/S /v/qn'
+    ExitCodes:  [0]
+
+Applications:
+    kaledoknit:
+        DisplayName:    'Kaledo Knit'
+        Path:           '%PROGRAMFILES(X86)%\Lectra\KaledoKnit\KaledoKnit.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    kaledoweave:
+        DisplayName:    'Kaledo Weave'
+        Path:           '%PROGRAMFILES(X86)%\Lectra\KaledoWeave\KaledoWeave.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    kaledostyle:
+        DisplayName:    'Kaledo Style'
+        Path:           '%PROGRAMFILES(X86)%\Lectra\Kaledo Style\bin\KaledoStyle.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\WeaveKnitLic\licloc.txt': '%ALLUSERSPROFILE\Lectra\Config\KaledoWeaveKnit\licloc.txt'
+    '%INSTALL_DIR%\StyleLic\licloc.txt': '%ALLUSERSPROFILE\Lectra\Config\KaledoStyle\licloc.txt'
