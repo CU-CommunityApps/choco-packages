@@ -1,0 +1,52 @@
+Id:             'clo3d-che'
+Description:    'clo3d-che'
+Version:        '5.0.100.38285'
+
+Applications:
+    clo3d:
+        DisplayName:    'CLO3d'
+        Path:           '%PROGRAMFILES%\CLO3d\CLO_Network_OnlineAuth_x64.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+Files:
+    '%INSTALL_DIR%\CLO3d': '%PROGRAMFILES%\CLO3d'
+    '%INSTALL_DIR%\CLO':   '%PUBLIC%\Documents\CLO'
+
+Registry:
+    HKUD:
+        SOFTWARE\CLO Network OnlineAuth\Welcome:
+            don't show again:
+                Type:   'string'
+                Value:  'true'
+        SOFTWARE\CLO Network OnlineAuth\Login Info:
+            saveIDCheck:
+                Type:   'string'
+                Value:  'true'
+            savePWDCheck:
+                Type:   'string'
+                Value:  'true'
+            saveID:
+                Type:   'string'
+                Value:  '2daaadaaad9aadaaa4ad3a5a1d4a7afdaead'
+            savePassword:
+                Type:   'string'
+                Value:  '5dc5aa7dadadedaa1addeaaaaaa3a5aa'
+            isLogin:
+                Type:   'string'
+                Value:  'true'
+            UseFirewall:
+                Type:   'string'
+                Value:  'false'
+            UseOfflineAuth:
+                Type:   'string'
+                Value:  'false'
+            autoDeactivateLicense:
+                Type:   'string'
+                Value:  'true'
+            saveProxyInfo:
+                Type:   'string'
+                Value:  'false'
+            successfulDNS:
+                Type:   'string'
+                Value:  'api.clo3d.com'
