@@ -1,5 +1,5 @@
 Id:             'clo3d-che'
-Description:    'clo3d-che - buildtest'
+Description:    'CLO3d'
 Version:        '5.0.100.38285'
 
 Applications:
@@ -61,10 +61,10 @@ Registry:
                 Value:  'true'
             saveID:
                 Type:   'string'
-                Value:  '2daaadaaad9aadaaa4ad3a5a1d4a7afdaead'
+                Value:  '%CLO3D_SAVED_ID%'
             savePassword:
                 Type:   'string'
-                Value:  '5dc5aa7dadadedaa1addeaaaaaa3a5aa'
+                Value:  '%CLO3D_SAVED_PW%'
             isLogin:
                 Type:   'string'
                 Value:  'true'
