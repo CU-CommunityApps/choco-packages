@@ -19,7 +19,40 @@ Registry:
             don't show again:
                 Type:   'string'
                 Value:  'true'
-        SOFTWARE\CLO Network OnlineAuth\Login Info:
+        SOFTWARE\CLO Network OnlineAuth\Graphic Option:
+            registryVersion:
+                Type:   'DWORD'
+                Value:  '1'
+            viewShadow:
+                Type:   'string'
+                Value:  'true'
+            useShader:
+                Type:   'string'
+                Value:  'true'
+            useVBOs:
+                Type:   'string'
+                Value:  'true'
+            samples:
+                Type:   'DWORD'
+                Value:  '4'
+            useNormalBump:
+                Type:   'string'
+                Value:  'true'
+            turnOffOption:
+                Type:   'string'
+                Value:  'true'
+        SOFTWARE\CLO Network OnlineAuth\preference\Etc:
+            Unit:
+                Type:   'string'
+                Value:  'mm'
+            NotchDisplayType:
+                Type:   'string'
+                Value:  'true'
+        SOFTWARE\CLO Network OnlineAuth\preference:
+            PrevGuideImageDisplayVersion:
+                Type:   'string'
+                Value:  '5.0.100'
+        SOFTWARE\CLO Network OnlineAuth\Login Info: # cached creds for app authentication
             saveIDCheck:
                 Type:   'string'
                 Value:  'true'
