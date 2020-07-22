@@ -38,5 +38,5 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\WeaveKnitLic\licloc.txt': '%ALLUSERSPROFILE\Lectra\Config\KaledoWeaveKnit\licloc.txt'
-    '%INSTALL_DIR%\StyleLic\licloc.txt': '%ALLUSERSPROFILE\Lectra\Config\KaledoStyle\licloc.txt'
+    '%INSTALL_DIR%\WeaveKnitLic\licloc.txt': '%ALLUSERSPROFILE%\Lectra\Config\KaledoWeaveKnit\licloc.txt'
+    '%INSTALL_DIR%\StyleLic\licloc.txt': '%ALLUSERSPROFILE%\Lectra\Config\KaledoStyle\licloc.txt'
