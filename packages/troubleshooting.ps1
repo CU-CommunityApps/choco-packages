@@ -73,8 +73,8 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 $env:Path += "$env:ALLUSERSPROFILE\chocolatey\bin"
 # Upgrade chocolatey to latest version
 Invoke-Expression "choco.exe upgrade -y chocolatey"
-# Install 7-zip
-Invoke-Expression "choco.exe install -y 7zip"
+# Install git, notepad++ and 7-zip
+Invoke-Expression "choco.exe install -y git notepadplusplus 7zip"
 # Install required powershell modules
 If ((Get-Module powershell-yaml, pssqlite).Count -eq 2){Write-Host "Powershell modules already installed" -ForegroundColor Green}
 Else {Install-PackageProvider -Name nuget -MinimumVersion 2.8.5.201 -Force;Install-Module powershell-yaml -Force; Install-Module pssqlite -Force; Import-Module powershell-yaml -Force; Import-Module pssqlite -Force}
