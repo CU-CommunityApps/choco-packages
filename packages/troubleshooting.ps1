@@ -73,8 +73,8 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 $env:Path += "$env:ALLUSERSPROFILE\chocolatey\bin"
 # Upgrade chocolatey to latest version
 Invoke-Expression "choco.exe upgrade -y chocolatey"
-# Install 7-zip
-Invoke-Expression "choco.exe install -y 7zip"
+# Install git, notepad++ and 7-zip
+Invoke-Expression "choco.exe install -y git notepadplusplus 7zip"
 # Install required powershell modules
 If ((Get-Module powershell-yaml, pssqlite).Count -eq 2){Write-Host "Powershell modules already installed" -ForegroundColor Green}
 Else {Install-PackageProvider -Name nuget -MinimumVersion 2.8.5.201 -Force;Install-Module powershell-yaml -Force; Install-Module pssqlite -Force; Import-Module powershell-yaml -Force; Import-Module pssqlite -Force}
@@ -131,14 +131,12 @@ Function troubleshoot($package, $branch, $version) {
     $output = "$env:USERPROFILE\Desktop\$package.$version.nupkg"
     $extract = "$env:USERPROFILE\Desktop\$package.$version"
 
-    # If the file doesn't exist, download from S3 bucket
-    If (!(test-path $output)){
-        try{
-            $URI = "https://$s3.s3.amazonaws.com/packages/$branch/$package.$version.nupkg"
-            Start-BitsTransfer -Source $URI -Destination $output -ErrorAction Stop
-        }
-        catch{Write-Host "$package.$version has not been built yet or does not exist, commit to github and wait for successful build, then try again! Verify your IP address is within the approved range as well..." -ForegroundColor Red;branches}
+    # Always download latest version
+    try{
+        $URI = "https://$s3.s3.amazonaws.com/packages/$branch/$package.$version.nupkg"
+        Start-BitsTransfer -Source $URI -Destination $output -ErrorAction Stop
     }
+    catch{Write-Host "$package.$version has not been built yet or does not exist, commit to github and wait for successful build, then try again! Verify your IP address is within the approved range as well..." -ForegroundColor Red;branches}
 
     # Cache process to disk if file is greater than 2GB
     If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install -y $output --force --debug --cache-location=C:\Temp"}
