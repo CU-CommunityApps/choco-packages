@@ -57,21 +57,6 @@ Install:
     FileType:   'msi'
     Arguments:  '/qn /norestart'
     ExitCodes:  [0,3010]
-
-#   - File:       '%INSTALL_DIR%\KaledoKnitV4R1sp10.exe'
-#     FileType:   'exe'
-#     Arguments:  '/S /v/qn/norestart'
-#     ExitCodes:  [0,3010]
-    
-#   - File:       '%INSTALL_DIR%\KaledoStyleV4R1sp10.exe'
-#     FileType:   'exe'
-#     Arguments:  '/S /v/qn/norestart'
-#     ExitCodes:  [0,3010]
-    
-#   - File:       '%INSTALL_DIR%\KaledoWeaveV4R1sp10.exe'
-#     FileType:   'exe'
-#     Arguments:  '/S /v/qn/norestart'
-#     ExitCodes:  [0,3010]
     
 Applications:
     kaledoknit:
