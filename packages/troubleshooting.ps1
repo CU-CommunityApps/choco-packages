@@ -131,14 +131,12 @@ Function troubleshoot($package, $branch, $version) {
     $output = "$env:USERPROFILE\Desktop\$package.$version.nupkg"
     $extract = "$env:USERPROFILE\Desktop\$package.$version"
 
-    # If the file doesn't exist, download from S3 bucket
-    If (!(test-path $output)){
-        try{
-            $URI = "https://$s3.s3.amazonaws.com/packages/$branch/$package.$version.nupkg"
-            Start-BitsTransfer -Source $URI -Destination $output -ErrorAction Stop
-        }
-        catch{Write-Host "$package.$version has not been built yet or does not exist, commit to github and wait for successful build, then try again! Verify your IP address is within the approved range as well..." -ForegroundColor Red;branches}
+    # Always download latest version
+    try{
+        $URI = "https://$s3.s3.amazonaws.com/packages/$branch/$package.$version.nupkg"
+        Start-BitsTransfer -Source $URI -Destination $output -ErrorAction Stop
     }
+    catch{Write-Host "$package.$version has not been built yet or does not exist, commit to github and wait for successful build, then try again! Verify your IP address is within the approved range as well..." -ForegroundColor Red;branches}
 
     # Cache process to disk if file is greater than 2GB
     If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install -y $output --force --debug --cache-location=C:\Temp"}

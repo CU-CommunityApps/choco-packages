@@ -3,6 +3,7 @@ Description:    'Lectra Kaledo - Knit, Weave and Style V4R1'
 Version:        '4.3.6'
 
 Install:
+<<<<<<< HEAD
   - File:       '%INSTALL_DIR%\KaledoDesignContent.msi'
     FileType:   'msi'
     Arguments:  '/qn /norestart'
@@ -58,6 +59,23 @@ Install:
     Arguments:  '/qn /norestart'
     ExitCodes:  [0,3010]
 
+=======
+  - File:       '%INSTALL_DIR%\KaledoKnitV4R1sp10.exe'
+    FileType:   'exe'
+    Arguments:  '/S /v/qn/norestart'
+    ExitCodes:  [0,3010]
+    
+  - File:       '%INSTALL_DIR%\KaledoStyleV4R1sp10.exe'
+    FileType:   'exe'
+    Arguments:  '/S /v/qn/norestart'
+    ExitCodes:  [0,3010]
+    
+  - File:       '%INSTALL_DIR%\KaledoWeaveV4R1sp10.exe'
+    FileType:   'exe'
+    Arguments:  '/S /v/qn/norestart'
+    ExitCodes:  [0,3010]
+    
+>>>>>>> 17b741814dc0166ff7da2742c347a5a6487c3db3
 Applications:
     kaledoknit:
         DisplayName:    'Kaledo Knit'
