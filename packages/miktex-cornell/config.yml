@@ -1,16 +1,13 @@
 Id:             'miktex-cornell'
-Description:    'miktex-cornell - buildtest1'
-Version:        '2.9.7031'
+Description:    'miktex-cornell'
+Version:        '20.6.29'
 
-Install:
-    File:       '%INSTALL_DIR%\basic-miktex-2.9.7031-x64.exe'
-    FileType:   'exe'
-    Arguments:  '--unattended install'
-    ExitCodes:  [0]
+ChocoPackages:
+  - PackageName:    'miktex'
 
 Applications:
     miktex:
         DisplayName:    'miktex'
-        Path:           '%PROGRAMFILES%\MiKTeX 2.9\miktex\bin\x64\miktex-console.exe'
+        Path:           '%PROGRAMFILES%\MiKTeX\miktex\bin\x64\miktex-console.exe'
         LaunchParams:   ''
         WorkDir:        ''
