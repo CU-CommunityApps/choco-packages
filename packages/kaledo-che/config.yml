@@ -3,54 +3,19 @@ Description:    'Lectra Kaledo - Knit, Weave and Style V4R1'
 Version:        '4.3.6'
 
 Install:
-  - File:       '%INSTALL_DIR%\Kaledo Weave V4R1.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
+  - File:       '%INSTALL_DIR%\KaledoKnitV4R1sp10.exe'
+    FileType:   'exe'
+    Arguments:  '/S /v/qn/norestart'
     ExitCodes:  [0,3010]
     
-  - File:       '%INSTALL_DIR%\Kaledo Style V4R1.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
+  - File:       '%INSTALL_DIR%\KaledoStyleV4R1sp10.exe'
+    FileType:   'exe'
+    Arguments:  '/S /v/qn/norestart'
     ExitCodes:  [0,3010]
     
-  - File:       '%INSTALL_DIR%\Kaledo Knit V4R1.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0,3010]
-    
-  - File:       '%INSTALL_DIR%\KaledoDesignContent.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0,3010]
-    
-  - File:       '%INSTALL_DIR%\LectraYarns.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0,3010]
-    
-  - File:       '%INSTALL_DIR%\ButtonBox.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0,3010]
-    
-  - File:       '%INSTALL_DIR%\EManager.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0,3010]
-    
-  - File:       '%INSTALL_DIR%\LectraFLEXid.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0,3010]
-    
-  - File:       '%INSTALL_DIR%\LectraFLEXnetLM.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0,3010]
-    
-  - File:       '%INSTALL_DIR%\Modaservice.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
+  - File:       '%INSTALL_DIR%\KaledoWeaveV4R1sp10.exe'
+    FileType:   'exe'
+    Arguments:  '/S /v/qn/norestart'
     ExitCodes:  [0,3010]
     
 Applications:
