@@ -22,3 +22,10 @@ Applications:
 
 Services: 
     McNeelUpdate: 'Disabled'
+
+Registry:               ## Registry values to be copied to each streaming instance
+   HKUD:               ## Use for typical Current User settings to apply to all users in AppStream
+        SOFTWARE\McNeel\Rhinoceros\5.0\Global Options\Privacy:
+            RhinoSplash.UsageStatsEnabledDialog Shown:
+                Type:   'String'
+                Value:  'no'
