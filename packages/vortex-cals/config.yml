@@ -1,5 +1,5 @@
 Id:             'vortex-cals'                ## Application package name ie. chrome-cornell
-Description:    'vortex-cals'    ## Application packages description
+Description:    'vortex-cals - build2'    ## Application packages description
 Version:        '10.4.1'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
