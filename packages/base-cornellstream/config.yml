@@ -63,6 +63,11 @@ Files:
     
 Registry:
     HKUD:
+        Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced: # Show file extensions
+            HideFileExt:
+                Type:   'DWORD'
+                Value:  '0'
+            
         Software\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
             ComponentID:
                 Type:   'String'
