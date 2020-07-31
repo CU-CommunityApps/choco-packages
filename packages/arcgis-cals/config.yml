@@ -62,3 +62,6 @@ Applications:
         Path:           '%PROGRAMFILES(x86)%\ArcGIS\Desktop10.8\bin\ArcCatalog.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\Desktop10.8': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\ESRI\Desktop10.8'
