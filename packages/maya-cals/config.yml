@@ -1,0 +1,48 @@
+Id:             'maya-cals'
+Description:    'maya-cals'
+Version:        '12.0.77.3'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-i deploy --silent -o %INSTALL_DIR%\Maya_all_NetworkLicense_deployment.xml'
+    ExitCodes:  [0,1641]
+
+Applications:
+    maya:
+        DisplayName:    'Maya'
+        Path:           '%PROGRAMFILES%\Autodesk\Maya2020\bin\maya.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%MAYA_LICENSE_FILE%'
+    
+Services:
+    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
+
+Registry:
+
+    HKUD:
+        SOFTWARE\Autodesk\MC3:
+            ADAOptIn:
+                Type:   'DWORD'
+                Value:  '0'
+                
+            ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+            OverridedByHKLM:
+                Type:   'DWORD'
+                Value:  '0'
+                
+    HKLM:
+        Software\Autodesk\MC3:
+            HKLMADAOptin:
+                Type:   'DWORD'
+                Value:  '0'
+
+            HKLMADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
