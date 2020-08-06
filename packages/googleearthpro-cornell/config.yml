@@ -1,12 +1,6 @@
 Id:             'googleearthpro-cornell'
 Description:    'googleearthpro-buildtest2'
-Version:        '7.3.3'
-
-Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\googleearthprowin-7.3.3-x64.exe'   ## Installation file
-    FileType:   'exe'                       ## exe or msi are the only options currently
-    Arguments:  '-OMAHA=1'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]                         ## Exit codes - returns a success                      
+Version:        '7.3.3'      
 
 Applications:
     googleearthpro:
