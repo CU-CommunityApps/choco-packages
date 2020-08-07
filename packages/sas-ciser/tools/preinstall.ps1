@@ -111,8 +111,8 @@ $DEPOT_HOME="$INSTALL_DIR\products"
 :: --------------------------------------------------------------------------------
 :: Microsoft Office Access Database Engine 2010 (REQUIRED)
 #>
-Start-Process "$DEPOT_HOME\ace__99140__prt__xx__sp0__1\w32\native\AccessDatabaseEngine.exe" -ArgumentList "/quiet /norestart" -Wait
-Start-Process "$DEPOT_HOME\ace__99140__prt__xx__sp0__1\wx6\native\AccessDatabaseEngine_X64.exe" -ArgumentList "/quiet /norestart" -Wait
+Start-Process "msiexec" -ArgumentList "/i $DEPOT_HOME\ace__99140__prt__xx__sp0__1\w32\native\AceRedist.msi /qn /norestart" -Wait
+Start-Process "msiexec" -ArgumentList "/i $DEPOT_HOME\ace__99140__prt__xx__sp0__1\wx6\native\AceRedist_x64.msi /qn /norestart" -Wait
 <#
 :: --------------------------------------------------------------------------------
 :: Microsoft Runtime Components 2013 (REQUIRED)
