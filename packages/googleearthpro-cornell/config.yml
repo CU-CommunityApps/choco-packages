@@ -1,13 +1,23 @@
 Id:             'googleearthpro-cornell'
-Description:    'googleearthpro-buildtest'
-Version:        '7.3.2.5776'
+Description:    'googleearthpro-buildtest3'
+Version:        '7.3.3'      
 
-ChocoPackages:
-    - 'googleearthpro'
+Install:
+    File:       '%INSTALL_DIR%\googleearthprowin-7.3.3-x64.exe'
+    FileType:   'exe'
+    Arguments:  'OMAHA=1'
+    ExitCodes:  [0]
 
 Applications:
     googleearthpro:
         DisplayName:    'Google Earth Pro'
-        Path:           '%PROGRAMFILES(x86)%\Google\Google Earth Pro\client\googleearth.exe'
+        Path:           '%PROGRAMFILES%\Google\Google Earth Pro\client\googleearth.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Registry:
+    HKUD:
+        SOFTWARE\Google\Google Earth Pro:
+            enableTips:
+                Type:   'string'
+                Value:  'false'
