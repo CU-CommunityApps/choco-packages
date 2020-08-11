@@ -5,27 +5,27 @@ Version:        '2.5'
 Install:
   - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro.msi'
     FileType:   'msi'
-    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE /qn'
+    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE /qn /norestart'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\ArcGISd2\ArcGISProHelp.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  '/qn /norestart'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\ArcGISd3\DataInteropPro.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  '/qn /norestart'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsData.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  '/qn /norestart'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\ArcGISd5\RasterData.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  '/qn /norestart'
     ExitCodes:  [0]
     
 Applications:
