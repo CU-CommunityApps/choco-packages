@@ -1,11 +1,11 @@
 Id:             'maya-cals'
-Description:    'maya-cals - buildtest1'
-Version:        '12.0.77.3'
+Description:    'maya-cals'
+Version:        '2020.2.0.881'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --silent -o %INSTALL_DIR%\Maya_all_NetworkLicense_deployment.xml'
+    Arguments:  '-i deploy --silent -o %INSTALL_DIR%\manifest\deployment_maya.xml'
     ExitCodes:  [0,1641]
 
 Applications:
@@ -17,6 +17,7 @@ Applications:
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%MAYA_LICENSE_FILE%'
+    MAYA_NO_WARNING_FOR_MISSING_DEFAULT_RENDERER: '1'
     
 Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
