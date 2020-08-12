@@ -14,6 +14,9 @@ Applications:
         Path:           '%PROGRAMFILES%\Autodesk\Maya2020\bin\maya.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
+Files:
+    '%INSTALL_DIR%\userPrefs.mel': '%SYSTEMDRIVE%\Users\Default\Documents\maya\2020\prefs\userPrefs.mel'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%MAYA_LICENSE_FILE%'
