@@ -6,7 +6,7 @@ Install:
     File:       '%INSTALL_DIR%\Setup.exe'
     FileType:   'exe'
     Arguments:  '--silent'
-    ExitCodes:  [0,1641]
+    ExitCodes:  [0,1638,1641] # 1638 = newer version of a prereq already installed (C++)
 
 Applications:
     3ds:
