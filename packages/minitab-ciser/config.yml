@@ -5,7 +5,7 @@ Version:        '19.2.0.0'
 Install:
     File:       '%INSTALL_DIR%\minitab19.2.0.0setup.exe'
     FileType:   'exe'
-    Arguments:  '/exenoui /exelang 1033 /qn ACCEPT_EULA=1 FILE_LOC="%PROGRAMFILES%\Minitab\Minitab 19\minitab.lic"'
+    Arguments:  '/exenoui /qn ACCEPT_EULA=1 FILE_LOC="%PROGRAMFILES%\Minitab\Minitab 19\minitab.lic" DISABLE_ANALYTICS=1 DISABLE_UPDATES=1'
     ExitCodes:  [0]
 
 Applications:
