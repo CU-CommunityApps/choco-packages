@@ -1,11 +1,11 @@
 Id:             'minitab-ciser'
-Description:    'minitab-ciser - buildtest3'
-Version:        '19.2.0.0'
+Description:    'minitab-ciser'
+Version:        '19.2020.1.0'
 
 Install:
-    File:       '%INSTALL_DIR%\minitab19.2.0.0setup.exe'
+    File:       '%INSTALL_DIR%\minitab19.2020.1.0setup.x64.exe'
     FileType:   'exe'
-    Arguments:  '/exenoui /qn ACCEPT_EULA=1 FILE_LOC="%PROGRAMFILES%\Minitab\Minitab 19\minitab.lic" DISABLE_ANALYTICS=1 DISABLE_UPDATES=1'
+    Arguments:  '/exenoui /exenoupdates /qn ACCEPT_EULA=1 FILE_LOC="%ALLUSERSPROFILE%\Minitab\Minitab 19\minitab.lic" DISABLE_ANALYTICS=1 DISABLE_UPDATES=1'
     ExitCodes:  [0]
 
 Applications:
@@ -16,4 +16,4 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\License.ini': '%SYSTEMDRIVE%\ProgramData\Minitab\License.ini'
+    '%INSTALL_DIR%\License.ini': '%ALLUSERSPROFILE%\Minitab\License.ini'
