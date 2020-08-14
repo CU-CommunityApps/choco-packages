@@ -2,5 +2,5 @@
 
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
-New-Item -ItemType Directory "$env:ProgramFiles\Minitab\Minitab 19" -Force
-Copy-Item "$INSTALL_DIR\minitab.lic" "$env:ProgramFiles\Minitab\Minitab 19\minitab.lic" -Recurse -Force
+New-Item -ItemType Directory "$env:allusersprofile\Minitab\Minitab 19" -Force
+Copy-Item "$INSTALL_DIR\minitab.lic" "$env:allusersprofile\Minitab\Minitab 19\minitab.lic" -Recurse -Force
