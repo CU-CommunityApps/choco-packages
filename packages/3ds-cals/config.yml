@@ -11,7 +11,7 @@ Install:
 Applications:
     3ds:
         DisplayName:    '3ds Max'
-        Path:           '%PROGRAMFILES%\Autodesk\3ds Max 2021\3dsmax.exe"'
+        Path:           '%PROGRAMFILES%\Autodesk\3ds Max 2021\3dsmax.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
