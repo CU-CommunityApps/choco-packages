@@ -14,6 +14,3 @@ Applications:
         Path:           '%PROGRAMFILES(x86)%\Minitab\Minitab 19\Mtb.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files:
-    '%INSTALL_DIR%\License.ini': '%ALLUSERSPROFILE%\Minitab\License.ini'
