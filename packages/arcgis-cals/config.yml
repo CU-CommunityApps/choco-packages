@@ -21,7 +21,7 @@ Install:
   - File:       '%INSTALL_DIR%\arcgisd3\CSD.msi'
     FileType:   'msi'
     Arguments:  '/qn'
-    ExitCodes:  [0]
+    ExitCodes:  [1641,1638,0]
 
   - File:       '%INSTALL_DIR%\arcgisd4\Support\VCREDIST\VC_redist.x64.exe'
     FileType:   'exe'
