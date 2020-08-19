@@ -1,5 +1,5 @@
 Id:             '3ds-cals'
-Description:    '3ds-cals - buildtest'
+Description:    '3ds-cals'
 Version:        '23.0.0.915'
 
 Install:
@@ -33,19 +33,5 @@ Registry:
                 Value:  '0'
                 
             ADARePrompted:
-                Type:   'DWORD'
-                Value:  '1'
-
-            OverridedByHKLM:
-                Type:   'DWORD'
-                Value:  '0'
-                
-    HKLM:
-        Software\Autodesk\MC3:
-            HKLMADAOptin:
-                Type:   'DWORD'
-                Value:  '0'
-
-            HKLMADARePrompted:
                 Type:   'DWORD'
                 Value:  '1'
