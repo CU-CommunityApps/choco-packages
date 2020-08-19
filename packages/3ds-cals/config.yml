@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2021 - 64bit\ENU\3dsMax.ini'
+    '%INSTALL_DIR%\3dsMax': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
@@ -33,5 +33,23 @@ Registry:
                 Value:  '0'
                 
             ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+        SOFTWARE\Autodesk\3dsMax\23.0:
+            CurrentLanguage:
+                Type:   'string'
+                Value:  'ENU'
+                
+            MaxStartupCount:
+                Type:   'DWORD'
+                Value:  '1'
+                
+        SOFTWARE\Autodesk\3dsMax\23.0\MiniDump\23.0.0.915:
+            SessionStartCount:
+                Type:   'DWORD'
+                Value:  '1'
+                
+            SessionCleanCloseCount:
                 Type:   'DWORD'
                 Value:  '1'
