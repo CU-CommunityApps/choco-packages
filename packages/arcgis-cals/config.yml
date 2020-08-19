@@ -11,7 +11,7 @@ Install:
   - File:       '%INSTALL_DIR%\arcgisd1\setup.msi'
     FileType:   'msi'
     Arguments:  'ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE ENABLEEUEI=0 CHECKFORUPDATESATSTARTUP=0 /qn /norestart'
-    ExitCodes:  [0]
+    ExitCodes:  [1641,1638,0]
     
   - File:       '%INSTALL_DIR%\arcgisd2\setup.msi'
     FileType:   'msi'
