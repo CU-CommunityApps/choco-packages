@@ -26,7 +26,6 @@ Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
 
 Registry:
-
     HKUD:
         SOFTWARE\Autodesk\MC3:
             ADAOptIn:
@@ -36,3 +35,7 @@ Registry:
             ADARePrompted:
                 Type:   'DWORD'
                 Value:  '1'
+
+Scripts:
+    start:
+        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
