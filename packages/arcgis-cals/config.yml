@@ -15,12 +15,12 @@ Install:
     
   - File:       '%INSTALL_DIR%\arcgisd2\setup.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  '/qn /norestart'
     ExitCodes:  [1641,1638,3010,0]
  
   - File:       '%INSTALL_DIR%\arcgisd3\CSD.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  '/qn /norestart'
     ExitCodes:  [1641,1638,3010,0]
 
   - File:       '%INSTALL_DIR%\arcgisd4\Support\VCREDIST\VC_redist.x64.exe'
@@ -30,12 +30,12 @@ Install:
     
   - File:       '%INSTALL_DIR%\arcgisd4\setup.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  '/qn /norestart'
     ExitCodes:  [1641,1638,3010,0]
 
   - File:       '%INSTALL_DIR%\arcgisd6\setup.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  '/qn /norestart'
     ExitCodes:  [1641,1638,3010,0]
     
 Applications:
