@@ -52,11 +52,10 @@ Files:
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
     '%TOOLS_DIR%\SolidWorks\*': '%SYSTEMDRIVE%\Users\Default\AppData\Local'
 
-Services:
-    RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
-    SWVisualize2019.Queue.Server:   'Manual'
+# Services:
+#     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
+#     SWVisualize2019.Queue.Server:   'Manual'
 
 Scripts:
     start:
         User: '%TOOLS_DIR%\solidworks-accept-eula.ps1' # Runs at user login
-    
