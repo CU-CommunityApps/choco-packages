@@ -1,5 +1,5 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2020 - COECIS License - buildtest'
+Description:    'SOLIDWORKS 2020 - COECIS License'
 Version:        '28.130.0086'
 
 Install:
@@ -54,7 +54,7 @@ Files:
 
 # Services:
 #     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
-#     SWVisualize2019.Queue.Server:   'Manual'
+    SWVisualize2020.Queue.Server:   'Manual'
 
 Scripts:
     start:
