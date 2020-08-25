@@ -3,7 +3,7 @@ Description:    'SOLIDWORKS 2020 - COECIS License'
 Version:        '28.130.0086'
 
 Install:
-  - File:       '%INSTALL_DIR%\SOLIDWORKS Corp\SOLIDWORKS\solidworks.msi'
+  - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
     FileType:   'msi'
     Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER% ENABLEPERFORMANCE=0 OFFICEOPTION=0 SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% INSTALLDIR=%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS'
     ExitCodes:  [0]
