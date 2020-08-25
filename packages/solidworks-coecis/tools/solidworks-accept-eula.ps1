@@ -1,5 +1,5 @@
 # Startup script for suppressing SolidWorks prompts
-# Run as scheduled task at every login?
+# Run as session script at login
 
 # SolidWorks 2020
 $solid = "Registry::\HKCU\Software\SolidWorks\SolidWorks 2020\Security"
