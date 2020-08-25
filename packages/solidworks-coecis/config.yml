@@ -1,11 +1,11 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2020 - COECIS License - Test'
+Description:    'SOLIDWORKS 2020 - COECIS License'
 Version:        '28.130.0086'
 
 Install:
   - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
     FileType:   'msi'
-    Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER% ENABLEPERFORMANCE=0 OFFICEOPTION=0 SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% INSTALLDIR=%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS'
+    Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER% ENABLEPERFORMANCE=0 OFFICEOPTION=0 SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS"'
     ExitCodes:  [0]
     
   - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
@@ -20,7 +20,7 @@ Install:
   
   - File:       '%INSTALL_DIR%\eDrawings\eDrawings.msi'
     FileType:   'msi'
-    Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR=%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings'
+    Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings"'
     ExitCodes:  [0]
 
 Applications:
