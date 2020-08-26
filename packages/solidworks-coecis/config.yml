@@ -1,11 +1,26 @@
 Id:             'solidworks-coecis'
 Description:    'SOLIDWORKS 2020 - COECIS License'
-Version:        '28.3.0.0086'
+Version:        '28.130.0086'
 
 Install:
-    File:       '%INSTALL_DIR%\startswinstall.exe'
-    FileType:   'exe'
-    Arguments:  '/install /now'
+  - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER% ENABLEPERFORMANCE=0 OFFICEOPTION=0 SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS"'
+    ExitCodes:  [0]
+    
+  - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart'
+    ExitCodes:  [0]
+    
+  - File:       '%INSTALL_DIR%\SOLIDWORKS Visualize\solidworks visualize.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER%'
+    ExitCodes:  [0]
+  
+  - File:       '%INSTALL_DIR%\eDrawings\eDrawings.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings"'
     ExitCodes:  [0]
 
 Applications:
@@ -17,7 +32,7 @@ Applications:
 
     composerplayer:
         DisplayName:    'SOLIDWORKS Composer Player'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Composer Player\Bin\composerplayer.exe'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composerplayer.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
@@ -38,9 +53,9 @@ Files:
     '%TOOLS_DIR%\SolidWorks\*': '%SYSTEMDRIVE%\Users\Default\AppData\Local'
 
 Services:
-    RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
-    SWVisualize2019.Queue.Server:   'Manual'
+#     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
+    SWVisualize2020.Queue.Server:   'Manual'
 
-ScheduledTasks:
-    - 'solidworks-accept-eula'
-    
+Scripts:
+    start:
+        User: '%TOOLS_DIR%\solidworks-accept-eula.ps1' # Runs at user login
