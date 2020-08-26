@@ -45,7 +45,7 @@ Applications:
         
     Chrome:
         DisplayName:    'Google Chrome'
-        Path:           '%PROGRAMFILES(X86)%\Google\Chrome\Application\chrome.exe'
+        Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
         LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
         WorkDir:        ''
 
