@@ -242,7 +242,7 @@ namespace ChocoPacker
                     package_fail = true;
                 }
                 
-                Console.WriteLine("Free space % of C: " + PercentageFreeSpace("C"));
+                Console.WriteLine("Free space of C: " + PercentageFreeSpace("C"));
                 Console.WriteLine($"Extracting {local_zip} to {installer_dir}...");
 
                 try {
@@ -367,7 +367,7 @@ namespace ChocoPacker
             try
             {
                 DriveInfo drive = new DriveInfo(driveLetter);
-                return (drive.AvailableFreeSpace / (double)drive.TotalSize) * 100;
+                return drive.AvailableFreeSpace;
             }
             catch
             {
