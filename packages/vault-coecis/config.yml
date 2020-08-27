@@ -11,7 +11,7 @@ Install:
 Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
-        Path:           '%PROGRAMFILES%\Autodesk\Vault Professional 2021\Explorer\Connectivity.VaultPro.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2021\Explorer\Connectivity.VaultPro.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
