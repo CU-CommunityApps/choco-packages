@@ -3,7 +3,7 @@ Description:    'stata-ciser a2'
 Version:        '16.0.0'
 
 Install:
-    File:       '%INSTALL_DIR%\Stata16'
+    File:       '%INSTALL_DIR%\Stata16.msi'
     FileType:   'msi'
     Arguments:  '/passive ADDLOCAL=core,StataMP64'
     ExitCodes:  [0]
