@@ -91,6 +91,6 @@ Install:
 Applications:
     CES:
         DisplayName:    'CES EduPack 2020'
-        Path:           '%PROGRAMFILES(X86)%\CES EduPack 2020\CES.exe'
+        Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2020\Edupack.exe'
         LaunchParams:   ''
         WorkDir:        ''
