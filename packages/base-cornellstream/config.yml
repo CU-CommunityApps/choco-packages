@@ -138,6 +138,6 @@ Registry:
                  Value:  'Eastern Standard Time'
 
         Software\Microsoft\Windows\CurrentVersion\App Paths\EXPLORER.EXE:
-             DontUseDesktopChangeRouter
+             DontUseDesktopChangeRouter:
                  Type:   'DWORD'
                  Value:  '1'
