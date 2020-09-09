@@ -136,3 +136,8 @@ Registry:
              TimeZoneKeyName:
                  Type:   'String'
                  Value:  'Eastern Standard Time'
+
+        Software\Microsoft\Windows\CurrentVersion\App Paths\EXPLORER.EXE:
+             DontUseDesktopChangeRouter
+                 Type:   'DWORD'
+                 Value:  '1'
