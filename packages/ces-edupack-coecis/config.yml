@@ -94,3 +94,6 @@ Applications:
         Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2020\Edupack.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files: 
+    %INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES(X86)%\GRANTA EduPack\2020\Shared Files\Licensing\ansyslmd.ini'
