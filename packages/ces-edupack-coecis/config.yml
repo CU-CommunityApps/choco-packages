@@ -1,5 +1,5 @@
 Id:             'ces-edupack-coecis'
-Description:    'CES Edupack 2020 - COECIS License - buildtest 2'
+Description:    'CES Edupack 2020 - COECIS License - buildtest 3'
 Version:        '20.1.0.0'
 
 Install:
@@ -94,3 +94,5 @@ Applications:
         Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2020\Edupack.exe'
         LaunchParams:   ''
         WorkDir:        ''
+Files:                                                                  ## File copy feature
+    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES(X86)%\GRANTA EduPack\Shared Files\Licensing\ansyslmd.ini'
