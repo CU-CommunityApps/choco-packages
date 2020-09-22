@@ -94,6 +94,5 @@ Applications:
         Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2020\Edupack.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files: 
-    %INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES(X86)%\GRANTA EduPack\Shared Files\Licensing\ansyslmd.ini'
+Files:                                                                  ## File copy feature
+    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES(X86)%\GRANTA EduPack\Shared Files\Licensing\ansyslmd.ini'
