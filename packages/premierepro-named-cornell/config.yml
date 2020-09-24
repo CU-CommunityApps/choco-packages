@@ -1,6 +1,6 @@
 Id:             'premierepro-named-cornell'
 Description:    'Adobe Premiere Pro CC 2020'
-Version:        '14.3'
+Version:        '14.4.0.38'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
