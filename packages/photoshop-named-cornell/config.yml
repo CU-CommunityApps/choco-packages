@@ -1,6 +1,6 @@
 Id:             'photoshop-named-cornell'
 Description:    'Adobe Photoshop CC 2020'
-Version:        '21.2.0.225'
+Version:        '21.2.3.308'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
