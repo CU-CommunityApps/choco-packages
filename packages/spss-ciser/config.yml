@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\PROCESS_v3.5': '%ALLUSERSPROFILE%\IBM\SPSS\Statistics\26\CustomDialogs'
+    '%INSTALL_DIR%\PROCESS_v3.5': '%ALLUSERSPROFILE%\IBM\SPSS\Statistics\26\CustomDialogs\PROCESS_v3.5'
 
 Registry:
     HKUD:
