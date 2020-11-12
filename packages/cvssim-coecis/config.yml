@@ -16,4 +16,4 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Files: 
-  '%INSTALL_DIR%\Installer\data.xls': '%SYSTEMDRIVE%\CVS_V2_Installer\data.xls
+  '%INSTALL_DIR%\Installer\data.xls': '%SYSTEMDRIVE%\CVS_V2_Installer\data.xls'
