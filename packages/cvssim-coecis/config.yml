@@ -14,3 +14,6 @@ Applications:                                                       ## Applicati
         Path:           '%PROGRAMFILES(x86)%\CVS Installer\CVS.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
+
+Files: 
+  '%INSTALL_DIR%\Installer\data.xls': '%SYSTEMDRIVE%\CVS_V2_Installer\data.xls
