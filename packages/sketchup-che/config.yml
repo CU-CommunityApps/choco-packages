@@ -16,4 +16,5 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\SketchUp.lic': 'C:\ProgramData\SketchUp\SketchUp 2020\SketchUp.lic'  ## Source directory to destination directory
+    '%INSTALL_DIR%\SketchUp.lic': '%ALLUSERSPROFILE%\SketchUp\SketchUp 2020\SketchUp.lic'  ## Source directory to destination directory
+    '%INSTALL_DIR%\PrivatePreferences.json': '%SYSTEMDRIVE%\Users\Default\AppData\Local\SketchUp\SketchUp 2020\SketchUp\PrivatePreferences.json'
