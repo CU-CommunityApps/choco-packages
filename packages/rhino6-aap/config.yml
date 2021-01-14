@@ -29,3 +29,13 @@ Registry:               ## Registry values to be copied to each streaming instan
             RhinoSplash.UsageStatsEnabledDialog Shown:
                 Type:   'String'
                 Value:  'no'
+                
+   HKLM:
+        SOFTWARE\McNeel\Rhinoceros\6.0\Install:
+            enable_automatic_updates:
+                Type:   'String'
+                Value:  '0'
+                
+            send_statistics:
+                Type:   'String'
+                Value:  '0'
