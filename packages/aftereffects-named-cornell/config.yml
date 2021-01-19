@@ -1,6 +1,6 @@
 Id:             'aftereffects-named-cornell'
 Description:    'Adobe After Effects CC 2020'
-Version:        '17.1.4.37'
+Version:        '17.6.0'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
