@@ -1,0 +1,71 @@
+Id:             'gaussian-chem'                ## Application package name ie. chrome-cornell
+Description:    'guassian'    ## Application packages description
+Version:        '9.5.0'                     ## Application version number - MUST BE in #.# format
+
+ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
+  - PackageName:    'gaussian-chem'     ## Package name - https://chocolatey.org/packages - ie. adobereader
+    InstallParams:  ''      ## Install args to pass to the native installer in the package. Defaults to unspecified.
+                                            ## Leave blank '' if no parameters to pass
+
+Install:                                    ## If there are installation files in a .zip to be installed, specify here
+  - File:       '%INSTALL_DIR%\setupg09w.exe'   ## Installation file
+    FileType:   'exe'                       ## exe or msi are the only options currently
+    Arguments:  '-silent'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success
+    
+  - File:       '%INSTALL_DIR%\setupgv509.exe'   ## Multiple installation files require '-' to specify an array of apps are to be installed
+    FileType:   'exe'                       
+    Arguments:  '-silent'        
+    ExitCodes:  [0]                         
+
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    MyPackage:                                                      ## This must match the icons.png file name
+        DisplayName:    'Gaussian'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\MyPackage\run.exe'          ## The path to the app
+        LaunchParams:   '--my-runtime-argument'                     ## Launch parameters for the app
+        WorkDir:        '%SYSTEMDRIVE%\MyPackage\Working\Directory' ## Working directory
+    MyPackage:                                                      ## This must match the icons.png file name
+        DisplayName:    'Gauss View'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\MyPackage\run.exe'          ## The path to the app
+        LaunchParams:   '--my-runtime-argument'                     ## Launch parameters for the app
+        WorkDir:        '%SYSTEMDRIVE%\MyPackage\Working\Directory' ## Working directory
+Files:                                                                  ## File copy feature
+    '%TOOLS_DIR%\tempfile.txt': '%PROGRAMFILES%\Dest\Dir\tempfile.txt'  ## Source directory to destination directory
+
+Environment:                                            ## Create custom environment variables
+    MY_ENVIRONMENT_VARIABLE: 'My Environment Value'     ## Variable Name: Value
+
+Services:                   ## Set default service behavior
+    ServiceName: 'Manual'   ## ServiceName: Behavior
+    
+ScheduledTasks:             ## Create any custom scheduled tasks
+    - 'MyScheduledTask'     ## Name of exported scheduled task in .xml format in the /tools directory with UTF-8 encoding
+    
+Scripts:                                                ## AppStream session scripts feature
+    start:                                              ## Startup / Logon trigger
+        User:    '%INSTALL_DIR%\some_script.ps1'        ## Runs at user logon
+        System:  '%INSTALL_DIR%\some_other_script.ps1'  ## Run at system startup
+        
+    end:                                                ## Shutdown / Logoff trigger
+        User:    '%INSTALL_DIR%\some_script.ps1'        ## Runs at user logout
+        System:  '%INSTALL_DIR%\some_other_script.ps1'  ## Runs at system shutdown
+
+Registry:               ## Registry values to be copied to each streaming instance
+    HKCC:   { }         ## Current Config
+    HKCR:   { }         ## Classes Root
+    HKCU:   { }         ## Current User (use HKUD to survive sysprep/snapshot)
+    HKLM:   { }         ## Local Machine
+    HKU:    { }         ## Users
+    HKUD:               ## Use for typical Current User settings to apply to all users in AppStream
+        SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
+            (Default):
+                Type:   'String'
+                Value:  'Applying Enhanced Security Configuration'
+
+            ComponentID:
+                Type:   'String'
+                Value:  'IEHardenAdmin'
+
+            IsInstalled:
+                Type:   'DWORD'
+                Value:  '0'
