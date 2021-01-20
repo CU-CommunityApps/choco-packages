@@ -19,12 +19,13 @@ Install:                                    ## If there are installation files i
     ExitCodes:  [0]                         
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
-    MyPackage:                                                      ## This must match the icons.png file name
+    gaussian:                                                      ## This must match the icons.png file name
         DisplayName:    'Gaussian'                ## How the app displayed to the user
         Path:           '%PROGRAMFILES%\MyPackage\run.exe'          ## The path to the app
         LaunchParams:   '--my-runtime-argument'                     ## Launch parameters for the app
         WorkDir:        '%SYSTEMDRIVE%\MyPackage\Working\Directory' ## Working directory
-    MyPackage:                                                      ## This must match the icons.png file name
+        
+    gaussview:                                                      ## This must match the icons.png file name
         DisplayName:    'Gauss View'                ## How the app displayed to the user
         Path:           '%PROGRAMFILES%\MyPackage\run.exe'          ## The path to the app
         LaunchParams:   '--my-runtime-argument'                     ## Launch parameters for the app
@@ -34,38 +35,27 @@ Files:                                                                  ## File 
 
 Environment:                                            ## Create custom environment variables
     MY_ENVIRONMENT_VARIABLE: 'My Environment Value'     ## Variable Name: Value
-
-Services:                   ## Set default service behavior
-    ServiceName: 'Manual'   ## ServiceName: Behavior
     
-ScheduledTasks:             ## Create any custom scheduled tasks
-    - 'MyScheduledTask'     ## Name of exported scheduled task in .xml format in the /tools directory with UTF-8 encoding
-    
-Scripts:                                                ## AppStream session scripts feature
-    start:                                              ## Startup / Logon trigger
-        User:    '%INSTALL_DIR%\some_script.ps1'        ## Runs at user logon
-        System:  '%INSTALL_DIR%\some_other_script.ps1'  ## Run at system startup
-        
-    end:                                                ## Shutdown / Logoff trigger
-        User:    '%INSTALL_DIR%\some_script.ps1'        ## Runs at user logout
-        System:  '%INSTALL_DIR%\some_other_script.ps1'  ## Runs at system shutdown
-
-Registry:               ## Registry values to be copied to each streaming instance
-    HKCC:   { }         ## Current Config
-    HKCR:   { }         ## Classes Root
-    HKCU:   { }         ## Current User (use HKUD to survive sysprep/snapshot)
-    HKLM:   { }         ## Local Machine
-    HKU:    { }         ## Users
-    HKUD:               ## Use for typical Current User settings to apply to all users in AppStream
-        SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
-            (Default):
+Registry:
+    HKUD:
+        Software\WhereScape\MetaEditor\LicenseV7:
+            Licensed_To:
                 Type:   'String'
-                Value:  'Applying Enhanced Security Configuration'
+                Value:  'Cornell University - Fall Term 2020 - Expires Dec 31 2020'
 
-            ComponentID:
-                Type:   'String'
-                Value:  'IEHardenAdmin'
-
-            IsInstalled:
+            LicenseAgreementAccepted:
                 Type:   'DWORD'
-                Value:  '0'
+                Value:  '00000001'
+                
+            License_Key:
+                Type:   'String'
+                Value:  '%WHERESCAPE_LICENSE_KEY%'
+            
+        Software\Wherescape\RED\DB_Logon:
+            Meta_Dsn_Arch:
+                Type:   'String'
+                Value:  '64'
+                
+            Connect_ID:
+                Type:  'String'
+                Value: 'INFO4555'
