@@ -1,6 +1,6 @@
 Id:             'qgis-cornell'
 Description:    'qgis-cornell - buildtest1'
-Version:        '3.16.1'
+Version:        '3.16.2'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
   - PackageName:    'qgis'     ## Package name - https://chocolatey.org/packages - ie. adobereader
