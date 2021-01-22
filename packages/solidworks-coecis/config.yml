@@ -8,20 +8,20 @@ Install:
     Arguments:  '/qn /norestart ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS" OFFICEOPTION=2 SERVERLIST=%LICENSE_SERVER% SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% ADDLOCAL=SolidWorks, SolidWorksToolbox'
     ExitCodes:  [0]
     
-  - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0]
+#  - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
+#    FileType:   'msi'
+#    Arguments:  '/qn /norestart'
+#    ExitCodes:  [0]
     
-  - File:       '%INSTALL_DIR%\SOLIDWORKS Visualize\solidworks visualize.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER%'
-    ExitCodes:  [0]
+#  - File:       '%INSTALL_DIR%\SOLIDWORKS Visualize\solidworks visualize.msi'
+#    FileType:   'msi'
+#    Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER%'
+#    ExitCodes:  [0]
   
-  - File:       '%INSTALL_DIR%\eDrawings\eDrawings.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings"'
-    ExitCodes:  [0]
+#  - File:       '%INSTALL_DIR%\eDrawings\eDrawings.msi'
+#    FileType:   'msi'
+#    Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings"'
+#    ExitCodes:  [0]
 
 Applications:
     SLDWORKS:
@@ -30,23 +30,23 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-    composerplayer:
-        DisplayName:    'SOLIDWORKS Composer Player'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composerplayer.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
+#    composerplayer:
+#        DisplayName:    'SOLIDWORKS Composer Player'
+#        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composerplayer.exe'
+#        LaunchParams:   ''
+#        WorkDir:        ''
 
-    SLDWORKSVisualize:
-        DisplayName:    'SOLIDWORKS Visualize'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
+#    SLDWORKSVisualize:
+#        DisplayName:    'SOLIDWORKS Visualize'
+#        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
+#        LaunchParams:   ''
+#        WorkDir:        ''
 
-    eDrawings:
-        DisplayName:    'SOLIDWORKS eDrawings'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
+#    eDrawings:
+#        DisplayName:    'SOLIDWORKS eDrawings'
+#        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
+#        LaunchParams:   ''
+#        WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
