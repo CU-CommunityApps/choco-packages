@@ -1,22 +1,19 @@
-Id:             'autocad-cornell'
-Description:    'AutoCad 2021 - COECIS LICENSE'
-Version:        '47.0.0'
+Id:             'revit-cornell'
+Description:    'Revit 2021 - CORNELL LAB LICENSE'
+Version:        '21.0.0.383'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autocad2021.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  [0, 1641]
 
 Applications:
-    autocad:
-        DisplayName:    'AutoCAD 2021'
-        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2021\acad.exe'
+    revit:
+        DisplayName:    'Revit 2021'
+        Path:           '%PROGRAMFILES%\Autodesk\Revit 2021\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Environment:
-    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
 
 Registry:
 
