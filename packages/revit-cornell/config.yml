@@ -5,8 +5,8 @@ Version:        '21.0.0.383'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\Img\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
-    ExitCodes:  [0, 1641]
+    Arguments:  '/qb /language en-us /c RVT: INSTALLDIR="%PROGRAMFILES%\Autodesk\Revit 2021" ACADSERIALPREFIX=%PRE% ACADSERIALNUMBER=%POST% ADLM_PRODKEY=%PRODKEY% ADLM_EULA_COUNTRY=US INSTALLLEVEL=5'
+    ExitCodes:  ''
 
 Applications:
     revit:
