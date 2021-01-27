@@ -30,23 +30,23 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-   composerplayer:
-       DisplayName:    'SOLIDWORKS Composer Player'
-       Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composerplayer.exe'
-       LaunchParams:   ''
-       WorkDir:        ''
+    composerplayer:
+        DisplayName:    'SOLIDWORKS Composer Player'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composerplayer.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
 
-   SLDWORKSVisualize:
-       DisplayName:    'SOLIDWORKS Visualize'
-       Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
-       LaunchParams:   ''
-       WorkDir:        ''
+    SLDWORKSVisualize:
+        DisplayName:    'SOLIDWORKS Visualize'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
 
-   eDrawings:
-       DisplayName:    'SOLIDWORKS eDrawings'
-       Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
-       LaunchParams:   ''
-       WorkDir:        ''
+    eDrawings:
+        DisplayName:    'SOLIDWORKS eDrawings'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
