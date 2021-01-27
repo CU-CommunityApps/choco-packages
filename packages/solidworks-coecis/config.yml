@@ -47,6 +47,12 @@ Applications:
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
+    toolbox:
+        DisplayName:    'Toolbox Settings 2020'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
