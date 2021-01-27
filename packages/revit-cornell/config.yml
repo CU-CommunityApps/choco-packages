@@ -5,7 +5,7 @@ Version:        '21.0.0.383'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/qb /language en-us /c RVT: INSTALLDIR="%PROGRAMFILES%\Autodesk\Revit 2021" ACADSERIALPREFIX=%PRE% ACADSERIALNUMBER=%POST% ADLM_PRODKEY=%PRODKEY% ADLM_EULA_COUNTRY=US INSTALLLEVEL=5'
+    Arguments:  '/q /W /I %INSTALL_DIR%\Img\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  ''
 
 Applications:
@@ -14,6 +14,9 @@ Applications:
         Path:           '%PROGRAMFILES%\Autodesk\Revit 2021\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
 
 Registry:
 
