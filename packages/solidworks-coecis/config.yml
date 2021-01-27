@@ -8,20 +8,20 @@ Install:
     Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS" OFFICEOPTION=2 SERVERLIST=%LICENSE_SERVER% SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% TOOLBOXFOLDER="C:\SOLIDWORKS Data" ADDLOCAL=SolidWorks,SolidWorksToolbox /qb /norestart'
     ExitCodes:  [0]
     
- - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
-   FileType:   'msi'
-   Arguments:  '/qn /norestart'
-   ExitCodes:  [0]
+  - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart'
+    ExitCodes:  [0]
     
- - File:       '%INSTALL_DIR%\SOLIDWORKS Visualize\solidworks visualize.msi'
-   FileType:   'msi'
-   Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER%'
-   ExitCodes:  [0]
+  - File:       '%INSTALL_DIR%\SOLIDWORKS Visualize\solidworks visualize.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER%'
+    ExitCodes:  [0]
   
- - File:       '%INSTALL_DIR%\eDrawings\eDrawings.msi'
-   FileType:   'msi'
-   Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings"'
-   ExitCodes:  [0]
+  - File:       '%INSTALL_DIR%\eDrawings\eDrawings.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings"'
+    ExitCodes:  [0]
 
 Applications:
     SLDWORKS:
