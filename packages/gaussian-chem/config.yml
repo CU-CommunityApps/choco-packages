@@ -1,5 +1,5 @@
 Id:             'gaussian-chem'                ## Application package name ie. chrome-cornell
-Description:    'guassian a5'    ## Application packages description
+Description:    'guassian a6'    ## Application packages description
 Version:        '9.5.0'                     ## Application version number - MUST BE in #.# format
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
