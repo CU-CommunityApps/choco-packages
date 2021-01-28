@@ -6,7 +6,7 @@ Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
     Arguments:  '/q /W /I %INSTALL_DIR%\Img\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
-    ExitCodes:  ''
+    ExitCodes:  [0]
 
 Applications:
     revit:
