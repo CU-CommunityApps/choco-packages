@@ -16,7 +16,7 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
         
 Files:                                                                  ## File copy feature
-  '%INSTALL_DIR%\g09w\': '%SYSTEMDRIVE%\g09w\'                                           ## Leave blank '' if no parameters to pass
+  '%INSTALL_DIR%\g09w': '%SYSTEMDRIVE%\g09w'                                           ## Leave blank '' if no parameters to pass
     
 Registry:
     HKUD:
