@@ -11,12 +11,12 @@ Install:
 Applications:
     revit:
         DisplayName:    'Revit 2021'
-        Path:           '%PROGRAMFILES%\Autodesk\Revit 2021\acad.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Revit 2021\revit.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Environment:
-    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
+    ADSKFLEX_LICENSE_FILE: '%REVIT_LICENSE_FILE%'
 
 Registry:
 
