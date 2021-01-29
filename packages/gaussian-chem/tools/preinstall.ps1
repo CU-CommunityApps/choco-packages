@@ -1,3 +1,4 @@
 # Runs before the choco package is installed
 
-Copy-Item -Path "$INSTALL_DIR\g09w" -Destination C:\g09w -recurse
+$INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
+Copy-Item -Path "$INSTALL_DIR\g09w" -Destination $env:SYSTEMDRIVE\g09w -recurse
