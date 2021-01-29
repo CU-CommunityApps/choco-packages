@@ -14,10 +14,7 @@ Applications:                                                       ## Applicati
         Path:           '%SYSTEMDRIVE%\g09w\gviewexe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
-        
-Files:                                                                  ## File copy feature
-  '%INSTALL_DIR%\g09w': '%SYSTEMDRIVE%\g09w'                                           ## Leave blank '' if no parameters to pass
-    
+                                           ## Leave blank '' if no parameters to pass    
 Registry:
     HKUD:
         Software\WOW6432Node\Gaussian, Inc.\Gaussian 09W\Serial:              
