@@ -11,7 +11,7 @@ Applications:                                                       ## Applicati
         
     gaussview:                                                      ## This must match the icons.png file name
         DisplayName:    'Gauss View'                ## How the app displayed to the user
-        Path:           '%SYSTEMDRIVE%\g09w\gviewexe'          ## The path to the app
+        Path:           '%SYSTEMDRIVE%\g09w\gview.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
                                            ## Leave blank '' if no parameters to pass    
