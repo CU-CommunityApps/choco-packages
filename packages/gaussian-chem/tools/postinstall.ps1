@@ -1,3 +1,3 @@
 # Runs after the choco package is installed
 
-Remove-Item $SYSTEMDRIVE\g09w\secrets.yml
+Remove-Item $env:SYSTEMDRIVE\g09w\secrets.yml -force
