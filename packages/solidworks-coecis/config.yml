@@ -1,11 +1,11 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2020 - COECIS License - buildtest'
+Description:    'SOLIDWORKS 2020 - COECIS License'
 Version:        '28.130.0086'
 
 Install:
   - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
     FileType:   'msi'
-    Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER% ENABLEPERFORMANCE=0 OFFICEOPTION=0 SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS"'
+    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS" OFFICEOPTION=2 SERVERLIST=%LICENSE_SERVER% SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% TOOLBOXFOLDER="C:\SOLIDWORKS Data" ADDLOCAL=SolidWorks,SolidWorksToolbox /qn /norestart'
     ExitCodes:  [0]
     
   - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
@@ -45,6 +45,12 @@ Applications:
     eDrawings:
         DisplayName:    'SOLIDWORKS eDrawings'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    toolbox:
+        DisplayName:    'Toolbox Settings 2020'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
