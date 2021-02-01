@@ -6,17 +6,17 @@ Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
     Arguments:  '/q /W /I %INSTALL_DIR%\Img\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
-    ExitCodes:  ''
+    ExitCodes:  [0]
 
 Applications:
     revit:
         DisplayName:    'Revit 2021'
-        Path:           '%PROGRAMFILES%\Autodesk\Revit 2021\acad.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Revit 2021\revit.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Environment:
-    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
+    ADSKFLEX_LICENSE_FILE: '%REVIT_LICENSE_FILE%'
 
 Registry:
 
