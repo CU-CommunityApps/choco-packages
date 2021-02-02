@@ -27,7 +27,10 @@ Registry:
                 Type:   'String'
                 Value:  '%GV_SERIAL%'
              
-             Path: 'c:\g09w'
+             Path: 
+                Type:   'String'
+                Value:  'c:\g09w'
              
-             Version: '5.0'
-             
+             Version: 
+                Type:   'String'
+                Value:  '5.0'
