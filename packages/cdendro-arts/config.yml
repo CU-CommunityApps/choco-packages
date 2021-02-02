@@ -1,0 +1,39 @@
+Id:             'cdendro-arts'                ## Application package name ie. chrome-cornell
+Description:    'cdendro and coorecorder'    ## Application packages description
+Version:        '9.6'                     ## Application version number - MUST BE in #.# format
+                    
+
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    cdendro:                                                      ## This must match the icons.png file name
+        DisplayName:    'CDendro 9.6'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\MyPackage\run.exe'          ## The path to the app
+        LaunchParams:   '--my-runtime-argument'                     ## Launch parameters for the app
+        WorkDir:        '%SYSTEMDRIVE%\MyPackage\Working\Directory' ## Working directory
+
+     MyPackage:                                                      ## This must match the icons.png file name
+        DisplayName:    'My Package As User Sees It'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\MyPackage\run.exe'          ## The path to the app
+        LaunchParams:   '--my-runtime-argument'                     ## Launch parameters for the app
+        WorkDir:        '%SYSTEMDRIVE%\MyPackage\Working\Directory' ## Working directory
+Files:                                                                  ## File copy feature
+    '%TOOLS_DIR%\tempfile.txt': '%PROGRAMFILES%\Dest\Dir\tempfile.txt'  ## Source directory to destination directory
+
+Registry:               ## Registry values to be copied to each streaming instance
+    HKCC:   { }         ## Current Config
+    HKCR:   { }         ## Classes Root
+    HKCU:   { }         ## Current User (use HKUD to survive sysprep/snapshot)
+    HKLM:   { }         ## Local Machine
+    HKU:    { }         ## Users
+    HKUD:               ## Use for typical Current User settings to apply to all users in AppStream
+        SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}:
+            (Default):
+                Type:   'String'
+                Value:  'Applying Enhanced Security Configuration'
+
+            ComponentID:
+                Type:   'String'
+                Value:  'IEHardenAdmin'
+
+            IsInstalled:
+                Type:   'DWORD'
+                Value:  '0'
