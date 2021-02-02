@@ -1,8 +1,7 @@
 Id:             'cdendro-arts'                ## Application package name ie. chrome-cornell
-Description:    'cdendro and coorecorder a1'    ## Application packages description
+Description:    'cdendro and coorecorder a2'    ## Application packages description
 Version:        '9.6'                     ## Application version number - MUST BE in #.# format
                     
-
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     cdendro:                                                      ## This must match the icons.png file name
         DisplayName:    'CDendro 9.6'                ## How the app displayed to the user
