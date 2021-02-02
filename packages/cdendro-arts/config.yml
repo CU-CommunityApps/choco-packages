@@ -6,15 +6,12 @@ Version:        '9.6'                     ## Application version number - MUST B
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     cdendro:                                                      ## This must match the icons.png file name
         DisplayName:    'CDendro 9.6'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\Cybis\CDendro96\CDendro96.exe'          ## The path to the app
+        Path:           '%PROGRAMFILES(x86)%\Cybis\CDendro96\CDendro96.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
      coorecorder:                                                      ## This must match the icons.png file name
-        DisplayName:    'Coorecorder 9.6'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\Cybis\Coorecorder96\CooRecorder96.exe'          ## The path to the app
+        DisplayName:    'CooRecorder 9.6'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES(x86)%\Cybis\Coorecorder96\CooRecorder96.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
-        
-Files:                                                                  ## File copy feature
-    '%TOOLS_DIR%\tempfile.txt': '%PROGRAMFILES%\Dest\Dir\tempfile.txt'  ## Source directory to destination directory
