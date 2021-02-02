@@ -10,7 +10,7 @@ Applications:                                                       ## Applicati
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
-     coorecorder:                                                      ## This must match the icons.png file name
+    coorecorder:                                                      ## This must match the icons.png file name
         DisplayName:    'CooRecorder 9.6'                ## How the app displayed to the user
         Path:           '%PROGRAMFILES(x86)%\Cybis\Coorecorder96\CooRecorder96.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
