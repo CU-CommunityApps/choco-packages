@@ -23,14 +23,38 @@ Registry:
                 Value:  '%09W_SERIAL%'
                 
         Software\WOW6432Node\Gaussian, Inc.\GaussView\5.0:      
-             Serial No.:
+            Serial No.:
                 Type:   'String'
                 Value:  '%GV_SERIAL%'
              
-             Path: 
+            Path: 
                 Type:   'String'
                 Value:  'c:\g09w'
              
-             Version: 
+            Version: 
                 Type:   'String'
                 Value:  '5.0'
+                
+        Software\Microsoft\Windows\CurrentVersion\App Paths\g09w.exe:
+            (Default):
+                Type:   'String'
+                Value:  'c:\g09w\g09w.exe'
+                
+            Path:
+                Type:   'String'
+                Value:  'c:\g09w'
+                
+        Software\Microsoft\Windows\CurrentVersion\App Paths\gview.exe:
+            (Default):
+                Type:   'String'
+                Value:  'c:\g09w\gview.exe'
+                
+            Path:
+                Type:   'String'
+                Value:  'c:\g09w'
+                
+    HKUD:
+        Software\Gaussian, Inc.\GaussView\5\Help:
+            Show Tips on Startup:
+                Type:   'String'
+                Value:  '2'
