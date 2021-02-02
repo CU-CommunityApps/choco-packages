@@ -34,3 +34,6 @@ Registry:
              Version: 
                 Type:   'String'
                 Value:  '5.0'
+    HKUD:
+        Software\Gaussian, Inc.\GaussView\:
+            5:
