@@ -16,7 +16,7 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
                                            ## Leave blank '' if no parameters to pass    
 Registry:
-    HKUD:
+    HKLM:
         Software\WOW6432Node\Gaussian, Inc.\Gaussian 09W\Serial:              
             Serial No.:
                 Type:   'String'
