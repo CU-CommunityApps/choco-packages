@@ -1,0 +1,60 @@
+Id:             'gaussian-chem'                ## Application package name ie. chrome-cornell
+Description:    'Gaussian a8'    ## Application packages description
+Version:        '9.5.0'                     ## Application version number - MUST BE in #.# format
+
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    gaussian:                                                      ## This must match the icons.png file name
+        DisplayName:    'Gaussian'                ## How the app displayed to the user
+        Path:           '%SYSTEMDRIVE%\g09w\g09w.exe'          ## The path to the app
+        LaunchParams:   ''                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
+        
+    gaussview:                                                      ## This must match the icons.png file name
+        DisplayName:    'Gauss View'                ## How the app displayed to the user
+        Path:           '%SYSTEMDRIVE%\g09w\gview.exe'          ## The path to the app
+        LaunchParams:   ''                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
+                                           ## Leave blank '' if no parameters to pass    
+Registry:
+    HKLM:
+        Software\WOW6432Node\Gaussian, Inc.\Gaussian 09W\Serial:              
+            Serial No.:
+                Type:   'String'
+                Value:  '%09W_SERIAL%'
+                
+        Software\WOW6432Node\Gaussian, Inc.\GaussView\5.0:      
+            Serial No.:
+                Type:   'String'
+                Value:  '%GV_SERIAL%'
+             
+            Path: 
+                Type:   'String'
+                Value:  'c:\g09w'
+             
+            Version: 
+                Type:   'String'
+                Value:  '5.0'
+                
+        Software\Microsoft\Windows\CurrentVersion\App Paths\g09w.exe:
+            (Default):
+                Type:   'String'
+                Value:  'c:\g09w\g09w.exe'
+                
+            Path:
+                Type:   'String'
+                Value:  'c:\g09w'
+                
+        Software\Microsoft\Windows\CurrentVersion\App Paths\gview.exe:
+            (Default):
+                Type:   'String'
+                Value:  'c:\g09w\gview.exe'
+                
+            Path:
+                Type:   'String'
+                Value:  'c:\g09w'
+                
+    HKUD:
+        Software\Gaussian, Inc.\GaussView\5\Help:
+            Show Tips on Startup:
+                Type:   'String'
+                Value:  '2'
