@@ -36,6 +36,6 @@ Registry:
                 Type:   'DWORD'
                 Value:  '1'
 
-# Scripts:
-#     start:
-#         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
+Scripts:
+    start:
+        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
