@@ -1,6 +1,6 @@
 Id:             'photoshop-named-cornell'
 Description:    'Adobe Photoshop CC 2021'
-Version:        '22.1.1'
+Version:        '22.2'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
