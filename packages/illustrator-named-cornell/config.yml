@@ -15,6 +15,9 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
         
+Files:
+    '%TOOLS_DIR%\Adobe Illustrator Prefs': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Illustrator 25 Settings\en_US\x64\Adobe Illustrator Prefs'  ## Source directory to destination directory
+    
 Registry:
     HKUD:
         Software\Microsoft\Windows\CurrentVersion\Internet Settings:
