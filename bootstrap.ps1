@@ -71,7 +71,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     # Install Sysinterals
     Write-Output "Installing Sysinterals"
-    Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y" -NoNewWindow -Wait
+    Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y --ignore-checksums" -NoNewWindow -Wait
     
     # Uninstall Corrupt Windows Feature from AWS AMI
     If($OSVERSION -match "2016"){Uninstall-WindowsFeature -Name Windows-Defender}
