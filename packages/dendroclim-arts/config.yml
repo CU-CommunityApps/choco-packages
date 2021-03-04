@@ -1,5 +1,5 @@
 Id:             'dendroclim-arts'                ## Application package name ie. chrome-cornell
-Description:    'dendroclim-arts-b'    ## Application packages description
+Description:    'dendroclim-arts-c'    ## Application packages description
 Version:        '1.0.0.1'                     ## Application version number - MUST BE in #.# format
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
