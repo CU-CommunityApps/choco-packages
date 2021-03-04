@@ -1,3 +1,3 @@
 # Runs before the choco package is installed
 
-Copy-Item -Path "$TOOLS_DIR\setup.iss" -Destination $env:SYSTEMDRIVE\windows\setup.iss
+Expand-Archive -LiteralPath "$env:INSTALL_DIR\dendroclim.zip" -DestinationPath "c:\Program Files(x86)\UNR"
