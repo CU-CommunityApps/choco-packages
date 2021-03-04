@@ -2,17 +2,6 @@ Id:             'dendroclim-arts'                ## Application package name ie.
 Description:    'dendroclim-arts-b'    ## Application packages description
 Version:        '1.0.0.1'                     ## Application version number - MUST BE in #.# format
 
-Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
-    FileType:   'exe'                       ## exe or msi are the only options currently
-    Arguments:  '-s -f1%windir%\setup.iss'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]                         ## Exit codes - returns a success
-
-  - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
-    FileType:   'exe'                       ## exe or msi are the only options currently
-    Arguments:  '-s -f1%windir%\setup.iss'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]                         ## Exit codes - returns a success
-
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     dendroclim:                                                      ## This must match the icons.png file name
         DisplayName:    'DendroClim 2002'                ## How the app displayed to the user
