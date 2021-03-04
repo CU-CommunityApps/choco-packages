@@ -5,7 +5,7 @@ Version:        '1.0.0.1'                     ## Application version number - MU
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     dendroclim:                                                      ## This must match the icons.png file name
         DisplayName:    'DendroClim 2002'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES(x86)%\UNR\DendroClim2002\Dendro.exe'          ## The path to the app
+        Path:           '%PROGRAMFILES(x86)%\UNR\Dendro.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
