@@ -10,4 +10,4 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\DendroClim2002': '%PROGRAMFILES(x86)%\UNR\Dendroclim2002'  ## Source directory to destination directory
+    '%INSTALL_DIR%\DendroClim2002': '%PROGRAMFILES(x86)%\UNR\DendroClim2002'  ## Source directory to destination directory
