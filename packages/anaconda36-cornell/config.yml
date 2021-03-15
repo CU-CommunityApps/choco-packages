@@ -9,10 +9,10 @@ Install:
     ExitCodes:  [0]
 
 Applications:
-    powershell:
-        DisplayName:    'Powershell'
+    anaconda:
+        DisplayName:    'Anaconda'
         Path:           '%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   ''
+        LaunchParams:   '-ExecutionPolicy ByPass -NoExit -Command "& 'c:\Program Files\Anaconda\shell\condabin\conda-hook.ps1' ; conda activate 'c:\Program Files\Anaconda' "'
         WorkDir:        ''
         
 Files: 
