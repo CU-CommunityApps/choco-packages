@@ -1,1 +1,1381 @@
+/Illustrator\ version 24
+/text {
+	/debugFontMenu {
+		/lieAboutNativeScript 0
+		/writeDebugFile 0
+	}
+	/fillWithDefaultText 1
+	/fontMenu {
+		/showSubMenusInFace 0
+		/japaneseFontPreview 0
+	}
+	/groupTypeMenuByLanguage 1
+	/defaultFaceNames {
+		/Roman {
+			/1 (MyriadPro-Regular)
+		}
+	}
+	/faceSize 12.0
+	/fontflyout {
+		/SampleTextOpt 0
+	}
+	/showTextTouchUpButton 0
+	/enablePreciseBBox 0
+	/enableAlternateGlyph 1
+	/greekingThreshold 6.0
+}
+/plugin {
+	/CropAreaPrefix {
+		/MoveContentWithArtbrd 1
+		/ShowFading 1
+		/RealTimeFading 1
+	}
+	/RecentFont {
+		/RecentFontCount 0
+	}
+	/FavoriteFamily {
+		/FavoriteFamilyCount 0
+	}
+	/AIProxy_CacheFile_MetaData {
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Support\ Files\\Contents\\Windows\\AIDelayLoadedPlugins.cfg 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Support\ Files\\Contents\\Windows\\AIDelayLoadedPlugins.cfg < 28
+			f825000000000000c85674dc00000000c85674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Support\ Files\\Contents\\Windows\\AIResolutionIndependentEffects.cfg 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Support\ Files\\Contents\\Windows\\AIResolutionIndependentEffects.cfg < 28
+			e812000000000000c85674dc00000000c85674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\ANPA\ Color.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\ANPA\ Color.acb < 28
+			c01b000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\DIC\ Color\ Guide.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\DIC\ Color\ Guide.acb < 28
+			4474000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\FOCOLTONE.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\FOCOLTONE.acb < 28
+			484a000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ E\ Process.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ E\ Process.acb < 28
+			1608000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ E.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ E.acb < 28
+			1008000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ K\ Process.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ K\ Process.acb < 28
+			1608000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ K.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ K.acb < 28
+			2608000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ N\ Process.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ N\ Process.acb < 28
+			1608000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ N.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ N.acb < 28
+			0408000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ Z\ Process.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ Z\ Process.acb < 28
+			1608000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ Z.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\HKS\ Z.acb < 28
+			7b05000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ CMYK\ Coated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ CMYK\ Coated.acb < 28
+			b20c010000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ CMYK\ Uncoated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ CMYK\ Uncoated.acb < 28
+			ca0c010000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Color\ Bridge\ Coated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Color\ Bridge\ Coated.acb < 28
+			1a7a000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Color\ Bridge\ Uncoated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Color\ Bridge\ Uncoated.acb < 28
+			2a7a000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Metallic\ Coated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Metallic\ Coated.acb < 28
+			2e1d000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Pastels\ &\ Neons\ Coated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Pastels\ &\ Neons\ Coated.acb < 28
+			dc14000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Pastels\ &\ Neons\ Uncoated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Pastels\ &\ Neons\ Uncoated.acb < 28
+			f014000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Premium\ Metallics\ Coated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Premium\ Metallics\ Coated.acb < 28
+			9a1d000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Solid\ Coated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Solid\ Coated.acb < 28
+			2f7e000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Solid\ Uncoated.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\PANTONE+\ Solid\ Uncoated.acb < 28
+			437e000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\TOYO\ 94\ COLOR\ FINDER.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\TOYO\ 94\ COLOR\ FINDER.acb < 28
+			fa57000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\TOYO\ COLOR\ FINDER.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\TOYO\ COLOR\ FINDER.acb < 28
+			846d000000000000d15674dc00000000d15674dc0000000000000000
+		>
+		/AIProxy_data_sizeC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\TRUMATCH.acb 28
+		/AIProxy_dataC:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Swatches\\Color\ Books\\TRUMATCH.acb < 28
+			0cc0000000000000d15674dc00000000d15674dc0000000000000000
+		>
+	}
+	/Debug {
+		/useDebugMenu 0
+		/timeActions 0
+	}
+	/SmartExport {
+		/JPEGFormatToExport (JPG File Format)
+		/PDFFormatSmartExport 0
+	}
+	/AIDefaultPersistentLibraryPrefix {
+		/_count 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\3D\ Symbols.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Arrows.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Artistic\ Textures.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Celebration.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Charts.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Communication.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Dot\ Pattern\ Vector\ Pack.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Fashion.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Florid\ Vector\ Pack.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Flowers.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Grime\ Vector\ Pack.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Hair\ and\ Fur.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Heirloom.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Illuminate\ Flow\ Charts.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Illuminate\ Org\ Charts.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Illuminate\ Ribbons.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Indigenous.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Logo\ Elements.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Mad\ Science.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Maps.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Mobile.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Nature.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Regal\ Vector\ Pack.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Retro.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Sushi.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Tiki.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Web\ Buttons\ and\ Bars.ai {
+		/Persistent 0
+	}
+	/Symbol\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Symbols\\Web\ Icons.ai {
+		/Persistent 0
+	}
+	/AISwatchLibPersistentPrefix {
+		/_count 0
+	}
+	/Workspaces {
+		/PrefDLPanelShowSetInWorkspace 1
+		/PrefPropertiesPanelShowSetInWorkspace 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Arrows\\Arrows_Special.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Arrows\\Arrows_Standard.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Arrows\\Pattern\ Arrows.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Artistic\\Artistic_Calligraphic.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Artistic\\Artistic_ChalkCharcoalPencil.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Artistic\\Artistic_Ink.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Artistic\\Artistic_Paintbrush.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Artistic\\Artistic_ScrollPen.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Artistic\\Artistic_Watercolor.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Borders\\Borders_Dashed.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Borders\\Borders_Decorative.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Borders\\Borders_Frames.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Borders\\Borders_Geometric.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Borders\\Borders_Indigenous.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Borders\\Borders_Lines.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Borders\\Borders_Novelty.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Bristle\ Brush\\Bristle\ Brush\ Library.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Decorative\\Decorative_Banners\ and\ Seals.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Decorative\\Decorative_Scatter.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Decorative\\Decorative_Text\ Dividers.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Decorative\\Elegant\ Curl\ &\ Floral\ Brush\ Set.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Image\ Brush\\Image\ Brush\ Library.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Vector\ Packs\\Grunge\ brushes\ vector\ pack.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Vector\ Packs\\Hand\ Drawn\ brushes\ vector\ pack.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Brush\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Brushes\\Wacom\ 6D\ Brushes\\6d\ Art\ Pen\ Brushes.ai {
+		/Persistent 0
+		/ThumbnailView 1
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\3D\ Effects.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Additive\ for\ Blob\ Brush.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Additive.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Artistic\ Effects.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Buttons\ and\ Rollovers.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Illuminate\ Styles.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Image\ Effects.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Neon\ Effects.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Scribble\ Effects.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Textures.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Type\ Effects.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/Art\ Style\ Library:\ C:\\Program\ Files\\Adobe\\Adobe\ Illustrator\ 2021\\Presets\\en_US\\Graphic\ Styles\\Vonster\ Pattern\ Styles.ai {
+		/Persistent 0
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/AdobeSlicingPlugin {
+		/addSlicingTools 1
+		/divideHorizontally 1
+		/divideVertically 1
+		/divideEvenHorizontally 1
+		/divideEvenVertically 1
+		/dividePreview 0
+		/divideHorizontallyCount 1
+		/divideHorizontallyPixelCount 0
+		/divideVerticallyCount 1
+		/divideVerticallyPixelCount 0
+	}
+	/Adobe\ Freehand\ Tool {
+		/select 1
+		/edit_selection 1
+		/editing_distance 6.0
+		/fill 0
+		/toggle_to_smooth 0
+		/fairness_preset 2
+		/auto_close 1
+		/closing_distance 15.0
+	}
+	/Adobe\ Freehand\ Smooth\ Tool {
+		/fairness_preset 2
+	}
+	/PDFExport {
+		/DescriptionListEntryExpanded 0
+		/GeneralListEntryExpanded 0
+		/CompressionListEntryExpanded 0
+		/MarksBleedsListEntryExpanded 0
+		/OutputListEntryExpanded 0
+		/OutputColorExpanded 0
+		/OutputPDFXExpanded 0
+		/AdvancedListEntryExpanded 0
+		/SecurityListEntryExpanded 0
+		/ColorImageListEntryExpanded 0
+		/GrayImageListEntryExpanded 0
+		/MonoImageListEntryExpanded 0
+		/FlattenerListEntryExpanded 0
+		/OptionSet 2
+		/OptionSetName [ 21
+			5b496c6c7573747261746f722044656661756c745d
+		]
+		/AI11PDF_Compatibility 3
+		/AI12PDF_UsePrintTiling 0
+		/AI11PDF_PreserveIllustratorEditingCapabilities 1
+		/AI11PDF_GenerateThumbnails 1
+		/AI11PDF_ViewPDFFile 0
+		/AI11PDF_FastWebView 0
+		/AI11PDF_ColorCompressionKind 6
+		/AI11PDF_ColorCompressionQuality 1
+		/AI11PDF_ColorDownsampleKind 1
+		/AI11PDF_ColorDownsampleResolution 150
+		/AI11PDF_ColorDownsampleImageAbove 225
+		/AI11PDF_ColorTileSize 256
+		/AI11PDF_GrayCompressionKind 6
+		/AI11PDF_GrayCompressionQuality 1
+		/AI11PDF_GrayDownsampleKind 1
+		/AI11PDF_GrayDownsampleResolution 150
+		/AI11PDF_GrayDownsampleImageAbove 225
+		/AI11PDF_GrayTileSize 256
+		/AI11PDF_MonochromeCompressionKind 4
+		/AI11PDF_MonochromeDownsampleKind 1
+		/AI11PDF_MonochromeDownsampleResolution 300
+		/AI11PDF_MonoDownsampleImageAbove 450
+		/AI11PDF_CompressArt 1
+		/AI11PDF_TrimMarks 0
+		/AI11PDF_RegMarks 0
+		/AI11PDF_ColorBars 0
+		/AI11PDF_PageInfo 0
+		/AI11PDF_PrinterMarkType 0
+		/AI11PDF_TrimMarkWeight 0.25
+		/AI11PDF_OffsetFromArtworkLeft 6.0
+		/AI11PDF_OffsetFromArtworkRight 6.0
+		/AI11PDF_OffsetFromArtworkTop 6.0
+		/AI11PDF_OffsetFromArtworkBottom 6.0
+		/AI11PDF_BleedLink 1
+		/AI11PDF_BleedLeft 0.0
+		/AI11PDF_BleedRight 0.0
+		/AI11PDF_BleedTop 0.0
+		/AI11PDF_BleedBottom 0.0
+		/AI14PDF_DocBleed 1
+		/AI11PDF_SubsetFontRatio 0
+		/AI11PDF_Overprint 0
+		/AI11PDF_PreserveAcrobatLayers 1
+		/AI11PDF_FlattenTransparency 0
+		/AI11PDF_FlatteningPresetName [ 19
+			5b4d656469756d205265736f6c7574696f6e5d
+		]
+		/AI11PDF_FlatteningPresetMaxResolution 300.0
+		/AI11PDF_FlatteningPresetMinResolution 150.0
+		/AI11PDF_FlatteningPresetVectorBalance 75
+		/AI11PDF_FlatteningPresetClipComplexRegion 1
+		/AI16PDF_FlatteningPresetAntiAlias 0
+		/AI11PDF_FlatteningPresetOutlineStroke 1
+		/AI11PDF_FlatteningPresetOutlineText 0
+		/AI11PDF_FlatteningPresetPrinterResolution 800.0
+		/AI12PDF_DontShowSecurityWarning 0
+		/AI12PDF_Standard 1
+		/AI12PDF_ProfileInclusionPolicy 1
+		/AI12PDF_DestinationPolicy 1
+		/AI12PDF_OutputIntentProfileNamePolicy 1
+		/AI12PDF_ColorConversionPolicy 1
+		/AI12PDF_Trapped 0
+		/AI12PDF_Description [ 0
+
+		]
+		/AI12PDF_DestinationName [ 0
+
+		]
+		/AI12PDF_OutputIntentProfileName [ 0
+
+		]
+		/AI12PDF_OutputCondition [ 0
+
+		]
+		/AI12PDF_OutputConditionIdentifier [ 0
+
+		]
+		/AI12PDF_RegistryName [ 0
+
+		]
+		/SmartExportDefaultPDFPresetName [ 30
+			5b536d616c6c6573742046696c652053697a65202850444620312e36295d
+		]
+	}
+	/PDFImport {
+		/CropTo 4
+		/PageNumber 1
+		/HonourPageScale 0
+	}
+	/PathFinder {
+		/RemoveRedundantPoints 0
+	}
+	/Rasterize {
+		/rasterizeMemory 20
+		/Defaults {
+			/Type 4
+			/DPI 72
+			/Alias 0
+			/Spot 1
+			/Mask 0
+			/Padding 36.0
+		}
+	}
+	/objectExpand {
+		/gradientSteps 255
+	}
+	/PG {
+		/PlaneSwitcherVisible 1
+	}
+	/dBrush {
+		/UseODEPhysics 0
+		/ShowSteppingTrajectories 0
+		/UseSampledStepping 1
+		/MousePoseFollowPath 1
+		/MousePoseAzimuth 45.0000012522
+		/MousePoseAltitude 45.0000012522
+		/MousePoseTwist 0.0
+		/MousePosePressure 0.5
+		/CountBeforeSavePrint 1
+		/ShowPoseAnnotation 0
+	}
+	/BlobBrushTool {
+		/diameterRnd 0.0
+		/roundnessRnd 0.0
+		/angleRnd 0.0
+		/diameterDependsOn 0
+		/roundnessDependsOn 0
+		/angleDependsOn 0
+		/angleRelativeTo 0
+		/diameter 10.0
+		/diameterVariation 0.0
+		/roundness 100.0
+		/roundnessVariation 0.0
+		/angle 0.0
+		/angleVariation 0.0
+	}
+	/EraserTool {
+		/diameterRnd 0.0
+		/roundnessRnd 0.0
+		/angleRnd 0.0
+		/diameterDependsOn 0
+		/roundnessDependsOn 0
+		/angleDependsOn 0
+		/angleRelativeTo 0
+		/diameter 10.0
+		/diameterVariation 0.0
+		/roundness 100.0
+		/roundnessVariation 0.0
+		/angle 0.0
+		/angleVariation 0.0
+	}
+	/ICCColorMgmt3.0 {
+		/settingsFile [ 102
+			433a5c50726f6772616d2046696c65732028783836295c436f6d6d6f6e204669
+			6c65735c41646f62655c436f6c6f725c53657474696e67735c5265636f6d6d65
+			6e6465645c4e6f72746820416d65726963612047656e6572616c20507572706f
+			73652e637366
+		]
+		/useAI6 0
+		/useAdvanced 0
+		/settingsFileValid 1
+	}
+	/AdobeSwatch_ {
+		/ShowFindField 0
+		/CurrentListStyle 0
+		/VisibleKind 0
+		/ShowAllListStyle 0
+		/ColorListStyle 0
+		/GradientListStyle 0
+		/PatternListStyle 0
+		/GroupsListStyle 0
+	}
+	/AdobeSwatchPopup_Fill {
+		/ShowFindField 0
+		/CurrentListStyle 0
+		/VisibleKind 0
+		/ShowAllListStyle 0
+		/ColorListStyle 0
+		/GradientListStyle 0
+		/PatternListStyle 0
+		/GroupsListStyle 0
+	}
+	/AdobeSwatchPopup_Stroke {
+		/ShowFindField 0
+		/CurrentListStyle 0
+		/VisibleKind 0
+		/ShowAllListStyle 0
+		/ColorListStyle 0
+		/GradientListStyle 0
+		/PatternListStyle 0
+		/GroupsListStyle 0
+	}
+	/Transform {
+		/AnchorPoint 4
+	}
+	/Navigator {
+		/Greeking 72.0
+		/DontDrawDash 1
+		/Artboard\ Mode 1
+		/Color {
+			/red 1.0
+			/green 0.31
+			/blue 0.31
+		}
+	}
+	/NamedStyle {
+		/StylesView 0
+		/ThumbnailType 0
+	}
+	/AdobeBrush {
+		/ThumbnailView 1
+	}
+	/CSSExportPreference {
+		/CSSExtract {
+			/CSSExport {
+				/ExportUnit -1
+				/ExportFill 1
+				/ExportStroke 1
+				/ExportOpacity 1
+				/ExportPosition 0
+				/ExportDimension 0
+				/ExportUnnamedObjPref 0
+				/VendorPref 1
+				/Webkit 1
+				/FireFox 1
+				/IExplorer 1
+				/Opera 1
+				/UnsupportedArt 1
+				/ResolutionOption 300
+				/OtherResolution 300.0
+			}
+		}
+	}
+	/Align {
+		/StickyAlignOption 0
+	}
+	/KBSCShortcutFile {
+		/FileName [ 20
+			496c6c7573747261746f722044656661756c7473
+		]
+		/IsPreset 1
+	}
+	/Symbols {
+		/VisibleKind 0
+	}
+	/WorkspacePrefix {
+		/Last\ Used\ Workspace\ Name [ 5
+			5374617274
+		]
+		/Last\ Used\ Workspace\ Mode 1
+	}
+	/FileList {
+		/file0 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file1 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file2 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file3 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file4 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file5 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file6 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file7 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file8 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file9 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file10 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file11 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file12 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file13 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file14 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file15 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file16 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file17 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file18 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+		/file19 {
+			/name [ 0
+
+			]
+			/size 0L
+			/lastOpentime [ 0
+
+			]
+		}
+	}
+	/FileClipboard {
+		/aiOptimizeNetworkOperations 1
+	}
+	/Luckyworker\ Pref {
+		/ReadPDFContent 0
+	}
+	/DontShowWarningAgain {
+		/AI9ClrMgmtNoProfInFile 0
+		/applyAllLinkOption 0
+	}
+	/Vector\ Sculpting {
+		/Mesh\ Visibility 1
+	}
+	/AssetManagement {
+		/bridgeTalkPumpCycleInTicks 30
+	}
+	/PreferenceUI {
+		/PrefDialogDimensionVersion (25.2.0)
+		/dialogWidth 582.0
+		/dialogHeight 595.0
+	}
+}
+/memory {
+	/usePhysicalRAMSize 0
+	/physicalRAMSize 16083
+	/memoryPercentage 0
+}
+/5A1D4D70-D956-4F51-AFA1-E5F66F29679E 0
+/LiveEdit_State_Machine 1
+/LiveEdit_Global_EPF_Limit 5.0
+/useProcessorSpecificCode 1
+/Devices {
+	/EnableWacom 1
+}
+/Printers {
+	/EnableDefaultPrinter 1
+}
+/EnableInternalMemoryPool 0
+/editableGuides 1
+/loadAdditionalPlugins 0
+/pluginCacheCheckCreateDate -402017200
+/pluginCacheCheckModDate -391646095
+/BIBCacheSizeInPercentOfPhysicalRam 2.0
+/BIBCacheMaxSizeInBytes 41943040
+/UIPreferences {
+	/workspaceTabsSize 2
+}
+/checkRequiredPlugins 1
+/EnableContentAwareDefaults 1
+/dynamicspelling 0
+/smartGuides {
+	/isEnabled 1
+	/showRotationalGuides 1
+	/rotationalSnapArcTolerance 4
+	/angularTolerance 2
+}
+/liveCorners {
+	/showWidget 1
+}
+/Planar {
+	/GapDetection 1
+	/GapDetection {
+		/Size 3.0
+		/Custom 0
+		/GapColor {
+			/Color {
+				/red 65535
+				/green 20224
+				/blue 20224
+			}
+			/red 65535
+			/green 20224
+			/blue 20224
+		}
+		/PreviewOn 1
+	}
+	/ArtboardGapPreview 0
+	/Resolution 100
+	/Paintbucket {
+		/PaintFills 1
+		/PaintStrokes 0
+		/Highlight 1
+		/CursorSwatchPrevew 1
+		/Highlight {
+			/Color {
+				/red 65535
+				/green 20224
+				/blue 20224
+			}
+			/Stroke 4
+		}
+	}
+	/FaceSelect {
+		/SelectFills 1
+		/SelectStrokes 1
+		/Highlight 1
+		/Highlight {
+			/Color {
+				/red 65535
+				/green 20224
+				/blue 20224
+			}
+			/Stroke 4
+		}
+	}
+	/MergeTool {
+		/Gap {
+			/Detect 0
+			/Type 0
+			/Length 3.0
+		}
+		/ClosedOpenFillPaths 1
+		/BreakEdge 0
+		/PaintFills 1
+		/PreviewSwatchCursor 0
+		/Highlight {
+			/Fill 1
+			/Stroke 1
+			/StrokeColorIndex 3
+			/StrokeColor {
+				/Red 65535
+				/Green 20224
+				/Blue 20224
+			}
+		}
+	}
+}
+/Simplify {
+	/skipHUD 0
+}
+/showBoundingBox 1
+/BBScaleTolerance -1.0
+/BBRotateTolerance -1.0
+/Gradient\ Annotator\ View\ Option 1
+/EyedropperTool {
+	/rasterSampleSize 1
+	/graphicsStyle 0
+	/paint {
+		/object {
+			/transparency 1
+		}
+		/fill 1
+		/fill {
+			/color 1
+			/transparency 1
+			/overprint 1
+		}
+		/stroke 1
+		/stroke {
+			/color 1
+			/transparency 1
+			/overprint 1
+			/weight 1
+			/cap 1
+			/join 1
+			/miter 1
+			/dash 1
+		}
+		/objectExpanded 1
+		/fillExpanded 1
+		/strokeExpanded 1
+	}
+	/text {
+		/characterStyle 1
+		/paragraphStyle 1
+	}
+	/graphicsStyleExpanded 1
+}
+/BucketTool {
+	/rasterSampleSize 1
+	/graphicsStyle 0
+	/paint {
+		/object {
+			/transparency 1
+		}
+		/fill 1
+		/fill {
+			/color 1
+			/transparency 1
+			/overprint 1
+		}
+		/stroke 1
+		/stroke {
+			/color 1
+			/transparency 1
+			/overprint 1
+			/weight 1
+			/cap 1
+			/join 1
+			/miter 1
+			/dash 1
+		}
+		/objectExpanded 1
+		/fillExpanded 1
+		/strokeExpanded 1
+	}
+	/text {
+		/characterStyle 1
+		/paragraphStyle 1
+	}
+	/graphicsStyleExpanded 1
+}
+/ColorHarmony {
+	/ShowStorage 1
+	/ShowAdjustSliders 0
+	/SliderColorSpace 3
+	/mapMethodPreserveSpots 1
+	/mapMethodApplyToAll 1
+	/combineTintsOnExtraction 1
+	/AdvanceDialogDefaultOn 0
+	/ShowHideColorGuide 1
+	/VariationTypeColorGuide 0
+}
+/DefaultPaintStyle {
+	/StrokeActive 0
+	/PathStyle {
+		/FillPaint 1
+		/Fill {
+			/AIColor {
+				/Kind (Gray)
+				/Gray {
+					/Gray 1.0
+				}
+			}
+			/Overprint 0
+		}
+		/StrokePaint 0
+		/Stroke {
+			/AIColor {
+				/Kind ()
+			}
+			/Overprint 0
+			/Width 1.0
+			/Dash {
+				/Length 0
+				/Offset 0.0
+			}
+			/Cap (ButtCap)
+			/Join (MiterJoin)
+			/MiterLimit 10.0
+		}
+	}
+	/ActiveColor {
+		/AIColor {
+			/Kind (CMYK)
+			/CMYK {
+				/Cyan 0.0
+				/Magenta 0.0
+				/Yellow 0.0
+				/Black 0.0
+			}
+		}
+	}
+	/ActiveGradient {
+		/AIColor {
+			/Kind ()
+		}
+	}
+}
+/Swatches {
+	/linkHVSpacingInDlg 0
+	/linkHtWidthInDlg 0
+}
+/linkTransform 0
+/onlyTransformPatterns 0
+/dontUseSymbolRegPoint 0
+/isRulerIn4thQuad 1
+/TouchPreferenceUI {
+	/TWSKeyboardDetach 1
+	/PreciseCursor 1
+}
+/shaper {
+	/constrainScaling 0
+}
+/showFindMoreTabV2 1
+/freehandTol 2.0
+/outlineTol 0.0
+/Hello {
+	/ShowHomeScreenWS 1
+	/NewDoc 0
+}
+/EnableActualViewPreview 1
+/resetPreferencesSet 0
+/aiSwapAltControlWithScrollWheel 0
 /aiShowSystemCompatibilityIssuesAtStartup 0
+/InAppUpdateUI {
+	/LaunchSessionCount 0
+}
+/layers {
+	/pastePreserve 0
+	/pastePreserveBackup 0
+}
+/AI\ Container\ Overrides\ Object 1
+/showLinkInfo 0
+/textLineSnapping 1
+/snapomatic {
+	/Color {
+		/red_19_2 1.0
+		/green_19_2 0.2899976969
+		/blue_19_2 1.0
+	}
+	/GlyphColor {
+		/red 0.4313725531
+		/green 0.8039215803
+		/blue 0.2941176593
+	}
+}
+/selectedAnchorMarkType 9
+/unselectedAnchorMarkType 1
+/RecentFileNumber 20
+/DesignLibraryFTUEShown 0
+/AI\ New\ Art\ Basic\ Appearance 1
+/CurvatureTool {
+	/rubberBandEnable 1
+}
+/hideAnchorPointsInTools 1
+/warning {
+	/fontProblem 1
+	/liveTrace 1
+	/colorConversion 1
+	/legacyTextConversion 1
+}
+/LegacyArtboardOptions {
+	/ShowDialog 1
+	/artboard 1
+	/cropAreas 1
+	/pageTiles 0
+	/artworkBounds 0
+}
+/open {
+	/legacyGradientMeshConversion 0
+}
+/CrashRecovery {
+	/AutomaticallySave 1
+	/IdleLoopTimeInterval 2
+	/RecoveryFolderLocation [ 101
+		433a5c55736572735c496d6167654275696c64657241646d696e5c4170704461
+		74615c526f616d696e675c41646f62655c41646f626520496c6c757374726174
+		6f722032352053657474696e67735c656e5f55535c7836345c44617461526563
+		6f76657279
+	]
+	/TurnOffForComplexDocument 1
+}
+/maximumUndoDepth 100
+/CloudAIContentTypePref 1
+/Cloud\ AI\ Incremental\ Save\ Enabled\ Pref 1
+/showPlacedImages 0
+/doSplitPath 0
+/printerResolution 800.0
+/colorModel 1
+/IgnoreRepeatedWord 0
+/IgnoreUncapSentenceStart 0
+/IgnoreWordAllCap 0
+/IgnoreRomanNumeral 0
+/IgnoreWordWithNumber 0
+/aiFileFormat {
+	/enableContentRecovery 0
+	/dumpPGFwithoutShortcut 0
+	/enableATEReadRecovery 0
+}
+/xml {
+	/UID {
+		/autoBaseNameUS [ 5
+			584d4c4944
+		]
+	}
+}
+/artnewdialog {
+	/numRecentPresets 3
+	/numArtboards 1
+	/artboardSpacing 20.0
+	/artboardRowsOrCols 1
+	/artboardLayout 0
+	/isArtboardLayoutLeftToRight 1
+	/unit 6
+	/fileSize 169503
+	/fileModifiedDate -596355375L
+	/lastUsedTime -596036450L
+	/documentType 2
+	/leftBleedSize 0.0
+	/rightBleedSize 0.0
+	/topBleedSize 0.0
+	/bottomBleedSize 0.0
+	/bleedsLocked 1
+	/previewmode 2
+	/transparencygrid 1
+	/transparencygrid_color1_red 65535
+	/transparencygrid_color1_green 65535
+	/transparencygrid_color1_blue 65535
+	/transparencygrid_color2_red 52428
+	/transparencygrid_color2_green 52428
+	/transparencygrid_color2_blue 52428
+	/pixelaspectratio 1.0
+	/rasterresolution 72
+	/pixelperfectobjects 0
+	/docppi 72.0
+	/numArtboards_1 1
+	/artboardSpacing_1 20.0
+	/artboardRowsOrCols_1 1
+	/artboardLayout_1 0
+	/isArtboardLayoutLeftToRight_1 1
+	/unit_1 2
+	/fileSize_1 305710
+	/fileModifiedDate_1 -596355375L
+	/lastUsedTime_1 -596036450L
+	/documentType_1 1
+	/leftBleedSize_1 0.0
+	/rightBleedSize_1 0.0
+	/topBleedSize_1 0.0
+	/bottomBleedSize_1 0.0
+	/bleedsLocked_1 1
+	/previewmode_1 2
+	/transparencygrid_1 1
+	/transparencygrid_color1_red_1 65535
+	/transparencygrid_color1_green_1 65535
+	/transparencygrid_color1_blue_1 65535
+	/transparencygrid_color2_red_1 52428
+	/transparencygrid_color2_green_1 52428
+	/transparencygrid_color2_blue_1 52428
+	/pixelaspectratio_1 1.0
+	/rasterresolution_1 300
+	/pixelperfectobjects_1 0
+	/docppi_1 72.0
+	/numArtboards_2 1
+	/artboardSpacing_2 20.0
+	/artboardRowsOrCols_2 1
+	/artboardLayout_2 0
+	/isArtboardLayoutLeftToRight_2 1
+	/unit_2 2
+	/fileSize_2 305710
+	/fileModifiedDate_2 -596355375L
+	/lastUsedTime_2 -596036450L
+	/documentType_2 1
+	/leftBleedSize_2 0.0
+	/rightBleedSize_2 0.0
+	/topBleedSize_2 0.0
+	/bottomBleedSize_2 0.0
+	/bleedsLocked_2 1
+	/previewmode_2 2
+	/transparencygrid_2 1
+	/transparencygrid_color1_red_2 65535
+	/transparencygrid_color1_green_2 65535
+	/transparencygrid_color1_blue_2 65535
+	/transparencygrid_color2_red_2 52428
+	/transparencygrid_color2_green_2 52428
+	/transparencygrid_color2_blue_2 52428
+	/pixelaspectratio_2 1.0
+	/rasterresolution_2 300
+	/pixelperfectobjects_2 0
+	/docppi_2 72.0
+}
+/artboard {
+	/width 1920.0
+	/height 1080.0
+	/width_1 595.2755737305
+	/height_1 841.889831543
+	/width_2 612.0
+	/height_2 792.0
+}
+/startupFileType [ 117
+	433a5c55736572735c496d6167654275696c64657241646d696e5c4170704461
+	74615c526f616d696e675c41646f62655c41646f626520496c6c757374726174
+	6f722032352053657474696e67735c656e5f55535c7836345c4e657720446f63
+	756d656e742050726f66696c65735c5765622e6169
+]
+/attributePalette {
+	/currentUrlCount 0
+}
+/AiFastExit 1
+/widthToolIsSelected 0
+/layout {
+	/0 {
+		/ApplicationBarOption 0
+	}
+}
+/colorModel_1 2
+/rulerType_1 2
+/startupFileType_1 [ 119
+	433a5c55736572735c496d6167654275696c64657241646d696e5c4170704461
+	74615c526f616d696e675c41646f62655c41646f626520496c6c757374726174
+	6f722032352053657474696e67735c656e5f55535c7836345c4e657720446f63
+	756d656e742050726f66696c65735c5072696e742e6169
+]
+/colorModel_2 2
+/rulerType_2 2
+/startupFileType_2 [ 119
+	433a5c55736572735c496d6167654275696c64657241646d696e5c4170704461
+	74615c526f616d696e675c41646f62655c41646f626520496c6c757374726174
+	6f722032352053657474696e67735c656e5f55535c7836345c4e657720446f63
+	756d656e742050726f66696c65735c5072696e742e6169
+]
+/Performance {
+	/EnableGPU_Ver19_2 0
+	/GPUSupported 1
+	/AnimZoom 1
+}
+/GPPreferences {
+	/resetPreferencesSet 0
+}
+/changed 0
