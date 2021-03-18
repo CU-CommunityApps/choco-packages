@@ -1,9 +1,9 @@
 Id:             'rhino6-cals'
 Description:    'rhino6-cals - buildtest4'
-Version:        '6.28.20199.17141'
+Version:        '6.34.21034.7001'
 
 Install:
-  - File:       '%INSTALL_DIR%\rhino_en-us_6.28.20199.17141.exe'
+  - File:       '%INSTALL_DIR%\Bootstrapper.exe'
     FileType:   'exe'
     Arguments:  '-package -quiet LICENSE_METHOD=ZOO ZOO_SERVER=%ZOO_SERVER% ENABLE_AUTOMATIC_UPDATES=0 SEND_STATISTICS=0'
     ExitCodes:  [0]
