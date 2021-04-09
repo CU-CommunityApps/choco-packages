@@ -31,7 +31,7 @@ If($OSVersion -match "2012")
     Register-ScheduledTask -TaskName "Update_SCEP" -Xml (Get-Content "$PSScriptRoot\Update_SCEP.xml" | Out-String)
 }
 
-#Setup Windows Defender Preferences for Server 2016 or 2019 (not 2012)
+# Setup Windows Defender Preferences for Server 2016 or 2019 (not 2012)
 If($OSVersion -notmatch "2012")
 {
     # Apply custom policies
@@ -43,3 +43,22 @@ If($OSVersion -notmatch "2012")
     # Update Defender
     Update-MpSignature -verbose
 }
+
+#################################
+# Set Application Calalog order #
+#################################
+
+# Install PSSQLite Powershell Module
+Install-Module 'PSSQLite' -Force
+
+# Image Assistant DB
+$APP_CATALOG = [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
+
+# SQL Query to Update Table
+$query = "CREATE TABLE New AS SELECT * FROM Applications ORDER BY DisplayName COLLATE NOCASE DESC;
+DROP TABLE Applications;
+CREATE TABLE Applications AS SELECT * FROM New ORDER BY DisplayName COLLATE NOCASE DESC;
+DROP TABLE New;"
+
+# Update Table
+Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $query
