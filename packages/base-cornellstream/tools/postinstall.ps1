@@ -48,9 +48,6 @@ If($OSVersion -notmatch "2012")
 # Set Application Calalog order #
 #################################
 
-# Install PSSQLite Powershell Module
-Install-Module 'PSSQLite' -Force
-
 # Image Assistant DB
 $APP_CATALOG = [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
 
