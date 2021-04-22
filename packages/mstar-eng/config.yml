@@ -26,12 +26,6 @@ Applications:                                                       ## Applicati
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
    
-    mstarpost:                                                      ## This must match the icons.png file name
-        DisplayName:    'M-Star Post'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\M-Star CFD\MStarPost.exe'          ## The path to the app
-        LaunchParams:   ''                     ## Launch parameters for the app
-        WorkDir:        '' ## Working directory
-        
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\cornell-ls64.rlmcloud.com.lic': '%PROGRAMFILES%\M-Star CFD\cornell-ls64.rlmcloud.com.lic'
     '%INSTALL_DIR%\Cornell_PG_dye_particles.msb': '%PROGRAMFILES%\M-Star CFD\Cornell_PG_dye_particles.msb'    ## Source directory to destination directory
