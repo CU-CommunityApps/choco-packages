@@ -10,4 +10,4 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\GeneClass2': '%PROGRAMFILES(x86)%\CBGP\GeneClass2'  ## Source directory to destination directory
+    '%INSTALL_DIR%\': '%PROGRAMFILES(x86)%\CBGP\GeneClass2\'  ## Source directory to destination directory
