@@ -1,0 +1,13 @@
+Id:             'geneclass2-cals'                ## Application package name ie. chrome-cornell
+Description:    'geneclass2-cals'    ## Application packages description
+Version:        '1.0.0.1621'                     ## Application version number - MUST BE in #.# format
+
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    geneclass:                                                      ## This must match the icons.png file name
+        DisplayName:    'GeneClass2'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES(x86)%\CBGP\GeneClass2\geneclass2.exe'          ## The path to the app
+        LaunchParams:   ''                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
+
+Files:                                                                  ## File copy feature
+    '%INSTALL_DIR%\GeneClass2': '%PROGRAMFILES(x86)%\CBGP\GeneClass2'  ## Source directory to destination directory
