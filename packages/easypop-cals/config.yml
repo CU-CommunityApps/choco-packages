@@ -1,0 +1,13 @@
+Id:             'easypop-cals'
+Description:    'easypop-cals - buildtest'
+Version:        '2.0.1'
+
+Applications:
+    easypop:
+        DisplayName:    'EASYPOP'
+        Path:           '%PROGRAMFILES%\EASYPOP\EASYPOPpc201.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\EASYPOPpc201.exe': '%PROGRAMFILES%\EASYPOP\EASYPOPpc201.exe'
