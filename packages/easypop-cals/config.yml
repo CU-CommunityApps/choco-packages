@@ -5,7 +5,7 @@ Version:        '2.0.1'
 Applications:
     easypop:
         DisplayName:    'EASYPOP'
-        Path:           '%PROGRAMFILES%\EASYPOP\EASYPOPpc201exe'
+        Path:           '%PROGRAMFILES%\EASYPOP\EASYPOPpc201.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
