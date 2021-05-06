@@ -1,6 +1,6 @@
 Id:             'vortex-cals'                ## Application package name ie. chrome-cornell
-Description:    'vortex-cals - build2'    ## Application packages description
-Version:        '10.4.1'                     ## Application version number - MUST BE in #.# format
+Description:    'vortex-cals - build1'    ## Application packages description
+Version:        '10.5.5.0'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
     File:       '%INSTALL_DIR%\Vortex10QuietInstallation.10.4.1.msi'   ## Installation file
@@ -10,7 +10,7 @@ Install:                                    ## If there are installation files i
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     amvortex:                                                      ## This must match the icons.png file name
-        DisplayName:    'Vortex Adaptive Manger'                ## How the app displayed to the user
+        DisplayName:    'Adaptive Manger'                ## How the app displayed to the user
         Path:           '%PROGRAMFILES(X86)%\Species Conservation Toolkit Initiative\Vortex10\AMVortex.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
@@ -18,5 +18,11 @@ Applications:                                                       ## Applicati
     vortex10:                                                      ## This must match the icons.png file name
         DisplayName:    'Vortex10'                ## How the app displayed to the user
         Path:           '%PROGRAMFILES(X86)%\Species Conservation Toolkit Initiative\Vortex10\Vortex10.exe'          ## The path to the app
+        LaunchParams:   ''                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
+
+    eddy:                                                      ## This must match the icons.png file name
+        DisplayName:    'Eddy'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES(X86)%\Species Conservation Toolkit Initiative\Vortex10\Eddy.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
