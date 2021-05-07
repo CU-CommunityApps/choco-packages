@@ -1,0 +1,17 @@
+Id:             'populus-cals'                ## Application package name ie. chrome-cornell
+Description:    'populus-cals'    ## Application packages description
+Version:        '6.0'                     ## Application version number - MUST BE in #.# format
+
+ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
+  - PackageName:    'openjdk'     ## Package name - https://chocolatey.org/packages - ie. adobereader
+    InstallParams:  '-y'      ## Install args to pass to the native installer in the package. Defaults to unspecified.
+                                            ## Leave blank '' if no parameters to pass
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    populus:                                                      ## This must match the icons.png file name
+        DisplayName:    'Populus'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib'          ## The path to the app
+        LaunchParams:   'java -jar PopulusAll_Jan_2018.jar'                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
+
+Files:                                                                  ## File copy feature
+    '%INSTALL_DIR%\PopulusAll_Jan_2018.jar': '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib\PopulusAll_Jan_2018.jar'  ## Source directory to destination directory
