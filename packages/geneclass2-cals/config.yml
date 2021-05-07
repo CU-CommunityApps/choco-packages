@@ -1,5 +1,5 @@
 Id:             'geneclass2-cals'                ## Application package name ie. chrome-cornell
-Description:    'geneclass2-cals'    ## Application packages description
+Description:    'geneclass2-cals2'    ## Application packages description
 Version:        '1.0.0.1621'                     ## Application version number - MUST BE in #.# format
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
