@@ -9,7 +9,7 @@ ChocoPackages:                              ## Chocolatey packages installed str
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     populus:                                                      ## This must match the icons.png file name
         DisplayName:    'Populus'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib\populus.bat'          ## The path to the app
+        Path:           '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib\populus.cmd'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
