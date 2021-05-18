@@ -14,5 +14,5 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\pplane': '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib\pplane.jar'  ## Source directory to destination directory
+    '%INSTALL_DIR%\pplane.jar': '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib\pplane.jar'  ## Source directory to destination directory
     '%INSTALL_DIR%\pplane.cmd': '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib\pplane.cmd'
