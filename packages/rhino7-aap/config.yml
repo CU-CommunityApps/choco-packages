@@ -41,7 +41,7 @@ Registry:               ## Registry values to be copied to each streaming instan
                 Type:   'String'
                 Value:  '0'
      
-             SOFTWARE\McNeel\McNeelUpdate:
+        SOFTWARE\McNeel\McNeelUpdate:
             Enabled:
                 Type:   'String'
                 Value:  '0'
