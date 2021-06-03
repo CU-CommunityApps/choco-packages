@@ -8,10 +8,10 @@ Install:
     Arguments:  '-package -quiet LICENSE_METHOD=ZOO ZOO_SERVER=%ZOO_SERVER% ENABLE_AUTOMATIC_UPDATES=0 SEND_STATISTICS=0'
     ExitCodes:  [0]
 
-  #- File:       '%INSTALL_DIR%\vray_51004_rhino_win_x64.exe'
-   # FileType:   'exe'
-   # Arguments:  '-gui=0 -configFile=%INSTALL_DIR%\config.xml -quiet=1'
-   # ExitCodes:  [0]
+  - File:       '%INSTALL_DIR%\vray_51004_rhino_win_x64.exe'
+    FileType:   'exe'
+    Arguments:  '-gui=0 -configFile=%INSTALL_DIR%\config.xml -quiet=1'
+    ExitCodes:  [0]
     
 Applications:
     rhino6:
