@@ -1,17 +1,17 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad 2021 - COECIS LICENSE'
-Version:        '47.0.0'
+Description:    'AutoCad 2022 - COECIS LICENSE b3'
+Version:        '1.16.0.6'
 
 Install:
-    File:       '%INSTALL_DIR%\Img\setup.exe'
+    File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\Img\autocad2021.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '-q'
     ExitCodes:  [0, 1641]
 
 Applications:
     autocad:
-        DisplayName:    'AutoCAD 2021'
-        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2021\acad.exe'
+        DisplayName:    'AutoCAD 2022'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2022\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
@@ -21,6 +21,11 @@ Environment:
 Registry:
 
     HKUD:
+        SOFTWARE\FLEXlm License Manager:
+            ADSKFLEX_LICENSE_FILE:
+                Type:   'String'
+                Value:  '%AUTOCAD_LICENSE_FILE%'              
+        
         SOFTWARE\Autodesk\MC3:
             ADAOptIn:
                 Type:   'DWORD'
@@ -33,6 +38,8 @@ Registry:
             OverridedByHKLM:
                 Type:   'DWORD'
                 Value:  '0'
+                
+
                 
     HKLM:
         Software\Autodesk\MC3:
