@@ -14,7 +14,7 @@ Install:
     ExitCodes:  [0]
     
 Applications:
-    rhino6:
+    rhino7:
         DisplayName:    'Rhino'
         Path:           '%PROGRAMFILES%\Rhino 7\System\Rhino.exe'
         LaunchParams:   ''
