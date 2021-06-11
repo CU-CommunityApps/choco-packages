@@ -15,9 +15,6 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Environment:
-    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
-
 Registry:
 
     HKUD:
@@ -38,9 +35,7 @@ Registry:
             OverridedByHKLM:
                 Type:   'DWORD'
                 Value:  '0'
-                
-
-                
+                                
     HKLM:
         Software\Autodesk\MC3:
             HKLMADAOptin:
