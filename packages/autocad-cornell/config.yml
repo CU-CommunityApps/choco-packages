@@ -15,8 +15,12 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Registry:
 
+
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
+
+Registry:
     HKUD:
         SOFTWARE\FLEXlm License Manager:
             ADSKFLEX_LICENSE_FILE:
