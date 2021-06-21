@@ -32,7 +32,10 @@ Registry:
             OverridedByHKLM:
                 Type:   'DWORD'
                 Value:  '0'
-                                
+    
+            FLEXLM License Manager:
+                Type:   'String'
+                Value:  '%ADSKFLEX_LICENSE_FILE%'
     HKLM:
         Software\Autodesk\MC3:
             HKLMADAOptin:
