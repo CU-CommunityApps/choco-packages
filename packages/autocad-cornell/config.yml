@@ -15,7 +15,7 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-
+ '%INSTALL_DIR%\Licpath.lic': '%PROGRAMFILES%\Autodesk\AutoCAD 2022\Licpath.lic'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
