@@ -14,7 +14,8 @@ Applications:
         Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2022\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
-Files:                                                                  ## File copy feature
+        
+Files:                                                                 
     '%INSTALL_DIR%\Licpath.lic': '%PROGRAMFILES%\Autodesk\AutoCAD 2022\Licpath.lic'
 
 Registry:
