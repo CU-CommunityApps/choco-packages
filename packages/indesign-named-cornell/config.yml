@@ -1,6 +1,6 @@
 Id:             'indesign-named-cornell'
 Description:    'Adobe InDesign CC 2021'
-Version:        '16.1'
+Version:        '16.2.1'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
