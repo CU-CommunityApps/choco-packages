@@ -1,13 +1,13 @@
-# Runs after the choco package is installed
-
-#########################################
-### AutoDesk license installer helper ###
-#########################################
+# AutoDesk license installer helper
 
 # ADSK installation location
 $exe = "${env:CommonProgramFiles(x86)}\Autodesk Shared\AdskLicensing\Current\helper\AdskLicensingInstHelper.exe"
 
+# SYSTEM environment variable registry key
+$regKey = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+
 # AutoDesk product key (product identifier - ie. Revit, AutoCAD, 3dsMax, etc...)
+# 001N1 = AutoCAD 2022
 $productKey = "001N1"
 
 # AutoDesk product version
@@ -16,8 +16,11 @@ $productVer = "2022.0.0.F"
 # AutoDesk Product Info file location
 $configFile = "$env:ALLUSERSPROFILE\autodesk\Adlm\ProductInformation.pit"
 
+# Get parent process environment variable(s)
+$ADSKFLEX_LIC_FILE = Get-ItemPropertyValue $regKey -Name "ADSKFLEX_LICENSE_FILE"
+
 # Get license server (this environment variable is specific to Apps on Demand)
-$licServer = $env:ADSKFLEX_LICENSE_FILE.Split("@")[1]
+$licServer = $env:ADSKFLEX_LIC_FILE.Split("@")[1]
 
 # Get IP address of license server
 $serverAddress = "@" + (Resolve-DnsName $licServer).IP4Address
@@ -57,7 +60,3 @@ $args = "register --pk $productKey --pv $productVer --cf $configFile --el US --l
 
 # Run the license helper
 Start-Process $exe -ArgumentList $args -Verbose
-
-# Remove Customer Experience pop ups
-$custExperience = "$env:ProgramFiles\Autodesk\AutoCAD 2022\AcExperience.arx"
-If (Test-Path $custExperience){Remove-Item $custExperience -Force}
