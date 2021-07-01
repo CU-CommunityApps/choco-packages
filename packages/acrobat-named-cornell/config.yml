@@ -1,6 +1,6 @@
 Id:             'acrobat-named-cornell'
 Description:    'Adobe Acrobat DC - buildtest1'
-Version:        '21.001.20135'
+Version:        '2021.005.20048'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
