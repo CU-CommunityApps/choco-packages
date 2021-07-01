@@ -1,6 +1,6 @@
 Id:             'premierepro-named-cornell'
-Description:    'Adobe Premiere Pro CC 2020'
-Version:        '14.8.0'
+Description:    'Adobe Premiere Pro 2021'
+Version:        '15.2.0'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
@@ -10,13 +10,13 @@ Install:
 
 Applications:
     premierepro: 
-        DisplayName:    'Adobe Premiere Pro 2020'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro 2020\Adobe Premiere Pro.exe'
+        DisplayName:    'Adobe Premiere Pro 2021'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro 2021\Adobe Premiere Pro.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\14.0\SCRPriorState.json'
+    '%INSTALL_DIR%\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\15.0\SCRPriorState.json'
     
 Registry:
     HKUD:
