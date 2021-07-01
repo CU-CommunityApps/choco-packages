@@ -1,5 +1,5 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad 2022 - COECIS LICENSE b3'
+Description:    'AutoCad 2022 - COECIS LICENSE b5'
 Version:        '1.16.0.6'
 
 Install:
@@ -14,15 +14,12 @@ Applications:
         Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2022\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
 
 Registry:
-
     HKUD:
-        SOFTWARE\FLEXlm License Manager:
-            ADSKFLEX_LICENSE_FILE:
-                Type:   'String'
-                Value:  '%AUTOCAD_LICENSE_FILE%'              
-        
         SOFTWARE\Autodesk\MC3:
             ADAOptIn:
                 Type:   'DWORD'
