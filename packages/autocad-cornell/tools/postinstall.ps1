@@ -20,7 +20,7 @@ $configFile = "$env:ALLUSERSPROFILE\autodesk\Adlm\ProductInformation.pit"
 $ADSKFLEX_LIC_FILE = Get-ItemPropertyValue $regKey -Name "ADSKFLEX_LICENSE_FILE"
 
 # Get license server (this environment variable is specific to Apps on Demand)
-$licServer = $ADSKFLEX_LIC_FILE.Split("@")[1]
+$licServer = $ADSKFLEX_LIC_FILE.Split("@")[1].Split(";")[0]
 
 # Get IP address of license server
 $serverAddress = "@" + (Resolve-DnsName $licServer).IP4Address
