@@ -1,6 +1,6 @@
 Id:             'arcgis-aap'
 Description:    'arcgis-aap - fa2021 a1'
-Version:        '10.8'
+Version:        '10.8.1'
 
 Install:
   - File:       '%INSTALL_DIR%\arcgisd1\VC_redist.x86.exe'
