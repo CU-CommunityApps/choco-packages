@@ -18,7 +18,7 @@ Install:
     Arguments:  '/qn /norestart'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\ArcGISd4\ProCoordinateSystemsData.msi'
+  - File:       '%INSTALL_DIR%\ArcGISd4\CSD.msi'
     FileType:   'msi'
     Arguments:  '/qn /norestart'
     ExitCodes:  [0]
