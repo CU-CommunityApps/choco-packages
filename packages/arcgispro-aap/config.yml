@@ -1,6 +1,6 @@
 Id:             'arcgispro-aap'
 Description:    'arcgispro - buildtest2'
-Version:        '2.5.22081'
+Version:        '2.8.29751'
 
 Install:
   - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro.msi'
