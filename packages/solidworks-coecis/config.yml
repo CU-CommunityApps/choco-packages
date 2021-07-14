@@ -1,6 +1,6 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2020 - COECIS License'
-Version:        '28.130.0086'
+Description:    'SOLIDWORKS 2021 - COECIS License'
+Version:        '29.4.1.0001
 
 Install:
   - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
@@ -25,7 +25,7 @@ Install:
 
 Applications:
     SLDWORKS:
-        DisplayName:    'SOLIDWORKS 2020'
+        DisplayName:    'SOLIDWORKS 2021'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -49,7 +49,7 @@ Applications:
         WorkDir:        ''
         
     toolbox:
-        DisplayName:    'Toolbox Settings 2020'
+        DisplayName:    'Toolbox Settings 2021'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -60,7 +60,7 @@ Files:
 
 Services:
 #     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
-    SWVisualize2020.Queue.Server:   'Manual'
+    SWVisualize2021.Queue.Server:   'Manual'
 
 Scripts:
     start:
