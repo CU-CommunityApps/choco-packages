@@ -1,23 +1,23 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2021 - COECIS LICENSE'
-Version:        '2021.0'
+Description:    'Autodesk Inventor 2022 - COECIS LICENSE'
+Version:        '2022.0'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\inventor2021.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '-q'
     ExitCodes:  [0,1638,1641]
 
 Applications:
     Inventor:
-        DisplayName:    'Inventor 2021'
-        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2021\Bin\Inventor.exe'
+        DisplayName:    'Inventor 2022'
+        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2022\Bin\Inventor.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2021\Preferences\AddInLoadRules.xml'
-    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2021\UserApplicationOptions.xml'
+    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2022\Preferences\AddInLoadRules.xml'
+    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2022\UserApplicationOptions.xml'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%INVENTOR_LICENSE_FILE%'
