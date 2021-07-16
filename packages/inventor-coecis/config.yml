@@ -3,7 +3,7 @@ Description:    'Autodesk Inventor 2022 - COECIS LICENSE'
 Version:        '2022.0'
 
 Install:
-    File:       '%INSTALL_DIR%\Img\setup.exe'
+    File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
     Arguments:  '-q'
     ExitCodes:  [0,1638,1641]
