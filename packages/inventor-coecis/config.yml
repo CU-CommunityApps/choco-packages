@@ -21,10 +21,7 @@ Files:
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
-
-Services:
-    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
-    
+   
 Registry:
     HKUD:
         Software\Autodesk\MC3:
