@@ -30,7 +30,7 @@ Registry:
         Software\Autodesk\MC3:
             ADAOptIn:
                 Type:   'DWORD'
-                Value:  '1'
+                Value:  '0'
 
             ADARePrompted:
                 Type:   'DWORD'
@@ -40,7 +40,7 @@ Registry:
         Software\Autodesk\MC3:
             HKLMADAOptin:
                 Type:   'DWORD'
-                Value:  '1'
+                Value:  '0'
 
             HKLMADARePrompted:
                 Type:   'DWORD'
