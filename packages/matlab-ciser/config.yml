@@ -1,6 +1,6 @@
 Id:             'matlab-ciser'
-Description:    'Matlab R2020a - CISER License - buildtest1'
-Version:        '9.8.0.1298242'
+Description:    'Matlab R2021a - CISER License - buildtest1'
+Version:        '9.10.0.1684407'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -13,15 +13,15 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2020a'
-        Path:           '%PROGRAMFILES%\MATLAB\R2020a\bin\matlab.exe'
+        DisplayName:    'MATLAB R2021a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2021a\bin\matlab.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
-    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2020a\toolbox_cache-9.8.0-69619083-win64.xml'
-    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2020a\graphicsState.bin'
+    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2021a\toolbox_cache-9.8.0-69619083-win64.xml'
+    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2021a\graphicsState.bin'
 
 Environment:
     MATLABPATH:     '%PUBLIC%\MATLAB'
