@@ -1,9 +1,9 @@
 Id:             'tableau-cis'
-Description:    'Tableau 2019 - Fall2020'
-Version:        '2019.2.0'
+Description:    'Tableau 2021 - Fall2021'
+Version:        '2021.2.0'
 
 Install:
-    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2019-2-0.exe'
+    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2021-2-0.exe'
     FileType:   'exe'
     Arguments:  '/quiet /norestart ACCEPTEULA=1 SKIPAPPLICATIONLAUNCH=1 SENDTELEMETRY=0 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://tableau.cornell.edu'
     ExitCodes:  [0,3010]
@@ -12,11 +12,11 @@ Applications:
     tableau:
         DisplayName:    'Tableau'
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-Windowstyle Hidden -File "%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1" -Mode launch'
+        LaunchParams:   '-Windowstyle Hidden -File "%ProgramFiles%\Tableau\Tableau 2021.2\bin\tableau.ps1" -Mode launch'
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2019.2\bin\tableau.ps1' # Scheduled Task Script
+    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2021.2\bin\tableau.ps1' # Scheduled Task Script
     
 Scripts:
     start:
