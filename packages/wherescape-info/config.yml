@@ -1,5 +1,5 @@
 Id:             'wherescape-info'
-Description:    'Wherescape Red for - INFO4555 buildtest2'
+Description:    'Wherescape Red for - INFO4555 buildtest3'
 Version:        '8.3.1.1'
 
 Install:
@@ -26,7 +26,7 @@ Registry:
         Software\WhereScape\MetaEditor\LicenseV7:
             Licensed_To:
                 Type:   'String'
-                Value:  'Cornell University - Fall Term 2020 - Expires Dec 31 2020'
+                Value:  'Cornell University Expires 31DEC21'
 
             LicenseAgreementAccepted:
                 Type:   'DWORD'
