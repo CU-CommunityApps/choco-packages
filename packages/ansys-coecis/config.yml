@@ -1,6 +1,6 @@
 Id:             'ansys-coecis'
-Description:    'ANSYS 2020 R2 - buildtest 2'
-Version:        '20.2.0.2020052616'
+Description:    'ANSYS 2021 R2 - buildtest 2'
+Version:        '21.2.0.52450'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -10,12 +10,12 @@ Install:
 
 Applications:
     ANSYSWB:
-        DisplayName:    'Workbench 2020 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v202\Framework\bin\Win64\RunWB2.exe'
+        DisplayName:    'Workbench 2021 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v212\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v202\ApipUserConfig.txt'
-    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v202\commonfiles\CAD\CADConfigurationInfo.XML'
+    '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v212\ApipUserConfig.txt'
+    '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v212\commonfiles\CAD\CADConfigurationInfo.XML'
     '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
