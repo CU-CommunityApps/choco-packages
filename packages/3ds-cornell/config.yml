@@ -45,7 +45,7 @@ Registry:
                 Type:   'DWORD'
                 Value:  '1'
                 
-        SOFTWARE\Autodesk\3dsMax\23.0\MiniDump\24.0.0.923:
+        SOFTWARE\Autodesk\3dsMax\24.0\MiniDump\24.0.0.923:
             SessionStartCount:
                 Type:   'DWORD'
                 Value:  '1'
