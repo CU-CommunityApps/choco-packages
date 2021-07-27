@@ -1,9 +1,9 @@
 Id:             'anaconda-cornell'
-Description:    'anaconda-cornell - buildtest'
-Version:        '2019.03'
+Description:    'anaconda-cornell - buildtest1'
+Version:        '3.7.6'
 
 Install:
-    File:       '%INSTALL_DIR%\Anaconda3-2019.03-Windows-x86_64.exe'
+  - File:       '%INSTALL_DIR%\Anaconda3-2020.02-Windows-x86_64.exe'
     FileType:   'exe'
     Arguments:  '/S /InstallationType=AllUsers /AddToPath=1 /RegisterPython=1 /D=c:\Program Files\Anaconda'
     ExitCodes:  [0]
@@ -11,8 +11,8 @@ Install:
 Applications:
     anaconda:
         DisplayName:    'Anaconda'
-        Path:           '%PROGRAMFILES%\Anaconda\Scripts\anaconda-navigator.exe'
-        LaunchParams:   ''
+        Path:           '%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   '-ExecutionPolicy ByPass -NoExit -Command "& $env:ProgramFiles\Anaconda\shell\condabin\conda-hook.ps1; conda activate $env:ProgramFiles\Anaconda"'
         WorkDir:        ''
         
 Files: 
