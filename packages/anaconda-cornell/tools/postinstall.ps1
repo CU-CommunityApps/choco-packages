@@ -9,5 +9,4 @@ start-process "c:\program Files\Anaconda\Scripts\conda.exe" -argumentlist "insta
 start-process "c:\program Files\Anaconda\Scripts\conda.exe" -argumentlist "install -y kivy_deps.gstreamer kivy_deps.gstreamer==0.1.*" -NoNewWindow
 start-process "c:\program Files\Anaconda\Scripts\conda.exe" -argumentlist "install -y kivy_deps.angle==0.1*" -NoNewWindow
 start-process "c:\program Files\Anaconda\Scripts\conda.exe" -argumentlist "install -y kivy==1.11.1" -NoNewWindow
-start-process "c:\program Files\Anaconda\Scripts\conda.exe" -argumentlist "install -y kivy --upgrade" -NoNewWindow
-start-process "c:\program Files\Anaconda\Scripts\conda.exe" -argumentlist "install -y introcs --upgrade" -NoNewWindow
+start-process "c:\program Files\Anaconda\Scripts\conda.exe" -argumentlist "install -y introcs" -NoNewWindow
