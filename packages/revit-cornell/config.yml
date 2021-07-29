@@ -1,17 +1,17 @@
 Id:             'revit-cornell'
-Description:    'Revit 2021 - Cornell Lab Lic - buildtest'
-Version:        '21.0.0.383'
+Description:    'Revit 2022 - Cornell Lab Lic'
+Version:        '22.0.2.392'
 
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\Img\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '/q /W /I %INSTALL_DIR%\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  [0]
 
 Applications:
     revit:
-        DisplayName:    'Revit 2021'
-        Path:           '%PROGRAMFILES%\Autodesk\Revit 2021\revit.exe'
+        DisplayName:    'Revit 2022'
+        Path:           '%PROGRAMFILES%\Autodesk\Revit 2022\Revit.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
