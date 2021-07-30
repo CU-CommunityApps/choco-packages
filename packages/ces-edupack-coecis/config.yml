@@ -91,7 +91,7 @@ Install:
 Applications:
     CES:
         DisplayName:    'CES EduPack 2021'
-        Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2021 R2\Edupack.exe'
+        Path:           '"%PROGRAMFILES(X86)%\GRANTA EduPack\2021 R2\Edupack.exe"'
         LaunchParams:   ''
         WorkDir:        ''
 Files:                                                                  ## File copy feature
