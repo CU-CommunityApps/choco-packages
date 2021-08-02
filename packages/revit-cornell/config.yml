@@ -12,7 +12,7 @@ Applications:
     revit:
         DisplayName:    'Revit 2022'
         Path:           '%PROGRAMFILES%\Autodesk\Revit 2022\Revit.exe'
-        LaunchParams:   ''
+        LaunchParams:   '/q /W /I %INSTALL_DIR%\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress''
         WorkDir:        ''
 
 Environment:
