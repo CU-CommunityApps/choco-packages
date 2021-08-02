@@ -1,0 +1,11 @@
+# This file allows users to add their own symbols
+# to wxMaxima's autocompletion feature.
+# If a useful built-in symbol of Maxima is lacking
+# in wxMaxima's autocompletion please inform the wxMaxima
+# maintainers about this!
+# 
+# The format of the entries in this file is:
+# FUNCTION: myfunction
+# OPTION: myvariable
+# UNIT: myunit
+# Template: mycommand(<expr>, <x>)
