@@ -1,6 +1,6 @@
 Id:             'ces-edupack-coecis'
-Description:    'CES Edupack 2020 - COECIS License - buildtest 3'
-Version:        '20.1.0.0'
+Description:    'CES Edupack 2021 - COECIS License'
+Version:        '21.2.0.0'
 
 Install:
   - File:       '%INSTALL_DIR%\packages\EduPack.msi'
@@ -90,8 +90,8 @@ Install:
 
 Applications:
     CES:
-        DisplayName:    'CES EduPack 2020'
-        Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2020\Edupack.exe'
+        DisplayName:    'CES EduPack 2021'
+        Path:           '"%PROGRAMFILES(X86)%\GRANTA EduPack\2021 R2\Edupack.exe"'
         LaunchParams:   ''
         WorkDir:        ''
 Files:                                                                  ## File copy feature
