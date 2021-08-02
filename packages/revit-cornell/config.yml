@@ -5,14 +5,14 @@ Version:        '22.0.2.392'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '-q'
+    Arguments:  '/q /W /I %INSTALL_DIR%\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
     ExitCodes:  [0]
 
 Applications:
     revit:
         DisplayName:    'Revit 2022'
         Path:           '%PROGRAMFILES%\Autodesk\Revit 2022\Revit.exe'
-        LaunchParams:   '/q /W /I %INSTALL_DIR%\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress''
+        LaunchParams:   ''
         WorkDir:        ''
 
 Environment:
