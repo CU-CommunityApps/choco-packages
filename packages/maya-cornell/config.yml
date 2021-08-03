@@ -1,17 +1,17 @@
 Id:             'maya-cornell'
 Description:    'maya-cornell'
-Version:        '12.0.77.3'
+Version:        '22.1.0.579'
 
 Install:
-    File:       '%INSTALL_DIR%\Img\setup.exe'
+    File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\maya.ini /language en-us /c CUSTOMERINVOLVEMENTPROGRAM no FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xml'
     ExitCodes:  [0,1641]
 
 Applications:
     maya:
         DisplayName:    'Maya'
-        Path:           '%PROGRAMFILES%\Autodesk\Maya2019\bin\maya.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Maya2022\bin\maya.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
