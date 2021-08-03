@@ -375,6 +375,13 @@ namespace ImageBuilder
             if (uc.Count == 0)
             {
                 this.PutCloudWatchLog("No Windows Updates to Install");
+                
+                using (StreamWriter s = File.CreateText(UPDATED_LOCK))
+                {
+                    s.Write("NO WINDOWS UPDATES");
+                    s.Close();
+                }
+                
                 return;
             }
 
