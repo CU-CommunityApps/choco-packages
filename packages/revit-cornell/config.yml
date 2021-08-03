@@ -3,9 +3,9 @@ Description:    'Revit 2022 - buildtest1'
 Version:        '22.0.2.392'
 
 Install:
-    File:       '%INSTALL_DIR%\Img\setup.exe'
+    File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xml'
     ExitCodes:  [0]
 
 Applications:
