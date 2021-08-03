@@ -1,11 +1,11 @@
 Id:             'maya-cornell'
 Description:    'maya-cornell'
-Version:        '22.0.0.217'
+Version:        '22.1.0.579'
 
 Install:
-    File:       '%INSTALL_DIR%\setup.exe'
+    File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-q'
+    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xml'
     ExitCodes:  [0,1641]
 
 Applications:
