@@ -9,7 +9,7 @@ ChocoPackages:                              ## Chocolatey packages installed str
 Applications:
     qgis:
         DisplayName:    'qgis-bin'
-        Path:           '%PROGRAMFILES%\QGIS 3.20\bin\qgis-bin.exe'
+        Path:           '%PROGRAMFILES%\QGIS 3.20.1\bin\qgis-bin.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
