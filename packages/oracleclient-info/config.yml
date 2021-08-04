@@ -1,5 +1,5 @@
 Id:             'oracleclient-info'
-Description:    'Oracle Client 19.1'
+Description:    'Oracle Client 19.1 - buildtest'
 Version:        '19.1.0'
 
 Install:
@@ -194,4 +194,4 @@ Registry:
         Software\ODBC\ODBC.INI\ODBC Data Sources:
             INFO4555:
                 Type: 'string'
-                Value: 'Oracle in OraClient12Home1'
+                Value: 'Oracle in OraClient19Home'
