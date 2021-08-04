@@ -1,5 +1,5 @@
 Id:             'oracleclient-info'
-Description:    'Oracle Client 19.1 - buildtest'
+Description:    'Oracle Client 19.1'
 Version:        '19.1.0'
 
 Install:
