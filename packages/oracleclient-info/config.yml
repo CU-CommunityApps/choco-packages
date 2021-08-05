@@ -195,8 +195,4 @@ Registry:
         Software\ODBC\ODBC.INI\ODBC Data Sources:
             INFO4555:
                 Type: 'string'
-<<<<<<< HEAD
-                Value: 'Oracle in OraClient19Home1'
-=======
                 Value: 'Oracle in OraClient19Home'
->>>>>>> 35ddcfc247c54941efa349dac302988a49981400
