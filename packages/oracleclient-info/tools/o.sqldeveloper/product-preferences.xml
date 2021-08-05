@@ -1,0 +1,361 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ide:preferences xmlns:ide="http://xmlns.oracle.com/ide/hash">
+   <hash n="CodeEditorBookmarkOptions">
+      <list n="persistedBookmarks"/>
+   </hash>
+   <hash n="CodingStyleProfiles">
+      <hash n="Java Code Conventions">
+         <value n="blanklines.after_last_member" v="0"/>
+         <value n="blanklines.before_field" v="0"/>
+         <value n="blanklines.before_first_class" v="0"/>
+         <value n="blanklines.before_first_member" v="0"/>
+         <value n="blanklines.before_member_class" v="1"/>
+         <value n="blanklines.before_method" v="1"/>
+         <value n="blanklines.empty_anonymous" v="0"/>
+         <value n="blanklines.empty_block" v="0"/>
+         <value n="blanklines.empty_class" v="0"/>
+         <value n="blanklines.empty_method" v="0"/>
+         <value n="blanklines.imports_after" v="1"/>
+         <value n="blanklines.package_after" v="1"/>
+         <value n="blanklines.preserve_count" v="2"/>
+         <value n="field.prefix"/>
+         <value n="field.suffix"/>
+         <value n="import.group_imports" v="true"/>
+         <value n="import.group_package_depth" v="2"/>
+         <value n="import.inner_class_name" v="false"/>
+         <value n="import.narrow_threshold" v="-1"/>
+         <value n="indent.block_children" v="true"/>
+         <value n="indent.class_members" v="true"/>
+         <value n="indent.control_blocks" v="false"/>
+         <value n="indent.num_spaces" v="4"/>
+         <value n="indent.replace_with_tabs" v="false"/>
+         <value n="indent.switch_case" v="false"/>
+         <value n="indent.tab_size" v="8"/>
+         <value n="local.variable.prefix"/>
+         <value n="local.variable.suffix"/>
+         <value n="newline.after_switch_case" v="true"/>
+         <value n="newline.array_braces" v="false"/>
+         <value n="newline.block_braces" v="false"/>
+         <value n="newline.catch" v="false"/>
+         <value n="newline.class_braces" v="false"/>
+         <value n="newline.else" v="false"/>
+         <value n="newline.extends" v="false"/>
+         <value n="newline.finally" v="false"/>
+         <value n="newline.implements" v="false"/>
+         <value n="newline.method_braces" v="false"/>
+         <value n="newline.throws" v="false"/>
+         <value n="newline.while" v="false"/>
+         <value n="parameter.prefix"/>
+         <value n="parameter.suffix"/>
+         <value n="profile.name" v="Java Code Conventions"/>
+         <value n="space.arguments_before" v="false"/>
+         <value n="space.assign_around" v="true"/>
+         <value n="space.binaryop_around" v="true"/>
+         <value n="space.brace_before" v="true"/>
+         <value n="space.brackets_within" v="false"/>
+         <value n="space.colon_after" v="true"/>
+         <value n="space.colon_before" v="true"/>
+         <value n="space.comma_after" v="true"/>
+         <value n="space.comma_before" v="false"/>
+         <value n="space.keyword_after" v="true"/>
+         <value n="space.parameters_before" v="false"/>
+         <value n="space.parens_within" v="false"/>
+         <value n="space.question_after" v="true"/>
+         <value n="space.question_before" v="true"/>
+         <value n="space.semicolon_after" v="true"/>
+         <value n="space.semicolon_before" v="false"/>
+         <value n="space.typecast_after" v="true"/>
+         <value n="static.field.prefix"/>
+         <value n="static.field.suffix"/>
+         <value n="wrap.align" v="true"/>
+         <value n="wrap.array_constant" v="1"/>
+         <value n="wrap.binary_operator" v="1"/>
+         <value n="wrap.dot_chain" v="1"/>
+         <value n="wrap.extends" v="1"/>
+         <value n="wrap.for_statement" v="1"/>
+         <value n="wrap.invoke_arguments" v="1"/>
+         <value n="wrap.line_width" v="120"/>
+         <value n="wrap.modifiers" v="1"/>
+         <value n="wrap.parameter_list" v="1"/>
+         <value n="wrap.ques_operator" v="1"/>
+         <value n="wrap.throws" v="1"/>
+      </hash>
+      <hash n="JDeveloper Classic">
+         <value n="blanklines.after_last_member" v="0"/>
+         <value n="blanklines.before_field" v="0"/>
+         <value n="blanklines.before_first_class" v="0"/>
+         <value n="blanklines.before_first_member" v="0"/>
+         <value n="blanklines.before_member_class" v="1"/>
+         <value n="blanklines.before_method" v="1"/>
+         <value n="blanklines.empty_anonymous" v="0"/>
+         <value n="blanklines.empty_block" v="0"/>
+         <value n="blanklines.empty_class" v="0"/>
+         <value n="blanklines.empty_method" v="0"/>
+         <value n="blanklines.imports_after" v="1"/>
+         <value n="blanklines.package_after" v="1"/>
+         <value n="blanklines.preserve_count" v="2"/>
+         <value n="field.prefix"/>
+         <value n="field.suffix"/>
+         <value n="import.group_imports" v="true"/>
+         <value n="import.group_package_depth" v="2"/>
+         <value n="import.inner_class_name" v="false"/>
+         <value n="import.narrow_threshold" v="-1"/>
+         <value n="indent.block_children" v="true"/>
+         <value n="indent.class_members" v="true"/>
+         <value n="indent.control_blocks" v="false"/>
+         <value n="indent.num_spaces" v="2"/>
+         <value n="indent.replace_with_tabs" v="false"/>
+         <value n="indent.switch_case" v="true"/>
+         <value n="indent.tab_size" v="8"/>
+         <value n="local.variable.prefix"/>
+         <value n="local.variable.suffix"/>
+         <value n="newline.after_switch_case" v="true"/>
+         <value n="newline.array_braces" v="true"/>
+         <value n="newline.block_braces" v="true"/>
+         <value n="newline.catch" v="true"/>
+         <value n="newline.class_braces" v="true"/>
+         <value n="newline.else" v="true"/>
+         <value n="newline.extends" v="true"/>
+         <value n="newline.finally" v="true"/>
+         <value n="newline.implements" v="true"/>
+         <value n="newline.method_braces" v="true"/>
+         <value n="newline.throws" v="true"/>
+         <value n="newline.while" v="true"/>
+         <value n="parameter.prefix"/>
+         <value n="parameter.suffix"/>
+         <value n="profile.name" v="JDeveloper Classic"/>
+         <value n="space.arguments_before" v="false"/>
+         <value n="space.assign_around" v="true"/>
+         <value n="space.binaryop_around" v="true"/>
+         <value n="space.brace_before" v="true"/>
+         <value n="space.brackets_within" v="false"/>
+         <value n="space.colon_after" v="true"/>
+         <value n="space.colon_before" v="false"/>
+         <value n="space.comma_after" v="true"/>
+         <value n="space.comma_before" v="false"/>
+         <value n="space.keyword_after" v="true"/>
+         <value n="space.parameters_before" v="false"/>
+         <value n="space.parens_within" v="false"/>
+         <value n="space.question_after" v="true"/>
+         <value n="space.question_before" v="false"/>
+         <value n="space.semicolon_after" v="true"/>
+         <value n="space.semicolon_before" v="false"/>
+         <value n="space.typecast_after" v="true"/>
+         <value n="static.field.prefix"/>
+         <value n="static.field.suffix"/>
+         <value n="wrap.align" v="true"/>
+         <value n="wrap.array_constant" v="1"/>
+         <value n="wrap.binary_operator" v="1"/>
+         <value n="wrap.dot_chain" v="1"/>
+         <value n="wrap.extends" v="1"/>
+         <value n="wrap.for_statement" v="1"/>
+         <value n="wrap.invoke_arguments" v="1"/>
+         <value n="wrap.line_width" v="120"/>
+         <value n="wrap.modifiers" v="1"/>
+         <value n="wrap.parameter_list" v="1"/>
+         <value n="wrap.ques_operator" v="1"/>
+         <value n="wrap.throws" v="1"/>
+      </hash>
+   </hash>
+   <hash n="DatabaseFoldersCache">
+      <hash n="Connections">
+         <hash n="sqldev.nav">
+            <value n="IdeConnections%23info4555" v="TNS"/>
+            <value n="IdeConnections%23info45551" v="TNS"/>
+            <value n="IdeConnections%23info455510" v="TNS"/>
+            <value n="IdeConnections%23info455511" v="TNS"/>
+            <value n="IdeConnections%23info455512" v="TNS"/>
+            <value n="IdeConnections%23info455513" v="TNS"/>
+            <value n="IdeConnections%23info45552" v="TNS"/>
+            <value n="IdeConnections%23info45553" v="TNS"/>
+            <value n="IdeConnections%23info45554" v="TNS"/>
+            <value n="IdeConnections%23info45555" v="TNS"/>
+            <value n="IdeConnections%23info45556" v="TNS"/>
+            <value n="IdeConnections%23info45557" v="TNS"/>
+            <value n="IdeConnections%23info45558" v="TNS"/>
+            <value n="IdeConnections%23info45559" v="TNS"/>
+         </hash>
+      </hash>
+   </hash>
+   <value n="db.system.id" v="6ce0a0d5-3ae8-4ca3-a555-fdbb6b7c7852"/>
+   <hash n="DBConfig">
+      <hash n="EXTENSION"/>
+      <hash n="URLFileChooserPaths">
+         <list n="TNS_FILE">
+            <url path="../../../../../tnsnames.ora"/>
+            <url path="../../../../../new_tnsnames.ora"/>
+         </list>
+      </hash>
+      <value n="URLFileChooserPaths.persisted" v="true"/>
+   </hash>
+   <hash n="DebugWindowOptions">
+      <list n="UNINSTALLED_WINDOWS">
+         <string v="Debugger.SmartWindow"/>
+         <string v="Debugger.LocalsWindow"/>
+         <string v="Debugger.WatchWindow"/>
+         <string v="Debugger.StackWindow"/>
+         <string v="Debugger.ThreadsWindow"/>
+      </list>
+   </hash>
+   <hash n="DisplayOptions">
+      <value n="rightMarginColumnAtWrap" v="false"/>
+   </hash>
+   <hash n="environment-options">
+      <value n="verifyICachedFileData" v="true"/>
+   </hash>
+   <hash n="HelpOptions">
+      <value n="helpCenterWindowOpen" v="false"/>
+   </hash>
+   <hash n="MRUConnectionCache">
+      <hash n="Connections">
+         <list n="MostRecentlyUsed">
+            <string v="IdeConnections%23info4555"/>
+         </list>
+      </hash>
+   </hash>
+   <hash n="oracle.bali.xml.add.schema.SchemaOptionsPrefs">
+      <list n="schemaMapList"/>
+   </hash>
+   <hash n="oracle.ide.hover.HoverOptions">
+      <value n="flavorEnabled-Data Values" v="true"/>
+      <value n="flavorEnabled-Documentation" v="true"/>
+      <value n="flavorEnabled-Errors and Warnings" v="true"/>
+      <value n="flavorEnabled-Info" v="true"/>
+      <value n="flavorEnabled-Source" v="true"/>
+      <list n="flavorPriority">
+         <string v="info"/>
+         <string v="data"/>
+         <string v="errors"/>
+         <string v="doc"/>
+         <string v="source"/>
+      </list>
+      <value n="flavorShortcut-data" v="NONE"/>
+      <value n="flavorShortcut-doc" v="NONE ALT"/>
+      <value n="flavorShortcut-errors" v="NONE"/>
+      <value n="flavorShortcut-info" v="NONE"/>
+      <value n="flavorShortcut-source" v="NONE SHIFT"/>
+   </hash>
+   <hash n="oracle.ideimpl.db.DatabaseIdePreferences">
+      <value n="ConnectionPanelUI.LAST_CONNECTION_KEY" v="IdeConnections%23info4555"/>
+   </hash>
+   <hash n="oracle.ideimpl.usages.UsagesPrefs">
+      <value n="track-usages" v="false"/>
+   </hash>
+   <hash n="oracle.ideimpl.webupdate.CheckForUpdatesPreferences">
+      <value n="instanceGuid" v="6716b2a9-016c-1000-8001-80548df46e34"/>
+      <value n="lastError" v="&lt;Line 18, Column 70>: XML-20190: (Fatal Error) Whitespace required."/>
+      <value n="lastErrorType" v="none"/>
+      <hash n="pingedVersions">
+         <list n="21.2.0.187.1842">
+            <string v="http://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/162026.xml"/>
+            <string v="http://apex.oracle.com/pls/apex/dbtools/usage/cfu"/>
+            <string v="http://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/162031.xml"/>
+            <string v="http://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/162033.xml"/>
+         </list>
+         <list n="4.1.4.21.21">
+            <string v="http://www.oracle.com/ocom/groups/public/@otn/documents/webcontent/162026.xml"/>
+            <string v="http://apex.oracle.com/pls/apex/dbtools/usage/cfu"/>
+         </list>
+      </hash>
+      <hash n="previousUpdates"/>
+   </hash>
+   <hash n="oracle.jdevimpl.vcs.svn.prefs.SVNEnvironmentPrefs">
+      <value n="useLabelDecorations" v="false"/>
+      <value n="useOverlays" v="false"/>
+   </hash>
+   <hash n="OSDDM_CustomSettings">
+      <hash n="custom_settings"/>
+   </hash>
+   <hash n="OSDDM_DBMConnections">
+      <hash n="dbmconnections"/>
+   </hash>
+   <hash n="OSDDM_DialogSettings">
+      <hash n="dialogs_settings"/>
+   </hash>
+   <hash n="OSDDM_GeneralPurpose">
+      <value n="autoJoinOnFK" v="true"/>
+      <value n="create_datetime_snapshot" v="false"/>
+      <value n="def_ddl_files_path" v=""/>
+      <value n="incl_des_name_in_ddl_files_path" v="true"/>
+      <value n="last_export_folder" v=""/>
+      <value n="last_open_design" v=""/>
+      <value n="last_open_dpv" v=""/>
+      <value n="page_height" v="842.0"/>
+      <value n="page_margin_height" v="842.0"/>
+      <value n="page_margin_width" v="595.0"/>
+      <value n="page_margin_x" v="0.0"/>
+      <value n="page_margin_y" v="0.0"/>
+      <value n="page_orientation" v="1"/>
+      <value n="page_width" v="595.0"/>
+      <value n="paper_media_name" v="iso-a4"/>
+      <value n="printer_name" v=""/>
+      <value n="use_preferred_logical_types" v="false"/>
+   </hash>
+   <hash n="OSDDM_NamingStandard">
+      <value n="applyToColumnCHC" v="true"/>
+      <value n="applyToColumnNNC" v="true"/>
+      <value n="applyToColumnSK" v="true"/>
+      <value n="applyToFK" v="true"/>
+      <value n="applyToFKColumn" v="true"/>
+      <value n="applyToIndex" v="true"/>
+      <value n="applyToPK" v="true"/>
+      <value n="applyToTableCHC" v="true"/>
+      <value n="applyToUC" v="true"/>
+      <value n="prefForEntHierColumns" v="true"/>
+   </hash>
+   <hash n="OSDDM_ODConnections">
+      <hash n="odconnections"/>
+   </hash>
+   <hash n="OSDDM_RecentDesigns">
+      <hash n="recent_files"/>
+   </hash>
+   <hash n="OSDDM_RSConnections">
+      <hash n="rsconnections"/>
+   </hash>
+   <hash n="OSDDM_UserDefinedPreferencesPP">
+      <hash n="user_defined_preferences"/>
+   </hash>
+   <hash n="proxy-options">
+      <value n="IsIdeProxy" v="true"/>
+      <value n="proxyType" v="SYSTEM_PROXY"/>
+   </hash>
+   <hash n="SaveActionsOptions">
+      <value n="migratedSaveActions" v="true"/>
+   </hash>
+   <hash n="SyntaxColorsOptions">
+      <value n="firstTime" v="false"/>
+      <value n="migrated" v="true"/>
+   </hash>
+   <hash n="WebBrowserOptions">
+      <value n="browserCmdLine" v="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe ${URL}"/>
+      <list n="browserIconList">
+         <string v="IE"/>
+         <string v="FIREFOX"/>
+         <string v="CHROME"/>
+      </list>
+      <list n="browserIsDefaultList">
+         <boolean v="false"/>
+         <boolean v="false"/>
+         <boolean v="true"/>
+      </list>
+      <list n="browserNameList">
+         <string v="Internet Explorer"/>
+         <string v="Firefox"/>
+         <string v="Chrome"/>
+      </list>
+      <list n="browserParamList">
+         <string v="${URL}"/>
+         <string v="${URL}"/>
+         <string v="${URL}"/>
+      </list>
+      <list n="browserPathList">
+         <string v="C:\Program Files\Internet Explorer\iexplore.exe"/>
+         <string v="C:\Program Files\Mozilla Firefox\firefox.exe"/>
+         <string v="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"/>
+      </list>
+      <value n="useEmbeddedBrowserForPreview" v="false"/>
+   </hash>
+   <hash n="WorksheetBookmarkOptions">
+      <list n="persistedWorksheetBookmarks"/>
+   </hash>
+</ide:preferences>

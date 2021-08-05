@@ -2,9 +2,19 @@
 <system nselem="system" class="oracle.ide.model.IdeSystem" xmlns="http://xmlns.oracle.com/jdeveloper/110000/system">
    <listOfChildren class="oracle.ide.model.DataList">
       <Item class="oracle.ide.model.Workspaces">
-         <activeProjectMap class="java.util.HashMap"/>
-         <activeWorkspaceURL/>
-         <listOfChildren class="oracle.ide.model.DataList"/>
+         <activeProjectMap class="java.util.HashMap">
+            <Item>
+               <Key class="java.net.URL" path="projects/Databases.jws"/>
+               <Value class="java.net.URL" path="projects/IdeConnections#info4555.jpr"/>
+            </Item>
+         </activeProjectMap>
+         <activeWorkspaceURL path="projects/Databases.jws"/>
+         <listOfChildren class="oracle.ide.model.DataList">
+            <Item class="oracle.ide.model.Reference">
+               <URL path="projects/Databases.jws"/>
+               <nodeClass>oracle.ide.model.Workspace</nodeClass>
+            </Item>
+         </listOfChildren>
          <workDirectory path="../../mywork/"/>
       </Item>
       <Item class="oracle.ide.model.Connections"/>
