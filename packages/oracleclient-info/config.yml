@@ -19,7 +19,7 @@ Files:
     '%INSTALL_DIR%\sqlnet.ora' : '%SYSTEMDRIVE%\app\client\product\19.1.0\client\network\admin'
     '%INSTALL_DIR%\tnsnames.ora' : '%SYSTEMDRIVE%\app\client\product\19.1.0\client\network\admin'
     '%INSTALL_DIR%\sqldeveloper' : '%SYSTEMDRIVE%\app\client\product\19.1.0\client'
-    '%TOOLS_DIR%\o.sqldeveloper' : '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\SQL Developer\system21.2.0.187.1842'
+    '%INSTALL_DIR%\system21.2.0.187.1842' : '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\SQL Developer'
 
 Registry:
     HKLM:   
