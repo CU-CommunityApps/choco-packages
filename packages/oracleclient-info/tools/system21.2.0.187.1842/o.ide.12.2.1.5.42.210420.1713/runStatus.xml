@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+   <comment>Ide Run Time Status Persistance</comment>
+   <entry key="migrationStatus.lastDecision">false</entry>
+   <entry key="migrationStatus.lastSource"/>
+   <entry key="oracle.sqldeveloper.21.2.0.187.1842/ide.properties_dataCopyied">true</entry>
+   <entry key="oracle.sqldeveloper.21.2.0.187.1842/DefaultWorkspace/_dataCopyied">true</entry>
+   <entry key="oracle.sqldeveloper.21.2.0.187.1842/System.sys_dataCopyied">true</entry>
+</properties>

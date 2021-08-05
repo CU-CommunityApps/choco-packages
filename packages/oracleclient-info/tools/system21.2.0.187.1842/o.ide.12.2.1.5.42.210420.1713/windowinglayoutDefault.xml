@@ -1,0 +1,41 @@
+<LayoutInfo>
+   <clientLayoutData>
+      <global>
+         <view-data ReportsDummy="true" ID="ReportNavigatorWindow.DatabaseReports"/>
+         <view-data ClosedByUser="false" ID="LogWindow.Log"/>
+      </global>
+      <Editing layout-name="Editing">
+         <view-data USE_LARGE_ICONS="true" pageSelection="" ID="PALETTEFACTORY.PALETTE"/>
+      </Editing>
+   </clientLayoutData>
+   <knownDockableFactories>
+      <Debugger/>
+      <OWA_OUTPUT_DOCKABLE_VIEW_TYPE/>
+      <DbaNavigatorWindow/>
+      <DatabaseNavigatorWindow/>
+      <RECENT_OBJECTS_VIEW_TYPE/>
+      <PALETTEFACTORY/>
+      <GridNavWindow/>
+      <RunManagerWindow/>
+      <Applicationoracle_ideimpl_editor_RecentFiles_VIEW_TYPE/>
+      <InspectorWindow/>
+      <ReportNavigatorWindow/>
+      <SshNavigatorWindow/>
+      <ExplorerWindow/>
+      <SNIPPET_VIEW_TYPE/>
+      <SQLHISTORY_VIEW_TYPE/>
+      <TestNavWindow/>
+      <LogWindow/>
+      <Systemoracle_ideimpl_editor_RecentFiles_VIEW_TYPE/>
+      <UnifiedThumbnailDockable/>
+      <DBMS_OUTPUT_DOCKABLE_VIEW_TYPE/>
+      <OUTLINE_VIEW_TYPE/>
+      <SEARCH_VIEW_TYPE/>
+      <BOOKMARKS_VIEW_TYPE/>
+      <ComponentPalette/>
+   </knownDockableFactories>
+   <knowTriggeredLayouts>
+      <Editing/>
+   </knowTriggeredLayouts>
+   <visibilityLayouts/>
+</LayoutInfo>
