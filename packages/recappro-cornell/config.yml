@@ -6,7 +6,7 @@ Version:        '2020.0.1'
 Install:
     File:       '%INSTALL_DIR%\Img\setup.exe'
     FileType:   'exe'
-    Arguments:  '-q'
+    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xmlpro-cornell'
     ExitCodes:  [0,1641]
     
 Applications:
