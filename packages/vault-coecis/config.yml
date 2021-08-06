@@ -1,17 +1,17 @@
 Id:             'vault-coecis'
-Description:    'Vault 2021 - COECIS'
+Description:    'Vault 2022 - COECIS'
 Version:        '26.0.63.0'
 
 Install:
-    File:       '%INSTALL_DIR%\Img\setup.exe'
+    File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\Img\Vault.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
+    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xm'
     ExitCodes:  [0,1641]
 
 Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
-        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2021\Explorer\Connectivity.VaultPro.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2022\Explorer\Connectivity.VaultPro.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
