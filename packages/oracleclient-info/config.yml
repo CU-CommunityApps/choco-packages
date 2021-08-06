@@ -24,105 +24,62 @@ Files:
 Registry:
     HKLM:   
         Software\ODBC\ODBC.INI\INFO4555:
-            BufferSize:
-                Type: 'string'
-                Value: '65535'
-                
-            Description:
-                Type: 'string'
-                Value: 'INFO4555'
-                
-            Driver:
-                Type: 'string'
-                Value: 'c:\\app\\client\\product\\19.1.0\\client\\BIN\\SQORA32.dll'
-                
-            DSN:
-                Type: 'string'
-                Value: 'INFO4555'
-
-            GuessTheColDef:
-                Type: 'string'
-                Value: '0'
-       
-            PWD:
-                Type: 'string'
-                Value: ''
-           
-            SERVER: 
-                Type: 'string'
-                Value: 'INFO4555'
-
-            StdDayOfWeek:
-                Type: 'string'
-                Value: '1'
             
-            StripTrailingZero:
+            AggregateSQLType:
                 Type: 'string'
-                Value: '0'
+                Value: 'FLOAT'
+         
+            Application Attributes:
+                Type: 'string'
+                Value: 'T'
             
-            SynonymColumns:
-                Type: 'string'
-                Value: '1'
-                
-            UID:
-                Type: 'string'
-                Value: ''
-            
-            DisableRULEHint:
-                Type: 'string'
-                Value: 'T'  
-                
             Attributes:
                 Type: 'string'
                 Value: 'W'
                 
-            SQLTranslateErrors:
+            BatchAutocommitMode:
                 Type: 'string'
-                Value: 'F'           
-
-            AggregateSQLType:
-                Type: 'string'
-                Value: 'FLOAT'
-                
-            MaxTokenSize:
-                Type: 'string'
-                Value: '8192'
-                
-            FetchBufferSize:
-                Type: 'string'
-                Value: '64000'
-                
-            NumericSetting:
-                Type: 'string'
-                Value: 'NLS'       
-                
-            ForceWCHAR:
-                Type: 'string'
-                Value: 'F'                
-       
-            FailoverDelay:
-                Type: 'string'
-                Value: '10' 
-                
-            FailoverRetryCount:
-                Type: 'string'
-                Value: '10'     
-                
-            MetadataIdDefault:
-                Type: 'string'
-                Value: 'F'    
-                
-            BindAsFLOAT:
-                Type: 'string'
-                Value: 'F'   
+                Value: 'IfAllSuccessful'     
                 
             BindAsDATE:
                 Type: 'string'
-                Value: 'F'     
+                Value: 'F' 
                 
+            BindAsFLOAT:
+                Type: 'string'
+                Value: 'F'
+            
+            CacheBufferSize:
+                Type: 'string'
+                Value: '20'
+                      
             CloseCursor:
                 Type: 'string'
-                Value: 'F'     
+                Value: 'F'
+                
+            Description:
+                Type: 'string'
+                Value: 'INFO4555'
+            
+            DisableDPM:
+                Type: 'string'
+                Value: 'F'
+            
+            DisableMTS:
+                Type: 'string'
+                Value: 'T'
+                
+            DisableRULEHint:
+                Type: 'string'
+                Value: 'T'
+                  
+            Driver:
+                Type: 'string'
+                Value: 'c:\app\client\product\19.1.0\client\BIN\SQORA32.dll'
+                
+            DSN:
+                Type: 'string'
+                Value: 'INFO4555'
                 
             EXECSchemaOpt:
                 Type: 'string'
@@ -132,62 +89,78 @@ Registry:
                 Type: 'string'
                 Value: 'F'
                 
-            Application Attributes:
+            Failover:
                 Type: 'string'
                 Value: 'T'
                 
-            QueryTimeout:
+            FailoverDelay:
                 Type: 'string'
-                Value: 'T'       
+                Value: '10'
                 
-            CacheBufferSize:
+            FailoverRetryCount:
                 Type: 'string'
-                Value: '20'        
+                Value: '10'
                 
+            FetchBufferSize:
+                Type: 'string'
+                Value: '64000'
+                
+            ForceWCHAR:
+                Type: 'string'
+                Value: 'F'
+                
+            LobPrefetchSize:
+                Type: 'string'
+                Value: '8192'
+                
+            Lobs:
+                Type: 'string'
+                Value: 'T'
+                
+            MaxLargeData:
+                Type: 'string'
+                Value: '0'
+                
+            MaxTokenSize:
+                Type: 'string'
+                Value: '8192'
+                
+            MetadataldDefault:
+                Type: 'string'
+                Value: 'F'
+            
+            NumericSetting:
+                Type: 'string'
+                Value: 'NLS'
+                
+            Password:
+                Type: 'string'
+                Value: ''
+            
+            Query Timeout:
+                Type: 'string'
+                Value: 'T'
+                
+            ResultSets:
+                Type: 'string'
+                Value: 'T'
+                      
+            SERVERName: 
+                Type: 'string'
+                Value: 'INFO4555'
+
+            SQLTranslateErrors:
+                Type: 'string'
+                Value: 'F'           
+
             StatementCache:
                 Type: 'string'
                 Value: 'F'       
                 
-            ResultSets:
+            UOCIDescribeAny:
                 Type: 'string'
-                Value: 'T'       
-                
-            MaxLargeData:
-                Type: 'string'
-                Value: '0'        
-                
-            UseOCIDescribeAny:
-                Type: 'string'
-                Value: 'F'       
-                
-            Failover:
-                Type: 'string'
-                Value: 'T'          
-                
-            Lobs:
-                Type: 'string'
-                Value: 'T'      
-                
-            DisableMTS:
-                Type: 'string'
-                Value: 'T'      
-                
-            DisableDPM:
-                Type: 'string'
-                Value: 'F'       
-                
-            BatchAutocommitMode:
-                Type: 'string'
-                Value: 'IfAllSuccessful'         
-                
-            ServerName:
-                Type: 'string'
-                Value: 'info4555'       
-                
-            Password:
-                Type: 'string'
-                Value: ''       
-                
+                Value: 'F'
+  
             UserID:
                 Type: 'string'
                 Value: ''
@@ -195,4 +168,4 @@ Registry:
         Software\ODBC\ODBC.INI\ODBC Data Sources:
             INFO4555:
                 Type: 'string'
-                Value: 'Oracle in OraClient19Home'
+                Value: 'Oracle in OraClient19Home1'
