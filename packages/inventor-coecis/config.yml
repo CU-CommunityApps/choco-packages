@@ -5,7 +5,7 @@ Version:        '2022.0'
 Install:
     File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode --ui_mode basic -o %INSTALL_DIR%\Collection.xml'
+    Arguments:  '-i deploy --offline_mode --ui_mode basic -o %INSTALL_DIR%\Collection.xml --execution-timeout 5400'
     ExitCodes:  [0,1638,1641]
 
 Applications:
