@@ -5,7 +5,7 @@ Version:        '22.0.2.392'
 Install:
     File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xml'
+    Arguments:  '-i deploy --offline_mode --ui_mode basic -o %INSTALL_DIR%\Collection.xml'
     ExitCodes:  [0]
 
 Applications:
