@@ -3,10 +3,10 @@ Description:    'Autodesk Inventor 2022 - COECIS LICENSE6'
 Version:        '2022.0'
 
 Install:
-    File:       '%SYSTEMDRIVE%\inventor2\image\Installer.exe'
+    File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%SYSTEMDRIVE%\inventor2\image\Collection.xml" --installer_version "1.21.0.25"'
-    ExitCodes:  [0,1638,1641]
+    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xml" --installer_version "1.21.0.25"'
+    ExitCodes:  ''
 
 Applications:
     Inventor:
