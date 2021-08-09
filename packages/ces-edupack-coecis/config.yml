@@ -89,9 +89,9 @@ Install:
     ExitCodes:  [0]
 
 Applications:
-    CES:
-        DisplayName:    'CES EduPack 2021'
-        Path:           '"%PROGRAMFILES(X86)%\GRANTA EduPack\2021 R2\Edupack.exe"'
+    grantaedu:
+        DisplayName:    'Granta EduPack 2021 R2'
+        Path:           '"%PROGRAMFILES(X86)%\GRANTA EduPack\2021 R2\edupack.exe"'
         LaunchParams:   ''
         WorkDir:        ''
 Files:                                                                  ## File copy feature
