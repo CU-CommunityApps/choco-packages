@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\15.0\SCRPriorState.json'
+    '%TOOLS_DIR%\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\15.0\SCRPriorState.json'
     
 Registry:
     HKUD:
