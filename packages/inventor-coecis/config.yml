@@ -2,18 +2,18 @@ Id:             'inventor-coecis'
 Description:    'Autodesk Inventor 2022 - COECIS LICENSE6'
 Version:        '2022.0'
 
-Install:
-    File:       '%INSTALL_DIR%\Installer.exe'
-    FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode --ui_mode silent -o "%INSTALL_DIR%\Collection.xml"'
-    ExitCodes:  ''
+#Install:
+    #File:       '%INSTALL_DIR%\Installer.exe'
+    #FileType:   'exe'
+    #Arguments:  '-i deploy --offline_mode --ui_mode silent -o "%INSTALL_DIR%\Collection.xml"'
+    #ExitCodes:  ''
 
-Applications:
-    Inventor:
-        DisplayName:    'Inventor 2022'
-        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2022\Bin\Inventor.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
+#Applications:
+    #Inventor:
+        #DisplayName:    'Inventor 2022'
+        #Path:           '%PROGRAMFILES%\Autodesk\Inventor 2022\Bin\Inventor.exe'
+        #LaunchParams:   ''
+        #WorkDir:        ''
 
 Files:
     '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2022\Preferences\AddInLoadRules.xml'
