@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\18.2\SCRPriorState.json'  ## Source directory to destination directory
+    '%TOOLS_DIR%\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\18.2\SCRPriorState.json'  ## Source directory to destination directory
 
 Registry:
     HKUD:
