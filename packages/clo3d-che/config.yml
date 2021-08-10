@@ -1,6 +1,6 @@
 Id:             'clo3d-che'
-Description:    'CLO3d'
-Version:        '5.0.100.38285'
+Description:    'CLO3d - buildtest2'
+Version:        '6.1.346.35697'
 
 Applications:
     clo3d:
@@ -51,7 +51,7 @@ Registry:
         SOFTWARE\CLO Network OnlineAuth\preference:
             PrevGuideImageDisplayVersion:
                 Type:   'string'
-                Value:  '5.0.100'
+                Value:  '6.1.250'
         SOFTWARE\CLO Network OnlineAuth\Login Info: # cached creds for app authentication
             saveIDCheck:
                 Type:   'string'
