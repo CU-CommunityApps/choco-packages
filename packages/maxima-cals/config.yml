@@ -9,7 +9,7 @@ ChocoPackages:                              ## Chocolatey packages installed str
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     wxmaxima:                                                      ## This must match the icons.png file name
         DisplayName:    'wxMaxima'                ## How the app displayed to the user
-        Path:           '%SYSTEMDRIVE%\maxima-5.45.0\bin\wxmaxima.exe'          ## The path to the app
+        Path:           '%SYSTEMDRIVE%\maxima-5.45.1\bin\wxmaxima.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
