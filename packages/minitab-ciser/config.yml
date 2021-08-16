@@ -5,7 +5,7 @@ Version:        '20.3.0.0'
 Install:
     File:       '%INSTALL_DIR%\minitab20.3.0.0setup.x64.exe'
     FileType:   'exe'
-    Arguments:  '/exenoui /exenoupdates /qn ACCEPT_EULA=1 LICENSE_SERVER="%LICENSE_SERVER%" DISABLE_ANALYTICS=1 DISABLE_UPDATES=1'
+    Arguments:  '/exenoui /exelang 1033 /qn ACCEPT_EULA=1 LICENSE_SERVER="%LICENSE_SERVER%" DISABLE_ANALYTICS=1 DISABLE_UPDATES=1'
     ExitCodes:  [0]
 
 Applications:
@@ -14,6 +14,3 @@ Applications:
         Path:           '%PROGRAMFILES%\Minitab\Minitab 20\Mtb.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files:
-    '%TOOLS_DIR%\License.ini' : '%SYSTEMDRIVE%\programdata\minitab'
