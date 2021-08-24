@@ -5,7 +5,7 @@ Version:        '17.0.0'
 Install:
     File:       '%INSTALL_DIR%\SetupStata17.exe'
     FileType:   'exe'
-    Arguments:  '/s /v"/qn ADDLOCAL=core,StataMP64"'
+    Arguments:  '/s /v"/qn ADDLOCAL=core,StataSE64"'
     ExitCodes:  [0]
 
 
