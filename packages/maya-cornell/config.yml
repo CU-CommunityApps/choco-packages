@@ -1,12 +1,6 @@
 Id:             'maya-cornell'
-Description:    'maya-cornell buildtest1'
-Version:        '22.1.0.579'
-
-Install:
-    File:       '%INSTALL_DIR%\Installer.exe'
-    FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode --ui_mode basic -o %INSTALL_DIR%\Collection.xml'
-    ExitCodes:  [0,1641]
+Description:    'maya-cornell'
+Version:        '2022.1'
 
 Applications:
     maya:
