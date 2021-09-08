@@ -15,7 +15,7 @@ Files:
     '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2022\myhome.json'
 
 Environment:
-    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
+    ADSKFLEX_LICENSE_FILE: '%INVENTOR_LICENSE_FILE%'
    
 Registry:
     HKUD:
