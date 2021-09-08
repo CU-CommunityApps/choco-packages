@@ -1,0 +1,37 @@
+{
+	"homeBase":	{
+		"orientation":	{
+			"oldYOffset":	-20,
+			"oldXOffset":	-25,
+			"flipped":	false
+		},
+		"tabView":	"projectBody",
+		"templateView":	"basic",
+		"windowsShortcuts":	false,
+		"mruViewType":	"bigicons",
+		"mruFilters":	{
+			"filetype":	{
+				"all":	true,
+				"parts":	true,
+				"assemblies":	true,
+				"drawings":	true,
+				"presentations":	true
+			},
+			"sortby":	"recentlyUsed",
+			"projects":	"allProj",
+			"date":	"all",
+			"vault":	{
+				"all":	true
+			}
+		},
+		"mruSortOrder":	"ascending",
+		"userShortcuts":	[],
+		"userLinks":	[],
+		"hidePinnedFiles":	false,
+		"hideUnpinnedFiles":	false,
+		"collapseFilters":	false,
+		"customFoldersCollapse":	false,
+		"customLinksCollapse":	false,
+		"overlayShown":	true
+	}
+}
