@@ -12,6 +12,9 @@ Applications:
 Environment:
     ADSKFLEX_LICENSE_FILE: '%MAYA_LICENSE_FILE%'
     
+Files:
+    '%TOOLS_DIR%\userPrefs.mel': '%SYSTEMDRIVE%\Users\Default\Documents\maya\2022\prefs\userPrefs.mel'
+    
 Services:
     AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
 
