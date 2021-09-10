@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\3dsMax\': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax'
+    '%INSTALL_DIR%\3dsMax': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
