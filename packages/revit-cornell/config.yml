@@ -5,7 +5,7 @@ Version:        '2022.0.1'
 Install:
     File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "c:\programdata\revit-cornell\image\Collection.xml" --installer_version "1.21.0.25"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.21.0.25"'
     ExitCodes:  [0,3010]
 
 Applications:
