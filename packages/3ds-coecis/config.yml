@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\3dsMax': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax'
+    '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2022 - 64bit\ENU\3dsMax.ini'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
@@ -33,5 +33,10 @@ Registry:
                 Value:  '0'
                 
             ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+                
+        SOFTWARE\Autodesk\3dsMax\24.0:
+            MaxStartupCount:
                 Type:   'DWORD'
                 Value:  '1'
