@@ -1512,7 +1512,7 @@ optionVar
  -iv "showCustomMenuSetsMenusInHotBox" 0
  -iv "showGrid" 1
  -iv "showHistoryOnEmptySearchField" 1
- -iv "showHomeScreenOnStartup" 1
+ -iv "showHomeScreenOnStartup" 0
  -iv "showIconsInMenus" 1
  -iv "showLineNumbersIsOn" 1
  -sv "showManip3D" ""
