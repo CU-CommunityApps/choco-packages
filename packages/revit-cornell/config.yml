@@ -1,20 +1,23 @@
 Id:             'revit-cornell'
-Description:    'Revit 2021 - Cornell Lab Lic - buildtest'
-Version:        '21.0.0.383'
+Description:    'Revit 2022 - buildtest'
+Version:        '2022.0.1'
 
 Install:
-    File:       '%INSTALL_DIR%\Img\setup.exe'
+    File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '/q /W /I %INSTALL_DIR%\Img\revit-cornell.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
-    ExitCodes:  [0]
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.21.0.25"'
+    ExitCodes:  [0,3010]
 
 Applications:
     revit:
-        DisplayName:    'Revit 2021'
-        Path:           '%PROGRAMFILES%\Autodesk\Revit 2021\revit.exe'
+        DisplayName:    'Revit 2022'
+        Path:           '%PROGRAMFILES%\Autodesk\Revit 2022\Revit.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
+Files:
+    '%TOOLS_DIR%\Profile.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Revit\Profile\Profile.xml'
+  
 Environment:
     ADSKFLEX_LICENSE_FILE: '%REVIT_LICENSE_FILE%'
 
