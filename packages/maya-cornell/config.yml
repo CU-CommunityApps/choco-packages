@@ -1,12 +1,12 @@
 Id:             'maya-cornell'
 Description:    'maya-cornell'
-Version:        '22.1.0.579'
+Version:        '2022.1'
 
 Install:
-    File:       '%INSTALL_DIR%\Installer.exe'
+    File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xml'
-    ExitCodes:  [0,1641]
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.21.0.25"'
+    ExitCodes:  [0,3010]
 
 Applications:
     maya:
@@ -18,8 +18,8 @@ Applications:
 Environment:
     ADSKFLEX_LICENSE_FILE: '%MAYA_LICENSE_FILE%'
     
-Services:
-    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
+Files:
+    '%TOOLS_DIR%\userPrefs.mel': '%SYSTEMDRIVE%\Users\Default\Documents\maya\2022\prefs\userPrefs.mel'
 
 Registry:
 
