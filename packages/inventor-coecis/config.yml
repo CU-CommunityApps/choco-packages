@@ -1,36 +1,34 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2021 - COECIS LICENSE'
-Version:        '2021.0'
+Description:    'Autodesk Inventor 2022'
+Version:        '2022.1'
 
 Install:
-    File:       '%INSTALL_DIR%\Img\setup.exe'
+    File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '/qb /W /I %INSTALL_DIR%\Img\inventor2021.ini /language en-us /c FREEDOM:REBOOT=ReallySuppress'
-    ExitCodes:  [0,1638,1641]
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.21.0.25"'
+    ExitCodes:  [0,3010]
 
 Applications:
     Inventor:
-        DisplayName:    'Inventor 2021'
-        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2021\Bin\Inventor.exe'
+        DisplayName:    'Inventor 2022'
+        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2022\Bin\Inventor.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2021\Preferences\AddInLoadRules.xml'
-    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2021\UserApplicationOptions.xml'
+    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2022\Preferences\AddInLoadRules.xml'
+    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2022\UserApplicationOptions.xml'
+    '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2022\myhome.json'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%INVENTOR_LICENSE_FILE%'
-
-Services:
-    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
-    
+   
 Registry:
     HKUD:
         Software\Autodesk\MC3:
             ADAOptIn:
                 Type:   'DWORD'
-                Value:  '1'
+                Value:  '0'
 
             ADARePrompted:
                 Type:   'DWORD'
@@ -40,7 +38,7 @@ Registry:
         Software\Autodesk\MC3:
             HKLMADAOptin:
                 Type:   'DWORD'
-                Value:  '1'
+                Value:  '0'
 
             HKLMADARePrompted:
                 Type:   'DWORD'
