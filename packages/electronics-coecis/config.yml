@@ -5,7 +5,7 @@ Version:        '21.0'
 Install:
     File:       '%INSTALL_DIR%\AnsysEM\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-s -f1%INSTALL_DIR%\AnsysEM\setup.iss'
+    Arguments:  '-s -f1C:\ProgramData\chocolatey\lib\electronics-coecis\tools\installer\AnsysEM\setup.iss'
     ExitCodes:  [0]
 
 Applications:
