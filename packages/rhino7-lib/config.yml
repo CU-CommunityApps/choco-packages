@@ -1,6 +1,6 @@
 Id:             'rhino7-lib'
 Description:    'rhino7-lib'
-Version:        '7.8.21196.05001'
+Version:        '7.11.21285.13001'
 
 Install:
   - File:       '%INSTALL_DIR%\Bootstrapper.exe'
