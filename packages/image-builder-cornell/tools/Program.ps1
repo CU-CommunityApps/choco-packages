@@ -139,8 +139,6 @@ Function PutCloudWatchLog($message){
         $log_message.add('Message', $message)
         $log_message.add('Timestamp', $timestamp)
 
-        $log_message
-
         $global:log_stream_token = Write-CWLLogEvent -LogGroupName 'image-builds' -LogStreamName $build_id -LogEvent $log_message -SequenceToken $log_stream_token
 
     }
@@ -181,16 +179,15 @@ Function InstallPackages(){
         $stderr = $process.StandardError.ReadToEnd()
         $process.WaitForExit()
         $exit_code = $process.ExitCode
-        write-host $exit_code
         PutCloudWatchLog "Exit Code: $exit_code"
         PutCloudWatchLog $stdout
         PutCloudWatchLog "$package_name.$package_version Installed! (Check the log above to be sure)"
         
-        # Remove-Item -Path $package_local -Force
+        Remove-Item -Path $package_local -Force
 
-        # If (Test-Path $package_local_choco){
-        #     Remove-Item -Path $package_local_choco -Force
-        # }
+        If (Test-Path $package_local_choco){
+            Remove-Item -Path $package_local_choco -Force
+        }
     }
 
     if (!(test-path $INSTALLED_LOCK)) {
