@@ -138,7 +138,8 @@ else {
 # Run ImageBuilder
 If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $true){
     Write-Output "Running ImageBuilder"
-    Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait
+    & "$env:ProgramFiles\ImageBuilder\Program.ps1"
+    #Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait
 }
 Else {
     $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/packages/troubleshooting.ps1"
