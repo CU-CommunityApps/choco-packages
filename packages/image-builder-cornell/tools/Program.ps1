@@ -139,11 +139,8 @@ Function PutCloudWatchLog($message){
         $log_message.add('Message', $message)
         $log_message.add('Timestamp', $timestamp)
 
-<<<<<<< HEAD
-=======
         $log_message
 
->>>>>>> eb105f60b88ab2d5cf1f4b0fa918107eb7a58b75
         $global:log_stream_token = Write-CWLLogEvent -LogGroupName 'image-builds' -LogStreamName $build_id -LogEvent $log_message -SequenceToken $log_stream_token
 
     }
@@ -184,19 +181,16 @@ Function InstallPackages(){
         $stderr = $process.StandardError.ReadToEnd()
         $process.WaitForExit()
         $exit_code = $process.ExitCode
-<<<<<<< HEAD
-=======
         write-host $exit_code
->>>>>>> eb105f60b88ab2d5cf1f4b0fa918107eb7a58b75
         PutCloudWatchLog "Exit Code: $exit_code"
         PutCloudWatchLog $stdout
         PutCloudWatchLog "$package_name.$package_version Installed! (Check the log above to be sure)"
         
-        Remove-Item -Path $package_local -Force
+        # Remove-Item -Path $package_local -Force
 
-        If (Test-Path $package_local_choco){
-            Remove-Item -Path $package_local_choco -Force
-        }
+        # If (Test-Path $package_local_choco){
+        #     Remove-Item -Path $package_local_choco -Force
+        # }
     }
 
     if (!(test-path $INSTALLED_LOCK)) {
@@ -296,8 +290,4 @@ catch {
     InitializeEnvironment
     PutCloudWatchLog "[FATAL] Uncaught Exception: $($PSItem.Exception.StackTrace) $($PSItem.Exception.Message)"
     RebootSystem
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> eb105f60b88ab2d5cf1f4b0fa918107eb7a58b75
