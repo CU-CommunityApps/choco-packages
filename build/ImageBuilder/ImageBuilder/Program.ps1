@@ -1,22 +1,21 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 Install-PackageProvider -Name nuget -MinimumVersion 2.8.5.201 -Force;Install-Module -Name PSWindowsUpdate -Force
+Set-AWSCredential -ProfileName appstream_machine_role
 
 New-Variable -Name BUCKET_PREFIX -Value 'image-build' -Option Constant
 New-Variable -Name CHOCO_REPO -Value 'https://chocolatey.org/api/v2' -Option Constant
 New-Variable -Name USER_DATA_URI -Value 'http://169.254.169.254/latest/user-data' -Option Constant
 
-[string]$SYSTEM_DRIVE = $Env:SYSTEMDRIVE
-[string]$PROGRAM_DATA = $Env:ALLUSERSPROFILE
-[string]$IMAGE_ASSISTANT_EXE = [IO.Path]::Combine("$PROGRAM_DATA", "Amazon", "Photon", "ConsoleImageBuilder", "image-assistant.exe")
+[string]$SYSTEM_DRIVE = $ENV:SYSTEMDRIVE
+[string]$PROGRAM_DATA = $ENV:ALLUSERSPROFILE
+[string]$IMAGE_ASSISTANT_EXE = [IO.Path]::Combine("$ENV:ProgramFiles", "Amazon", "Photon", "ConsoleImageBuilder")
 [string]$TEMP_DIR = Join-Path $PROGRAM_DATA 'TEMP'
 [string]$PACKAGE_PATH = Join-Path $TEMP_DIR 'packages'
 [string]$INSTALLED_LOCK = Join-Path $TEMP_DIR 'INSTALLED.lock'
 [string]$UPDATED_LOCK = Join-Path $TEMP_DIR 'UPDATED.lock'
 [string]$SNAPSHOT_LOCK = Join-Path $TEMP_DIR 'SNAPSHOT.lock'
 [string]$REBOOT_LOCK = Join-Path $TEMP_DIR 'REBOOT.lock'
-
-$log_stream_token;
 
 Function DownloadString($uri) {
     # Logger "Downloading String: $uri"
@@ -48,9 +47,9 @@ Function CallRestService($uri, $method, $body) {
 }
 
 Function RebootSystem() {
-    # Logger "Rebooting in 2 min"
+    PutCloudWatchLog "Rebooting in 2 min"
     Start-Sleep -s 120
-    # Logger "Requesting Image Builder Stop..."
+    PutCloudWatchLog "Requesting Image Builder Stop..."
 
     # Check for Reboot lock
     try {
@@ -60,7 +59,7 @@ Function RebootSystem() {
         }
 
         # Stop image builder
-        Stop-APSImageBuilder -Name $imagebuilder
+        Stop-APSImageBuilder -Name $build_id
     }
     catch {
         # Logger "Uncaught exception"
@@ -71,16 +70,16 @@ Function RebootSystem() {
 
 }
 
-Function InitiateEnvironment() {
+Function InitializeEnvironment() {
 
     $user_data = CallRestService $USER_DATA_URI "GET" $null
     $build_arn = $user_data.resourceArn
     $arn = $build_arn.Split(':')
     $aws_region = $arn[3]
     $aws_account = $arn[4]
-    $build_id = $arn[5].Split('/')[1]
+    $global:build_id = $arn[5].Split('/')[1]
     $build_bucket = $("$BUCKET_PREFIX-$aws_account-$aws_region")
-    $build_branch = $build_id.Split('.')[1]
+    $global:build_branch = $build_id.Split('.')[1]
     $build_ids = @()
     $temp_build_id = $build_id.Split('.')
 
@@ -89,12 +88,12 @@ Function InitiateEnvironment() {
     }
 
     $global:image_name = $build_ids -join '.'
-    $bucket_uri = $("https://$build_bucket.s3.amazonaws.com")
+    $global:bucket_uri = $("https://$build_bucket.s3.amazonaws.com")
     $api_uri = $(DownloadString "$bucket_uri/api_endpoint.txt") -replace '\s',''
     $build_post = $("{`"BuildId`":`"$image_name`"}")
     $build_info = CallRestService "$api_uri/image-build" 'POST' "$build_post"
     $global:install_updates = $build_info.InstallUpdates
-    $packages = $build_info.Packages
+    $global:packages = $build_info.Packages
 
     try {
         # Create CloudWatch Log Group
@@ -105,18 +104,20 @@ Function InitiateEnvironment() {
     try {
         $log_stream = (Get-CWLLogStream -LogGroupName 'image-builds' -LogStreamNamePrefix $build_id)[0]
 
-        $log_stream_token = $log_stream.UploadSequenceToken
+        $global:log_stream_token = $log_stream.UploadSequenceToken
     }
     catch {
         # Create CloudWatch Log Stream
         New-CWLLogStream -LogGroupName 'image-builds' -LogStreamName $build_id
 
-        $log_message.Message = "Initialized Log Stream"
-        $log_message.Timestamp = Date
+        $log_message = @{}
+        $message = "Initialized Log Stream"
+        $timestamp = Date
 
-        $resp = Write-CWLLogEvent -LogGroupName 'image-builds' -LogStreamName $build_id -LogEvent $log_message
-        
-        $log_stream_token = $resp.NextSequenceToken
+        $log_message.add('Message', $message)
+        $log_message.add('Timestamp', $timestamp)
+
+        $global:log_stream_token = Write-CWLLogEvent -LogGroupName 'image-builds' -LogStreamName $build_id -LogEvent $log_message
 
     }
 
@@ -131,13 +132,14 @@ Function PutCloudWatchLog($message){
     }
 
     try {
+        
+        $log_message = @{}
+        $timestamp = Date
 
-        $log_message.Message = $message
-        $log_message.Timestamp = Date
+        $log_message.add('Message', $message)
+        $log_message.add('Timestamp', $timestamp)
 
-        $resp = Write-CWLLogEvent -LogGroupName 'image-builds' -LogStreamName $build_id -LogEvent $log_message
-        $resp.SequenceToken = $log_stream_token
-        $log_stream_token = $resp.NextSequenceToken
+        $global:log_stream_token = Write-CWLLogEvent -LogGroupName 'image-builds' -LogStreamName $build_id -LogEvent $log_message -SequenceToken $log_stream_token
 
     }
     catch {
@@ -151,7 +153,7 @@ Function InstallPackages(){
     ForEach ($package in $packages){
         $package_name = $package.Split(';')[0]
         $package_version = $package.Split(';')[1]
-        $package_local = Join-Path $PACKAGE_PATH, "$package_name.$package_version.nupkg"
+        $package_local = Join-Path $PACKAGE_PATH "$package_name.$package_version.nupkg"
         $package_local_choco =  [IO.Path]::Combine("$PROGRAM_DATA", "chocolatey", "lib", $package_name, "$package_name.nupkg")
         $package_uri = "$bucket_uri/packages/$build_branch/$package_name.$package_version.nupkg"
         $package_log =  [IO.Path]::Combine("$PROGRAM_DATA", "chocolatey", "lib", $package_name, "$package_name.$package_version.log")
@@ -173,20 +175,19 @@ Function InstallPackages(){
         $process = New-Object System.Diagnostics.Process
         $process.StartInfo = $choco_process
         $process.Start() | Out-Null
-        $process.WaitForExit()
         $stdout = $process.StandardOutput.ReadToEnd()
         $stderr = $process.StandardError.ReadToEnd()
-        Write-Host "stdout: $stdout"
-        Write-Host "stderr: $stderr"
-        Write-Host "exit code: " + $process.ExitCode
+        $process.WaitForExit()
+        $exit_code = $process.ExitCode
+        PutCloudWatchLog "Exit Code: $exit_code"
         PutCloudWatchLog $stdout
         PutCloudWatchLog "$package_name.$package_version Installed! (Check the log above to be sure)"
         
-        # Remove-Item -Path $package_local -Force
+        Remove-Item -Path $package_local -Force
 
-        # If (Test-Path $package_local_choco){
-        #     Remove-Item -Path $package_local_choco -Force
-        # }
+        If (Test-Path $package_local_choco){
+            Remove-Item -Path $package_local_choco -Force
+        }
     }
 
     if (!(test-path $INSTALLED_LOCK)) {
@@ -204,28 +205,30 @@ Function InstallUpdates(){
     
     if ($updates.Count -lt 1){
         PutCloudWatchLog "No Windows Updates to Install"
-
-        Add-Content -Path $UPDATED_LOCK -Value "NO WINDOWS UPDATES"
+        New-Item -Path $UPDATED_LOCK -Force
+        Set-Content -Path $UPDATED_LOCK -Value "NO WINDOWS UPDATES"
         return
     }
 
-    PutCloudWatchLog "Installing $updates.Count Critical/Security Updates..."
+    PutCloudWatchLog "Installing $($updates.Count) Critical/Security Updates..."
     
     for($i = 0; $i -lt $updates.Count; $i++){
-         Get-WindowsUpdate -install -KBArticleID $updates[$i].KB -IgnoreRebootRequired
-         
-         if ($? -eq $true){
-            PutCloudWatchLog "Installed: $($updates[$i].Title)"
-         }
-         else {
+        
+        #Get-WindowsUpdate -install -KBArticleID $updates[$i].KB -IgnoreRebootRequired
+        $process = Install-WindowsUpdate -KBArticleID $updates[$i].KBArticleIDs -IgnoreReboot -Verbose -Confirm:$false
+            
+        if ($process.Result -eq "Failed"){        
             PutCloudWatchLog "Failed: $($updates[$i].Title)"
-         }
+        }
+        else {
+            PutCloudWatchLog "Installed: $($updates[$i].Title)"
+        }
     }
     
     PutCloudWatchLog "Windows Updates Completed!"
 
     if (!(test-path $UPDATED_LOCK)) {
-        New-Item -Path $UPDATEED_LOCK -Force
+        New-Item -Path $UPDATED_LOCK -Force
     }
     Set-Content -Path $UPDATED_LOCK -Value "WINDOWS UPDATES INSTALLED"
 
@@ -235,7 +238,8 @@ Function InitiateSnapshot() {
     PutCloudWatchLog "Initiating Snapshot in two minutes..."
     Start-Sleep -s 120
 
-    $create_cmd = "$IMAGE_ASSISTANT_EXE create-image --name " + $image_name
+    Set-Location $IMAGE_ASSISTANT_EXE
+    $create_cmd = ".\image-assistant.exe create-image --name `"$image_name`" --display-name `"$image_name`" --no-enable-dynamic-app-catalog"
     $create = Invoke-Expression $create_cmd | ConvertFrom-Json
     if ($create.status -eq 0){
         PutCloudWatchLog "Successfully Initiated Snapshot!"
@@ -249,20 +253,20 @@ Function InitiateSnapshot() {
 Function Date() {
 
     $date = get-date
-    $date.IsDaylightSavingTime()
+    #$date.IsDaylightSavingTime()
     #$date.ToUniversalTime()
     
     # or display in ISO 8601 format:
     #return $date.ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ss:ms')
-    return $date.ToString('yyyy-MM-ddTHH:mm:ss:ms')
+    #return $date.ToString('yyyy-MM-ddTHH:mm:ss:ms')
+    return $date
 
 }
 
 if (!(Test-Path $PACKAGE_PATH)){New-Item -Path $PACKAGE_PATH -ItemType directory}
 
-<#
 try {
-    InitiateEnvironment
+    InitializeEnvironment
 
     if (!(Test-Path $REBOOT_LOCK)){
         RebootSystem
@@ -271,19 +275,16 @@ try {
         InstallPackages
         RebootSystem
     }
-    elseif (!(Test-Path $install_updates and !(Test-Path $UPDATED_LOCK))){
+    elseif ($install_updates -and !(Test-Path $UPDATED_LOCK)){
         InstallUpdates
         RebootSystem
     }
-    else{
+    else {
         InitiateSnapshot
     }
 }
 catch {
-    InitiateSnapshot
-    PutCloudWatchLog "[FATAL] Uncaught Exception:\n\n$($PSItem.Exception.StackTrace)\n\n$($PSItem.Exception.Message)"
+    InitializeEnvironment
+    PutCloudWatchLog "[FATAL] Uncaught Exception: $($PSItem.Exception.StackTrace) $($PSItem.Exception.Message)"
     RebootSystem
 }
-#>
-
-InitiateEnvironment
