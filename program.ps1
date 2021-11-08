@@ -1,6 +1,6 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-Install-PackageProvider -Name nuget -MinimumVersion 2.8.5.201 -Force;Install-Module -Name PSWindowsUpdate -Force
+If (!(Get-Module PSWindowsUpdate)){Install-PackageProvider -Name nuget -MinimumVersion 2.8.5.201 -Force;Install-Module -Name PSWindowsUpdate -Force}
 Set-AWSCredential -ProfileName appstream_machine_role
 
 New-Variable -Name BUCKET_PREFIX -Value 'image-build' -Option Constant
