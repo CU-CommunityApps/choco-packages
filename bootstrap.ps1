@@ -117,6 +117,10 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing .NET 4.8"
     Start-Process -FilePath "choco.exe" -ArgumentList "install dotnetfx -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
 
+    # Download ImageBuild Program
+    $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/program.ps1"
+    Start-BitsTransfer -Source $URI -Destination "$env:ProgramFiles\ImageBuilder\program.ps1"
+
 }
 else {
     # No Path set for SYSTEM so move to BUILD_DIR
@@ -138,7 +142,7 @@ else {
 # Run ImageBuilder
 If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $true){
     Write-Output "Running ImageBuilder"
-    & "$env:ProgramFiles\ImageBuilder\Program.ps1"
+    & "$env:ProgramFiles\ImageBuilder\program.ps1"
     #Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait
 }
 Else {
