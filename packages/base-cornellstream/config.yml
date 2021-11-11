@@ -57,7 +57,7 @@ Files:
     '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
     '%TOOLS_DIR%\update_windefend.ps1': '%SYSTEMDRIVE%\windows\TEMP\update_windefend.ps1'
     
-# Scripts:
+Scripts:
      start:
          System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
     
