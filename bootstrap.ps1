@@ -110,7 +110,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     
     # Remove Internet Explorer
     Write-Output "Uninstalling IE 11"
-    Disable-WindowsOptionalFeature -FeatureName Internet-Explorer-Optional-amd64 –Online -NoRestart
+    Disable-WindowsOptionalFeature -FeatureName Internet-Explorer-Optional-amd64 -Online -NoRestart
     
     # Install .NET 4.8
     Write-Output "Installing .NET 4.8"
