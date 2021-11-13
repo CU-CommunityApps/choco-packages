@@ -1,5 +1,8 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
+# Assume machine role
+Set-AWSCredential -ProfileName appstream_machine_role
+
 $BUILD_DIR = Join-Path $Env:TEMP "image-build"
 $PACKAGE_DIR = Join-Path $BUILD_DIR "packages"
 $CHOCO_REPO = "https://chocolatey.org/api/v2"
