@@ -89,17 +89,12 @@ if (-Not (Test-Path $BUILD_DIR)) {
     $build_package_uri = "https://s3.amazonaws.com/$build_bucket/packages/$package_branch/$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"
     
     # Parse Database
-    $build_bucket_uri = "https://$build_bucket.s3.amazonaws.com"
-    $api_uri = (irm -URI "$build_bucket_uri/api_endpoint.txt").Trim()
-    $api_headers = @{"Accept"="application/json"}
-    $api_post = @{
-        BuildId="$image_id"
-    }
-    $json = $api_post | ConvertTo-Json
-    $build_info = irm -URI "$api_uri/$bucket_prefix" -Headers $api_headers -Method POST -Body $json -ContentType "application/json"
+    $statement = "SELECT entry_info FROM `"$application`" WHERE entry_type='ImageBuild' AND entry_id='$image_id'"
+    $resp = Invoke-DDBDDBExecuteStatement -Statement $statement
+    $build_info = $resp.entry_info.M
 
     # Set system level environment variable for manual processing
-    If ($build_info.Manual -eq $true){[System.Environment]::SetEnvironmentVariable("AoD_Manual", $true, 'Machine')}
+    If ($build_info.Manual.BOOL -eq $true){[System.Environment]::SetEnvironmentVariable("AoD_Manual", $true, 'Machine')}
     Else {[System.Environment]::SetEnvironmentVariable("AoD_Manual", $false, 'Machine')}
 
     # Download ImageBuild Package
