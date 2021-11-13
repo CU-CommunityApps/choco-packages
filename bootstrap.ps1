@@ -111,14 +111,14 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
     
     # Remove Internet Explorer
-    #dism /online /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.11.0
+    dism /online /Remove-Capability /CapabilityName:Browser.InternetExplorer~~~~0.0.11.0
     
     # Install .NET 4.8
     Write-Output "Installing .NET 4.8"
     Start-Process -FilePath "choco.exe" -ArgumentList "install dotnetfx -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
 
     # Download ImageBuild Program
-    $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/program.ps1"
+    $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/$package_branch/program.ps1"
     Start-BitsTransfer -Source $URI -Destination "$env:ProgramFiles\ImageBuilder\program.ps1"
 
 }
