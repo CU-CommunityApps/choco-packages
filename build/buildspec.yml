@@ -4,7 +4,6 @@ phases:
   install:
     commands:
       - 'Invoke-Expression -Command "$Env:CODEBUILD_SRC_DIR\build\ChocoPacker\build.ps1" -ErrorAction Continue'
-      - 'Invoke-Expression -Command "$Env:CODEBUILD_SRC_DIR\build\ImageBuilder\build.ps1" -ErrorAction Continue'
       
   build:
     commands:
