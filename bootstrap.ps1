@@ -110,6 +110,10 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing ImageBuilder Package"
     Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
     
+    # Remove Internet Explorer
+    Write-Output "Uninstalling IE 11"
+    Disable-WindowsOptionalFeature -FeatureName Internet-Explorer-Optional-amd64 -Online -NoRestart
+    
     # Install .NET 4.8
     Write-Output "Installing .NET 4.8"
     Start-Process -FilePath "choco.exe" -ArgumentList "install dotnetfx -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
