@@ -4,9 +4,6 @@ FROM microsoft/dotnet-framework:4.7.2-runtime
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-# Copy AppStream ImageBuilder library files for custom code
-COPY ImageBuilderLibs\ C:/ImageBuilderLibs/
-
 # Install NuGet CLI
 ENV NUGET_VERSION 5.5.1
 RUN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; `
