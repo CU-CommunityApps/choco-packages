@@ -397,12 +397,28 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             $params = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.LaunchParams).Replace('%%', '%')
             $workdir = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.WorkDir).Replace('%%', '%')
             
-            $CatalogParams = "--name " + $application + " --absolute-app-path " + $path + `
-                             " --display-name " + $display + " --absolute-icon-path " + $app_icon + `
-                             " --launch-parameters " + $params + " --working-directory " + $workdir
-
+            if (!($params) -and !($workdir)){
+                $CatalogParams = "--name " + "`"$application`"" + " --absolute-app-path " + "`"$path`"" + `
+                                 " --display-name " + "`"$display`"" + " --absolute-icon-path " + "`"$app_icon`""
+            }
+            elseif (!($params) -and ($workdir)){
+                $CatalogParams = "--name " + "`"$application`"" + " --absolute-app-path " + "`"$path`"" + `
+                                 " --display-name " + "`"$display`"" + " --absolute-icon-path " + "`"$app_icon`"" + `
+                                 " --working-directory " + "`"$workdir`""
+            }
+            elseif (!($workdir) -and ($params)){
+                $CatalogParams = "--name " + "`"$application`"" + " --absolute-app-path " + "`"$path`"" + `
+                                 " --display-name " + "`"$display`"" + " --absolute-icon-path " + "`"$app_icon`"" + `
+                                 " --launch-parameters " + "`"$params`""
+            }
+            else {
+                $CatalogParams = "--name " + "`"$application`"" + " --absolute-app-path " + "`"$path`"" + `
+                                 " --display-name " + "`"$display`"" + " --absolute-icon-path " + "`"$app_icon`"" + `
+                                 " --launch-parameters " + "`"$params`"" + " --working-directory " + "`"$workdir`""
+            }
+            
             # Add Apps to Image Assistant app for catalog view
-            $AddApp = start-process $IMAGE_EXE -ArgumentList "add-application $CatalogParams" -PassThru
+            $AddApp = start-process $IMAGE_EXE -ArgumentList "add-application $CatalogParams" -PassThru -Verbose -Wait
            
             if ($AddApp.ExitCode -eq 0) {
                 Write-Output "Added $application to Image Assistant"
