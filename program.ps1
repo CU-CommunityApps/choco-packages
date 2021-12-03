@@ -48,6 +48,7 @@ Function RebootSystem() {
         Stop-APSImageBuilder -Name $build_id
     }
     catch {
+
         PutCloudWatchLog "Restart API Exception"
         PutCloudWatchLog "Restarting using shutdown.exe"
 
