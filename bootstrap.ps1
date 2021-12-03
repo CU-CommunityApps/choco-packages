@@ -90,6 +90,7 @@ if (-Not (Test-Path $BUILD_DIR)) {
     $image_id = $build_id.Split(".")[2..$build_id.Split(".").Length] -join "."
     $build_bucket = "$bucket_prefix-$account-$region"
     $build_package_uri = "https://s3.amazonaws.com/$build_bucket/packages/$package_branch/$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"
+    $application = $build_id.Split(".")[0]
     
     # Parse Database
     $statement = "SELECT entry_info FROM `"$application`" WHERE entry_type='ImageBuild' AND entry_id='$image_id'"
