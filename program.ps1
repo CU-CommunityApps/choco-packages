@@ -17,28 +17,14 @@ New-Variable -Name USER_DATA_URI -Value 'http://169.254.169.254/latest/user-data
 [string]$SNAPSHOT_LOCK = Join-Path $TEMP_DIR 'SNAPSHOT.lock'
 [string]$REBOOT_LOCK = Join-Path $TEMP_DIR 'REBOOT.lock'
 
-Function DownloadString($uri) {
-    # Logger "Downloading String: $uri"
-
-    # Download api gateway url via text file, created during deployment
-    $result = irm -Uri $uri
-
-    return $result
-
-}
-
 Function DownloadFile($uri, $out_path) {
-    # Logger "Downloading: $uri to $out_path"
 
     # Download file to install
     iwr $uri -OutFile $out_path
 
-    # Logger "File downloaded"
-
 }
 
 Function CallRestService($uri, $method, $body) {
-    # Logger "Calling Rest Service $uri with body $body"
 
     $result = irm -Uri $uri -Method $method -Body $body -ContentType "application/json"
 
@@ -62,8 +48,9 @@ Function RebootSystem() {
         Stop-APSImageBuilder -Name $build_id
     }
     catch {
-        # Logger "Uncaught exception"
-        # Logger "Restarting using shutdown.exe"
+
+        PutCloudWatchLog "Restart API Exception"
+        PutCloudWatchLog "Restarting using shutdown.exe"
 
         Start-Process 'shutdown.exe' -ArgumentList '/r /f /t 0'
     }
@@ -87,13 +74,13 @@ Function InitializeEnvironment() {
         $build_ids += $temp_build_id[$i]
     }
 
+    $application = $build_id.Split('.')[0]
     $global:image_name = $build_ids -join '.'
     $global:bucket_uri = $("https://$build_bucket.s3.amazonaws.com")
-    $api_uri = $(DownloadString "$bucket_uri/api_endpoint.txt") -replace '\s',''
-    $build_post = $("{`"BuildId`":`"$image_name`"}")
-    $build_info = CallRestService "$api_uri/image-build" 'POST' "$build_post"
-    $global:install_updates = $build_info.InstallUpdates
-    $global:packages = $build_info.Packages
+    $statement = "SELECT entry_info FROM `"$application`" WHERE entry_type='ImageBuild' AND entry_id='$image_name'"
+    $resp = Invoke-DDBDDBExecuteStatement -Statement $statement
+    $global:install_updates = $resp.entry_info.M.InstallUpdates.BOOL
+    $global:packages = $resp.entry_info.M.Packages.L | % {$_.S}
 
     try {
         # Create CloudWatch Log Group
@@ -164,8 +151,6 @@ Function InstallPackages(){
 
         PutCloudWatchLog "Installing $package_name.$package_version"
 
-        #Start-Process $choco_path -ArgumentList "install {$package_name} -y --no-progress --execution-timeout=7200 -r -s {$CHOCO_REPO};{$PACKAGE_PATH} --cachelocation {$SYSTEM_DRIVE}\\TEMP"
-
         $choco_process = New-Object System.Diagnostics.ProcessStartInfo
         $choco_process.FileName = $choco_path
         $choco_process.RedirectStandardError = $true
@@ -214,7 +199,6 @@ Function InstallUpdates(){
     
     for($i = 0; $i -lt $updates.Count; $i++){
         
-        #Get-WindowsUpdate -install -KBArticleID $updates[$i].KB -IgnoreRebootRequired
         $process = Install-WindowsUpdate -KBArticleID $updates[$i].KBArticleIDs -IgnoreReboot -Verbose -Confirm:$false
             
         if ($process.Result -eq "Failed"){        
@@ -252,14 +236,7 @@ Function InitiateSnapshot() {
 
 Function Date() {
 
-    $date = get-date
-    #$date.IsDaylightSavingTime()
-    #$date.ToUniversalTime()
-    
-    # or display in ISO 8601 format:
-    #return $date.ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ss:ms')
-    #return $date.ToString('yyyy-MM-ddTHH:mm:ss:ms')
-    return $date
+    return get-date
 
 }
 
