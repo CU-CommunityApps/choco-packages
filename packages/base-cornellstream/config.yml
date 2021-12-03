@@ -34,7 +34,7 @@ Applications:
     Procexp:
         DisplayName:    'Process Explorer'
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '%WINDIR%\system32\Kill_Process.ps1 -File'
+        LaunchParams:   '-File %WINDIR%\system32\Kill_Process.ps1'
         WorkDir:        ''
 
     Explorer:
@@ -46,7 +46,7 @@ Applications:
     Chrome:
         DisplayName:    'Google Chrome'
         Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
-        LaunchParams:   'https://it.cornell.edu/students --no-first-run --no-default-browser-check --allow-no-sandbox-job'
+        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
         WorkDir:        ''
 
 Files:
