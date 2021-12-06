@@ -1,5 +1,12 @@
 # Runs after the choco package is installed
-Stop-Service gupdate
+
+Start-Sleep -s 30
+
+# Stop and disable updater services
+Stop-Service gupdate -Force
 Set-Service gupdate -StartupType Disabled
-Stop-Service gupdatem
+Stop-Service gupdatem -Force
 Set-Service gupdatem -StartupType Disabled
+
+# Kill all running Google Drive processes
+Get-Process 'GoogleDriveFS' | Stop-process
