@@ -117,6 +117,9 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing .NET 4.8"
     Start-Process -FilePath "choco.exe" -ArgumentList "install dotnetfx -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
     
+    # Make directory for image builder runner
+    New-Item -Path "$env:ProgramFiles" -Name "ImageBuilder" -ItemType "directory"
+    
     # Download ImageBuild Program
     $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/$package_branch/program.ps1"
     Start-BitsTransfer -Source $URI -Destination "$env:ProgramFiles\ImageBuilder\program.ps1"
