@@ -48,14 +48,16 @@ If($OSVersion -notmatch "2012")
 # Set Application Calalog order #
 #################################
 
-# Image Assistant DB
-$APP_CATALOG = [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
+# Commented out potentially temporarily for testing
 
-# SQL Query to Update Table
-$query = "CREATE TABLE New AS SELECT * FROM Applications ORDER BY DisplayName COLLATE NOCASE DESC;
-DROP TABLE Applications;
-CREATE TABLE Applications AS SELECT * FROM New ORDER BY DisplayName COLLATE NOCASE DESC;
-DROP TABLE New;"
+# # Image Assistant DB
+# $APP_CATALOG = [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
 
-# Update Table
-Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $query
+# # SQL Query to Update Table
+# $query = "CREATE TABLE New AS SELECT * FROM Applications ORDER BY DisplayName COLLATE NOCASE DESC;
+# DROP TABLE Applications;
+# CREATE TABLE Applications AS SELECT * FROM New ORDER BY DisplayName COLLATE NOCASE DESC;
+# DROP TABLE New;"
+
+# # Update Table
+# Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $query
