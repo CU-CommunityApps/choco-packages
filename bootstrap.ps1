@@ -101,13 +101,13 @@ if (-Not (Test-Path $BUILD_DIR)) {
     If ($build_info.Manual.BOOL -eq $true){[System.Environment]::SetEnvironmentVariable("AoD_Manual", $true, 'Machine')}
     Else {[System.Environment]::SetEnvironmentVariable("AoD_Manual", $false, 'Machine')}
 
-    # Download ImageBuild Package
-    Write-Output "Downloading ImageBuilder Nupkg: $BUILD_PACKAGE_URI"
-    (New-Object System.Net.WebClient).DownloadFile($BUILD_PACKAGE_URI, (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"))
+#     # Download ImageBuild Package
+#     Write-Output "Downloading ImageBuilder Nupkg: $BUILD_PACKAGE_URI"
+#     (New-Object System.Net.WebClient).DownloadFile($BUILD_PACKAGE_URI, (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"))
     
-    # Install ImageBuilder
-    Write-Output "Installing ImageBuilder Package"
-    Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
+#     # Install ImageBuilder
+#     Write-Output "Installing ImageBuilder Package"
+#     Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
     
     # Remove Internet Explorer
     Write-Output "Uninstalling IE 11"
