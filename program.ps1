@@ -20,7 +20,7 @@ New-Variable -Name USER_DATA_URI -Value 'http://169.254.169.254/latest/user-data
 Function DownloadFile($uri, $out_path) {
 
     # Download file to install
-    iwr $uri -OutFile $out_path
+    Start-BitsTransfer -Source $uri -Destination $out_path -Priority Foreground
 
 }
 
