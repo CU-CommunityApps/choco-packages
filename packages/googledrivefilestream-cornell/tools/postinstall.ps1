@@ -1,7 +1,12 @@
 # Runs after the choco package is installed
-SCHTASKS /DELETE /TN "GoogleUpdateTaskMachineUA" /F
-SCHTASKS /DELETE /TN "GoogleUpdateTaskMachineCore" /F
-Stop-Service gupdate
+
+Start-Sleep -s 10
+
+# Stop and disable updater services
+Stop-Service gupdate -Force
 Set-Service gupdate -StartupType Disabled
-Stop-Service gupdatem
+Stop-Service gupdatem -Force
 Set-Service gupdatem -StartupType Disabled
+
+# Kill all running Google Drive processes
+Get-Process 'GoogleDriveFS' | Stop-process -Force
