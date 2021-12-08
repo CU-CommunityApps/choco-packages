@@ -9,4 +9,4 @@ Stop-Service gupdatem -Force
 Set-Service gupdatem -StartupType Disabled
 
 # Kill all running Google Drive processes
-Get-Process 'GoogleDriveFS' | Stop-process -Force
+# Get-Process 'GoogleDriveFS' | Stop-process -Force
