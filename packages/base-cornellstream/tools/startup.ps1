@@ -14,7 +14,7 @@
 # List of applications to remove
 $app = "Firefox"
 
-Get uninstall info for each possible application
+# Get uninstall info for each possible application
 If (gci -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall  | `
 gp | where {$_.DisplayName -match $app}){
 
