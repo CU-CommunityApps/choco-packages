@@ -8,7 +8,7 @@ Set-Service gupdatem -StartupType Disabled
 
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
-List of applications to remove
+# List of applications to remove
 $app = "Firefox"
 
 Get uninstall info for each possible application
