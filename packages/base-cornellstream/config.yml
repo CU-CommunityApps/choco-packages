@@ -1,5 +1,5 @@
 Id:             'base-cornellstream'
-Description:    'Base Items for Cornell Stream'
+Description:    'Base Items for Cornell Stream - buildtest'
 Version:        '1.0.0'
 
 ChocoPackages:
@@ -60,7 +60,7 @@ Files:
 Scripts:
     start:
         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
-    
+
 Registry:
     HKUD:
         Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced: # Show file extensions

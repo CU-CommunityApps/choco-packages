@@ -1,5 +1,8 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
+# Assume machine role
+Set-AWSCredential -ProfileName appstream_machine_role
+
 $BUILD_DIR = Join-Path $Env:TEMP "image-build"
 $PACKAGE_DIR = Join-Path $BUILD_DIR "packages"
 $CHOCO_REPO = "https://chocolatey.org/api/v2"
@@ -87,32 +90,39 @@ if (-Not (Test-Path $BUILD_DIR)) {
     $image_id = $build_id.Split(".")[2..$build_id.Split(".").Length] -join "."
     $build_bucket = "$bucket_prefix-$account-$region"
     $build_package_uri = "https://s3.amazonaws.com/$build_bucket/packages/$package_branch/$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"
+    $application = $build_id.Split(".")[0]
     
     # Parse Database
-    $build_bucket_uri = "https://$build_bucket.s3.amazonaws.com"
-    $api_uri = (irm -URI "$build_bucket_uri/api_endpoint.txt").Trim()
-    $api_headers = @{"Accept"="application/json"}
-    $api_post = @{
-        BuildId="$image_id"
-    }
-    $json = $api_post | ConvertTo-Json
-    $build_info = irm -URI "$api_uri/$bucket_prefix" -Headers $api_headers -Method POST -Body $json -ContentType "application/json"
+    $statement = "SELECT entry_info FROM `"$application`" WHERE entry_type='ImageBuild' AND entry_id='$image_id'"
+    $resp = Invoke-DDBDDBExecuteStatement -Statement $statement
+    $build_info = $resp.entry_info.M
 
     # Set system level environment variable for manual processing
-    If ($build_info.Manual -eq $true){[System.Environment]::SetEnvironmentVariable("AoD_Manual", $true, 'Machine')}
+    If ($build_info.Manual.BOOL -eq $true){[System.Environment]::SetEnvironmentVariable("AoD_Manual", $true, 'Machine')}
     Else {[System.Environment]::SetEnvironmentVariable("AoD_Manual", $false, 'Machine')}
 
-    # Download ImageBuild Package
-    Write-Output "Downloading ImageBuilder Nupkg: $BUILD_PACKAGE_URI"
-    (New-Object System.Net.WebClient).DownloadFile($BUILD_PACKAGE_URI, (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"))
+#     # Download ImageBuild Package
+#     Write-Output "Downloading ImageBuilder Nupkg: $BUILD_PACKAGE_URI"
+#     (New-Object System.Net.WebClient).DownloadFile($BUILD_PACKAGE_URI, (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"))
     
-    # Install ImageBuilder
-    Write-Output "Installing ImageBuilder Package"
-    Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
+#     # Install ImageBuilder
+#     Write-Output "Installing ImageBuilder Package"
+#     Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
+    
+    # Remove Internet Explorer
+    Write-Output "Uninstalling IE 11"
+    Disable-WindowsOptionalFeature -FeatureName Internet-Explorer-Optional-amd64 -Online -NoRestart
     
     # Install .NET 4.8
     Write-Output "Installing .NET 4.8"
     Start-Process -FilePath "choco.exe" -ArgumentList "install dotnetfx -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
+    
+    # Make directory for image builder runner
+    New-Item -Path "$env:ProgramFiles" -Name "ImageBuilder" -ItemType "directory"
+    
+    # Download ImageBuild Program
+    $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/$package_branch/program.ps1"
+    Start-BitsTransfer -Source $URI -Destination "$env:ProgramFiles\ImageBuilder\program.ps1"
 
 }
 else {
@@ -135,7 +145,8 @@ else {
 # Run ImageBuilder
 If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $true){
     Write-Output "Running ImageBuilder"
-    Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait
+    & "$env:ProgramFiles\ImageBuilder\program.ps1"
+    #Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait
 }
 Else {
     $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/packages/troubleshooting.ps1"

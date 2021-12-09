@@ -3,4 +3,4 @@ Description:    'Custom app for image build tasks'
 Version:        '1.0'
 
 Files: 
-    '%TOOLS_DIR%\ImageBuilder': '%PROGRAMFILES%\ImageBuilder'
+    '%TOOLS_DIR%\Program.ps1': '%PROGRAMFILES%\ImageBuilder\Program.ps1'

@@ -60,22 +60,20 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
 
     If (!($Mode)){$ErrorActionPreference = 'Stop'}
     
-    if ((-Not (Get-Module -ListAvailable -Name 'powershell-yaml')) -Or (-Not (Get-Module -ListAvailable -Name 'PSSQLite'))) {
+    if (-Not (Get-Module -ListAvailable -Name 'powershell-yaml')) {
         Install-PackageProvider -Name 'NuGet' -Force
         Install-Module 'powershell-yaml' -Force
-        Install-Module 'PSSQLite' -Force
     }
     
     Import-Module "powershell-yaml"
-    Import-Module "PSSQLite"
 
     $CHOCO =        [io.path]::combine($Env:ALLUSERSPROFILE, 'chocolatey', 'bin', 'choco.exe')
     $REG =          [io.path]::combine($Env:SYSTEMROOT, 'System32', 'reg.exe')
     $USER_DIR =     Join-Path $Env:SYSTEMDRIVE 'Users'
     $DEFAULT_HIVE = [io.path]::combine($USER_DIR, 'Default', 'NTUSER.DAT')
     $STARTUP =      [io.path]::combine($Env:ALLUSERSPROFILE, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'StartUp', '*')
-    $APP_CATALOG =  [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'PhotonAppCatalog.sqlite')
     $APP_ICONS =    [io.path]::combine($Env:ALLUSERSPROFILE, 'Amazon', 'Photon', 'AppCatalogHelper', 'AppIcons')
+    $IMAGE_EXE =    [io.path]::combine($Env:PROGRAMFILES, 'Amazon', 'Photon', 'ConsoleImageBuilder', 'image-assistant.exe')
 
     If (!($TOOLS_DIR)){
         $TOOLS_DIR = $PSScriptRoot
@@ -385,19 +383,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             New-Item -ItemType Directory -Force -Path $APP_ICONS
         }
         
-        if (-Not (Test-Path $APP_CATALOG)) {
-            $create_table = 'CREATE TABLE IF NOT EXISTS "Applications" ("Name" TEXT NOT NULL CONSTRAINT "PK_Applications" PRIMARY KEY, "AbsolutePath" TEXT, "DisplayName" TEXT, "IconFilePath" TEXT, "LaunchParameters" TEXT, "WorkingDirectory" TEXT)'
-            Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $create_table
-            
-            $acl = Get-Acl $APP_CATALOG
-            $permission = "Everyone","FullControl","Allow"
-            $rule = New-Object System.Security.AccessControl.FileSystemAccessRule $permission
-            $acl.SetAccessRule($rule)
-            $acl | Set-Acl $APP_CATALOG
-        }
-        
-        $app_entry = "INSERT INTO Applications (Name, AbsolutePath, DisplayName, IconFilePath, LaunchParameters, WorkingDirectory) VALUES (@name, @path, @display, @icon, @params, @workdir)"
-        $applications = ($CONFIG.Applications | Get-Member -MemberType NoteProperty).Name
+       $applications = ($CONFIG.Applications | Get-Member -MemberType NoteProperty).Name
         
         foreach ($application in $applications) {
             Write-Output "Creating App Catalog Entry for $($CONFIG.Applications.$application.DisplayName)"
@@ -411,13 +397,34 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             $params = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.LaunchParams).Replace('%%', '%')
             $workdir = [Environment]::ExpandEnvironmentVariables($CONFIG.Applications.$application.WorkDir).Replace('%%', '%')
             
-            Invoke-SqliteQuery -DataSource $APP_CATALOG -Query $app_entry -SqlParameters @{
-                name = "$application"
-                path = "$path"
-                display = "$display"
-                icon = "$app_icon"
-                params = "$params"
-                workdir = "$workdir"
+            if (!($params) -and !($workdir)){
+                $CatalogParams = "--name " + "`"$application`"" + " --absolute-app-path " + "`"$path`"" + `
+                                 " --display-name " + "`"$display`"" + " --absolute-icon-path " + "`"$app_icon`""
+            }
+            elseif (!($params) -and ($workdir)){
+                $CatalogParams = "--name " + "`"$application`"" + " --absolute-app-path " + "`"$path`"" + `
+                                 " --display-name " + "`"$display`"" + " --absolute-icon-path " + "`"$app_icon`"" + `
+                                 " --working-directory " + "`"$workdir`""
+            }
+            elseif (!($workdir) -and ($params)){
+                $CatalogParams = "--name " + "`"$application`"" + " --absolute-app-path " + "`"$path`"" + `
+                                 " --display-name " + "`"$display`"" + " --absolute-icon-path " + "`"$app_icon`"" + `
+                                 " --launch-parameters " + "`"'$params'`""
+            }
+            else {
+                $CatalogParams = "--name " + "`"$application`"" + " --absolute-app-path " + "`"$path`"" + `
+                                 " --display-name " + "`"$display`"" + " --absolute-icon-path " + "`"$app_icon`"" + `
+                                 " --launch-parameters " + "`"'$params'`"" + " --working-directory " + "`"$workdir`""
+            }
+            
+            # Add Apps to Image Assistant app for catalog view
+            $AddApp = start-process $IMAGE_EXE -ArgumentList "add-application $CatalogParams" -PassThru -Verbose -Wait
+           
+            if ($AddApp.ExitCode -eq 0) {
+                Write-Output "Added $application to Image Assistant"
+            } else {
+                Write-Output "ERROR adding $application to Image Assistant" 
+                Write-Output $AddApp.StandardError
             }
         }
     }
