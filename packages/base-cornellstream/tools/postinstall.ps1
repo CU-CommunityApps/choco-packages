@@ -8,19 +8,19 @@ Set-Service gupdatem -StartupType Disabled
 
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
-# List of applications to remove
-#$app = "Firefox"
+List of applications to remove
+$app = "Firefox"
 
-# Get uninstall info for each possible application
-#If (gci -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall  | `
-#gp | where {$_.DisplayName -match $app}){
+Get uninstall info for each possible application
+If (gci -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall  | `
+gp | where {$_.DisplayName -match $app}){
 
-#    $install = gci -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall  | `
-#    gp | where {$_.DisplayName -match $app} | select DisplayName, InstallLocation, UninstallString
-#    
-#    Start-Process $install.UninstallString -ArgumentList "/S" -WorkingDirectory $install.InstallLocation -WindowStyle Hidden
-#
-#}
+   $install = gci -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall  | `
+   gp | where {$_.DisplayName -match $app} | select DisplayName, InstallLocation, UninstallString
+   
+   Start-Process $install.UninstallString -ArgumentList "/S" -WorkingDirectory $install.InstallLocation -WindowStyle Hidden
+
+}
 
 $OSVersion = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
 
