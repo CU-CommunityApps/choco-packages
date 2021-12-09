@@ -1,6 +1,4 @@
 # Runs after the choco package is installed
-If (Get-ScheduledTask -TaskName "GoogleUpdateTaskMachineUA"){Unregister-ScheduledTask -TaskName "GoogleUpdateTaskMachineUA" -Confirm:$false}
-If (Get-ScheduledTask -TaskName "GoogleUpdateTaskMachineCore"){Unregister-ScheduledTask -TaskName "GoogleUpdateTaskMachineCore" -Confirm:$false}
 Stop-Service gupdate -Force
 Set-Service gupdate -StartupType Disabled
 Stop-Service gupdatem -Force
