@@ -4,4 +4,4 @@
 $INSTALL_DIR = Join-Path $PSScriptRoot 'installer'
 
 # Fix Updated Browser Warnings
-Start-Process -filepath $env:windir\regedit.exe -Argumentlist "/s, $INSTALL_DIR\adobe.reg"
+Start-Process -filepath $env:windir\regedit.exe -Argumentlist "/s $INSTALL_DIR\adobe.reg"
