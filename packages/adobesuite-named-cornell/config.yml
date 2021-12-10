@@ -1,0 +1,50 @@
+Id:             'adobesuite-named-cornell'
+Description:    'Adobe Suite 2022'
+Version:        '26.0.1'
+
+Install:
+    File:       '%INSTALL_DIR%\Build\setup.exe'
+    FileType:   'exe'
+    Arguments:  '--silent'
+    ExitCodes:  [0]
+
+Applications:
+    illustrator: 
+        DisplayName:    'Adobe Illustrator 2022'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Illustrator 2022\Support Files\Contents\Windows\illustrator.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    aftereffects: 
+        DisplayName:    'Adobe After Effects 2022'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects 2022\Support Files\AfterFX.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    indesign: 
+        DisplayName:    'Adobe InDesign 2022'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign 2022\InDesign.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    photoshop: 
+        DisplayName:    'Adobe Photoshop 2022'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop 2022\Photoshop.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    premierepro: 
+        DisplayName:    'Adobe Premiere Pro 2022'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro 2022\Adobe Premiere Pro.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+              
+Files:
+    '%TOOLS_DIR%\Adobe': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe'  ## Source directory to destination directory
+    
+Registry:
+    HKUD:
+        Software\Microsoft\Windows\CurrentVersion\Internet Settings:
+            DisableCachingOfSSLPages:
+                Type:   'DWORD'
+                Value:  '0'
