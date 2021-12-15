@@ -40,9 +40,9 @@ Applications:
         WorkDir:        ''
               
 Files:
-    '%TOOLS_DIR%\Adobe Illustrator Prefs': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Illustrator 26 Settings\en_US\x64\Adobe Illustrator Prefs'     
-    '%TOOLS_DIR%\PR\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\15.0\SCRPriorState.json'
-    '%TOOLS_DIR%\AF\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\18.2\SCRPriorState.json'
+    '%TOOLS_DIR%\AI\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Illustrator\26.0.1\SCRPriorState.json'     
+    '%TOOLS_DIR%\AEF\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\22.0\SCRPriorState.json'
+    '%TOOLS_DIR%\PP\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\22.0\SCRPriorState.json'
     
 Registry:
     HKUD:
