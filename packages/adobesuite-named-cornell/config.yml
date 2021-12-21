@@ -46,7 +46,7 @@ Files:
     '%TOOLS_DIR%\PP\blocklist.en_US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\22.0\SystemCompatibilityReport\22.0\win\blocklist.en_US.json'
     '%TOOLS_DIR%\AEF\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\22.1\SCRPriorState.json'
     '%TOOLS_DIR%\Adobe After Effects 22.1 Prefs.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\22.1\Adobe After Effects 22.1 Prefs.txt'
-
+    '%TOOLS_DIR%\Adobe Photoshop 2022 Prefs.psp': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Photoshop 2022\Adobe Photoshop 2022 Settings\Adobe Photoshop 2022 Prefs.psp'
     
 Registry:
     HKUD:
