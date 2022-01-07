@@ -1,6 +1,6 @@
 Id:             'rhino7-landcals'
 Description:    'rhino7-landcals - buildtest3'
-Version:        '7.11.21285.13001'
+Version:        '7.13.21348.13001'
 
 Install:
   - File:       '%INSTALL_DIR%\Bootstrapper.exe'
@@ -8,7 +8,7 @@ Install:
     Arguments:  '-package -quiet LICENSE_METHOD=ZOO ZOO_SERVER=%ZOO_SERVER% ENABLE_AUTOMATIC_UPDATES=0 SEND_STATISTICS=0'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\vray_51004_rhino_win_x64.exe'
+  - File:       '%INSTALL_DIR%\vray_52003_rhino_win_x64.exe'
     FileType:   'exe'
     Arguments:  '-gui=0 -configFile=%INSTALL_DIR%\config.xml -quiet=1'
     ExitCodes:  [0]
@@ -26,13 +26,13 @@ Services:
 Registry:               ## Registry values to be copied to each streaming instance
   
     HKUD:               ## Use for typical Current User settings to apply to all users in AppStream
-        SOFTWARE\McNeel\Rhinoceros\5.0\Global Options\Privacy:
+        SOFTWARE\McNeel\Rhinoceros\7.0\Global Options\Privacy:
             RhinoSplash.UsageStatsEnabledDialog Shown:
                 Type:   'String'
                 Value:  'no'
 
     HKLM:
-        SOFTWARE\McNeel\Rhinoceros\6.0\Install:
+        SOFTWARE\McNeel\Rhinoceros\7.0\Install:
             enable_automatic_updates:
                 Type:   'String'
                 Value:  '0'
