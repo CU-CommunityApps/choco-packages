@@ -1,6 +1,6 @@
 Id:             'programmark-cals'                ## Application package name ie. chrome-cornell
 Description:    'Program Mark'    ## Application packages description
-Version:        '6.2'                     ## Application version number - MUST BE in #.# format
+Version:        '9.0'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
