@@ -4,3 +4,9 @@
 - setup.exe --silent
 - Adobe named login required
 - Server 19 ONLY
+
+'Adobe Illustrator 2022'
+'Adobe After Effects 2022'
+'Adobe InDesign 2022'
+'Adobe Photoshop 2022'
+'Adobe Premiere Pro 2022'
