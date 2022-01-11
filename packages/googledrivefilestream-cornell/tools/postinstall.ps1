@@ -9,8 +9,7 @@ Stop-Service gupdatem -Force
 Set-Service gupdatem -StartupType Disabled
 
 # Rename .bat to .cmd
-
-Rename-Item -Path "c:\program files\google\drive file stream\launch.bat" -NewName "launch.cmd" 
+# Rename-Item -Path "c:\program files\google\drive file stream\launch.bat" -NewName "launch.cmd" 
 
 Start-Sleep -s 10
 
