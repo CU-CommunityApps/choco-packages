@@ -1,0 +1,183 @@
+{
+	"blocklist_version": 1,
+	"default_info": {
+		"OS": {
+			"info_message": "This version of your operating system is incompatible with your Adobe application.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/system-requirements/earlier-versions.html"
+		},
+		"Video": {
+			"info_message": "The current version of your video device software may cause issues with your Adobe application.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/system-requirements/earlier-versions.html"
+		},
+		"Audio": {
+			"info_message": "The current version of your audio device software may cause issues with your Adobe application.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/system-requirements/earlier-versions.html"
+		},
+		"Network": {
+			"info_message": "The current version of your network device software may cause issues with your Adobe application.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/system-requirements/earlier-versions.html"
+		}
+	},
+	"blocklist": [{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"max_version": "0.0.4.2530",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2532",
+			"max_version": "0.0.4.2603",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2605",
+			"max_version": "0.0.4.2625",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2627",
+			"max_version": "0.0.4.2651",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2653",
+			"max_version": "0.0.4.2671",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2673",
+			"max_version": "0.0.4.2693",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2695",
+			"max_version": "0.0.4.2710",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2712",
+			"max_version": "0.0.4.2732",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2734",
+			"max_version": "0.0.4.2747",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2749",
+			"max_version": "0.0.4.2759",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.2761",
+			"max_version": "0.0.4.3085",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.4100",
+			"max_version": "0.0.4.5176",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bNVIDIA\\b.*$",
+			"version_mask": "0.0.+",
+			"version_mod": "0.0.10.+",
+			"version": "0.0.4.6109",
+			"max_version": "0.0.4.6132",
+			"error_level": "WARN",
+			"info_message": "NVIDIA has identified a bug in your driver which might cause random crashes in your Adobe application. Please follow the instructions listed in the linked article.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-nvidia.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bIntel\\b.*\\b(HD|Iris|UHD)\\b.*\\D([5-9]\\d\\d|[4-9]\\d\\d\\d)\\b.*$",
+			"version_mask": "0.0.+",
+			"max_version": "0.0.100.6285",
+			"error_level": "WARN",
+			"info_message": "The current version of your Intel display driver may cause performance and stability issues.  It is strongly recommended that you update to driver version 100.8476 or later.  Drivers are provided by Intel or your computer's manufacturer.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-intel.html"
+		},
+		{
+			"type": "Video",
+			"name": "^.*\\bIntel\\b.*\\b(HD|Iris|UHD)\\b.*\\D([5-9]\\d\\d|[4-9]\\d\\d\\d)\\b.*$",
+			"version_mask": "0.0.+",
+			"version": "0.0.100.8191",
+			"max_version": "0.0.100.8475",
+			"error_level": "WARN",
+			"info_message": "The current version of your Intel display driver may cause performance and stability issues.  It is strongly recommended that you update to driver version 100.8476 or later.  Drivers are provided by Intel or your computer's manufacturer.",
+			"info_url": "https://helpx.adobe.com/premiere-pro/kb/drivers-video-win-intel.html"
+		}
+	]
+}

@@ -415,6 +415,7 @@
 		/divideHorizontallyPixelCount 0
 		/divideVerticallyCount 1
 		/divideVerticallyPixelCount 0
+		/lockSlices 0
 	}
 	/Adobe\ Freehand\ Tool {
 		/select 1
@@ -889,13 +890,21 @@
 		/AI9ClrMgmtNoProfInFile 0
 		/applyAllLinkOption 0
 	}
+	/AssetManagement {
+		/bridgeTalkPumpCycleInTicks 30
+	}
+	/PreferenceUI {
+		/PrefDialogDimensionVersion (26.0.1)
+		/dialogWidth 582.0
+		/dialogHeight 595.0
+	}
 	/Vector\ Sculpting {
 		/Mesh\ Visibility 1
 	}
 }
 /memory {
 	/usePhysicalRAMSize 0
-	/physicalRAMSize 2047
+	/physicalRAMSize 16083
 	/memoryPercentage 0
 }
 /EnableInternalMemoryPool 0
@@ -1157,7 +1166,7 @@
 /EnableActualViewPreview 1
 /resetPreferencesSet 0
 /aiSwapAltControlWithScrollWheel 0
-/aiShowSystemCompatibilityIssuesAtStartup 1
+/aiShowSystemCompatibilityIssuesAtStartup 0
 /aiRotateWithTrackpad 1
 /layers {
 	/pastePreserve 0
@@ -1182,15 +1191,12 @@
 /unselectedAnchorMarkType 1
 /DesignLibraryFTUEShown 0
 /RecentFileNumber 20
+/AIShouldSuspendIdleInBackgroud 1
 /AI\ New\ Art\ Basic\ Appearance 1
 /CurvatureTool {
 	/rubberBandEnable 1
 }
 /hideAnchorPointsInTools 1
-/attributePalette {
-	/currentUrlCount 0
-}
-/AIUserCancelledLogOff 0
 /warning {
 	/fontProblem 1
 	/liveTrace 1
@@ -1210,11 +1216,11 @@
 /CrashRecovery {
 	/AutomaticallySave 1
 	/IdleLoopTimeInterval 2
-	/RecoveryFolderLocation [ 97
-		433a5c55736572735c41646d696e6973747261746f725c417070446174615c52
-		6f616d696e675c41646f62655c41646f626520496c6c7573747261746f722032
-		362053657474696e67735c656e5f55535c7836345c446174615265636f766572
-		79
+	/RecoveryFolderLocation [ 101
+		433a5c55736572735c496d6167654275696c64657241646d696e5c4170704461
+		74615c526f616d696e675c41646f62655c41646f626520496c6c757374726174
+		6f722032362053657474696e67735c656e5f55535c7836345c44617461526563
+		6f76657279
 	]
 	/TurnOffForComplexDocument 1
 }
@@ -1252,7 +1258,7 @@
 	/unit 6
 	/fileSize 169503
 	/fileModifiedDate -578660332L
-	/lastUsedTime -572970289L
+	/lastUsedTime -570212425L
 	/documentType 2
 	/leftBleedSize 0.0
 	/rightBleedSize 0.0
@@ -1279,7 +1285,7 @@
 	/unit_1 2
 	/fileSize_1 305710
 	/fileModifiedDate_1 -578660332L
-	/lastUsedTime_1 -572970289L
+	/lastUsedTime_1 -570212425L
 	/documentType_1 1
 	/leftBleedSize_1 0.0
 	/rightBleedSize_1 0.0
@@ -1306,7 +1312,7 @@
 	/unit_2 2
 	/fileSize_2 305710
 	/fileModifiedDate_2 -578660332L
-	/lastUsedTime_2 -572970289L
+	/lastUsedTime_2 -570212425L
 	/documentType_2 1
 	/leftBleedSize_2 0.0
 	/rightBleedSize_2 0.0
@@ -1334,30 +1340,39 @@
 	/width_2 612.0
 	/height_2 792.0
 }
-/startupFileType [ 113
-	433a5c55736572735c41646d696e6973747261746f725c417070446174615c52
-	6f616d696e675c41646f62655c41646f626520496c6c7573747261746f722032
-	362053657474696e67735c656e5f55535c7836345c4e657720446f63756d656e
-	742050726f66696c65735c5765622e6169
+/startupFileType [ 117
+	433a5c55736572735c496d6167654275696c64657241646d696e5c4170704461
+	74615c526f616d696e675c41646f62655c41646f626520496c6c757374726174
+	6f722032362053657474696e67735c656e5f55535c7836345c4e657720446f63
+	756d656e742050726f66696c65735c5765622e6169
 ]
+/attributePalette {
+	/currentUrlCount 0
+}
+/AIUserCancelledLogOff 0
+/Performance {
+	/GPUSupported 1
+	/EnableGPU_Ver19_2 1
+	/AnimZoom 1
+}
+/adaptiveShareButtonClicked 0
+/GPPreferences {
+	/resetPreferencesSet 0
+}
 /Ai253_FastExit 1
-/AIShouldSuspendIdleInBackgroud 1
 /colorModel_1 2
-/startupFileType_1 [ 115
-	433a5c55736572735c41646d696e6973747261746f725c417070446174615c52
-	6f616d696e675c41646f62655c41646f626520496c6c7573747261746f722032
-	362053657474696e67735c656e5f55535c7836345c4e657720446f63756d656e
-	742050726f66696c65735c5072696e742e6169
+/startupFileType_1 [ 119
+	433a5c55736572735c496d6167654275696c64657241646d696e5c4170704461
+	74615c526f616d696e675c41646f62655c41646f626520496c6c757374726174
+	6f722032362053657474696e67735c656e5f55535c7836345c4e657720446f63
+	756d656e742050726f66696c65735c5072696e742e6169
 ]
 /colorModel_2 2
-/startupFileType_2 [ 115
-	433a5c55736572735c41646d696e6973747261746f725c417070446174615c52
-	6f616d696e675c41646f62655c41646f626520496c6c7573747261746f722032
-	362053657474696e67735c656e5f55535c7836345c4e657720446f63756d656e
-	742050726f66696c65735c5072696e742e6169
+/startupFileType_2 [ 119
+	433a5c55736572735c496d6167654275696c64657241646d696e5c4170704461
+	74615c526f616d696e675c41646f62655c41646f626520496c6c757374726174
+	6f722032362053657474696e67735c656e5f55535c7836345c4e657720446f63
+	756d656e742050726f66696c65735c5072696e742e6169
 ]
-/Performance {
-	/EnableGPU_Ver19_2 0
-}
 /widthToolIsSelected 0
 /changed 0
