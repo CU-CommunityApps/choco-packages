@@ -10,7 +10,7 @@ Install:
 
   - File:       '%INSTALL_DIR%\vray_52003_rhino_win_x64.exe'
     FileType:   'exe'
-    Arguments:  '-gui=0 -configFile=%INSTALL_DIR%\config.xml -quiet=1'
+    Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml" -quiet=1'
     ExitCodes:  [0]
     
 Applications:
