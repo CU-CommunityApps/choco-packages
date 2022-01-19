@@ -23,10 +23,10 @@ Applications:
 
 Files:
     '%TOOLS_DIR%\Profile.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Revit\Profile\Profile.xml'                                                                 ## File copy feature
-    '%TOOLS_DIR%\ExportViewSelectorAddin.sig': '%PROGRAMDATA%\Autodesk\Revit\Addins\2022\ExportViewSelectorAddin\ExportViewSelectorAddin.sig'
-    '%TOOLS_DIR%\ExportViewSelectorAddin.dll': '%PROGRAMDATA%\Autodesk\Revit\Addins\2022\ExportViewSelectorAddin\ExportViewSelectorAddin.dll'
-    '%TOOLS_DIR%\SkyscraperClientHost.dll': '%PROGRAMFILES%\Autodesk\Cloud Models for Revit 2022\SkyscraperClientHost.dll'
-    '%TOOLS_DIR%\SkyscraperClientHost.sig': '%PROGRAMFILES%\Autodesk\Cloud Models for Revit 2022\SkyscraperClientHost.sig'
+    '%INSTALL_DIR%\ExportViewSelectorAddin.sig': '%PROGRAMDATA%\Autodesk\Revit\Addins\2022\ExportViewSelectorAddin\ExportViewSelectorAddin.sig'
+    '%INSTALL_DIR%\ExportViewSelectorAddin.dll': '%PROGRAMDATA%\Autodesk\Revit\Addins\2022\ExportViewSelectorAddin\ExportViewSelectorAddin.dll'
+    '%INSTALL_DIR%\SkyscraperClientHost.dll': '%PROGRAMFILES%\Autodesk\Cloud Models for Revit 2022\SkyscraperClientHost.dll'
+    '%INSTALL_DIR%\SkyscraperClientHost.sig': '%PROGRAMFILES%\Autodesk\Cloud Models for Revit 2022\SkyscraperClientHost.sig'
     
 Environment:
     ADSKFLEX_LICENSE_FILE: '%REVIT_LICENSE_FILE%'
