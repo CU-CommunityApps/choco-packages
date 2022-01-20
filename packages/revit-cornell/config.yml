@@ -8,7 +8,6 @@ Install:
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.21.0.25"'
     ExitCodes:  [0,3010]
 
-
   - File:       '%INSTALL_DIR%\Enscape-3.2.0+65063.msi'
     FileType:   'msi'
     Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino,Revit'
@@ -28,10 +27,6 @@ Applications:
 
 Files:
     '%TOOLS_DIR%\Profile.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Revit\Profile\Profile.xml'                                                                 ## File copy feature
-    '%INSTALL_DIR%\ExportViewSelectorAddin.sig': '%PROGRAMDATA%\Autodesk\Revit\Addins\2022\ExportViewSelectorAddin\ExportViewSelectorAddin.sig'
-    '%INSTALL_DIR%\ExportViewSelectorAddin.dll': '%PROGRAMDATA%\Autodesk\Revit\Addins\2022\ExportViewSelectorAddin\ExportViewSelectorAddin.dll'
-    '%INSTALL_DIR%\SkyscraperClientHost.dll': '%PROGRAMFILES%\Autodesk\Cloud Models for Revit 2022\SkyscraperClientHost.dll'
-    '%INSTALL_DIR%\SkyscraperClientHost.sig': '%PROGRAMFILES%\Autodesk\Cloud Models for Revit 2022\SkyscraperClientHost.sig'
     
 Environment:
     ADSKFLEX_LICENSE_FILE: '%REVIT_LICENSE_FILE%'
