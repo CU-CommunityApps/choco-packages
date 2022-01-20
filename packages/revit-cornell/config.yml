@@ -14,6 +14,11 @@ Install:
     Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino,Revit'
     ExitCodes:  [0]
     
+  - File:       '%INSTALL_DIR%\RCAO.msi'
+    FileType:   'msi'
+    Arguments:  '/quiet'
+    ExitCodes:  [0]   
+    
 Applications:
     revit:
         DisplayName:    'Revit 2022'
