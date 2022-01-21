@@ -7,11 +7,6 @@ Install:
     FileType:   'exe'
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.21.0.25"'
     ExitCodes:  [0,3010]
-
-  - File:       '%INSTALL_DIR%\Enscape-3.2.0+65063.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino,Revit'
-    ExitCodes:  [0]
     
   - File:       '%INSTALL_DIR%\RCAO.msi'
     FileType:   'msi'
@@ -47,12 +42,7 @@ Registry:
                 Type:   'DWORD'
                 Value:  '0'
                 
-    HKLM:
-        Software\Enscape:
-            LicenseKey:
-                Type:   'String'
-                Value:  '%LicenseKey%'
-               
+    HKLM:             
         Software\Autodesk\MC3:
             HKLMADAOptin:
                 Type:   'DWORD'
