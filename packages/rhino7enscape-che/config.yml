@@ -10,7 +10,7 @@ Install:
 
   - File:       '%INSTALL_DIR%\Enscape-3.2.0+65063.msi'
     FileType:   'msi'
-    Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino,Revit'
+    Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino'
     ExitCodes:  [0]
     
   - File:       '%INSTALL_DIR%\vray_52003_rhino_win_x64.exe'
