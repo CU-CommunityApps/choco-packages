@@ -8,14 +8,14 @@ Install:
     Arguments:  '-package -quiet -norestart LICENSE_METHOD=ZOO ZOO_SERVER=%ZOO_SERVER% ENABLE_AUTOMATIC_UPDATES=0 SEND_STATISTICS=0'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\Enscape-3.2.0+65063.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino,Revit'
-    ExitCodes:  [0]
-    
   - File:       '%INSTALL_DIR%\vray_52003_rhino_win_x64.exe'
     FileType:   'exe'
     Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml" -quiet=1'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\Enscape-3.2.0+65063.msi'
+    FileType:   'msi'
+    Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino'
     ExitCodes:  [0]
     
 Applications:
