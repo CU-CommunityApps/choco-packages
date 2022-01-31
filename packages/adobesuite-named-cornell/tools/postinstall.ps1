@@ -9,3 +9,6 @@ Start-Process -filepath $env:windir\regedit.exe -Argumentlist "/s $INSTALL_DIR\a
 # Stop and disable updater services
 Stop-Service AdobeUpdateService -Force
 Set-Service AdobeUpdateService -StartupType Disabled
+
+#Remove Adobe Notifications
+PS Get-AppxPackage -Name AdobeNotificationClient | Remove-AppxPackage 
