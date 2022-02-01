@@ -11,4 +11,4 @@ Stop-Service AdobeUpdateService -Force
 Set-Service AdobeUpdateService -StartupType Disabled
 
 #Remove Adobe Notifications
-Get-AppxPackage -Name AdobeNotificationClient | Remove-AppxPackage 
+Get-AppxPackage -AllUsers *AdobeNotificationClient* | Remove-AppxPackage -AllUsers
