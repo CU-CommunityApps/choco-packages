@@ -6,7 +6,7 @@ Invoke-WebRequest https://ubuntu.qgis.org/version.txt -UseBasicParsing
 # 2008 = 9
 # 2010 = 10
 # 2012 = 11
-$vers = @("8", "9", "10")
+$vers = @("8", "9")
 
 ForEach ($ver in $vers) {
 
