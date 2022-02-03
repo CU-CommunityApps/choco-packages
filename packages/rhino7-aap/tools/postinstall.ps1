@@ -1,6 +1,6 @@
 # Runs after the choco package is installed
 
-$vers = @("8", "9", "10")
+$vers = @("8", "9")
 
 ForEach ($ver in $vers) {
 
