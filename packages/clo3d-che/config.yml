@@ -1,6 +1,6 @@
 Id:             'clo3d-che'
 Description:    'CLO3d - buildtest3'
-Version:        '6.1.346.35697'
+Version:        '6.2.330.38382'
 
 Applications:
     clo3d:
@@ -19,6 +19,7 @@ Registry:
             don't show again:
                 Type:   'string'
                 Value:  'true'
+
         SOFTWARE\CLO Network OnlineAuth\Graphic Option:
             registryVersion:
                 Type:   'DWORD'
@@ -41,6 +42,7 @@ Registry:
             turnOffOption:
                 Type:   'string'
                 Value:  'true'
+
         SOFTWARE\CLO Network OnlineAuth\preference\Etc:
             Unit:
                 Type:   'string'
@@ -48,10 +50,12 @@ Registry:
             NotchDisplayType:
                 Type:   'string'
                 Value:  'true'
+
         SOFTWARE\CLO Network OnlineAuth\preference:
             PrevGuideImageDisplayVersion:
                 Type:   'string'
-                Value:  '6.1.250'
+                Value:  '6.1.346'
+
         SOFTWARE\CLO Network OnlineAuth\Login Info: # cached creds for app authentication
             saveIDCheck:
                 Type:   'string'
