@@ -1,9 +1,9 @@
 Id:             'vstitcher-che'                ## Application package name ie. chrome-cornell
 Description:    'vstitcher-che'    ## Application packages description
-Version:        '2021.2.0.51910'                     ## Application version number - MUST BE in #.# format
+Version:        '2021.2.52076'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\VStitcher_2021_2_51910.exe'   ## Installation file
+  - File:       '%INSTALL_DIR%\VStitcher_2021_2_52076.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '/S'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success
