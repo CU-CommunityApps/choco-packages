@@ -1,9 +1,9 @@
 Id:             'vstitcher-che'                ## Application package name ie. chrome-cornell
 Description:    'vstitcher-che'    ## Application packages description
-Version:        '2021.3.52244'                     ## Application version number - MUST BE in #.# format
+Version:        '2021.2.52076'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\VStitcher_2021_3_5224.exe'   ## Installation file
+  - File:       '%INSTALL_DIR%\VStitcher_2021_2_52076.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '/S'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success
@@ -11,6 +11,6 @@ Install:                                    ## If there are installation files i
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     vstitcher:                                                      ## This must match the icons.png file name
         DisplayName:    'VStitcher'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\Browzwear\VStitcher\2021.3\VStitcher.exe'          ## The path to the app
+        Path:           '%PROGRAMFILES%\Browzwear\VStitcher\2021.2\VStitcher.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
