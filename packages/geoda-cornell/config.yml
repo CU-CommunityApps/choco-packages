@@ -12,3 +12,6 @@ Applications:
         Path:           '%PROGRAMFILES%\GeoDa Software\GeoDa.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files: 
+    '%TOOLS_DIR%\lang': '%PROGRAMFILES%\Geoda Software\lang'
