@@ -1,5 +1,5 @@
 # Runs after the choco package is installed
-Invoke-WebRequest https://ubuntu.qgis.org/version.txt -UseBasicParsing
+#Invoke-WebRequest https://ubuntu.qgis.org/version.txt -UseBasicParsing
 
 # List of applications to remove
 # 2005 = 8
