@@ -13,5 +13,5 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-#Files: 
-   # '%INSTALL_DIR%\QGIS': '%SYSTEMDRIVE%\Users\DeFault\AppData\Roaming\QGIS'
+Files: 
+    '%INSTALL_DIR%\QGIS': '%SYSTEMDRIVE%\Users\DeFault\AppData\Roaming\QGIS'
