@@ -4,6 +4,8 @@ Set-Service gupdate -StartupType Disabled
 Stop-Service gupdatem -Force
 Set-Service gupdatem -StartupType Disabled
 
+Rename-Item -Path "c:\program files (x86)\google\update\GoogleUpdate.exe" -NewName "GoogleUpdateno.no"
+
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
 # List of applications to remove
