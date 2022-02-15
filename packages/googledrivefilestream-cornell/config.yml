@@ -14,3 +14,6 @@ Applications:                                                       ## Applicati
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'          ## The path to the app
         LaunchParams:   '-File %WINDIR%\system32\gdlaunch.ps1'                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
+
+Files:    
+  '%TOOLS_DIR%\gdlaunch.ps1': '%SYSTEMDRIVE%\windows\system32\gdlaunch.ps1'
