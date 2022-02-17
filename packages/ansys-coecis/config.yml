@@ -19,3 +19,10 @@ Files:
     '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v212\ApipUserConfig.txt'
     '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v212\commonfiles\CAD\CADConfigurationInfo.XML'
     '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
+
+Registry:               
+    HKUD:               
+        SOFTWARE\SpaceClaim\SIP:
+            Displayed:
+                Type:   'String'
+                Value:  '1'
