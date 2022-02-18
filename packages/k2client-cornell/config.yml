@@ -1,17 +1,9 @@
 Id:             'k2client-cornell'
 Description:    'k2client-cornell'
-Version:        '7.5.0.6'
+Version:        '7.8.0.5'
 
 Install:
-    File:       '%INSTALL_DIR%\K2Client-x64.exe'
+    File:       '%INSTALL_DIR%\ksp-client-x64'
     FileType:   'exe'
-    Arguments:  '-gpo -q -v PROP_HOSTNAME=licensing.citlabs.cornell.edu -v PROP_MAIDLIST=YU -v PROP_SITE=AppStream'
+    Arguments:  '-gpo -q -v PROP_HOSTNAME=%HOSTNAME% -v PROP_MAIDLIST=YU -v PROP_SITE=^%AppStream_Resource_Name^% -v PROP_USERNAME=^%AppStream_UserName^% -v PROP_SERVICE=0 -v PROP_STARTUPITEM=1'
     ExitCodes:  [0]
-   
-Registry:
-
-    HKLM:   
-        SOFTWARE\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\logon:
-            MACHINE:
-                Type:   'String'
-                Value:  'appstream'
