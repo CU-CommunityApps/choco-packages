@@ -1,0 +1,1 @@
+Start-Process "$env:windir\keyacc32.exe" -ArgumentList "-minimize"
