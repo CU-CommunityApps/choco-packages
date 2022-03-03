@@ -9,7 +9,7 @@ Install:
     ExitCodes:  [0]
 
 Environment:                                            ## Create custom environment variables
-    AppStream_Combo: '%AppStream_UserName%.%AppStream_Resource_Name%'     ## Variable Name: Value
+    AoD_Combo: '%AppStream_UserName%.%AppStream_Resource_Name%'     ## Variable Name: Value
 
 Scripts:                                                ## AppStream session scripts feature
     start:                                              ## Startup / Logon trigger
