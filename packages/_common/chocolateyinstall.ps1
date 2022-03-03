@@ -151,7 +151,7 @@ Function Main($TOOLS_DIR, $INSTALL_DIR, $CONFIG) {
             $envValue = [Environment]::ExpandEnvironmentVariables($CONFIG.Environment.$envVar).Replace('%%', '%')
 
             if (Test-Path Env:$envVar) {
-                $envValue = "$envValue;$([Environment]::GetEnvironmentVariable($envVar))"
+                $envValue = "$envValue;$([System.Environment]::GetEnvironmentVariable($envVar))"
             }
 
             Write-Output "Setting Environment Variable $envVar to $envValue"
