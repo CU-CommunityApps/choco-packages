@@ -4,7 +4,7 @@
 Stop-Process -Name keyacc32 -Force -ErrorAction SilentlyContinue
 
 # Update user field as outlined by Support
-New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\logon' -Name 'user' -Value '%AppStream_Combo%' -PropertyType string -Force
+New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\logon' -Name 'user' -Value '%AoD_Combo%' -PropertyType string -Force
 
 # Remove any system specific values prior to sysprep
 Remove-Item -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\pref' -Recurse -Force -ErrorAction SilentlyContinue
