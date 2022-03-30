@@ -1,9 +1,9 @@
 Id:             'vault-coecis'
-Description:    'Vault 2022 - COECIS'
+Description:    'Vault 2022 - COECIS4'
 Version:        '26.0.63.0'
 
 Install:
-    File:       '%INSTALL_DIR%\Installer.exe'
+  - File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
     Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xml'
     ExitCodes:  [0,1641]
@@ -11,9 +11,13 @@ Install:
 Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
-        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2022\Explorer\Connectivity.VaultPro.exe'
-        LaunchParams:   ''
+        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   '-File %WINDIR%\system32\vaultmessage.ps1'
         WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\vaultmessage.ps1': '%SYSTEMDRIVE%\windows\system32\vaultmessage.ps1'
+
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
