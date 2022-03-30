@@ -1,5 +1,5 @@
 Id:             'vault-coecis'
-Description:    'Vault 2022 - COECIS2'
+Description:    'Vault 2022 - COECIS3'
 Version:        '26.0.63.0'
 
 Install:
@@ -8,11 +8,6 @@ Install:
     Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xml'
     ExitCodes:  [0,1641]
 
-  - File:       '%INSTALL_DIR%\Autodesk_VaultClient_2022.2.2_Update.exe'   ## Installation file
-    FileType:   'exe'                       ## exe or msi are the only options currently
-    Arguments:  '/S'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]                         ## Exit codes - returns a success
-    
 Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
