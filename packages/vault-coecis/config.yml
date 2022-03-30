@@ -16,9 +16,13 @@ Install:
 Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
-        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2022\Explorer\Connectivity.VaultPro.exe'
-        LaunchParams:   ''
+        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   '-File %WINDIR%\system32\vaultmessage.ps1'
         WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\vaultmessage.ps1': '%SYSTEMDRIVE%\windows\system32\vaultmessage.ps1'
+
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
