@@ -12,7 +12,7 @@ Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-File %WINDIR%\system32\vaultmessage.ps1'
+        LaunchParams:   '-Windowstyle Hidden -File %WINDIR%\system32\vaultmessage.ps1'
         WorkDir:        ''
 
 Files:
