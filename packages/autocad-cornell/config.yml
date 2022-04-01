@@ -17,6 +17,11 @@ Applications:
         
 Environment:
     ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
+    
+Files:
+    '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
+    '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
+    '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
 
 Registry:
     HKUD:
