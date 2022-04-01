@@ -10,7 +10,7 @@ Install:
 
   - File:       '%INSTALL_DIR%\vray_adv_51003_max2022_x64.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
-    Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml -quiet=1 -auto'        ## Silent installation switches/parmeters
+    Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml" -quiet=1 -auto'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success
     
 Applications:
