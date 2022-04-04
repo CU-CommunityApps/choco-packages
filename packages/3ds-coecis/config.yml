@@ -8,7 +8,7 @@ Install:
     Arguments:  '-q'
     ExitCodes:  [0,1638,1641] # 1638 = newer version of a prereq already installed (C++)
 
-  - File:       '%INSTALL_DIR%\vray_adv_51003_max2022_x64.exe'   ## Installation file
+  - File:       '%INSTALL_DIR%\vray_adv_52002_max2022_x64.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml" -quiet=1 -auto'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success
