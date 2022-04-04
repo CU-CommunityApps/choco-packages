@@ -5,22 +5,23 @@ Version:        '26.0.63.0'
 Install:
   - File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode --ui_mode basic -o "%INSTALL_DIR%\Collection.xml'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\Collection.xml'
     ExitCodes:  [0,1641]
 
 Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
-        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-Windowstyle Hidden -File %WINDIR%\system32\vaultmessage.ps1'
+        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2022\Explorer\Connectivity.VaultPro.exe'
+        LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\vaultmessage.ps1': '%SYSTEMDRIVE%\windows\system32\vaultmessage.ps1'
-
+    '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
+    '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
+    '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
 
 Environment:
-    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
+    ADSKFLEX_LICENSE_FILE: '%VAULT_LICENSE_FILE%'
 
 Registry:
 
