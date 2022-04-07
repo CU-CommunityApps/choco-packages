@@ -18,12 +18,25 @@ Install:
     Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino'
     ExitCodes:  [0]
     
+  - File:       '%INSTALL_DIR%\karamba3d22012rh7.msi'
+    FileType:   'msi'
+    Arguments:  '/passive'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\fireflyinstaller1007064bit.msi'
+    FileType:   'msi'
+    Arguments:  '/passive'
+    ExitCodes:  [0]
+
 Applications:
     rhino7:
         DisplayName:    'Rhino'
         Path:           '%PROGRAMFILES%\Rhino 7\System\Rhino.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files:                                                                  ## File copy feature
+    '%INSTALL_DIR%\Grasshopper': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Grasshopper'  ## Source directory to destination directory 
 
 Services: 
     McNeelUpdate: 'Disabled'
