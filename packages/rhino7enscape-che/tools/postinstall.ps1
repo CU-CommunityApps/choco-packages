@@ -1,5 +1,3 @@
-
-   
 # Runs after the choco package is installed
 
 $vers = @("8", "9")
@@ -22,3 +20,5 @@ ForEach ($ver in $vers) {
     }
 
 }
+
+Copy-Item "%INSTALL_DIR\Grashopper" -Destination "%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Grasshopper" -Recurse
