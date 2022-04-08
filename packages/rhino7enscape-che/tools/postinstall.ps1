@@ -1,5 +1,3 @@
-
-   
 # Runs after the choco package is installed
 
 $vers = @("8", "9")
