@@ -21,4 +21,4 @@ ForEach ($ver in $vers) {
 
 }
 
-Copy-Item "%INSTALL_DIR\Grashopper" -Destination "%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Grasshopper" -Recurse
+Copy-Item "%INSTALL_DIR\Grasshopper" -Destination "%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Grasshopper" -Recurse
