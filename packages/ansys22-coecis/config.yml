@@ -1,0 +1,28 @@
+Id:             'ansys22-coecis'
+Description:    'ANSYS 2022 R1'
+Version:        '22.1.0.2021111419'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe' 
+    Arguments:  '-silent'
+    ExitCodes:  [0]
+
+Applications:
+    ANSYSWB:
+        DisplayName:    'Workbench 2022 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v221\Framework\bin\Win64\RunWB2.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files: 
+    '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v221\ApipUserConfig.txt'
+    '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v221\commonfiles\CAD\CADConfigurationInfo.XML'
+    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
+
+Registry:               
+    HKUD:               
+        SOFTWARE\SpaceClaim\SIP:
+            Displayed:
+                Type:   'String'
+                Value:  '1'
