@@ -1,6 +1,6 @@
 Id:             'matlab-coecis'
 Description:    'Matlab R2022a - COECIS a4'
-Version:        '2022.9.12.0.1855793'
+Version:        '2022.9.12.0'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
