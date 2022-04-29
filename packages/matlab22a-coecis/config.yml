@@ -1,0 +1,30 @@
+Id:             'matlab22a-coecis'
+Description:    'Matlab R2022a - COECIS a4'
+Version:        '9.12.0.1855793'
+
+Install:
+    File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-inputFile %INSTALL_DIR%\my_installer_input.txt'
+    ExitCodes:  [0]
+
+ChocoPackages: 
+    - 'mingw'
+
+Applications:
+    MATLAB:
+        DisplayName:    'MATLAB R2022a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2022a\bin\matlab.exe'
+        LaunchParams:   '-useStartupFolderPref "C:\Users\PhotonUser\My Files"'
+        WorkDir:        ''
+
+Files: 
+    '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
+    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2022A\toolbox_cache-9.8.0-69619083-win64.xml'
+    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2022A\graphicsState.bin'
+
+Environment:
+    MATLABPATH: '%PUBLIC%\MATLAB'
+    MW_MINGW64_LOC: '%SYSTEMDRIVE%\tools\mingw64'
+
+
