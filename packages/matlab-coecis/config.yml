@@ -1,6 +1,6 @@
-Id:             'matlab-coecis'
-Description:    'Matlab R2021a - COECIS License'
-Version:        '9.10.0.1684407'
+Id:             'matlab22a-coecis'
+Description:    'Matlab R2022a - COECIS a4'
+Version:        '2022.9.12.0.1855793'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -13,15 +13,15 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2021a'
-        Path:           '%PROGRAMFILES%\MATLAB\R2021a\bin\matlab.exe'
+        DisplayName:    'MATLAB R2022a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2022a\bin\matlab.exe'
         LaunchParams:   '-useStartupFolderPref "C:\Users\PhotonUser\My Files"'
         WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
-    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2021A\toolbox_cache-9.8.0-69619083-win64.xml'
-    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2021A\graphicsState.bin'
+    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2022A\toolbox_cache-9.8.0-69619083-win64.xml'
+    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2022A\graphicsState.bin'
 
 Environment:
     MATLABPATH: '%PUBLIC%\MATLAB'
