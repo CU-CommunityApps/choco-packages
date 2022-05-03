@@ -1,5 +1,5 @@
 Id:             'matlab-coecis'
-Description:    'Matlab R2022a - COECIS a4 - buildtest'
+Description:    'Matlab R2022a - COECIS a5'
 Version:        '2022.9.12.0'
 
 Install:
@@ -22,6 +22,9 @@ Files:
     '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
     '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2022A\toolbox_cache-9.8.0-69619083-win64.xml'
     '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2022A\graphicsState.bin'
+
+ScheduledTasks:             ## Create any custom scheduled tasks
+    - 'startup-accelerator'     ## Name of exported scheduled task in .xml format in the /tools directory with UTF-8 encoding
 
 Environment:
     MATLABPATH: '%PUBLIC%\MATLAB'
