@@ -14,3 +14,6 @@ Applications:                                                       ## Applicati
         Path:           '%PROGRAMFILES%\TechSmith\Camtasia 2021\CamtasiaStudio.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
+ 
+ Files: 
+    '%INSTALL_DIR%\RegInfo': '%ALLUSERSPROFILE%\TechSmith\Camtasia Studio 21\'
