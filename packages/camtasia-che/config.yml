@@ -16,4 +16,4 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
  
  Files: 
-    '%INSTALL_DIR%\RegInfo': '%ALLUSERSPROFILE%\TechSmith\Camtasia Studio 21\'
+    '%INSTALL_DIR%\RegInfo.ini': '%ALLUSERSPROFILE%\TechSmith\Camtasia Studio 21\RegInfo.ini'
