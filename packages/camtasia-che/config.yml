@@ -15,5 +15,5 @@ Applications:                                                       ## Applicati
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
  
- Files: 
+Files: 
     '%INSTALL_DIR%\RegInfo.ini': '%ALLUSERSPROFILE%\TechSmith\Camtasia Studio 21\RegInfo.ini'
