@@ -3,7 +3,7 @@
 # Installation dir location
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
-Start-Process "$INSTALL_DIR\haspdinst.exe" -ArgumentList "-install"
+Start-Process "$INSTALL_DIR\haspdinst.exe" -ArgumentList "-install -nomsg"
 Start-Process msiexec.exe -Wait -ArgumentList '/I $INSTALL_DIR\SSCERuntime_x86-ENU.msi /quiet /norestart'
 Start-Process msiexec.exe -Wait -ArgumentList '/I $INSTALL_DIR\SSCERuntime_x64-ENU.msi /quiet /norestart'
 Start-Process "$INSTALL_DIR\vcredist.x86.exe" -ArgumentList "/quiet /norestart" -Wait
