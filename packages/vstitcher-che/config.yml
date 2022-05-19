@@ -17,4 +17,4 @@ Applications:                                                       ## Applicati
 
 Files: 
     '%INSTALL_DIR%\common.ini': '%SYSTEMDRIVE%\Users\DeFault\AppData\Local\Browzwear\common\common.ini'
-    '%INSTALL_DIR%\Browzwear':  '%PROGRAMFILES%\Browzwear'
+    '%INSTALL_DIR%':  '%PROGRAMFILES%\Browzwear\VStitcher\2021.2'
