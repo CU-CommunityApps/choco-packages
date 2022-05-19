@@ -1,5 +1,5 @@
 Id:             'vstitcher-che'                ## Application package name ie. chrome-cornell
-Description:    'vstitcher-che buidtest'    ## Application packages description
+Description:    'vstitcher-che'    ## Application packages description
 Version:        '2021.2.52076'                     ## Application version number - MUST BE in #.# format
 
 # Install:                                    ## If there are installation files in a .zip to be installed, specify here
