@@ -16,5 +16,4 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\PrivatePreferences.json': '%SYSTEMDRIVE%\Users\Default\AppData\Local\SketchUp\SketchUp 2022\SketchUp\PrivatePreferences.json'
     '%INSTALL_DIR%\activation_info.txt': '%PROGRAMFILES%\SketchUp\SketchUp 2022\activation_info.txt'
