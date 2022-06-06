@@ -126,7 +126,12 @@ Registry:
                 Type:   'DWORD'
                 Value:  '1'
                 
-    HKLM:        
+    HKLM: 
+        Software\Policies\Google\Chrome:
+            BrowserGuestModeEnforced:
+                Type:   'DWORD'
+                Value:  '1'    
+                
         Software\Policies\Microsoft\Internet Explorer\Main:
             DisableFirstRunCustomize:
                 Type:   'DWORD'
