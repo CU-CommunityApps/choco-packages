@@ -3,8 +3,8 @@ Description:    'sketchup-che'    ## Application packages description
 Version:        '22.0.354'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\SketchUpPro 2022.msi'   ## Installation file
-    FileType:   'msi'                       ## exe or msi are the only options currently
+  - File:       '%INSTALL_DIR%\SketchUpPro-2022-0-354-126.exe'   ## Installation file
+    FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '/silent'        ## Silent installation switches/parmeters
     ExitCodes:  [0]     ## Leave blank '' if no parameters to pass
 
