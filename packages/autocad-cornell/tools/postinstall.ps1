@@ -8,10 +8,10 @@ $regKey = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
 
 # AutoDesk product key (product identifier - ie. Revit, AutoCAD, 3dsMax, etc...)
 # 001N1 = AutoCAD 2022
-$productKey = "001N1"
+$productKey = "00101"
 
 # AutoDesk product version
-$productVer = "2022.0.0.F"
+$productVer = "2023.0.0.F"
 
 # AutoDesk Product Info file location
 $configFile = "$env:ALLUSERSPROFILE\autodesk\Adlm\ProductInformation.pit"
