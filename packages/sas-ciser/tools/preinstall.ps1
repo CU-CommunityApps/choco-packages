@@ -2,7 +2,7 @@
 # Copy pre installation files
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
-cp "$PSScriptRoot\sdwresponse.properties" "$env:windir\temp\sdwresponse.properties" -Force
+cp "$PSScriptRoot\sasresponse" "$env:windir\temp\sasresponse" -Force
 cp "$INSTALL_DIR\sid_files\SAS94_9CQ1HY_70084773_Win_X64_Srv.txt" "$env:windir\temp\SAS94_9CQ1HY_70084773_Win_X64_Srv.txt" -Force
 <#
 :: --------------------------------------------------------------------------------
