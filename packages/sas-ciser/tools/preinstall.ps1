@@ -106,7 +106,7 @@ cp "$INSTALL_DIR\sid_files\SAS94_9CQ1HY_70084773_Win_X64_Srv.txt" "$env:windir\t
 ::    batch file, the target depot should be in a location matching the paths in
 ::    this batch file rather than altering the paths in this batch file. If you must
 ::    use a different location, SAS recommends changing the SET variable rather than
-::    the command for each requirement listed below.
+::    the command for each requirement listed below. 
 ::
 set DEPOT_HOME=C:\Users\Administrator\Downloads\SAS94-TS1M7-depot\products
 ::
