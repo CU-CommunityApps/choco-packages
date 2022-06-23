@@ -1,6 +1,6 @@
 Id:             'matlab-ciser'
-Description:    'Matlab R2021a - CISER License - buildtest2'
-Version:        '9.10.0.1684407'
+Description:    'Matlab R2022a - CISER License'
+Version:        '2022.9.12.0'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -13,18 +13,19 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2021a'
-        Path:           '%PROGRAMFILES%\MATLAB\R2021a\bin\matlab.exe'
-        LaunchParams:   ''
+        DisplayName:    'MATLAB R2022a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2022a\bin\matlab.exe'
+        LaunchParams:   '-useStartupFolderPref "C:\Users\PhotonUser\My Files"'
         WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
-    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2021a\toolbox_cache-9.8.0-69619083-win64.xml'
-    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2021a\graphicsState.bin'
+    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2022a\toolbox_cache-9.8.0-69619083-win64.xml'
+    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2022a\graphicsState.bin'
+
+ScheduledTasks:             ## Create any custom scheduled tasks
+    - 'startup-accelerator'     ## Name of exported scheduled task in .xml format in the /tools directory with UTF-8 encoding
 
 Environment:
     MATLABPATH:     '%PUBLIC%\MATLAB'
     MW_MINGW64_LOC: '%SYSTEMDRIVE%\tools\mingw64'
-
-
