@@ -1,6 +1,6 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad 2022 - COECIS LICENSE b5'
-Version:        '1.16.0.6'
+Description:    'AutoCad 2023 - COECIS LICENSE'
+Version:        '1.27.0.4'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -10,8 +10,8 @@ Install:
 
 Applications:
     autocad:
-        DisplayName:    'AutoCAD 2022'
-        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2022\acad.exe'
+        DisplayName:    'AutoCAD 2023'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2023\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
