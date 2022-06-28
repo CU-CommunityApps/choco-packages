@@ -1,6 +1,6 @@
 Id:             '3ds-coecis'
 Description:    '3ds-coecis'
-Version:        '2022.1'
+Version:        '2023.1'
 
 Install:
   - File:       '%INSTALL_DIR%\Setup.exe'
@@ -21,12 +21,12 @@ Install:
 Applications:
     3ds:
         DisplayName:    '3ds Max'
-        Path:           '%PROGRAMFILES%\Autodesk\3ds Max 2022\3dsmax.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\3ds Max 2023\3dsmax.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2022 - 64bit\ENU\3dsMax.ini'
+    '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2023 - 64bit\ENU\3dsMax.ini'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
