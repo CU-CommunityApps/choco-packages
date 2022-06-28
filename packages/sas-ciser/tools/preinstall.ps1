@@ -4,7 +4,7 @@ $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
 cp "$PSScriptRoot\sasresponse" "$env:windir\temp\sasresponse" -Force
 cp "$INSTALL_DIR\sid_files\SAS94_9CQ1HY_70084773_Win_X64_Srv.txt" "$env:windir\temp\SAS94_9CQ1HY_70084773_Win_X64_Srv.txt" -Force
-
+<#
 :: --------------------------------------------------------------------------------
 :: This is a batch system requirements file created from order 9CGCYK at
 :: 2022-06-14-15.36.01. The host was 128.84.193.98 and was running on a
@@ -108,7 +108,9 @@ cp "$INSTALL_DIR\sid_files\SAS94_9CQ1HY_70084773_Win_X64_Srv.txt" "$env:windir\t
 ::    use a different location, SAS recommends changing the SET variable rather than
 ::    the command for each requirement listed below. 
 ::
-set DEPOT_HOME="$INSTALL_DIR\products"
+#>
+$DEPOT_HOME="$INSTALL_DIR\products"
+<#
 ::
 :: --------------------------------------------------------------------------------
 :: Microsoft .NET Framework 4.8 (REQUIRED)
@@ -119,5 +121,8 @@ set DEPOT_HOME="$INSTALL_DIR\products"
 "%DEPOT_HOME%\ace__99160__prt__xx__sp0__1\wx6\native\AccessDatabaseEngine_X64.exe" /quiet /norestart
 :: --------------------------------------------------------------------------------
 :: Microsoft Runtime Components 2019 (REQUIRED)
-"%DEPOT_HOME%\vcredist2019__99110__prt__xx__sp0__1\w32\native\VC_redist.x86.exe" /q /norestart
-"%DEPOT_HOME%\vcredist2019__99110__prt__xx__sp0__1\wx6\native\VC_redist.x64.exe" /q /norestart
+#>
+Start-Process "$DEPOT_HOME\vcredist2019__99110__prt__xx__sp0__1\w32\native\VC_redist.x86.exe" -ArgumentList "/q /norestart"
+Start-Process "$DEPOT_HOME\vcredist2019__99110__prt__xx__sp0__1\wx6\native\VC_redist.x64.exe" -ArgumentList "/q /norestart"
+Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager" -Name "PendingFileRenameOperations" -Force -ErrorAction SilentlyContinue
+Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\FileRenameOperations" -Recurse -Force -ErrorAction SilentlyContinue
