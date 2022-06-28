@@ -9,7 +9,7 @@ $exe = "${env:CommonProgramFiles(x86)}\Autodesk Shared\AdskLicensing\Current\hel
 $regKey = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
 
 # AutoDesk product key (product identifier - ie. Revit, AutoCAD, 3dsMax, etc...)
-# 00101 = AutoCAD 202
+# 00101 = AutoCAD 2023
 # 12801 = 3dsMax 2023
 $productKey = "12801"
 
