@@ -6,7 +6,7 @@ Install:
   - File:       '%INSTALL_DIR%\Setup.exe'
     FileType:   'exe'
     Arguments:  '-q'
-    ExitCodes:  [0,1638,1641] # 1638 = newer version of a prereq already installed (C++)
+    ExitCodes:  [0]
 
  # - File:       '%INSTALL_DIR%\vray_adv_52002_max2022_x64.exe'   ## Installation file
  #   FileType:   'exe'                       ## exe or msi are the only options currently
