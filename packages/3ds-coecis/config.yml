@@ -25,8 +25,8 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: 
-    '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2023 - 64bit\ENU\3dsMax.ini'
+#Files: 
+ #   '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2023 - 64bit\ENU\3dsMax.ini'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
