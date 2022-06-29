@@ -61,4 +61,4 @@ $args = "register --pk $productKey --pv $productVer --cf $configFile --el US --l
 Start-Process $exe -ArgumentList $args -Verbose
 
 # Install security component add on
-Start-Process "msiexec.exe" -ArgumentList "/i $INSTALL_DIR\3dsmax-component-security-tools2022-2.1.0-021.msi /qn"
+#Start-Process "msiexec.exe" -ArgumentList "/i $INSTALL_DIR\3dsmax-component-security-tools2022-2.1.0-021.msi /qn"
