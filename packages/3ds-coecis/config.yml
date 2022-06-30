@@ -3,7 +3,7 @@ Description:    '3ds-coecis'
 Version:        '2023.1'
 
 Install:
-  - File:       '%INSTALL_DIR%\Installer.exe'
+  - File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.31.0.527"'
     ExitCodes:  [0]
