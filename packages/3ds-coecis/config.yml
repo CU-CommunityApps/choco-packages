@@ -31,9 +31,6 @@ Files:
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
     
-Services:
-    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
-
 Registry:
 
     HKUD:
