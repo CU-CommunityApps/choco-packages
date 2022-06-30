@@ -7,3 +7,5 @@ Start-Process "$INSTALL_DIR\VC_redist.x64.exe" -ArgumentList "/quiet /norestart"
 Start-Process "$INSTALL_DIR\VC_redist.x86.exe" -ArgumentList "/quiet /norestart" -Wait
 Start-Process "$INSTALL_DIR\vcredist_x64.exe" -ArgumentList "/quiet /norestart" -Wait
 Start-Process "$INSTALL_DIR\vcredist_x86.exe" -ArgumentList "/quiet /norestart" -Wait
+Start-Process "$INSTALL_DIR\vcredist_x64a.exe" -ArgumentList "/quiet /norestart" -Wait
+Start-Process "$INSTALL_DIR\vcredist_x86a.exe" -ArgumentList "/quiet /norestart" -Wait
