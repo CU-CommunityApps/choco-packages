@@ -3,9 +3,9 @@ Description:    '3ds-coecis'
 Version:        '2023.1'
 
 Install:
-  - File:       '%INSTALL_DIR%\Setup.exe'
+  - File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-q'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.31.0.527"'
     ExitCodes:  [0]
 
  # - File:       '%INSTALL_DIR%\vray_adv_52002_max2022_x64.exe'   ## Installation file
@@ -25,9 +25,9 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-#Files: 
- #   '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2023 - 64bit\ENU\3dsMax.ini'
-
+Files: 
+    '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\myhome.json'
+    
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
     
