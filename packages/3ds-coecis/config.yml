@@ -3,10 +3,10 @@ Description:    '3ds-coecis - a'
 Version:        '2023.1'
 
 Install:
-  - File:       '%INSTALL_DIR%\image\Installer.exe'
+  - File:       '%INSTALL_DIR%\Autodesk_3ds_Max_2023_EFGJKPS_Win_64bit\setup.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.31.0.527"'
-    ExitCodes:  [0]
+    Arguments:  '-q'
+    ExitCodes:  [0,1638,1641]
 
  # - File:       '%INSTALL_DIR%\vray_adv_52002_max2022_x64.exe'   ## Installation file
  #   FileType:   'exe'                       ## exe or msi are the only options currently
@@ -30,7 +30,6 @@ Files:
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\UnNamed.json'
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en-US.json'
-    '%TOOLS_DIR%\ProductInformation.pit': '%SYSTEMDRIVE%\programdata\Autodesk\Adlm\ProductInformation.pit'
     
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
