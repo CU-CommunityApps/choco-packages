@@ -3,10 +3,10 @@ Description:    '3ds-coecis - a'
 Version:        '2023.1'
 
 Install:
-  - File:       '%INSTALL_DIR%\3ds\setup.exe'
+  - File:       '%INSTALL_DIR%\Autodesk_3ds_Max_2023\Files\setup.exe'
     FileType:   'exe'
     Arguments:  '-q'
-    ExitCodes:  [0,1638,1641]
+    ExitCodes:  [0]
 
  # - File:       '%INSTALL_DIR%\vray_adv_52002_max2022_x64.exe'   ## Installation file
  #   FileType:   'exe'                       ## exe or msi are the only options currently
