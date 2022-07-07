@@ -3,7 +3,7 @@ Description:    '3ds-coecis - a'
 Version:        '2023.1'
 
 Install:
-  - File:       '%INSTALL_DIR%\Autodesk_3ds_Max_2023_EFGJKPS_Win_64bit\setup.exe'
+  - File:       '%INSTALL_DIR%\3ds\setup.exe'
     FileType:   'exe'
     Arguments:  '-q'
     ExitCodes:  [0,1638,1641]
