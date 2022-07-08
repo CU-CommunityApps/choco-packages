@@ -2,6 +2,12 @@ Id:             '3ds-coecis'
 Description:    '3ds-coecis - c'
 Version:        '2023.1'
 
+Install:
+  - File:       '%INSTALL_DIR%\Setup.exe'
+    FileType:   'exe'
+    Arguments:  '-q'
+    ExitCodes:  [0]
+
 Applications:
     3ds:
         DisplayName:    '3ds Max'
@@ -14,10 +20,6 @@ Files:
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en-US.json'
 
-Scripts:
-    start:
-        System: '%INSTALL_DIR%\Deploy-Autodesk_3ds_Max_2023.ps1' # Runs at system startup
-    
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
     
