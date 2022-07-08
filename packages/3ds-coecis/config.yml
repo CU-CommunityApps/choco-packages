@@ -26,7 +26,6 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2023 - 64bit\ENU\3dsMax.ini'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\UnNamed.json'
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en-US.json'
