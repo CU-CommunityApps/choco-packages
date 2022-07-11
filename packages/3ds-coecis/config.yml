@@ -6,7 +6,7 @@ Install:
   - File:       '%INSTALL_DIR%\Setup.exe'
     FileType:   'exe'
     Arguments:  '-q'
-    ExitCodes:  [0]
+    ExitCodes:  [0,1638,1641,3010]
 
 Applications:
     3ds:
