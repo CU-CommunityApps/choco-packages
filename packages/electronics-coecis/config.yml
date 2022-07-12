@@ -1,6 +1,6 @@
 Id:             'electronics-coecis'
-Description:    'ANSYS Electronics 2021 R2 a1'
-Version:        '21.0'
+Description:    'ANSYS Electronics 2022 R2'
+Version:        '22.2'
 
 Install:
     File:       '%INSTALL_DIR%\AnsysEM\setup.exe'
@@ -10,7 +10,7 @@ Install:
 
 Applications:
     electronics:
-        DisplayName:    'Ansys Electronics Desktop 2021 R2'
-        Path:           '%PROGRAMFILES%\AnsysEM\AnsysEM21.2\Win64\ansysedt.exe'
+        DisplayName:    'Ansys Electronics Desktop 2022 R2'
+        Path:           '%PROGRAMFILES%\AnsysEM\AnsysEM22.2\Win64\ansysedt.exe'
         LaunchParams:   ''
         WorkDir:        ''
