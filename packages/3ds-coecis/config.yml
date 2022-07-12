@@ -1,39 +1,28 @@
 Id:             '3ds-coecis'
-Description:    '3ds-coecis'
-Version:        '2022.1'
+Description:    '3ds-coecis - c'
+Version:        '2023.1'
 
 Install:
   - File:       '%INSTALL_DIR%\Setup.exe'
     FileType:   'exe'
     Arguments:  '-q'
-    ExitCodes:  [0,1638,1641] # 1638 = newer version of a prereq already installed (C++)
+    ExitCodes:  [0,1638,1641,3010]
 
-  - File:       '%INSTALL_DIR%\vray_adv_52002_max2022_x64.exe'   ## Installation file
-    FileType:   'exe'                       ## exe or msi are the only options currently
-    Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml" -quiet=1 -auto'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]                         ## Exit codes - returns a success
-
-  - File:       '%INSTALL_DIR%\3dsmax-component-security-tools2023-2.1.3-059.msi'   ## Installation file
-    FileType:   'msi'                       ## exe or msi are the only options currently
-    Arguments:  '/qn'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]                         ## Exit codes - returns a success
-    
 Applications:
     3ds:
         DisplayName:    '3ds Max'
-        Path:           '%PROGRAMFILES%\Autodesk\3ds Max 2022\3dsmax.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\3ds Max 2023\3dsmax.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2022 - 64bit\ENU\3dsMax.ini'
+    '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\UnNamed.json'
+    '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en.json'
+    '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en-US.json'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
     
-Services:
-    AdAppMgrSvc: 'Manual' # Autodesk Desktop App Service
-
 Registry:
 
     HKUD:
