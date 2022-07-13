@@ -11,6 +11,6 @@ Install:
 Applications:
     electronics:
         DisplayName:    'Ansys Electronics Desktop 2022 R2'
-        Path:           '%PROGRAMFILES%\AnsysEM\AnsysEM22.2\Win64\ansysedt.exe'
+        Path:           '%PROGRAMFILES%\AnsysEM\v222\Win64\ansysedt.exe'
         LaunchParams:   ''
         WorkDir:        ''
