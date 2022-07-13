@@ -24,7 +24,8 @@ Files:
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
-
+    '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2023 - 64bit\ENU\3dsMax.ini'
+    
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
     
