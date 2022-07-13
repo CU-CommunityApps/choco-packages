@@ -5,7 +5,7 @@ Version:        '22.2'
 Install:
     File:       '%INSTALL_DIR%\AnsysEM\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-s -f1C:\ProgramData\chocolatey\lib\electronics-coecis\tools\installer\AnsysEM\setup.iss'
+    Arguments:  '-s -f1C:\ProgramData\chocolatey\lib\electronics-coecis\tools\installer\AnsysEM\responsefile.iss'
     ExitCodes:  [0]
 
 Applications:
