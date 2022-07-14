@@ -61,5 +61,5 @@ $args = "register --pk $productKey --pv $productVer --cf $configFile --el US --l
 # Run the license helper
 Start-Process $exe -ArgumentList $args -Verbose
 
-$custExperience = "$env:ProgramFiles\Autodesk\AutoCAD 2022\AcExperience.arx"
+$custExperience = "$env:ProgramFiles\Autodesk\AutoCAD 2023\AcExperience.arx"
 If (Test-Path $custExperience){Remove-Item $custExperience -Force}
