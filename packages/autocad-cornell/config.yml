@@ -1,11 +1,11 @@
 Id:             'autocad-cornell'
 Description:    'AutoCad 2023 - COECIS LICENSE'
-Version:        '1.27.0.4'
+Version:        '1.31.0.527'
 
 Install:
-    File:       '%INSTALL_DIR%\setup.exe'
+    File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-q'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.30.0.517"'
     ExitCodes:  [0, 1641]
 
 Applications:
