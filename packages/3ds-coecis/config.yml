@@ -7,6 +7,11 @@ Install:
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.31.0.527"'
     ExitCodes:  [0,1638,1641,3010]
 
+  - File:       '%INSTALL_DIR%\vray_adv_52002_max2023x64.exe'   ## Installation file
+    FileType:   'exe'                       ## exe or msi are the only options currently
+    Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml" -quiet=1 -auto'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success
+
 Applications:
     3ds:
         DisplayName:    '3ds Max'
