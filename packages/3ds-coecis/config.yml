@@ -1,5 +1,5 @@
 Id:             '3ds-coecis'
-Description:    '3ds-coecis'
+Description:    '3ds-coecis a2'
 Version:        '1.31.0.527'
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
