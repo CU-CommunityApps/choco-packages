@@ -3,15 +3,15 @@
     "preferences": [
         {
             "consentId": "ADSK_PUD_CONTRACTUAL_NECESSITY_DESKTOP",
-            "optIn": true
+            "optIn": false
         },
         {
             "consentId": "ADSK_PUD_OPTIMIZATION_IMPROVEMENT_DESKTOP",
-            "optIn": true
+            "optIn": false
         },
         {
             "consentId": "ADSK_PUD_GO_TO_MARKET_DESKTOP",
-            "optIn": true
+            "optIn": false
         }
     ],
     "userActionRequired": false,

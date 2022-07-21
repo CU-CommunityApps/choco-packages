@@ -1,12 +1,16 @@
 Id:             '3ds-coecis'
-Description:    '3ds-coecis - c'
-Version:        '2023.1'
-
+Description:    '3ds-coecis a2'
+Version:        '1.31.0.527'
 Install:
-  - File:       '%INSTALL_DIR%\Setup.exe'
+  - File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-q'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.31.0.527"'
     ExitCodes:  [0,1638,1641,3010]
+
+  - File:       '%INSTALL_DIR%\vray_adv_60004_max2023_x64.exe'   ## Installation file
+    FileType:   'exe'                       ## exe or msi are the only options currently
+    Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml" -quiet=1 -auto'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success
 
 Applications:
     3ds:
@@ -15,11 +19,12 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Files: 
-    '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\UnNamed.json'
-    '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en.json'
-    '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\3ds\en-US.json'
-
+Files:
+    '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
+    '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
+    '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
+    '%TOOLS_DIR%\3dsMax.ini': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Autodesk\3dsMax\2023 - 64bit\ENU\3dsMax.ini'
+    
 Environment:
     ADSKFLEX_LICENSE_FILE: '%3DS_LICENSE_FILE%'
     
