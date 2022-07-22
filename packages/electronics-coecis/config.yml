@@ -14,3 +14,8 @@ Applications:
         Path:           '%PROGRAMFILES%\AnsysEM\v222\Win64\ansysedt.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files: 
+    '%TOOLS_DIR%\apip-service.txt': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2022.2\config\apip-service.txt'
+    '%TOOLS_DIR%\d4eac1d0625e4da.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2022.2\config\d4eac1d0625e4da.cfg'
+    '%TOOLS_DIR%\d4eac1d0625e4da_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2022.2\config\d4eac1d0625e4da_user.xml'
