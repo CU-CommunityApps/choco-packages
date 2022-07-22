@@ -19,7 +19,7 @@ Environment:
     ADSKFLEX_LICENSE_FILE: '%MAYA_LICENSE_FILE%'
     
 Files:
-    '%TOOLS_DIR%\userPrefs.mel': '%SYSTEMDRIVE%\Users\Default\Documents\maya\2023c:\\prefs\userPrefs.mel'
+    '%TOOLS_DIR%\userPrefs.mel': '%SYSTEMDRIVE%\Users\Default\Documents\maya\2023\prefs\userPrefs.mel'
 
 Registry:
 
