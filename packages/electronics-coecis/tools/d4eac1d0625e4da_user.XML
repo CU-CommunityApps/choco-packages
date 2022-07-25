@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<KEYS>
+
+  <KEY ObjectName="d4eac1d0625e4da_user" RegObjectType="0">
+    <KEYS>
+      <KEY ObjectName="Desktop" RegObjectType="0">
+        <KEYS>
+          <KEY ObjectName="Settings" RegObjectType="0">
+            <KEYS>
+              <KEY ObjectName="CompChooserOptions" RegObjectType="0">
+                <VALUES>
+                  <VALUE ObjectName="SFavorites" Value="R:Simplorer Elements\Basic Elements\Circuit\Passive Elements;L:Simplorer Elements\Basic Elements\Circuit\Passive Elements;C:Simplorer Elements\Basic Elements\Circuit\Passive Elements;D:Simplorer Elements\Basic Elements\Circuit\Semiconductors System Level;E:Simplorer Elements\Basic Elements\Circuit\Sources;AM:Simplorer Elements\Basic Elements\Measurement\Electrical;VM:Simplorer Elements\Basic Elements\Measurement\Electrical" ValueType="2"/>
+                </VALUES>
+              </KEY>
+            </KEYS>
+          </KEY>
+        </KEYS>
+        <VALUES>
+          <VALUE ObjectName="ColorScheme" Value="Silver" ValueType="2"/>
+          <VALUE ObjectName="InstallationDirectory" Value="C:\Program Files\AnsysEM\v222\Win64" ValueType="2"/>
+          <VALUE ObjectName="ProjectDirectory" Value="C:\Users\Default\Documents\Ansoft" ValueType="2"/>
+        </VALUES>
+      </KEY>
+      <KEY ObjectName="Schematic" RegObjectType="0">
+        <KEYS>
+          <KEY ObjectName="Preferences" RegObjectType="0">
+            <VALUES>
+              <VALUE ObjectName="AutoWireNameSetup" Value="AutoWireNameSetup('A', 0, 1, true, 0)" ValueType="2"/>
+            </VALUES>
+          </KEY>
+        </KEYS>
+      </KEY>
+      <KEY ObjectName="Twin Builder" RegObjectType="0">
+        <VALUES>
+          <VALUE ObjectName="Favorites" Value="1" ValueType="4"/>
+          <VALUE ObjectName="MODELICAPATH" Value="C:/Program Files/AnsysEM/v222/Win64/common/Modelica/ThirdParty/MSL/MSL323;C:/Program Files/AnsysEM/v222/Win64/syslib/Simplorer Elements/ModelicaLibs;" ValueType="2"/>
+        </VALUES>
+      </KEY>
+    </KEYS>
+  </KEY>
+
+</KEYS>
