@@ -89,7 +89,7 @@ Install:
     ExitCodes:  [0]
 
 Applications:
-    grantaedu:
+    ansysgrantaedu:
         DisplayName:    'Granta EduPack 2022 R2'
         Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2022 R2\edupack.exe'
         LaunchParams:   ''
