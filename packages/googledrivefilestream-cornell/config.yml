@@ -1,6 +1,6 @@
 Id:             'googledrivefilestream-cornell'                ## Application package name ie. chrome-cornell
 Description:    'Google Drive '    ## Application packages description
-Version:        '57.0.5.0'                     ## Application version number - MUST BE in #.# format
+Version:        '60.0.2.0'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%INSTALL_DIR%\GoogleDriveSetup.exe'   ## Multiple installation files require '-' to specify an array of apps are to be installed
