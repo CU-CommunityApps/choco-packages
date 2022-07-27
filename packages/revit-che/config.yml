@@ -8,7 +8,7 @@ Install:
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.31.0.546"'
     ExitCodes:  [0,3010]
 
-  - File:       '%INSTALL_DIR%\Enscape-3.3.2+82281.msi'
+  - File:       '%INSTALL_DIR%\Enscape-3.4.0+84039.msi'
     FileType:   'msi'
     Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino,Revit'
     ExitCodes:  [0]
