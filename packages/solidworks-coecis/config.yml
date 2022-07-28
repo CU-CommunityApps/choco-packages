@@ -1,6 +1,6 @@
 Id:             'solidworks-coecis'
 Description:    'SOLIDWORKS 2021 - COECIS License a1'
-Version:        '29.4.1.0001'
+Version:        '30.3.1.0002
 
 Install:
   - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
@@ -25,7 +25,7 @@ Install:
 
 Applications:
     SLDWORKS:
-        DisplayName:    'SOLIDWORKS 2021'
+        DisplayName:    'SOLIDWORKS 2022
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -36,9 +36,7 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-    SLDWORKSVisualize:
-        DisplayName:    'SOLIDWORKS Visualize'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
+    SLDWORKSVisualize:        DisplayName:    'SOLIDWORKS Visualize'        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
@@ -49,7 +47,7 @@ Applications:
         WorkDir:        ''
         
     toolbox:
-        DisplayName:    'Toolbox Settings 2021'
+        DisplayName:    'Toolbox Settings 2022
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -60,7 +58,7 @@ Files:
 
 Services:
 #     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
-    SWVisualize2021.Queue.Server:   'Manual'
+    SWVisualize2022Queue.Server:   'Manual'
 
 Scripts:
     start:
