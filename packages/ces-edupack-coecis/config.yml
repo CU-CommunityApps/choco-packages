@@ -91,7 +91,7 @@ Install:
 Applications:
     ansysgrantaedu:
         DisplayName:    'Granta EduPack'
-        Path:           '"PROGRAMFILES(X86)%\GRANTA EduPack\2022 R2\edupack.exe"'
+        Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2022 R2\edupack.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
