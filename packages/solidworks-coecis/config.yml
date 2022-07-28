@@ -25,7 +25,7 @@ Install:
 
 Applications:
     SLDWORKS:
-        DisplayName:    'SOLIDWORKS 2022
+        DisplayName:    'SOLIDWORKS 2022'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -36,7 +36,9 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-    SLDWORKSVisualize:        DisplayName:    'SOLIDWORKS Visualize'        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
+    SLDWORKSVisualize:        
+        DisplayName:    'SOLIDWORKS Visualize'        
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
@@ -47,7 +49,7 @@ Applications:
         WorkDir:        ''
         
     toolbox:
-        DisplayName:    'Toolbox Settings 2022
+        DisplayName:    'Toolbox Settings 2022'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
         LaunchParams:   ''
         WorkDir:        ''
