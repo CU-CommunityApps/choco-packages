@@ -1,6 +1,6 @@
 Id:             'clo3d-che'
-Description:    'CLO3d - buildtest2'
-Version:        '6.2.330.38382'
+Description:    'CLO3d - buildtest'
+Version:        '7.0.296.40172'
 
 Applications:
     clo3d:
@@ -15,7 +15,7 @@ Files:
 
 Registry:
     HKUD:
-        SOFTWARE\CLO Network OnlineAuth\Welcome:
+        SOFTWARE\CLO Network OnlineAuth\WelcomeNotice:
             don't show again:
                 Type:   'string'
                 Value:  'true'
@@ -24,21 +24,19 @@ Registry:
             registryVersion:
                 Type:   'DWORD'
                 Value:  '1'
+                
             viewShadow:
                 Type:   'string'
                 Value:  'true'
-            useShader:
-                Type:   'string'
-                Value:  'true'
+
             useVBOs:
                 Type:   'string'
                 Value:  'true'
+                
             samples:
                 Type:   'DWORD'
                 Value:  '4'
-            useNormalBump:
-                Type:   'string'
-                Value:  'true'
+                
             turnOffOption:
                 Type:   'string'
                 Value:  'true'
@@ -47,43 +45,49 @@ Registry:
             Unit:
                 Type:   'string'
                 Value:  'mm'
+                
             NotchDisplayType:
                 Type:   'string'
                 Value:  'true'
 
-        SOFTWARE\CLO Network OnlineAuth\preference:
-            PrevGuideImageDisplayVersion:
-                Type:   'string'
-                Value:  '6.1.346'
-
         SOFTWARE\CLO Network OnlineAuth\Login Info: # cached creds for app authentication
-            saveIDCheck:
-                Type:   'string'
-                Value:  'true'
-            savePWDCheck:
-                Type:   'string'
-                Value:  'true'
-            saveID:
-                Type:   'string'
-                Value:  '%CLO3D_SAVED_ID%'
-            savePassword:
-                Type:   'string'
-                Value:  '%CLO3D_SAVED_PW%'
-            isLogin:
-                Type:   'string'
-                Value:  'true'
-            UseFirewall:
-                Type:   'string'
-                Value:  'false'
-            UseOfflineAuth:
-                Type:   'string'
-                Value:  'false'
+        
             autoDeactivateLicense:
                 Type:   'string'
                 Value:  'true'
-            saveProxyInfo:
+                
+            dontShowAgain:
+                Type:   'String'
+                Value:  'true'
+                
+            isLogin:
+                Type:   'String'
+                Value:  'true'
+
+            saveID:
                 Type:   'string'
-                Value:  'false'
+                Value:  '%CLO3D_SAVED_ID%'                         
+
+            saveIDCheck:
+                Type:   'string'
+                Value:  'True'
+                
+            savePassword:
+                Type:   'string'
+                Value:  '%CLO3D_SAVED_PW%'                
+                  
+            savePWDCheck:
+                Type:   'string'
+                Value:  'true'
+                
             successfulDNS:
                 Type:   'string'
                 Value:  'api.clo3d.com'
+                
+            UseFirewall:
+                Type:   'string'
+                Value:  'false'
+                
+            UseOfflineAuth:
+                Type:   'string'
+                Value:  'false'
