@@ -1,6 +1,6 @@
 Id:             'solidworks-coecis'
 Description:    'SOLIDWORKS 2021 - COECIS License a1'
-Version:        '30.3.1.0002
+Version:        '30.3.1.0002'
 
 Install:
   - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
