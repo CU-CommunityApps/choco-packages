@@ -59,7 +59,7 @@ Files:
     '%TOOLS_DIR%\SolidWorks\*': '%SYSTEMDRIVE%\Users\Default\AppData\Local'
 
 Services:                   ## Set default service behavior
-    RemotSolverDispatcher: 'Manual'   ## ServiceName: Behavior
+    RemoteSolverDispatcher: 'Manual'   ## ServiceName: Behavior
     SWVisualize2022.Queue.server: 'Manual'
 
 Scripts:
