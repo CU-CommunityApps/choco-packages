@@ -58,9 +58,9 @@ Files:
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
     '%TOOLS_DIR%\SolidWorks\*': '%SYSTEMDRIVE%\Users\Default\AppData\Local'
 
-Services:
+#Services:
 #     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
-    SWVisualize2022Queue.Server:   'Manual'
+#    SWVisualize2022Queue.Server:   'Manual'
 
 Scripts:
     start:
