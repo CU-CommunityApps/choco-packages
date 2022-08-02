@@ -1,6 +1,6 @@
 Id:             'ces-edupack-coecis'
-Description:    'CES Edupack 2021 - COECIS License'
-Version:        '21.2.0.0'
+Description:    'CES Edupack 2022 - COECIS License2'
+Version:        '22.2.1.0'
 
 Install:
   - File:       '%INSTALL_DIR%\packages\EduPack.msi'
@@ -89,10 +89,11 @@ Install:
     ExitCodes:  [0]
 
 Applications:
-    grantaedu:
-        DisplayName:    'Granta EduPack 2021 R2'
-        Path:           '"%PROGRAMFILES(X86)%\GRANTA EduPack\2021 R2\edupack.exe"'
+    ansysgrantaedu:
+        DisplayName:    'Granta EduPack'
+        Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2022 R2\edupack.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES(X86)%\GRANTA EduPack\Shared Files\Licensing\ansyslmd.ini'
