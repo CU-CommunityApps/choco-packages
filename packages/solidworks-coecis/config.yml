@@ -1,6 +1,6 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2021 - COECIS License a1'
-Version:        '29.4.1.0001'
+Description:    'SOLIDWORKS 2022 - COECIS License a1'
+Version:        '30.3.1.0002'
 
 Install:
   - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
@@ -25,7 +25,7 @@ Install:
 
 Applications:
     SLDWORKS:
-        DisplayName:    'SOLIDWORKS 2021'
+        DisplayName:    'SOLIDWORKS 2022'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -36,8 +36,8 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-    SLDWORKSVisualize:
-        DisplayName:    'SOLIDWORKS Visualize'
+    SLDWORKSVisualize:        
+        DisplayName:    'SOLIDWORKS Visualize'        
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -49,7 +49,7 @@ Applications:
         WorkDir:        ''
         
     toolbox:
-        DisplayName:    'Toolbox Settings 2021'
+        DisplayName:    'Toolbox Settings 2022'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -58,9 +58,9 @@ Files:
     '%TOOLS_DIR%\solidworks-accept-eula.ps1': '%ALLUSERSPROFILE%\solidworks-accept-eula.ps1'
     '%TOOLS_DIR%\SolidWorks\*': '%SYSTEMDRIVE%\Users\Default\AppData\Local'
 
-Services:
-#     RemoteSolverDispatcher:         'Manual' # Remote Solver for Flow Simulation
-    SWVisualize2021.Queue.Server:   'Manual'
+Services:                   ## Set default service behavior
+ #   RemoteSolverDispatcher: 'Manual'   ## ServiceName: Behavior
+    SWVisualize2022.Queue.server: 'Manual'
 
 Scripts:
     start:
