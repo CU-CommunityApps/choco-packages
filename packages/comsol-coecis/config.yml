@@ -17,4 +17,3 @@ Applications:                                                       ## Applicati
 
 Files:
     '%TOOLS_DIR%\comsol.prefs': '%SYSTEMDRIVE%\Users\Default\.comsol\v60\comsol.prefs' # comsol.prefs default settings
-    '%INSTALL_DIR%\License.dat': '%PROGRAMFILES%\COMSOL\COMSOL60\Multiphysics\License.dat'
