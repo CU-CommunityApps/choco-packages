@@ -1,6 +1,6 @@
 Id:             'rhino7-lib'
 Description:    'rhino7-lib - buildtest'
-Version:        '7.16.22067.13001'
+Version:        '7.20.22193.09001'
 
 Install:
   - File:       '%INSTALL_DIR%\Bootstrapper.exe'
@@ -8,7 +8,7 @@ Install:
     Arguments:  '-package -quiet -norestart LICENSE_METHOD=ZOO ZOO_SERVER=%ZOO_SERVER% ENABLE_AUTOMATIC_UPDATES=0 SEND_STATISTICS=0'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\vray_52003_rhino_win_x64.exe'
+  - File:       '%INSTALL_DIR%\vray_52006_rhino_win_x64.exe'
     FileType:   'exe'
     Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml" -quiet=1'
     ExitCodes:  [0]
