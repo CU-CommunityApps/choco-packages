@@ -20,6 +20,9 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
+Files:
+    '%TOOLS_DIR%\digitize_MicroScribe.rhp': '%PROGRAMFILES%\Rhino 7\Plug-ins\digitize_MicroScribe.rhp'
+    
 Services: 
     McNeelUpdate: 'Disabled'
 
