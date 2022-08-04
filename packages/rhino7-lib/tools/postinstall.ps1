@@ -20,3 +20,5 @@ ForEach ($ver in $vers) {
     }
 
 }
+# Remove faulty plug-in
+Remove-ItemProperty -Path "HKLM:\SOFTWARE\McNeel\Rhinoceros\7.0\Plug-ins\7CF14AA9-27B0-4585-A42B-493821556924 -Name "Microscribe Digitizer"
