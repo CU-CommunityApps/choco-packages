@@ -1,1 +1,1 @@
-# Runs after the choco package is installed
+# Runs before the choco package is installed
