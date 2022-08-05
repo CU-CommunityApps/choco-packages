@@ -1,11 +1,11 @@
 Id:             'revit-cornell'
-Description:    'Revit 2022 - buildtest'
-Version:        '2022.0.1'
+Description:    'Revit 2023 - buildtest'
+Version:        '1.31.0.546'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.21.0.25"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.31.0.546"'
     ExitCodes:  [0,3010]
     
   - File:       '%INSTALL_DIR%\RCAO.msi'
@@ -15,14 +15,17 @@ Install:
     
 Applications:
     revit:
-        DisplayName:    'Revit 2022'
-        Path:           '%PROGRAMFILES%\Autodesk\Revit 2022\Revit.exe'
+        DisplayName:    'Revit 2023'
+        Path:           '%PROGRAMFILES%\Autodesk\Revit 2023\Revit.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%TOOLS_DIR%\Profile.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Revit\Profile\Profile.xml'                                                                 ## File copy feature
-    
+    '%TOOLS_DIR%\Profile.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Revit\Profile\Profile.xml'
+    '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
+    '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
+    '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'                                                                 ## File copy feature
+                                                                
 Environment:
     ADSKFLEX_LICENSE_FILE: '%REVIT_LICENSE_FILE%'
 
