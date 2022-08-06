@@ -38,7 +38,7 @@
   <Actions Context="Author">
     <Exec>
       <Command>powershell.exe</Command>
-      <Arguments>-WindowStyle Hidden -File "C:\Program Files\Tableau\Tableau 2021.2\bin\tableau.ps1" -Mode logon</Arguments>
+      <Arguments>-WindowStyle Hidden -File "C:\Program Files\Tableau\Tableau 2022.2\bin\tableau.ps1" -Mode logon</Arguments>
       <WorkingDirectory>C:\Windows\System32\WindowsPowerShell\v1.0</WorkingDirectory>
     </Exec>
   </Actions>
