@@ -1,6 +1,6 @@
 Id:             'tableau-cis'
 Description:    'Tableau 2022 - Fall2022'
-Version:        '2022.2.0'
+Version:        '2022.2'
 
 Install:
     File::      '%INSTALL_DIR%\TableauDesktop-64bit-2022-2-0.exe'
