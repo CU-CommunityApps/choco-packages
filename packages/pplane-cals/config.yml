@@ -1,5 +1,5 @@
 Id:             'pplane-cals'                ## Application package name ie. chrome-cornell
-Description:    'pplane-cals build1'    ## Application packages description
+Description:    'pplane-cals build2'    ## Application packages description
 Version:        '6.0'                     ## Application version number - MUST BE in #.# format
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
