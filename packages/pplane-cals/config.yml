@@ -1,5 +1,5 @@
 Id:             'pplane-cals'                ## Application package name ie. chrome-cornell
-Description:    'pplane-cals build1'    ## Application packages description
+Description:    'pplane-cals build3'    ## Application packages description
 Version:        '6.0'                     ## Application version number - MUST BE in #.# format
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
@@ -9,10 +9,10 @@ ChocoPackages:                              ## Chocolatey packages installed str
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     pplane:                                                      ## This must match the icons.png file name
         DisplayName:    'pplane'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib\pplane.cmd'          ## The path to the app
+        Path:           '%PROGRAMFILES%\OpenJDK\jdk-18.0.2\lib\pplane.bat'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\pplane.jar': '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib\pplane.jar'  ## Source directory to destination directory
-    '%INSTALL_DIR%\pplane.cmd': '%PROGRAMFILES%\OpenJDK\jdk-16.0.1\lib\pplane.cmd'
+    '%INSTALL_DIR%\pplane.jar': '%PROGRAMFILES%\OpenJDK\jdk-18.0.2\lib\pplane.jar'  ## Source directory to destination directory
+    '%INSTALL_DIR%\pplane.cmd': '%PROGRAMFILES%\OpenJDK\jdk-18.0.2\lib\pplane.bat'
