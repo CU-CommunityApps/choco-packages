@@ -8,11 +8,11 @@ New-ItemProperty -Path $solid\Security -Name "EULA Accepted 2022 SP3.1 $env:Comp
 If (!(Test-Path $solid\General\DontAskAgainOptions)){New-Item -Path $solid\General\DontAskAgainOptions -force}
 New-ItemProperty -Path $solid\General\DontAskAgainOptions -Name "MSG_SHOW_WELCOME_DLG_AT_STARTUP%*^%$&9862" -Value "7" -PropertyType "DWORD" -force
 
-$composer = "Registry::\HKCU\Software\Dassault Systemes\Composer\7.7\Preferences"
+$composer = "Registry::\HKCU\Software\Dassault Systemes\Composer\7.9\Preferences"
 If (!(Test-Path $composer)){New-Item -Path $composer -force}
 New-ItemProperty -Path $composer -Name "Composer.EulaAccepted" -Value "0" -PropertyType "DWORD" -Force
 New-ItemProperty -Path $composer -Name "EulaAccepted" -Value "0" -PropertyType "DWORD" -Force
-New-ItemProperty -Path $composer -Name "EulaAccepted 2021 7.7.3.129 $env:ComputerName $env:Username" -Value "1" -PropertyType "DWORD" -Force
+New-ItemProperty -Path $composer -Name "EulaAccepted 2021 7.9.4.22135 $env:ComputerName $env:Username" -Value "1" -PropertyType "DWORD" -Force
 New-ItemProperty -Path $composer -Name "RefreshProgressUI" -Value "1" -PropertyType "DWORD" -Force
 New-ItemProperty -Path $composer -Name "Sync.EulaAccepted" -Value "0" -PropertyType "DWORD" -Force
 
