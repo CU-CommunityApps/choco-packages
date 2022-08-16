@@ -18,3 +18,4 @@ Applications:                                                       ## Applicati
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\EW.lic': '%ALLUSERSPROFILE%\SketchUp\SketchUp 2022\EW.lic'
     '%INSTALL_DIR%\SketchUp.lic': '%ALLUSERSPROFILE%\SketchUp\SketchUp 2022\SketchUp.lic'
+    '%TOOLS_DIR%\PrivatePreferences.json': '%SYSTEMDRIVE%\Users\Default\AppData\Local\SketchUp\SketchUp 2022\Sketchup\PrivatePreferences.json'
