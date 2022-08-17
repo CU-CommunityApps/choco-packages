@@ -1,5 +1,5 @@
 Id:             'sketchup-che'                ## Application package name ie. chrome-cornell
-Description:    'sketchup-che Buildtest'    ## Application packages description
+Description:    'sketchup-che Buildtest2'    ## Application packages description
 Version:        '22.0.354'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
@@ -18,4 +18,5 @@ Applications:                                                       ## Applicati
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\EW.lic': '%ALLUSERSPROFILE%\SketchUp\SketchUp 2022\EW.lic'
     '%INSTALL_DIR%\SketchUp.lic': '%ALLUSERSPROFILE%\SketchUp\SketchUp 2022\SketchUp.lic'
+    '%INSTALL_DIR%\SketchUp': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\SketchUp'
     '%TOOLS_DIR%\PrivatePreferences.json': '%SYSTEMDRIVE%\Users\Default\AppData\Local\SketchUp\SketchUp 2022\Sketchup\PrivatePreferences.json'
