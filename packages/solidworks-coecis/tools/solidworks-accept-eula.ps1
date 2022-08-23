@@ -10,8 +10,10 @@ New-ItemProperty -Path $solid\Security -Name "EULA Accepted 2022 SP3.1 $env:Comp
 
 $composer = "Registry::\HKCU\Software\Dassault Systemes\Composer\7.9\Preferences"
 If (!(Test-Path $composer)){New-Item -Path $composer -force}
+# Composer Player Popups
 New-ItemProperty -Path $composer -Name "EulaAccepted" -Value "0" -PropertyType "DWORD" -Force
 New-ItemProperty -Path $composer -Name "EulaAccepted 2022 7.9.4.22135 $env:ComputerName $env:Username" -Value "1" -PropertyType "DWORD" -Force
+# Composer Popups
 New-ItemProperty -Path $composer -Name "Composer.EulaAccepted" -Value "0" -PropertyType "DWORD" -Force
 New-ItemProperty -Path $composer -Name "Composer.EulaAccepted 2022 7.9.4.22135 $env:ComputerName $env:Username" -Value "1" -PropertyType "DWORD" -Force
 New-ItemProperty -Path $composer -Name "RefreshProgressUI" -Value "1" -PropertyType "DWORD" -Force
