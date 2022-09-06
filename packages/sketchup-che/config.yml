@@ -19,4 +19,4 @@ Files:                                                                  ## File 
     '%INSTALL_DIR%\EW.lic': '%ALLUSERSPROFILE%\SketchUp\SketchUp 2022\EW.lic'
     '%INSTALL_DIR%\SketchUp.lic': '%ALLUSERSPROFILE%\SketchUp\SketchUp 2022\SketchUp.lic'
     '%INSTALL_DIR%\SketchUp': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\SketchUp'
-    '%TOOLS_DIR%\PrivatePreferences.json': '%SYSTEMDRIVE%\Users\Default\AppData\Local\SketchUp\SketchUp 2022\Sketchup\PrivatePreferences.json'
+    '%INSTALL_DIR%\PrivatePreferences.json': '%SYSTEMDRIVE%\Users\Default\AppData\Local\SketchUp\SketchUp 2022\Sketchup\PrivatePreferences.json'
