@@ -1,6 +1,6 @@
 Id:             'clo3d-che'
 Description:    'CLO3d - buildtest'
-Version:        '7.0.296.40172'
+Version:        '7.0.358'
 
 Applications:
     clo3d:
@@ -56,30 +56,10 @@ Registry:
                 Type:   'string'
                 Value:  'true'
                 
-            dontShowAgain:
-                Type:   'String'
-                Value:  'true'
-                
             isLogin:
                 Type:   'String'
                 Value:  'true'
-
-            saveID:
-                Type:   'string'
-                Value:  '%CLO3D_SAVED_ID%'                         
-
-            saveIDCheck:
-                Type:   'string'
-                Value:  'True'
-                
-            savePassword:
-                Type:   'string'
-                Value:  '%CLO3D_SAVED_PW%'                
-                  
-            savePWDCheck:
-                Type:   'string'
-                Value:  'true'
-                
+              
             successfulDNS:
                 Type:   'string'
                 Value:  'api.clo3d.com'
