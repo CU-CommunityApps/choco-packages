@@ -1,0 +1,16 @@
+Id:             'onedrive-cornell'                ## Application package name ie. chrome-cornell
+Description:    'onedrive-cornell'                ## Application packages description
+Version:        '22.176.0821.0002'                ## Application version number - MUST BE in #.# format
+    
+  Install:
+    File:       '%INSTALL_DIR%\onedrivesetup.exe'   ## Multiple installation files require '-' to specify an array of apps are to be installed
+    FileType:   'exe'                       
+    Arguments:  '/allusers /silent'        
+    ExitCodes:  [0]                         
+
+Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
+    OneDrive:                                                      ## This must match the icons.png file name
+        DisplayName:    'OneDrive'                                  ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\Microsoft OneDrive\OneDrive.exe'          ## The path to the app
+        LaunchParams:   ''                                          ## Launch parameters for the app
+        WorkDir:        ''                                          ## Working directory
