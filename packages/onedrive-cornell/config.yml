@@ -1,6 +1,6 @@
 Id:             'onedrive-cornell'                ## Application package name ie. chrome-cornell
 Description:    'onedrive-cornell'                ## Application packages description
-Version:        '22.176.0821.0002'                ## Application version number - MUST BE in #.# format
+Version:        '22.002'                ## 22.176.0821.0002
 
 Install:
     File:       '%INSTALL_DIR%\onedrivesetup.exe'
