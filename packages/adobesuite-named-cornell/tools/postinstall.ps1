@@ -13,7 +13,7 @@ Set-Service AdobeUpdateService -StartupType Disabled
 #Remove Adobe Notifications
 Get-AppxPackage -AllUsers *AdobeNotificationClient* | Remove-AppxPackage -AllUsers
 
-# Copy missing Photoshop 2022 settings and libraries
-$path = "$env:SYSTEMDRIVE\Users\Default\AppData\Roaming\Adobe\Adobe Photoshop 2022\Adobe Photoshop 2022 Settings\"
-
-cp "$TOOLS_DIR\Adobe Photoshop 2022 Settings" $path -Recurse
+# Seems this isn't necessary after updating to the latest updated version
+# # Copy missing Photoshop 2022 settings and libraries
+# $path = "$env:SYSTEMDRIVE\Users\Default\AppData\Roaming\Adobe\Adobe Photoshop 2022\Adobe Photoshop 2022 Settings\"
+# cp "$TOOLS_DIR\Adobe Photoshop 2022 Settings" $path -Recurse
