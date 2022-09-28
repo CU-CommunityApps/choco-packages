@@ -1,6 +1,7 @@
 # CU illustrator-cornell AppStream Package Metadata Repository
 
 - Installer generated using Adobe's Admin Console
+  - Creation Process - https://confluence.cornell.edu/display/CLOUD/Adobe+Creative+Cloud
 - setup.exe --silent
 - Adobe named login required
 - Server 19 ONLY
