@@ -14,5 +14,5 @@ Set-Service AdobeUpdateService -StartupType Disabled
 Get-AppxPackage -AllUsers *AdobeNotificationClient* | Remove-AppxPackage -AllUsers
 
 # Copy missing Photoshop 2022 settings and libraries
-$path = "$env:SYSTEMDRIVE\Users\Default\AppData\Roaming\Adobe\Adobe Photoshop 2022\"
+$path = "$env:SYSTEMDRIVE\Users\Default\AppData\Roaming\Adobe\Adobe Photoshop 2022\Adobe Photoshop 2022 Settings\"
 cp "$TOOLS_DIR\Adobe Photoshop 2022 Settings" $path -Recurse
