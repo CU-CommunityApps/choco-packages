@@ -1,0 +1,34 @@
+# Text File Version 1.1
+# After Effects Preferences
+
+["AE_OpenGL"]
+	"Minimum VRAM Required For Fast Draft Support(in MB)" = "256"
+	"OpenGL initialized successfully" = "1"
+
+["CPU Processor Optimization Section (Windows only)"]
+	"Allow MMX (If Available)" = 01
+	"Allow Prescott New Instructions (If Available)" = 01
+	"Allow SSE (If Available)" = 01
+	"Allow SSE2 (If Available)" = 01
+	"Allow SSSE3 (If Available)" = 01
+
+["Main Pref Section v2"]
+	"AutoLogging" = "0"
+	"Pref_LAST_DATE_TIME" = "-572046166"
+	"User Interface Appearance Custom Data" = ""
+	"User Interface Inverted Text Color" = "0xffeeeeee"
+	"User Interface Inverted Text Color (Inactive)" = "0xffdddddd"
+	"User Interface Max Darkness Percent" = "50"
+	"User Interface Max Lightness Percent" = "50"
+
+["Memory"]
+	"Memory - Pay Attention To Low Memory" = "0"
+
+["Misc Section"]
+	"Event Sleep Time Ticks" = "5"
+	"Log When Annoying Abort Assert Frequency Exceeded" = "0"
+	"New Maximum open files on OS X" = "8000"
+
+["Temporary Debugging Options"]
+	"AIF Compiler Flavor" = "0"
+
