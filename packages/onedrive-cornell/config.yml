@@ -14,3 +14,15 @@ Applications:                                                       ## Applicati
         Path:           '%PROGRAMFILES%\Microsoft OneDrive\OneDrive.exe'          ## The path to the app
         LaunchParams:   ''                                          ## Launch parameters for the app
         WorkDir:        ''                                          ## Working directory
+
+Registry:
+    HKLM:
+         SOFTWARE\Policies\Microsoft\OneDrive:
+            GPOSetUpdateRing:
+                Type:   'DWORD'
+                Value:  '5'
+    HKCU:
+           SOFTWARE\Policies\Microsoft\OneDrive:
+            DisableTutorial:
+                Type:   'DWORD'
+                Value:  '1'
