@@ -1,6 +1,6 @@
 Id:             'clo3d-che'
 Description:    'CLO3d - buildtest'
-Version:        '7.0.452'
+Version:        '7.0.480'
 
 Applications:
     clo3d:
@@ -44,7 +44,7 @@ Registry:
         SOFTWARE\CLO Network OnlineAuth\preference\Etc:
             Unit:
                 Type:   'string'
-                Value:  'mm'
+                Value:  'in'
                 
             NotchDisplayType:
                 Type:   'string'
