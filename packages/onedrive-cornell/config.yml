@@ -15,6 +15,9 @@ Applications:                                                       ## Applicati
         LaunchParams:   ''                                          ## Launch parameters for the app
         WorkDir:        ''                                          ## Working directory
 
+Files:
+    '%INSTALL_DIR%\OneDriveStandaloneUpdater.exe': '%PROGRAMFILES%\Microsoft OneDrive\'
+
 Registry:
     HKLM:
          SOFTWARE\Policies\Microsoft\OneDrive:
