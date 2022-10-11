@@ -1,4 +1,4 @@
-Id:             'onedrive-cornell'                ## Application package name ie. chrome-cornell
+Id:             'onedrive-cornell'                ## onedrive-cornell - updating for rebuild
 Description:    'onedrive-cornell'                ## Application packages description
 Version:        '22.002'                ## 22.176.0821.0002
 
