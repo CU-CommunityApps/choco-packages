@@ -25,3 +25,6 @@ ForEach ($ver in $vers) {
     }
 
 }
+
+# File contains chars that chocolatey will not extract, copying manually before installation
+Copy-Item -Path "$PSScriptRoot\VVVV by Random[Arq]" -Destination "$INSTALL_DIR\rhino7-che\Grasshopper\Libraries\ghowlr50examplefiles\Example Files\VVVV by Random[Arq]" -Force
