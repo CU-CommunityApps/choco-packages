@@ -1,6 +1,6 @@
 Id:             'clo3d-che'
 Description:    'CLO3d - buildtest3'
-Version:        '7.0.504'
+Version:        '7.0.516.40998'
 
 Applications:
     clo3d:
