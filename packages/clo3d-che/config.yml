@@ -43,6 +43,10 @@ Registry:
             turnOffOption:
                 Type:   'string'
                 Value:  'true'
+        SOFTWARE\CLO Network OnlineAuth\preference:
+            ShowScreenNavigation:
+                Type:   'string'
+                Value:  'false'   
         SOFTWARE\CLO Network OnlineAuth\preference\Etc:
             Unit:
                 Type:   'string'
