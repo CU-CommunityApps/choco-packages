@@ -1,5 +1,5 @@
 Id:             'clo3d-che'
-Description:    'CLO3d - buildtest4'
+Description:    'CLO3d'
 Version:        '7.0.516.40998'
 
 Applications:
@@ -9,9 +9,11 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
         
-Files:
-    '%INSTALL_DIR%\CLO3d': '%PROGRAMFILES%\CLO3d'
-    '%INSTALL_DIR%\CLO':   '%PUBLIC%\Documents\CLO'
+Install:
+  - File:      '%INSTALL_DIR%\CLO_Network_OnlineAuth_7_0_516_Installer_x64.exe'
+    FileType:  'exe'
+    Arguments: '/S'
+    ExitCodes: [0]
 
 Registry:
     HKUD:
@@ -19,55 +21,67 @@ Registry:
             don't show again:
                 Type:   'string'
                 Value:  'true'
-
         SOFTWARE\CLO Network OnlineAuth\Graphic Option:
             registryVersion:
                 Type:   'DWORD'
-                Value:  '1'
-                
+                Value:  '1'                
             viewShadow:
                 Type:   'string'
-                Value:  'true'
-
-            useVBOs:
+                Value:  'true'                
+            useShader:
                 Type:   'string'
                 Value:  'true'
-                
+            useVBOs:
+                Type:   'string'
+                Value:  'true'                
             samples:
                 Type:   'DWORD'
-                Value:  '4'
-                
+                Value:  '4'                
+            useNormalBump:
+                Type:   'string'
+                Value:  'true'                
             turnOffOption:
                 Type:   'string'
                 Value:  'true'
-
+        SOFTWARE\CLO Network OnlineAuth\preference:
+            ShowScreenNavigation:
+                Type:   'string'
+                Value:  'false'   
         SOFTWARE\CLO Network OnlineAuth\preference\Etc:
             Unit:
                 Type:   'string'
-                Value:  'in'
-                
+                Value:  'in'                
             NotchDisplayType:
                 Type:   'string'
                 Value:  'true'
-
         SOFTWARE\CLO Network OnlineAuth\Login Info: # cached creds for app authentication
-        
+            saveIDCheck:
+                Type:   'string'
+                Value:  'true'
+            savePWDCheck:
+                Type:   'string'
+                Value:  'true'
+            saveID:
+                Type:   'string'
+                Value:  '%CLO3D_SAVED_ID%'
+            savePassword:
+                Type:   'string'
+                Value:  '%CLO3D_SAVED_PW%'    
             autoDeactivateLicense:
                 Type:   'string'
-                Value:  'true'
-                
+                Value:  'true'                
             isLogin:
                 Type:   'String'
-                Value:  'true'
-              
+                Value:  'true'                
+            saveProxyInfo:
+                Type:   'string'
+                Value:  'false'              
             successfulDNS:
                 Type:   'string'
-                Value:  'api.clo3d.com'
-                
+                Value:  'api.clo3d.com'                
             UseFirewall:
                 Type:   'string'
-                Value:  'false'
-                
+                Value:  'false'                
             UseOfflineAuth:
                 Type:   'string'
                 Value:  'false'
