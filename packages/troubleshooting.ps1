@@ -121,11 +121,11 @@ Function version($package, $branch){
     $config
     $version = ($config | ConvertFrom-Yaml).version
 
-    troubleshoot $package $branch $version
+    install $package $branch $version
 
 }
 
-Function troubleshoot($package, $branch, $version) {
+Function install($package, $branch, $version) {
 
     # Download and extract locations on test machine
     $output = "$env:USERPROFILE\Desktop\$package.$version.nupkg"
@@ -143,6 +143,12 @@ Function troubleshoot($package, $branch, $version) {
     If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install -y $output --force --debug --cache-location=C:\Temp"}
     Else{Invoke-Expression "choco.exe install -y $output --force --debug --cache-location="}
 
+    troubleshoot $package $branch $version
+
+}
+
+Function troubleshoot($package, $branch, $version){
+
     Do{$ans = Read-Host "Extract and troubleshoot $package.$version ?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
 
     If ($ans.ToLower() -eq "y"){
@@ -151,18 +157,8 @@ Function troubleshoot($package, $branch, $version) {
         
         pause
 
-        Do{$ans = Read-Host "Test $package.$version ?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
-
-        If ($ans.ToLower() -eq "y"){
-            Invoke-Expression "$extract\tools\chocolateyinstall.ps1 -Mode T -S3 $s3 -App $package" 
-        }
-        Else {
-            Do{$ans = Read-Host "Test another application?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
-
-            If ($ans.ToLower() -eq "y"){branches}
-            Else {Write-host "Happy testing!!" -ForegroundColor Green; exit 0}
-        }
-    }
+        test $package $branch $version
+    } 
     Else {
         Do{$ans = Read-Host "Test another application?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
 
@@ -170,6 +166,23 @@ Function troubleshoot($package, $branch, $version) {
         Else {Write-host "Happy testing!!" -ForegroundColor Green; exit 0}
     }
 
+}
+
+Function test($package, $branch, $version){
+
+    Do{$ans = Read-Host "Test $package.$version ?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
+
+    If ($ans.ToLower() -eq "y"){
+        Invoke-Expression "$extract\tools\chocolateyinstall.ps1 -Mode T -S3 $s3 -App $package"
+
+        troubleshoot $package $branch $version
+    }
+    Else {
+        Do{$ans = Read-Host "Test another application?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
+
+        If ($ans.ToLower() -eq "y"){branches}
+        Else {Write-host "Happy testing!!" -ForegroundColor Green; exit 0}
+    }
 }
 
 If ($package -and $branch){version $package $branch}
