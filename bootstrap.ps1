@@ -151,4 +151,11 @@ If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $t
 Else {
     $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/packages/troubleshooting.ps1"
     Start-BitsTransfer -Source $URI -Destination "$env:PUBLIC\Desktop\troubleshooting.ps1"
+    
+    # Create executable shortcut
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("$env:public\desktop\troubleshooting.lnk")
+    $Shortcut.TargetPath = "powershell.exe"
+    $Shortcut.Arguments =  "-Command `"& $env:public\desktop\troubleshooting.ps1`""
+    $Shortcut.Save()
 }
