@@ -64,7 +64,7 @@ catch{
 
 # Must run in Administrator Mode
 Write-Host "Checking admin mode..." -ForegroundColor Yellow
-If ([bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") -ne $true){Write-Host "Please run app tests in Administrative mode" -ForegroundColor Red;exit 1}
+If ([bool](([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544") -ne $true){Write-Host "App troubleshooting must be 'Run as administrator'" -ForegroundColor Red;pause;exit 1}
 Write-Host "Installing pre-reqs..." -ForegroundColor Yellow
 # Download and install Chocolatey
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -74,7 +74,7 @@ $env:Path += "$env:ALLUSERSPROFILE\chocolatey\bin"
 # Upgrade chocolatey to latest version
 Invoke-Expression "choco.exe upgrade -y chocolatey"
 # Install git, notepad++ and 7-zip
-Invoke-Expression "choco.exe install -y git notepadplusplus 7zip"
+Invoke-Expression "choco.exe install -y git notepadplusplus 7zip nuget.commandline"
 # Install required powershell modules
 If ((Get-Module powershell-yaml, pssqlite).Count -eq 2){Write-Host "Powershell modules already installed" -ForegroundColor Green}
 Else {Install-PackageProvider -Name nuget -MinimumVersion 2.8.5.201 -Force;Install-Module powershell-yaml -Force; Install-Module pssqlite -Force; Import-Module powershell-yaml -Force; Import-Module pssqlite -Force}
@@ -121,15 +121,16 @@ Function version($package, $branch){
     $config
     $version = ($config | ConvertFrom-Yaml).version
 
-    troubleshoot $package $branch $version
+    install $package $branch $version
 
 }
 
-Function troubleshoot($package, $branch, $version) {
+Function install($package, $branch, $version) {
 
     # Download and extract locations on test machine
     $output = "$env:USERPROFILE\Desktop\$package.$version.nupkg"
     $extract = "$env:USERPROFILE\Desktop\$package.$version"
+    $packageExtract = "$env:USERPROFILE\Desktop"
 
     # Always download latest version
     try{
@@ -142,26 +143,22 @@ Function troubleshoot($package, $branch, $version) {
     If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install -y $output --force --debug --cache-location=C:\Temp"}
     Else{Invoke-Expression "choco.exe install -y $output --force --debug --cache-location="}
 
+    troubleshoot $package $branch $version
+
+}
+
+Function troubleshoot($package, $branch, $version){
+
     Do{$ans = Read-Host "Extract and troubleshoot $package.$version ?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
 
     If ($ans.ToLower() -eq "y"){
-        Invoke-Expression "7z e $output -y -o$extract -r"
+        Invoke-Expression "nuget install $package -Source $packageExtract\ -OutputDirectory $packageExtract"
         Write-Host "Files extracted to $extract, edit config.yml and others as needed" -ForegroundColor Yellow
         
         pause
 
-        Do{$ans = Read-Host "Test $package.$version ?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
-
-        If ($ans.ToLower() -eq "y"){
-            Invoke-Expression "$extract\chocolateyinstall.ps1 -Mode T -S3 $s3 -App $package" 
-        }
-        Else {
-            Do{$ans = Read-Host "Test another application?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
-
-            If ($ans.ToLower() -eq "y"){branches}
-            Else {Write-host "Happy testing!!" -ForegroundColor Green; exit 0}
-        }
-    }
+        test $package $branch $version
+    } 
     Else {
         Do{$ans = Read-Host "Test another application?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
 
@@ -169,6 +166,23 @@ Function troubleshoot($package, $branch, $version) {
         Else {Write-host "Happy testing!!" -ForegroundColor Green; exit 0}
     }
 
+}
+
+Function test($package, $branch, $version){
+
+    Do{$ans = Read-Host "Test $package.$version ?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
+
+    If ($ans.ToLower() -eq "y"){
+        Invoke-Expression "$extract\tools\chocolateyinstall.ps1 -Mode T -S3 $s3 -App $package"
+
+        troubleshoot $package $branch $version
+    }
+    Else {
+        Do{$ans = Read-Host "Test another application?"}Until(($ans.ToLower() -eq "y") -or ($ans.ToLower() -eq "n"))
+
+        If ($ans.ToLower() -eq "y"){branches}
+        Else {Write-host "Happy testing!!" -ForegroundColor Green; exit 0}
+    }
 }
 
 If ($package -and $branch){version $package $branch}

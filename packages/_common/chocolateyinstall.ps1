@@ -523,7 +523,7 @@ Function Troubleshoot($CHOCO_BUCKET, $App) {
             # Search chocolatey directories for specified app
             #$paths = "$env:ALLUSERSPROFILE\chocolatey\lib", "$env:ALLUSERSPROFILE\chocolatey\lib-bad"
             $paths = "$env:USERPROFILE\Desktop"
-            $paths | % {If (Test-Path "$_\*$App.*"){$TOOLS_DIR = (gci "$_\*$App.*" -Directory).FullName}}
+            $paths | % {If (Test-Path "$_\*$App.*"){$TOOLS_DIR = (gci "$_\*$App.*\tools" -Directory).FullName}}
             
             # Choose app from the list
             If (!($TOOLS_DIR)){
@@ -545,7 +545,7 @@ Function Troubleshoot($CHOCO_BUCKET, $App) {
         Catch {write-host "config.yml missing from $TOOLS_DIR"}
         
         # Check if the app has already been downloaded and extracted
-        If (Test-Path $(Join-Path "$env:USERPROFILE\Desktop" "$($CONFIG.ID).$($CONFIG.Version)")){$INSTALL_DIR = $(Join-Path "$env:USERPROFILE\Desktop" "$($CONFIG.ID).$($CONFIG.Version)")}
+        If (Test-Path $(Join-Path "$env:USERPROFILE\Desktop" "$($CONFIG.ID).$($CONFIG.Version)")){$INSTALL_DIR = $(Join-Path "$env:USERPROFILE\Desktop" "$($CONFIG.ID).$($CONFIG.Version)\tools\installer")}
         ElseIf (Test-Path $(Join-Path "$env:windir\Temp\chocolatey" $CONFIG.ID)){$INSTALL_DIR = $(Join-Path "$env:windir\Temp\chocolatey" $CONFIG.ID)}
         Else {$INSTALL_DIR =  Join-Path $Env:TEMP $CONFIG.Id}
 
