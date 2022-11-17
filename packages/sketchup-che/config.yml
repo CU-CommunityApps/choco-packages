@@ -27,8 +27,10 @@ Files:                                                                  ## File 
     '%INSTALL_DIR%\PrivatePreferences.json': '%SYSTEMDRIVE%\Users\Default\AppData\Local\SketchUp\SketchUp 2022\Sketchup\PrivatePreferences.json'
 
 Registry:               ## Registry values to be copied to each streaming instance
-  
-HKLM:
+
+Registry:
+
+    HKLM:
         Software\Enscape:
             LicenseKey:
                 Type:   'String'
