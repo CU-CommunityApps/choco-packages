@@ -26,8 +26,6 @@ Files:                                                                  ## File 
     '%INSTALL_DIR%\SketchUp': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\SketchUp'
     '%INSTALL_DIR%\PrivatePreferences.json': '%SYSTEMDRIVE%\Users\Default\AppData\Local\SketchUp\SketchUp 2022\Sketchup\PrivatePreferences.json'
 
-Registry:               ## Registry values to be copied to each streaming instance
-
 Registry:
 
     HKLM:
