@@ -7,6 +7,11 @@ Install:                                    ## If there are installation files i
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '/silent'        ## Silent installation switches/parmeters
     ExitCodes:  [0]     ## Leave blank '' if no parameters to pass
+    
+   - File:       '%INSTALL_DIR%\Enscape-3.4.0+84039.msi'
+    FileType:   'msi'
+    Arguments:  '/quiet ACCEPTEULA=1 SKIPREQUIREMENTS=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" INSTALLLEVEL=0 ADDLOCAL=Enscape,Rhino'
+    ExitCodes:  [0]
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     sketchup:                                                      ## This must match the icons.png file name
@@ -20,3 +25,11 @@ Files:                                                                  ## File 
     '%INSTALL_DIR%\activation_info.txt': '%ALLUSERSPROFILE%\SketchUp\SketchUp 2022\activation_info.txt'
     '%INSTALL_DIR%\SketchUp': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\SketchUp'
     '%INSTALL_DIR%\PrivatePreferences.json': '%SYSTEMDRIVE%\Users\Default\AppData\Local\SketchUp\SketchUp 2022\Sketchup\PrivatePreferences.json'
+
+Registry:               ## Registry values to be copied to each streaming instance
+  
+HKLM:
+        Software\Enscape:
+            LicenseKey:
+                Type:   'String'
+                Value:  '%LicenseKey%'
