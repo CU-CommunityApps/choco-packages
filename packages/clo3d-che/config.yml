@@ -2,19 +2,19 @@ Id:             'clo3d-che'
 Description:    'CLO3d'
 Version:        '7.0.516.40998'
 
-Applications:
-    clo3d:
-        DisplayName:    'CLO3d'
-        Path:           '%PROGRAMFILES%\CLO3d\CLO_Network_OnlineAuth_x64.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
-        
 Install:
   - File:      '%INSTALL_DIR%\CLO_Network_OnlineAuth_7_0_516_Installer_x64.exe'
     FileType:  'exe'
     Arguments: '/S'
     ExitCodes: [0]
 
+Applications:
+    clo3d:
+        DisplayName:    'CLO3d'
+        Path:           '%PROGRAMFILES%\CLO Network OnlineAuth\CLO_Network_OnlineAuth_x64.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
 Registry:
     HKUD:
         SOFTWARE\CLO Network OnlineAuth\WelcomeNotice:
