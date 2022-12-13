@@ -1,0 +1,10 @@
+Id:             'arcgispro-aap'
+Description:    'arcgispro - buildtest2'
+Version:        '2.8.29751'
+
+Applications:
+    arcgispro:
+        DisplayName:    'ArcGIS Pro'
+        Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
+        LaunchParams:   'https://www.arcgis.com/index.html'
+        WorkDir:        ''
