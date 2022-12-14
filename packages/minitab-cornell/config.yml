@@ -1,0 +1,10 @@
+Id:             'minitab-cornell'
+Description:    'minitab-cornell - buildtesta4'
+Version:        '20.3.0.0'
+
+Applications:
+    minitab:
+        DisplayName:    'Minitab 20'
+        Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
+        LaunchParams:   'https://app.minitab.com/'
+        WorkDir:        ''
