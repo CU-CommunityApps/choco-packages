@@ -7,18 +7,12 @@ ChocoPackages:
     InstallParams:  ''
     
 Applications:
-    Chrome:
-        DisplayName:    'Google Chrome'
-        Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
-        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
-        WorkDir:        ''
-        
     minitab:
         DisplayName:    'Minitab 20'
         Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
         LaunchParams:   'https://app.minitab.com/'
         WorkDir:        ''
-        
+    
 Registry:
     HKLM: 
         Software\Policies\Google\Chrome:
