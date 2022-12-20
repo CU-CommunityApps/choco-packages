@@ -34,30 +34,110 @@ Applications:
         Path:           '%PROGRAMFILES%\ArcGIS\Pro\bin\ArcGISPro.exe'
         LaunchParams:   ''
         WorkDir:        ''
-        
-    ##arcgisproauth:
-        #DisplayName:    'ArcGIS Pro Duo Auth'
-        #Path:           '%PROGRAMFILESX86%\Internet Explorer\iexplore.exe'
-        #LaunchParams:   'https://cugis.maps.arcgis.com/sharing/rest/oauth2/authorize?client_id=arcgisonline&display=default&response_type=token&state=%7B%22useLandingPage%22%3Atrue%7D&expiration=20160&locale=en-us&redirect_uri=https%3A%2F%2Fccegeomaps.maps.arcgis.com%2Fhome%2Faccountswitcher-callback.html&force_login=true&showSignupOption=true'
-        #WorkDir:        ''
 
 Registry:
     HKUD:
         Software\ESRI\ArcGIS Online For Pro\Portals:
             URL0:
                 Type:   'String'
-                Value:  'https://cugis.maps.arcgis.com'
+                Value:  'https://www.arcgis.com'
                 
         Software\ESRI\ArcGIS Online For Pro\SignIn:
             HomeServerURIFile:
                 Type:   'String'
-                Value:  'https://cugis.maps.arcgis.com'
+                Value:  'https://www.arcgis.com'
+            
+            ConfigLicense:
+                Type:   'DWORD'
+                Value:  '0'  
                 
-        Software\ESRI\ArcGIS Online For Pro\SignIn\cugis.maps.arcgis.com:
+            AuthorizationPortal:
+                Type:   'String'
+                Value:  'https://www.arcgis.com'   
+                
+            LicenseWarning:
+                Type:   'DWORD'
+                Value:  '0'   
+                
+        Software\ESRI\ArcGIS Online For Pro\SignIn\www.arcgis.com:
             Authentication:
                 Type:   'DWORD'
                 Value:  '0'
+
+            AutoSign:
+                Type:   'DWORD'
+                Value:  '1'
                 
+            Hosted Services Supported:
+                Type:   'DWORD'
+                Value:  '1'
+
             IsPortal:
                 Type:   'DWORD'
-                Value:  '1'                
+                Value:  '0' 
+                
+            Organization:
+                Type:   'String'
+                Value:  'Cornell University'
+                
+            PortalDeploymentType:
+                Type:   'DWORD'
+                Value:  '0'
+                
+            Supports OAuth:
+                Type:   'DWORD'
+                Value:  '1'
+                
+            UseSSL:
+                Type:   'DWORD'
+                Value:  '1'
+                
+        Software\ESRI\ArcGISPro\Licensing:
+            ARCPRO_AUTH_TYPE:
+                Type:   'String'
+                Value:  'STANDARD'
+
+            ARCPROWORKOFFLINE:
+                Type:   'String'
+                Value:  'FALSE' 
+                
+            DESKTOP_CONFIG:
+                Type:   'String'
+                Value:  'TRUE'
+                
+            FlexNetService:
+                Type:   'String'
+                Value:  'FALSE'
+                
+            LICENSE_SERVER:
+                Type:   'String'
+                Value:  '@Not_set'
+                
+            LICENSE_SERVER_PRO_ON_PREMISES:
+                Type:   'String'
+                Value:  'none'
+            
+            SingleUse_Installed:
+                Type:   'String'
+                Value:  'Professional' 
+                
+            SOFTWARE_CLASS:
+                Type:   'String'
+                Value:  'Professional' 
+                
+            SOFTWARE_CLASS_FN:
+                Type:   'String'
+                Value:  'Professional' 
+                
+            SOFTWARE_TYPE:
+                Type:   'String'
+                Value:  'ArcPro' 
+                
+            TIMEOUTWARNING:
+                Type:   'String'
+                Value:  'TRUE'
+                
+        Software\ESRI\ArcGISPro\Licensing:                
+            UserConfigMovedToRoaming:
+                Type:   'DWORD'
+                Value:  '1' 
