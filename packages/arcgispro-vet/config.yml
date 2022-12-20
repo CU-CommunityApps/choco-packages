@@ -53,7 +53,7 @@ Registry:
                 Type:   'String'
                 Value:  'https://cugis.maps.arcgis.com'
                 
-        Software\ESRI\ArcGIS Online For Pro\SignIn\ccegeomaps.maps.arcgis.com:
+        Software\ESRI\ArcGIS Online For Pro\SignIn\cugis.maps.arcgis.com:
             Authentication:
                 Type:   'DWORD'
                 Value:  '0'
