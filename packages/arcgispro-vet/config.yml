@@ -137,7 +137,3 @@ Registry:
                 Type:   'String'
                 Value:  'TRUE'
                 
-        Software\ESRI\ArcGISPro\Licensing:                
-            UserConfigMovedToRoaming:
-                Type:   'DWORD'
-                Value:  '1' 
