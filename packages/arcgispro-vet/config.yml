@@ -42,10 +42,14 @@ Registry:
                 Type:   'String'
                 Value:  'https://www.arcgis.com'
                 
+            URL1:
+                Type:   'String'
+                Value:  'https://cugis.maps.arcgis.com'    
+                
         Software\ESRI\ArcGIS Online For Pro\SignIn:
             HomeServerURIFile:
                 Type:   'String'
-                Value:  'https://www.arcgis.com'
+                Value:  'https://cugis.maps.arcgis.com'
             
             ConfigLicense:
                 Type:   'DWORD'
