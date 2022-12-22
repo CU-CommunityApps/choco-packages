@@ -1,6 +1,6 @@
 Id:             'minitab-ciser'
 Description:    'minitab-ciser - buildtesta4'
-Version:        '20.3.0.0'
+Version:        '21.2.0.0'
 
 Install:
     File:       '%INSTALL_DIR%\minitab21.2.0.0setup.x64.exe'
@@ -10,8 +10,8 @@ Install:
 
 Applications:
     minitab:
-        DisplayName:    'Minitab 20'
-        Path:           '%PROGRAMFILES%\Minitab\Minitab 20\Mtb.exe'
+        DisplayName:    'Minitab 21'
+        Path:           '%PROGRAMFILES%\Minitab\Minitab 21\Mtb.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
