@@ -5,7 +5,7 @@ Version:        '21.2.0.0'
 Install:
     File:       '%INSTALL_DIR%\minitab21.2.0.0setup.x64.exe'
     FileType:   'exe'
-    Arguments:  '/exenoui /exelang 1033 /qn ACCEPT_EULA=1 DISABLE_ANALYTICS=1 DISABLE_UPDATES=1'
+    Arguments:  '/exenoui /exelang 1033 /qn /l*v c:\install.log ACCEPT_EULA=1 LICENSE_PORTAL=1 DISABLE_UPDATES=1'
     ExitCodes:  [0]
 
 Applications:
