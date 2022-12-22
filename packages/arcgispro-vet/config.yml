@@ -40,7 +40,7 @@ Registry:
         Software\ESRI\ArcGIS Online For Pro\Portals:
             URL0:
                 Type:   'String'
-                Value:  'https://www.arcgis.com'
+                Value:  'https://cugis.maps.arcgis.com'
                 
             URL1:
                 Type:   'String'
@@ -57,13 +57,13 @@ Registry:
                 
             AuthorizationPortal:
                 Type:   'String'
-                Value:  'https://www.arcgis.com'   
+                Value:  'https://cugis.maps.arcgis.com'   
                 
             LicenseWarning:
                 Type:   'DWORD'
                 Value:  '0'   
                 
-        Software\ESRI\ArcGIS Online For Pro\SignIn\www.arcgis.com:
+        Software\ESRI\ArcGIS Online For Pro\SignIn\cugis.maps.arcgis.com:
             Authentication:
                 Type:   'DWORD'
                 Value:  '0'
