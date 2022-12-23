@@ -40,7 +40,7 @@ Registry:
         Software\ESRI\ArcGIS Online For Pro\Portals:
             URL0:
                 Type:   'String'
-                Value:  'https://cugis.maps.arcgis.com'
+                Value:  'https://www.arcgis.com'
                 
             URL1:
                 Type:   'String'
@@ -67,11 +67,7 @@ Registry:
             Authentication:
                 Type:   'DWORD'
                 Value:  '0'
-
-            AutoSign:
-                Type:   'DWORD'
-                Value:  '1'
-                
+              
             Hosted Services Supported:
                 Type:   'DWORD'
                 Value:  '1'
@@ -91,11 +87,7 @@ Registry:
             Supports OAuth:
                 Type:   'DWORD'
                 Value:  '1'
-                
-            UseSSL:
-                Type:   'DWORD'
-                Value:  '1'
-                
+                        
         Software\ESRI\ArcGISPro\Licensing:
             ARCPRO_AUTH_TYPE:
                 Type:   'String'
@@ -141,3 +133,6 @@ Registry:
                 Type:   'String'
                 Value:  'TRUE'
                 
+        Software\ESRI\ArcGISPro\Settings:        
+                Type:   'DWORD'
+                Value:  '1'
