@@ -21,7 +21,7 @@ Registry:
         SOFTWARE\Minitab\Minitab21:
             DisableAnalytics:
                 Type:   'DWORD'
-                Value:  '0'
+                Value:  '1'
                 
         SOFTWARE\Minitab\Minitab21\Impl:
             DisableUpdates:
