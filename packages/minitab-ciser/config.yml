@@ -1,5 +1,5 @@
 Id:             'minitab-ciser'
-Description:    'minitab-ciser - buildtesta4'
+Description:    'minitab-ciser - buildtest1'
 Version:        '21.2.0.0'
 
 Install:
@@ -14,6 +14,3 @@ Applications:
         Path:           '%PROGRAMFILES%\Minitab\Minitab 21\Mtb.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files:
-    '%INSTALL_DIR%\License.ini' : '%SYSTEMDRIVE%\programdata\minitab'
