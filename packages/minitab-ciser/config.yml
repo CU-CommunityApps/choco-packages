@@ -14,3 +14,20 @@ Applications:
         Path:           '%PROGRAMFILES%\Minitab\Minitab 21\Mtb.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Registry:
+
+    HKLM:
+        SOFTWARE\Minitab\Minitab21:
+            DisableAnalytics:
+                Type:   'DWORD'
+                Value:  '0'
+                
+        SOFTWARE\Minitab\Minitab21\Impl:
+            DisableUpdates:
+                Type:   'String'
+                Value:  '1'
+                
+            UpdatesDisabled:
+                Type:   'String'
+                Value:  '1'
