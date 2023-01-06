@@ -1,9 +1,9 @@
 Id:             'clo3d-che'
 Description:    'CLO3d'
-Version:        '7.0.528'
+Version:        '7.1.194'
 
 Install:
-  - File:      '%INSTALL_DIR%\CLO_Network_OnlineAuth_7_0_528_Installer_x64.exe'
+  - File:      '%INSTALL_DIR%\CLO_Network_OnlineAuth_7_1_194_Installer_x64.exe'
     FileType:  'exe'
     Arguments: '/S'
     ExitCodes: [0]
