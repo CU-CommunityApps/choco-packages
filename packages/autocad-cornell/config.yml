@@ -22,7 +22,9 @@ Files:
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
-
+    'INSTALL_DIR%\LA 4100 PEN TABLE.ctb': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2023\R24.2\enu\Template'
+    'INSTALL_DIR%\LA4100_5100.dwt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2023\R24.2\enu\Plotters\Plot Styles'
+    
 Registry:
     HKUD:
         SOFTWARE\Autodesk\MC3:
