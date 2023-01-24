@@ -22,8 +22,8 @@ Files:
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
-    '%INSTALL_DIR%\LA_4100_PEN_TABLE.ctb': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2023\R24.2\enu\Template\LA_4100_PEN_TABLE.ctb'
-    '%INSTALL_DIR%\LA4100_5100.dwt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2023\R24.2\enu\Plotters\Plot Styles\LA4100_5100.dwt'
+    '%INSTALL_DIR%\LA_4100_PEN_TABLE.ctb': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2023\R24.2\enu\Plotters\Plot Styles\LA_4100_PEN_TABLE.ctb'
+    '%INSTALL_DIR%\LA4100_5100.dwt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2023\R24.2\enu\Templates\LA4100_5100.dwt'
     
 Registry:
     HKUD:
