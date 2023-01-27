@@ -16,3 +16,13 @@ Get-AppxPackage -AllUsers *AdobeNotificationClient* | Remove-AppxPackage -AllUse
 # Copy missing Photoshop 2022 settings and libraries
 # $path = "$env:SYSTEMDRIVE\Users\Default\AppData\Roaming\Adobe\Adobe Photoshop 2022\Adobe Photoshop 2022 Settings\"
 # cp "$TOOLS_DIR\Adobe Photoshop 2022 Settings" $path -Recurse
+
+# Install custom fonts
+$SourceDir   = "$PSScriptRoot\Fonts\"
+$Destination = (New-Object -ComObject Shell.Application).Namespace(0x14)
+
+foreach ($FontItem in (Get-ChildItem -Path $SourceDir -Include '*.ttf','*.ttc','*.otf' -Recurse))  {  
+    
+	# Install each font in the Fonts folder in Tools Dir
+	$Destination.CopyHere($FontItem.FullName,0x10)
+}
