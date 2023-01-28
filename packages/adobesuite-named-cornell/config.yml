@@ -49,9 +49,9 @@ Files:
     '%TOOLS_DIR%\Adobe After Effects 22.6 Prefs.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\22.6\Adobe After Effects 22.6 Prefs.txt'
     #'%TOOLS_DIR%\Adobe Photoshop 2022 Prefs.psp': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Photoshop 2022\Adobe Photoshop 2022 Settings\Adobe Photoshop 2022 Prefs.psp'
 
-Scripts:
-    start:
-        System: '%TOOLS_DIR%\fonts.ps1' # Runs at system startup
+# Scripts:
+#     start:
+#         System: '%TOOLS_DIR%\fonts.ps1' # Runs at system startup
         
 Registry:
     HKUD:
