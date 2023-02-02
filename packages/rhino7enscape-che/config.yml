@@ -1,4 +1,4 @@
-Id:             'rhino7enscape-che'
+Id:             'rhi'
 Description:    'rhino7enscape-che5b'
 Version:        '7.20.22193.09001'
 
@@ -37,7 +37,7 @@ Applications:
 
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\Grasshopper': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Grasshopper'  ## Source directory to destination directory 
-
+    
 Services: 
     McNeelUpdate: 'Disabled'
 
