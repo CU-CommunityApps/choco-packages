@@ -37,7 +37,7 @@ Applications:
 
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\Grasshopper': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Grasshopper'  ## Source directory to destination directory 
-
+    
 Services: 
     McNeelUpdate: 'Disabled'
 
