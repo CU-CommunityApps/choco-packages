@@ -23,4 +23,5 @@ ForEach ($ver in $vers) {
 # Runs after the choco package is installed
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
-Start-Process "$INSTALL_DIR\panelingtools.cmd" -ArgumentList "/quiet /norestart" -wait
+#Installing Rhino Plugins for CHE
+Start-Process "$INSTALL_DIR\RhinoPlugins.cmd" -ArgumentList "/quiet /norestart" -wait
