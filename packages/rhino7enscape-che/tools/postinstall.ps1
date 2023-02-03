@@ -20,3 +20,7 @@ ForEach ($ver in $vers) {
     }
 
 }
+# Runs after the choco package is installed
+$INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
+
+Start-Process "$TOOLS_DIR\panelingtools.cmd" -ArgumentList "/quiet /norestart" -wait
