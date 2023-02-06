@@ -24,4 +24,7 @@ ForEach ($ver in $vers) {
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
 #Installing Rhino Plugins for CHE
-Start-Process "$INSTALL_DIR\RhinoPlugins.cmd" -ArgumentList "/quiet /norestart" -wait
+Start-Process "$INSTALL_DIR\panelingtools.cmd" -ArgumentList "/quiet /norestart" -wait
+
+#Installing Rhino Plugins for CHE
+Start-Process "$INSTALL_DIR\weaverbird.cmd" -ArgumentList "/quiet /norestart" -wait

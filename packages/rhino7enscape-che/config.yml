@@ -1,5 +1,5 @@
 Id:             'rhino7enscape-che'
-Description:    'rhino7enscape-che'
+Description:    'rhino7enscape-che2'
 Version:        '7.20.22193.09001'
 
 Install:
@@ -38,8 +38,8 @@ Applications:
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\Grasshopper': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Grasshopper'  ## Source directory to destination directory 
     '%INSTALL_DIR%\PanelingTools': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\PanelingTools'  ## Source directory to destination directory 
-    '%INSTALL_DIR%\Weaverbird': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\Weaverbird' 
-
+    '%INSTALL_DIR%\Weaverbird': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\McNeel\Rhinoceros\packages\7.0\Weaverbird'  ## Source directory to destination directory 
+    
 Services: 
     McNeelUpdate: 'Disabled'
 
