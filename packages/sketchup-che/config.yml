@@ -8,7 +8,7 @@ Install:                                    ## If there are installation files i
     Arguments:  '/silent'        ## Silent installation switches/parmeters
     ExitCodes:  [0]     ## Leave blank '' if no parameters to pass
     
-  - File:       '%INSTALL_DIR%\Enscape-3.4.2+89611.msi'
+  - File:       '%INSTALL_DIR%\Enscape-3.4.3+93121.msi'
     FileType:   'msi'
     Arguments:  '/quiet ACCEPTEULA=1 ALLUSERS=1 INSTALLLOCATION="c:\Program Files\Enscape" ADDLOCAL=Enscape,Rhino,Revit,SketchUp'
     ExitCodes:  [0]
