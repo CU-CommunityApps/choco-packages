@@ -22,6 +22,7 @@ $REBOOT_LOCK = "$env:ALLUSERSPROFILE\TEMP\REBOOT.lock"
 $OSVERSION = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
 
 Function G4dn{
+    Write-Output "G4 instance, downloading latest GRID driver"
     $choco_home="$env:ALLUSERSPROFILE\chocolatey"
 
     $Bucket = "ec2-windows-nvidia-drivers"
@@ -36,10 +37,11 @@ Function G4dn{
         }
     }
 
+    Write-Output "Installing GRID driver"
     $file = gci "$choco_home\lib\NVIDIA\latest" -Filter "*.exe"
     start-process "$choco_home\tools\7z.exe" -ArgumentList "x $($file.FullName) -o$($file.Directory)" -Wait
     start-process "$choco_home\lib\NVIDIA\latest\setup.exe" -ArgumentList "-s -n" -Wait
-
+    
     New-Item -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global" -Name GridLicensing
     New-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\GridLicensing" -Name "NvCplDisableManageLicensePage" -PropertyType "DWord" -Value "1"
 }
