@@ -145,18 +145,6 @@ if (-Not (Test-Path $BUILD_DIR)) {
 else {
     # No Path set for SYSTEM so move to BUILD_DIR
     Set-Location $BUILD_DIR
-
-    # Install Windows Defender if not installer
-    If (!((Get-WindowsFeature -Name Windows-Defender).Installed) -and $OSVERSION -match "2016"){
-        Write-Output "Installing Windows Defender"
-        
-        # Re-install Windows Defender
-        Install-WindowsFeature -Name Windows-Defender
-        
-        # Disable Windows Defender
-        Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" DisableAntiSpyware 1 -Force -ErrorAction SilentlyContinue
-        Remove-Item $REBOOT_LOCK -Force -ErrorAction SilentlyContinue
-    }
 }
 
 # Run ImageBuilder
