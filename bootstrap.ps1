@@ -43,11 +43,9 @@ Function G4dn{
     start-process "$choco_home\tools\7z.exe" -ArgumentList "x $($file.FullName) -o$($file.Directory)" -Wait
     start-process "$choco_home\lib\NVIDIA\latest\setup.exe" -ArgumentList "-s -n" -Wait
     
-#     # Disable NVidia Control Panel Service
-#     Set-Service -name NVDisplay.ContainerLocalSystem -StartupType Disabled
-    
     # Remove Windows App
-    Get-AppxPackage -allusers *NVIDIACorp.NVIDIAControlPanel* | Remove-AppxPackage
+    $package = Get-AppxProvisionedPackage -online | Where-Object {$_.displayName -match "NVIDIACorp.NVIDIAControlPanel"}
+    remove-AppxProvisionedPackage -online -packagename $package.PackageName
     
     New-Item -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global" -Name GridLicensing
     New-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\GridLicensing" -Name "NvCplDisableManageLicensePage" -PropertyType "DWord" -Value "1"
