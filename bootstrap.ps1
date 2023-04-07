@@ -21,6 +21,29 @@ $LONGPATH_KEY = "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
 $REBOOT_LOCK = "$env:ALLUSERSPROFILE\TEMP\REBOOT.lock"
 $OSVERSION = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
 
+Function G4dn{
+    $choco_home="$env:ALLUSERSPROFILE\chocolatey"
+
+    $Bucket = "ec2-windows-nvidia-drivers"
+    $KeyPrefix = "latest"
+    $LocalPath = "$choco_home\lib\NVIDIA"
+    $Objects = Get-S3Object -BucketName $Bucket -KeyPrefix $KeyPrefix -Region us-east-1
+    foreach ($Object in $Objects) {
+        $LocalFileName = $Object.Key
+        if ($LocalFileName -ne '' -and $Object.Size -ne 0) {
+            $LocalFilePath = Join-Path $LocalPath $LocalFileName
+            Copy-S3Object -BucketName $Bucket -Key $Object.Key -LocalFile $LocalFilePath -Region us-east-1
+        }
+    }
+
+    $file = gci "$choco_home\lib\NVIDIA\latest" -Filter "*.exe"
+    start-process "$choco_home\tools\7z.exe" -ArgumentList "x $($file.FullName) -o$($file.Directory)" -Wait
+    start-process "$choco_home\lib\NVIDIA\latest\setup.exe" -ArgumentList "-s -n" -Wait
+
+    New-Item -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global" -Name GridLicensing
+    New-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\GridLicensing" -Name "NvCplDisableManageLicensePage" -PropertyType "DWord" -Value "1"
+}
+
 if (-Not (Test-Path $BUILD_DIR)) {
 
     # Wait Five Minutes on First Run
@@ -75,9 +98,6 @@ if (-Not (Test-Path $BUILD_DIR)) {
     # Install Sysinterals
     Write-Output "Installing Sysinterals"
     Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y --ignore-checksums" -NoNewWindow -Wait
-    
-    # Uninstall Corrupt Windows Feature from AWS AMI
-    If($OSVERSION -match "2016"){Uninstall-WindowsFeature -Name Windows-Defender}
 
     # Parse EC2 Metadata
     $user_data_uri = "http://169.254.169.254/latest/user-data"
@@ -100,14 +120,6 @@ if (-Not (Test-Path $BUILD_DIR)) {
     # Set system level environment variable for manual processing
     If ($build_info.Manual.BOOL -eq $true){[System.Environment]::SetEnvironmentVariable("AoD_Manual", $true, 'Machine')}
     Else {[System.Environment]::SetEnvironmentVariable("AoD_Manual", $false, 'Machine')}
-
-#     # Download ImageBuild Package
-#     Write-Output "Downloading ImageBuilder Nupkg: $BUILD_PACKAGE_URI"
-#     (New-Object System.Net.WebClient).DownloadFile($BUILD_PACKAGE_URI, (Join-Path "$PACKAGE_DIR" "$BUILDER_PACKAGE.$BUILDER_VERSION.nupkg"))
-    
-#     # Install ImageBuilder
-#     Write-Output "Installing ImageBuilder Package"
-#     Start-Process -FilePath "choco.exe" -ArgumentList "install $BUILDER_PACKAGE -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
     
     # Remove Internet Explorer
     Write-Output "Uninstalling IE 11"
@@ -116,6 +128,9 @@ if (-Not (Test-Path $BUILD_DIR)) {
     # Install .NET 4.8
     Write-Output "Installing .NET 4.8"
     Start-Process -FilePath "choco.exe" -ArgumentList "install dotnetfx -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
+    
+    # Install GRID Driver for G4dn instance type
+    If ($image_id -match "Graphics-G4dn"){G4dn}
     
     # Make directory for image builder runner
     New-Item -Path "$env:ProgramFiles" -Name "ImageBuilder" -ItemType "directory"
