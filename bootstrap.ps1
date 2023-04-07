@@ -46,6 +46,8 @@ Function G4dn{
     # Remove Windows App
     $package = Get-AppxProvisionedPackage -online | Where-Object {$_.displayName -match "NVIDIACorp.NVIDIAControlPanel"}
     remove-AppxProvisionedPackage -online -packagename $package.PackageName
+    # This happens in streaming instance otherwise...
+    # https://www.vjonathan.com/post/dem-non-persistent-vdi-deployment-and-nvidia-control-panel-missing/
     
     New-Item -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global" -Name GridLicensing
     New-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\GridLicensing" -Name "NvCplDisableManageLicensePage" -PropertyType "DWord" -Value "1"
