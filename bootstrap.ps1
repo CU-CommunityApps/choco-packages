@@ -19,6 +19,7 @@ $BUILDER_STDERR_LOG = "$env:SystemDrive\builder-console-err.log"
 $SESSION_CONTENTS = Get-Content $SESSION_SCRIPTS | Out-String | ConvertFrom-Json
 $LONGPATH_KEY = "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
 $REBOOT_LOCK = "$env:ALLUSERSPROFILE\TEMP\REBOOT.lock"
+$DRIVER_LOCK = "$env:ALLUSERSPROFILE\TEMP\DRIVER.lock"
 $OSVERSION = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
 
 Function G4dn{
@@ -151,16 +152,18 @@ else {
 If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $true){
     Write-Output "Running ImageBuilder"
     & "$env:ProgramFiles\ImageBuilder\program.ps1"
-    #Start-Process -FilePath "PsExec.exe" -ArgumentList "-w $BUILD_DIR -i -s ImageBuilder.exe" -RedirectStandardOutput "$BUILDER_STDOUT_LOG" -RedirectStandardError "$BUILDER_STDERR_LOG" -NoNewWindow -Wait
 }
 Else {
-    $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/packages/troubleshooting.ps1"
-    Start-BitsTransfer -Source $URI -Destination "$env:PUBLIC\Desktop\troubleshooting.ps1"
+    If (!(test-path $DRIVER_LOCK)){New-Item -Path $DRIVER_LOCK -Force; Start-Process 'shutdown.exe' -ArgumentList '/r /f /t 0'}
+    Else{    
+        $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/packages/troubleshooting.ps1"
+        Start-BitsTransfer -Source $URI -Destination "$env:PUBLIC\Desktop\troubleshooting.ps1"
     
-    # Create executable shortcut
-    $WshShell = New-Object -comObject WScript.Shell
-    $Shortcut = $WshShell.CreateShortcut("$env:public\desktop\troubleshooting.lnk")
-    $Shortcut.TargetPath = "powershell.exe"
-    $Shortcut.Arguments =  "-Command `"& $env:public\desktop\troubleshooting.ps1`""
-    $Shortcut.Save()
+        # Create executable shortcut
+        $WshShell = New-Object -comObject WScript.Shell
+        $Shortcut = $WshShell.CreateShortcut("$env:public\desktop\troubleshooting.lnk")
+        $Shortcut.TargetPath = "powershell.exe"
+        $Shortcut.Arguments =  "-Command `"& $env:public\desktop\troubleshooting.ps1`""
+        $Shortcut.Save()
+    }
 }
