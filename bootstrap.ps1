@@ -53,7 +53,7 @@ Function G4dn{
     # Add login script for each user (session script) to register the missing Nvidia Control Panel UWP (Universal Windows Platform) app
     # DCH version only, but AWS doesn't seem to have the standard driver version available at this time.
     $nvidiaPackage = Get-AppxPackage -Name *nvidia*
-    "Add-AppxPackage -Register ‘$($nvidiaPackage.InstallLocation)\AppxManifest.xml’ -DisableDevelopmentMode" | Add-Content "$env:ALLUSERSPROFILE\SessionScripts\startupuser.ps1"
+    "Add-AppxPackage -Register '$($nvidiaPackage.InstallLocation)\AppxManifest.xml' -DisableDevelopmentMode" | Add-Content "$env:ALLUSERSPROFILE\SessionScripts\startupuser.ps1"
     
     New-Item -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global" -Name GridLicensing
     New-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\GridLicensing" -Name "NvCplDisableManageLicensePage" -PropertyType "DWord" -Value "1"
