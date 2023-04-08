@@ -43,11 +43,17 @@ Function G4dn{
     start-process "$choco_home\tools\7z.exe" -ArgumentList "x $($file.FullName) -o$($file.Directory)" -Wait
     start-process "$choco_home\lib\NVIDIA\latest\setup.exe" -ArgumentList "-s -n" -Wait
     
-    # Remove Windows App
-#     $package = Get-AppxProvisionedPackage -online | Where-Object {$_.displayName -match "NVIDIACorp.NVIDIAControlPanel"}
-#     remove-AppxProvisionedPackage -online -packagename $package.PackageName
-    # This happens in streaming instance otherwise...
+    # Remove Windows App - The pop up still occurs because of the nvidia control panel service which needs to run apparently...
+    # $package = Get-AppxProvisionedPackage -online | Where-Object {$_.displayName -match "NVIDIACorp.NVIDIAControlPanel"}
+    # remove-AppxProvisionedPackage -online -packagename $package.PackageName
+   
+    # This happens in streaming instance...
     # https://www.vjonathan.com/post/dem-non-persistent-vdi-deployment-and-nvidia-control-panel-missing/
+    
+    # Add login script for each user (session script) to register the missing Nvidia Control Panel UWP (Universal Windows Platform) app
+    # DCH version only, but AWS doesn't seem to have the standard driver version available at this time.
+    $nvidiaPackage = Get-AppxPackage -Name *nvidia*
+    "Add-AppxPackage -Register ‘$($nvidiaPackage.InstallLocation)\AppxManifest.xml’ -DisableDevelopmentMode" | Add-Content "$env:ALLUSERSPROFILE\SessionScripts\startupuser.ps1"
     
     New-Item -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global" -Name GridLicensing
     New-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\GridLicensing" -Name "NvCplDisableManageLicensePage" -PropertyType "DWord" -Value "1"
