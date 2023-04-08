@@ -44,8 +44,8 @@ Function G4dn{
     start-process "$choco_home\lib\NVIDIA\latest\setup.exe" -ArgumentList "-s -n" -Wait
     
     # Remove Windows App
-    $package = Get-AppxProvisionedPackage -online | Where-Object {$_.displayName -match "NVIDIACorp.NVIDIAControlPanel"}
-    remove-AppxProvisionedPackage -online -packagename $package.PackageName
+#     $package = Get-AppxProvisionedPackage -online | Where-Object {$_.displayName -match "NVIDIACorp.NVIDIAControlPanel"}
+#     remove-AppxProvisionedPackage -online -packagename $package.PackageName
     # This happens in streaming instance otherwise...
     # https://www.vjonathan.com/post/dem-non-persistent-vdi-deployment-and-nvidia-control-panel-missing/
     
