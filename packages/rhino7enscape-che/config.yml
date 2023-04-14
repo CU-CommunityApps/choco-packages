@@ -28,6 +28,11 @@ Install:
     Arguments:  '/passive'
     ExitCodes:  [0]
 
+  - File:       '%INSTALL_DIR%\urbanosetupv1400.msi'
+    FileType:   'msi'
+    Arguments:  '/passive'
+    ExitCodes:  [0]
+
 Applications:
     rhino7:
         DisplayName:    'Rhino'
