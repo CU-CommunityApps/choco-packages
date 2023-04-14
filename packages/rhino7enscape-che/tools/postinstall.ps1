@@ -28,3 +28,6 @@ Start-Process "$INSTALL_DIR\panelingtools.cmd" -ArgumentList "/quiet /norestart"
 
 #Installing Rhino Plugins for CHE
 Start-Process "$INSTALL_DIR\weaverbird.cmd" -ArgumentList "/quiet /norestart" -wait
+
+#Installing Rhino Plugins for CHE
+Start-Process "$INSTALL_DIR\weaverbird.cmd" -ArgumentList "/quiet /norestart" -wait

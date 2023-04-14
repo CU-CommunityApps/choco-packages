@@ -1,5 +1,5 @@
 Id:             'rhino7enscape-che'
-Description:    'rhino7enscape-che2'
+Description:    'rhino7enscape-che3'
 Version:        '7.20.22193.09001'
 
 Install:
@@ -24,6 +24,11 @@ Install:
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\fireflyinstaller1007064bit.msi'
+    FileType:   'msi'
+    Arguments:  '/passive'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\urbanosetupv1400.msi'
     FileType:   'msi'
     Arguments:  '/passive'
     ExitCodes:  [0]
