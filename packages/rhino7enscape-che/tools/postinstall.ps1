@@ -31,6 +31,3 @@ Start-Process "$INSTALL_DIR\weaverbird.cmd" -ArgumentList "/quiet /norestart" -w
 
 #Installing Rhino Plugins for CHE
 Start-Process "$INSTALL_DIR\weaverbird.cmd" -ArgumentList "/quiet /norestart" -wait
-
-#Installing Rhino Plugins for CHE
-msiexec.exe /i 'C:\Users\ImageBuilderAdmin\Desktop\urbanosetupv1400.msi' /passive
