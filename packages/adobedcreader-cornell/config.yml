@@ -1,6 +1,6 @@
 Id:             'adobedcreader-cornell'
 Description:    'adobedcreader-cornell a2'
-Version:        '2022.001.20142'
+Version:        '2023.001.20093.0'
 
 ChocoPackages:
   - PackageName:    'adobereader'
@@ -9,13 +9,13 @@ ChocoPackages:
 Applications:
     AdobeReaderDC:
         DisplayName:    'Adobe Reader DC'
-        Path:           '%PROGRAMFILES(x86)%\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
+        Path:           '%PROGRAMFILES%\Adobe\Acrobat DC\Acrobat\Acrobat.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Registry:
     HKUD:
-        SOFTWARE\Adobe\Acrobat Reader\DC\AVAlert\cCheckbox:
+        SOFTWARE\Adobe\Acrobat Acrobat\DC\AVAlert\cCheckbox:
             iAppDoNotTakePDFOwnershipAtLaunch:
                 Type:   'DWORD'
                 Value:  '1'
@@ -25,7 +25,7 @@ Registry:
                 Type:   'DWORD'
                 Value:  '0'
 
-        SOFTWARE\Adobe\Acrobat Reader\DC\FTEDialog:
+        SOFTWARE\Adobe\Acrobat Acrobat\DC\FTEDialog:
             bShowInstallFTE:
                 Type:   'DWORD'
                 Value:  '0'
