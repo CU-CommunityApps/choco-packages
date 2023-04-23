@@ -15,7 +15,7 @@ Applications:
 
 Registry:
     HKUD:
-        SOFTWARE\Adobe\Acrobat Acrobat\DC\AVAlert\cCheckbox:
+        SOFTWARE\Adobe\Adobe Acrobat\DC\AVAlert\cCheckbox:
             iAppDoNotTakePDFOwnershipAtLaunch:
                 Type:   'DWORD'
                 Value:  '1'
@@ -25,7 +25,7 @@ Registry:
                 Type:   'DWORD'
                 Value:  '0'
 
-        SOFTWARE\Adobe\Acrobat Acrobat\DC\FTEDialog:
+        SOFTWARE\Adobe\Adobe Acrobat\DC\FTEDialog:
             bShowInstallFTE:
                 Type:   'DWORD'
                 Value:  '0'
