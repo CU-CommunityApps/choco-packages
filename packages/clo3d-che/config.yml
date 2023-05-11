@@ -1,6 +1,6 @@
 Id:             'clo3d-che'
 Description:    'CLO3d'
-Version:        '7.1.306'
+Version:        '7.1.318'
 #comment added to retrigger pipeline x2
 Install:
   - File:      '%INSTALL_DIR%\CLO_Network_OnlineAuth_7_1_318_Installer_x64.exe'
