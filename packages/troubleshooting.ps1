@@ -140,8 +140,9 @@ Function install($package, $branch, $version) {
     catch{Write-Host "$package.$version has not been built yet or does not exist, commit to github and wait for successful build, then try again! Verify your IP address is within the approved range as well..." -ForegroundColor Red;branches}
 
     # Cache process to disk if file is greater than 2GB
-    If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install -y $output --force --debug --cache-location=C:\Temp"}
-    Else{Invoke-Expression "choco.exe install -y $output --force --debug --cache-location="}
+	choco install packageName --version="packageVersion" --source "directory"
+    If ((get-item $output).Length -gt 2gb){Invoke-Expression "choco.exe install $package --version=$version --source $packageExtract -y --force --debug --cache-location=C:\Temp"}
+    Else{Invoke-Expression "choco.exe install $package --version=$version --source $packageExtract -y --force --debug --cache-location="}
 
     troubleshoot $package $branch $version
 
