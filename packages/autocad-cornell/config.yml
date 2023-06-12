@@ -1,17 +1,17 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad 2023 - COECIS LICENSEa'
-Version:        '1.31.0.527'
+Description:    'AutoCad 2024 - COECIS LICENSEa'
+Version:        '1.40.0.24'
 
 Install:
     File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.30.0.517"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.40.0.24"'
     ExitCodes:  [0, 1641]
 
 Applications:
     autocad:
-        DisplayName:    'AutoCAD 2023'
-        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2023\acad.exe'
+        DisplayName:    'AutoCAD 2024'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2024\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
@@ -22,8 +22,8 @@ Files:
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
-    '%INSTALL_DIR%\LA_4100_PEN_TABLE.ctb': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2023\R24.2\enu\Plotters\Plot Styles\LA_4100_PEN_TABLE.ctb'
-    '%INSTALL_DIR%\LA4100_5100.dwt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2023\R24.2\enu\Template\LA4100_5100.dwt'
+    '%INSTALL_DIR%\LA_4100_PEN_TABLE.ctb': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2024\R24.2\enu\Plotters\Plot Styles\LA_4100_PEN_TABLE.ctb'
+    '%INSTALL_DIR%\LA4100_5100.dwt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\AutoCAD 2024\R24.2\enu\Template\LA4100_5100.dwt'
     
 Registry:
     HKUD:
