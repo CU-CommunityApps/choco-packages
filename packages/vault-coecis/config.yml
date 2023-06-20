@@ -1,17 +1,17 @@
 Id:             'vault-coecis'
-Description:    'Vault 2023 - COECIS'
-Version:        '1.31.0.546'
+Description:    'Vault 2024 - COECIS'
+Version:        '1.40.0.24'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.31.0.546"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.40.0.24"'
     ExitCodes:  [0,1641]
 
 Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
-        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2023\Explorer\Connectivity.VaultPro.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2024\Explorer\Connectivity.VaultPro.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
