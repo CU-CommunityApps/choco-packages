@@ -1,11 +1,11 @@
 Id:             'revit-cornell'
-Description:    'Revit 2023 - buildtest'
-Version:        '1.31.0.546'
+Description:    'Revit 2024 - buildtest'
+Version:        '1.40.0.3'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.31.0.546"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.40.0.3"'
     ExitCodes:  [0,3010]
     
   - File:       '%INSTALL_DIR%\RCAO.msi'
@@ -15,8 +15,8 @@ Install:
     
 Applications:
     revit:
-        DisplayName:    'Revit 2023'
-        Path:           '%PROGRAMFILES%\Autodesk\Revit 2023\Revit.exe'
+        DisplayName:    'Revit 2024'
+        Path:           '%PROGRAMFILES%\Autodesk\Revit 2024\Revit.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
