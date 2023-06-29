@@ -8,10 +8,10 @@ Install:
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.40.0.3"'
     ExitCodes:  [0,3010]
     
-  - File:       '%INSTALL_DIR%\RCAO.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]   
+#  - File:       '%INSTALL_DIR%\RCAO.msi'
+#    FileType:   'msi'
+#    Arguments:  '/quiet'
+#    ExitCodes:  [0]   
     
 Applications:
     revit:
