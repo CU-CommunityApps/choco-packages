@@ -11,7 +11,7 @@ Install:
 Applications:
     acrobat: 
         DisplayName:    'Adobe Acrobat 2023'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe DC\Acrobat\Acrobat.exe'
+        Path:           '%PROGRAMFILES%\Adobe\Acrobat DC\Acrobat\Acrobat.exe        
         LaunchParams:   ''
         WorkDir:        ''  
     
