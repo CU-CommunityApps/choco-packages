@@ -1,6 +1,6 @@
 Id:             'adobesuite-named-cornell'
-Description:    'Adobe Suite 2022'
-Version:        '26.0.2'
+Description:    'Adobe Suite 2023'
+Version:        '2.0.0.3'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
@@ -9,53 +9,49 @@ Install:
     ExitCodes:  [0]
 
 Applications:
+    acrobat: 
+        DisplayName:    'Adobe Acrobat 2023'
+        Path:           '%PROGRAMFILES%\Adobe\Acrobat DC\Acrobat\Acrobat.exe'        
+        LaunchParams:   ''
+        WorkDir:        ''  
+    
     illustrator: 
-        DisplayName:    'Adobe Illustrator 2022'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Illustrator 2022\Support Files\Contents\Windows\illustrator.exe'
+        DisplayName:    'Adobe Illustrator 2023'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Illustrator 2023\Support Files\Contents\Windows\illustrator.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     aftereffects: 
-        DisplayName:    'Adobe After Effects 2022'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects 2022\Support Files\AfterFX.exe'
+        DisplayName:    'Adobe After Effects 2023'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects 2023\Support Files\AfterFX.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     indesign: 
-        DisplayName:    'Adobe InDesign 2022'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign 2022\InDesign.exe'
+        DisplayName:    'Adobe InDesign 2023'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign 2023\InDesign.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     photoshop: 
-        DisplayName:    'Adobe Photoshop 2022'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop 2022\Photoshop.exe'
+        DisplayName:    'Adobe Photoshop 2023'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop 2023\Photoshop.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     premierepro: 
-        DisplayName:    'Adobe Premiere Pro 2022'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro 2022\Adobe Premiere Pro.exe'
+        DisplayName:    'Adobe Premiere Pro 2023'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro 2023\Adobe Premiere Pro.exe'
         LaunchParams:   ''
         WorkDir:        ''
               
 Files:
-    '%TOOLS_DIR%\Adobe Illustrator Prefs': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Illustrator 26 Settings\en_US\x64\Adobe Illustrator Prefs'
-    '%TOOLS_DIR%\InDesign Defaults': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\InDesign\Version 17.0\en_US\InDesign Defaults'
-    #'%TOOLS_DIR%\AI\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Illustrator\26.0.2\SCRPriorState'
-    '%TOOLS_DIR%\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\22.0\SCRPriorState.json'
-    #'%TOOLS_DIR%\PP\blocklist.en_US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\22.0\SystemCompatibilityReport\22.0\win\blocklist.en_US.json'
-    '%TOOLS_DIR%\SCRPriorState1.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\22.6\SCRPriorState.json'
-    '%TOOLS_DIR%\Adobe After Effects 22.6 Prefs.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\22.6\Adobe After Effects 22.6 Prefs.txt'
-    #'%TOOLS_DIR%\Adobe Photoshop 2022 Prefs.psp': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Photoshop 2022\Adobe Photoshop 2022 Settings\Adobe Photoshop 2022 Prefs.psp'
+    #'%TOOLS_DIR%\Adobe Illustrator Prefs': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Illustrator 26 Settings\en_US\x64\Adobe Illustrator Prefs'
+    #'%TOOLS_DIR%\InDesign Defaults': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\InDesign\Version 17.0\en_US\InDesign Defaults'
+    #'%TOOLS_DIR%\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\22.0\SCRPriorState.json'
+    #'%TOOLS_DIR%\SCRPriorState1.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\22.6\SCRPriorState.json'
+    #'%TOOLS_DIR%\Adobe After Effects 22.6 Prefs.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\22.6\Adobe After Effects 22.6 Prefs.txt'
 
 # Scripts:
 #     start:
 #         System: '%TOOLS_DIR%\fonts.ps1' # Runs at system startup
-        
-Registry:
-    HKUD:
-        Software\Microsoft\Windows\CurrentVersion\Internet Settings:
-            DisableCachingOfSSLPages:
-                Type:   'DWORD'
-                Value:  '0'
