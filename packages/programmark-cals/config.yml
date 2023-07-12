@@ -1,6 +1,6 @@
 Id:             'programmark-cals'                ## Application package name ie. chrome-cornell
 Description:    'Program Mark'    ## Application packages description
-Version:        '9.0'                     ## Application version number - MUST BE in #.# format
+Version:        '10.1'                     ## Application version number - MUST BE in #.# format
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     mark:                                                      ## This must match the icons.png file name
