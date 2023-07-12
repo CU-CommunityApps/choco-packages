@@ -1,9 +1,9 @@
 Id:             'googleearthpro-cornell'
 Description:    'googleearthpro-buildtest3'
-Version:        '7.3.3'      
+Version:        '7.3.6'      
 
 Install:
-    File:       '%INSTALL_DIR%\googleearthprowin-7.3.3-x64.exe'
+    File:       '%INSTALL_DIR%\googleearthprowin-7.3.6-x64.exe'
     FileType:   'exe'
     Arguments:  'OMAHA=1'
     ExitCodes:  [0]
