@@ -9,12 +9,6 @@ Install:
     ExitCodes:  [0]
 
 Applications:
-    acrobat: 
-        DisplayName:    'Adobe Acrobat 2023'
-        Path:           '%PROGRAMFILES%\Adobe\Acrobat DC\Acrobat\Acrobat.exe'        
-        LaunchParams:   ''
-        WorkDir:        ''  
-    
     illustrator: 
         DisplayName:    'Adobe Illustrator 2023'
         Path:           '%PROGRAMFILES%\Adobe\Adobe Illustrator 2023\Support Files\Contents\Windows\illustrator.exe'
