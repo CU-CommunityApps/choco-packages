@@ -9,6 +9,6 @@ ChocoPackages:                              ## Chocolatey packages installed str
 Applications:
     rstudio:
         DisplayName:    'RStudio'
-        Path:           '%PROGRAMFILES%\RStudio\bin\rstudio.exe'
+        Path:           '%PROGRAMFILES%\RStudio\rstudio.exe'
         LaunchParams:   ''
         WorkDir:        ''
