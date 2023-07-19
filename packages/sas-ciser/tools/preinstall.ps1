@@ -3,10 +3,10 @@
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
 cp "$PSScriptRoot\sdwresponse.properties" "$env:windir\temp\sdwresponse.properties" -Force
-cp "$INSTALL_DIR\sid_files\SAS94_9CQ1HY_70084773_Win_X64_Srv.txt" "$env:windir\temp\SAS94_9CQ1HY_70084773_Win_X64_Srv.txt" -Force
+cp "$INSTALL_DIR\sid_files\SAS94_9CVRPT_70084773_Win_X64_Srv.txt" "$env:windir\temp\SAS94_9CVRPT_70084773_Win_X64_Srv.txt" -Force
 <#
 :: --------------------------------------------------------------------------------
-:: This is a batch system requirements file created from order 9CGCYK at
+:: This is a batch system requirements file created from order 9CVRPT at
 :: 2022-06-14-15.36.01. The host was 128.84.193.98 and was running on a
 :: Windows Server 2019 64-bit machine.
 ::
