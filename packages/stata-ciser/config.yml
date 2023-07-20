@@ -17,5 +17,5 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES%\Stata17\STATA.LIC'
-    '%INSTALL_DIR%\profile.do': '%PROGRAMFILES%\Stata17\ado\base\profile.do'
+    '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES%\Stata18\STATA.LIC'
+    '%INSTALL_DIR%\profile.do': '%PROGRAMFILES%\Stata18\ado\base\profile.do'
