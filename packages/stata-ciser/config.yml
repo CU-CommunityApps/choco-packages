@@ -11,7 +11,7 @@ Install:
 
 Applications:
     stata:
-        DisplayName:    'Stata17'
+        DisplayName:    'Stata18'
         Path:           '%PROGRAMFILES%\Stata18\StataBE-64.exe'
         LaunchParams:   ''
         WorkDir:        ''
