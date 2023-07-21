@@ -1,6 +1,6 @@
-Id:             'ces-edupack-coecis'
-Description:    'CES Edupack 2022 - COECIS License2'
-Version:        '22.2.1.0'
+Id:             'grantaedupack-coecis'
+Description:    'Granta Edupack 2023 - COECIS'
+Version:        '23.2.1.0'
 
 Install:
   - File:       '%INSTALL_DIR%\packages\EduPack.msi'
