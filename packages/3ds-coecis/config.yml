@@ -1,5 +1,5 @@
 Id:             '3ds-coecis'
-Description:    '3ds-coecis - 2024'
+Description:    '3ds-coecis - 2024a'
 Version:        '1.40.0.3'
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
@@ -7,7 +7,7 @@ Install:
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.40.0.3"'
     ExitCodes:  [0,1638,1641,3010]
 
-  - File:       '%INSTALL_DIR%\vray_adv_60004_max2023_x64.exe'   ## Installation file
+  - File:       '%INSTALL_DIR%\vray_adv_61008_max2024_x64.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '-gui=0 -configFile="%INSTALL_DIR%\config.xml" -quiet=1 -auto'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success
