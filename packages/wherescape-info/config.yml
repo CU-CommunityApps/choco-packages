@@ -26,7 +26,7 @@ Registry:
         Software\WhereScape\MetaEditor\LicenseV7:
             Licensed_To:
                 Type:   'String'
-                Value:  'Cornell University Academic License Expires 31 DEC 2022'
+                Value:  'Cornell University Academic License Expires 31 DEC 2023'
 
             LicenseAgreementAccepted:
                 Type:   'DWORD'
