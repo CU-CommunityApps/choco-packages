@@ -16,6 +16,6 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\UserSettings': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v232\Discovery\UserSettings.xml'
+    '%INSTALL_DIR%\UserSettings.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v232\Discovery\UserSettings.xml'
     '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v232\commonfiles\CAD\CADConfigurationInfo.XML'
     '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
