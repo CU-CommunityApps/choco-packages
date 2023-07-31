@@ -24,3 +24,55 @@ Scripts:
     end:
         User:   '%TOOLS_DIR%\shutdown.ps1' # Runs at user logoff
         System: '%TOOLS_DIR%\shutdown.ps1' # Runs at system shutdown
+
+
+Registry:
+    HKUD:
+        Software\Tableau\Registration\Data:
+            company:
+                Type:   'String'
+                Value:  'Cornell'
+
+            company_employees:
+                Type:   'String'
+                Value:  '15000'
+
+            country:
+                Type:   'String'
+                Value:  'US'
+
+            department:
+                Type:   'String'
+                Value:  'IT'
+
+            email:
+                Type:   'String'
+                Value:  'jrc@cornell.edu'
+
+            first_name:
+                Type:   'String'
+                Value:  'Jeff'
+                
+            last_name:
+                Type:   'String'
+                Value:  'Christen'
+
+            phone:
+                Type:   'String'
+                Value:  '607-254-8866'
+            
+            state:
+                Type:   'String'
+                Value:  'NY'
+
+            title:
+                Type:   'String'
+                Value:  'IT Manager, Data Warehousing and Integrations'
+
+            registration_date:
+                Type: 'String'
+                Value: '07/31/2023 02:17:03.280 PM'
+
+            last_report_date:
+                Type: 'String'
+                Value: '07/31/2023 02:17:05.329 PM'
