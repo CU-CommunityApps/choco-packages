@@ -16,14 +16,14 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2022.2\bin\tableau.ps1' # Scheduled Task Script
+    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2022.2\bin\tableau.ps1' # Launch script for registration and activation - only runs for CORNELL domain users or PhotonUser
     
 Scripts:
     start:
-        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
+        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Enable ATR
     end:
-        User:   '%TOOLS_DIR%\shutdown.ps1' # Runs at user logoff
-        System: '%TOOLS_DIR%\shutdown.ps1' # Runs at system shutdown
+        User:   '%TOOLS_DIR%\shutdown.ps1' # Runs at user logoff - Disable ATR (release license)
+        System: '%TOOLS_DIR%\shutdown.ps1' # Runs at system shutdown - Disable ATR (release license)
 
 
 Registry:
