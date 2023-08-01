@@ -47,19 +47,19 @@ Registry:
 
             email:
                 Type:   'String'
-                Value:  'jrc@cornell.edu'
+                Value:  '$ENV:TABLEAU_EMAIL'
 
             first_name:
                 Type:   'String'
-                Value:  'Jeff'
+                Value:  '$ENV:TABLEAU_FIRST_NAME'
                 
             last_name:
                 Type:   'String'
-                Value:  'Christen'
+                Value:  '$ENV:TABLEAU_LAST_NAME'
 
             phone:
                 Type:   'String'
-                Value:  '607-254-8866'
+                Value:  '$ENV:TABLEAU_PHONE'
             
             state:
                 Type:   'String'
@@ -68,11 +68,3 @@ Registry:
             title:
                 Type:   'String'
                 Value:  'IT Manager, Data Warehousing and Integrations'
-
-            registration_date:
-                Type: 'String'
-                Value: '07/31/2023 02:17:03.280 PM'
-
-            last_report_date:
-                Type: 'String'
-                Value: '07/31/2023 02:17:05.329 PM'
