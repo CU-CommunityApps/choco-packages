@@ -67,4 +67,4 @@ Registry:
 
             title:
                 Type:   'String'
-                Value:  'IT Manager, Data Warehousing and Integrations'
+                Value:  '$ENV:TABLEAU_TITLE'
