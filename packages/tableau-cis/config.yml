@@ -47,19 +47,19 @@ Registry:
 
             email:
                 Type:   'String'
-                Value:  '$ENV:TABLEAU_EMAIL'
+                Value:  '%TABLEAU_EMAIL%'
 
             first_name:
                 Type:   'String'
-                Value:  '$ENV:TABLEAU_FIRST_NAME'
+                Value:  '%TABLEAU_FIRST_NAME%'
                 
             last_name:
                 Type:   'String'
-                Value:  '$ENV:TABLEAU_LAST_NAME'
+                Value:  '%TABLEAU_LAST_NAME%'
 
             phone:
                 Type:   'String'
-                Value:  '$ENV:TABLEAU_PHONE'
+                Value:  '%TABLEAU_PHONE%'
             
             state:
                 Type:   'String'
@@ -67,4 +67,4 @@ Registry:
 
             title:
                 Type:   'String'
-                Value:  '$ENV:TABLEAU_TITLE'
+                Value:  '%TABLEAU_TITLE%'
