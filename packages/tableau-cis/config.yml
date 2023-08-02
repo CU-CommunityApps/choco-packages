@@ -57,9 +57,17 @@ Registry:
                 Type:   'String'
                 Value:  '%TABLEAU_LAST_NAME%'
 
+            opt_in:
+                Type:   'String'
+                Value:  ''
+
             phone:
                 Type:   'String'
                 Value:  '%TABLEAU_PHONE%'
+
+            privac_consent:
+                Type:   'String'
+                Value:  ''
             
             state:
                 Type:   'String'
