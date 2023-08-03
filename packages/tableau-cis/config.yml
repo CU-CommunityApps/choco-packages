@@ -1,11 +1,11 @@
 Id:             'tableau-cis'
-Description:    'Tableau 2022 - Fall2022a'
+Description:    'Tableau 2022 - Fall2023a'
 Version:        '2022.2'
 
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2022-2-0.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 SKIPAPPLICATIONLAUNCH=1 SENDTELEMETRY=0 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://tableau.cornell.edu'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 SKIPAPPLICATIONLAUNCH=1 SENDTELEMETRY=0 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://tableau.cornell.edu LBLM=disabled SILENTLYREGISTERUSER=true'
     ExitCodes:  [0,3010]
 
 Applications:
@@ -16,11 +16,11 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2022.2\bin\tableau.ps1' # Scheduled Task Script
+    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2022.2\bin\tableau.ps1' # Launch script for activation - only runs for CORNELL domain users or PhotonUser
     
 Scripts:
     start:
-        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
+        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Enable ATR
     end:
-        User:   '%TOOLS_DIR%\shutdown.ps1' # Runs at user logoff
-        System: '%TOOLS_DIR%\shutdown.ps1' # Runs at system shutdown
+        User:   '%TOOLS_DIR%\shutdown.ps1' # Runs at user logoff - Disable ATR (release license)
+        System: '%TOOLS_DIR%\shutdown.ps1' # Runs at system shutdown - Disable ATR (release license)
