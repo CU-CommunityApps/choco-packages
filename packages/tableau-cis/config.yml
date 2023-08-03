@@ -5,7 +5,7 @@ Version:        '2022.2'
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2022-2-0.exe'
     FileType:   'exe'
-    Arguments:  '/quiet /norestart ACCEPTEULA=1 SKIPAPPLICATIONLAUNCH=1 SENDTELEMETRY=0 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://tableau.cornell.edu'
+    Arguments:  '/quiet /norestart ACCEPTEULA=1 SKIPAPPLICATIONLAUNCH=1 SENDTELEMETRY=0 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://tableau.cornell.edu LBLM=disabled SILENTLYREGISTERUSER=true'
     ExitCodes:  [0,3010]
 
 Applications:
@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2022.2\bin\tableau.ps1' # Launch script for registration and activation - only runs for CORNELL domain users or PhotonUser
+    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2022.2\bin\tableau.ps1' # Launch script for activation - only runs for CORNELL domain users or PhotonUser
     
 Scripts:
     start:
@@ -24,55 +24,3 @@ Scripts:
     end:
         User:   '%TOOLS_DIR%\shutdown.ps1' # Runs at user logoff - Disable ATR (release license)
         System: '%TOOLS_DIR%\shutdown.ps1' # Runs at system shutdown - Disable ATR (release license)
-
-
-Registry:
-    HKUD:
-        Software\Tableau\Registration\Data:
-            company:
-                Type:   'String'
-                Value:  'Cornell'
-
-            company_employees:
-                Type:   'String'
-                Value:  '15000'
-
-            country:
-                Type:   'String'
-                Value:  'US'
-
-            department:
-                Type:   'String'
-                Value:  'IT'
-
-            email:
-                Type:   'String'
-                Value:  '%TABLEAU_EMAIL%'
-
-            first_name:
-                Type:   'String'
-                Value:  '%TABLEAU_FIRST_NAME%'
-                
-            last_name:
-                Type:   'String'
-                Value:  '%TABLEAU_LAST_NAME%'
-
-            opt_in:
-                Type:   'String'
-                Value:  ''
-
-            phone:
-                Type:   'String'
-                Value:  '%TABLEAU_PHONE%'
-
-            privac_consent:
-                Type:   'String'
-                Value:  ''
-            
-            state:
-                Type:   'String'
-                Value:  'NY'
-
-            title:
-                Type:   'String'
-                Value:  '%TABLEAU_TITLE%'
