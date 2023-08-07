@@ -1,5 +1,5 @@
 Id:             'ansys-coecis'
-Description:    'ANSYS 2023 R2'
+Description:    'ANSYS 2023 R2 - buildtest'
 Version:        '23.2.0.0'
 
 Install:
