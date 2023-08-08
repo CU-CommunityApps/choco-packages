@@ -12,7 +12,7 @@ Applications:
     anaconda:
         DisplayName:    'Anaconda'
         Path:           '%SYSTEMDRIVE%\Windows\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-ExecutionPolicy ByPass -NoExit -Command "& $env:ProgramFiles\Anaconda\shell\condabin\conda-hook.ps1; conda activate $env:ProgramFiles\Anaconda"'
+        LaunchParams:   '-NoExit -Command \"& $env:ProgramFiles\Anaconda\shell\condabin\conda-hook.ps1; conda activate $env:ProgramFiles\Anaconda\"'
         WorkDir:        ''
         
 Files: 
