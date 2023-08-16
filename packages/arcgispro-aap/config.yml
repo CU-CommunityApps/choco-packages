@@ -3,7 +3,7 @@ Description:    'arcgispro - buildtest2'
 Version:        '3.1.0'
 
 Install:
-  - File:       '%INSTALL_DIR%\ArcGISd1\ArcGISPro.msi'
+  - File:       '%INSTALL_DIR%\ArcGISPro.msi'
     FileType:   'msi'
     Arguments:  '/qb ALLUSERS=1 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE'
     ExitCodes:  [0]
