@@ -16,7 +16,5 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v232\ApipUserConfig.txt'
-    '%TOOLS_DIR%\apip-service.txt': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\apip-service.txt'
-    '%TOOLS_DIR%\d4eac1d0625e4da.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\d4eac1d0625e4da.cfg'
-    '%TOOLS_DIR%\d4eac1d0625e4da_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\d4eac1d0625e4da_user.xml'
+    '%TOOLS_DIR%\491561b832d649a.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\491561b832d649a.cfg'
+    '%TOOLS_DIR%\491561b832d649a_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\491561b832d649a_user.XML'
