@@ -11,4 +11,4 @@ Do {
     Write-Output "Waiting for $env:UserName home directory creation"
 }Until(Test-Path $config_files)
 
-(Get-Content "$($config_files)\$($hostname)_user.XML").replace("replace_username", "$env:UserName") | Set-Content "$($config_files)\$($hostname)_user.XML"
+(Get-Content "$($config_files)\$($hostname)_user.XML").replace("temp_username", "$env:UserName") | Set-Content "$($config_files)\$($hostname)_user.XML"
