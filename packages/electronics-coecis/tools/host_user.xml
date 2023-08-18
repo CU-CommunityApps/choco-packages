@@ -43,7 +43,7 @@
         <VALUES>
           <VALUE ObjectName="ColorScheme" Value="Silver" ValueType="2"/>
           <VALUE ObjectName="InstallationDirectory" Value="C:\Program Files\AnsysEM\v232\Win64" ValueType="2"/>
-          <VALUE ObjectName="ProjectDirectory" Value="C:\Users\replace_username\Documents\Ansoft" ValueType="2"/>
+          <VALUE ObjectName="ProjectDirectory" Value="C:\Users\temp_username\Documents\Ansoft" ValueType="2"/>
         </VALUES>
       </KEY>
       <KEY ObjectName="Machine Editor" RegObjectType="0">
