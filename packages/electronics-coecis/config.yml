@@ -16,5 +16,5 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\491561b832d649a.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\491561b832d649a.cfg'
-    '%TOOLS_DIR%\491561b832d649a_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\491561b832d649a_user.XML'
+    '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\host.cfg'
+    '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\host_user.XML'
