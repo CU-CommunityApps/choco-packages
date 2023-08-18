@@ -18,3 +18,7 @@ Applications:
 Files: 
     '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\host.cfg'
     '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\host_user.XML'
+
+Scripts:
+    start:
+        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Update files to match system hostname
