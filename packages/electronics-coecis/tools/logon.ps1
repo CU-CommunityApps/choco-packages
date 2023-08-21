@@ -1,7 +1,7 @@
 # Logon Script
 
 # Get hostname
-$hostname = $env:COMPUTERNAME.ToUpper()
+$hostname = $env:COMPUTERNAME
 
 # Config files
 $config_files = "$env:UserProfile\Documents\Ansoft\ElectronicsDesktop2023.2\config"
