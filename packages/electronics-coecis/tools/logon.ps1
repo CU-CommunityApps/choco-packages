@@ -1,7 +1,7 @@
 # Logon Script
 
 # Get hostname
-$hostname = $env:COMPUTERNAME.ToLower()
+$hostname = $env:COMPUTERNAME.ToUpper()
 
 # Config files
 $config_files = "$env:UserProfile\Documents\Ansoft\ElectronicsDesktop2023.2\config"
@@ -15,5 +15,5 @@ Do {
 gci -Path $config_files "host*" | % { Rename-Item $_.FullName $_.FullName.Replace("host", $hostname) }
 
 # Update XML contents
-(Get-Content "$($config_files)\$($hostname)_user.XML").replace("replace_user", "$($hostname.ToUpper())_user") | Set-Content "$($config_files)\$($hostname)_user.XML"
+(Get-Content "$($config_files)\$($hostname)_user.XML").replace("replace_user", "$($hostname)_user") | Set-Content "$($config_files)\$($hostname)_user.XML"
 (Get-Content "$($config_files)\$($hostname)_user.XML").replace("temp_username", "$env:UserName") | Set-Content "$($config_files)\$($hostname)_user.XML"
