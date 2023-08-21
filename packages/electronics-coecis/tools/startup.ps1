@@ -1,7 +1,7 @@
 # Startup Script
 
 # Get hostname
-$hostname = $env:COMPUTERNAME.ToUpper()
+$hostname = $env:COMPUTERNAME
 
 # Rename config files
 $config_files = "$env:SystemDrive\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config"
