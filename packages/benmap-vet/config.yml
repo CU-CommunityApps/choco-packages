@@ -15,3 +15,6 @@ Applications:                                                       ## Applicati
         Path:           '%PROGRAMFILES(x86)%\BenMAP-CE\BenMAP.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
+
+Files: 
+    '%INSTALL_DIR%\BenMAP-CE': '%SYSTEMDRIVE%\Users\Default\AppData\Local\BenMAP-CE'
