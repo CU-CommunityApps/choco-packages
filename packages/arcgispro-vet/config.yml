@@ -5,7 +5,7 @@ Version:        '3.1.0'
 Install:
   - File:       '%INSTALL_DIR%\ArcGISPro.msi'
     FileType:   'msi'
-    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=NAMED_USER LICENSE_URL="https://cugis.maps.myarcgis.com" /qn /norestart'
+    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=NAMED_USER PORTAL_LIST="https://cugis.maps.myarcgis.com" /qn /norestart'
     ExitCodes:  [0]
   
 Applications:
