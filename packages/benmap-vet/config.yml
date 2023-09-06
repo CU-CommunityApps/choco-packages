@@ -17,3 +17,4 @@ Applications:                                                       ## Applicati
 
 Files: 
     '%INSTALL_DIR%\BenMAP-CE': '%SYSTEMDRIVE%\Users\Default\AppData\Local\BenMAP-CE'
+    '%TOOLS_DIR%\BenMAP.ini': '%SYSTEMDRIVE%\Users\Default\Documents\My BenMAP-CE Files\BenMAP.ini'
