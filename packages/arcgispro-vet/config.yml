@@ -5,7 +5,7 @@ Version:        '3.1.0'
 Install:
   - File:       '%INSTALL_DIR%\ArcGISPro.msi'
     FileType:   'msi'
-    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE softwareauthorization -S -LIF %INSTALL_DIR%\ArcGISProAdvanced_ConcurrentUse_1370035.prvs /qn /norestart'
+    Arguments:  'ALLUSERS=1 ENABLEEUEI=0 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE /qn /norestart'
     ExitCodes:  [0]
   
 Applications:
