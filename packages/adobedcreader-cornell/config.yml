@@ -1,6 +1,6 @@
 Id:             'adobedcreader-cornell'
 Description:    'adobedcreader-cornell a2'
-Version:        '2023.003.20215'
+Version:        '2023.003.20269'
 
 ChocoPackages:
   - PackageName:    'adobereader'
@@ -16,7 +16,7 @@ Applications:
 Registry:
     HKUD:
         SOFTWARE\Adobe\Adobe Acrobat\DC\AVAlert\cCheckbox:
-            iAppDoNotTakePDFOwnershipAtLaunch:
+            iAppDoNotTakePDFOwnershipAtLaunchWin10:
                 Type:   'DWORD'
                 Value:  '1'
 
