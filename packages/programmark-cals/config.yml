@@ -1,5 +1,5 @@
 Id:             'programmark-cals'                ## Application package name ie. chrome-cornell
-Description:    'Program Mark'    ## Application packages description
+Description:    'Program Mark - buildtest'    ## Application packages description
 Version:        '10.1'                     ## Application version number - MUST BE in #.# format
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
