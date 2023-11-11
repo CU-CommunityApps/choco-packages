@@ -1,8 +1,5 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-# Assume machine role
-Set-AWSCredential -ProfileName appstream_machine_role
-
 $BUILD_DIR = Join-Path $Env:TEMP "image-build"
 $PACKAGE_DIR = Join-Path $BUILD_DIR "packages"
 $CHOCO_REPO = "https://chocolatey.org/api/v2"
@@ -16,11 +13,14 @@ $POWERSHELL_PATH = "$env:WINDIR\System32\WindowsPowerShell\v1.0\powershell.exe"
 $SESSION_SCRIPTS = "$env:SystemDrive\AppStream\SessionScripts\config.json"
 $BUILDER_STDOUT_LOG = "$env:SystemDrive\builder-console.log"
 $BUILDER_STDERR_LOG = "$env:SystemDrive\builder-console-err.log"
-$SESSION_CONTENTS = Get-Content $SESSION_SCRIPTS | Out-String | ConvertFrom-Json
+$SESSION_CONTENTS = Get-Content $SESSION_SCRIPTS -ErrorAction SilentlyContinue | Out-String | ConvertFrom-Json
 $LONGPATH_KEY = "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem"
 $REBOOT_LOCK = "$env:ALLUSERSPROFILE\TEMP\REBOOT.lock"
 $DRIVER_LOCK = "$env:ALLUSERSPROFILE\TEMP\DRIVER.lock"
-$OSVERSION = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
+#$OSVERSION = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
+#$OSVERSION = (Get-WmiObject Win32_OperatingSystem).Caption
+
+Function AZ{Write-Output "Azure VM"}
 
 Function G4dn{
     Write-Output "G4 instance, downloading latest GRID driver"
@@ -59,14 +59,13 @@ Function G4dn{
     New-ItemProperty -Path "HKLM:\SOFTWARE\NVIDIA Corporation\Global\GridLicensing" -Name "NvCplDisableManageLicensePage" -PropertyType "DWord" -Value "1"
 }
 
-if (-Not (Test-Path $BUILD_DIR)) {
-
-    # Wait Five Minutes on First Run
-    Start-Sleep -Seconds 300
-
-    # Set system time zone
-    Set-TimeZone -Name "Eastern Standard Time"
+Function AWS{
     
+    Write-Output "AWS VM"
+
+    # Assume machine role
+    Set-AWSCredential -ProfileName appstream_machine_role
+
     # Create Session Script Template Files
     If (!(Test-Path "$env:ALLUSERSPROFILE\SessionScripts")){New-Item -Path $env:ALLUSERSPROFILE -ItemType Directory -Name SessionScripts}
     If (!(Test-Path $STARTUP_USER)){New-Item -Path "$env:ALLUSERSPROFILE\SessionScripts" -Name startupuser.ps1}
@@ -95,25 +94,6 @@ if (-Not (Test-Path $BUILD_DIR)) {
     # Add contents to AppStream config.json file
     $SESSION_CONTENTS | ConvertTo-Json -Depth 3 | Set-Content $SESSION_SCRIPTS
 
-    # Add Long File Path Support for Server '16/'19
-    Set-ItemProperty -Path $LONGPATH_KEY -Name "LongPathsEnabled" -Value 1
-    
-    # Create Temp Directories
-    Write-Output "Creating Temporary Build Directories"
-    New-Item -ItemType Directory -Force -Path $BUILD_DIR
-    New-Item -ItemType Directory -Force -Path $PACKAGE_DIR
-    
-    # No Path set for SYSTEM so move to BUILD_DIR
-    Set-Location $BUILD_DIR
-    
-    # Install Chocolatey
-    Write-Output "Installing Chocolatey"
-    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-    
-    # Install Sysinterals
-    Write-Output "Installing Sysinterals"
-    Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y --ignore-checksums" -NoNewWindow -Wait
-
     # Parse EC2 Metadata
     $user_data_uri = "http://169.254.169.254/latest/user-data"
     $bucket_prefix = "image-build"
@@ -132,27 +112,70 @@ if (-Not (Test-Path $BUILD_DIR)) {
     $resp = Invoke-DDBDDBExecuteStatement -Statement $statement
     $build_info = $resp.entry_info.M
 
+    # Install GRID Driver for G4dn instance type
+    If ($image_id -match "Graphics-G4dn"){G4dn}
+
     # Set system level environment variable for manual processing
     If ($build_info.Manual.BOOL -eq $true){[System.Environment]::SetEnvironmentVariable("AoD_Manual", $true, 'Machine')}
     Else {[System.Environment]::SetEnvironmentVariable("AoD_Manual", $false, 'Machine')}
+
+    If (!(test-path $DRIVER_LOCK)){New-Item -Path $DRIVER_LOCK -Force; Start-Process 'shutdown.exe' -ArgumentList '/r /f /t 0'}
+
+}
+
+if (-Not (Test-Path $BUILD_DIR)) {
+
+    # Wait Five Minutes on First Run
+    #Start-Sleep -Seconds 300
+
+    # Set system time zone
+    Set-TimeZone -Name "Eastern Standard Time"
+    
+    # Add Long File Path Support for Server '16/'19
+    Set-ItemProperty -Path $LONGPATH_KEY -Name "LongPathsEnabled" -Value 1
+    
+    # Create Temp Directories
+    Write-Output "Creating Temporary Build Directories"
+    New-Item -ItemType Directory -Force -Path $BUILD_DIR
+    New-Item -ItemType Directory -Force -Path $PACKAGE_DIR
+    
+    # No Path set for SYSTEM so move to BUILD_DIR
+    Set-Location $BUILD_DIR
+    
+    # Install Chocolatey
+    Write-Output "Installing Chocolatey"
+    Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    
+    # Install Sysinterals
+    Write-Output "Installing Sysinterals"
+    Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y --ignore-checksums" -NoNewWindow -Wait
     
     # Remove Internet Explorer
     Write-Output "Uninstalling IE 11"
-    Disable-WindowsOptionalFeature -FeatureName Internet-Explorer-Optional-amd64 -Online -NoRestart
+    Disable-WindowsOptionalFeature -FeatureName Internet-Explorer-Optional-amd64 -Online -NoRestart -ErrorAction SilentlyContinue
     
     # Install .NET 4.8
     Write-Output "Installing .NET 4.8"
     Start-Process -FilePath "choco.exe" -ArgumentList "install dotnetfx -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
-    
-    # Install GRID Driver for G4dn instance type
-    If ($image_id -match "Graphics-G4dn"){G4dn}
-    
+
     # Make directory for image builder runner
-    New-Item -Path "$env:ProgramFiles" -Name "ImageBuilder" -ItemType "directory"
+    New-Item -Path "$env:ProgramFiles" -Name "ImageBuilder" -ItemType "directory" -ErrorAction SilentlyContinue
     
     # Download ImageBuild Program
-    $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/$package_branch/program.ps1"
+    $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/program.ps1"
     Start-BitsTransfer -Source $URI -Destination "$env:ProgramFiles\ImageBuilder\program.ps1"
+
+    try {
+        # Get instance info
+        $build_info = IRM -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2021-02-01" -ErrorAction SilentlyContinue | ConvertTo-Json | ConvertFrom-Json
+
+        # Azure
+        AZ
+    }
+    catch {
+        # AWS
+        AWS
+    }
 
 }
 else {
@@ -161,21 +184,18 @@ else {
 }
 
 # Run ImageBuilder
-If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $true){
+If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $true -and [System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') ){
     Write-Output "Running ImageBuilder"
     & "$env:ProgramFiles\ImageBuilder\program.ps1"
 }
 Else {
-    If (!(test-path $DRIVER_LOCK)){New-Item -Path $DRIVER_LOCK -Force; Start-Process 'shutdown.exe' -ArgumentList '/r /f /t 0'}
-    Else{    
-        $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/packages/troubleshooting.ps1"
-        Start-BitsTransfer -Source $URI -Destination "$env:PUBLIC\Desktop\troubleshooting.ps1"
+    $URI = "https://raw.githubusercontent.com/CU-CommunityApps/choco-packages/master/packages/troubleshooting.ps1"
+    Start-BitsTransfer -Source $URI -Destination "$env:PUBLIC\Desktop\troubleshooting.ps1"
     
-        # Create executable shortcut
-        $WshShell = New-Object -comObject WScript.Shell
-        $Shortcut = $WshShell.CreateShortcut("$env:public\desktop\troubleshooting.lnk")
-        $Shortcut.TargetPath = "powershell.exe"
-        $Shortcut.Arguments =  "-Command `"& $env:public\desktop\troubleshooting.ps1`""
-        $Shortcut.Save()
-    }
+    # Create executable shortcut
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut("$env:public\desktop\troubleshooting.lnk")
+    $Shortcut.TargetPath = "powershell.exe"
+    $Shortcut.Arguments =  "-Command `"& $env:public\desktop\troubleshooting.ps1`""
+    $Shortcut.Save()
 }
