@@ -1,6 +1,6 @@
 Id:             'rstudio-cornell'
 Description:    'RStudio'
-Version:        '2023.6.1'
+Version:        '2023.9.1'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
   - PackageName:    'r.studio'     ## Package name - https://chocolatey.org/packages - ie. adobereader
@@ -12,3 +12,6 @@ Applications:
         Path:           '%PROGRAMFILES%\RStudio\rstudio.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files: 
+    '%TOOLS_DIR%\crash-handler-permission': '%SYSTEMDRIVE%\Users\Default\AppData\Local\RStudio\crash-handler-permission'
