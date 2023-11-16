@@ -12,3 +12,6 @@ Applications:
         Path:           '%PROGRAMFILES%\RStudio\rstudio.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+Files: 
+    '%TOOLS_DIR%\crash-handler-permission': '%SYSTEMDRIVE%\Users\Default\AppData\Local\RStudio\crash-handler-permission'
