@@ -15,3 +15,4 @@ Applications:
 
 Files: 
     '%TOOLS_DIR%\crash-handler-permission': '%SYSTEMDRIVE%\Users\Default\AppData\Local\RStudio\crash-handler-permission'
+    '%INSTALL_DIR%\RStudio': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\RStudio'
