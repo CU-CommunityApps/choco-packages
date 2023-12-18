@@ -1,6 +1,6 @@
 Id:             'r-cornell'
 Description:    'R - buildtest1'
-Version:        '4.3.1'
+Version:        '4.3.2'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
   - PackageName:    'r'     ## Package name - https://chocolatey.org/packages - ie. adobereader
@@ -10,9 +10,9 @@ ChocoPackages:                              ## Chocolatey packages installed str
 Applications:
     r:
         DisplayName:    'R'
-        Path:           '%PROGRAMFILES%\R\R-4.3.1\bin\R.exe'
+        Path:           '%PROGRAMFILES%\R\R-4.3.2\bin\R.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\rpackages\*': '%PROGRAMFILES%\R\R-4.3.1\library\'
+    '%INSTALL_DIR%\rpackages\*': '%PROGRAMFILES%\R\R-4.3.2\library\'
