@@ -9,8 +9,11 @@ ChocoPackages:
   - PackageName:    'notepadplusplus'
     InstallParams:  ''
     
-  - PackageName:    'googlechrome'
-    InstallParams:  ''
+Install:                                    ## If there are installation files in a .zip to be installed, specify here
+  - File:       '%INSTALL_DIR%\googlechromestandaloneenterprise64.msi'   ## Installation file
+    FileType:   'msi'                       ## exe or msi are the only options currently
+    Arguments:  '/qn'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]  
 
 Applications:
     7zip:
@@ -54,7 +57,7 @@ Files:
     '%TOOLS_DIR%\ProcmonConfiguration.pmc': '%SYSTEMDRIVE%\Procmon\ProcmonConfiguration.pmc'
     '%TOOLS_DIR%\defaultassociations.xml': '%SYSTEMDRIVE%\windows\system32\defaultassociations.xml'
     '%INSTALL_DIR%\Kill_Process.ps1': '%SYSTEMDRIVE%\windows\system32\Kill_Process.ps1'
-    '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
+   # '%INSTALL_DIR%\Prewarm\*': '%ALLUSERSPROFILE%\Amazon\Photon\Prewarm'
     '%TOOLS_DIR%\update_windefend.ps1': '%SYSTEMDRIVE%\windows\TEMP\update_windefend.ps1'
     
 Scripts:
