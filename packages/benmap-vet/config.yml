@@ -17,7 +17,4 @@ Applications:                                                       ## Applicati
 
 Files: 
     '%INSTALL_DIR%\BenMAP-CE': '%SYSTEMDRIVE%\Users\Default\AppData\Local\BenMAP-CE'
-    '%INSTALL_DIR%\BENMAP50.FDB': '%SYSTEMDRIVE%\Users\Default\AppData\Local\BenMAP-CE\Database\BENMAP50.FDB'
-    '%INSTALL_DIR%\BENMAP50_GBD.FDB': '%SYSTEMDRIVE%\Users\Default\AppData\Local\BenMAP-CE\Database\BENMAP50_GBD.FDB'
-    '%INSTALL_DIR%\POPSIMDB.FDB': '%SYSTEMDRIVE%\Users\Default\AppData\Local\BenMAP-CE\Database\POPSIMDB.FDB'
     '%TOOLS_DIR%\BenMAP.ini': '%SYSTEMDRIVE%\Users\Default\Documents\My BenMAP-CE Files\BenMAP.ini'
