@@ -1,5 +1,5 @@
 Id:             'r-cornell'
-Description:    'R - buildtest1'
+Description:    'R - buildtest3'
 Version:        '4.3.2'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
