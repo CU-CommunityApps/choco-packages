@@ -1,6 +1,6 @@
 Id:             'adobedcreader-cornell'
-Description:    'adobedcreader-cornell a2'
-Version:        '2023.003.20269'
+Description:    'adobedcreader-cornell a3'
+Version:        '2023.8.20458'
 
 ChocoPackages:
   - PackageName:    'adobereader'
