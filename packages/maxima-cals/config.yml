@@ -1,5 +1,5 @@
 Id:             'maxima-cals'                ## Application package name ie. chrome-cornell
-Description:    'maxima-cals'    ## Application packages description
+Description:    'maxima-calsa'    ## Application packages description
 Version:        '5.47.0'                     ## Application version number - MUST BE in #.# format
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery

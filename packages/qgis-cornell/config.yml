@@ -1,6 +1,6 @@
 Id:             'qgis-cornell'
-Description:    'qgis-cornella'
-Version:        '3.32.3'
+Description:    'qgis-cornellb'
+Version:        '3.34.1'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
   - PackageName:    'qgis'     ## Package name - https://chocolatey.org/packages - ie. adobereader
@@ -9,9 +9,6 @@ ChocoPackages:                              ## Chocolatey packages installed str
 Applications:
     qgis:
         DisplayName:    'qgis-bin'
-        Path:           '%PROGRAMFILES%\QGIS 3.32.3\bin\qgis-bin.exe'
+        Path:           '%PROGRAMFILES%\QGIS 3.34.1\bin\qgis-bin.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-Files: 
-    '%INSTALL_DIR%\QGIS': '%SYSTEMDRIVE%\Users\DeFault\AppData\Roaming\QGIS'
