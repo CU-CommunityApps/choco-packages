@@ -23,7 +23,4 @@ Registry:
                 Type:   'String'
                 Value:  '1.0'
   
-        SOFTWARE\JavaSoft\Prefs\jetbrains\jetprofile:
-            asset:
-                Type:   'string'
-                Value:  ''
+        Software\JavaSoft\Prefs\jetbrains\jetprofile\asset:
