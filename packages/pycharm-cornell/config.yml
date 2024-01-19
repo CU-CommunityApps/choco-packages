@@ -1,6 +1,6 @@
 Id:             'pycharm-cornell'
 Description:    'pycharm-cornell - buildtest1'
-Version:        '2019.2'
+Version:        '2023.3'
 
 ChocoPackages:                              
   - PackageName:    'pycharm-community'     
@@ -8,21 +8,17 @@ ChocoPackages:
                                             
 Applications:
     pycharm:
-        DisplayName:    'Jetbrains PyCharm Community 2019.2'
-        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Community Edition 2019.2.3\bin\pycharm64.exe'
+        DisplayName:    'Jetbrains PyCharm Community 2023.3'
+        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Community Edition 2023.3.2\bin\pycharm64.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\JetBrains': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\JetBrains'
-    '%TOOLS_DIR%\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2'
-    '%TOOLS_DIR%\codestyles': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2\config'
-    '%TOOLS_DIR%\options': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2\config'
-    '%TOOLS_DIR%\plugins': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2019.2\config'
     
 Registry:
     HKUD:
         Software\JavaSoft\Prefs\jetbrains\privacy_policy:
-            accepted_version:
+            euacommunity_accepted_version:
                 Type:   'String'
-                Value:  '2.0'
+                Value:  '1.0'
