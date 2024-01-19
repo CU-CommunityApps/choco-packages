@@ -22,3 +22,8 @@ Registry:
             euacommunity_accepted_version:
                 Type:   'String'
                 Value:  '1.0'
+  
+        SOFTWARE\JavaSoft\Prefs\jetbrains\jetprofile:
+            asset:
+                Type:   'string'
+                Value:  ''
