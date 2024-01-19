@@ -1,0 +1,86 @@
+Git4Idea|Version Controls
+
+PythonCore|null
+
+Subversion|Version Controls
+
+com.intellij.completion.ml.ranking|AI-Powered
+
+com.intellij.configurationScript|null
+
+com.intellij.copyright|Other Tools
+
+com.intellij.dev|null
+
+com.intellij.marketplace|null
+
+com.intellij.platform.images|null
+
+com.intellij.plugins.github.colorscheme|UI
+
+com.intellij.plugins.monokai.colorscheme|UI
+
+com.intellij.plugins.twilight.colorscheme|UI
+
+com.intellij.plugins.warmneon.colorscheme|UI
+
+com.intellij.properties|Languages
+
+com.intellij.qt|null
+
+com.intellij.searcheverywhere.ml|AI-Powered
+
+com.intellij.settingsSync|IDE Settings
+
+com.intellij.tasks|Other Tools
+
+com.intellij|null
+
+com.jetbrains.codeWithMe|null
+
+com.jetbrains.performancePlugin.async|Other Tools
+
+com.jetbrains.performancePlugin|Other Tools
+
+com.jetbrains.pycharm.community.customization|null
+
+com.jetbrains.pycharm.community.sharedIndexes.bundled|null
+
+com.jetbrains.python.sharedIndexes.downloadable|null
+
+com.jetbrains.sh|Languages
+
+com.jetbrains.space|null
+
+hg4idea|Version Controls
+
+intellij.indexing.shared.core|null
+
+org.editorconfig.editorconfigjetbrains|Other Tools
+
+org.intellij.intelliLang|Other Tools
+
+org.intellij.plugins.markdown|Languages
+
+org.intellij.qodana|null
+
+org.jetbrains.plugins.github|Version Controls
+
+org.jetbrains.plugins.gitlab|Version Controls
+
+org.jetbrains.plugins.rest|null
+
+org.jetbrains.plugins.terminal|Other Tools
+
+org.jetbrains.plugins.textmate|Other Tools
+
+org.jetbrains.plugins.yaml|Languages
+
+org.jetbrains.security.package-checker|null
+
+org.toml.lang|Languages
+
+tanvd.grazi|null
+
+training|null
+
