@@ -15,10 +15,6 @@ Applications:
 
 Files: 
     '%TOOLS_DIR%\JetBrains': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\JetBrains'
-    '%TOOLS_DIR%\config': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2023.3'
-    '%TOOLS_DIR%\codestyles': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2023.3\config'
-    '%TOOLS_DIR%\options': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2023.3\config'
-    '%TOOLS_DIR%\plugins': '%SYSTEMDRIVE%\Users\Default\.PyCharmCE2023.3\config'
     
 Registry:
     HKUD:
