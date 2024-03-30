@@ -9,7 +9,7 @@ ChocoPackages:
 Applications:
     pycharm:
         DisplayName:    'Jetbrains PyCharm Community 2023.3'
-        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Community Edition 2023.3.3\bin\pycharm64.exe'
+        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Community Edition 2023.3.5\bin\pycharm64.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
