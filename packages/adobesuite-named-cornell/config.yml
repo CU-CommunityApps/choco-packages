@@ -1,6 +1,6 @@
 Id:             'adobesuite-named-cornell'
 Description:    'Adobe Suite 2024'
-Version:        '2.0.0.3'
+Version:        '2.0.0.4'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
