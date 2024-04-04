@@ -13,10 +13,6 @@ Set-Service AdobeUpdateService -StartupType Disabled
 #Remove Adobe Notifications
 Get-AppxPackage -AllUsers *AdobeNotificationClient* | Remove-AppxPackage -AllUsers
 
-# Copy missing Photoshop 2022 settings and libraries
-# $path = "$env:SYSTEMDRIVE\Users\Default\AppData\Roaming\Adobe\Adobe Photoshop 2022\Adobe Photoshop 2022 Settings\"
-# cp "$TOOLS_DIR\Adobe Photoshop 2022 Settings" $path -Recurse
-
 $SourceDir   = "$PSScriptRoot\Fonts\"
 
 foreach ($fontItem in (Get-ChildItem -Path $SourceDir -Include '*.ttf','*.ttc','*.otf' -Recurse))  {  
