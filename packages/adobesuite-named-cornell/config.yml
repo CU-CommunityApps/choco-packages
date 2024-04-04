@@ -40,12 +40,3 @@ Applications:
         WorkDir:        ''
               
 Files:
-    #'%TOOLS_DIR%\Adobe Illustrator Prefs': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Adobe Illustrator 28 Settings\en_US\x64\Adobe Illustrator Prefs'
-    #'%TOOLS_DIR%\InDesign Defaults': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\InDesign\Version 19.0\en_US\InDesign Defaults'
-    #'%TOOLS_DIR%\SCRPriorState.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\Premiere Pro\24.0\SCRPriorState.json'
-    #'%TOOLS_DIR%\SCRPriorState1.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\24.3\SCRPriorState.json'
-    #'%TOOLS_DIR%\Adobe After Effects 24.3 Prefs.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Adobe\After Effects\24.3\Adobe After Effects 24.3 Prefs.txt'
-
-# Scripts:
-#     start:
-#         System: '%TOOLS_DIR%\fonts.ps1' # Runs at system startup
