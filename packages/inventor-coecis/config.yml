@@ -1,24 +1,24 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2024'
-Version:        '1.40.0.3'
+Description:    'Autodesk Inventor 2025'
+Version:        '29.0.16200.0000'
 
 Install:
     File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "1.40.0.3"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.5.0.7"'
     ExitCodes:  [0,3010]
 
 Applications:
     Inventor:
-        DisplayName:    'Inventor 2024'
-        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2024\Bin\Inventor.exe'
+        DisplayName:    'Inventor 2025'
+        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2025\Bin\Inventor.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2024\Preferences\AddInLoadRules.xml'
-    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2024\UserApplicationOptions.xml'
-    '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2024\myhome.json'
+    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2025\Preferences\AddInLoadRules.xml'
+    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2025\UserApplicationOptions.xml'
+    '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2025\myhome.json'
 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%INVENTOR_LICENSE_FILE%'
