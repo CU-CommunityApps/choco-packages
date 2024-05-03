@@ -1,11 +1,11 @@
 Id:             'matlab-coecis'
-Description:    'Matlab R2023a-COECIS'
-Version:        '23.0.0'
+Description:    'Matlab R2024a-COECIS'
+Version:        '24.0.0'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-inputFile %INSTALL_DIR%\my_installer_input.txt'
+    Arguments:  '-inputFile %INSTALL_DIR%\myinstaller_input.txt'
     ExitCodes:  [0]
 
 ChocoPackages: 
@@ -13,14 +13,14 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2023a'
-        Path:           '%PROGRAMFILES%\MATLAB\R2023a\bin\matlab.exe'
+        DisplayName:    'MATLAB R2024a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2024a\bin\matlab.exe'
         LaunchParams:   '-useStartupFolderPref "C:\Users\PhotonUser\My Files"'
         WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
-    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2023a\toolbox_cache-9.8.0-69619083-win64.xml'
+    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2024a\toolbox_cache-9.8.0-69619083-win64.xml'
     '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2023a\graphicsState.bin'
 
 ScheduledTasks:             ## Create any custom scheduled tasks
