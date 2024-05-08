@@ -1,4 +1,3 @@
-
 # Runs before the choco package is installed
 
 $TOOLS_DIR = $PSScriptRoot
