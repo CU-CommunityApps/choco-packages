@@ -2,7 +2,7 @@
 
 #Chrome download
 
-Start-BitsTransfer -Path "https://dl.google.com/edgedl/chrome/install/GoogleChromeStandaloneEnterprise64.msi" -Destination "%TOOLS_DIR%\GoogleChromeStandaloneEnterprise64.msi"
+Start-BitsTransfer "https://dl.google.com/edgedl/chrome/install/GoogleChromeStandaloneEnterprise64.msi" -Destination "%TOOLS_DIR%\GoogleChromeStandaloneEnterprise64.msi"
 
 ## 7 Zip latest download link
 
@@ -17,6 +17,7 @@ $downloadurl = "https://notepad-plus-plus.org$linkpath"
 $NotePadPlusPlus = ((Invoke-WebRequest -URI $downloadurl -UseBasicParsing) | Select-Object -ExpandProperty links | Where-Object -Property href -like "*npp.*.installer.x64.exe").href | Select-Object -Index 0
 
 Start-BitsTransfer "$NotePadPlusPlus" -Destination "%TOOLS_DIR%\NotePadPlusPlus.exe"
+
 # Check OS Version
 $OSVersion = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
 
