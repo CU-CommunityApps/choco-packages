@@ -2,7 +2,7 @@
 
 $TOOLS_DIR = $PSScriptRoot
 
-#Chrome download
+#Chrome downloader
 
 Start-BitsTransfer "https://dl.google.com/edgedl/chrome/install/GoogleChromeStandaloneEnterprise64.msi" -Destination "$TOOLS_DIR\GoogleChromeStandaloneEnterprise64.msi"
 
