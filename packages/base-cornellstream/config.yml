@@ -136,7 +136,12 @@ Registry:
         Software\Policies\Google\Chrome:
             BrowserGuestModeEnforced:
                 Type:   'DWORD'
-                Value:  '1'    
+                Value:  '1'  
+
+        Software\Policies\Google\Update:
+            Update{8A69D345-D564-463C-AFF1-A69D9E530F96}:
+                Type:   'DWORD'
+                Value:  '0'
                 
         Software\Policies\Microsoft\Internet Explorer\Main:
             DisableFirstRunCustomize:
