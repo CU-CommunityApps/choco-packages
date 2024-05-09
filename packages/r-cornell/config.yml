@@ -1,19 +1,19 @@
 Id:             'r-cornell'
 Description:    'R - buildtest3'
-Version:        '000.000.000'
+Version:        '10'
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%TOOLS_DIR%\RInstall.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
-    Arguments:  '/Silent'        ## Silent installation switches/parmeters
+    Arguments:  '/Verysilent /DIR="C:\Program Files\R\R-Latest"'        ## Silent installation switches/parmeters
     ExitCodes:  [0] 
 
 Applications:
     r:
         DisplayName:    'R'
-        Path:           '%PROGRAMFILES%\R\R-000.000.000\bin\R.exe'
+        Path:           '%PROGRAMFILES%\R\R-Latest\bin\R.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\rpackages\*': '%PROGRAMFILES%\R\R-000.000.000\library\'
+    '%INSTALL_DIR%\rpackages\*': '%PROGRAMFILES%\R\R-Latest\library\'
