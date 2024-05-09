@@ -20,7 +20,7 @@ $yamlFilePath = "$parentDirectory\config.yml"
 $fileContent = Get-Content -Path $yamlFilePath -Raw
 
 # Search for the word "#VERSION#" and replace it with "4.4.0"
-$newContent = $fileContent -replace "#VERSION#", "$version"
+$newContent = $fileContent -replace "000.000.000", "$version"
 
 # Write the updated content back to the YAML file
 $newContent | Set-Content -Path $yamlFilePath
