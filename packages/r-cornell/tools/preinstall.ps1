@@ -12,9 +12,7 @@ $version = ((Get-ItemProperty "$PSScriptRoot\RInstall.exe").VersionInfo.ProductV
 
 # Now we go up one level to dynamically update the config.yaml to have the correct version
 
-$parentDirectory = Split-Path -Path $PSScriptRoot -Parent
-
-$yamlFilePath = "$parentDirectory\config.yml"
+$yamlFilePath = "$PSScriptRoot\config.yml"
 
 # Read the content of the YAML file
 $fileContent = Get-Content -Path $yamlFilePath -Raw
