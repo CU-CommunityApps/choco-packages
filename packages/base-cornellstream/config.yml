@@ -1,19 +1,22 @@
 Id:             'base-cornellstream'
 Description:    'Base Items for Cornell Stream'
-Version:        '1.0.0'
-
-ChocoPackages:
-  - PackageName:    '7zip'
-    InstallParams:  ''
+Version:        '1.0.1'
     
-  - PackageName:    'notepadplusplus'
-    InstallParams:  ''
-    
-Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\googlechromestandaloneenterprise64.msi'   ## Installation file
+Install:         #Latest version of app is being automatically downloaded in the preinstall.ps1 script
+  - File:       '%TOOLS_DIR%\GoogleChromeStandaloneEnterprise64.msi'   ## Installation file
     FileType:   'msi'                       ## exe or msi are the only options currently
     Arguments:  '/qn'        ## Silent installation switches/parmeters
     ExitCodes:  [0]  
+  
+  - File:       '%TOOLS_DIR%\7zip.msi' #Latest version of app is being automatically downloaded in the preinstall.ps1 script
+    FileType:   'msi'
+    Arguments:  '/q'
+    ExitCodes:  [0]
+
+  - File:       '%TOOLS_DIR%\NotePadPlusPlus.exe' #Latest version of app is being automatically downloaded in the preinstall.ps1 script
+    FileType:   'exe'
+    Arguments:  '/noUpdater /S'
+    ExitCodes:  [0]
 
 Applications:
     7zip:
@@ -133,7 +136,12 @@ Registry:
         Software\Policies\Google\Chrome:
             BrowserGuestModeEnforced:
                 Type:   'DWORD'
-                Value:  '1'    
+                Value:  '1'  
+
+        Software\Policies\Google\Update:
+            Update{8A69D345-D564-463C-AFF1-A69D9E530F96}:
+                Type:   'DWORD'
+                Value:  '0'
                 
         Software\Policies\Microsoft\Internet Explorer\Main:
             DisableFirstRunCustomize:
