@@ -2,12 +2,6 @@ Id:             'rstudio-cornell'
 Description:    'RStudio'
 Version:        '2023.9.1'
 
-Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%TOOLS_DIR%\RStudio.exe'   ## Installation file
-    FileType:   '.exe'                       ## exe or msi are the only options currently
-    Arguments:  '/S'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]  
-                                            ## Leave blank '' if no parameters to pass
 Applications:
     rstudio:
         DisplayName:    'RStudio'
