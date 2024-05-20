@@ -6,4 +6,6 @@
 #Write-Output "$env:AoD_Combo"
 
 # Launch Sassafras client
-#Start-Process "$env:windir\keyacc32.exe" -ArgumentList "-minimize"
+
+Start-Process "$env:windir\keyacc32.exe" -ArgumentList "-minimize"
+
