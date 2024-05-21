@@ -1,6 +1,6 @@
 Id:             'pycharm-cornell'
 Description:    'pycharm-cornell - buildtest1'
-Version:        '2023.3'
+Version:        '2024.1.1'
 
 ChocoPackages:                              
   - PackageName:    'pycharm-community'     
@@ -8,8 +8,8 @@ ChocoPackages:
                                             
 Applications:
     pycharm:
-        DisplayName:    'Jetbrains PyCharm Community 2023.3'
-        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Community Edition 2023.3.5\bin\pycharm64.exe'
+        DisplayName:    'Jetbrains PyCharm Community 2024.1'
+        Path:           '%PROGRAMFILES(x86)%\JetBrains\PyCharm Community Edition 2024.1.1\bin\pycharm64.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
