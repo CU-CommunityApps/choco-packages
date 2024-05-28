@@ -1,6 +1,7 @@
 Id:             'base-cornellstream'
 Description:    'Base Items for Cornell Stream'
-Version:        '1.0.1'
+Version:        '1.0.0'
+
     
 Install:         #Latest version of app is being automatically downloaded in the preinstall.ps1 script
   - File:       '%TOOLS_DIR%\GoogleChromeStandaloneEnterprise64.msi'   ## Installation file
