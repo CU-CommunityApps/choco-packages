@@ -4,7 +4,7 @@ PythonCore|null
 
 Subversion|Version Controls
 
-com.intellij.completion.ml.ranking|AI-Powered
+com.intellij.completion.ml.ranking|Local AI/ML Tools
 
 com.intellij.configurationScript|null
 
@@ -12,7 +12,11 @@ com.intellij.copyright|Other Tools
 
 com.intellij.dev|null
 
+com.intellij.llmInstaller|Other Tools
+
 com.intellij.marketplace|null
+
+com.intellij.platform.ide.provisioner|null
 
 com.intellij.platform.images|null
 
@@ -28,7 +32,7 @@ com.intellij.properties|Languages
 
 com.intellij.qt|null
 
-com.intellij.searcheverywhere.ml|AI-Powered
+com.intellij.searcheverywhere.ml|Local AI/ML Tools
 
 com.intellij.settingsSync|IDE Settings
 
@@ -46,11 +50,7 @@ com.jetbrains.pycharm.community.customization|null
 
 com.jetbrains.pycharm.community.sharedIndexes.bundled|null
 
-com.jetbrains.python.sharedIndexes.downloadable|null
-
 com.jetbrains.sh|Languages
-
-com.jetbrains.space|null
 
 hg4idea|Version Controls
 
@@ -67,8 +67,6 @@ org.intellij.qodana|null
 org.jetbrains.plugins.github|Version Controls
 
 org.jetbrains.plugins.gitlab|Version Controls
-
-org.jetbrains.plugins.rest|null
 
 org.jetbrains.plugins.terminal|Other Tools
 

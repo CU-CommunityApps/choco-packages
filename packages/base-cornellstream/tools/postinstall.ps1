@@ -1,10 +1,5 @@
-# Runs after the choco package is installed
-Stop-Service gupdate -Force
-Set-Service gupdate -StartupType Disabled
-Stop-Service gupdatem -Force
-Set-Service gupdatem -StartupType Disabled
 
-Rename-Item -Path "c:\program files (x86)\google\update\GoogleUpdate.exe" -NewName "GoogleUpdateno2.no2"
+# Runs after the choco package is installed
 
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 

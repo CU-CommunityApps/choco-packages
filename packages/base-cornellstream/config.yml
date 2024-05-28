@@ -1,6 +1,7 @@
 Id:             'base-cornellstream'
 Description:    'Base Items for Cornell Stream'
 Version:        '1.0.0'
+
     
 Install:         #Latest version of app is being automatically downloaded in the preinstall.ps1 script
   - File:       '%TOOLS_DIR%\GoogleChromeStandaloneEnterprise64.msi'   ## Installation file
@@ -136,7 +137,12 @@ Registry:
         Software\Policies\Google\Chrome:
             BrowserGuestModeEnforced:
                 Type:   'DWORD'
-                Value:  '1'    
+                Value:  '1'  
+
+        Software\Policies\Google\Update:
+            Update{8A69D345-D564-463C-AFF1-A69D9E530F96}:
+                Type:   'DWORD'
+                Value:  '0'
                 
         Software\Policies\Microsoft\Internet Explorer\Main:
             DisableFirstRunCustomize:

@@ -1,6 +1,6 @@
 Id:             'miktex-cornell'
 Description:    'miktex-cornell'
-Version:        '22.3'
+Version:        '24.4.0'
 
 ChocoPackages:
   - PackageName:    'miktex'
