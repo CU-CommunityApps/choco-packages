@@ -1,6 +1,6 @@
 # Runs before the choco package is installed
 
-$RStudio = ((Invoke-WebRequest -Uri "https://posit.co/download/rstudio-desktop/").Links | Where-Object -Property "href" -like "*.zip").href
+$RStudio = ((Invoke-WebRequest -Uri "https://posit.co/download/rstudio-desktop/" -UseBasicParsing).Links | Where-Object -Property "href" -like "*.zip").href 
 
 Start-BitsTransfer "$RStudio" -Destination "$PSScriptRoot\RStudio.zip"
 
