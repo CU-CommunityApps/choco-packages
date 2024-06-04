@@ -4,4 +4,4 @@ $RStudio = ((Invoke-WebRequest -Uri "https://posit.co/download/rstudio-desktop/"
 
 Start-BitsTransfer "$RStudio" -Destination "$PSScriptRoot\RStudio.zip"
 
-Invoke-Expression "7z x `"$PSScriptRoot\RStudio.zip`" -y -bd -o`"C:\Program Files\RStudio`""
+Expand-Archive -Path "$PSScriptRoot\RStudio.zip" -DestinationPath "C:\Program Files\RStudio" -Force
