@@ -1,6 +1,6 @@
 Id:             'autocad-cornell'
 Description:    'AutoCad - 2025'
-Version:        '2.6.0.129'
+Version:        '2.6.0.129.1'
 
 Install:
     File:       '%INSTALL_DIR%\image\Installer.exe'
