@@ -3,9 +3,9 @@ Description:    'AutoCad - 2025'
 Version:        '2.6.0.129'
 
 Install:
-    File:       '%INSTALL_DIR%\image\Installer.exe'
+    File:       '%INSTALL_DIR%\Deploy-Application.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.6.0.129"'
+    Arguments:  '-DeployMode "Silent"'
     ExitCodes:  [0, 1641]
 
 Applications:
