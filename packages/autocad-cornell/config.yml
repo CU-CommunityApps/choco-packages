@@ -3,7 +3,9 @@ Description:    'AutoCad - 2025'    #test
 Version:        '2.6.0.129'
 
 Install:
+
     File:       '%INSTALL_DIR%\AutoCAD2025PSADT-appstream\Deploy-Application.exe'
+
     FileType:   'exe'
     Arguments:  '-DeployMode "Silent"'
     ExitCodes:  [0, 1641]
