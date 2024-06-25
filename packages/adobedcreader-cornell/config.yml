@@ -29,7 +29,11 @@ Registry:
             bShowInstallFTE:
                 Type:   'DWORD'
                 Value:  '0'
-            
+
+            bShownHomeOnboarding:
+                Type:   'DWORD'
+                Value:  '1'
+          
             iFTEVersion:       # Disable Welcome Tour
                 Type:   'DWORD'
                 Value:  '10'
@@ -37,3 +41,7 @@ Registry:
             iLastCardShown:    # Disable Welcome Tour
                 Type:   'DWORD'
                 Value:  '0'
+
+            iWhatNewCardShownType:    # Disable Welcome Tour
+                Type:   'DWORD'
+                Value:  '1'
