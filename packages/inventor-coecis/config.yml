@@ -1,11 +1,11 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2025'
+Description:    'Autodesk Inventor 2025b'
 Version:        '29.0.16200.0000'
 
 Install:
     File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.5.0.7"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.5.0.219"'
     ExitCodes:  [0,3010]
 
 Applications:
