@@ -3,9 +3,9 @@ Description:    'Autodesk Inventor 2025b'
 Version:        '29.0.16200.0000'
 
 Install:
-    File:       '%INSTALL_DIR%\image\Installer.exe'
+    File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.5.0.219"'
+    Arguments:  '-q'
     ExitCodes:  [0,3010]
 
 Applications:
