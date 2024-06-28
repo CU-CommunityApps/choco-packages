@@ -1,9 +1,9 @@
-TORId:             'inventor-coecis'
+Id:             'inventor-coecis'
 Description:    'Autodesk Inventor 2025b'
 Version:        '29.0.16200.0000'
 
 Install:
-    File:       '%INSTALL_DIR%\Deploy-Application'
+    File:       '%INSTALL_DIR%\Deploy-Application.exe'
     FileType:   'exe'
     Arguments:  '-DeployMode "Silent"'
     ExitCodes:  [0,3010]
