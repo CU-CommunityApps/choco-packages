@@ -1,11 +1,11 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2025b'
+Description:    'Autodesk Inventor 2025ps'
 Version:        '29.0.16200.0000'
 
 Install:
-    File:       '%INSTALL_DIR%\image\Installer.exe'
+    File:       '%INSTALL_DIR%\Deploy-Application.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.5.0.219"'
+    Arguments:  '-DeployMode "Silent"'
     ExitCodes:  [0,3010]
 
 Applications:
@@ -19,10 +19,7 @@ Files:
     '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2025\Preferences\AddInLoadRules.xml'
     '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2025\UserApplicationOptions.xml'
     '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2025\myhome.json'
-
-Environment:
-    ADSKFLEX_LICENSE_FILE: '%INVENTOR_LICENSE_FILE%'
-   
+  
 Registry:
     HKUD:
         Software\Autodesk\MC3:
