@@ -1,6 +1,6 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2023 - COECIS3'
-Version:        '31.3.0.0044'
+Description:    'SOLIDWORKS 2024 - COECIS'
+Version:        '32.0.1.4'
 
 Install:
   - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
@@ -25,7 +25,7 @@ Install:
 
 Applications:
     SLDWORKS:
-        DisplayName:    'SOLIDWORKS 2023'
+        DisplayName:    'SOLIDWORKS 2024'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -49,7 +49,7 @@ Applications:
         WorkDir:        ''
         
     toolbox:
-        DisplayName:    'Toolbox Settings 2023'
+        DisplayName:    'Toolbox Settings 2024'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -60,7 +60,7 @@ Files:
 
 Services:                   ## Set default service behavior
  #   RemoteSolverDispatcher: 'Manual'   ## ServiceName: Behavior
-    SWVisualize2023.Queue.server: 'Manual'
+    SWVisualize2024.Queue.server: 'Manual'
 
 Scripts:
     start:
