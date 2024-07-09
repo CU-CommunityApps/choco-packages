@@ -1,14 +1,16 @@
 Id:             'qgis-cornell'
 Description:    'qgis-cornellb'
-Version:        '3.36.3'
+Version:        '1.0.1'
 
-ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
-  - PackageName:    'qgis'     ## Package name - https://chocolatey.org/packages - ie. adobereader
-    InstallParams:  ''  
-
+Install:                                    ## If there are installation files in a .zip to be installed, specify here
+  - File:       '%TOOLS_DIR%\qgis.msi'   ## Installation file
+    FileType:   'msi'                       ## exe or msi are the only options currently
+    Arguments:  '/qn /norestart /DIR="C:\Program Files\QGIS\QGIS-Latest"'        ## Silent installation switches/parmeters
+    ExitCodes:  [0] 
+    
 Applications:
     qgis:
         DisplayName:    'qgis-bin'
-        Path:           '%PROGRAMFILES%\QGIS 3.36.3\bin\qgis-bin.exe'
+        Path:           '%PROGRAMFILES%\QGIS-Latest\bin\qgis-bin.exe'
         LaunchParams:   ''
         WorkDir:        ''
