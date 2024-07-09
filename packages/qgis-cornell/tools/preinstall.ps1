@@ -7,4 +7,4 @@ $filterdData = $data.Links | Where-Object -Property href -like "*.msi"
 
 $downloadLink = $filterdData[0].href
 
-Start-BitsTransfer -Source $downloadLink -Destination "C:\Users\lb30\Documents\GettingStarted\qgis.msi"
+Start-BitsTransfer -Source $downloadLink -Destination "C:\Users\ImagebuilderAdmin\Desktop\qgis.msi"
