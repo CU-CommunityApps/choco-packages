@@ -11,6 +11,6 @@ Install:                                    ## If there are installation files i
 Applications:
     qgis:
         DisplayName:    'qgis-bin'
-        Path:           '%PROGRAMFILES%\QGIS'
+        Path:           '%PROGRAMFILES%\QGIS*'
         LaunchParams:   ''
         WorkDir:        ''
