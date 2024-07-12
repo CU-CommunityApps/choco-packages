@@ -1,6 +1,6 @@
 Id:             'grantaedupack-coecis'
-Description:    'Granta Edupack 2023 - COECIS'
-Version:        '23.2.1.0'
+Description:    'Granta Edupack 2024'
+Version:        '24.2.1.0'
 
 Install:
   - File:       '%INSTALL_DIR%\packages\EduPack.msi'
@@ -86,7 +86,7 @@ Install:
 Applications:
     ansysgrantaedu:
         DisplayName:    'Granta EduPack'
-        Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2023 R2\edupack.exe'
+        Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2024 R2\edupack.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
