@@ -11,7 +11,7 @@ Install:
 Applications:
     ANSYSDIS:
         DisplayName:    'Discovery 2024 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v232\Discovery\Discovery.exe'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v242\Discovery\Discovery.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
