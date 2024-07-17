@@ -1,6 +1,6 @@
 Id:             'electronics-coecis'
-Description:    'ANSYS Electronics - 2023 R2a'
-Version:        '23.2'
+Description:    'ANSYS Electronics - 2024 R2a'
+Version:        '24.2'
 
 Install:
     File:       '%INSTALL_DIR%\AnsysEM\setup.exe'
@@ -10,14 +10,14 @@ Install:
 
 Applications:
     electronics:
-        DisplayName:    'Ansys Electronics Desktop 2023 R2'
-        Path:           '%PROGRAMFILES%\AnsysEM\v232\Win64\ansysedt.exe'
+        DisplayName:    'Ansys Electronics Desktop 2024 R2'
+        Path:           '%PROGRAMFILES%\AnsysEM\v242\Win64\ansysedt.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\host.cfg'
-    '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2023.2\config\host_user.XML'
+    '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2024.2\config\host.cfg'
+    '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2024.2\config\host_user.XML'
 
 Scripts:
     start:
