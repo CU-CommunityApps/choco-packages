@@ -1,6 +1,6 @@
 Id:             'ansysdiscovery-coecis'
-Description:    'ANSYS Discovery - Buildtest4'
-Version:        '23.2.2064'
+Description:    'ANSYS Discovery - Buildtest'
+Version:        '24.2.20240603'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -10,13 +10,13 @@ Install:
 
 Applications:
     ANSYSDIS:
-        DisplayName:    'Discovery 2023 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v232\Discovery\Discovery.exe'
+        DisplayName:    'Discovery 2024 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v242\Discovery\Discovery.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v232\ApipUserConfig.txt'
-    '%INSTALL_DIR%\UserSettings.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v232\Discovery\UserSettings\UserSettings.xml'
-    '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v232\commonfiles\CAD\CADConfigurationInfo.XML'
+    '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v242\ApipUserConfig.txt'
+    '%INSTALL_DIR%\UserSettings.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v242\Discovery\UserSettings\UserSettings.xml'
+    '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v242\commonfiles\CAD\CADConfigurationInfo.XML'
     '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
