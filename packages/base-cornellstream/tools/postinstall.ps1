@@ -38,7 +38,25 @@ If($OSVersion -notmatch "2012")
     # Update Defender
     Update-MpSignature -verbose
 }
+$UserFolders = Get-ChildItem C:\Users -Directory
 
+foreach ($User in $UserFolders) {
+            
+            # Define the path to the desktop
+            $DesktopPath = Join-Path $User.FullName 'Desktop'
+            
+            # Get all shortcuts on the desktop
+            $Shortcuts = Get-ChildItem $DesktopPath -Filter *.lnk
+            
+            # Loop through each shortcut
+            foreach ($Shortcut in $Shortcuts) {
+                
+                # If the shortcut isn't the Recycle Bin, remove it
+                if ($Shortcut.Name -ne 'Recycle Bin.lnk') {
+                    Remove-Item $Shortcut.FullName -Force
+                }
+            }
+        }
 #################################
 # Set Application Calalog order #
 #################################
