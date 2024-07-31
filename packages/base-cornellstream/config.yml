@@ -140,6 +140,11 @@ Registry:
                 Value:  '1'
                 
     HKLM: 
+        Software\Policies\Microsoft\Edge:
+            HideFirstRunExperience:
+                Type:   'DWORD'
+                Value:  '1' 
+      
         Software\Policies\Google\Chrome:
             BrowserGuestModeEnforced:
                 Type:   'DWORD'
