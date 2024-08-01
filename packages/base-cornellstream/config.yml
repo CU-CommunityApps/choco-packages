@@ -25,7 +25,13 @@ Applications:
         Path:           '%PROGRAMFILES%\7-Zip\7zFM.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
+        
+    Edge:
+        DisplayName:    'Microsoft Edge'
+        Path:           '%PROGRAMFILES(x86)%\Microsoft\Edge\Application\msedge.exe'
+        LaunchParams:   'https://it.cornell.edu/students'
+        WorkDir:        ''
+        
     IE:
         DisplayName:    'Internet Explorer'
         Path:           '%PROGRAMFILES%\Internet Explorer\iexplore.exe'
@@ -134,10 +140,23 @@ Registry:
                 Value:  '1'
                 
     HKLM: 
+        Software\Policies\Microsoft\Edge:
+            HideFirstRunExperience:
+                Type:   'DWORD'
+                Value:  '1' 
+      
         Software\Policies\Google\Chrome:
             BrowserGuestModeEnforced:
                 Type:   'DWORD'
                 Value:  '1'  
+
+            HomepageLocation:
+                Type:   'String'
+                Value:  'https://it.cornell.edu/students'  
+
+            HomepageIsNewTabPage:
+                Type:   'DWORD'
+                Value:  '0'
 
         Software\Policies\Google\Update:
             Update{8A69D345-D564-463C-AFF1-A69D9E530F96}:
