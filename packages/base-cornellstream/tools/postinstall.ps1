@@ -45,7 +45,7 @@ foreach ($User in $UserFolders) {
             $DesktopPath = Join-Path $User.FullName 'Desktop'
             
             # Get all shortcuts on the desktop
-            $Shortcuts = Get-ChildItem $DesktopPath | Where-Object -Property Name -like "*.lnk"
+            $Shortcuts = Get-ChildItem $DesktopPath | Where-Object -Property Name -like "*.lnk" -ErrorAction SilentlyContinue
             
             # Loop through each shortcut
             foreach ($Shortcut in $Shortcuts) {
