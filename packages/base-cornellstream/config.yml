@@ -76,6 +76,11 @@ Scripts:
 
 Registry:
     HKUD:
+        Software\Autodesk\ODIS Folder: # Show file extensions
+            DisableManualUpdateInstall:
+                Type:   'DWORD'
+                Value:  '1'             
+        
         Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced: # Show file extensions
             HideFileExt:
                 Type:   'DWORD'
@@ -140,6 +145,11 @@ Registry:
                 Value:  '1'
                 
     HKLM: 
+        Software\SOFTWARE\Autodesk\Desktop Connector\AdvancedSettings:
+            SuppressGettingStartedDialogOnFirstRun:
+                Type:   'DWORD'
+                Value:  '1'         
+          
         Software\Policies\Microsoft\Edge:
             HideFirstRunExperience:
                 Type:   'DWORD'
