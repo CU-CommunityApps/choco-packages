@@ -27,6 +27,11 @@ Files:
     
 Registry:
     HKUD:
+        Software\Autodesk\ODIS Folder: # Show file extensions
+            DisableManualUpdateInstall:
+                Type:   'DWORD'
+                Value:  '1'   
+        
         SOFTWARE\Autodesk\MC3:
             ADAOptIn:
                 Type:   'DWORD'
