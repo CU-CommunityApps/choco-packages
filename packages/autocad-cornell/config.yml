@@ -24,14 +24,12 @@ Files:
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
-    
+
+Scripts:
+    start:
+        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Remove Autodesk updates
 Registry:
-    HKUD:
-        Software\Autodesk\ODIS Folder: # Show file extensions
-            DisableManualUpdateInstall:
-                Type:   'DWORD'
-                Value:  '1'   
-        
+    HKUD:     
         SOFTWARE\Autodesk\MC3:
             ADAOptIn:
                 Type:   'DWORD'
