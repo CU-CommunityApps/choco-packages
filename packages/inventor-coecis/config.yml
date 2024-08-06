@@ -19,7 +19,10 @@ Files:
     '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2025\Preferences\AddInLoadRules.xml'
     '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2025\UserApplicationOptions.xml'
     '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2025\myhome.json'
-  
+
+Scripts:
+    start:
+        User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Remove Autodesk updates  
 Registry:
     HKUD:
         Software\Autodesk\MC3:
