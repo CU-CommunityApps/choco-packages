@@ -25,9 +25,9 @@ Files:
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
 
-Scripts:
-    start:
-        User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Remove Autodesk updates
+#Scripts:
+#    start:
+#        User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Remove Autodesk updates
 Registry:
     HKUD:     
         SOFTWARE\Autodesk\MC3:
