@@ -2,3 +2,6 @@
 
 #Remove autocad desktop shortcut
 Remove-Item "c:\users\public\desktop\AutoCAD 2025 - English.lnk"
+
+New-Item -Path "HKUD:\Software\Autodesk" -Name "ODIS" -Force
+New-ItemProperty -Path "HKUD:\Software\Autodesk\ODIS" -Name "DisableManualUpdateInstall" -Value 1 -PropertyType DWORD -Force
