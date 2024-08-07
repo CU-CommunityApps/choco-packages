@@ -16,5 +16,5 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Files:
-    '%TOOLS_DIR%\comsol.prefs': '%SYSTEMDRIVE%\Users\Default\.comsol\v61\comsol.prefs' # comsol.prefs default settings
+    '%TOOLS_DIR%\comsol.prefs': '%SYSTEMDRIVE%\Users\Default\.comsol\v62\comsol.prefs' # comsol.prefs default settings
     '%INSTALL_DIR%\License.dat': '%SYSTEMDRIVE%\Temp\License.dat'
