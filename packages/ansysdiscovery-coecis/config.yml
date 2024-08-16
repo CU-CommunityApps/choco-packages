@@ -1,6 +1,6 @@
 Id:             'ansysdiscovery-coecis'
 Description:    'ANSYS Discovery - Buildtest1'
-Version:        '24.2.20240603'
+Version:        '24.2.20240603.1'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
