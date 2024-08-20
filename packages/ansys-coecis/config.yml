@@ -1,13 +1,18 @@
 Id:             'ansys-coecis'
-Description:    'ANSYS 2024 R2 - buildtest1'
+Description:    'ANSYS 2024 R2 - sp1'
 Version:        '24.2.0.0'
 
 Install:
-    File:       '%INSTALL_DIR%\setup.exe'
+  - File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe' 
     Arguments:  '-silent'
     ExitCodes:  [0]
 
+  - File:       '%INSTALL_DIR%\ansyssp1\setup.exe'
+    FileType:   'exe' 
+    Arguments:  '-silent'
+    ExitCodes:  [0]
+    
 Applications:
     ANSYSWB:
         DisplayName:    'Workbench 2024 R2'
