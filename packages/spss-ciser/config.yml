@@ -1,6 +1,6 @@
 Id:             'spss-ciser'
 Description:    'SPSS Statistics n2'
-Version:        '28.0'
+Version:        '28.0.0'
 
 Install:
     File:       '%INSTALL_DIR%\IBM_SPSS_Statistics.msi'
