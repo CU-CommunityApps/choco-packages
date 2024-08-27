@@ -11,7 +11,7 @@ Install:
 Applications:
     spss:
         DisplayName:    'spss'
-        Path:           '%PROGRAMFILES%\IBM\SPSS\Statistics\28\stats.exe'
+        Path:           '%PROGRAMFILES%\IBM\SPSS Statistics\stats.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
