@@ -5,7 +5,7 @@ Version:        '28.0.1'
 Install:
     File:       '%INSTALL_DIR%\IBM_SPSS_Statistics_28.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  '/passive'
     ExitCodes:  [0]
 
 Applications:
