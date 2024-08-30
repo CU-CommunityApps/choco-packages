@@ -3,9 +3,9 @@ Description:    'SPSS Statistics n2'
 Version:        '28.0.1'
 
 Install:
-    File:       '%INSTALL_DIR%\IBM_SPSS_Statistics_28.msi'
+    File:       '%INSTALL_DIR%\IBM_SPSS_Statistics.msi'
     FileType:   'msi'
-    Arguments:  '/passive'
+    Arguments:  'qn /L*v logfile.txt AUTHCODE=%SPSS_LICENSE_KEY%'
     ExitCodes:  [0]
 
 Applications:
