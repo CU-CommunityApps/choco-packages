@@ -1,11 +1,11 @@
 Id:             'arcgispro-aap'
-Description:    'arcgispro - buildtest2'
-Version:        '3.1.0'
+Description:    'arcgispro - buildtest1'
+Version:        '3.3.0'
 
 Install:
   - File:       '%INSTALL_DIR%\ArcGISPro.msi'
     FileType:   'msi'
-    Arguments:  '/qb ALLUSERS=1 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 ESRI_LICENSE_HOST=%LICENSE_SERVER% SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=CONCURRENT_USE'
+    Arguments:  '/qb ALLUSERS=1 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=NAMED_USER PORTAL_LIST="ccegeomaps;cugis"'
     ExitCodes:  [0]
   
 Applications:
