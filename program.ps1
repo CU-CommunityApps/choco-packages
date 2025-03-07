@@ -229,7 +229,8 @@ Function InitiateSnapshot() {
         PutCloudWatchLog "Successfully Initiated Snapshot!"
     }
     else {
-        PutCloudWatchLog "ERROR create Image $image_name"
+        PutCloudWatchLog "ERROR creating Image $image_name"
+        PutCloudWatchLog "Error Code: $($create.status) :: Error Message: $($create.message)"
         RebootSystem
     }
 }
