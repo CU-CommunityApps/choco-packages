@@ -73,6 +73,7 @@ Files:
 Scripts:
     start:
         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
+        System: '%TOOLS_DIR%\gchrome.ps1'
 
 Registry:
     HKUD:
