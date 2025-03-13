@@ -4,10 +4,10 @@ Version:        '1.0.0'
 
     
 Install:         #Latest version of app is being automatically downloaded in the preinstall.ps1 script
-  - File:       '%TOOLS_DIR%\GoogleChromeStandaloneEnterprise64.msi'   ## Installation file
-    FileType:   'msi'                       ## exe or msi are the only options currently
-    Arguments:  '/qn'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]  
+#  - File:       '%TOOLS_DIR%\GoogleChromeStandaloneEnterprise64.msi'   ## Installation file
+#    FileType:   'msi'                       ## exe or msi are the only options currently
+#    Arguments:  '/qn'        ## Silent installation switches/parmeters
+#    ExitCodes:  [0]  
   
   - File:       '%TOOLS_DIR%\7zip.msi' #Latest version of app is being automatically downloaded in the preinstall.ps1 script
     FileType:   'msi'
@@ -56,11 +56,11 @@ Applications:
         LaunchParams:   'Z:'
         WorkDir:        ''
         
-    Chrome:
-        DisplayName:    'Google Chrome'
-        Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
-        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
-        WorkDir:        ''
+#    Chrome:
+#        DisplayName:    'Google Chrome'
+#        Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
+#        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
+#        WorkDir:        ''
 
 Files:
     '%TOOLS_DIR%\gmdb.blb': '%SYSTEMDRIVE%\Users\Default\AppData\Local\AMD\CN\gmdb.blb' # AMD GPU
@@ -73,6 +73,7 @@ Files:
 Scripts:
     start:
         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
+
 
 Registry:
     HKUD:
@@ -155,23 +156,23 @@ Registry:
                 Type:   'DWORD'
                 Value:  '1' 
       
-        Software\Policies\Google\Chrome:
-            BrowserGuestModeEnforced:
-                Type:   'DWORD'
-                Value:  '1'  
+#        Software\Policies\Google\Chrome:
+#            BrowserGuestModeEnforced:
+#                Type:   'DWORD'
+#                Value:  '1'  
 
-            HomepageLocation:
-                Type:   'String'
-                Value:  'https://it.cornell.edu/students'  
+#            HomepageLocation:
+#                Type:   'String'
+#                Value:  'https://it.cornell.edu/students'  
 
             HomepageIsNewTabPage:
                 Type:   'DWORD'
                 Value:  '0'
 
-        Software\Policies\Google\Update:
-            Update{8A69D345-D564-463C-AFF1-A69D9E530F96}:
-                Type:   'DWORD'
-                Value:  '0'
+#        Software\Policies\Google\Update:
+#            Update{8A69D345-D564-463C-AFF1-A69D9E530F96}:
+#                Type:   'DWORD'
+#                Value:  '0'
                 
         Software\Policies\Microsoft\Internet Explorer\Main:
             DisableFirstRunCustomize:
