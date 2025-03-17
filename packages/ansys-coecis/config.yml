@@ -1,5 +1,5 @@
 Id:             'ansys-coecis'
-Description:    'ANSYS 2024 R2 - sp1'
+Description:    'ANSYS 2024 R2 - sp4'
 Version:        '24.2.0.0'
 
 Install:
@@ -12,6 +12,11 @@ Install:
     FileType:   'exe' 
     Arguments:  '-silent'
     ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\ansyssp2\setup.exe'
+    FileType:   'exe' 
+    Arguments:  '-silent'
+    ExitCodes:  [0]    
     
 Applications:
     ANSYSWB:
