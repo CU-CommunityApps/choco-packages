@@ -8,16 +8,11 @@ Install:
     Arguments:  '-silent'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\ansyssp1\setup.exe'
+  - File:       '%INSTALL_DIR%\ansyssp4\setup.exe'
     FileType:   'exe' 
     Arguments:  '-silent'
     ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\ansyssp2\setup.exe'
-    FileType:   'exe' 
-    Arguments:  '-silent'
-    ExitCodes:  [0]    
-    
+   
 Applications:
     ANSYSWB:
         DisplayName:    'Workbench 2024 R2'
