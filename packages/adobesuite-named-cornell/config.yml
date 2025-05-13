@@ -1,6 +1,6 @@
 Id:             'adobesuite-named-cornell'
-Description:    'Adobe Suite 2024-updated'
-Version:        '2.0.0.4'
+Description:    'Adobe Suite 2025'
+Version:        '6.6.0'
 
 Install:
     File:       '%INSTALL_DIR%\Build\setup.exe'
@@ -10,32 +10,32 @@ Install:
 
 Applications:
     illustrator: 
-        DisplayName:    'Adobe Illustrator 2024'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Illustrator 2024\Support Files\Contents\Windows\illustrator.exe'
+        DisplayName:    'Adobe Illustrator 2025'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Illustrator 2025\Support Files\Contents\Windows\illustrator.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     aftereffects: 
-        DisplayName:    'Adobe After Effects 2024'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects 2024\Support Files\AfterFX.exe'
+        DisplayName:    'Adobe After Effects 2025'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe After Effects 2025\Support Files\AfterFX.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     indesign: 
-        DisplayName:    'Adobe InDesign 2024'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign 2024\InDesign.exe'
+        DisplayName:    'Adobe InDesign 2025'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe InDesign 2025\InDesign.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     photoshop: 
-        DisplayName:    'Adobe Photoshop 2024'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop 2024\Photoshop.exe'
+        DisplayName:    'Adobe Photoshop 2025'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Photoshop 2025\Photoshop.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     premierepro: 
-        DisplayName:    'Adobe Premiere Pro 2024'
-        Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro 2024\Adobe Premiere Pro.exe'
+        DisplayName:    'Adobe Premiere Pro 2025'
+        Path:           '%PROGRAMFILES%\Adobe\Adobe Premiere Pro 2025\Adobe Premiere Pro.exe'
         LaunchParams:   ''
         WorkDir:        ''
               
