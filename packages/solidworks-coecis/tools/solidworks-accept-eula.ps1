@@ -4,7 +4,7 @@
 # SolidWorks 2023
 $solid = "Registry::\HKCU\Software\SolidWorks\SolidWorks 2025"
 If (!(Test-Path $solid\Security)){New-Item -Path $solid\Security -force}
-New-ItemProperty -Path $solid\Security -Name "EULA Accepted 2025 SP2.0 $env:ComputerName $env:UserName" -Value "Yes" -PropertyType "string" -force
+New-ItemProperty -Path $solid\Security -Name "EULA Accepted 2025 SP2.0 BEAC626252BE48A $env:ComputerName $env:UserName" -Value "Yes" -PropertyType "string" -force
 # If (!(Test-Path $solid\General\DontAskAgainOptions)){New-Item -Path $solid\General\DontAskAgainOptions -force}
 # New-ItemProperty -Path $solid\General\DontAskAgainOptions -Name "MSG_SHOW_WELCOME_DLG_AT_STARTUP%*^%$&9862" -Value "7" -PropertyType "DWORD" -force
 
