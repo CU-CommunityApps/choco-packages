@@ -8,6 +8,11 @@ Install:
     Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS" OFFICEOPTION=2 SERVERLIST=%LICENSE_SERVER% SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% TOOLBOXFOLDER="C:\SOLIDWORKS Data" ADDLOCAL=SolidWorks,SolidWorksToolbox /qn /norestart'
     ExitCodes:  [0]
     
+  - File:       '%INSTALL_DIR%\swloginmgr\SOLIDWORKS Login Manager.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart'
+    ExitCodes:  [0]
+    
   - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
     FileType:   'msi'
     Arguments:  '/qn /norestart'
