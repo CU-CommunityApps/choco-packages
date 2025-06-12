@@ -22,4 +22,4 @@ New-ItemProperty -Path $composer -Name "Sync.EulaAccepted" -Value "0" -PropertyT
 # eDrawings
 $eDraw = "Registry::\HKCU\Software\eDrawings\e2025\General"
 If (!(Test-Path $eDraw)){New-Item -Path $eDraw -force}
-New-ItemProperty -Path $eDraw -Name "ShowLicense 2025 sp02 9780BEDF9FC7431 $env:ComputerName $env:UserName" -Value "0" -PropertyType "DWORD" -Force
+New-ItemProperty -Path $eDraw -Name "ShowLicense 2025 sp02 $env:ComputerName $env:UserName" -Value "0" -PropertyType "DWORD" -Force
