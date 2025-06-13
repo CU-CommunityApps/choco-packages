@@ -1,11 +1,16 @@
 Id:             'solidworks-coecis'
-Description:    'SOLIDWORKS 2024 - COECIS'
-Version:        '32.0.1.4'
+Description:    'SOLIDWORKS 2025 - COECIS'
+Version:        '33.0.0.5050'
 
 Install:
   - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
     FileType:   'msi'
     Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS" OFFICEOPTION=2 SERVERLIST=%LICENSE_SERVER% SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% TOOLBOXFOLDER="C:\SOLIDWORKS Data" ADDLOCAL=SolidWorks,SolidWorksToolbox /qn /norestart'
+    ExitCodes:  [0]
+    
+  - File:       '%INSTALL_DIR%\swloginmgr\SOLIDWORKS Login Manager.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart'
     ExitCodes:  [0]
     
   - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
@@ -25,7 +30,7 @@ Install:
 
 Applications:
     SLDWORKS:
-        DisplayName:    'SOLIDWORKS 2024'
+        DisplayName:    'SOLIDWORKS 2025'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -49,7 +54,7 @@ Applications:
         WorkDir:        ''
         
     toolbox:
-        DisplayName:    'Toolbox Settings 2024'
+        DisplayName:    'Toolbox Settings 2025'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -60,7 +65,7 @@ Files:
 
 Services:                   ## Set default service behavior
  #   RemoteSolverDispatcher: 'Manual'   ## ServiceName: Behavior
-    SWVisualize2024.Queue.server: 'Manual'
+    SWVisualize2025.Queue.server: 'Manual'
 
 Scripts:
     start:
