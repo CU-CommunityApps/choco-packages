@@ -1,6 +1,6 @@
 Id:             'geoda-cornell'
 Description:    'geoda-cornell'
-Version:        '1.20.0.8'
+Version:        '1.22.0.14'
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
   - PackageName:    'geoda'     ## Package name - https://chocolatey.org/packages - ie. adobereader
