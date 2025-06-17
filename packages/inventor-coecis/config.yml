@@ -1,6 +1,6 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2025ps'
-Version:        '29.0.16200.0000'
+Description:    'Autodesk Inventor 2026'
+Version:        '2.15.0.529'
 
 Install:
     File:       '%INSTALL_DIR%\Deploy-Application.exe'
@@ -10,15 +10,15 @@ Install:
 
 Applications:
     Inventor:
-        DisplayName:    'Inventor 2025'
-        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2025\Bin\Inventor.exe'
+        DisplayName:    'Inventor 2026'
+        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2026\Bin\Inventor.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2025\Preferences\AddInLoadRules.xml'
-    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2025\UserApplicationOptions.xml'
-    '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2025\myhome.json'
+    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2026\Preferences\AddInLoadRules.xml'
+    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2026\UserApplicationOptions.xml'
+    '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2026\myhome.json'
 
 Scripts:
     start:
