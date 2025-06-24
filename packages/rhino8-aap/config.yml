@@ -15,8 +15,8 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-Services: 
-    McNeelUpdate: 'Disabled'
+#Services: 
+#    McNeelUpdate: 'Disabled'
 
 Registry:               ## Registry values to be copied to each streaming instance
   
