@@ -1,6 +1,6 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad - 2025'
-Version:        '2.5.0.129'
+Description:    'AutoCad - 2026b'
+Version:        '2.15.0.529'
 
 Install:
 
@@ -12,8 +12,8 @@ Install:
 
 Applications:
     autocad:
-        DisplayName:    'AutoCAD 2025'
-        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2025\acad.exe'
+        DisplayName:    'AutoCAD 2026'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2026\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
