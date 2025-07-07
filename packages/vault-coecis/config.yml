@@ -1,19 +1,29 @@
 Id:             'vault-coecis'
-Description:    'Vault 2025 - COECIS'
-Version:        '30.0.91.0'
+Description:    'Vault 2026b - COECIS'
+Version:        '2.5.0.219'
 
 Install:
-  - File:       '%INSTALL_DIR%\image\Installer.exe'
+
+    File:       '%INSTALL_DIR%\Deploy-Application.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.5.0.7"'
-    ExitCodes:  [0,1641]
+    Arguments:  '-DeployMode "Silent"'
+    ExitCodes:  [0, 1641]
+
+#Install:
+#  - File:       '%INSTALL_DIR%\image\Installer.exe'
+#    FileType:   'exe'
+#    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.5.0.7"'
+#   ExitCodes:  [0,1641]
 
 Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
-        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2025\Explorer\Connectivity.VaultPro.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2026\Explorer\Connectivity.VaultPro.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%VAULT_LICENSE_FILE%'
 
 Files:
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
@@ -23,9 +33,6 @@ Files:
 Scripts:
     start:
         User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Remove Autodesk updates
-        
-Environment:
-    ADSKFLEX_LICENSE_FILE: '%VAULT_LICENSE_FILE%'
 
 Registry:
 
