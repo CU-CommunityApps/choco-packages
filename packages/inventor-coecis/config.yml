@@ -14,6 +14,9 @@ Applications:
         Path:           '%PROGRAMFILES%\Autodesk\Inventor 2026\Bin\Inventor.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%INVENTOR_LICENSE_FILE%'
 
 Files:
     '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2026\Preferences\AddInLoadRules.xml'
