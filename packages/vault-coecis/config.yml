@@ -21,6 +21,9 @@ Applications:
         Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2026\Explorer\Connectivity.VaultPro.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%VAULT_LICENSE_FILE%'
 
 Files:
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
@@ -30,9 +33,6 @@ Files:
 Scripts:
     start:
         User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Remove Autodesk updates
-        
-Environment:
-    ADSKFLEX_LICENSE_FILE: '%VAULT_LICENSE_FILE%'
 
 Registry:
 
