@@ -3,7 +3,7 @@
 $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 
 cp "$PSScriptRoot\sdwresponse.properties" "$env:windir\temp\sdwresponse.properties" -Force
-cp "$INSTALL_DIR\sid_files\SAS94_9CZ2C1_70084773_Win_X64_Srv.txt" "$env:windir\temp\SAS94_9CZ2C1_70084773_Win_X64_Srv.txt" -Force
+cp "$INSTALL_DIR\sid_files\SAS94_9D27XV_70084773_Win_X64_Srv.txt" "$env:windir\temp\SAS94_9D27XV_70084773_Win_X64_Srv.txt" -Force
 <#
 :: --------------------------------------------------------------------------------
 :: This is a batch system requirements file created from order 9CVRPT at
