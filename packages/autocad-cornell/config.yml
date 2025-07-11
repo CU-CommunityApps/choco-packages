@@ -7,7 +7,7 @@ Install:
     File:       '%INSTALL_DIR%\Deploy-Application.exe'
 
     FileType:   'exe'
-    Arguments:  '-DeployMode Silent'
+    Arguments:  '-DeployMode "Silent"'
     ExitCodes:  [0, 1641]
 
 Applications:
