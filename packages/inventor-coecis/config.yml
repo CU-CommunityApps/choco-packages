@@ -1,11 +1,11 @@
 Id:             'inventor-coecis'
 Description:    'Autodesk Inventor 2026c'
-Version:        '2.15.0.529'
+Version:        '2.15.0.546'
 
 Install:
-    File:       '%INSTALL_DIR%\Deploy-Application.exe'
+    File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-DeployMode "Silent"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.15.0.546"'
     ExitCodes:  [0,3010]
 
 Applications:
