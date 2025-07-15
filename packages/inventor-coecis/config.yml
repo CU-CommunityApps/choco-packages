@@ -5,7 +5,7 @@ Version:        '2.15.0.529'
 Install:
     File:       '%INSTALL_DIR%\Deploy-Application.exe'
     FileType:   'exe'
-    Arguments:  '-DeployMode "Silent"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.15.0.529"''
     ExitCodes:  [0,3010]
 
 Applications:
