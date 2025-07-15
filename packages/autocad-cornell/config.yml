@@ -1,12 +1,12 @@
 Id:             'autocad-cornell'
 Description:    'AutoCad - 2026d'
-Version:        '2.15.0.529'
+Version:        '2.15.0.546'
 
 Install:
 
     File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.15.0.532"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.15.0.546"'
     ExitCodes:  [0, 1641]
 
 Applications:
