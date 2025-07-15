@@ -3,7 +3,7 @@ Description:    'Autodesk Inventor 2026c'
 Version:        '2.15.0.546'
 
 Install:
-    File:       '%INSTALL_DIR%\\image\Installer.exe'
+    File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.15.0.546"'
     ExitCodes:  [0,3010]
