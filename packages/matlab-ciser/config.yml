@@ -13,7 +13,7 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2024a'
+        DisplayName:    'MATLAB R2025a'
         Path:           '%PROGRAMFILES%\MATLAB\R2025a\bin\matlab.exe'
         LaunchParams:   '-useStartupFolderPref "C:\Users\PhotonUser\My Files"'
         WorkDir:        ''
