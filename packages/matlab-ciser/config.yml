@@ -1,6 +1,6 @@
 Id:             'matlab-ciser'
-Description:    'Matlab R2024a'
-Version:        '24.0.0'
+Description:    'Matlab R2025a'
+Version:        '25.0.0'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
@@ -13,15 +13,15 @@ ChocoPackages:
 
 Applications:
     MATLAB:
-        DisplayName:    'MATLAB R2024a'
-        Path:           '%PROGRAMFILES%\MATLAB\R2024a\bin\matlab.exe'
+        DisplayName:    'MATLAB R2025a'
+        Path:           '%PROGRAMFILES%\MATLAB\R2025a\bin\matlab.exe'
         LaunchParams:   '-useStartupFolderPref "C:\Users\PhotonUser\My Files"'
         WorkDir:        ''
 
 Files: 
     '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
-    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2024a\toolbox_cache-9.8.0-69619083-win64.xml'
-    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2024a\graphicsState.bin'
+    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2025a\toolbox_cache-9.8.0-69619083-win64.xml'
+    '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2025a\graphicsState.bin'
 
 ScheduledTasks:             ## Create any custom scheduled tasks
     - 'startup-accelerator'     ## Name of exported scheduled task in .xml format in the /tools directory with UTF-8 encoding

@@ -53,8 +53,8 @@
   </Settings>
   <Actions Context="Author">
     <Exec>
-      <Command>C:\Program Files\MATLAB\R2024a\bin\win64\MATLABStartupAccelerator.exe</Command>
-      <WorkingDirectory>C:\Program Files\MATLAB\R2024a</WorkingDirectory>
+      <Command>C:\Program Files\MATLAB\R2025a\bin\win64\MATLABStartupAccelerator.exe</Command>
+      <WorkingDirectory>C:\Program Files\MATLAB\R2025a</WorkingDirectory>
     </Exec>
   </Actions>
 </Task>
