@@ -1,9 +1,9 @@
 Id:             'anaconda-cornell'
 Description:    'anaconda-cornell - buildtest1'
-Version:        '2024.02.1'
+Version:        '2025.06.0'
 
 Install:
-  - File:       '%INSTALL_DIR%\Anaconda3-2024.02-1-Windows-x86_64.exe'
+  - File:       '%INSTALL_DIR%\Anaconda3-2025.06-0-Windows-x86_64.exe'
     FileType:   'exe'
     Arguments:  '/S /InstallationType=AllUsers /AddToPath=1 /RegisterPython=1 /D=c:\Program Files\Anaconda'
     ExitCodes:  [0]
