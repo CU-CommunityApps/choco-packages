@@ -1,6 +1,6 @@
 Id:             'ansys-coecis'
 Description:    'ANSYS 2025 R2'
-Version:        '25.2.0.0'
+Version:        '25.2.0.1889'
 
 Install:
   - File:       '%INSTALL_DIR%\setup.exe'
