@@ -1,9 +1,9 @@
 Id:             'vortex-cals'                ## Application package name ie. chrome-cornell
 Description:    'vortex-cals - build1'    ## Application packages description
-Version:        '10.6.0'                     ## Application version number - MUST BE in #.# format
+Version:        '10.9.0'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
-    File:       '%INSTALL_DIR%\Vortex10Installation.10.6.0.msi'   ## Installation file
+    File:       '%INSTALL_DIR%\Vortex10Installation.10.9.0.msi'   ## Installation file
     FileType:   'msi'                       ## exe or msi are the only options currently
     Arguments:  '/quiet'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success               
