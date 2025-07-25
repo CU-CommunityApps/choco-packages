@@ -5,7 +5,7 @@ Version:        '25.2'
 Install:
     File:       '%INSTALL_DIR%\ELECTRONICS\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent -install_dir "c:\Program Files\AnsysEM" -media_dir %INSTALL_DIR%\ELECTRONICS\252-1.dvd'
+    Arguments:  '-silent -install_dir "%PROGRAMFILES%\AnsysEM" -media_dir %INSTALL_DIR%\ELECTRONICS\252-1.dvd'
     ExitCodes:  [0]
 
 Applications:
