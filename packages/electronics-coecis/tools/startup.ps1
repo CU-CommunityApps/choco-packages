@@ -4,7 +4,7 @@
 $hostname = $env:COMPUTERNAME
 
 # Rename config files
-$config_files = "$env:SystemDrive\Users\Default\Documents\Ansoft\ElectronicsDesktop2024.2\config"
+$config_files = "$env:SystemDrive\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config"
 gci -Path $config_files "host*" | % { Rename-Item $_.FullName $_.FullName.Replace("host", $hostname) }
 
 # Update XML contents
