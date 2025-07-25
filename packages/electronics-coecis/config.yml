@@ -3,15 +3,15 @@ Description:    'ANSYS Electronics - 2025 R2'
 Version:        '25.2'
 
 Install:
-    File:       '%INSTALL_DIR%\AnsysEM\setup.exe'
+    File:       '%INSTALL_DIR%\ELECTRONICS\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent'
+    Arguments:  '-silent -install_dir "c:\Program Files\AnsysEM" -media_dir %INSTALL_DIR%\ELECTRONICS\252-1.dvd'
     ExitCodes:  [0]
 
 Applications:
     electronics:
         DisplayName:    'Ansys Electronics Desktop 2025 R2'
-        Path:           '%PROGRAMFILES%\AnsysEM\v252\Win64\ansysedt.exe'
+        Path:           '%PROGRAMFILES%\AnsysEM\v252\AnsysEM\ansysedt.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
