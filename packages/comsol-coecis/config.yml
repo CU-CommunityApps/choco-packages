@@ -1,6 +1,6 @@
 Id:             'comsol-coecis'                ## Application package name ie. chrome-cornell
-Description:    'Comsol Multiphysics buildtest'    ## Application packages description
-Version:        '6.3.0'                     ## Application version number - MUST BE in #.# format
+Description:    'Comsol Multiphysics'    ## Application packages description
+Version:        '6.3.0.420'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
