@@ -1,29 +1,29 @@
 Id:             'ansys-coecis'
-Description:    'ANSYS 2024 R2 - sp4'
-Version:        '24.2.0.0'
+Description:    'ANSYS 2025 R2'
+Version:        '25.2.0.1889'
 
 Install:
-  - File:       '%INSTALL_DIR%\setup.exe'
+  - File:       '%INSTALL_DIR%\FLUIDS\setup.exe'
     FileType:   'exe' 
     Arguments:  '-silent'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\ansyssp4\setup.exe'
+  - File:       '%INSTALL_DIR%\STRUCTURES\setup.exe'
     FileType:   'exe' 
     Arguments:  '-silent'
     ExitCodes:  [0]
-   
+ 
 Applications:
     ANSYSWB:
-        DisplayName:    'Workbench 2024 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v242\Framework\bin\Win64\RunWB2.exe'
+        DisplayName:    'Workbench 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v242\ApipUserConfig.txt'
-    '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v242\commonfiles\CAD\CADConfigurationInfo.XML'
-    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
+    '%INSTALL_DIR%\FLUIDS\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
+    '%INSTALL_DIR%\FLUIDS\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v252\commonfiles\CAD\CADConfigurationInfo.XML'
+    '%INSTALL_DIR%\FLUIDS\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
 
 Registry:               
     HKUD:               
