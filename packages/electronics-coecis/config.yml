@@ -1,23 +1,24 @@
 Id:             'electronics-coecis'
-Description:    'ANSYS Electronics - 2024 R2a'
-Version:        '24.2'
+Description:    'ANSYS Electronics - 2025 R2'
+Version:        '25.2'
 
 Install:
-    File:       '%INSTALL_DIR%\AnsysEM\setup.exe'
+    File:       '%INSTALL_DIR%\ELECTRONICS\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-s -f1C:\ProgramData\chocolatey\lib\electronics-coecis\tools\installer\AnsysEM\myresponsefile.iss'
+    Arguments:  '-silent -install_dir "%PROGRAMFILES%\AnsysEM" -media_dir %INSTALL_DIR%\ELECTRONICS\252-1.dvd'
     ExitCodes:  [0]
 
 Applications:
     electronics:
-        DisplayName:    'Ansys Electronics Desktop 2024 R2'
-        Path:           '%PROGRAMFILES%\AnsysEM\v242\Win64\ansysedt.exe'
+        DisplayName:    'Ansys Electronics Desktop 2025 R2'
+        Path:           '%PROGRAMFILES%\AnsysEM\v252\AnsysEM\ansysedt.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2024.2\config\host.cfg'
-    '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2024.2\config\host_user.XML'
+    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
+    '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host.cfg'
+    '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host_user.XML'
 
 Scripts:
     start:

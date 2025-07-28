@@ -4,7 +4,7 @@
 $hostname = $env:COMPUTERNAME
 
 # Config files
-$config_files = "$env:UserProfile\Documents\Ansoft\ElectronicsDesktop2024.2\config"
+$config_files = "$env:UserProfile\Documents\Ansoft\ElectronicsDesktop2025.2\config"
 
 # Update XML Contents as logged on user
 Do {

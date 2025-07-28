@@ -42,7 +42,7 @@
         </KEYS>
         <VALUES>
           <VALUE ObjectName="ColorScheme" Value="Silver" ValueType="2"/>
-          <VALUE ObjectName="InstallationDirectory" Value="C:\Program Files\AnsysEM\v242\Win64" ValueType="2"/>
+          <VALUE ObjectName="InstallationDirectory" Value="C:\Program Files\AnsysEM\v252\Win64" ValueType="2"/>
           <VALUE ObjectName="ProjectDirectory" Value="C:\Users\temp_username\Documents\Ansoft" ValueType="2"/>
         </VALUES>
       </KEY>
@@ -66,7 +66,7 @@
             <VALUES>
               <VALUE ObjectName="Enhance Graphics" Value="1" ValueType="4"/>
               <VALUE ObjectName="LoadEnvPackages" Value="" ValueType="2"/>
-              <VALUE ObjectName="LoadInstallPackages" Value="C:/Program Files/AnsysEM/v242/Win64/common/Modelica/ThirdParty/MSL/MSL323/Modelica/package.mo;C:/Program Files/AnsysEM/v242/Win64/syslib/Simplorer Elements/ModelicaLibs/TwinBuilder/package.mo;" ValueType="2"/>
+              <VALUE ObjectName="LoadInstallPackages" Value="C:/Program Files/AnsysEM/v252/Win64/common/Modelica/ThirdParty/MSL/MSL323/Modelica/package.mo;C:/Program Files/AnsysEM/v252/Win64/syslib/Simplorer Elements/ModelicaLibs/TwinBuilder/package.mo;" ValueType="2"/>
               <VALUE ObjectName="LoadLibrariesAtStartup" Value="0" ValueType="4"/>
               <VALUE ObjectName="LoadUserPackages" Value="" ValueType="2"/>
               <VALUE ObjectName="Overwrite from Diagram" Value="1" ValueType="4"/>
@@ -76,7 +76,7 @@
               <VALUE ObjectName="ShowModelInterfacesDlg" Value="1" ValueType="4"/>
               <VALUE ObjectName="ShowPinNames" Value="0" ValueType="4"/>
               <VALUE ObjectName="ShowUpdateComponentDlg" Value="1" ValueType="4"/>
-              <VALUE ObjectName="ToolModelicaPath" Value="C:/Program Files/AnsysEM/v242/Win64/common/Modelica/ThirdParty/MSL/MSL323;C:/Program Files/AnsysEM/v242/Win64/syslib/Simplorer Elements/ModelicaLibs;&lt;MODELICAPATH Environment Variable>" ValueType="2"/>
+              <VALUE ObjectName="ToolModelicaPath" Value="C:/Program Files/AnsysEM/v252/Win64/common/Modelica/ThirdParty/MSL/MSL323;C:/Program Files/AnsysEM/v252/Win64/syslib/Simplorer Elements/ModelicaLibs;&lt;MODELICAPATH Environment Variable>" ValueType="2"/>
               <VALUE ObjectName="UnloadEnvPackages" Value="" ValueType="2"/>
               <VALUE ObjectName="UnloadInstallPackages" Value="" ValueType="2"/>
               <VALUE ObjectName="UnloadUserPackages" Value="" ValueType="2"/>
@@ -103,7 +103,7 @@
       <KEY ObjectName="Twin Builder" RegObjectType="0">
         <VALUES>
           <VALUE ObjectName="Favorites" Value="1" ValueType="4"/>
-          <VALUE ObjectName="MODELICAPATH" Value="C:/Program Files/AnsysEM/v242/Win64/common/Modelica/ThirdParty/MSL/MSL323;C:/Program Files/AnsysEM/v242/Win64/syslib/Simplorer Elements/ModelicaLibs;" ValueType="2"/>
+          <VALUE ObjectName="MODELICAPATH" Value="C:/Program Files/AnsysEM/v252/Win64/common/Modelica/ThirdParty/MSL/MSL323;C:/Program Files/AnsysEM/v252/Win64/syslib/Simplorer Elements/ModelicaLibs;" ValueType="2"/>
         </VALUES>
       </KEY>
       <KEY ObjectName="desktop" RegObjectType="0">
