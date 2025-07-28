@@ -1,6 +1,6 @@
 Id:             'comsol-coecis'                ## Application package name ie. chrome-cornell
 Description:    'Comsol Multiphysics buildtest'    ## Application packages description
-Version:        '6.2.0.415'                     ## Application version number - MUST BE in #.# format
+Version:        '6.3.0'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
@@ -11,10 +11,10 @@ Install:                                    ## If there are installation files i
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     comsol:                                                      ## This must match the icons.png file name
         DisplayName:    'Comsol Multiphysics'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\COMSOL\COMSOL62\Multiphysics\bin\win64\comsol.exe'          ## The path to the app
+        Path:           '%PROGRAMFILES%\COMSOL\COMSOL63\Multiphysics\bin\win64\comsol.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
 Files:
-    '%TOOLS_DIR%\comsol.prefs': '%SYSTEMDRIVE%\Users\Default\.comsol\v62\comsol.prefs' # comsol.prefs default settings
+    '%TOOLS_DIR%\comsol.prefs': '%SYSTEMDRIVE%\Users\Default\.comsol\v63\comsol.prefs' # comsol.prefs default settings
     '%INSTALL_DIR%\License.dat': '%SYSTEMDRIVE%\Temp\License.dat'
