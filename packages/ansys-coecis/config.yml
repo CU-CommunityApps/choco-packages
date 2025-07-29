@@ -3,16 +3,26 @@ Description:    'ANSYS 2025 R2'
 Version:        '25.2.0.1889'
 
 Install:
-  - File:       '%INSTALL_DIR%\FLUIDS\setup.exe'
+  - File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent'
+    Arguments:  '-silent -cfdpost'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\STRUCTURES\setup.exe'
+  - File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent'
+    Arguments:  '-silent -fluent'
     ExitCodes:  [0]
- 
+
+  - File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe' 
+    Arguments:  '-silent -mechapdl'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe' 
+    Arguments:  '-silent -optislang'
+    ExitCodes:  [0]
+   
 Applications:
     ANSYSWB:
         DisplayName:    'Workbench 2025 R2'
