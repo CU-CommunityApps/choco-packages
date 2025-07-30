@@ -3,9 +3,9 @@ Description:    'ANSYS Discovery - Reduced'
 Version:        '25.2.20250613'
 
 Install:
-    File:       '%INSTALL_DIR%\DISCOVERY\setup.exe'
+    File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent -install_dir "%PROGRAMFILES%\Ansys Inc\v252" -product_flag -discoveryreduced'
+    Arguments:  '-silent -discoveryreduced'
     ExitCodes:  [0]
 
 Applications:
@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\DISCOVERY\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
-    '%INSTALL_DIR%\DISCOVERY\UserSettings.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v252\Discovery\UserSettings\UserSettings.xml'
-    '%INSTALL_DIR%\DISCOVERY\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v252\commonfiles\CAD\CADConfigurationInfo.XML'
-    '%INSTALL_DIR%\DISCOVERY\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
+    '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
+    '%INSTALL_DIR%\UserSettings.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v252\Discovery\UserSettings\UserSettings.xml'
+    '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v252\commonfiles\CAD\CADConfigurationInfo.XML'
+    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
