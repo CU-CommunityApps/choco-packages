@@ -11,7 +11,7 @@ Install:
 Applications:
     electronics:
         DisplayName:    'Ansys Electronics Desktop 2025 R2'
-        Path:           '%PROGRAMFILES%\AnsysEM\v252\AnsysEM\ansysedt.exe'
+        Path:           '%PROGRAMFILES%\Ansys Inc\v252\AnsysEM\ansysedt.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
