@@ -5,7 +5,7 @@ Version:        '25.2'
 Install:
     File:       '%INSTALL_DIR%\ELECTRONICS\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent -electromagneticssuite'
+    Arguments:  'silent -install_dir "%PROGRAMFILES%\Ansys Inc\v252\AnsysEM" -media_dir %INSTALL_DIR%\ELECTRONICS\252-1.dvd'
     ExitCodes:  [0]
 
 Applications:
@@ -16,9 +16,9 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
-    '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host.cfg'
-    '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host_user.XML'
+    '%TOOLS_DIR%\ELECTRONICS\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
+    '%TOOLS_DIR%\ELECTRONICS\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host.cfg'
+    '%TOOLS_DIR%\\ELECTRONICS\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host_user.XML'
 
 Scripts:
     start:
