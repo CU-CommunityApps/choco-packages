@@ -5,13 +5,13 @@ Version:        '25.2'
 Install:
     File:       '%INSTALL_DIR%\ELECTRONICS\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent -install_dir "%PROGRAMFILES%\Ansys Inc\v252" -media_dir %INSTALL_DIR%\ELECTRONICS\252-1.dvd'
+    Arguments:  '-silent -install_dir "%PROGRAMFILES%\Ansys Inc" -media_dir %INSTALL_DIR%\ELECTRONICS\252-1.dvd'
     ExitCodes:  [0]
 
 Applications:
     electronics:
         DisplayName:    'Ansys Electronics Desktop 2025 R2'
-        Path:           '%PROGRAMFILES%\Ansys Inc\v252\ansysedt.exe'
+        Path:           '%PROGRAMFILES%\Ansys Inc\ansysedt.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
