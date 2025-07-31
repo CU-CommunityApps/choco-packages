@@ -1,94 +1,19 @@
 Id:             'grantaedupack-coecis'
-Description:    'Granta Edupack 2024'
-Version:        '24.2.1.0'
+Description:    'Granta Edupack 2025 R2'
+Version:        '25.2.1'
 
 Install:
-  - File:       '%INSTALL_DIR%\packages\EduPack.msi'
-    FileType:   'msi'
-    Arguments:  'PARENTINSTALLFOLDER="%PROGRAMFILES(x86)%\GRANTA EduPack" /quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\License.msi'
-    FileType:   'msi'
-    Arguments:  'PARENTINSTALLFOLDER="%PROGRAMFILES(x86)%\GRANTA EduPack" SERVER=%SERVER% ANSYSLI_SERVERS=%ANSYSLI_SERVERS% /quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\design.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-    
-  - File:       '%INSTALL_DIR%\packages\l1arch.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-    
-  - File:       '%INSTALL_DIR%\packages\l1elem.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-    
-  - File:       '%INSTALL_DIR%\packages\l1en.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\l2bio.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\l2en.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\l2mse.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\l2sus.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\l3aero.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\l3bio.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-    
-  - File:       '%INSTALL_DIR%\packages\l3eco.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]    
-
-  - File:       '%INSTALL_DIR%\packages\l3poly.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\l3std.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\packages\l3sus.msi'
-    FileType:   'msi'
-    Arguments:  '/quiet'
+  - File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe'
+    Arguments:  '-silent -edupack'
     ExitCodes:  [0]
 
 Applications:
     ansysgrantaedu:
-        DisplayName:    'Granta EduPack'
-        Path:           '%PROGRAMFILES(X86)%\GRANTA EduPack\2024 R2\edupack.exe'
+        DisplayName:    'Granta EduPack 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\edupack\edupack.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES(X86)%\GRANTA EduPack\Shared Files\Licensing\ansyslmd.ini'
+    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\licensing\ansyslmd.ini'
