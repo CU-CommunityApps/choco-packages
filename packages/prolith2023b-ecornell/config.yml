@@ -16,6 +16,6 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Files:
-    '%INSTALL_DIR%\PROLITHDatabase2023b.DB': '%PROGRAMFILES%\PROLITH_Toolkit\PROLITH 2023b\PROLITHDatabase.DB'
+    '%INSTALL_DIR%\PROLITHDatabase.DB': '%PROGRAMFILES%\PROLITH_Toolkit\PROLITH 2023b\PROLITHDatabase.DB'
     #'%TOOLS_DIR%\comsol.prefs': '%SYSTEMDRIVE%\Users\Default\.comsol\v63\comsol.prefs' # comsol.prefs default settings
     #'%INSTALL_DIR%\License.dat': '%SYSTEMDRIVE%\Temp\License.dat'
