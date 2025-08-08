@@ -27,12 +27,6 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''    
         
-    composerplayer:
-        DisplayName:    'SOLIDWORKS Composer Player'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composerplayer.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
-
     SLDWORKSVisualize:        
         DisplayName:    'SOLIDWORKS Visualize'        
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
