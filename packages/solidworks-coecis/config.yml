@@ -14,6 +14,18 @@ Applications:
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SLDWORKS.exe'
         LaunchParams:   ''
         WorkDir:        ''
+
+    composerplayer:
+        DisplayName:    'SOLIDWORKS Composer Player'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composerplayer.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+    
+    Baja_Vault:
+        DisplayName:    'Baja_Vault'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'
+        LaunchParams:   ''
+        WorkDir:        ''    
         
     composerplayer:
         DisplayName:    'SOLIDWORKS Composer Player'
