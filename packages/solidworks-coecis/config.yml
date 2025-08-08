@@ -1,6 +1,6 @@
 Id:             'solidworks-coecis'
 Description:    'SOLIDWORKS 2025 - COECIS'
-Version:        '33.0.0.5050'
+Version:        '33.3.0.92'
 
 Install:
     File:       '%INSTALL_DIR%\startswinstall.exe'
