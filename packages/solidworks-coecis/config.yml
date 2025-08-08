@@ -3,34 +3,9 @@ Description:    'SOLIDWORKS 2025 - COECIS'
 Version:        '33.0.0.5050'
 
 Install:
-  - File:       '%INSTALL_DIR%\SOLIDWORKS\solidworks.msi'
-    FileType:   'msi'
-    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS" OFFICEOPTION=2 SERVERLIST=%LICENSE_SERVER% SOLIDWORKSSERIALNUMBER=%LICENSE_KEY% TOOLBOXFOLDER="C:\SOLIDWORKS Data" ADDLOCAL=SolidWorks,SolidWorksToolbox /qn /norestart'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\swpdmclient\SOLIDWORKS PDM Client.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0]
-    
-  - File:       '%INSTALL_DIR%\swloginmgr\SOLIDWORKS Login Manager.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0]
-    
-  - File:       '%INSTALL_DIR%\SOLIDWORKS Composer\SolidWorks Composer.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart'
-    ExitCodes:  [0]
-    
-  - File:       '%INSTALL_DIR%\SOLIDWORKS Visualize\solidworks visualize.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER%'
-    ExitCodes:  [0]
-  
-  - File:       '%INSTALL_DIR%\eDrawings\eDrawings.msi'
-    FileType:   'msi'
-    Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings"'
+    File:       '%INSTALL_DIR%\startswinstall.exe'
+    FileType:   'exe'
+    Arguments:  '/install /now'
     ExitCodes:  [0]
 
 Applications:
