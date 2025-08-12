@@ -2,12 +2,32 @@ Id:             'solidworks-coecis'
 Description:    'SOLIDWORKS 2025 - COECIS'
 Version:        '33.3.0.92'
 
-Install:
-    File:       '%INSTALL_DIR%\startswinstall.exe'
-    FileType:   'exe'
-    Arguments:  '/install /now'
+Install:                                    
+  - File:       '%INSTALL_DIR%\SOLIDWORKS\Solidworks.msi'
+    FileType:   'msi'
+    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS" OFFICEOPTION=2 TOOLBOXFOLDER="C:\SOLIDWORKS Data" ADDLOCAL=SolidWorks,SolidWorksToolbox /qn /norestart'
     ExitCodes:  [0]
 
+  - File:       '%INSTALL_DIR%\eDrawings\eDrawings.msi'
+    FileType:   'msi'
+    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\eDrawings" ADDLOCAL=All /qb'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\SOLIDWORKS PDM Client\SOLIDWORKS PDM Client.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\swComposerPlayer\SOLIDWORKS Composer Player.msi'
+    FileType:   'msi'
+    Arguments:  '/qn'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\SOLIDWORKS VISUALIZE\solidworks visualize.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart'
+    ExitCodes:  [0]
+    
 Applications:
     SLDWORKS:
         DisplayName:    'SOLIDWORKS 2025'
@@ -15,30 +35,30 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
 
-    composerplayer:
-        DisplayName:    'SOLIDWORKS Composer Player'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composerplayer.exe'
+    eDrawings:
+        DisplayName:    'SOLIDWORKS eDrawings'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\eDrawings\eDrawings.exe'
         LaunchParams:   ''
         WorkDir:        ''
-    
+        
     Baja_Vault:
         DisplayName:    'Baja_Vault'
         Path:           '%SYSTEMDRIVE%\startbaja.cmd'
         LaunchParams:   ''
-        WorkDir:        ''    
+        WorkDir:        ''  
+        
+    composerplayer:
+        DisplayName:    'SOLIDWORKS Composer Player'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\Composer\Bin\composerplayer.exe'
+        LaunchParams:   ''
+        WorkDir:        '' 
         
     SLDWORKSVisualize:        
         DisplayName:    'SOLIDWORKS Visualize'        
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
-    eDrawings:
-        DisplayName:    'SOLIDWORKS eDrawings'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings\eDrawings.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
-        
+      
     toolbox:
         DisplayName:    'Toolbox Settings 2025'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
@@ -50,7 +70,7 @@ Files:
     '%TOOLS_DIR%\SolidWorks\*': '%SYSTEMDRIVE%\Users\Default\AppData\Local'
 
 Services:                   ## Set default service behavior
- #   RemoteSolverDispatcher: 'Manual'   ## ServiceName: Behavior
+    RemoteSolverDispatcher: 'Manual'   ## ServiceName: Behavior
     SWVisualize2025.Queue.server: 'Manual'
 
 Scripts:
