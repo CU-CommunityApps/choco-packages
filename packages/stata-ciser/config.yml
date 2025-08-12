@@ -1,9 +1,9 @@
 Id:             'stata-ciser'
-Description:    'stata-ciser - buildtest2'
-Version:        '18.0.0'
+Description:    'stata-ciser'
+Version:        '19.5.0'
 
 Install:
-    File:       '%INSTALL_DIR%\SetupStata18.exe'
+    File:       '%INSTALL_DIR%\SetupStata19.exe'
     FileType:   'exe'
     Arguments:  '/s /v"/qn ADDLOCAL=core,StataBE64"'
     ExitCodes:  [0]
@@ -11,11 +11,11 @@ Install:
 
 Applications:
     stata:
-        DisplayName:    'Stata18'
-        Path:           '%PROGRAMFILES%\Stata18\StataBE-64.exe'
+        DisplayName:    'Stata19'
+        Path:           '%PROGRAMFILES%\Stata19\StataBE-64.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES%\Stata18\STATA.LIC'
-    '%INSTALL_DIR%\profile.do': '%PROGRAMFILES%\Stata18\ado\base\profile.do'
+    '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES%\Stata19\STATA.LIC'
+    '%INSTALL_DIR%\profile.do': '%PROGRAMFILES%\Stata19\ado\base\profile.do'
