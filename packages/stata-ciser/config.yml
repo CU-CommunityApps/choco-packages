@@ -12,10 +12,10 @@ Install:
 Applications:
     stata:
         DisplayName:    'Stata19'
-        Path:           '%PROGRAMFILES%\Stata19\StataBE-64.exe'
+        Path:           '%PROGRAMFILES%\StataNow19\StataBE-64.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES%\Stata19\STATA.LIC'
-    '%INSTALL_DIR%\profile.do': '%PROGRAMFILES%\Stata19\ado\base\profile.do'
+    '%INSTALL_DIR%\STATA.LIC': '%PROGRAMFILES%\StataNow19\STATA.LIC'
+    '%INSTALL_DIR%\profile.do': '%PROGRAMFILES%\StataNow19\ado\base\profile.do'
