@@ -3,34 +3,34 @@ Description:    'SOLIDWORKS 2025 - COECIS'
 Version:        '33.3.0.92'
 
 Install:                                    
-  - File:       '%INSTALL_DIR%\64bit\SOLIDWORKS\Solidworks.msi'
+  - File:       '%INSTALL_DIR%\swwi\data\Solidworks.msi'
     FileType:   'msi'
-    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS" OFFICEOPTION=2 TOOLBOXFOLDER="C:\SOLIDWORKS Data" ADDLOCAL=SolidWorks,SolidWorksToolbox /qn /norestart'
+    Arguments:  'INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS" SOLIDWORKSSERIALNUMBER=%SWSERIALNUMBER% ENABLEPERFORMANCE=0 OFFICEOPTION=2 TOOLBOXFOLDER="C:\SOLIDWORKS Data" ADDLOCAL=SolidWorks,SolidWorksToolbox /qn /norestart'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\64bit\eDrawings\eDrawings.msi'
+  - File:       '%INSTALL_DIR%\eDrawings\eDrawings.msi'
     FileType:   'msi'
-    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\eDrawings" ADDLOCAL=All /qb'
+    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\eDrawings" SOLIDWORKSSERIALNUMBER=%SWSERIALNUMBER% ADDLOCAL=All /qb'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\64bit\SOLIDWORKS PDM Client\SOLIDWORKS PDM Client.msi'
+  - File:       '%INSTALL_DIR%\swpdmclient\SOLIDWORKS PDM Client.msi'
     FileType:   'msi'
-    Arguments:  '/qn /norestart'
+    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SOLIDWORKS PDM Client" SOLIDWORKSSERIALNUMBER=%SWSERIALNUMBER% /qn /norestart'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\64bit\swComposerPlayer\SOLIDWORKS Composer Player.msi'
+  - File:       '%INSTALL_DIR%\swComposerPlayer\SOLIDWORKS Composer Player.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\Composer" SOLIDWORKSSERIALNUMBER=%SWSERIALNUMBER% /qn'
     ExitCodes:  [0]
 
-  - File:       '%INSTALL_DIR%\64bit\swComposer\SOLIDWORKS Composer.msi'
+  - File:       '%INSTALL_DIR%\swComposer\SOLIDWORKS Composer.msi'
     FileType:   'msi'
-    Arguments:  '/qn'
+    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\Composer" SOLIDWORKSSERIALNUMBER=%SWSERIALNUMBER% /qn'
     ExitCodes:  [0]
     
-  - File:       '%INSTALL_DIR%\64bit\SOLIDWORKS VISUALIZE\solidworks visualize.msi'
+  - File:       '%INSTALL_DIR%\visualize\SOLIDWORKS visualize.msi'
     FileType:   'msi'
-    Arguments:  '/qn /norestart'
+    Arguments:  'ENABLEPERFORMANCE=0 INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\Visualize" SOLIDWORKSSERIALNUMBER=%SWSERIALNUMBER% /qn /norestart'
     ExitCodes:  [0]
     
 Applications:
