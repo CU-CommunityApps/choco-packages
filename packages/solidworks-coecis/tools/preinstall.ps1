@@ -4,7 +4,7 @@
 $INSTALL_DIR = Join-Path $PSScriptRoot 'installer'
 
 # Install prereq's
-#Start-Process "$INSTALL_DIR\PreReqs\dotNetFx\ndp48-x86-x64-allos-enu.exe" -ArgumentList "/quiet /norestart" -Wait
+Start-Process "$INSTALL_DIR\PreReqs\dotNetFx\ndp48-x86-x64-allos-enu.exe" -ArgumentList "/quiet /norestart" -Wait
 #Start-Process "msiexec.exe" -Wait -ArgumentList "/i $INSTALL_DIR\PreReqs\MSOledbsql19\msoledbsql.msi /qn /norestart"
 Start-Process "msiexec.exe" -Wait -ArgumentList "/i $INSTALL_DIR\PreReqs\ODBCSQLDriver17\msodbcsql.msi /qn /norestart"
 Start-Process "$INSTALL_DIR\PreReqs\MicrosoftEdgeWebView2RuntimeInstallerX64.exe" -ArgumentList "/quiet /norestart" -Wait
