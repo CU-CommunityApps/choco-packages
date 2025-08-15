@@ -3,9 +3,6 @@
 # Installation dir location
 $INSTALL_DIR = Join-Path $PSScriptRoot 'installer'
 
-# Install prereq's
-Start-Process "$INSTALL_DIR\PreReqs\dotNetFx\ndp48-x86-x64-allos-enu.exe" -ArgumentList "/quiet /norestart" -Wait
-
 Copy-Item -Path "$INSTALL_DIR\startbaja.cmd" -Destination "C:\"
 Copy-Item -Path "$INSTALL_DIR\Baja_Vault" -Destination "C:\"
 
