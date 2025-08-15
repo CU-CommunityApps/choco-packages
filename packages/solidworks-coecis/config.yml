@@ -69,19 +69,24 @@ Scripts:
 
 Registry:
     HKLM:
-        SOFTWARE\SolidWorks\Applications\PDMWorks Enterprise\Databases\Baja_Vault:
+        SOFTWARE\FLEXlm License Manager:
+            SW_D_LICENSE_FILE:
+                Type: 'String'
+                Value: '%LICENSE_SERVER%'
+                
+        Solidworks\Applications\PDMWorks Enterprise\Databases\Baja_Vault:
             DbName:
-                Type:   'String'
-                Value:  'Baja_Vault'
+                Type:  'String'
+                Value: 'Baja_Vault'
 
             DbServer:
-                Type:   'String'
-                Value:  '%BAJA_LICENSE%'
+                Type:  'String'
+                Value: '%BAJA_LICENSE%'
 
             ServerLoc:
-                Type:   'String'
-                Value:  '%BAJA_LICENSE%'
+                Type:  'String'
+                Value: '%BAJA_LICENSE%'
 
             ShellRoot:
-                Type:   'String'
-                Value:  '%BAJA_LICENSE%'
+                Type:  'String'
+                Value: '%BAJA_LICENSE%'
