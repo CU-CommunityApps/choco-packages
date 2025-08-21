@@ -28,6 +28,16 @@ Install:
     Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings"'
     ExitCodes:  [0]
 
+  - File:       '%INSTALL_DIR%\swpdmclient\SOLIDWORKS PDM Client.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart'
+    ExitCodes:  [0]
+
+  - File:       '%PROGRAMFILES%\SOLIDWORKS PDM\ViewSetup.exe'
+    FileType:   'msi'
+    Arguments:  '%SYSTEMDRIVE%\Baja_Vault.cvs /q'
+    ExitCodes:  [0]
+
 Applications:
     SLDWORKS:
         DisplayName:    'SOLIDWORKS 2025'
@@ -56,6 +66,12 @@ Applications:
     toolbox:
         DisplayName:    'Toolbox Settings 2025'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS\SldToolboxConfigure.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    Baja_Vault:
+        DisplayName:    'Baja_Vault'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'
         LaunchParams:   ''
         WorkDir:        ''
 
