@@ -1,2 +1,2 @@
 # Runs after the choco package is installed
-remove-item "$env:UserProfile\Documents\PROLITH 2023b\PROLITHDatabase.db" -Force
+# Copy-Item "$env:INSTALL_DIR\PROLITHDatabase.DB" "$env:PROGRAMFILES\PROLITH_Toolkit\PROLITH 2023b\PROLITHDatabase.DB"
