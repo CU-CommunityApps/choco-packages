@@ -28,6 +28,16 @@ Install:
     Arguments:  '/qn /norestart ADDLOCAL=All LOGPERFORMANCE=0 SNLSERVER=%LICENSE_SERVER% INSTALLDIR="%PROGRAMFILES%\SOLIDWORKS Corp\eDrawings"'
     ExitCodes:  [0]
 
+  - File:       '%INSTALL_DIR%\msodbcsql.msi'
+    FileType:   'msi'
+    Arguments:  '/qn IACCEPTMSODBCSQLLICENSETERMS=YES /norestart'
+    ExitCodes:  [0]
+    
+  - File:       '%INSTALL_DIR%\MicrosoftEdgeWebview2Setup.exe'
+    FileType:   'exe'
+    Arguments:  '/silent /install'
+    ExitCodes:  [0]  
+    
   - File:       '%INSTALL_DIR%\swpdmclient\SOLIDWORKS PDM Client.msi'
     FileType:   'msi'
     Arguments:  '/qn /norestart'
