@@ -71,7 +71,7 @@ Applications:
 
     Baja_Vault:
         DisplayName:    'Baja_Vault'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS PDM\startbaja.cmd'
         LaunchParams:   ''
         WorkDir:        ''
 
