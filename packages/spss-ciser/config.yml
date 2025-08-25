@@ -1,6 +1,6 @@
 Id:             'spss-ciser'
-Description:    'SPSS Statistics nlic'
-Version:        '28.0.1'
+Description:    'SPSS Statistics'
+Version:        '29.0.2'
 
 Install:
     File:       '%INSTALL_DIR%\IBM SPSS Statistics.msi'
@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\PROCESS_v3.5': '%ALLUSERSPROFILE%\IBM\SPSS\Statistics\28\CustomDialogs\PROCESS_v3.5'
+    '%INSTALL_DIR%\PROCESS_v3.5': '%ALLUSERSPROFILE%\IBM\SPSS\Statistics\29\CustomDialogs\PROCESS_v3.5'
 
 Registry:
     HKUD:
