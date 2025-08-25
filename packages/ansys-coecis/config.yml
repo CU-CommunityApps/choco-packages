@@ -22,11 +22,22 @@ Install:
     FileType:   'exe' 
     Arguments:  '-silent -optislang'
     ExitCodes:  [0]
-   
+
+  - File:       '%INSTALL_DIR%\SPACECLAIM_2025R2\setup.exe'
+    FileType:   'exe' 
+    Arguments:  '-silent'
+    ExitCodes:  [0]
+    
 Applications:
     ANSYSWB:
         DisplayName:    'Workbench 2025 R2'
         Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Framework\bin\Win64\RunWB2.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    SPACECLAIM:
+        DisplayName:    'SpaceClaim 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\scdm\SpaceClaim.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
