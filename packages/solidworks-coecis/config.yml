@@ -17,7 +17,7 @@ Install:
     FileType:   'msi'
     Arguments:  '/qn /norestart'
     ExitCodes:  [0]
-    
+
   - File:       '%INSTALL_DIR%\SOLIDWORKS Visualize\solidworks visualize.msi'
     FileType:   'msi'
     Arguments:  '/qn /norestart SERVERLIST=%LICENSE_SERVER%'
@@ -40,7 +40,13 @@ Applications:
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composerplayer.exe'
         LaunchParams:   ''
         WorkDir:        ''
-
+        
+    composerplayer:
+        DisplayName:    'SOLIDWORKS Composer'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composer.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
     SLDWORKSVisualize:        
         DisplayName:    'SOLIDWORKS Visualize'        
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\SOLIDWORKS Visualize\SLDWORKSVisualize.exe'
