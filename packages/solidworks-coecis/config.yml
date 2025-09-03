@@ -41,7 +41,7 @@ Applications:
         LaunchParams:   ''
         WorkDir:        ''
         
-    composerplayer:
+    composer:
         DisplayName:    'SOLIDWORKS Composer'
         Path:           '%PROGRAMFILES%\SOLIDWORKS Corp\Composer\bin\composer.exe'
         LaunchParams:   ''
