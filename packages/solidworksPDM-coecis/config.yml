@@ -19,6 +19,9 @@ Applications:
         Path:           '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'
         LaunchParams:   ''
         WorkDir:        ''
+Files:                                                                  ## File copy feature
+    '%INSTALL_DIR%\Baja_Vault.cvs': '%SYSTEMDRIVE%\Baja_Vault.cvs' 
+    '%INSTALL_DIR%\startbaja.cmd.': '%SYSTEMDRIVE%\startbaja.cmd'  ## Source directory to destination directory
 
 Registry:
     HKLM:
