@@ -3,6 +3,16 @@ Description:    'SOLIDWORKS PDM 2025 - COECIS'
 Version:        '33.0.0.5050'
 
 Install:
+  - File:       '%INSTALL_DIR%\msodbsql.msi'
+    FileType:   'msi'
+    Arguments:  '/qn IACCEPTMSODBCSQLLICENSETERMS=YES'
+    ExitCodes:  [0] 
+  
+  - File:       '%INSTALL_DIR%\MicrosoftEdgeWebview2Setup.exe'
+    FileType:   'exe'
+    Arguments:  '/silent /install'
+    ExitCodes:  [0]  
+  
   - File:       '%INSTALL_DIR%\swpdmclient\SOLIDWORKS PDM Client.msi'
     FileType:   'msi'
     Arguments:  '/qn /norestart'
