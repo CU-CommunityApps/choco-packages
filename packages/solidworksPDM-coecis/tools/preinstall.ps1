@@ -1,5 +1,5 @@
 # Runs before the choco package is installed
-$INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
+$INSTALL_DIR =  Join-Path $PSScriptRoot 'installer' 
 
 Start-Process -FilePath "$INSTALL_DIR\odbcsql.bat" -WindowStyle Hidden
  
