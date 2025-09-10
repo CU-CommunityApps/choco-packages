@@ -2,25 +2,10 @@ Id:             'solidworksPDM-coecis'
 Description:    'SOLIDWORKS PDM 2025 - COECIS'
 Version:        '33.0.0.5050'
 
-Install:
-  - File:       '%INSTALL_DIR%\msodbsql.msi'
-    FileType:   'msi'
-    Arguments:  '/qn IACCEPTMSODBCSQLLICENSETERMS=YES'
-    ExitCodes:  [0] 
-  
-  - File:       '%INSTALL_DIR%\MicrosoftEdgeWebview2Setup.exe'
-    FileType:   'exe'
-    Arguments:  '/silent /install'
-    ExitCodes:  [0]  
-  
+Install:  
   - File:       '%INSTALL_DIR%\swpdmclient\SOLIDWORKS PDM Client.msi'
     FileType:   'msi'
     Arguments:  '/qn /norestart'
-    ExitCodes:  [0]
-
-  - File:       '%PROGRAMFILES%\SOLIDWORKS PDM\ViewSetup.exe'
-    FileType:   'msi'
-    Arguments:  '%SYSTEMDRIVE%\Baja_Vault.cvs /q'
     ExitCodes:  [0]
 
 Applications:
@@ -32,6 +17,10 @@ Applications:
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\Baja_Vault.cvs': '%SYSTEMDRIVE%\Baja_Vault.cvs' 
     '%INSTALL_DIR%\startbaja.cmd.': '%SYSTEMDRIVE%\startbaja.cmd'  ## Source directory to destination directory
+
+Scripts:                                                ## AppStream session scripts feature
+    start:                                              ## Startup / Logon trigger
+        User:    '%TOOLS_DIR%\solidworks-accept-eula.ps1'        ## Runs at user logon
 
 Registry:
     HKLM:
