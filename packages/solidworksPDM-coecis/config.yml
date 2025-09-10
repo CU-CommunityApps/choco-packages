@@ -14,9 +14,9 @@ Applications:
         Path:           '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'
         LaunchParams:   ''
         WorkDir:        ''
-Files:                                                                  ## File copy feature
-    '%INSTALL_DIR%\Baja_Vault.cvs': '%SYSTEMDRIVE%\Baja_Vault.cvs' 
-    '%INSTALL_DIR%\startbaja.cmd.': '%SYSTEMDRIVE%\startbaja.cmd'  ## Source directory to destination directory
+Files:
+    '%INSTALL_DIR%\Baja_Vault.cvs': '%PROGRAMFILES%\SOLIDWORKS PDM\Baja_Vault.cvs' 
+    '%INSTALL_DIR%\startbaja.cmd': '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'  ## Source directory to destination directory
 
 Scripts:                                                ## AppStream session scripts feature
     start:                                              ## Startup / Logon trigger
