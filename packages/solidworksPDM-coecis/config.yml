@@ -1,0 +1,42 @@
+Id:             'solidworksPDM-coecis'
+Description:    'SOLIDWORKS PDM 2025 - COECIS'
+Version:        '33.0.0.5050'
+
+Install:  
+  - File:       '%INSTALL_DIR%\swpdmclient\SOLIDWORKS PDM Client.msi'
+    FileType:   'msi'
+    Arguments:  '/qn /norestart'
+    ExitCodes:  [0]
+
+Applications:
+    Baja_Vault:
+        DisplayName:    'Baja_Vault'
+        Path:           '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'
+        LaunchParams:   ''
+        WorkDir:        ''
+Files:
+    '%INSTALL_DIR%\Baja_Vault.cvs': '%PROGRAMFILES%\SOLIDWORKS PDM\Baja_Vault.cvs' 
+    '%INSTALL_DIR%\startbaja.cmd': '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'
+
+Scripts:                                                ## AppStream session scripts feature
+    start:                                              ## Startup / Logon trigger
+        User:    '%TOOLS_DIR%\solidworks-accept-eula.ps1'        ## Runs at user logon
+
+Registry:
+    HKLM:
+        SOFTWARE\SolidWorks\Applications\PDMWorks Enterprise\Databases\Baja_Vault:
+            DbName:
+                Type:   'String'
+                Value:  'Baja_Vault'
+
+            DbServer:
+                Type:   'String'
+                Value:  '%BAJA_LICENSE%'
+
+            ServerLoc:
+                Type:   'String'
+                Value:  '%BAJA_LICENSE%'
+
+            ShellRoot:
+                Type:   'String'
+                Value:  '%BAJA_LICENSE%'
