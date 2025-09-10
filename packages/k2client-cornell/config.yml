@@ -1,6 +1,6 @@
 Id:             'k2client-cornell'
 Description:    'k2client-cornell'
-Version:        '7.8.0.5'
+Version:        '8.0.1.2'
 
 Install:
   - File:       '%INSTALL_DIR%\ksp-client-x64.exe'
