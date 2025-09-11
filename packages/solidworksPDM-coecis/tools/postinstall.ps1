@@ -1,3 +1,3 @@
 # Runs after the choco package is installed
 
-Start-Process -FilePath "$env:PROGRAMFILES\SOLIDWORKS PDM\ViewSetup.exe" -ArgumentList "$env:SYSTEMDRIVE\Baja_Vault.cvs /q" -Wait
+Start-Process -FilePath "$env:PROGRAMFILES\SOLIDWORKS PDM\ViewSetup.exe" -ArgumentList "$env:SYSTEMDRIVE\Baja_Vault\Baja_Vault.cvs /q" -Wait
