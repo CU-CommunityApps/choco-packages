@@ -11,12 +11,12 @@ Install:
 Applications:
     Baja_Vault:
         DisplayName:    'Baja_Vault'
-        Path:           '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'
+        Path:           '%SYSTEMDRIVE%\startbaja.cmd'
         LaunchParams:   ''
         WorkDir:        ''
 Files:
-    '%INSTALL_DIR%\Baja_Vault.cvs': '%PROGRAMFILES%\SOLIDWORKS PDM\Baja_Vault.cvs' 
-    '%INSTALL_DIR%\startbaja.cmd': '%PROGRAMFILES%\SOLIDWORKS PDM\startbaja.cmd'
+    '%INSTALL_DIR%\Baja_Vault.cvs': '%SYSTEMDRIVE%\Baja_Vault.cvs' 
+    '%INSTALL_DIR%\startbaja.cmd': '%SYSTEMDRIVE%\startbaja.cmd'
 
 Scripts:                                                ## AppStream session scripts feature
     start:                                              ## Startup / Logon trigger
