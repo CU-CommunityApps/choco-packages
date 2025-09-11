@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
         
 Files:
-    '%INSTALL_DIR%\Baja_Vault.cvs': '%PROGRAMFILES%\SOLIDWORKS PDM\Baja_Vault.cvs'
+    '%INSTALL_DIR%\Baja_Vault.cvs': '%SYSTEMDRIVE%\PDM\Baja_Vault.cvs'
 
 Scripts:                                                ## AppStream session scripts feature
     start:                                              ## Startup / Logon trigger
