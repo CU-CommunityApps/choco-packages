@@ -11,12 +11,11 @@ Install:
 Applications:
     Baja_Vault:
         DisplayName:    'Baja_Vault'
-        Path:           '%SYSTEMDRIVE%\startbaja.cmd'
-        LaunchParams:   ''
+        Path:           '%WINDIR%\system32\cmd.exe'
+        LaunchParams:   '/c start "Baja_Vault" "C:\Baja_Vault"'
         WorkDir:        ''
 Files:
-    '%INSTALL_DIR%\Baja_Vault.cvs': '%SYSTEMDRIVE%\Baja_Vault.cvs' 
-    '%INSTALL_DIR%\startbaja.cmd': '%SYSTEMDRIVE%\startbaja.cmd'
+    '%INSTALL_DIR%\Baja_Vault.cvs': '%SYSTEMDRIVE%\Baja_Vault.cvs'
 
 Scripts:                                                ## AppStream session scripts feature
     start:                                              ## Startup / Logon trigger
