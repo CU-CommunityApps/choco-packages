@@ -40,6 +40,11 @@ Registry:
                 Value:  '0'
                                 
     HKLM:
+        Software\Policies\Microsoft\Windows\Installer:
+            DisableLUAInRepair:
+                Type:   'DWORD'
+                Value:  '1'        
+        
         Software\Autodesk\MC3:
             HKLMADAOptin:
                 Type:   'DWORD'
