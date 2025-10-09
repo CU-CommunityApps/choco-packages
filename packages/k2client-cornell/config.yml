@@ -3,7 +3,7 @@ Description:    'k2client-cornell'
 Version:        '8.0.1.2'
 
 Install:
-    File:       '%INSTALL_DIR%\ksp-client-x64'
+    File:       '%INSTALL_DIR%\ksp-client-x64.exe'
     FileType:   'exe'
     Arguments:  '-new -q -v PROP_HOSTNAME=%HOSTNAME% -v PROP_MAIDLIST=YU -v PROP_SITE=%AppStream_Resource_Name% -v PROP_USERNAME=%AoD_Combo% -v PROP_SERVICE=0 -v PROP_STARTUPITEM=1 -v PROP_LAUNCH=0 -v PROP_REBOOT=0'
     ExitCodes:  [0]
