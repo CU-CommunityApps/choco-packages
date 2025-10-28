@@ -1,6 +1,6 @@
 Id:             'k2cit-cornell'
 Description:    'k2cit-cornell'
-Version:        '7.8.0.5'
+Version:        '8.0.1.2'
 
 Install:
   - File:       '%INSTALL_DIR%\ksp-client-x64.exe'
