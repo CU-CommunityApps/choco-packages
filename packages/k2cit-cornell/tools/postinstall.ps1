@@ -11,4 +11,3 @@ New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\KeyAccess\Settin
 Remove-Item -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\pref' -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item -Path 'HKLM:\SYSTEM\CurrentControlSet\Sevices\KeyAccess\Settings\settings' -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item -Path "$env:ALLUSERSPROFILE\KeyAccess" -Recurse -Force -ErrorAction SilentlyContinue
-
