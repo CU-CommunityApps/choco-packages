@@ -1,0 +1,13 @@
+Id:             'k2mae-cornell'
+Description:    'k2mae-cornell'
+Version:        '8.0.1.2'
+
+Install:
+  - File:       '%INSTALL_DIR%\ksp-client-x64.exe'
+    FileType:   'exe'
+    Arguments:  '-q -upg -v PROP_HOSTNAME=%HOSTNAME% -v PROP_SITE=mae.apps.prod -v PROP_FORCEHOST=1 -v PROP_LOCKED=1 -v PROP_SHORTCUTS=0 -v ARPSYSTEMCOMPONENT=1" -Wait'
+    ExitCodes:  [0]
+
+Scripts:                                                ## AppStream session scripts feature
+    start:                                              ## Startup / Logon trigger
+        User:    '%TOOLS_DIR%\startup.ps1'   
