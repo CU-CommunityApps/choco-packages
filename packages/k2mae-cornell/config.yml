@@ -1,6 +1,6 @@
 Id:             'k2mae-cornell'
 Description:    'k2mae-cornell'
-Version:        '8.0.1.2
+Version:        '8.0.1.2'
 
 Install:
   - File:       '%INSTALL_DIR%\ksp-client-x64.exe'
