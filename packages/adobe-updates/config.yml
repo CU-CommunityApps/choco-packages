@@ -1,7 +1,0 @@
-﻿Id:             'adobe-updates'
-Description:    'Adobe Remote Updater - Auto Update Adobe Apps'
-Version:        '1.0'
-
-ScheduledTasks:
-    - 'update_adobe_products'
-

@@ -1,7 +1,0 @@
-Id:             'tortoisesvn-cornell'
-Description:    'tortoisesvn-cornell'
-Version:        '1.13.1.28686'
-
-ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
-  - PackageName:    'tortoisesvn'     ## Package name - https://chocolatey.org/packages - ie. adobereader
-    InstallParams:  '/qb'

@@ -1,7 +1,0 @@
-Id:             'adobe-activation'
-Description:    'Adobe serializer for licensing Adobe apps'
-Version:        '1.0'
-
-ScheduledTasks:
-    - 'adobe_activation'
-

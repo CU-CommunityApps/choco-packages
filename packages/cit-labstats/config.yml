@@ -1,9 +1,0 @@
-Id:             'cit-labstats'
-Description:    'CIT LabStats AppStream Trial'
-Version:        '7.18.911.1'
-
-Install:
-    File:       '%INSTALL_DIR%\LabStatsGO-7.18.911.1.exe'
-    FileType:   'exe'
-    Arguments:  '-mode unattended'
-    ExitCodes:  [0]

@@ -1,1 +1,0 @@
-﻿cmd.exe /c 'C:\Program Files\Google\Drive File Stream\launch.bat'
