@@ -1,6 +1,6 @@
 Id:             'MSYS2-SLiM'                ## Application package name ie. chrome-cornell
 Description:    'MSYS2 with post-install SLiM'    ## Application packages description
-Version:        '20251213'                     ## Application version number - MUST BE in #.# format
+Version:        '2025.12.13'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%INSTALL_DIR%\msys2.exe'   ## Installation file
