@@ -7,6 +7,16 @@ Install:                                    ## If there are installation files i
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  'in --confirm-command --accept-messages --root C:/msys64'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success
+    
+  - File:       '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
+    FileType:   'exe'
+    Arguments:  '-ExecutionPolicy ByPass -NoExit -Command "& $env:SYSTEMDRIVE\msys64\msys2_shell.cmd -defterm -no-start -mingw64 -c `"pacman -Syu --noconfirm`""
+    ExitCodes:   [0]
+
+  - File:       '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
+    FileType:   'exe'
+    Arguments:  '-ExecutionPolicy ByPass -NoExit -Command "& $env:SYSTEMDRIVE\msys64\msys2_shell.cmd -defterm -no-start -mingw64 -c `"pacman -S --noconfirm mingw-w64-x86_64-slim-simulator`""
+    ExitCodes:   [0]
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     SLiMgui:                                                      ## This must match the icons.png file name
