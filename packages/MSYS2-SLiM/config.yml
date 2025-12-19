@@ -25,4 +25,4 @@ Applications:                                                       ## Applicati
         DisplayName:    'eidos'                ## How the app displayed to the user
         Path:           'C:\msys64\mingw64\bin\eidos.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
-        WorkDir:        '' ## Working directory
+        WorkDir:        '' ## Working directory - small modification to confirm new codebuild
