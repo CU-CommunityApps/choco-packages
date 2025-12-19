@@ -2,11 +2,15 @@ Id:             'MSYS2-SLiM'                ## Application package name ie. chro
 Description:    'MSYS2 with post-install SLiM'    ## Application packages description
 Version:        '2025.12.13'                     ## Application version number - MUST BE in #.# format
 
+ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
+  - PackageName:    'msys2'     ## Package name - https://chocolatey.org/packages - ie. adobereader
+    InstallParams:  '/NoUpdate /InstallDir:%PROGRAMFILES(x86)%' 
+
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\msys2.exe'   ## Installation file
-    FileType:   'exe'                       ## exe or msi are the only options currently
-    Arguments:  'in --confirm-command --accept-messages --root %PROGRAMFILES(x86)%\msys64 --accept-licenses --default-answers --verbose'        ## Silent installation switches/parmeters
-    ExitCodes:  [0]                         ## Exit codes - returns a success
+  # - File:       '%INSTALL_DIR%\msys2.exe'   ## Installation file
+  #   FileType:   'exe'                       ## exe or msi are the only options currently
+  #   Arguments:  'in --confirm-command --accept-messages --root %PROGRAMFILES(x86)%\msys64 --accept-licenses --default-answers --verbose'        ## Silent installation switches/parmeters
+  #   ExitCodes:  [0]                         ## Exit codes - returns a success
     
   - File:       '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
     FileType:   'exe'
