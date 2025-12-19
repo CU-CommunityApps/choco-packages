@@ -4,7 +4,7 @@ Version:        '2025.12.13'                     ## Application version number -
 
 ChocoPackages:                              ## Chocolatey packages installed straight from Chocolatey Gallery
   - PackageName:    'msys2'     ## Package name - https://chocolatey.org/packages - ie. adobereader
-    InstallParams:  '/NoUpdate /InstallDir:C:\msys64' 
+    InstallParams:  '/NoUpdate' 
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   # - File:       '%INSTALL_DIR%\msys2.exe'   ## Installation file
@@ -14,12 +14,12 @@ Install:                                    ## If there are installation files i
     
   - File:       '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
     FileType:   'exe'
-    Arguments:  '-ExecutionPolicy ByPass -NoExit -Command "& $env:SYSTEMDRIVE\msys64\msys2_shell.cmd -defterm -no-start -mingw64 -c `"pacman -Syu --noconfirm`""'
+    Arguments:  '-ExecutionPolicy ByPass -NoExit -Command "& $env:SYSTEMDRIVE\tools\msys64\msys2_shell.cmd -defterm -no-start -mingw64 -c `"pacman -Syu --noconfirm`""'
     ExitCodes:   [0]
 
   - File:       '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
     FileType:   'exe'
-    Arguments:  '-ExecutionPolicy ByPass -NoExit -Command "& $env:SYSTEMDRIVE\msys64\msys2_shell.cmd -defterm -no-start -mingw64 -c `"pacman -S --noconfirm mingw-w64-x86_64-slim-simulator`""'
+    Arguments:  '-ExecutionPolicy ByPass -NoExit -Command "& $env:SYSTEMDRIVE\tools\msys64\msys2_shell.cmd -defterm -no-start -mingw64 -c `"pacman -S --noconfirm mingw-w64-x86_64-slim-simulator`""'
     ExitCodes:   [0]
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
