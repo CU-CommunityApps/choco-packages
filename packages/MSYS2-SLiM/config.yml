@@ -16,13 +16,13 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
     slim:                                                      ## This must match the icons.png file name
-        DisplayName:    'SliMgui'                ## How the app displayed to the user
+        DisplayName:    'slim'                ## How the app displayed to the user
         Path:           'C:\msys64\mingw64\bin\slim.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
     
     eidos:                                                      ## This must match the icons.png file name
-        DisplayName:    'SliMgui'                ## How the app displayed to the user
+        DisplayName:    'eidos'                ## How the app displayed to the user
         Path:           'C:\msys64\mingw64\bin\eidos.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
