@@ -25,4 +25,4 @@ Applications:                                                       ## Applicati
         DisplayName:    'SliMgui'                ## How the app displayed to the user
         Path:           'C:\msys64\mingw64\bin\eidos.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
-        WorkDir:        '' ## Working directory - minor change for mew push
+        WorkDir:        '' ## Working directory
