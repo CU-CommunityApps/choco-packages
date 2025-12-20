@@ -25,18 +25,18 @@ Install:                                    ## If there are installation files i
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     SLiMgui:                                                      ## This must match the icons.png file name
         DisplayName:    'SliMgui'                ## How the app displayed to the user
-        Path:           'C:\msys64\mingw64\bin\SliMgui.exe'          ## The path to the app
+        Path:           'C:\tools\msys64\mingw64\bin\SliMgui.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
     slim:                                                      ## This must match the icons.png file name
         DisplayName:    'slim'                ## How the app displayed to the user
-        Path:           'C:\msys64\mingw64\bin\slim.exe'          ## The path to the app
+        Path:           'C:\tools\msys64\mingw64\bin\slim.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
     
     eidos:                                                      ## This must match the icons.png file name
         DisplayName:    'eidos'                ## How the app displayed to the user
-        Path:           'C:\msys64\mingw64\bin\eidos.exe'          ## The path to the app
+        Path:           'C:\tools\msys64\mingw64\bin\eidos.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory - small modification to confirm new codebuild
