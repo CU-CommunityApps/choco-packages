@@ -32,6 +32,12 @@ Applications:                                                       ## Applicati
         Path:           '%SYSTEMDRIVE%\tools\msys64\msys2_shell.bat'          ## The path to the app
         LaunchParams:   '-mingw64 -where %SYSTEMDRIVE%\tools\msys64\mingw64\bin'                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
+
+    msys2:                                                      ## This must match the icons.png file name
+        DisplayName:    'msys2'                ## How the app displayed to the user
+        Path:           '%SYSTEMDRIVE%\tools\msys64\msys2_shell.bat'          ## The path to the app
+        LaunchParams:   '-msys2 -where %SYSTEMDRIVE%\tools\msys64\mingw64\bin'                     ## Launch parameters for the app
+        WorkDir:        '' ## Working directory
     
     # eidos:                                                      ## This must match the icons.png file name
     #     DisplayName:    'eidos'                ## How the app displayed to the user
