@@ -14,13 +14,13 @@ Install:                                    ## If there are installation files i
     
   - File:       '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
     FileType:   'exe'
-    Arguments:  '-ExecutionPolicy ByPass -Command "& "$env:SystemDrive\tools\msys64\msys2_shell.cmd" -defterm -no-start -mingw64 -c 'pacman -Syu --noconfirm'"'
-    ExitCodes:   [0]
+    Arguments:  "-ExecutionPolicy ByPass -Command \"& $env:SystemDrive\\tools\\msys64\\msys2_shell.cmd -defterm -no-start -mingw64 -c 'pacman -Syu --noconfirm'\""
+    ExitCodes:  [0]
 
   - File:       '%windir%\System32\WindowsPowerShell\v1.0\powershell.exe'
     FileType:   'exe'
-    Arguments:  '-ExecutionPolicy ByPass -Command "& "$env:SystemDrive\tools\msys64\msys2_shell.cmd" -defterm -no-start -mingw64 -c 'pacman -S --noconfirm mingw-w64-x86_64-slim-simulator'"'
-    ExitCodes:   [0]
+    Arguments:  "-ExecutionPolicy Bypass -Command \"& `$env:SystemDrive\\tools\\msys64\\msys2_shell.cmd -defterm -no-start -mingw64 -c 'pacman -S --noconfirm mingw-w64-x86_64-slim-simulator'\""
+    ExitCodes:  [0]
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     SLiMgui:                                                      ## This must match the icons.png file name
