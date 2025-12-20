@@ -23,8 +23,8 @@ Files:
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     SLiMgui:                                                      ## This must match the icons.png file name
         DisplayName:    'SliMgui'                ## How the app displayed to the user
-        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'          ## The path to the app
-        LaunchParams:   '-ExecutionPolicy ByPass -Command "& C:\tools\msys64\mingw64\bin\SliMgui.exe"'                     ## Launch parameters for the app
+        Path:           '%SYSTEMDRIVE%\tools\msys64\mingw64\bin\SLiMgui.exe'          ## The path to the app
+        LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
     mingw64:                                                      ## This must match the icons.png file name
