@@ -17,21 +17,24 @@ Install:                                    ## If there are installation files i
     Arguments:  "-ExecutionPolicy Bypass -Command \"& $env:SystemDrive\\tools\\msys64\\msys2_shell.cmd -defterm -no-start -mingw64 -c 'pacman -S --noconfirm mingw-w64-x86_64-slim-simulator'\""
     ExitCodes:  [0]
 
+Files: 
+    '%SYSTEMDRIVE%\tools\msys64\msys2_shell.cmd': '%SYSTEMDRIVE%\tools\msys64\msys2_shell.bat'
+
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     SLiMgui:                                                      ## This must match the icons.png file name
         DisplayName:    'SliMgui'                ## How the app displayed to the user
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'          ## The path to the app
-        LaunchParams:   '-ExecutionPolicy ByPass -WindowStyle Hidden -NoExit -Command "& $env:SYSTEMDRIVE\tools\msys64\mingw64\bin\SliMgui.exe"'                     ## Launch parameters for the app
+        LaunchParams:   '-ExecutionPolicy ByPass -WindowStyle Hidden -NoExit -Command "& C:\tools\msys64\mingw64\bin\SliMgui.exe"'                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
-    slim:                                                      ## This must match the icons.png file name
-        DisplayName:    'slim'                ## How the app displayed to the user
-        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'          ## The path to the app
-        LaunchParams:   '-ExecutionPolicy ByPass -WindowStyle Hidden -NoExit -Command "& $env:SYSTEMDRIVE\tools\msys64\mingw64\bin\slim.exe"'                     ## Launch parameters for the app
+    mingw64:                                                      ## This must match the icons.png file name
+        DisplayName:    'mingw64'                ## How the app displayed to the user
+        Path:           '%SYSTEMDRIVE%\tools\msys64\msys2_shell.bat'          ## The path to the app
+        LaunchParams:   '-mingw64 -where %SYSTEMDRIVE%\tools\msys64\mingw64\bin'                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
     
-    eidos:                                                      ## This must match the icons.png file name
-        DisplayName:    'eidos'                ## How the app displayed to the user
-        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'         ## The path to the app
-        LaunchParams:   '-ExecutionPolicy ByPass -WindowStyle Hidden -NoExit -Command "& $env:SYSTEMDRIVE\tools\msys64\mingw64\bin\eidos.exe"'   ## Launch parameters for the app
-        WorkDir:        '' ## Working directory - small modification to confirm new codebuild
+    # eidos:                                                      ## This must match the icons.png file name
+    #     DisplayName:    'eidos'                ## How the app displayed to the user
+    #     Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'         ## The path to the app
+    #     LaunchParams:   '-ExecutionPolicy ByPass -WindowStyle Hidden -NoExit -Command "& $env:SYSTEMDRIVE\tools\msys64\mingw64\bin\eidos.exe"'   ## Launch parameters for the app
+    #     WorkDir:        '' ## Working directory - small modification to confirm new codebuild
