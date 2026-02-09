@@ -1,0 +1,13 @@
+Id:             'Academic-Healthcare-SimLab'
+Description:    'Academic Healthcare SimLab'
+Version:        '1.1'
+
+Applications:
+    Academic-Healthcare-SimLab:
+        DisplayName:    'Academic Healthcare SimLab'
+        Path:           '%PROGRAMFILES%\Academic Healthcare SimLab\Academic Healthcare SimLab.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\Academic Healthcare SimLab.exe': '%PROGRAMFILES%\Academic Healthcare SimLab\Academic Healthcare SimLab.exe'
