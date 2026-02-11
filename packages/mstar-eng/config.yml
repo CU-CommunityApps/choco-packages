@@ -1,6 +1,6 @@
 Id:             'mstar-eng'                ## Application package name ie. chrome-cornell
-Description:    'mstar-eng - buildtesta3'    ## Application packages description
-Version:        '3.4.60'                     ## Application version number - MUST BE in #.# format
+Description:    'mstar-eng'    ## Application packages description
+Version:        '4.1.15'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify he 
   - File:       '%INSTALL_DIR%\msmpisdk.msi'   ## Installation file
@@ -8,7 +8,7 @@ Install:                                    ## If there are installation files i
     Arguments:  '/quiet /qn /norestart'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success       
 
-  - File:       '%INSTALL_DIR%\mstarcfd-3.4.60-windows.msi'   ## Multiple installation files require '-' to specify an array of apps are to be installed
+  - File:       '%INSTALL_DIR%\mstarcfd-4.1.15-windows.msi'   ## Multiple installation files require '-' to specify an array of apps are to be installed
     FileType:   'msi'                       
     Arguments:  '/q'        
     ExitCodes:  [0]      
