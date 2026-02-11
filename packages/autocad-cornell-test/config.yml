@@ -1,0 +1,61 @@
+Id:             'autocad-cornell-test'
+Description:    'AutoCad - 2026'
+Version:        '2.21.0.646'
+
+Install:
+
+  - File:       '%INSTALL_DIR%\image\Installer.exe'
+    FileType:   'exe'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.21.0.646"'
+    ExitCodes:  [0, 1641]
+    
+  - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
+    FileType:   'exe'
+    Arguments:  '-q'
+    ExitCodes:  [0, 1641]
+
+Applications:
+    autocad:
+        DisplayName:    'AutoCAD 2026'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2026\acad.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
+    
+Files:
+    '%INSTALL_DIR%\image\ACD_2026_en-US\x64\acadprivate\AutoCADConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\AutoCADConfig.pit'
+    '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
+    '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
+    '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
+
+Scripts:                                                ## AppStream session scripts feature
+    start:                                              ## Startup / Logon trigger
+        # User:    '%INSTALL_DIR%\some_script.ps1'        ## Runs at user logon
+        System:  '%TOOLS_DIR%\startup.ps1'  ## Run at system startup
+
+Registry:
+    HKUD:     
+        SOFTWARE\Autodesk\MC3:
+            ADAOptIn:
+                Type:   'DWORD'
+                Value:  '0'
+                
+            ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+            OverridedByHKLM:
+                Type:   'DWORD'
+                Value:  '0'
+                                
+    HKLM:
+        Software\Autodesk\MC3:
+            HKLMADAOptin:
+                Type:   'DWORD'
+                Value:  '0'
+
+            HKLMADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
