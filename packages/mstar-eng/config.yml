@@ -3,10 +3,10 @@ Description:    'mstar-eng'    ## Application packages description
 Version:        '4.1.15'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify he 
-#  - File:       '%INSTALL_DIR%\msmpisdk.msi'   ## Installation file
-#    FileType:   'msi'                       ## exe or msi are the only options currently
-#    Arguments:  '/quiet /qn /norestart'        ## Silent installation switches/parmeters
-#    ExitCodes:  [0]                         ## Exit codes - returns a success       
+  - File:       '%INSTALL_DIR%\msmpisdk.msi'   ## Installation file
+    FileType:   'msi'                       ## exe or msi are the only options currently
+    Arguments:  '/quiet /qn /norestart'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]                         ## Exit codes - returns a success       
 
   - File:       '%INSTALL_DIR%\mstarcfd-4.1.15-windows.msi'   ## Multiple installation files require '-' to specify an array of apps are to be installed
     FileType:   'msi'                       
