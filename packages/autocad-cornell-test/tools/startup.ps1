@@ -9,7 +9,7 @@ $licMethod   = "NETWORK"
 $licServers  = "$env:ADSKFLEX_LICENSE_FILE"
 # Build argument string
 $arguments = @(
-    'change'
+    'register'
     "--prod_key `"$prodKey`""
     "--prod_ver `"$prodVer`""
     "--lic_method `"$licMethod`""
