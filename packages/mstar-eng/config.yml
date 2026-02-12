@@ -1,5 +1,5 @@
 Id:             'mstar-eng'                ## Application package name ie. chrome-cornell
-Description:    'mstar-eng'    ## Application packages description
+Description:    'mstar-eng update'    ## Application packages description
 Version:        '4.1.15'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify he 
