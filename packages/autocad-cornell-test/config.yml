@@ -1,17 +1,17 @@
 Id:             'autocad-cornell-test'
-Description:    'AutoCad - 2026 - test'
+Description:    'AutoCad - 2026'
 Version:        '2.21.0.646'
 
 Install:
 
-  - File:       '%INSTALL_DIR%\image\Installer.exe'
+  - File:       '%INSTALL_DIR%\image\ACD_2026_en-US\ODIS\AdODIS-installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.21.0.646"'
+    Arguments:  '--mode unattended'
     ExitCodes:  [0, 1641]
     
-  - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
+  - File:       '%PROGRAMFILES%\Autodesk\AdODIS\V1\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-q'
+    Arguments:  '-i install -q -m %INSTALL_DIR%\image\ACD_2026_en-US\setup.xml'
     ExitCodes:  [0, 1641]
 
 Applications:
