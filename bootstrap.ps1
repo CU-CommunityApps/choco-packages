@@ -172,10 +172,17 @@ Else {
         Start-BitsTransfer -Source $URI -Destination "$env:PUBLIC\Desktop\troubleshooting.ps1"
     
         # Create executable shortcut
-        $WshShell = New-Object -comObject WScript.Shell
-        $Shortcut = $WshShell.CreateShortcut("$env:public\desktop\troubleshooting.lnk")
-        $Shortcut.TargetPath = "powershell.exe"
-        $Shortcut.Arguments =  "-Command `"& $env:public\desktop\troubleshooting.ps1`""
+        # $WshShell = New-Object -comObject WScript.Shell
+        # $Shortcut = $WshShell.CreateShortcut("$env:public\desktop\troubleshooting.lnk")
+        # $Shortcut.TargetPath = "powershell.exe"
+        # $Shortcut.Arguments =  "-Command `"& $env:public\desktop\troubleshooting.ps1`""
+        # $Shortcut.Save()
+
+        # Create executable shortcut to run troubleshooting script as SYSTEM
+        $WshShell = New-Object -ComObject WScript.Shell
+        $Shortcut = $WshShell.CreateShortcut("$env:PUBLIC\Desktop\troubleshooting.lnk")
+        $Shortcut.TargetPath = "psexec.exe"
+        $Shortcut.Arguments  = '-i -s -accepteula "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ExecutionPolicy Bypass -File "C:\Users\Public\Desktop\troubleshooting.ps1"'
         $Shortcut.Save()
     }
 }
