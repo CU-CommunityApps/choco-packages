@@ -14,17 +14,12 @@ Install:                                    ## If there are installation files i
     ExitCodes:  [0]      
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
-    mstarsolve:                                                      ## This must match the icons.png file name
-        DisplayName:    'M-Star Solve'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\M-Star CFD\mstar-solve-gui.exe'          ## The path to the app
-        LaunchParams:   ''                     ## Launch parameters for the app
+    mstarlauncher:                                                      ## This must match the icons.png file name
+        DisplayName:    'M-Star Launcher'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\M-Star CFD\mstar.exe'          ## The path to the app
+        LaunchParams:   'launcher'                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
 
-    mstarpre:                                                      ## This must match the icons.png file name
-        DisplayName:    'M-Star Pre'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\M-Star CFD\mstar-gui.exe'          ## The path to the app
-        LaunchParams:   ''                     ## Launch parameters for the app
-        WorkDir:        '' ## Working directory
    
 Files:                                                                  ## File copy feature
     '%INSTALL_DIR%\cornell1-ls64.rlmcloud.com.lic': '%PROGRAMFILES%\M-Star CFD\cornell1-ls64.rlmcloud.com.lic'
