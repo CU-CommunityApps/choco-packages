@@ -9,6 +9,8 @@
     Application name for testing (ie. adobedcreader-cornell) - Optional
 .PARAMETER branch
     Test branch name (ie. adobedcreader) - Optional
+.PARAMETER version
+    Specific package version to test (ie. 1.2.3) - Optional; if omitted you will be prompted and the version from config.yml will be used by default
 .EXAMPLE
     PS C:\Users\test\Desktop> 
     .\troubleshooting.ps1 -s3 somebucketname -package adobedcreader-cornell -branch adobedcreader
@@ -33,7 +35,10 @@ Param(
     [string]$package,
     [Parameter(Mandatory=$false,Position=3,HelpMessage="Test branch name")]
     [ValidateNotNullOrEmpty()]
-    [string]$branch
+    [string]$branch,
+    [Parameter(Mandatory=$false,Position=4,HelpMessage="Specific package version to test")]
+    [ValidateNotNullOrEmpty()]
+    [string]$version
 )
 
 try {
@@ -119,9 +124,25 @@ Function version($package, $branch){
     # Get file version
     $config = irm -Uri "$rawURI/$branch/packages/$package/config.yml"
     $config
-    $version = ($config | ConvertFrom-Yaml).version
+    $parsedConfig = $config | ConvertFrom-Yaml
+    $defaultVersion = $parsedConfig.version
 
-    install $package $branch $version
+    if (-not $version) {
+        Write-Host "`nConfig version for $package on $branch is $defaultVersion" -ForegroundColor Yellow
+        $inputVersion = Read-Host "Enter version to test or press Enter to use $defaultVersion"
+
+        if ([string]::IsNullOrWhiteSpace($inputVersion)) {
+            $selectedVersion = $defaultVersion
+        }
+        else {
+            $selectedVersion = $inputVersion
+        }
+    }
+    else {
+        $selectedVersion = $version
+    }
+
+    install $package $branch $selectedVersion
 
 }
 
