@@ -1,6 +1,6 @@
 Id:             'autocad-cornell-test'
-Description:    'AutoCad - 2026 - Stripped Install Context'
-Version:        '2.21.0.647'
+Description:    'AutoCad - 2026 - No ID Manager'
+Version:        '2.21.0.648'
 
 Install:
 
