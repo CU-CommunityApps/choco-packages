@@ -4,9 +4,14 @@ Version:        '2.21.0.646'
 
 Install:
 
-  - File:       '%INSTALL_DIR%\image\Installer.exe'
+  - File:       '%INSTALL_DIR%\image\Installer.exe' # Install 2026 base with modified settings
     FileType:   'exe'
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.21.0.646"'
+    ExitCodes:  [0, 1641]
+
+  - File:       '%INSTALL_DIR%\image\Installer.exe' # Install 2026.1.1 with modified settings
+    FileType:   'exe'
+    Arguments:  '--manifest "%INSTALL_DIR%\image\ACD2026_1_1_image\setup.xml" --install_mode install --offline_mode --silent --trigger_point local'
     ExitCodes:  [0, 1641]
     
   - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
