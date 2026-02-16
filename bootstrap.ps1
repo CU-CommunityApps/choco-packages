@@ -22,8 +22,8 @@ $REBOOT_LOCK = "$env:ALLUSERSPROFILE\TEMP\REBOOT.lock"
 $DRIVER_LOCK = "$env:ALLUSERSPROFILE\TEMP\DRIVER.lock"
 $OSVERSION = (get-itemproperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
 
-Function G4dn{
-    Write-Output "G4 instance, downloading latest GRID driver"
+Function Gx{
+    Write-Output "Gx instance, downloading latest GRID driver"
     $choco_home="$env:ALLUSERSPROFILE\chocolatey"
 
     $Bucket = "ec2-windows-nvidia-drivers"
@@ -144,8 +144,8 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Write-Output "Installing .NET 4.8"
     Start-Process -FilePath "choco.exe" -ArgumentList "install dotnetfx -s $PACKAGE_DIR;$CHOCO_REPO --no-progress -r -y" -NoNewWindow -Wait
     
-    # Install GRID Driver for G4dn instance type
-    If ($image_id -match "Graphics-G4dn"){G4dn}
+    # Install GRID Driver for G4dn or G5 instance type
+    If ($image_id -match "Graphics-G4dn" -or $image_id -match "Graphics-G5"){Gx}
     
     # Make directory for image builder runner
     New-Item -Path "$env:ProgramFiles" -Name "ImageBuilder" -ItemType "directory"
