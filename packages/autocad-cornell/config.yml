@@ -1,9 +1,8 @@
-Id:             'autocad-cornell-test'
+Id:             'autocad-cornell'
 Description:    'AutoCad - 2026 - No ID Manager'
-Version:        '2.21.0.646'
+Version:        '25.1.164.0'
 
 Install:
-
   - File:       '%INSTALL_DIR%\image\Installer.exe' # Install 2026 base with modified settings
     FileType:   'exe'
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.21.0.646"'
