@@ -14,3 +14,6 @@ Select-String -Path $policyFile -Pattern 'secreatesymboliclinkprivilege' -CaseSe
 
 # output current token permissions
 whoami /all | Out-File -FilePath 'C:\Temp\system-token.txt' -Encoding UTF8 -Force
+
+# Pre install the ID Manager Component Test
+Start-Process "$INSTALL_DIR\image\Installer.exe" -ArgumentList "--manifest $INSTALL_DIR\AdskIdentityManager-UCT-Installer\setup.xml --install_mode install --offline_mode --silent --trigger_point local"
