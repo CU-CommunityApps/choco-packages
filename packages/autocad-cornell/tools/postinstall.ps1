@@ -1,13 +1,3 @@
 # Runs after the choco package is installed
-
-#Remove autocad desktop shortcut
-Remove-Item "c:\users\public\desktop\AutoCAD 2026 - English.lnk"
-
-#Set the Location to the registry
-Set-Location -Path "HKCU:\Software"
-
-#Create a new key
-Get-Item -Path 'HKCU:\Software' | New-Item -Name "Autodesk\ODIS" -Force
-
-#Create new items with values
-New-ItemProperty -Path "HKCU:\Software\Autodesk\ODIS" -Name "DisableManualUpdateInstall" -Value 1 -PropertyType DWORD -Force
+# Removing file based on Autodesk doc - https://www.autodesk.com/support/technical/article/caas/sfdcarticles/sfdcarticles/Warning-1909-Could-not-create-Shortcut-Add-A-Plot-Style-Table-Wizzard-lnk-Verify-that-the-destination-folder-exists-and-that-you-can-access-it-or-similar-error-error-when-launching-AutoCAD-2023-or-verticals.html
+rm "$env:ProgramData\Microsoft\Windows\Start Menu\Programs\AutoCAD 2026 - English\Reference Manager.lnk" -Force
