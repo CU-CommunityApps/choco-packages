@@ -31,7 +31,7 @@ Files:
 
 Scripts:
     start:
-        User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Remove Autodesk updates
+        User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
         
 Registry:
     HKUD:
