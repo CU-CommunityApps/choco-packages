@@ -106,6 +106,8 @@ if (-not [TokenHelpers]::AdjustTokenPrivileges(
 }
 Write-Host "SeCreateSymbolicLinkPrivilege enabled in current process."
 
+whoami /all | Out-File -FilePath 'C:\Temp\system-token-updated.txt' -Encoding UTF8 -Force
+
 # Pre install the ID Manager Component Test
 # Output everything to STDOUT
 $psi = New-Object System.Diagnostics.ProcessStartInfo
