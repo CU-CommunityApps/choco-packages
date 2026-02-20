@@ -111,8 +111,8 @@ whoami /all | Out-File -FilePath 'C:\Temp\system-token-updated.txt' -Encoding UT
 # Pre install the ID Manager Component Test
 # Output everything to STDOUT
 $psi = New-Object System.Diagnostics.ProcessStartInfo
-$psi.FileName = "$INSTALL_DIR\image\Installer.exe"
-$psi.Arguments = "--manifest `"$INSTALL_DIR\AdskIdentityManager-UCT-Installer\setup.xml`" --install_mode install --offline_mode --silent --trigger_point local"
+$psi.FileName = "$env:INSTALL_DIR\image\Installer.exe"
+$psi.Arguments = "--manifest `"$env:INSTALL_DIR\AdskIdentityManager-UCT-Installer\setup.xml`" --install_mode install --offline_mode --silent --trigger_point local"
 $psi.RedirectStandardOutput = $true
 $psi.RedirectStandardError  = $true
 $psi.UseShellExecute = $false
