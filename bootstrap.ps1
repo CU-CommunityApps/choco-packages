@@ -162,6 +162,100 @@ else {
 
 # Run ImageBuilder
 If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $true){
+    # Run SYSTEM token processes
+    # Enable symlinks permissions in current SYSTEM token process run
+    $definition = @"
+    using System;
+    using System.Runtime.InteropServices;
+    public class TokenHelpers
+    {
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        public struct LUID
+        {
+            public uint LowPart;
+            public int HighPart;
+        }
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        public struct LUID_AND_ATTRIBUTES
+        {
+            public LUID Luid;
+            public uint Attributes;
+        }
+        [StructLayout(LayoutKind.Sequential, Pack = 1)]
+        public struct TOKEN_PRIVILEGES
+        {
+            public uint PrivilegeCount;
+            public LUID_AND_ATTRIBUTES Privileges;
+        }
+        public const uint SE_PRIVILEGE_ENABLED = 0x00000002;
+        public const int TOKEN_ADJUST_PRIVILEGES = 0x0020;
+        public const int TOKEN_QUERY = 0x0008;
+        [DllImport("advapi32.dll", SetLastError = true)]
+        public static extern bool OpenProcessToken(
+            IntPtr ProcessHandle,
+            int DesiredAccess,
+            out IntPtr TokenHandle
+        );
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr GetCurrentProcess();
+        [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        public static extern bool LookupPrivilegeValue(
+            string lpSystemName,
+            string lpName,
+            out LUID lpLuid
+        );
+        [DllImport("advapi32.dll", SetLastError = true)]
+        public static extern bool AdjustTokenPrivileges(
+            IntPtr TokenHandle,
+            bool DisableAllPrivileges,
+            ref TOKEN_PRIVILEGES NewState,
+            int Zero,
+            IntPtr Null1,
+            IntPtr Null2
+        );
+    }
+    "@
+    Add-Type -TypeDefinition $definition -ErrorAction Stop
+    # Get current process token
+    $procHandle = [TokenHelpers]::GetCurrentProcess()
+    $tokenHandle = [IntPtr]::Zero
+    if (-not [TokenHelpers]::OpenProcessToken(
+        $procHandle,
+        [TokenHelpers]::TOKEN_ADJUST_PRIVILEGES -bor [TokenHelpers]::TOKEN_QUERY,
+        [ref] $tokenHandle
+    )) {
+        throw "OpenProcessToken failed. Win32 error: $([Runtime.InteropServices.Marshal]::GetLastWin32Error())"
+    }
+    # Lookup the LUID for SeCreateSymbolicLinkPrivilege
+    $luid = New-Object TokenHelpers+LUID
+    if (-not [TokenHelpers]::LookupPrivilegeValue(
+        $null,
+        "SeCreateSymbolicLinkPrivilege",
+        [ref] $luid
+    )) {
+        throw "LookupPrivilegeValue failed. Win32 error: $([Runtime.InteropServices.Marshal]::GetLastWin32Error())"
+    }
+    # Build TOKEN_PRIVILEGES structure
+    $tp = New-Object TokenHelpers+TOKEN_PRIVILEGES
+    $tp.PrivilegeCount = 1
+    $tp.Privileges = New-Object TokenHelpers+LUID_AND_ATTRIBUTES
+    $tp.Privileges.Luid = $luid
+    $tp.Privileges.Attributes = [TokenHelpers]::SE_PRIVILEGE_ENABLED
+    # Enable the privilege
+    if (-not [TokenHelpers]::AdjustTokenPrivileges(
+        $tokenHandle,
+        $false,
+        [ref] $tp,
+        0,
+        [IntPtr]::Zero,
+        [IntPtr]::Zero
+    )) {
+        throw "AdjustTokenPrivileges failed. Win32 error: $([Runtime.InteropServices.Marshal]::GetLastWin32Error())"
+    }
+    Write-Host "SeCreateSymbolicLinkPrivilege enabled in current process."
+    
+    whoami /all | Out-File -FilePath 'C:\Temp\system-token-updated.txt' -Encoding UTF8 -Force
+    
     Write-Output "Running ImageBuilder"
     & "$env:ProgramFiles\ImageBuilder\program.ps1"
 }
