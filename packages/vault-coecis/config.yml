@@ -1,6 +1,6 @@
 Id:             'vault-coecis'
-Description:    'Vault 2026b - COECIS'
-Version:        '31.0.84.0'
+Description:    'Autodesk Vault 2026'
+Version:        '2026.0.1.0'
 
 Install:
   - File:       '%INSTALL_DIR%\Files\Installer.exe'
@@ -58,3 +58,4 @@ Registry:
             HKLMADARePrompted:
                 Type:   'DWORD'
                 Value:  '1'
+
