@@ -1,6 +1,6 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2026 - No ID Manager - Test'
-Version:        '30.0.17500.0000'
+Description:    'Autodesk Inventor 2026'
+Version:        '2026.2.1.0'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
