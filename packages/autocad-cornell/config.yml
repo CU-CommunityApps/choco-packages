@@ -1,12 +1,21 @@
 Id:             'autocad-cornell'
-Description:    'AutoCad - 2026b'
-Version:        '2.15.0.546'
+Description:    'AutoCad - 2026 - No ID Manager'
+Version:        '25.1.164.0'
 
 Install:
-
-    File:       '%INSTALL_DIR%\image\Installer.exe'
+  - File:       '%INSTALL_DIR%\image\Installer.exe' # Install 2026 base with modified settings
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.15.0.546"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.21.0.646"'
+    ExitCodes:  [0, 1641]
+
+  - File:       '%INSTALL_DIR%\image\Installer.exe' # Install 2026.1.1 with modified settings
+    FileType:   'exe'
+    Arguments:  '--manifest "%INSTALL_DIR%\image\ACD2026_1_1_image\setup.xml" --install_mode install --offline_mode --silent --trigger_point local'
+    ExitCodes:  [0, 1641]
+    
+  - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
+    FileType:   'exe'
+    Arguments:  '-q'
     ExitCodes:  [0, 1641]
 
 Applications:
@@ -20,9 +29,15 @@ Environment:
     ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
     
 Files:
+    '%INSTALL_DIR%\image\ACD_2026_en-US\x64\acadprivate\AutoCADConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\AutoCADConfig.pit'
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
+
+Scripts:                                                ## AppStream session scripts feature
+    start:                                              ## Startup / Logon trigger
+        # User:    '%INSTALL_DIR%\some_script.ps1'        ## Runs at user logon
+        System:  '%TOOLS_DIR%\startup.ps1'  ## Run at system startup
 
 Registry:
     HKUD:     
@@ -46,5 +61,10 @@ Registry:
                 Value:  '0'
 
             HKLMADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+                
+        Software\Policies\Microsoft\Windows\Installer: # Allow standard user to run repair
+            DisableLUAInRepair:
                 Type:   'DWORD'
                 Value:  '1'

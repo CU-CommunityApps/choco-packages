@@ -1,19 +1,17 @@
 Id:             'vault-coecis'
 Description:    'Vault 2026b - COECIS'
-Version:        '2.5.0.219'
+Version:        '31.0.84.0'
 
 Install:
-
-    File:       '%INSTALL_DIR%\Deploy-Application.exe'
+  - File:       '%INSTALL_DIR%\Files\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-DeployMode "Silent"'
-    ExitCodes:  [0, 1641]
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\Files\Collection.xml" --installer_version "2.15.0.532"'
+    ExitCodes:  [0,1641]
 
-#Install:
-#  - File:       '%INSTALL_DIR%\image\Installer.exe'
-#    FileType:   'exe'
-#    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.5.0.7"'
-#   ExitCodes:  [0,1641]
+  - File:       '%INSTALL_DIR%\Files\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
+    FileType:   'exe'
+    Arguments:  '-q'
+    ExitCodes:  [0, 1641]
 
 Applications:
     vault:
@@ -26,6 +24,7 @@ Environment:
     ADSKFLEX_LICENSE_FILE: '%VAULT_LICENSE_FILE%'
 
 Files:
+    '%INSTALL_DIR%\Files\PLC0000004_2026_en-US\x64\VP\VaultOfficeProCombined.pit': '%PROGRAMDATA%\Autodesk\Product Information\VaultOfficeProCombined.pit'
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'

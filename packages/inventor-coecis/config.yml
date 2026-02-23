@@ -1,12 +1,17 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2026'
-Version:        '2.15.0.546'
+Description:    'Autodesk Inventor 2026 - No ID Manager - Test'
+Version:        '30.0.17500.0000'
 
 Install:
-    File:       '%INSTALL_DIR%\image\Installer.exe'
+  - File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.15.0.546"'
-    ExitCodes:  [0,3010]
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.21.0.646"'
+    ExitCodes:  [0, 1641, 3010]
+
+  - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
+    FileType:   'exe'
+    Arguments:  '-q'
+    ExitCodes:  [0, 1641]    
 
 Applications:
     Inventor:
@@ -19,13 +24,15 @@ Environment:
     ADSKFLEX_LICENSE_FILE: '%INVENTOR_LICENSE_FILE%'
 
 Files:
+    '%INSTALL_DIR%\image\INVPROSA_2026_en-US\x64\INV\InventorProfessionalConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\InventorProfessionalConfig.pit'
     '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2026\Preferences\AddInLoadRules.xml'
     '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2026\UserApplicationOptions.xml'
     '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2026\myhome.json'
 
 Scripts:
     start:
-        User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Remove Autodesk updates  
+        User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
+        
 Registry:
     HKUD:
         Software\Autodesk\MC3:
@@ -44,5 +51,10 @@ Registry:
                 Value:  '0'
 
             HKLMADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+        Software\Policies\Microsoft\Windows\Installer: # Allow standard user to run repair
+            DisableLUAInRepair:
                 Type:   'DWORD'
                 Value:  '1'
