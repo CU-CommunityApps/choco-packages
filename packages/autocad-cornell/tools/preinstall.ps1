@@ -112,20 +112,20 @@ try {
     Write-Host "Symlink creation FAILED: $($_.Exception.Message)"
 }
 
-# Pre install the ID Manager Component Test
-# Output everything to STDOUT
-$psi = New-Object System.Diagnostics.ProcessStartInfo
-$psi.FileName = "$env:INSTALL_DIR\image\Installer.exe"
-$psi.Arguments = "--manifest `"$env:INSTALL_DIR\AdskIdentityManager-UCT-Installer\setup.xml`" --install_mode install --offline_mode --silent --trigger_point local"
-$psi.RedirectStandardOutput = $true
-$psi.RedirectStandardError  = $true
-$psi.UseShellExecute = $false
-$proc = New-Object System.Diagnostics.Process
-$proc.StartInfo = $psi
-$proc.Start() | Out-Null
-$proc.WaitForExit()
-# Write child stdout/stderr to this PowerShell stdout
-$proc.StandardOutput.ReadToEnd()
-$proc.StandardError.ReadToEnd()
+# # Pre install the ID Manager Component Test
+# # Output everything to STDOUT
+# $psi = New-Object System.Diagnostics.ProcessStartInfo
+# $psi.FileName = "$env:INSTALL_DIR\image\Installer.exe"
+# $psi.Arguments = "--manifest `"$env:INSTALL_DIR\AdskIdentityManager-UCT-Installer\setup.xml`" --install_mode install --offline_mode --silent --trigger_point local"
+# $psi.RedirectStandardOutput = $true
+# $psi.RedirectStandardError  = $true
+# $psi.UseShellExecute = $false
+# $proc = New-Object System.Diagnostics.Process
+# $proc.StartInfo = $psi
+# $proc.Start() | Out-Null
+# $proc.WaitForExit()
+# # Write child stdout/stderr to this PowerShell stdout
+# $proc.StandardOutput.ReadToEnd()
+# $proc.StandardError.ReadToEnd()
 
-#Start-Process "$INSTALL_DIR\image\Installer.exe" -ArgumentList "--manifest $INSTALL_DIR\AdskIdentityManager-UCT-Installer\setup.xml --install_mode install --offline_mode --silent --trigger_point local" -Verbose
+# #Start-Process "$INSTALL_DIR\image\Installer.exe" -ArgumentList "--manifest $INSTALL_DIR\AdskIdentityManager-UCT-Installer\setup.xml --install_mode install --offline_mode --silent --trigger_point local" -Verbose
