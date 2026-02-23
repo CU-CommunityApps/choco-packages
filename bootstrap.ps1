@@ -163,7 +163,7 @@ else {
 # Run ImageBuilder
 If ([System.Environment]::GetEnvironmentVariable("AoD_Manual", 'Machine') -ne $true){
     Write-Output "Running ImageBuilder"
-    & "$env:ProgramFiles\ImageBuilder\program.ps1"
+    psexec -s -i "$POWERSHELL_PATH" -ExecutionPolicy Bypass -File "$env:ProgramFiles\ImageBuilder\program.ps1"
 }
 Else {
     If (!(test-path $DRIVER_LOCK)){New-Item -Path $DRIVER_LOCK -Force; Start-Process 'shutdown.exe' -ArgumentList '/r /f /t 0'}
