@@ -1,0 +1,45 @@
+Id:             'base-utils-cornell'
+Description:    'Base Tools for most images'
+Version:        '1.0.0'
+
+    
+Install:         #Latest version of app is being automatically downloaded in the preinstall.ps1 script
+  - File:       '%TOOLS_DIR%\GoogleChromeStandaloneEnterprise64.msi'   ## Installation file
+    FileType:   'msi'                       ## exe or msi are the only options currently
+    Arguments:  '/qn'        ## Silent installation switches/parmeters
+    ExitCodes:  [0]  
+  
+  - File:       '%TOOLS_DIR%\7zip.msi' #Latest version of app is being automatically downloaded in the preinstall.ps1 script
+    FileType:   'msi'
+    Arguments:  '/q'
+    ExitCodes:  [0]
+
+  - File:       '%TOOLS_DIR%\NotePadPlusPlus.exe' #Latest version of app is being automatically downloaded in the preinstall.ps1 script
+    FileType:   'exe'
+    Arguments:  '/noUpdater /S'
+    ExitCodes:  [0]
+
+Applications:
+    Sevenzip:
+        DisplayName:    '7-Zip'
+        Path:           '%PROGRAMFILES%\7-Zip\7zFM.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    Edge:
+        DisplayName:    'Microsoft Edge'
+        Path:           '%PROGRAMFILES(x86)%\Microsoft\Edge\Application\msedge.exe'
+        LaunchParams:   'https://it.cornell.edu/students'
+        WorkDir:        ''
+    
+    NotepadPP:
+        DisplayName:    'Notepad++'
+        Path:           '%PROGRAMFILES%\Notepad++\notepad++.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    Chrome:
+        DisplayName:    'Google Chrome'
+        Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
+        LaunchParams:   '--no-first-run --no-default-browser-check --allow-no-sandbox-job https://it.cornell.edu/students'
+        WorkDir:        ''
