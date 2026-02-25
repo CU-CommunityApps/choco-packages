@@ -1,21 +1,27 @@
 Id:             'ansys-ecornell'
-Description:    'ANSYS 2021 R1 - buildtest 1'
-Version:        '21.1.0.29455'
+Description:    'ANSYS 2025 R2 SP4 - COECIS License'
+Version:        '25.2.04.0'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent'
+    Arguments:  '-optislang -fluent -mechapdl -discoveryreduced -polyflow -acis -acad_reader -catia4 -catia5_reader -catia6 -cocreate -adinventor_reader -jtopen -parasolid -solidedge_reader -solidworks_reader -licserverinfo %LIC_SERVER% -silent'
     ExitCodes:  [0]
-
+    
 Applications:
     ANSYSWB:
-        DisplayName:    'Workbench 2021 R1'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v211\Framework\bin\Win64\RunWB2.exe'
+        DisplayName:    'Workbench 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Framework\bin\Win64\RunWB2.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    ansysdis:
+        DisplayName:    'Discovery 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Discovery\Discovery.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files: 
-    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v211\ApipUserConfig.txt'
-    '%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v211\commonfiles\CAD\CADConfigurationInfo.XML'
-    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
+    '%TOOLS_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
+    #'%TOOLS_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v211\commonfiles\CAD\CADConfigurationInfo.XML'
+    #'%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
