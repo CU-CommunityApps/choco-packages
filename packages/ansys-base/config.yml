@@ -15,7 +15,7 @@ Install:
     
 Applications:
     ANSYSWB:
-        DisplayName:    'Workbench 2025 R2.04'
+        DisplayName:    'Workbench 2025 R2'
         Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
