@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UserSettings>
+  <Setting Key="ShowApipWindow" Value="false" />
+  <Setting Key="ApipOptIn" Value="false" />
+  <Setting Key="SerializedBlacklistedLocations">
+    <Item>{"Location":"c:\\Program Files\\Ansys Inc\\ANSYS Discovery 2025 R2\\v252\\Discovery\\samples","FolderType":1,"DisplayName":"samples"}</Item>
+  </Setting>
+  <Setting Key="RecentMaterials" />
+  <Setting Key="FavoritedMaterials">
+    <Item>{"Name":"Structural steel, S275N","Id":"00000000-0000-0000-0000-000000000000","Source":"4e957b12-2e45-44e6-9185-4c722c2a9a78","State":0}</Item>
+    <Item>{"Name":"Copper, pure, C10100, hard","Id":"00000000-0000-0000-0000-000000000000","Source":"4e957b12-2e45-44e6-9185-4c722c2a9a78","State":0}</Item>
+    <Item>{"Name":"Aluminum alloy, wrought, 6061, T6","Id":"00000000-0000-0000-0000-000000000000","Source":"4e957b12-2e45-44e6-9185-4c722c2a9a78","State":0}</Item>
+    <Item>{"Name":"Water","Id":"00000000-0000-0000-0000-000000000000","Source":"4e957b12-2e45-44e6-9185-4c722c2a9a78","State":1}</Item>
+    <Item>{"Name":"Air","Id":"00000000-0000-0000-0000-000000000000","Source":"4e957b12-2e45-44e6-9185-4c722c2a9a78","State":2}</Item>
+  </Setting>
+  <Setting Key="AvailableRibbonTabs">
+    <Item TabId="RibbonTabSimulation" TabVisibility="True" TabIndex="2" GroupId="" />
+    <Item TabId="RibbonTabDesign" TabVisibility="True" TabIndex="1" GroupId="" />
+    <Item TabId="RibbonTabSubD" TabVisibility="False" TabIndex="1.01" GroupId="" />
+    <Item TabId="RibbonTabDisplay" TabVisibility="True" TabIndex="1.02" GroupId="" />
+    <Item TabId="RibbonTabMeasure" TabVisibility="True" TabIndex="1.04" GroupId="" />
+    <Item TabId="RibbonTabFacets" TabVisibility="True" TabIndex="1.05" GroupId="" />
+    <Item TabId="RibbonTabRepair" TabVisibility="True" TabIndex="1.06" GroupId="" />
+    <Item TabId="RibbonTabPrepare" TabVisibility="True" TabIndex="1.07" GroupId="" />
+    <Item TabId="RibbonTabIcepak" TabVisibility="False" TabIndex="1.08" GroupId="" />
+    <Item TabId="RibbonTabDetail" TabVisibility="False" TabIndex="1.1" GroupId="" />
+    <Item TabId="RibbonTabSheetMetal" TabVisibility="False" TabIndex="1.11" GroupId="" />
+    <Item TabId="RibbonTabHelp" TabVisibility="True" TabIndex="3.99" GroupId="" />
+  </Setting>
+  <Setting Key="IsFirstInstanceOfApplication" Value="false" />
+  <Setting Key="NewestDetectedVersion" Value="2024 R2 SP1" />
+  <Setting Key="LastVersionCheck" Value="07/25/2025 17:23:34" />
+  <Setting Key="AutoCalculatePowerSelection" Value="true" />
+  <Setting Key="WindowPlacement" Value="﻿&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&#xD;&#xA;&lt;NativeWindowPlacement xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&#xD;&#xA;    &lt;Length&gt;44&lt;/Length&gt;&#xD;&#xA;    &lt;Flags&gt;RestoreToMaximized&lt;/Flags&gt;&#xD;&#xA;    &lt;ShowCmd&gt;ShowMaximized&lt;/ShowCmd&gt;&#xD;&#xA;    &lt;MinPosition&gt;&#xD;&#xA;        &lt;X&gt;-1&lt;/X&gt;&#xD;&#xA;        &lt;Y&gt;-1&lt;/Y&gt;&#xD;&#xA;    &lt;/MinPosition&gt;&#xD;&#xA;    &lt;MaxPosition&gt;&#xD;&#xA;        &lt;X&gt;-1&lt;/X&gt;&#xD;&#xA;        &lt;Y&gt;-1&lt;/Y&gt;&#xD;&#xA;    &lt;/MaxPosition&gt;&#xD;&#xA;    &lt;NormalPosition&gt;&#xD;&#xA;        &lt;Left&gt;14&lt;/Left&gt;&#xD;&#xA;        &lt;Top&gt;16&lt;/Top&gt;&#xD;&#xA;        &lt;Right&gt;1926&lt;/Right&gt;&#xD;&#xA;        &lt;Bottom&gt;852&lt;/Bottom&gt;&#xD;&#xA;    &lt;/NormalPosition&gt;&#xD;&#xA;&lt;/NativeWindowPlacement&gt;" />
+  <Setting Key="HUDPinnedState" Value="false" />
+</UserSettings>

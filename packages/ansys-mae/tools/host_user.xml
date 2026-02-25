@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<KEYS>
+
+  <KEY ObjectName="replace_user" RegObjectType="0">
+    <KEYS>
+      <KEY ObjectName="Circuit Design" RegObjectType="0">
+        <VALUES>
+          <VALUE ObjectName="NexximRibbonSettings" Value="$begin ''&#xA;&#x9;SimulationGalleryIndex[5: 0, 2, 3, 4, 5]&#xA;$end ''&#xA;" ValueType="2"/>
+        </VALUES>
+      </KEY>
+      <KEY ObjectName="Desktop" RegObjectType="0">
+        <KEYS>
+          <KEY ObjectName="Aliases" RegObjectType="0">
+            <VALUES>
+              <VALUE ObjectName="NullAliases" Value="" ValueType="2"/>
+              <VALUE ObjectName="ToReplace" Value="Ieee;Simplorer Elements\Ieee*Std;Simplorer Elements\Std*Basic_VHDLAMS;Simplorer Elements\Basic Elements VHDLAMS\Basic Elements VHDLAMS*Digital_Elements;Simplorer Elements\Digital Elements\Digital Elements*Transformations;Simplorer Elements\Tools\Transformations\Transformations*HEV_VHDLAMS;Simplorer Elements\HEV VHDLAMS\HEV VHDLAMS*automotive_vda;Simplorer Elements\VDALibs VHDLAMS\automotive_vda*example_boardnet;Simplorer Elements\VDALibs VHDLAMS\example_boardnet*example_ecar;Simplorer Elements\VDALibs VHDLAMS\example_ecar*fundamentals_vda;Simplorer Elements\VDALibs VHDLAMS\fundamentals_vda*hybrid_emc_vda;Simplorer Elements\VDALibs VHDLAMS\hybrid_emc_vda*megma;Simplorer Elements\VDALibs VHDLAMS\megma*modelica_rotational;Simplorer Elements\VDALibs VHDLAMS\modelica_rotational*modelica_thermal;Simplorer Elements\VDALibs VHDLAMS\modelica_thermal*modelica_translational;Simplorer Elements\VDALibs VHDLAMS\modelica_translational*spice2vhd;Simplorer Elements\VDALibs VHDLAMS\spice2vhd*spice2vhd_devices;Simplorer Elements\VDALibs VHDLAMS\spice2vhd_devices*aircraft_electrical_vhdlams;Simplorer Elements\Aircraft Electrical VHDLAMS\Aircraft Electrical VHDLAMS*power_system_vhdlams;Simplorer Elements\Power System VHDLAMS\Power System VHDLAMS" ValueType="2"/>
+            </VALUES>
+          </KEY>
+          <KEY ObjectName="Settings" RegObjectType="0">
+            <KEYS>
+              <KEY ObjectName="CompChooserOptions" RegObjectType="0">
+                <VALUES>
+                  <VALUE ObjectName="SFavorites" Value="R:Simplorer Elements\Basic Elements\Circuit\Passive Elements;L:Simplorer Elements\Basic Elements\Circuit\Passive Elements;C:Simplorer Elements\Basic Elements\Circuit\Passive Elements;D:Simplorer Elements\Basic Elements\Circuit\Semiconductors System Level;E:Simplorer Elements\Basic Elements\Circuit\Sources;AM:Simplorer Elements\Basic Elements\Measurement\Electrical;VM:Simplorer Elements\Basic Elements\Measurement\Electrical" ValueType="2"/>
+                </VALUES>
+              </KEY>
+              <KEY ObjectName="PrinterDefault" RegObjectType="0">
+                <VALUES>
+                  <VALUE ObjectName="PrinterOrientation" Value="2" ValueType="4"/>
+                </VALUES>
+              </KEY>
+              <KEY ObjectName="ProjectOptions" RegObjectType="0">
+                <VALUES>
+                  <VALUE ObjectName="ProductImprovementOptStatus" Value="1" ValueType="4"/>
+                  <VALUE ObjectName="ShowWelcomeMsg" Value="0" ValueType="4"/>
+                </VALUES>
+              </KEY>
+            </KEYS>
+            <VALUES>
+              <VALUE ObjectName="windowPos" Value="0 3 0 0 -1 -1 288 131 1632 746" ValueType="2"/>
+            </VALUES>
+          </KEY>
+        </KEYS>
+        <VALUES>
+          <VALUE ObjectName="ColorScheme" Value="Silver" ValueType="2"/>
+          <VALUE ObjectName="InstallationDirectory" Value="C:\Program Files\AnsysEM\v252\Win64" ValueType="2"/>
+          <VALUE ObjectName="ProjectDirectory" Value="C:\Users\temp_username\Documents\Ansoft" ValueType="2"/>
+        </VALUES>
+      </KEY>
+      <KEY ObjectName="Machine Editor" RegObjectType="0">
+        <KEYS>
+          <KEY ObjectName="Preferences" RegObjectType="0">
+            <KEYS>
+              <KEY ObjectName="Machine" RegObjectType="0">
+                <VALUES>
+                  <VALUE ObjectName="WireSetting" Value="American" ValueType="2"/>
+                  <VALUE ObjectName="WireSettingLibType" Value="0" ValueType="4"/>
+                </VALUES>
+              </KEY>
+            </KEYS>
+          </KEY>
+        </KEYS>
+      </KEY>
+      <KEY ObjectName="Model Editors" RegObjectType="0">
+        <KEYS>
+          <KEY ObjectName="ModelicaModel" RegObjectType="0">
+            <VALUES>
+              <VALUE ObjectName="Enhance Graphics" Value="1" ValueType="4"/>
+              <VALUE ObjectName="LoadEnvPackages" Value="" ValueType="2"/>
+              <VALUE ObjectName="LoadInstallPackages" Value="C:/Program Files/AnsysEM/v252/Win64/common/Modelica/ThirdParty/MSL/MSL323/Modelica/package.mo;C:/Program Files/AnsysEM/v252/Win64/syslib/Simplorer Elements/ModelicaLibs/TwinBuilder/package.mo;" ValueType="2"/>
+              <VALUE ObjectName="LoadLibrariesAtStartup" Value="0" ValueType="4"/>
+              <VALUE ObjectName="LoadUserPackages" Value="" ValueType="2"/>
+              <VALUE ObjectName="Overwrite from Diagram" Value="1" ValueType="4"/>
+              <VALUE ObjectName="Refresh Component" Value="1" ValueType="4"/>
+              <VALUE ObjectName="Rotate propDisplays on component rotation" Value="0" ValueType="4"/>
+              <VALUE ObjectName="ShowDiagramTabDefault" Value="1" ValueType="4"/>
+              <VALUE ObjectName="ShowModelInterfacesDlg" Value="1" ValueType="4"/>
+              <VALUE ObjectName="ShowPinNames" Value="0" ValueType="4"/>
+              <VALUE ObjectName="ShowUpdateComponentDlg" Value="1" ValueType="4"/>
+              <VALUE ObjectName="ToolModelicaPath" Value="C:/Program Files/AnsysEM/v252/Win64/common/Modelica/ThirdParty/MSL/MSL323;C:/Program Files/AnsysEM/v252/Win64/syslib/Simplorer Elements/ModelicaLibs;&lt;MODELICAPATH Environment Variable>" ValueType="2"/>
+              <VALUE ObjectName="UnloadEnvPackages" Value="" ValueType="2"/>
+              <VALUE ObjectName="UnloadInstallPackages" Value="" ValueType="2"/>
+              <VALUE ObjectName="UnloadUserPackages" Value="" ValueType="2"/>
+              <VALUE ObjectName="Update Diagram From Text" Value="1" ValueType="4"/>
+              <VALUE ObjectName="Warn User Text Changed" Value="1" ValueType="4"/>
+              <VALUE ObjectName="Warn User before Compile" Value="1" ValueType="4"/>
+              <VALUE ObjectName="Zoom with mouse wheel" Value="1" ValueType="4"/>
+            </VALUES>
+          </KEY>
+        </KEYS>
+        <VALUES>
+          <VALUE ObjectName="EncryptionResources" Value="" ValueType="2"/>
+        </VALUES>
+      </KEY>
+      <KEY ObjectName="Schematic" RegObjectType="0">
+        <KEYS>
+          <KEY ObjectName="Preferences" RegObjectType="0">
+            <VALUES>
+              <VALUE ObjectName="AutoWireNameSetup" Value="AutoWireNameSetup('A', 0, 1, true, 0)" ValueType="2"/>
+            </VALUES>
+          </KEY>
+        </KEYS>
+      </KEY>
+      <KEY ObjectName="Twin Builder" RegObjectType="0">
+        <VALUES>
+          <VALUE ObjectName="Favorites" Value="1" ValueType="4"/>
+          <VALUE ObjectName="MODELICAPATH" Value="C:/Program Files/AnsysEM/v252/Win64/common/Modelica/ThirdParty/MSL/MSL323;C:/Program Files/AnsysEM/v252/Win64/syslib/Simplorer Elements/ModelicaLibs;" ValueType="2"/>
+        </VALUES>
+      </KEY>
+      <KEY ObjectName="desktop" RegObjectType="0">
+        <KEYS>
+          <KEY ObjectName="WindowConfigData" RegObjectType="0">
+            <KEYS>
+              <KEY ObjectName="PropertyWnd" RegObjectType="0">
+                <KEYS>
+                  <KEY ObjectName="StandardPropTab" RegObjectType="0">
+                    <KEYS>
+                      <KEY ObjectName="Project" RegObjectType="0">
+                        <KEYS>
+                          <KEY ObjectName="GridColumnWidths" RegObjectType="0">
+                            <VALUES>
+                              <VALUE ObjectName="Item0" Value="Name1;60" ValueType="2"/>
+                              <VALUE ObjectName="Item1" Value="Value1;30" ValueType="2"/>
+                              <VALUE ObjectName="Item2" Value="Unit1;40" ValueType="2"/>
+                              <VALUE ObjectName="Item3" Value="Evaluated Value1;84" ValueType="2"/>
+                              <VALUE ObjectName="Item4" Value="134" ValueType="2"/>
+                              <VALUE ObjectName="NumItems" Value="5" ValueType="4"/>
+                            </VALUES>
+                          </KEY>
+                          <KEY ObjectName="PropertyFolderStates" RegObjectType="0">
+                            <VALUES>
+                              <VALUE ObjectName="NumItems" Value="0" ValueType="4"/>
+                            </VALUES>
+                          </KEY>
+                        </KEYS>
+                      </KEY>
+                      <KEY ObjectName="Variables" RegObjectType="0">
+                        <KEYS>
+                          <KEY ObjectName="GridColumnWidths" RegObjectType="0">
+                            <VALUES>
+                              <VALUE ObjectName="Item0" Value="Name1;60" ValueType="2"/>
+                              <VALUE ObjectName="Item1" Value="Value1;30" ValueType="2"/>
+                              <VALUE ObjectName="Item2" Value="Unit1;40" ValueType="2"/>
+                              <VALUE ObjectName="Item3" Value="Evaluated Value1;84" ValueType="2"/>
+                              <VALUE ObjectName="Item4" Value="134" ValueType="2"/>
+                              <VALUE ObjectName="NumItems" Value="5" ValueType="4"/>
+                            </VALUES>
+                          </KEY>
+                          <KEY ObjectName="PropertyFolderStates" RegObjectType="0">
+                            <VALUES>
+                              <VALUE ObjectName="NumItems" Value="0" ValueType="4"/>
+                            </VALUES>
+                          </KEY>
+                        </KEYS>
+                      </KEY>
+                    </KEYS>
+                  </KEY>
+                </KEYS>
+              </KEY>
+            </KEYS>
+          </KEY>
+        </KEYS>
+      </KEY>
+    </KEYS>
+  </KEY>
+
+</KEYS>
