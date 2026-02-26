@@ -1,26 +1,11 @@
-Id:             'ansys-coecis'
-Description:    'ANSYS 2025R2'
-Version:        '25.2.0.1889'
+Id:             'ansys-base'
+Description:    'ANSYS 2025 R2 SP4 - COECIS License'
+Version:        '25.2.04.0'
 
 Install:
   - File:       '%INSTALL_DIR%\setup.exe'
     FileType:   'exe' 
-    Arguments:  '-silent -cfdpost'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\setup.exe'
-    FileType:   'exe' 
-    Arguments:  '-silent -fluent'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\setup.exe'
-    FileType:   'exe' 
-    Arguments:  '-silent -mechapdl'
-    ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\setup.exe'
-    FileType:   'exe' 
-    Arguments:  '-silent -optislang'
+    Arguments:  '-optislang -fluent -mechapdl -licserverinfo %LIC_SERVER% -silent'
     ExitCodes:  [0]
 
   - File:       '%INSTALL_DIR%\SPACECLAIM_2025R2\setup.exe'
@@ -43,8 +28,8 @@ Applications:
 
 Files: 
     '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
-    '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v252\commonfiles\CAD\CADConfigurationInfo.XML'
-    '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
+    # '%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v252\commonfiles\CAD\CADConfigurationInfo.XML'
+    # '%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
 
 Registry:               
     HKUD:               

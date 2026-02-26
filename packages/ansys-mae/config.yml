@@ -1,0 +1,90 @@
+Id:             'ansys-mae'
+Description:    'ANSYS 2025 R2 SP4 - COECIS License'
+Version:        '25.2.04.0'
+
+Install:
+  - File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe' 
+    Arguments:  '-optislang -fluent -mechapdl -discoveryreduced -edupack -electromagneticssuite -licserverinfo %LIC_SERVER% -silent'
+    ExitCodes:  [0]
+
+  - File:       '%INSTALL_DIR%\SPACECLAIM_2025R2\setup.exe'
+    FileType:   'exe' 
+    Arguments:  '-silent'
+    ExitCodes:  [0]
+    
+Applications:
+    ANSYSWB:
+        DisplayName:    'Workbench 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Framework\bin\Win64\RunWB2.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    SPACECLAIM:
+        DisplayName:    'SpaceClaim 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\scdm\SpaceClaim.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    healthcaresimlab:
+        DisplayName:    'Academic Healthcare SimLab'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL\Academic Healthcare SimLab.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    ansysdis:
+        DisplayName:    'Discovery 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Discovery\Discovery.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+    
+    electronics:
+        DisplayName:    'Ansys Electronics Desktop 2025 R2'
+        Path:           '%PROGRAMFILES%\Ansys Inc\v252\AnsysEM\ansysedt.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    ansysgrantaedu:
+        DisplayName:    'Granta EduPack 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\edupack\edupack.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    fluent:
+        DisplayName:    'Ansys Fluent 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\fluent\ntbin\win64\fluent.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+    mechanical:
+        DisplayName:    'Ansys Mechanical 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\aisol\bin\winx64\AnsysWBU.exe'
+        LaunchParams:   '-DSApplet'
+        WorkDir:        ''
+
+    optislang:
+        DisplayName:    'Ansys optiSLang 2025 R2'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\optiSLang\optislang.exe'
+        LaunchParams:   ''
+        WorkDir:        ''        
+
+Files:
+    '%INSTALL_DIR%\Ansys AHSL': '%PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL' # Healthcare SimLab
+    '%TOOLS_DIR%\UserSettings.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v252\Discovery\UserSettings\UserSettings.xml'
+    '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
+    '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host.cfg'
+    '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host_user.XML'
+    #'%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v252\commonfiles\CAD\CADConfigurationInfo.XML'
+    #'%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
+    
+Scripts:
+    start:
+        System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Update files to match system hostname
+        User: '%TOOLS_DIR%\logon.ps1'     # Runs at user logon - Update project file path
+
+Registry:               
+    HKUD:               
+        SOFTWARE\SpaceClaim\SIP:
+            Displayed:
+                Type:   'String'
+                Value:  '1'
