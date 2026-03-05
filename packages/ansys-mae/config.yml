@@ -28,8 +28,8 @@ Applications:
         
     healthcaresimlab:
         DisplayName:    'Academic Healthcare SimLab'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL\Academic Healthcare SimLab.exe'
-        LaunchParams:   ''
+        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
+        LaunchParams:   '-File %PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL\ahsl.ps1'
         WorkDir:        ''
         
     ansysdis:
@@ -70,6 +70,7 @@ Applications:
 
 Files:
     '%INSTALL_DIR%\Ansys AHSL': '%PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL' # Healthcare SimLab
+    '%TOOLS_DIR%\ahsl.ps1': '%PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL\ahsl.ps1' # Healthcare SimLab Launcher
     '%TOOLS_DIR%\UserSettings.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v252\Discovery\UserSettings\UserSettings.xml'
     '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
     '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host.cfg'
