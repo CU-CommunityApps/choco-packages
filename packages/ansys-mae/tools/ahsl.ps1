@@ -30,8 +30,8 @@ $form.Show()
 [System.Windows.Forms.Application]::DoEvents()
 # Start the server immediately (no user click required)
 Start-Process -FilePath $exe -WindowStyle Hidden | Out-Null
-# Wait until the port is listening (up to 120s)
-$deadline = (Get-Date).AddSeconds(120)
+# Wait until the port is listening (up to 180s)
+$deadline = (Get-Date).AddSeconds(180)
 do {
     Start-Sleep -Milliseconds 500
     [System.Windows.Forms.Application]::DoEvents()
