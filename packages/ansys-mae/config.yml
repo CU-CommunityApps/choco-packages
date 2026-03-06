@@ -29,9 +29,9 @@ Applications:
     healthcaresimlab:
         DisplayName:    'Academic Healthcare SimLab'
         Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-File %PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL\ahsl.ps1'
+        LaunchParams:   '-Windowstyle Hidden -File \"%PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL\ahsl.ps1\"'
         WorkDir:        ''
-        
+
     ansysdis:
         DisplayName:    'Discovery 2025 R2'
         Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Discovery\Discovery.exe'
