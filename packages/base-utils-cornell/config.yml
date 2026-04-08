@@ -1,6 +1,6 @@
 Id:             'base-utils-cornell'
 Description:    'Base Tools for most images'
-Version:        '1.0.0'
+Version:        '1.0.1'
 
     
 Install:         #Latest version of app is being automatically downloaded in the preinstall.ps1 script
