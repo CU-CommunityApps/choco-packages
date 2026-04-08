@@ -11,10 +11,10 @@ Start-BitsTransfer "https://dl.google.com/edgedl/chrome/install/GoogleChromeStan
 ## Notepad ++ Download
 ##example after website changes April 2026
 ##https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.9.3/npp.8.9.3.Installer.x64.exe
-#$linkPath = ((Invoke-WebRequest -URI https://notepad-plus-plus.org -UseBasicParsing) | Select-Object -ExpandProperty links | Where-Object -Property href -like "/downloads/v*").href 
-#$downloadurl = "https://notepad-plus-plus.org$linkpath"
+$linkPath = ((Invoke-WebRequest -URI https://notepad-plus-plus.org -UseBasicParsing) | Select-Object -ExpandProperty links | Where-Object -Property href -like "/downloads/v*").href 
+$downloadurl = "https://notepad-plus-plus.org$linkpath"
 
 
 #$downloadurl = "https://github.com/notepad-plus-plus/notepad-plus-plus/releases/"
-#$NotePadPlusPlus = ((Invoke-WebRequest -URI $downloadurl -UseBasicParsing) | Select-Object -ExpandProperty links | Where-Object -Property href -like "*npp.*.installer.x64.exe").href | Select-Object -Index 0
-#Start-BitsTransfer "$NotePadPlusPlus" -Destination "$TOOLS_DIR\NotePadPlusPlus.exe"
+$NotePadPlusPlus = ((Invoke-WebRequest -URI $downloadurl -UseBasicParsing) | Select-Object -ExpandProperty links | Where-Object -Property href -like "*npp.*.installer.x64.exe").href | Select-Object -Index 0
+Start-BitsTransfer "$NotePadPlusPlus" -Destination "$TOOLS_DIR\NotePadPlusPlus.exe"
