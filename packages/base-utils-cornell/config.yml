@@ -14,10 +14,10 @@ Install:         #Latest version of app is being automatically downloaded in the
     Arguments:  '/q'
     ExitCodes:  [0]
 
-  - File:       '%TOOLS_DIR%\NotePadPlusPlus.exe' #Latest version of app is being automatically downloaded in the preinstall.ps1 script
-    FileType:   'exe'
-    Arguments:  '/noUpdater /S'
-    ExitCodes:  [0]
+#  - File:       '%TOOLS_DIR%\NotePadPlusPlus.exe' #Latest version of app is being automatically downloaded in the preinstall.ps1 script
+#    FileType:   'exe'
+#    Arguments:  '/noUpdater /S'
+#    ExitCodes:  [0]
 
 Applications:
     Sevenzip:
@@ -32,11 +32,11 @@ Applications:
         LaunchParams:   'https://it.cornell.edu/students'
         WorkDir:        ''
     
-    NotepadPP:
-        DisplayName:    'Notepad++'
-        Path:           '%PROGRAMFILES%\Notepad++\notepad++.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
+#    NotepadPP:
+#        DisplayName:    'Notepad++'
+#        Path:           '%PROGRAMFILES%\Notepad++\notepad++.exe'
+#        LaunchParams:   ''
+#        WorkDir:        ''
         
     Chrome:
         DisplayName:    'Google Chrome'
