@@ -20,7 +20,7 @@ Applications:
 
 Files: 
     '%TOOLS_DIR%\ncorr': '%PUBLIC%\MATLAB'
-    '%TOOLS_DIR%\toolbox_cache-9.8.0-69619083-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2026a\toolbox_cache-26.1.0-11219257-win64.xml'
+    '%TOOLS_DIR%\toolbox_cache-26.1.0-11219257-win64.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2026a\toolbox_cache-26.1.0-11219257-win64.xml'
     '%TOOLS_DIR%\graphicsState.bin': '%SYSTEMDRIVE%\Users\Default\AppData\Local\MathWorks\MATLAB\R2026a\graphicsState.bin'
 
 ScheduledTasks:             ## Create any custom scheduled tasks
