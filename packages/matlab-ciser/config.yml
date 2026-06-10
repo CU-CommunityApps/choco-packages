@@ -1,6 +1,6 @@
 Id:             'matlab-ciser'
 Description:    'Matlab R2026a'
-Version:        '26.0.0'
+Version:        '26.0.1'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
