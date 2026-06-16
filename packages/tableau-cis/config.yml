@@ -3,7 +3,7 @@ Description:    'Tableau 2025 - Fall2025'
 Version:        '2025.1'
 
 Install:
-    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2025-1-1.exe'
+    File:       '%INSTALL_DIR%\TableauDesktop-64bit-2026-2-0.exe'
     FileType:   'exe'
     Arguments:  '/quiet /norestart ACCEPTEULA=1 SKIPAPPLICATIONLAUNCH=1 SENDTELEMETRY=0 AUTOUPDATE=0 DESKTOPSHORTCUT=0 SCHEDULEREPORTINTERVAL=7200 REPORTINGSERVER=https://tableau.cornell.edu LBLM=disabled SILENTLYREGISTERUSER=true'
     ExitCodes:  [0,3010]
@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2025.1\bin\tableau.ps1' # Launch script for activation - only runs for CORNELL domain users or PhotonUser
+    '%INSTALL_DIR%\tableau.ps1': '%ProgramFiles%\Tableau\Tableau 2026.2\bin\tableau.ps1' # Launch script for activation - only runs for CORNELL domain users or PhotonUser
     
 Scripts:
     start:
