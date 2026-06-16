@@ -1,6 +1,6 @@
 Id:             'tableau-cis'
-Description:    'Tableau 2025 - Fall2025'
-Version:        '2025.1'
+Description:    'Tableau 2026.2'
+Version:        '2026.2'
 
 Install:
     File:       '%INSTALL_DIR%\TableauDesktop-64bit-2026-2-0.exe'
