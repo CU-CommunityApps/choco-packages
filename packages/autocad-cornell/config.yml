@@ -1,6 +1,6 @@
 Id:             'autocad-cornell'
 Description:    'AutoCAD - 2027'
-Version:        '2027.1.1.2'
+Version:        '2027.1.1.3'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
