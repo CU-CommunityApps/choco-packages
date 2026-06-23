@@ -1,6 +1,6 @@
 Id:             'autocad-cornell'
-Description:    'AutoCAD - 2026'
-Version:        '2026.1.1.0'
+Description:    'AutoCAD - 2027'
+Version:        '2027.1.1.3'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
@@ -20,8 +20,8 @@ Install:
 
 Applications:
     autocad:
-        DisplayName:    'AutoCAD 2026'
-        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2026\acad.exe'
+        DisplayName:    'AutoCAD 2027'
+        Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2027\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
@@ -29,7 +29,7 @@ Environment:
     ADSKFLEX_LICENSE_FILE: '%AUTOCAD_LICENSE_FILE%'
     
 Files:
-    '%INSTALL_DIR%\image\ACD_2026_en-US\x64\acadprivate\AutoCADConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\AutoCADConfig.pit'
+    '%INSTALL_DIR%\image\ACD_2027_en-US\x64\acadprivate\AutoCADConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\AutoCADConfig.pit'
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
