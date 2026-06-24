@@ -45,7 +45,7 @@ Function RebootSystem() {
         }
 
         # Stop image builder
-        Stop-APSImageBuilder -Name $build_id
+        Stop-APSImageBuilder -Name $build_id -Force
     }
     catch {
 
