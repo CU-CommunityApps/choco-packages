@@ -214,7 +214,7 @@ Function InstallUpdates(){
     if (!(test-path $UPDATED_LOCK)) {
         New-Item -Path $UPDATED_LOCK -Force
     }
-    Set-Content -Path $UPDATED_LOCK -Value "WINDOWS UPDATES INSTALLED"
+    Set-Content -Path $UPDATED_LOCK -Value "WINDOWS UPDATES INSTALLED" -Force
 
 }
 
