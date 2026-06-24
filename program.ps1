@@ -41,7 +41,7 @@ Function RebootSystem() {
     try {
         if (!(test-path $REBOOT_LOCK)) {
             New-Item -Path $REBOOT_LOCK -Force
-            Set-Content -Path $REBOOT_LOCK -Value 'REBOOT'
+            Set-Content -Path $REBOOT_LOCK -Value 'REBOOT' -Force
         }
 
         # Stop image builder
