@@ -1,11 +1,11 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2026'
-Version:        '2026.2.1.0'
+Description:    'Autodesk Inventor 2027'
+Version:        '2027.0.0.1'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.21.0.646"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.22.0.12"'
     ExitCodes:  [0, 1641, 3010]
 
   - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
@@ -15,8 +15,8 @@ Install:
 
 Applications:
     Inventor:
-        DisplayName:    'Inventor 2026'
-        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2026\Bin\Inventor.exe'
+        DisplayName:    'Inventor 2027'
+        Path:           '%PROGRAMFILES%\Autodesk\Inventor 2027\Bin\Inventor.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
@@ -24,10 +24,10 @@ Environment:
     ADSKFLEX_LICENSE_FILE: '%INVENTOR_LICENSE_FILE%'
 
 Files:
-    '%INSTALL_DIR%\image\INVPROSA_2026_en-US\x64\INV\InventorProfessionalConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\InventorProfessionalConfig.pit'
-    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2026\Preferences\AddInLoadRules.xml'
-    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2026\UserApplicationOptions.xml'
-    '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2026\myhome.json'
+    '%INSTALL_DIR%\image\INVPROSA_2027_en-US\x64\INV\InventorProfessionalConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\InventorProfessionalConfig.pit'
+    '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2027\Preferences\AddInLoadRules.xml'
+    '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2027\UserApplicationOptions.xml'
+    '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2027\myhome.json'
 
 Scripts:
     start:
