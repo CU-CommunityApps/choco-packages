@@ -1,6 +1,6 @@
 Id:             'inventor-coecis'
 Description:    'Autodesk Inventor 2027'
-Version:        '2027.0.0.2'
+Version:        '2027.0.0.3'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
