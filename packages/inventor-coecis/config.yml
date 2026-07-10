@@ -25,7 +25,7 @@ Environment:
 
 Files:
     #'%INSTALL_DIR%\image\INVPROSA_2027_en-US\x64\INV\InventorProfessionalConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\InventorProfessionalConfig.pit'
-    '%INSTALL_DIR%\image\INVPROSA_2027_en-US\x64\InvPrivate\InventorProfessionalConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\InventorProfessionalConfig.pit
+    '%INSTALL_DIR%\image\INVPROSA_2027_en-US\x64\InvPrivate\InventorProfessionalConfig.pit': '%PROGRAMDATA%\Autodesk\Product Information\InventorProfessionalConfig.pit'
     '%TOOLS_DIR%\AddInLoadRules.xml': '%PROGRAMFILES%\Autodesk\Inventor 2027\Preferences\AddInLoadRules.xml'
     '%TOOLS_DIR%\UserApplicationOptions.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2027\UserApplicationOptions.xml'
     '%TOOLS_DIR%\myhome.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Inventor 2027\myhome.json'
