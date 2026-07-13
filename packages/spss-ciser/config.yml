@@ -1,6 +1,6 @@
 Id:             'spss-ciser'
 Description:    'SPSS Statistics'
-Version:        '32.0.0'
+Version:        '32.0.1'
 
 Install:
     File:       '%INSTALL_DIR%\IBM SPSS Statistics.msi'
