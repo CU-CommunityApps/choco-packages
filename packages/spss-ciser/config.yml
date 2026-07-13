@@ -1,6 +1,6 @@
 Id:             'spss-ciser'
-Description:    'SPSS Statistics-lic_update_202603'
-Version:        '29.0.4'
+Description:    'SPSS Statistics'
+Version:        '32.0.0'
 
 Install:
     File:       '%INSTALL_DIR%\IBM SPSS Statistics.msi'
@@ -16,7 +16,7 @@ Applications:
         WorkDir:        ''
 
 Files: 
-    '%INSTALL_DIR%\PROCESS_v3.5': '%ALLUSERSPROFILE%\IBM\SPSS\Statistics\29\CustomDialogs\PROCESS_v3.5'
+    '%INSTALL_DIR%\PROCESS_v3.5': '%ALLUSERSPROFILE%\IBM\SPSS\Statistics\32\CustomDialogs\PROCESS_v3.5'
 
 Registry:
     HKUD:
