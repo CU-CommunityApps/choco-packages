@@ -10,7 +10,7 @@ Install:                                    ## If there are installation files i
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     jmp:                                                      ## This must match the icons.png file name
-        DisplayName:    'JMP Pro 18'                ## How the app displayed to the user
+        DisplayName:    'JMP Pro'                ## How the app displayed to the user
         Path:           '%PROGRAMFILES%\JMP\JMPSTUDENT\19\jmp.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
