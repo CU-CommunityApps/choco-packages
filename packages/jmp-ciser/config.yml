@@ -1,6 +1,6 @@
 Id:             'jmp-ciser'                ## Application package name ie. chrome-cornell
 Description:    'jmp-ciser - StudentEdition'    ## Application packages description
-Version:        '19.13.0'                     ## Application version number - MUST BE in #.# format
+Version:        '19.13.1'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%INSTALL_DIR%\jmpstudent__1913__win.exe'   ## Installation file
