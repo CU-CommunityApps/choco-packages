@@ -1,14 +1,14 @@
 Id:             'vault-coecis'
-Description:    'Autodesk Vault 2026'
-Version:        '2026.0.1.0'
+Description:    'Autodesk Vault 2027'
+Version:        '2027.0.0.0'
 
 Install:
-  - File:       '%INSTALL_DIR%\Files\Installer.exe'
+  - File:       '%INSTALL_DIR%\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\Files\Collection.xml" --installer_version "2.15.0.532"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\Collection.xml" --installer_version "2.22.0.548"'
     ExitCodes:  [0,1641]
 
-  - File:       '%INSTALL_DIR%\Files\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
+  - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
     FileType:   'exe'
     Arguments:  '-q'
     ExitCodes:  [0, 1641]
@@ -16,7 +16,7 @@ Install:
 Applications:
     vault:
         DisplayName:    'Autodesk Vault Professional'
-        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2026\Explorer\Connectivity.VaultPro.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Vault Client 2027\Explorer\Connectivity.VaultPro.exe'
         LaunchParams:   ''
         WorkDir:        ''
         
@@ -24,7 +24,7 @@ Environment:
     ADSKFLEX_LICENSE_FILE: '%VAULT_LICENSE_FILE%'
 
 Files:
-    '%INSTALL_DIR%\Files\PLC0000004_2026_en-US\x64\VP\VaultOfficeProCombined.pit': '%PROGRAMDATA%\Autodesk\Product Information\VaultOfficeProCombined.pit'
+    '%INSTALL_DIR%\PLC0000004_2027_en-US\x64\VP\VaultOfficeProCombined.pit': '%PROGRAMDATA%\Autodesk\Product Information\VaultOfficeProCombined.pit'
     '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
     '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
     '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'
