@@ -3,8 +3,8 @@
 $helperPath  = "${env:CommonProgramFiles(x86)}\Autodesk Shared\AdskLicensing\Current\helper\AdskLicensingInstHelper.exe"
 $configFile  = "$env:ProgramData\Autodesk\Product Information\VaultOfficeProCombined.pit"
 # License settings
-$prodKey     = "569R1"
-$prodVer     = "2026.0.0.F"
+$prodKey     = "569S1"
+$prodVer     = "2027.0.0.F"
 $licMethod   = "NETWORK"
 $licServers  = "$env:ADSKFLEX_LICENSE_FILE"
 # Build argument string
