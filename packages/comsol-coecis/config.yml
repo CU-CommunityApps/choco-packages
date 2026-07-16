@@ -1,6 +1,6 @@
 Id:             'comsol-coecis'                ## Application package name ie. chrome-cornell
 Description:    'Comsol Multiphysics'    ## Application packages description
-Version:        '6.3.0.420'                     ## Application version number - MUST BE in #.# format
+Version:        '6.4.0.0'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
   - File:       '%INSTALL_DIR%\setup.exe'   ## Installation file
@@ -16,5 +16,5 @@ Applications:                                                       ## Applicati
         WorkDir:        '' ## Working directory
 
 Files:
-    '%TOOLS_DIR%\comsol.prefs': '%SYSTEMDRIVE%\Users\Default\.comsol\v63\comsol.prefs' # comsol.prefs default settings
+    '%TOOLS_DIR%\comsol.prefs': '%SYSTEMDRIVE%\Users\Default\.comsol\v64\comsol.prefs' # comsol.prefs default settings
     '%INSTALL_DIR%\License.dat': '%SYSTEMDRIVE%\Temp\License.dat'
