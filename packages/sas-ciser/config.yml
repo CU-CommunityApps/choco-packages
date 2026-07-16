@@ -1,6 +1,6 @@
 Id:             'sas-ciser'
-Description:    'sas-ciser - newlic'
-Version:        '9.4'
+Description:    'sas-ciser'
+Version:        '9.4.3'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'

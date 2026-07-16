@@ -1,16 +1,16 @@
 Id:             'jmp-ciser'                ## Application package name ie. chrome-cornell
 Description:    'jmp-ciser - StudentEdition'    ## Application packages description
-Version:        '18.2.2'                     ## Application version number - MUST BE in #.# format
+Version:        '19.13.1'                     ## Application version number - MUST BE in #.# format
 
 Install:                                    ## If there are installation files in a .zip to be installed, specify here
-  - File:       '%INSTALL_DIR%\jmpstudent__1822__win.exe'   ## Installation file
+  - File:       '%INSTALL_DIR%\jmpstudent__1913__win.exe'   ## Installation file
     FileType:   'exe'                       ## exe or msi are the only options currently
     Arguments:  '-s -f1%INSTALL_DIR%\silent.iss'        ## Silent installation switches/parmeters
     ExitCodes:  [0]                         ## Exit codes - returns a success                    
 
 Applications:                                                       ## Applications to be published to the user / Added to Image Assistant
     jmp:                                                      ## This must match the icons.png file name
-        DisplayName:    'JMP Pro 18'                ## How the app displayed to the user
-        Path:           '%PROGRAMFILES%\JMP\JMPSTUDENT\18\jmp.exe'          ## The path to the app
+        DisplayName:    'JMP Pro'                ## How the app displayed to the user
+        Path:           '%PROGRAMFILES%\JMP\JMPSTUDENT\19\jmp.exe'          ## The path to the app
         LaunchParams:   ''                     ## Launch parameters for the app
         WorkDir:        '' ## Working directory
