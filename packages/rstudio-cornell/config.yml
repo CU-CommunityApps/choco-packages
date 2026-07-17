@@ -1,6 +1,6 @@
 Id:             'rstudio-cornell'
 Description:    'RStudio'
-Version:        '2023.9.1'
+Version:        '2026.07.139'
 
 Applications:
     rstudio:
