@@ -1,6 +1,6 @@
 Id:             'sas-ciser'
-Description:    'sas-ciser'
-Version:        '9.4.3'
+Description:    'sas-ciser updated deployment 2026 (1)'
+Version:        '9.4'
 
 Install:
     File:       '%INSTALL_DIR%\setup.exe'
