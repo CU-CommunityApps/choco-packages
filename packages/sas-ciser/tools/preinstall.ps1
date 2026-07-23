@@ -122,7 +122,7 @@ $DEPOT_HOME="$INSTALL_DIR\products"
 :: --------------------------------------------------------------------------------
 :: Microsoft Runtime Components 2019 (REQUIRED)
 #>
-Start-Process "$DEPOT_HOME\vcredist2022__99130__prt__xx__sp0__1\w32\native\VC_redist.x86.exe" -ArgumentList "/q /norestart"
+Start-Process "$DEPOT_HOME\vcredist2022__99110__prt__xx__sp0__1\w32\native\VC_redist.x86.exe" -ArgumentList "/q /norestart"
 Start-Process "$DEPOT_HOME\vcredist2022__99110__prt__xx__sp0__1\wx6\native\VC_redist.x64.exe" -ArgumentList "/q /norestart"
 Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager" -Name "PendingFileRenameOperations" -Force -ErrorAction SilentlyContinue
 Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\FileRenameOperations" -Recurse -Force -ErrorAction SilentlyContinue
