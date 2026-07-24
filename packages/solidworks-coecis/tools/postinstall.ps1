@@ -1,7 +1,7 @@
 # Runs after the choco package is installed
 
 #Remove Solidworks Shortcuts
-Remove-Item "c:\users\public\desktop\SOLIDWORKS 2026.lnk"
+Remove-Item "c:\users\public\desktop\SOLIDWORKS Design 2026.lnk"
 Remove-Item "c:\users\public\desktop\SOLIDWORKS Composer 2026.lnk"
 Remove-Item "c:\users\public\desktop\SOLIDWORKS Composer Player 2026.lnk"
 Remove-Item "c:\users\public\desktop\SOLIDWORKS Composer Sync 2026.lnk"
