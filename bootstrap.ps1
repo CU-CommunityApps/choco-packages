@@ -115,9 +115,10 @@ if (-Not (Test-Path $BUILD_DIR)) {
     Start-Process -FilePath "choco.exe" -ArgumentList "install sysinternals --no-progress -r -y --ignore-checksums" -NoNewWindow -Wait
 
     # Parse EC2 Metadata
+    $token = irm -Method PUT -Uri 'http://169.254.169.254/latest/api/token' -Headers @{ 'X-aws-ec2-metadata-token-ttl-seconds' = '21600' }
     $user_data_uri = "http://169.254.169.254/latest/user-data"
     $bucket_prefix = "image-build"
-    $user_data = (irm -Uri $user_data_uri).resourceARN
+    $user_data = (irm -Uri $user_data_uri -Headers @{ 'X-aws-ec2-metadata-token' = $token }).resourceARN
     $region = $user_data.Split(":")[3]
     $account = $user_data.Split(":")[4]
     $build_id = $user_data.Split(":")[5].Split("/")[1]
