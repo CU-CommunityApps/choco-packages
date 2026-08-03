@@ -1,6 +1,6 @@
-Id:             'arcgispro-aap'
-Description:    'arcgispro - buildtest1'
-Version:        '3.5.0.57366'
+Id:             'arcgispro-cornell'
+Description:    'arcgispro - build1'
+Version:        '3.7.1901'
 
 Install:
   - File:       '%INSTALL_DIR%\ArcGISPro.msi'
