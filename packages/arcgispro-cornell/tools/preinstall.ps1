@@ -5,5 +5,5 @@ $INSTALL_DIR =  Join-Path $PSScriptRoot 'installer'
 #Install other pre-reqs
 Start-Process "$INSTALL_DIR\VC_redist.x64.exe" -ArgumentList "/quiet /norestart" -Wait
 Start-Process "$INSTALL_DIR\VC_redist.x86.exe" -ArgumentList "/quiet /norestart" -Wait
-Start-Process "$INSTALL_DIR\windowsdesktop-runtime-810.0.10-win-x64.exe" -ArgumentList "/quiet /norestart" -Wait
+Start-Process "$INSTALL_DIR\windowsdesktop-runtime-10.0.10-win-x64.exe" -ArgumentList "/quiet /norestart" -Wait
 Start-Process "$INSTALL_DIR\MicrosoftEdgeWebView2RuntimeInstallerX64.exe" -ArgumentList "/silent /install" -Wait
