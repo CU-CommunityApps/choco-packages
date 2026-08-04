@@ -1,11 +1,11 @@
 Id:             'arcgispro-cornell'
-Description:    'arcgispro - build3'
+Description:    'arcgispro - build4'
 Version:        '3.7.1901'
 
 Install:
   - File:       '%INSTALL_DIR%\ArcGISPro.msi'
     FileType:   'msi'
-    Arguments:  '/qb ALLUSERS=1 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=NAMED_USER PORTAL_LIST="ccegeomaps;cugis"'
+    Arguments:  '/qn ALLUSERS=1 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=NAMED_USER PORTAL_LIST="ccegeomaps;cugis"'
     ExitCodes:  [0]
   
 Applications:
