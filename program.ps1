@@ -24,9 +24,17 @@ Function DownloadFile($uri, $out_path) {
 
 }
 
+Function GetToken() {
+
+    $token = irm -Method PUT -Uri 'http://169.254.169.254/latest/api/token' -Headers @{ 'X-aws-ec2-metadata-token-ttl-seconds' = '21600' }
+    
+    return $token
+
+}
+
 Function CallRestService($uri, $method, $body) {
 
-    $result = irm -Uri $uri -Method $method -Body $body -ContentType "application/json"
+    $result = irm -Uri $uri -Method $method -Body $body -ContentType "application/json" -Headers @{ 'X-aws-ec2-metadata-token' = GetToken }
 
     return $result
 
