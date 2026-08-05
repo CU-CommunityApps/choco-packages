@@ -1,6 +1,6 @@
 Id:             'ansys-mae'
-Description:    'ANSYS 2025 R2 SP4 - COECIS License'
-Version:        '25.2.04.0'
+Description:    'ANSYS 2026 R1 - COECIS License'
+Version:        '26.1.03.0'
 
 Install:
   - File:       '%INSTALL_DIR%\setup.exe'
@@ -15,67 +15,68 @@ Install:
     
 Applications:
     ANSYSWB:
-        DisplayName:    'Workbench 2025 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Framework\bin\Win64\RunWB2.exe'
+        DisplayName:    'Workbench 2026 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v261\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     SPACECLAIM:
-        DisplayName:    'SpaceClaim 2025 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\scdm\SpaceClaim.exe'
+        DisplayName:    'SpaceClaim 2026 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v261\scdm\SpaceClaim.exe'
         LaunchParams:   ''
         WorkDir:        ''
-        
-    healthcaresimlab:
-        DisplayName:    'Academic Healthcare SimLab'
-        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
-        LaunchParams:   '-Windowstyle Hidden -File \"%PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL\ahsl.ps1\"'
-        WorkDir:        ''
+
+# removed for fall 2026      
+#    healthcaresimlab:
+#        DisplayName:    'Academic Healthcare SimLab'
+#        Path:           '%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe'
+#        LaunchParams:   '-Windowstyle Hidden -File \"%PROGRAMFILES%\ANSYS Inc\v261\Ansys AHSL\ahsl.ps1\"'
+#        WorkDir:        ''
 
     ansysdis:
-        DisplayName:    'Discovery 2025 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\Discovery\Discovery.exe'
+        DisplayName:    'Discovery 2026 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v261\Discovery\Discovery.exe'
         LaunchParams:   ''
         WorkDir:        ''
     
     electronics:
-        DisplayName:    'Ansys Electronics Desktop 2025 R2'
-        Path:           '%PROGRAMFILES%\Ansys Inc\v252\AnsysEM\ansysedt.exe'
+        DisplayName:    'Ansys Electronics Desktop 2026 R1'
+        Path:           '%PROGRAMFILES%\Ansys Inc\v261\AnsysEM\ansysedt.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     ansysgrantaedu:
-        DisplayName:    'Granta EduPack 2025 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\edupack\edupack.exe'
+        DisplayName:    'Granta EduPack 2026 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v261\edupack\edupack.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     fluent:
-        DisplayName:    'Ansys Fluent 2025 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\fluent\ntbin\win64\fluent.exe'
+        DisplayName:    'Ansys Fluent 2026 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v261\fluent\ntbin\win64\fluent.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
     mechanical:
-        DisplayName:    'Ansys Mechanical 2025 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\aisol\bin\winx64\AnsysWBU.exe'
+        DisplayName:    'Ansys Mechanical 2026 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v261\aisol\bin\winx64\AnsysWBU.exe'
         LaunchParams:   '-DSApplet'
         WorkDir:        ''
 
     optislang:
-        DisplayName:    'Ansys optiSLang 2025 R2'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v252\optiSLang\optislang.exe'
+        DisplayName:    'Ansys optiSLang 2026 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v261\optiSLang\optislang.exe'
         LaunchParams:   ''
         WorkDir:        ''        
 
 Files:
-    '%INSTALL_DIR%\Ansys AHSL': '%PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL' # Healthcare SimLab
-    '%TOOLS_DIR%\ahsl.ps1': '%PROGRAMFILES%\ANSYS Inc\v252\Ansys AHSL\ahsl.ps1' # Healthcare SimLab Launcher
-    '%TOOLS_DIR%\UserSettings.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v252\Discovery\UserSettings\UserSettings.xml'
-    '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v252\ApipUserConfig.txt'
-    '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host.cfg'
-    '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2025.2\config\host_user.XML'
-    #'%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v252\commonfiles\CAD\CADConfigurationInfo.XML'
+    #'%INSTALL_DIR%\Ansys AHSL': '%PROGRAMFILES%\ANSYS Inc\v261\Ansys AHSL' # Healthcare SimLab
+   # '%TOOLS_DIR%\ahsl.ps1': '%PROGRAMFILES%\ANSYS Inc\v261\Ansys AHSL\ahsl.ps1' # Healthcare SimLab Launcher
+    '%TOOLS_DIR%\UserSettings.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Local\Ansys_Inc\v261\Discovery\UserSettings\UserSettings.xml'
+    '%INSTALL_DIR%\ApipUserConfig.txt': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Ansys\v261\ApipUserConfig.txt'
+    '%TOOLS_DIR%\host.cfg': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2026.1\config\host.cfg'
+    '%TOOLS_DIR%\host_user.xml': '%SYSTEMDRIVE%\Users\Default\Documents\Ansoft\ElectronicsDesktop2026.1\config\host_user.XML'
+    #'%INSTALL_DIR%\CADConfigurationInfo.XML': '%PROGRAMFILES%\ANSYS Inc\v261\commonfiles\CAD\CADConfigurationInfo.XML'
     #'%INSTALL_DIR%\ansyslmd.ini': '%PROGRAMFILES%\ANSYS Inc\Shared Files\Licensing\ansyslmd.ini'
     
 Scripts:
