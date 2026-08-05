@@ -1,10 +1,16 @@
 Id:             'arcgispro-cornell'
-Description:    'arcgispro - cornell'
-Version:        '2.8.29751'
+Description:    'arcgispro - build4'
+Version:        '3.7.1901'
 
+Install:
+  - File:       '%INSTALL_DIR%\ArcGISPro.msi'
+    FileType:   'msi'
+    Arguments:  '/qn ALLUSERS=1 ACCEPTEULA=yes CHECKFORUPDATESATSTARTUP=0 SOFTWARE_CLASS=Professional AUTHORIZATION_TYPE=NAMED_USER PORTAL_LIST="ccegeomaps;cugis"'
+    ExitCodes:  [0]
+  
 Applications:
     arcgispro:
         DisplayName:    'ArcGIS Pro'
-        Path:           '%PROGRAMFILES%\Google\Chrome\Application\chrome.exe'
-        LaunchParams:   'https://www.arcgis.com/index.html'
+        Path:           '%PROGRAMFILES%\ArcGIS\Pro\bin\ArcGISPro.exe'
+        LaunchParams:   ''
         WorkDir:        ''
