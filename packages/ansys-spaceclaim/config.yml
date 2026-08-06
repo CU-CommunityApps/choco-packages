@@ -1,0 +1,23 @@
+Id:             'ansys-spaceclaim'
+Description:    'ANSYS SPACECLAIM'
+Version:        '26.1.0.0'
+
+Install:
+  - File:       '%INSTALL_DIR%\setup.exe'
+    FileType:   'exe' 
+    Arguments:  '-silent'
+    ExitCodes:  [0]
+    
+Applications:
+    spaceclaim:
+        DisplayName:    'SpaceClaim 2026 R1'
+        Path:           '%PROGRAMFILES%\ANSYS Inc\v261\scdm\SpaceClaim.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Registry:               
+    HKUD:               
+        SOFTWARE\SpaceClaim\SIP:
+            Displayed:
+                Type:   'String'
+                Value:  '1'
