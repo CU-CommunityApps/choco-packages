@@ -1,0 +1,16 @@
+Id:             'ansys-stk'
+Description:    'Ansys Systems Tool Kit'
+Version:        '26.1.0.0'
+
+Install:   
+  - File:       '%INSTALL_DIR%\install.exe'
+    FileType:   'exe' 
+    Arguments:  '--silent --licenseagree'
+    ExitCodes:  [0]
+    
+Applications:
+    ansysSTK:
+        DisplayName:    'STK 2026 R1'
+        Path:           '%PROGRAMFILES%\AGI\STK_ODTK 13\bin\AgUiApplication.exe'
+        LaunchParams:   '/pers "STK"'
+        WorkDir:        ''
