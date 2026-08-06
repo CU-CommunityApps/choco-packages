@@ -1,5 +1,5 @@
 Id:             'ansys-mae'
-Description:    'ANSYS 2026 R1 - COECIS License - build2'
+Description:    'ANSYS 2026 R1 - COECIS License'
 Version:        '26.1.03.0'
 
 Install:
@@ -7,34 +7,12 @@ Install:
     FileType:   'exe' 
     Arguments:  '-optislang -fluent -mechapdl -discoveryreduced -edupack -electromagneticssuite -licserverinfo %LIC_SERVER% -silent'
     ExitCodes:  [0]
-
-  - File:       '%INSTALL_DIR%\SPACECLAIM_2026R1\setup.exe'
-    FileType:   'exe' 
-    Arguments:  '-silent'
-    ExitCodes:  [0]
-    
-  - File:       '%INSTALL_DIR%\Ansys_STK_Enterprise_ODTK_v13.1.0\install.exe'
-    FileType:   'exe' 
-    Arguments:  '--silent --licenseagree'
-    ExitCodes:  [0]
     
 Applications:
     ANSYSWB:
         DisplayName:    'Workbench 2026 R1'
         Path:           '%PROGRAMFILES%\ANSYS Inc\v261\Framework\bin\Win64\RunWB2.exe'
         LaunchParams:   ''
-        WorkDir:        ''
-
-    SPACECLAIM:
-        DisplayName:    'SpaceClaim 2026 R1'
-        Path:           '%PROGRAMFILES%\ANSYS Inc\v261\scdm\SpaceClaim.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
-        
-    ansysSTK:
-        DisplayName:    'STK 2026 R1'
-        Path:           '%PROGRAMFILES%\AGI\STK_ODTK 13\bin\AgUiApplication.exe'
-        LaunchParams:   '/pers "STK"'
         WorkDir:        ''
 
 # removed for fall 2026      
@@ -94,10 +72,3 @@ Scripts:
     start:
         System: '%TOOLS_DIR%\startup.ps1' # Runs at system startup - Update files to match system hostname
         User: '%TOOLS_DIR%\logon.ps1'     # Runs at user logon - Update project file path
-
-Registry:               
-    HKUD:               
-        SOFTWARE\SpaceClaim\SIP:
-            Displayed:
-                Type:   'String'
-                Value:  '1'
