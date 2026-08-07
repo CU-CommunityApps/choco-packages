@@ -25,27 +25,22 @@ Registry:
                 Type:   'String'
                 Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13'
                 
-        SOFTWARE\AGI\STK_ODTK\13.0:
             ConfigDir:
                 Type:   'String'
                 Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13\Config'
                 
-        SOFTWARE\AGI\STK_ODTK\13.0:
             LogPath:
                 Type:   'String'
                 Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13\Config\Logs'
                 
-        SOFTWARE\AGI\STK_ODTK\13.0:
             ViewerQuickStart:
                 Type:   'String'
                 Value:  'TRUE'
                 
-        SOFTWARE\AGI\STK_ODTK\13.0:
             ShowLicPkgSel:
                 Type:   'String'
                 Value:  'FALSE'
                 
-        SOFTWARE\AGI\STK_ODTK\13.0:
             RunWithSolis:
                 Type:   'String'
                 Value:  'FALSE'
