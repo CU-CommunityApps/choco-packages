@@ -1,11 +1,11 @@
 Id:             'ansys-stk'
-Description:    'Ansys Systems Tool Kit - buildtest'
-Version:        '26.1.0.0'
+Description:    'Ansys Systems Tool Kit'
+Version:        '13.1.0.0'
 
 Install:   
   - File:       '%INSTALL_DIR%\install.exe'
     FileType:   'exe' 
-    Arguments:  '--silent --licenseagree'
+    Arguments:  '--silent --licenseagree --licserverinfo=%LIC_SERVER%'
     ExitCodes:  [0]
     
 Applications:
