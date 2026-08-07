@@ -23,17 +23,17 @@ Registry:
         SOFTWARE\AGI\STK_ODTK\13.0:
             UserHome:
                 Type:   'String'
-                Value:  'C:\Users\PhotonUser\Documents\STK_ODTK 13'
+                Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13'
                 
         SOFTWARE\AGI\STK_ODTK\13.0:
             ConfigDir:
                 Type:   'String'
-                Value:  'C:\Users\PhotonUser\Documents\STK_ODTK 13\Config'
+                Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13\Config'
                 
         SOFTWARE\AGI\STK_ODTK\13.0:
             LogPath:
                 Type:   'String'
-                Value:  'C:\Users\PhotonUser\Documents\STK_ODTK 13\Config\Logs'
+                Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13\Config\Logs'
                 
         SOFTWARE\AGI\STK_ODTK\13.0:
             ViewerQuickStart:
@@ -63,4 +63,4 @@ Registry:
         SOFTWARE\AGI\STK_ODTK\13.0\Catalog:
             Root:
                 Type:   'String'
-                Value:  'C:\Users\PhotonUser\Documents\STK_ODTK 13\Config\Catalog'
+                Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13\Config\Catalog'
