@@ -1,6 +1,6 @@
 Id:             'ansys-spaceclaim'
-Description:    'ANSYS SPACECLAIM'
-Version:        '26.1.0.0'
+Description:    'ANSYS SpaceClaim requires ansys-mae package for proper licensing'
+Version:        '2026.1.0.0'
 
 Install:
   - File:       '%INSTALL_DIR%\setup.exe'
