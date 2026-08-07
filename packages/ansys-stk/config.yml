@@ -1,0 +1,61 @@
+Id:             'ansys-stk'
+Description:    'Ansys Systems Tool Kit'
+Version:        '13.1.0.0'
+
+Install:   
+  - File:       '%INSTALL_DIR%\install.exe'
+    FileType:   'exe' 
+    Arguments:  '--silent --licenseagree --licserverinfo=%LIC_SERVER%'
+    ExitCodes:  [0]
+    
+Applications:
+    ansysSTK:
+        DisplayName:    'STK 2026 R1'
+        Path:           '%PROGRAMFILES%\AGI\STK_ODTK 13\bin\AgUiApplication.exe'
+        LaunchParams:   '/pers "STK"'
+        WorkDir:        ''
+
+Files:
+    '%TOOLS_DIR%\STK Prefs.xml': '%SYSTEMDRIVE%\Users\Default\Documents\STK_ODTK 13\Config\STK Prefs.xml'
+
+Registry:               
+    HKUD:    
+        SOFTWARE\AGI\STK_ODTK\13.0:
+            UserHome:
+                Type:   'String'
+                Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13'
+                
+            ConfigDir:
+                Type:   'String'
+                Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13\Config'
+                
+            LogPath:
+                Type:   'String'
+                Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13\Config\Logs'
+                
+            ViewerQuickStart:
+                Type:   'String'
+                Value:  'TRUE'
+                
+            ShowLicPkgSel:
+                Type:   'String'
+                Value:  'FALSE'
+                
+            RunWithSolis:
+                Type:   'String'
+                Value:  'FALSE'
+                
+        SOFTWARE\AGI\STK_ODTK\13.0\STKPrivacyPolicy:
+            (Default):
+                Type:   'String'
+                Value:  ''
+        
+        SOFTWARE\AGI\STK_ODTK\13.0\STKSLA:
+            (Default):
+                Type:   'String'
+                Value:  ''
+                
+        SOFTWARE\AGI\STK_ODTK\13.0\Catalog:
+            Root:
+                Type:   'String'
+                Value:  '%SYSTEMDRIVE%\Users\PhotonUser\Documents\STK_ODTK 13\Config\Catalog'

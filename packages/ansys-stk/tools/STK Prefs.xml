@@ -1,0 +1,164 @@
+<?xml version = "1.0" encoding = "UTF-8" standalone = "yes"?>
+<User_Preferences version = "1.0">
+    <AgUiAnimation.AgUiPiAnimation version = "1.0">
+        <Data CheckBox = "FALSE" />
+    </AgUiAnimation.AgUiPiAnimation>
+    <AgUiAttrBrowser.AgUiPiAttrBrowser version = "1.0">
+        <ColumnSettings CheckBox = "TRUE" Color = "TRUE" />
+    </AgUiAttrBrowser.AgUiPiAttrBrowser>
+    <AgUiGraphWindowPlugin version = "1.0">
+        <GraphSettings ExportFormat = "4" ExportHeight = "600" ExportWidth = "800" />
+    </AgUiGraphWindowPlugin>
+    <AgUiMessageViewer.AgUiPiMessageViewer version = "1.0">
+        <ColumnSettings Name = "Message" Position = "1" SortAscending = "T" SortedCol = "F" Visible = "T" Width = "-1" />
+        <ColumnSettings Name = "Type" Position = "2" SortAscending = "T" SortedCol = "F" Visible = "T" Width = "-1" />
+        <ColumnSettings Name = "Date/Time" Position = "3" SortAscending = "T" SortedCol = "F" Visible = "T" Width = "-1" />
+        <ColumnSettings Name = "Error Code" Position = "4" SortAscending = "T" SortedCol = "F" Visible = "T" Width = "-1" />
+        <ColumnSettings Name = "Filename" Position = "5" SortAscending = "T" SortedCol = "F" Visible = "T" Width = "-1" />
+        <ColumnSettings Name = "Line #" Position = "6" SortAscending = "T" SortedCol = "F" Visible = "T" Width = "-1" />
+        <ColumnSettings Name = "TypeDesc" Position = "7" SortAscending = "T" SortedCol = "F" Visible = "T" Width = "-1" />
+        <GlobalPaneSettings ActivePane = "1" AutoOpenMessage = "-1" FlashMessage = "4" UseScenarioTime = "T" />
+        <PaneSettings DateMax = "" DateMin = "" MsgContains = "" MsgTypeFlag = "2" Name = "Errors" Position = "1" />
+        <PaneSettings DateMax = "" DateMin = "" MsgContains = "" MsgTypeFlag = "4" Name = "Warnings" Position = "2" />
+        <PaneSettings DateMax = "" DateMin = "" MsgContains = "" MsgTypeFlag = "8" Name = "Infos" Position = "3" />
+    </AgUiMessageViewer.AgUiPiMessageViewer>
+    <AgUiWebBrowser.AgUiPiWebBrowser version = "1.0">
+        <HtmlSettings HomePage = "about:blank" SearchPage = "http://www.google.com" />
+    </AgUiWebBrowser.AgUiPiWebBrowser>
+    <AgUi3DGfxView.AgUiPi3DGfxView version = "1.0">
+        <Settings ShowSiteProcProps = "N" />
+    </AgUi3DGfxView.AgUiPi3DGfxView>
+    <AgUiRt3Views.AgUiRt3DisplayManagerSMI Label = "1" Line = "1" Marker = "1" Model = "1" version = "1.0" />
+    <STK version = "1.0">
+        <StatusbarSettings EditWidthActiveObject = "200" EditWidthAnimationTime = "210" EditWidthFrameRate = "80" EditWidthLatLon = "129" EditWidthResolution = "75" EditWidthTimeStep = "180" FixedWidthActiveObject = "TRUE" FixedWidthAnimationTime = "TRUE" FixedWidthFrameRate = "TRUE" FixedWidthLatLon = "TRUE" FixedWidthResolution = "TRUE" FixedWidthTimeStep = "TRUE" ShowActiveObject = "TRUE" ShowAnimationTime = "TRUE" ShowFrameRate = "FALSE" ShowLatLon = "TRUE" ShowMessageViewer = "TRUE" ShowOnlineAccess = "TRUE" ShowResolution = "FALSE" ShowTimeStep = "TRUE" />
+        <SearchSettings BingAreaTargets = "0" ObjectMask = "31" Providers = "6" Results = "25" />
+    </STK>
+    <WorkbookSection Version = "3.0">
+        <Settings DisableAllWorkbooks = "BST_UNCHECKED" EnableLoadingApplication = "BST_CHECKED" EnableLoadingScenario = "BST_CHECKED" EnableLogging = "BST_UNCHECKED" EnableReopeningGraphs = "BST_CHECKED" EnableSavingApplication = "BST_CHECKED" EnableSavingScenario = "BST_CHECKED" ShowHTMLUtilityManager = "BST_CHECKED" ShowTransitionGraphic = "BST_CHECKED" />
+    </WorkbookSection>
+    <Help Version = "1.0">
+        <Settings Online = "TRUE" />
+    </Help>
+    <UiPluginSection Version = "1.0">
+        <AGI13.AgUiFlightUiPlugins>
+            <HostSettings Enabled = "TRUE" />
+            <UiPluginSettings />
+        </AGI13.AgUiFlightUiPlugins>
+        <AGI.MovieTimeline.13>
+            <HostSettings Enabled = "TRUE" />
+            <UiPluginSettings>
+                <SCOPE>
+                    <VAR name = "Verbose message viewer log">
+                        <BOOL>false</BOOL>
+                    </VAR>
+                    <VAR name = "Show labels on keyframes">
+                        <BOOL>true</BOOL>
+                    </VAR>
+                    <VAR name = "Always show in context menu">
+                        <BOOL>false</BOOL>
+                    </VAR>
+                </SCOPE>
+            </UiPluginSettings>
+        </AGI.MovieTimeline.13>
+        <AGI.STKParallel.UiPlugin13>
+            <HostSettings Enabled = "TRUE" />
+            <UiPluginSettings />
+        </AGI.STKParallel.UiPlugin13>
+        <Ansys_SysML_Client_STK_Plugin.SysML_Client.Stk.Setup>
+            <HostSettings Enabled = "TRUE" />
+            <UiPluginSettings />
+        </Ansys_SysML_Client_STK_Plugin.SysML_Client.Stk.Setup>
+        <TE_ToolKitUI.TE_ToolKitUI.StkTePluginPoint>
+            <HostSettings Enabled = "TRUE" />
+            <UiPluginSettings>
+                <SCOPE>
+                    <VAR name = "Drop Out Duration">
+                        <REAL>0.0</REAL>
+                    </VAR>
+                    <VAR name = "Persistence Duration">
+                        <REAL>0.0</REAL>
+                    </VAR>
+                    <VAR name = "Metric Interpolation Order">
+                        <INT>0</INT>
+                    </VAR>
+                    <VAR name = "Ephemeris Interpolation Order">
+                        <INT>0</INT>
+                    </VAR>
+                    <VAR name = "Attitude Interpolation Order">
+                        <INT>0</INT>
+                    </VAR>
+                    <VAR name = "Model Switching">
+                        <STRING>&quot;&quot;</STRING>
+                    </VAR>
+                    <VAR name = "Default TSPI">
+                        <STRING>&quot;&quot;</STRING>
+                    </VAR>
+                    <VAR name = "Custom Frames">
+                        <STRING>&quot;&quot;</STRING>
+                    </VAR>
+                </SCOPE>
+            </UiPluginSettings>
+        </TE_ToolKitUI.TE_ToolKitUI.StkTePluginPoint>
+    </UiPluginSection>
+    <Dialogs version = "1.0">
+        <StartupOptions Show = "TRUE" />
+        <DemoWarn Show = "TRUE" />
+        <UnlicensedObjs HideItems = "FALSE" Show = "TRUE" />
+        <NewScenario AutoPath = "TRUE" AutoSizePageBrowser = "TRUE" Last = "" Show = "TRUE" />
+        <ReportExport Show = "TRUE" />
+        <UseSoftwareRendering Show = "FALSE" />
+        <ShowMultipleGfxCardDialog Show = "FALSE" />
+        <GraphicsLiveScrolling Show = "FALSE" />
+        <GraphicsRememberUseAnalysis Show = "FALSE" />
+        <GraphicsUseAnalysis Show = "FALSE" />
+        <FreeUserOffline Show = "TRUE" />
+        <SaveOnClose Show = "TRUE" />
+        <SaveReportStateOnSave Show = "TRUE" />
+        <ShowObjBrowserDelConfs Show = "TRUE" />
+        <Sync3DToCBTerrainServer Show = "TRUE" />
+        <ShowUnlinkFromComponentDialog Show = "TRUE" />
+        <ShowReferenceTypeDialog Show = "TRUE" />
+        <ShowChangeComponentDialog Show = "TRUE" />
+        <ShowFullPathRecentFiles Show = "FALSE" />
+        <ShowClose3DWindowWarning Show = "TRUE" />
+        <ShowMinervaBranchWarningDialogs Show = "TRUE" />
+        <ComponentBrowserColumnVisibility AllAnalysisCols = "FALSE" Description = "TRUE" FilePath = "TRUE" MinCrosstrack = "TRUE" MinIntrack = "TRUE" MinRadial = "TRUE" MinRange = "TRUE" Safe = "TRUE" Source = "TRUE" Unsafe = "TRUE" UserComment = "TRUE" />
+        <ComponentBrowserSourceFilter BuiltIn = "TRUE" Draft = "TRUE" SDF = "TRUE" Scenario = "TRUE" UserCollection = "TRUE" />
+        <PassSafetyColumnVisibility />
+        <PassSafetyFilter />
+    </Dialogs>
+    <NewObjectStateInfo version = "1.0">
+        <OnNewScenario Show = "TRUE" />
+        <StateInfo DefaultMethod = "InsertDefault" HideClass = "AdvCAT" LastMethod = "InsertDefault" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "QueryDatabase" ShowClass = "Aircraft" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Antenna" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "SelectStateOrCountry" ShowClass = "AreaTarget" />
+        <StateInfo DefaultMethod = "InsertDefault" HideClass = "AttitudeCoverage" LastMethod = "InsertDefault" />
+        <StateInfo DefaultMethod = "InsertDefault" HideClass = "AttitudeFigureOfMerit" LastMethod = "InsertDefault" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Chain" />
+        <StateInfo DefaultMethod = "InsertDefault" HideClass = "CommSystem" LastMethod = "InsertDefault" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Constellation" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "CoverageDefinition" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "QueryFacilityDatabase" ShowClass = "Facility" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "FigureOfMerit" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "GroundVehicle" />
+        <StateInfo DefaultMethod = "InsertDefault" HideClass = "LaunchVehicle" LastMethod = "InsertDefault" />
+        <StateInfo DefaultMethod = "InsertDefault" HideClass = "LineTarget" LastMethod = "InsertDefault" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Missile" />
+        <StateInfo DefaultMethod = "InsertDefault" HideClass = "MTO" LastMethod = "InsertDefault" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "QueryCityDatabase" ShowClass = "Place" />
+        <StateInfo DefaultMethod = "InsertDefault" HideClass = "Planet" LastMethod = "InsertDefault" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Radar" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Receiver" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "SatelliteCollection" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "QueryDatabase" ShowClass = "Satellite" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Sensor" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Ship" />
+        <StateInfo DefaultMethod = "InsertDefault" HideClass = "Star" LastMethod = "QueryStarDatabase" />
+        <StateInfo DefaultMethod = "DefineProperties" HideClass = "Submarine" LastMethod = "DefineProperties" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "QueryCityDatabase" ShowClass = "Target" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Transmitter" />
+        <StateInfo DefaultMethod = "InsertDefault" LastMethod = "InsertDefault" ShowClass = "Volumetric" />
+        <OnNewScenario Show = "TRUE" />
+    </NewObjectStateInfo>
+</User_Preferences>
