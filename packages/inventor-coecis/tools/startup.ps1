@@ -3,7 +3,7 @@
 $helperPath  = "${env:CommonProgramFiles(x86)}\Autodesk Shared\AdskLicensing\Current\helper\AdskLicensingInstHelper.exe"
 $configFile  = "$env:ProgramData\Autodesk\Product Information\InventorProfessionalConfig.pit"
 # License settings
-$prodKey     = "208S1"
+$prodKey     = "797S1"
 $prodVer     = "2027.0.0.F"
 $licMethod   = "NETWORK"
 $licServers  = "$env:ADSKFLEX_LICENSE_FILE"
