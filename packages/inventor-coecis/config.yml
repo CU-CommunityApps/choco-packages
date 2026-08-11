@@ -1,5 +1,5 @@
 Id:             'inventor-coecis'
-Description:    'Autodesk Inventor 2027'
+Description:    'Autodesk Inventor 2027 build 2'
 Version:        '2027.0.0.3'
 
 Install:
@@ -8,10 +8,10 @@ Install:
     Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.22.0.12"'
     ExitCodes:  [0, 1641, 3010]
 
-  - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
-    FileType:   'exe'
-    Arguments:  '-q'
-    ExitCodes:  [0, 1641]    
+#  - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
+#    FileType:   'exe'
+#    Arguments:  '-q'
+#    ExitCodes:  [0, 1641]    
 
 Applications:
     Inventor:
@@ -32,7 +32,8 @@ Files:
 
 Scripts:
     start:
-        User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
+        #User: '%TOOLS_DIR%\startup.ps1' # Runs at system startup
+        System:  '%TOOLS_DIR%\startup.ps1'  ## Run at system startup
         
 Registry:
     HKUD:

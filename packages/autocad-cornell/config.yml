@@ -1,5 +1,5 @@
 Id:             'autocad-cornell'
-Description:    'AutoCAD - 2027'
+Description:    'AutoCAD - 2027 build 2'
 Version:        '2027.1.1.3'
 
 Install:
@@ -13,10 +13,10 @@ Install:
   #   Arguments:  '--manifest "%INSTALL_DIR%\image\ACD2026_1_1_image\setup.xml" --install_mode install --offline_mode --silent --trigger_point local'
   #   ExitCodes:  [0, 1641]
     
-  - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
-    FileType:   'exe'
-    Arguments:  '-q'
-    ExitCodes:  [0, 1641]
+#  - File:       '%INSTALL_DIR%\AdskSNActivationInstaller\AdskSNActivationInstaller.exe'
+#    FileType:   'exe'
+#    Arguments:  '-q'
+#    ExitCodes:  [0, 1641]
 
 Applications:
     autocad:
