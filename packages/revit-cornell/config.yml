@@ -1,5 +1,5 @@
 Id:             'revit-cornell'
-Description:    'Revit 2026 - build 1'
+Description:    'Revit 2026 - build 2'
 Version:        '2.23.0.517'
 
 Install:
@@ -17,7 +17,7 @@ Install:
     
 Applications:
     revit:
-        DisplayName:    'Revit 2027'
+        DisplayName:    'Revit 2026'
         Path:           '%PROGRAMFILES%\Autodesk\Revit 2026\Revit.exe'
         LaunchParams:   ''
         WorkDir:        ''
@@ -30,6 +30,10 @@ Files:
                                                                 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%REVIT_LICENSE_FILE%'
+    
+Scripts:
+    start:
+        System:  '%TOOLS_DIR%\startup.ps1'  ## Run at system startup
 
 Registry:
 
