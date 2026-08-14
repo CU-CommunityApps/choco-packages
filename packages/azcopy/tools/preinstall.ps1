@@ -61,4 +61,4 @@ Remove-Item -Path $tempExtract -Recurse -Force -ErrorAction SilentlyContinue
 $sasToken = "?sv=2026-02-06&ss=bfqt&srt=sco&sp=rlp&se=2027-09-01T21:59:13Z&st=2026-08-14T13:44:13Z&spr=https&sig=15%2BzetqgSSG4wR3yCv%2FicxFtUGt2mJNIZoNnKqyymww%3D"
 $containerUrl = "https://aodimageresources.blob.core.windows.net/packages/CHE-Kaledo"
 
-& "C:\Program Files\AzCopy\azcopy.exe" copy "$containerUrl$sasToken" "$PSScriptRoot/CHE-Kaledo" --recursive=true
+& "C:\Program Files\AzCopy\azcopy.exe" copy "$containerUrl$sasToken" "$PSScriptRoot" --recursive=true
