@@ -1,0 +1,33 @@
+Id:             'azcopy'                ## Application package name ie. chrome-cornell
+Description:    'azcopy test'    ## Application packages description
+Version:        '1.0.0'                     ## Application version number - MUST BE in #.# format
+
+Install:                                    ## If there are installation files in a .zip to be installed, specify here
+  - File:       '%TOOLS_DIR%\CHE-Kaledo\Invoke-AppDeployToolkit.exe'   ## Installation file
+    FileType:   'exe'                       ## exe or msi are the only options currently
+    Arguments:  '-DeployMode Silent'        ## Silent installation switches/parmeters
+    ExitCodes:  [0] 
+
+Applications:
+    kaledoknit:
+        DisplayName:    'Kaledo Knit'
+        Path:           '%PROGRAMFILES(X86)%\Lectra\KaledoKnit\KaledoKnit.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    kaledoweave:
+        DisplayName:    'Kaledo Weave'
+        Path:           '%PROGRAMFILES(X86)%\Lectra\KaledoWeave\KaledoWeave.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+        
+    kaledostyle:
+        DisplayName:    'Kaledo Style'
+        Path:           '%PROGRAMFILES(X86)%\Lectra\Kaledo Style\bin\KaledoStyle.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+
+
+
+
