@@ -30,6 +30,10 @@ Files:
                                                                 
 Environment:
     ADSKFLEX_LICENSE_FILE: '%REVIT_LICENSE_FILE%'
+    
+Scripts:
+    start:
+        System:  '%TOOLS_DIR%\startup.ps1'  ## Run at system startup
 
 Registry:
 
