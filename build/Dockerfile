@@ -1,6 +1,6 @@
 # escape=`
 
-FROM microsoft/dotnet-framework:4.7.2-runtime
+FROM mcr.microsoft.com/dotnet/framework:4.8-runtime-windowsservercore-ltsc2019
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
@@ -31,7 +31,7 @@ RUN setx /M PATH $(${Env:PATH} `
     + \";${Env:ProgramFiles(x86)}\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\")
 
 # Install Targeting Packs
-RUN @('4.0', '4.5.2', '4.6.2', '4.7.2') `
+RUN @('4.0', '4.5.2', '4.6.2', '4.7.2', '4.8') `
     | %{ `
         Invoke-WebRequest -UseBasicParsing https://dotnetbinaries.blob.core.windows.net/referenceassemblies/v${_}.zip -OutFile referenceassemblies.zip; `
         Expand-Archive -Force referenceassemblies.zip -DestinationPath \"${Env:ProgramFiles(x86)}\Reference Assemblies\Microsoft\Framework\.NETFramework\"; `
