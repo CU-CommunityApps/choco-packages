@@ -1,11 +1,11 @@
 # escape=`
 
-FROM mcr.microsoft.com/dotnet/framework:4.8-runtime-windowsservercore-ltsc2019
+FROM microsoft/dotnet-framework:4.7.2-runtime
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
 # Install NuGet CLI
-ENV NUGET_VERSION 7.9.0
+ENV NUGET_VERSION 5.5.1
 RUN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; `
     New-Item -Type Directory $Env:ProgramFiles\NuGet; `
     Invoke-WebRequest -UseBasicParsing "https://dist.nuget.org/win-x86-commandline/v$ENV:NUGET_VERSION/nuget.exe" -OutFile "$ENV:ProgramFiles\NuGet\nuget.exe"
@@ -31,7 +31,7 @@ RUN setx /M PATH $(${Env:PATH} `
     + \";${Env:ProgramFiles(x86)}\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\")
 
 # Install Targeting Packs
-RUN @('4.0', '4.5.2', '4.6.2', '4.7.2', '4.8') `
+RUN @('4.0', '4.5.2', '4.6.2', '4.7.2') `
     | %{ `
         Invoke-WebRequest -UseBasicParsing https://dotnetbinaries.blob.core.windows.net/referenceassemblies/v${_}.zip -OutFile referenceassemblies.zip; `
         Expand-Archive -Force referenceassemblies.zip -DestinationPath \"${Env:ProgramFiles(x86)}\Reference Assemblies\Microsoft\Framework\.NETFramework\"; `
