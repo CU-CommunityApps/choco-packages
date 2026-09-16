@@ -36,7 +36,7 @@ namespace ChocoPacker
 
         string RunGit(string args)
         {
-            string git_path = temp_dir + "\\ChocoPackerBuild\\packages\\Git-Windows-Minimal.2.18.0\\tools\\cmd\\git.exe";
+            string git_path = FindGitExecutable();
 
             Process git = new Process();
 
@@ -57,6 +57,29 @@ namespace ChocoPacker
                 Console.Error.WriteLine(git_err);
 
             return git_out;
+        }
+
+        // Git-Windows-Minimal is restored as a PackageReference into the NuGet global packages folder,
+        // so its install path (and version) can't be hard-coded relative to the project.
+        string FindGitExecutable()
+        {
+            string nuget_root = Environment.GetEnvironmentVariable("NUGET_PACKAGES");
+
+            if (string.IsNullOrEmpty(nuget_root))
+                nuget_root = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".nuget", "packages");
+
+            string package_dir = Path.Combine(nuget_root, "git-windows-minimal");
+
+            if (!Directory.Exists(package_dir))
+                throw new DirectoryNotFoundException("Git-Windows-Minimal package not found under " + package_dir);
+
+            string version_dir = new DirectoryInfo(package_dir)
+                .GetDirectories()
+                .OrderByDescending(d => d.Name)
+                .First()
+                .FullName;
+
+            return Path.Combine(version_dir, "tools", "cmd", "git.exe");
         }
 
         string GetBranch(string branches, int index)
