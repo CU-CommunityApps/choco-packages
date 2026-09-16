@@ -286,17 +286,34 @@ namespace ChocoPacker
         {
             string package_dir = $"{this.system_drive}\\{package}";
             string package_nuspec = $"{package_dir}\\package.nuspec";
-            string pack_args = $"{package_nuspec}";
             string local_nupkg = $"{package_dir}\\{package}.{package_config["Version"]}.nupkg";
 
-            GetChocolatey choco = new GetChocolatey();
-
             try{
-                choco.Set(c => {
-                    c.CommandName = "pack";
-                    c.Input = pack_args;
-                    c.OutputDirectory = package_dir;
-                }).Run();
+                // choco pack runs in its own process; chocolatey.lib's log4net appenders are
+                // closed after the first in-process Run(), so reusing GetChocolatey() across
+                // packages in the same process breaks logging for every package after the first.
+                string exe_path = Process.GetCurrentProcess().MainModule.FileName;
+
+                Process pack = new Process();
+                pack.StartInfo.FileName = exe_path;
+                pack.StartInfo.Arguments = $"--pack \"{package_nuspec}\" \"{package_dir}\"";
+                pack.StartInfo.WorkingDirectory = package_dir;
+                pack.StartInfo.UseShellExecute = false;
+                pack.StartInfo.RedirectStandardOutput = true;
+                pack.StartInfo.RedirectStandardError = true;
+
+                pack.Start();
+                string pack_out = pack.StandardOutput.ReadToEnd();
+                string pack_err = pack.StandardError.ReadToEnd();
+                pack.WaitForExit();
+
+                if (pack_out.Length > 0)
+                    Console.WriteLine(pack_out);
+                if (pack_err.Length > 0)
+                    Console.Error.WriteLine(pack_err);
+
+                if (pack.ExitCode != 0)
+                    throw new Exception($"choco pack exited with code {pack.ExitCode}");
             }
             catch (Exception e) {
                 Console.WriteLine($"ERROR: Building {package}...");
@@ -460,9 +477,36 @@ namespace ChocoPacker
 
         }
 
+        static int RunPackProcess(string nuspec_path, string output_dir)
+        {
+            GetChocolatey choco = new GetChocolatey();
+
+            try
+            {
+                choco.Set(c => {
+                    c.CommandName = "pack";
+                    c.Input = nuspec_path;
+                    c.OutputDirectory = output_dir;
+                }).Run();
+                return 0;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("{0} Exception caught.", e);
+                return 1;
+            }
+        }
+
         static void Main(string[] args)
         {
-            new Program().App();
+            if (args.Length == 3 && args[0] == "--pack")
+            {
+                Environment.Exit(RunPackProcess(args[1], args[2]));
+            }
+            else
+            {
+                new Program().App();
+            }
         }
     }
 }
