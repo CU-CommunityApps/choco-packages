@@ -1,39 +1,62 @@
 # escape=`
 
-FROM microsoft/dotnet-framework:4.7.2-runtime
+FROM mcr.microsoft.com/dotnet/framework/runtime:4.8
 
-SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+SHELL ["C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+ENV NUGET_VERSION=7.9.0
 
 # Install NuGet CLI
-ENV NUGET_VERSION 5.5.1
 RUN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; `
-    New-Item -Type Directory $Env:ProgramFiles\NuGet; `
-    Invoke-WebRequest -UseBasicParsing "https://dist.nuget.org/win-x86-commandline/v$ENV:NUGET_VERSION/nuget.exe" -OutFile "$ENV:ProgramFiles\NuGet\nuget.exe"
-
-# Install VS Test Agent
-RUN Invoke-WebRequest -UseBasicParsing https://download.visualstudio.microsoft.com/download/pr/12210068/8a386d27295953ee79281fd1f1832e2d/vs_TestAgent.exe -OutFile vs_TestAgent.exe; `
-    Start-Process vs_TestAgent.exe -ArgumentList '--quiet', '--norestart', '--nocache' -NoNewWindow -Wait; `
-    Remove-Item -Force vs_TestAgent.exe; `
-# Install VS Build Tools
-    Invoke-WebRequest -UseBasicParsing https://download.visualstudio.microsoft.com/download/pr/12210059/e64d79b40219aea618ce2fe10ebd5f0d/vs_BuildTools.exe -OutFile vs_BuildTools.exe; `
-    # Installer won't detect DOTNET_SKIP_FIRST_TIME_EXPERIENCE if ENV is used, must use setx /M
-    setx /M DOTNET_SKIP_FIRST_TIME_EXPERIENCE 1; `
-    Start-Process vs_BuildTools.exe -ArgumentList '--add', 'Microsoft.VisualStudio.Workload.MSBuildTools', '--add', 'Microsoft.VisualStudio.Workload.NetCoreBuildTools', '--add', 'Microsoft.VisualStudio.Workload.WebBuildTools;includeRecommended', '--quiet', '--norestart', '--nocache' -NoNewWindow -Wait; `
-    Remove-Item -Force vs_buildtools.exe; `
-    Remove-Item -Force -Recurse \"${Env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\"; `
-    Remove-Item -Force -Recurse ${Env:TEMP}\*; `
-    Remove-Item -Force -Recurse \"${Env:ProgramData}\Package Cache\"
-
-# Set PATH in one layer to keep image size down.
-RUN setx /M PATH $(${Env:PATH} `
-    + \";${Env:ProgramFiles}\NuGet\" `
-    + \";${Env:ProgramFiles(x86)}\Microsoft Visual Studio\2017\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow\" `
-    + \";${Env:ProgramFiles(x86)}\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\")
-
-# Install Targeting Packs
-RUN @('4.0', '4.5.2', '4.6.2', '4.7.2') `
-    | %{ `
-        Invoke-WebRequest -UseBasicParsing https://dotnetbinaries.blob.core.windows.net/referenceassemblies/v${_}.zip -OutFile referenceassemblies.zip; `
-        Expand-Archive -Force referenceassemblies.zip -DestinationPath \"${Env:ProgramFiles(x86)}\Reference Assemblies\Microsoft\Framework\.NETFramework\"; `
-        Remove-Item -Force referenceassemblies.zip; `
+    New-Item -ItemType Directory -Force -Path "$Env:ProgramFiles\NuGet" | Out-Null; `
+    Invoke-WebRequest `
+        -UseBasicParsing `
+        -Uri "https://dist.nuget.org/win-x86-commandline/v$Env:NUGET_VERSION/nuget.exe" `
+        -OutFile "$Env:ProgramFiles\NuGet\nuget.exe"; `
+    if (!(Test-Path "$Env:ProgramFiles\NuGet\nuget.exe")) { `
+        throw 'NuGet installation failed' `
     }
+
+# Install Visual Studio 2022 Build Tools
+RUN $ErrorActionPreference = 'Stop'; `
+    $installer = Join-Path $Env:TEMP 'vs_BuildTools.exe'; `
+    $logDir = 'C:\vslogs'; `
+    New-Item -ItemType Directory -Force -Path $logDir | Out-Null; `
+    Invoke-WebRequest `
+        -UseBasicParsing `
+        -Uri 'https://aka.ms/vs/17/release/vs_BuildTools.exe' `
+        -OutFile $installer; `
+    $arguments = @( `
+        '--add', 'Microsoft.VisualStudio.Workload.MSBuildTools', `
+        '--add', 'Microsoft.Net.Component.4.8.TargetingPack', `
+        '--quiet', `
+        '--wait', `
+        '--norestart' `
+    ); `
+    Write-Host 'Installing Visual Studio Build Tools...'; `
+    $process = Start-Process `
+        -FilePath $installer `
+        -ArgumentList $arguments `
+        -NoNewWindow `
+        -Wait `
+        -PassThru; `
+    Write-Host "Installer exit code: $($process.ExitCode)"; `
+    if ($process.ExitCode -notin @(0, 3010)) { `
+      Write-Host 'Visual Studio installation failed. Dumping setup logs...'; `
+      $logs = Get-ChildItem `
+        -Path 'C:\vslogs', $Env:TEMP `
+        -Filter '*.log' `
+        -Recurse `
+        -File `
+        -ErrorAction SilentlyContinue `
+        | Sort-Object LastWriteTime; `
+      foreach ($log in $logs) { `
+        Write-Host "===== $($log.FullName) ====="; `
+        Get-Content $log.FullName -Tail 200 -ErrorAction SilentlyContinue `
+      }; `
+      throw ('Visual Studio Build Tools installation failed with exit code {0}' -f $process.ExitCode) `
+    }; `
+    Remove-Item -Force $installer
+
+# Set PATH for NuGet, MSBuild, and the test platform
+ENV PATH="C:\Windows\System32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\NuGet;C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin;C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\amd64;C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\Extensions\TestPlatform"
