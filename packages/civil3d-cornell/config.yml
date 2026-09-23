@@ -1,0 +1,68 @@
+Id:             'civil3d-cornell'
+Description:    'Civil 3D 2027'
+Version:        '2.23.0.5'
+
+Install:
+  - File:       '%INSTALL_DIR%\image\Installer.exe'
+    FileType:   'exe'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.23.0.5"'
+    ExitCodes:  [0,3010]
+    
+    #RCAO.msi is the installer file for the Autodesk Cloud Worksharing (or Cloud Models) add-in for Autodesk Revit
+    #removing for 2027 builds unless explicitly requested
+#  - File:       '%INSTALL_DIR%\RCAO.msi'
+#    FileType:   'msi'
+#    Arguments:  '/quiet'
+#    ExitCodes:  [0]   
+    
+Applications:
+    civil3dmetric:
+        DisplayName:    'Civil 3D 2027 (Metric)'
+        Path:           '%PROGRAMFILES%\Autodesk\Autocad 2027\acad.exe'
+        LaunchParams:   '"C:\Program Files\Autodesk\AutoCAD 2027\acad.exe" /ld "C:\Program Files\Autodesk\AutoCAD 2027\AecBase.dbx" /p "<<C3D_Metric>>" /product C3D /language en-US'
+        WorkDir:        ''
+        
+    civil3dimperial:
+        DisplayName:    'Civil 3D 2027 (Imperial)'
+        Path:           '%PROGRAMFILES%\Autodesk\Autocad 2027\acad.exe'
+        LaunchParams:   '"C:\Program Files\Autodesk\AutoCAD 2027\acad.exe" /ld "C:\Program Files\Autodesk\AutoCAD 2027\AecBase.dbx" /p "<<C3D_Imperial>>" /product C3D /language en-US'
+        WorkDir:        ''
+
+Files:
+    '%TOOLS_DIR%\Profile.xml': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\Revit\Profile\Profile.xml'
+    '%TOOLS_DIR%\en.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en.json'
+    '%TOOLS_DIR%\en-US.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\en-US.json'
+    '%TOOLS_DIR%\UnNamed.json': '%SYSTEMDRIVE%\Users\Default\AppData\Roaming\Autodesk\ADPSDK\UserConsent\UnNamed.json'                                                                 ## File copy feature
+                                                                
+Environment:
+    ADSKFLEX_LICENSE_FILE: '%REVIT_LICENSE_FILE%'
+    
+Scripts:
+    start:
+        System:  '%TOOLS_DIR%\startup.ps1'  ## Run at system startup
+
+Registry:
+
+    HKUD:
+        SOFTWARE\Autodesk\MC3:
+            ADAOptIn:
+                Type:   'DWORD'
+                Value:  '0'
+                
+            ADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
+
+            OverridedByHKLM:
+                Type:   'DWORD'
+                Value:  '0'
+                
+    HKLM:             
+        Software\Autodesk\MC3:
+            HKLMADAOptin:
+                Type:   'DWORD'
+                Value:  '0'
+
+            HKLMADARePrompted:
+                Type:   'DWORD'
+                Value:  '1'
