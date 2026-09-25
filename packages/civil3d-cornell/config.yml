@@ -1,11 +1,11 @@
 Id:             'civil3d-cornell'
 Description:    'Civil 3D 2027'
-Version:        '2.23.0.5'
+Version:        '2.23.0.517'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.23.0.5"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.23.0.517"'
     ExitCodes:  [0,3010]
     
     #RCAO.msi is the installer file for the Autodesk Cloud Worksharing (or Cloud Models) add-in for Autodesk Revit

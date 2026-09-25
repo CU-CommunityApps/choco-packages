@@ -1,11 +1,11 @@
 Id:             'revit2027-cornell'
 Description:    'Revit 2027'
-Version:        '2.23.0.5'
+Version:        '2.24.0.558'
 
 Install:
   - File:       '%INSTALL_DIR%\image\Installer.exe'
     FileType:   'exe'
-    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.23.0.5"'
+    Arguments:  '-i deploy --offline_mode -q -o "%INSTALL_DIR%\image\Collection.xml" --installer_version "2.24.0.558"'
     ExitCodes:  [0,3010]
     
     #RCAO.msi is the installer file for the Autodesk Cloud Worksharing (or Cloud Models) add-in for Autodesk Revit
