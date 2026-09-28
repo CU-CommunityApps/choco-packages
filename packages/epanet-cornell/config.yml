@@ -1,0 +1,13 @@
+Id:             'epanet-cornell'
+Description:    'epanet-cornell build2'
+Version:        '2.2.0'
+
+Applications:
+    epanet:
+        DisplayName:    'epanet'
+        Path:           '%PROGRAMFILES%\epanet\epanet2w.exe'
+        LaunchParams:   ''
+        WorkDir:        ''
+
+Files:
+    '%INSTALL_DIR%\epanet': '%PROGRAMFILES%\epanet\'
