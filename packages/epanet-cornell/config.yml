@@ -1,13 +1,13 @@
-Id:             'corpscon-cornell'
-Description:    'corpscon-cornell - buildtest'
-Version:        '6.0.1'
+Id:             'epanet-cornell'
+Description:    'epanet-cornell build2'
+Version:        '2.2.0'
 
 Applications:
-    corpscon:
-        DisplayName:    'corpscon6'
-        Path:           '%PROGRAMFILES%\apps\corpscon\corpscon6.exe'
+    epanet:
+        DisplayName:    'epanet'
+        Path:           '%PROGRAMFILES%\epanet\epanet2w.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
 Files:
-    '%INSTALL_DIR%\corpscon': '%PROGRAMFILES%\apps\corpscon\'
+    '%INSTALL_DIR%\epanet': '%PROGRAMFILES%\epanet\'
