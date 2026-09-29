@@ -18,7 +18,7 @@ Install:
 Applications:
     revit:
         DisplayName:    'Revit 2027'
-        Path:           '%PROGRAMFILES%\Autodesk\Revit 2026\Revit.exe'
+        Path:           '%PROGRAMFILES%\Autodesk\Revit 2027\Revit.exe'
         LaunchParams:   ''
         WorkDir:        ''
 
