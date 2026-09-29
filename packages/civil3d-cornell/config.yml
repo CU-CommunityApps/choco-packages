@@ -22,6 +22,7 @@ Applications:
         Path:           '%PROGRAMFILES%\Autodesk\AutoCAD 2027\acad.exe'
         LaunchParams:   ''
         WorkDir:        ''
+        
     civil3dmetric:
         DisplayName:    'Civil 3D 2027 (Metric)'
         Path:           '%PROGRAMFILES%\Autodesk\Autocad 2027\acad.exe'
