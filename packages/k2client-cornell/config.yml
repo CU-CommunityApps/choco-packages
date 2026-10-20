@@ -1,5 +1,5 @@
 Id:             'k2client-cornell'
-Description:    'k2client-cornell'
+Description:    'k2client-cornell 2026b2'
 Version:        '8.0.1.2'
 
 Install:
@@ -11,3 +11,12 @@ Install:
 Scripts:                                                ## AppStream session scripts feature
     start:                                              ## Startup / Logon trigger
         User:    '%TOOLS_DIR%\startup.ps1'   
+
+#can supposedly set machine name at HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\logon\machine
+#
+#preinstall defines 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "AoD_Combo" -Value '%AppStream_UserName%.%AppStream_Resource_Name%'
+#
+#postinstall: New-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\logon' -Name 'user' -Value '%AppStream_UserName%.%AppStream_Resource_Name%' -PropertyType ExpandString -Force
+#This always seems to be user=PhotnUser to the keyserver
+#seems like this can hold host=<keyserver host>
+#machine=machine name
