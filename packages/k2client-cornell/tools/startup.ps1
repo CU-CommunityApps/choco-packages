@@ -6,5 +6,5 @@ $env:AoD_Combo = "$env:AppStream_UserName.$env:AppStream_Resource_Name"
 Write-Output "$env:AoD_Combo"
 
 # Launch Sassafras client
-Start-Process "$env:windir\keyacc32.exe" -ArgumentList "-minimize"
+Start-Process "$env:ProgramFiles\Sassafras K2\Client\keyacc32.exe" -ArgumentList "-minimize"
 
