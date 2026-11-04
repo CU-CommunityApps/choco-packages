@@ -1,15 +1,13 @@
 Id:             'k2client-cornell'
-Description:    'k2client-cornell 2026b7'
+Description:    'k2client-cornell'
 Version:        '8.2.0.2'
 
 Install:
-  - File:       '%INSTALL_DIR%\ksp-client-x64.exe'
+    File:       '%INSTALL_DIR%\ksp-client-x64'
     FileType:   'exe'
-    Arguments:  '-q -v PROP_HOSTNAME=%HOSTNAME% -v PROP_SITE=%AppStream_Resource_Name% -v PROP_FORCEHOST=1 -v PROP_LOCKED=1 -v PROP_SHORTCUTS=0 -v ARPSYSTEMCOMPONENT=1'
+    Arguments:  '-new -q -v PROP_HOSTNAME=%HOSTNAME% -v PROP_MAIDLIST=YU -v PROP_SITE=%AppStream_Resource_Name% -v PROP_USERNAME=%AoD_Combo% -v PROP_SERVICE=0 -v PROP_STARTUPITEM=1 -v PROP_LAUNCH=0 -v PROP_REBOOT=0'
     ExitCodes:  [0]
 
 Scripts:                                                ## AppStream session scripts feature
     start:                                              ## Startup / Logon trigger
-        System:  '%TOOLS_DIR%\sessionstart_system.ps1'  ## Sets Department (options\site) to fleet name, restarts KeyAccess
-        User:    '%TOOLS_DIR%\startup.ps1'              ## Launches keyacc32 in user context (Last User = AppStream_UserName)
-
+        User:    '%TOOLS_DIR%\startup.ps1'        ## Runs at user logon
