@@ -1,10 +1,4 @@
-# Create User Environment variable
-[Environment]::SetEnvironmentVariable("AoD_Combo", "$env:AppStream_UserName.$env:AppStream_Resource_Name", "User")
-
-# Populate variable with Streaming Instance specific values
-$env:AoD_Combo = "$env:AppStream_UserName.$env:AppStream_Resource_Name"
-Write-Output "$env:AoD_Combo"
-
-# Launch Sassafras client
+# AppStream SessionStart (User context)
+# Launch the client in the user's session so KeyServer reports the AppStream user (Last User = AppStream_UserName).
 Start-Process "$env:ProgramFiles\Sassafras K2\Client\keyacc32.exe" -ArgumentList "-minimize"
 

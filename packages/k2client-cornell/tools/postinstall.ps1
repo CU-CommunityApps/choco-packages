@@ -13,3 +13,4 @@ Remove-Item -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\pr
 Remove-Item -Path 'HKLM:\SYSTEM\CurrentControlSet\Services\KeyAccess\Settings\settings' -Recurse -Force -ErrorAction SilentlyContinue
 Remove-Item -Path "$env:ALLUSERSPROFILE\KeyAccess" -Recurse -Force -ErrorAction SilentlyContinue
 
+
