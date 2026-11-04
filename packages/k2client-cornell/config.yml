@@ -12,3 +12,4 @@ Scripts:                                                ## AppStream session scr
     start:                                              ## Startup / Logon trigger
         System:  '%TOOLS_DIR%\sessionstart_system.ps1'  ## Sets Department (options\site) to fleet name, restarts KeyAccess
         User:    '%TOOLS_DIR%\startup.ps1'              ## Launches keyacc32 in user context (Last User = AppStream_UserName)
+
