@@ -22,7 +22,29 @@ if (-not $site) {
 }
 
 New-ItemProperty -Path $opts -Name 'site' -Value $site -PropertyType String -Force | Out-Null
-Restart-Service -Name KeyAccess -Force
+
+# Last User: the client expands options\name (set to %AppStream_UserName%) from the MACHINE environment when the
+# service starts. AppStream_UserName is user-level, so publish it at machine level before restarting.
+# Builder test 2026-11-12: options\name='%AppStream_UserName%' + machine var showed exactly the username
+# (a literal in options\name did NOT show; a literal logon\user did). We want the user only, no .resource suffix.
+New-ItemProperty -Path $opts -Name 'name' -Value '%AppStream_UserName%' -PropertyType String -Force | Out-Null
+$user = $env:AppStream_UserName
+for ($i = 0; $i -lt 15 -and -not $user; $i++) {
+    foreach ($h in Get-ChildItem Registry::HKEY_USERS -ErrorAction SilentlyContinue) {
+        if ($h.PSChildName -match '_Classes$|^\.DEFAULT$|^S-1-5-18$|^S-1-5-19$|^S-1-5-20$') { continue }
+        $v = (Get-ItemProperty "Registry::$($h.Name)\Environment" -ErrorAction SilentlyContinue).AppStream_UserName
+        if ($v) { $user = $v; break }
+    }
+    if (-not $user) { Start-Sleep -Seconds 2 }
+}
+"AppStream_UserName = '$user'"
+if ($user) { [Environment]::SetEnvironmentVariable('AppStream_UserName', $user, 'Machine') }
+else       { "No AppStream_UserName found - Last User will fall back to the Windows user" }
+
+# Restart-Service fails when KeyAccess reports NOT_STOPPABLE; kill the service process and start it again.
+$svcPid = (Get-CimInstance Win32_Service -Filter "Name='KeyAccess'").ProcessId
+if ($svcPid) { Stop-Process -Id $svcPid -Force -ErrorAction SilentlyContinue; Start-Sleep -Seconds 3 }
+Start-Service -Name KeyAccess
 Start-Sleep -Seconds 3
 "options\site = " + (Get-ItemProperty $opts).site
 "KeyAccess    = " + (Get-Service KeyAccess).Status
