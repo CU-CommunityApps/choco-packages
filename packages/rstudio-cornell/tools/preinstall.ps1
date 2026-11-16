@@ -20,11 +20,6 @@ if (-not $env:TMP)  { $env:TMP  = $env:TEMP }
 
 # Permalink: 302 -> https://s3.amazonaws.com/rstudio-desktop/electron/windows/RStudio-<version>.exe
 $url  = "https://rstudio.org/download/latest/stable/desktop/windows/RStudio-latest.exe"
-$dest = Join-Path $PSScriptRoot "RStudio.exe"
+$dest = Join-Path $PSScriptRoot "RStudio-Setup.exe"
 
 Invoke-WebRequest -Uri $url -OutFile $dest -UseBasicParsing
-
-# Sanity check: an installer, not an HTML error page
-$size = (Get-Item $dest).Length
-if ($size -lt 50MB) { throw "Download of $url looks wrong ($size bytes)" }
-Write-Output "Downloaded RStudio installer: $size bytes"

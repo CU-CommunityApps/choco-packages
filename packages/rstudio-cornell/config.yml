@@ -1,5 +1,5 @@
 Id:             'rstudio-cornell'
-Description:    'RStudio b20261115.3'
+Description:    'RStudio b20261115.4'
 Version:        '2026.11.0'
 
 Install:
@@ -8,12 +8,11 @@ Install:
     Arguments:  '/S /D=C:\Program Files\RStudio' ## NSIS: /D must be last, unquoted
     ExitCodes:  [0]
     
-Applications:
-    rstudio:
-        DisplayName:    'RStudio'
-        Path:           '%PROGRAMFILES%\RStudio\rstudio.exe'
-        LaunchParams:   ''
-        WorkDir:        ''
+Install:
+  - File:       '%TOOLS_DIR%\RStudio-Setup.exe'   ## downloaded by preinstall.ps1
+    FileType:   'exe'
+    Arguments:  '/S /D=C:\Program Files\RStudio'  ## NSIS: /D must be last, unquoted
+    ExitCodes:  [0]
 
 Files: 
     '%TOOLS_DIR%\crash-handler-permission': '%SYSTEMDRIVE%\Users\Default\AppData\Local\RStudio\crash-handler-permission'
