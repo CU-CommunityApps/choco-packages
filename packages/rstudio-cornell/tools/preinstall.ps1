@@ -8,18 +8,8 @@
 
 #Expand-Archive -Path "$PSScriptRoot\RStudio.zip" -DestinationPath "C:\Program Files\RStudio" -Force
 
-
-# Only downloads the installer; config.yml (Install:) runs it with silent switches.
-
-$ErrorActionPreference = 'Stop'
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-# choco can leave TEMP/TMP unset (same guard as the k2client fix); the installer needs them
-if (-not $env:TEMP) { $env:TEMP = 'C:\Windows\Temp' }
-if (-not $env:TMP)  { $env:TMP  = $env:TEMP }
-
 # Permalink: 302 -> https://s3.amazonaws.com/rstudio-desktop/electron/windows/RStudio-<version>.exe
 $url  = "https://rstudio.org/download/latest/stable/desktop/windows/RStudio-latest.exe"
-$dest = Join-Path $PSScriptRoot "RStudio-Setup.exe"
+$dest = Join-Path $PSScriptRoot "RStudio-latest.exe"
 
 Invoke-WebRequest -Uri $url -OutFile $dest -UseBasicParsing

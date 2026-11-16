@@ -1,11 +1,11 @@
 Id:             'rstudio-cornell'
-Description:    'RStudio b20261115.5'
+Description:    'RStudio b20261115.6'
 Version:        '2026.11.0'
     
 Install:
-  - File:       '%TOOLS_DIR%\RStudio-Setup.exe'   ## downloaded by preinstall.ps1
+  - File:       '%TOOLS_DIR%\RStudio-latest.exe'   ## downloaded by preinstall.ps1
     FileType:   'exe'
-    Arguments:  '/S /D=C:\Program Files\RStudio'  ## NSIS: /D must be last, unquoted
+    Arguments:  '/S'
     ExitCodes:  [0]
     
 Applications:
